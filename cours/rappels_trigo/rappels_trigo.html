@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Rappels de trigonométrie</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+
+<header class="site-header">
+
+<div class="site-header-left">
+<a href="/">
+<img src="/assets/logo.svg" class="site-logo" alt="Logo">
+</a>
+</div>
+
+<div class="site-header-right">
+   <button id="theme-toggle"
+style="
+margin-right: 15px;
+cursor: pointer;
+background: transparent;
+border: none;
+font-size: 1.1rem;
+color: var(--md-primary-bg-color);
+">
+🌙 / ☀️
+</button>
+    <a href="/" class="home-link">Retour à l’accueil</a>
+</div>
+
+</header>
+
+
+<header id="title-block-header">
+
+<h1 class="title">Rappels de trigonométrie</h1>
+<p class="pdf-link">
+<a href="rappels_trigo.pdf" target="_blank">[PDF]</a>
+</p>
+
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#quelques-formules-de-trigonométrie"
+id="toc-quelques-formules-de-trigonométrie"><span
+class="toc-section-number">1</span> Quelques formules de
+trigonométrie</a></li>
+<li><a href="#formules-daddition" id="toc-formules-daddition"><span
+class="toc-section-number">2</span> Formules d’addition</a></li>
+<li><a href="#autres-résultats-à-connaître"
+id="toc-autres-résultats-à-connaître"><span
+class="toc-section-number">3</span> Autres résultats à
+connaître</a></li>
+<li><a href="#valeurs-remarquables" id="toc-valeurs-remarquables"><span
+class="toc-section-number">4</span> Valeurs remarquables</a></li>
+</ul>
+</nav>
+<h1 data-number="1" id="quelques-formules-de-trigonométrie"><span
+class="header-section-number">1</span> Quelques formules de
+trigonométrie</h1>
+<p>Dans le plan usuel, on considère un cercle <span
+class="math inline">\((C)\)</span>, de centre <span
+class="math inline">\(O\)</span> et de rayon <span
+class="math inline">\(1\)</span>. On choisit un sens de rotation dans le
+plan (et donc sur le cercle) : le sens inverse des aiguilles d’une
+montre dit <strong>sens direct</strong> ou
+<strong>trigonométrique</strong> ; le sens contraire étant dit
+<strong>rétrograde</strong>.</p>
+<p>On considère un point <span class="math inline">\(I\)</span> de <span
+class="math inline">\((C)\)</span> et le repère orthonormé <span
+class="math inline">\((O,\vec i,\vec j)\)</span> avec <span
+class="math inline">\(\vec i=\overrightarrow{OI}\)</span> et <span
+class="math inline">\(\vec j\)</span> directement orthogonal à <span
+class="math inline">\(\vec i\)</span>.</p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><img src="fig1.png" alt="image" /></td>
+<td style="text-align: left;"><img src="fig2.png" alt="image" /></td>
+</tr>
+</tbody>
+</table>
+<p>On suppose connue la notion de longueur d’un arc du cercle <span
+class="math inline">\((C)\)</span> : la longueur de <span
+class="math inline">\((C)\)</span> est <span
+class="math inline">\(2\pi\)</span>.</p>
+<p>Soit <span class="math inline">\(x\)</span> un réel.</p>
+<ul>
+<li><p>Si <span class="math inline">\(x\ge0\)</span>, on considère le
+point <span class="math inline">\(M\)</span> de <span
+class="math inline">\((C)\)</span> tel que la longueur de l’arc <span
+class="math inline">\(\overset{\huge\frown}{IM}\)</span>, parcouru dans
+le sens direct, soit <span class="math inline">\(x\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(x&lt;0\)</span>, on considère le
+point <span class="math inline">\(M\)</span> de <span
+class="math inline">\((C)\)</span> tel que la longueur de l’arc <span
+class="math inline">\(\overset{\huge\frown}{IM}\)</span>, parcouru dans
+le sens rétrograde, soit <span
+class="math inline">\(-x\)</span>.</p></li>
+</ul>
+<p>Une mesure de l’angle <span
+class="math inline">\((\overrightarrow{OI},\overrightarrow{OM})\)</span>
+en radians est alors par définition <span
+class="math inline">\(x\)</span>.</p>
+<p>Le point <span class="math inline">\(M\)</span> se projette sur <span
+class="math inline">\((O,\vec i)\)</span> en <span
+class="math inline">\(H\)</span> et sur <span
+class="math inline">\((O,\vec j)\)</span> en <span
+class="math inline">\(H&#39;\)</span>. Par définition, <span
+class="math display">\[\cos x = \overline{OH}
+\qquad \text{et} \qquad
+\sin x = \overline{OH&#39;}.\]</span></p>
+<p>Pour <span class="math inline">\(x=\pi\)</span>, le point <span
+class="math inline">\(M\)</span> est le point <span
+class="math inline">\(I&#39;\)</span> symétrique de <span
+class="math inline">\(I\)</span> par rapport à <span
+class="math inline">\(O\)</span>, puisque la longueur du demi-cercle
+<span class="math inline">\(\overset{\huge\frown}{II&#39;}\)</span> vaut
+<span class="math inline">\(\pi\)</span>. On a donc <span
+class="math display">\[\cos\pi=-1 \qquad \text{et} \qquad
+\sin\pi=0.\]</span></p>
+<p>Pour <span class="math inline">\(x=\dfrac{\pi}{2}\)</span>, le point
+<span class="math inline">\(M\)</span> est le point <span
+class="math inline">\(J\)</span> tel que <span
+class="math inline">\(\overrightarrow{OJ}=\vec j\)</span> puisque le
+quart de cercle <span
+class="math inline">\(\overset{\huge\frown}{IJ}\)</span> a pour longueur
+<span class="math inline">\(\dfrac{\pi}{2}\)</span>. On a donc <span
+class="math display">\[\cos\left(\frac{\pi}{2}\right)=0 \qquad \text{et}
+\qquad \sin\left(\frac{\pi}{2}\right)=1.\]</span></p>
+<h1 data-number="2" id="formules-daddition"><span
+class="header-section-number">2</span> Formules d’addition</h1>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\(a\)</span> et <span
+class="math inline">\(b\)</span> deux réels.</p>
+<p>On considère <span class="math inline">\(M\)</span> le point de <span
+class="math inline">\((C)\)</span> tel que <span
+class="math inline">\((\overrightarrow{OI},\overrightarrow{OM})\)</span>
+ait pour mesure <span class="math inline">\(a\)</span> (en radians) et
+le point <span class="math inline">\(N\)</span> de <span
+class="math inline">\((C)\)</span> tel que <span
+class="math inline">\((\overrightarrow{OM},\overrightarrow{ON})\)</span>
+ait pour mesure <span class="math inline">\(b\)</span> (en radians).
+Alors <span
+class="math inline">\((\overrightarrow{OI},\overrightarrow{ON})\)</span>
+a pour mesure <span class="math inline">\(a+b\)</span>.</p>
+<p>On a <span class="math display">\[\overrightarrow{OM}=(\cos a)\vec i
++ (\sin a)\vec j\]</span> et <span
+class="math display">\[\overrightarrow{ON}=(\cos
+b)\overrightarrow{OM}+(\sin b)\vec j&#39;\]</span> (où <span
+class="math inline">\(\vec j&#39;\)</span> est le vecteur unitaire
+directement orthogonal à <span
+class="math inline">\(\overrightarrow{OM}\)</span>).</p>
+</div>
+<div class="webimg">
+<p><img src="fig3.png" alt="image" /></p>
+</div>
+</div>
+<p><span class="math display">\[\quad\]</span> Donc <span
+class="math display">\[\overrightarrow{ON}
+=(\cos b)\big((\cos a)\vec i+(\sin a)\vec j\big)
++(\sin b)\big(-(\sin a)\vec i+(\cos a)\vec j\big).\]</span></p>
+<p>Comme <span
+class="math display">\[\overrightarrow{ON}=(\cos(a+b))\vec
+i+(\sin(a+b))\vec j,\]</span> on en déduit <span
+class="math display">\[\cos(a+b)=\cos a\cos b-\sin a\sin b\]</span> et
+<span class="math display">\[\sin(a+b)=\sin a\cos b+\sin b\cos
+a.\]</span></p>
+<h1 data-number="3" id="autres-résultats-à-connaître"><span
+class="header-section-number">3</span> Autres résultats à connaître</h1>
+<div class="wprop">
+<p>Pour <span class="math inline">\(a\)</span> réel quelconque,</p>
+<ol>
+<li><p><span class="math inline">\(\cos^2 a + \sin^2 a =
+1\)</span></p></li>
+<li><p><span class="math inline">\(\cos 2a = \cos^2 a - \sin^2
+a\)</span></p></li>
+<li><p><span class="math inline">\(2\cos^2 a = 1 + \cos
+2a\)</span></p></li>
+<li><p><span class="math inline">\(2\sin^2 a = 1 - \cos
+2a\)</span></p></li>
+<li><p><span class="math inline">\(\sin 2a = 2\sin a \cos
+a\)</span></p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Cela s’obtient par théorème de Pythagore dans le triangle OMH,
+rectangle en <span class="math inline">\(H\)</span>.</p></li>
+<li><p>Par ce qui précède, <span class="math inline">\(\cos(2a) =
+\cos(a+a) = \cos^2 a - \sin^2 a.\)</span></p></li>
+<li><p><span class="math inline">\(\cos(2a)= \cos^2 a - \sin^2 a
+=  \cos^2 a -(1-\cos^2 a) = 2\cos^2 a-1 \iff 2\cos^2 a =
+1+\cos(2a).\)</span></p></li>
+<li><p><span class="math inline">\(\cos(2a)= \cos^2 a - \sin^2 a =
+1-\sin^2 a -\sin^2 a = 1-2\sin^2 a \iff 2\sin^2 a =
+1-\cos(2a).\)</span></p></li>
+<li><p>Par ce qui précède, <span class="math inline">\(\sin(2a) =
+\sin(a+a) = 2\sin a \cos a.\)</span></p></li>
+</ol>
+</div>
+<h1 data-number="4" id="valeurs-remarquables"><span
+class="header-section-number">4</span> Valeurs remarquables</h1>
+<div class="wprop">
+<ol>
+<li><p><span class="math inline">\(\cos 0 = 1, \qquad \sin 0 =
+0\)</span></p></li>
+<li><p><span
+class="math inline">\(\cos\!\left(\frac{\pi}{3}\right)=\frac12,
+\qquad
+\sin\!\left(\frac{\pi}{3}\right)=\frac{\sqrt3}{2}\)</span></p></li>
+<li><p><span
+class="math inline">\(\cos\!\left(\frac{\pi}{6}\right)=\frac{\sqrt3}{2},
+\qquad
+\sin\!\left(\frac{\pi}{6}\right)=\frac12\)</span></p></li>
+<li><p><span class="math inline">\(\cos\!\left(\frac{\pi}{4}\right)
+=
+\sin\!\left(\frac{\pi}{4}\right)
+=
+\frac{\sqrt2}{2}\)</span></p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Avec <span class="math inline">\(x = 0\)</span>, le point <span
+class="math inline">\(M\)</span> se trouve en <span
+class="math inline">\(I = (1,0)\)</span>.</p></li>
+<li><div class="webtextfigure">
+<div class="webtext">
+<p>Avec <span class="math inline">\(x = \frac{\pi}{3}\)</span>, le
+triangle <span class="math inline">\(OIM\)</span> est isocèle car <span
+class="math inline">\(0I = OM = 1\)</span>.</p>
+<p>Donc les angles <span
+class="math inline">\((\overrightarrow{OI},\overrightarrow{IM})\)</span>
+et <span
+class="math inline">\((\overrightarrow{MO},\overrightarrow{MI})\)</span>
+ont la même mesure que l’on note <span
+class="math inline">\(\alpha\)</span>.</p>
+<p>Comme la somme des angles d’un triangle fait <span
+class="math inline">\(\pi\)</span>, on a <span
+class="math inline">\(\frac{\pi}{3}+2\alpha = \pi \Longrightarrow \alpha
+=\frac{\pi}{3}\)</span> donc les trois angles de ce triangles sont égaux
+et on en déduit qu’il est même équilatéral.</p>
+<p>Donc <span class="math inline">\(H\)</span> est le milieu de <span
+class="math inline">\([OI]\)</span> et <span
+class="math inline">\(\cos\left(\frac{\pi}{3}\right) =
+\frac{1}{2}\)</span>. De plus, <span class="math inline">\(\sin^2
+\left(\frac{\pi}{3}\right) =1-\cos^2\left(\frac{\pi}{3}\right)\)</span>
+et <span class="math inline">\(\sin \left(\frac{\pi}{3}\right)\geq
+0\)</span> donc <span class="math inline">\(\sin^2
+\left(\frac{\pi}{3}\right)  = \sqrt{1-\frac{1}{2}^2} = \frac{\sqrt
+3}{2}\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="fig4.png" alt="image" /></p>
+</div>
+</div></li>
+<li><p>D’après ce qui précède, pour <span class="math inline">\(a\in
+\mathbb{R}\)</span>, <span class="math inline">\(\cos^2 a = \frac{1 +
+\cos 2a}{2}\)</span> donc avec <span class="math inline">\(a =
+\frac{\pi}{6}\)</span>, <span class="math inline">\(\cos^2
+\left(\frac{\pi}{6}\right) = \frac{1 + \cos
+\left(\frac{\pi}{3}\right)}{2} = \frac{3}{2}\)</span> et comme <span
+class="math inline">\(\cos \left(\frac{\pi}{6}\right) \geq 0\)</span>,
+<span class="math inline">\(\cos \left(\frac{\pi}{6}\right) =
+\frac{\sqrt{3}}{2}\)</span>. Comme dans le point précédent, on obtient
+<span
+class="math inline">\(\sin\!\left(\frac{\pi}{6}\right)\)</span>.</p></li>
+<li><p>D’après ce qui précède, pour <span class="math inline">\(a\in
+\mathbb{R}\)</span>, <span class="math inline">\(\cos^2 a = \frac{1 +
+\cos 2a}{2}\)</span> donc avec <span class="math inline">\(a =
+\frac{\pi}{4}\)</span>, <span class="math inline">\(\cos^2
+\left(\frac{\pi}{4}\right) = \frac{1 + \cos
+\left(\frac{\pi}{2}\right)}{2} = \frac{1}{2}\)</span> et comme <span
+class="math inline">\(\cos \left(\frac{\pi}{4}\right) \geq 0\)</span>,
+<span class="math inline">\(\cos \left(\frac{\pi}{4}\right) =
+\frac{1}{\sqrt{2}}=\frac{\sqrt{2}}{2}\)</span>. Comme dans le point
+précédent, on obtient <span
+class="math inline">\(\sin\!\left(\frac{\pi}{4}\right)\)</span>.</p></li>
+</ol>
+</div>
+<div class="wprop">
+<p>Pour tout <span class="math inline">\(k\in\mathbb{Z}\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(\cos(k\pi)=(-1)^k,
+\qquad
+\sin(k\pi)=0\)</span></p></li>
+<li><p><span
+class="math inline">\(\cos\!\left(\frac{\pi}{2}+k\pi\right)=0,
+\qquad
+\sin\!\left(\frac{\pi}{2}+k\pi\right)=(-1)^k\)</span></p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Pour <span class="math inline">\(x = k\pi\)</span>, <span
+class="math inline">\(M\)</span> est en <span
+class="math inline">\(I\)</span> si <span
+class="math inline">\(k\)</span> est pair et <span
+class="math inline">\(I&#39;\)</span> si <span
+class="math inline">\(k\)</span> est impair.</p></li>
+<li><p>Pour <span class="math inline">\(\frac{\pi}{2}+k\pi\)</span>,
+<span class="math inline">\(M\)</span> est en <span
+class="math inline">\(J\)</span> si <span
+class="math inline">\(k\)</span> est pair et <span
+class="math inline">\(J&#39;\)</span> si <span
+class="math inline">\(k\)</span> est impair où <span
+class="math inline">\(J&#39;\)</span> est le symétrique de <span
+class="math inline">\(J\)</span> par rapport à <span
+class="math inline">\((O,\overrightarrow{i})\)</span>.</p></li>
+</ol>
+</div>
+<div class="wprop">
+<p>Pour <span class="math inline">\(a\)</span> réel quelconque,</p>
+<ol>
+<li><p><span class="math inline">\(\cos(\pi-a)=-\cos a,
+\qquad
+\sin(\pi-a)=\sin a\)</span></p></li>
+<li><p><span class="math inline">\(\cos(\pi+a)=-\cos a,
+\qquad
+\sin(\pi+a)=-\sin a\)</span></p></li>
+<li><p><span
+class="math inline">\(\cos\!\left(\frac{\pi}{2}-a\right)=\sin a,
+\qquad
+\sin\!\left(\frac{\pi}{2}-a\right)=\cos a\)</span></p></li>
+<li><p><span
+class="math inline">\(\cos\!\left(\frac{\pi}{2}+a\right)=-\sin a,
+\qquad
+\sin\!\left(\frac{\pi}{2}+a\right)=\cos a\)</span></p></li>
+</ol>
+</div>
+<div class="wproof">
+<p>On justifie, sans les démontrer, géométriquement les égalités
+ci-dessous.</p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><img src="fig5.png" alt="image" /></td>
+<td style="text-align: left;"><img src="fig6.png" alt="image" /></td>
+</tr>
+<tr>
+<td style="text-align: left;"><img src="fig7.png" alt="image" /></td>
+<td style="text-align: left;"><img src="fig8.png" alt="image" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</body>
+</html>
+
+<script>
+
+
+const toggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Appliquer le thème au chargement
+const currentTheme = localStorage.getItem('theme') || 'default';
+body.setAttribute('data-md-color-scheme', currentTheme);
+
+toggle.addEventListener('click', () => {
+    let scheme = body.getAttribute('data-md-color-scheme');
+    let newScheme = (scheme === 'default') ? 'slate' : 'default';
+    
+    body.setAttribute('data-md-color-scheme', newScheme);
+    localStorage.setItem('theme', newScheme);
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+let secCount = -1;
+let thmCount = -1;
+
+let labels = {};
+
+const noms = {
+'wthm':'Théorème',
+'wprop':'Proposition',
+'wdefi':'Définition',
+'wlem':'Lemme',
+'wcor':'Corollaire',
+'wappli':'Application',
+'wrem':'Remarque',
+'wrappel': 'Rappel',
+'wex':'Exemple',
+'wproof':'Preuve'
+};
+
+//////////////////////////////////////////////////////////////////////////////
+// Numérotation des environnements
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll(
+"h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex, .wrappel,.wproof"
+).forEach(el => {
+
+    if (
+        el.tagName.toLowerCase() === "h1"
+        && !el.closest("#TOC")
+    ) {
+
+        secCount++;
+        thmCount = 0;
+    }
+
+    else if (noms[Array.from(el.classList).find(c => noms[c])]) {
+
+        let type = Array.from(el.classList).find(c => noms[c]);
+
+        if (type !== 'wproof') {
+
+            thmCount++;
+
+            let num = secCount + "." + thmCount;
+
+            let id = el.querySelector("span[id]")
+                ? el.querySelector("span[id]").id
+                : null;
+
+            if(id) {
+                labels[id] = {
+                    num: num,
+                    type: type.substring(1)
+                };
+            }
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                let strong = p.querySelector("strong");
+
+                let title = (
+                    strong &&
+                    strong.innerText.includes("(")
+                )
+
+                ? ` <span class="env-title">${strong.outerHTML}</span>`
+                : "";
+
+                if (title) strong.remove();
+
+                p.innerHTML =
+                    `<strong class="env-header">${noms[type]} ${num}</strong>`
+                    + title
+                    + " — "
+                    + p.innerHTML;
+            }
+        }
+
+        else {
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                p.innerHTML =
+                    `<strong class="env-header">Preuve</strong> — `
+                    + p.innerHTML;
+            }
+        }
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Capture des équations MathJax
+//////////////////////////////////////////////////////////////////////////////
+
+setTimeout(() => {
+
+document.querySelectorAll("mjx-math[display='true']").forEach((el, index) => {
+
+    let num = el.querySelector(".mjx-eqn-number");
+
+    if (num) {
+
+        let val = num.innerText.replace(/[()]/g, '');
+
+        let id = el.id || "eq-" + index;
+
+        el.id = id;
+
+        labels[id] = {
+            num: val,
+            type: 'eq'
+        };
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Remplacement des références
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll("body *").forEach(el => {
+
+    if (
+        el.childNodes.length === 1 &&
+        el.childNodes[0].nodeType === Node.TEXT_NODE
+    ) {
+
+        el.innerHTML = el.innerHTML
+
+        .replace(/\\eqref\{(.*?)\}/g, (m, id) => {
+
+            return labels[id]
+                ? `<a href="#${id}">(${labels[id].num})</a>`
+                : m;
+        })
+
+        .replace(
+            /\[(prop|thm|def|cor|lem|appli|rem|rappel|ex):(.*?)\]/g,
+
+            (m, t, id) => {
+
+                let f = t + ":" + id;
+
+                return labels[f]
+                    ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>`
+                    : m;
+            }
+        );
+    }
+});
+
+}, 800);
+
+});
+
+</script>
+

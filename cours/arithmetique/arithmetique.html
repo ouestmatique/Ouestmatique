@@ -1,0 +1,2412 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Arithmétique dans \mathbb{Z}</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+
+<header class="site-header">
+
+<div class="site-header-left">
+<a href="/">
+<img src="/assets/logo.svg" class="site-logo" alt="Logo">
+</a>
+</div>
+
+<div class="site-header-right">
+   <button id="theme-toggle"
+style="
+margin-right: 15px;
+cursor: pointer;
+background: transparent;
+border: none;
+font-size: 1.1rem;
+color: var(--md-primary-bg-color);
+">
+🌙 / ☀️
+</button>
+    <a href="/" class="home-link">Retour à l’accueil</a>
+</div>
+
+</header>
+
+
+<header id="title-block-header">
+
+<h1 class="title">Arithmétique dans <span
+class="math inline">\(\mathbb{Z}\)</span></h1>
+<p class="pdf-link">
+<a href="arithmetique.pdf" target="_blank">[PDF]</a>
+</p>
+
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#division-euclidienne-dans-mathbbz"
+id="toc-division-euclidienne-dans-mathbbz"><span
+class="toc-section-number">1</span> Division euclidienne dans <span
+class="math inline">\(\mathbb{Z}\)</span></a></li>
+<li><a href="#pgcd-dans-mathbbz" id="toc-pgcd-dans-mathbbz"><span
+class="toc-section-number">2</span> PGCD dans <span
+class="math inline">\(\mathbb{Z}\)</span></a>
+<ul>
+<li><a href="#divisibilité-dans-mathbbz"
+id="toc-divisibilité-dans-mathbbz"><span
+class="toc-section-number">2.1</span> Divisibilité dans <span
+class="math inline">\(\mathbb{Z}\)</span></a></li>
+<li><a href="#pgcd-de-deux-entiers" id="toc-pgcd-de-deux-entiers"><span
+class="toc-section-number">2.2</span> PGCD de deux entiers</a>
+<ul>
+<li><a href="#définition" id="toc-définition"><span
+class="toc-section-number">2.2.1</span> Définition</a></li>
+<li><a href="#algorithme-deuclide" id="toc-algorithme-deuclide"><span
+class="toc-section-number">2.2.2</span> Algorithme d’Euclide</a></li>
+<li><a href="#relation-de-bézout" id="toc-relation-de-bézout"><span
+class="toc-section-number">2.2.3</span> Relation de Bézout</a></li>
+</ul></li>
+<li><a href="#entiers-premiers-entre-eux"
+id="toc-entiers-premiers-entre-eux"><span
+class="toc-section-number">2.3</span> Entiers premiers entre
+eux</a></li>
+<li><a href="#représentant-irréductible-dun-rationnel"
+id="toc-représentant-irréductible-dun-rationnel"><span
+class="toc-section-number">2.4</span> Représentant irréductible d’un
+rationnel</a></li>
+<li><a href="#extension-de-la-notion-de-pgcd"
+id="toc-extension-de-la-notion-de-pgcd"><span
+class="toc-section-number">2.5</span> Extension de la notion de
+PGCD</a></li>
+</ul></li>
+<li><a href="#ppcm-dans-mathbbz" id="toc-ppcm-dans-mathbbz"><span
+class="toc-section-number">3</span> PPCM dans <span
+class="math inline">\(\mathbb{Z}\)</span></a>
+<ul>
+<li><a href="#définition-1" id="toc-définition-1"><span
+class="toc-section-number">3.1</span> Définition</a></li>
+<li><a href="#extension-de-la-notion-de-ppcm"
+id="toc-extension-de-la-notion-de-ppcm"><span
+class="toc-section-number">3.2</span> Extension de la notion de
+PPCM</a></li>
+</ul></li>
+<li><a href="#entiers-premiers" id="toc-entiers-premiers"><span
+class="toc-section-number">4</span> Entiers premiers</a>
+<ul>
+<li><a href="#définition-2" id="toc-définition-2"><span
+class="toc-section-number">4.1</span> Définition</a></li>
+<li><a href="#propriétés" id="toc-propriétés"><span
+class="toc-section-number">4.2</span> Propriétés</a></li>
+<li><a href="#factorisation-à-laide-dentiers-premiers"
+id="toc-factorisation-à-laide-dentiers-premiers"><span
+class="toc-section-number">4.3</span> Factorisation à l’aide d’entiers
+premiers</a></li>
+</ul></li>
+<li><a href="#congruences-modulo-n" id="toc-congruences-modulo-n"><span
+class="toc-section-number">5</span> Congruences modulo <span
+class="math inline">\(n\)</span></a>
+<ul>
+<li><a href="#définition-3" id="toc-définition-3"><span
+class="toc-section-number">5.1</span> Définition</a></li>
+<li><a href="#applications" id="toc-applications"><span
+class="toc-section-number">5.2</span> Applications</a></li>
+<li><a href="#petit-théorème-de-fermat"
+id="toc-petit-théorème-de-fermat"><span
+class="toc-section-number">5.3</span> Petit théorème de Fermat</a></li>
+<li><a
+href="#a-propos-du-grand-théorème-de-fermat-et-dautres-problèmes-de-théorie-des-nombres"
+id="toc-a-propos-du-grand-théorème-de-fermat-et-dautres-problèmes-de-théorie-des-nombres"><span
+class="toc-section-number">5.4</span> A propos du grand théorème de
+Fermat et d’autres problèmes de théorie des nombres</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="division-euclidienne-dans-mathbbz"><span
+class="header-section-number">1</span> Division euclidienne dans <span
+class="math inline">\(\mathbb{Z}\)</span></h1>
+<div class="wthm">
+<p>Soient <span class="math inline">\(a \in \mathbb{Z}, b \in
+\mathbb{Z}^{\star}\)</span> alors il existe <span
+class="math inline">\(q \in \mathbb{Z}\)</span> et <span
+class="math inline">\(r \in \mathbb{Z}\)</span> uniques tels que <span
+class="math display">\[a = bq+r \text{ avec }0 \leq r &lt;
+|b|.\]</span></p>
+<p><span class="math inline">\(q\)</span> est appelé le <u>quotient</u>
+de la division euclidienne de <span class="math inline">\(a\)</span> par
+<span class="math inline">\(b\)</span> tandis que <span
+class="math inline">\(r\)</span> est appelé le <u>reste</u> de la
+division euclidienne de <span class="math inline">\(a\)</span> par <span
+class="math inline">\(b\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Cas <span class="math inline">\(b \in \mathbb{N}^{\star}\)</span>
+:</p>
+<ul>
+<li><p>S’il existe <span class="math inline">\((q,r) \in
+\mathbb{Z}^2\)</span> et <span class="math inline">\((q&#39;,r&#39;) \in
+\mathbb{Z}^2\)</span> tels que <span class="math inline">\(a = bq+r
+\text{ avec }0 \leq r &lt; b\)</span> et <span class="math inline">\(a =
+bq&#39;+r&#39; \text{ avec }0 \leq r&#39; &lt; b\)</span>.</p>
+<p>Comme <span class="math inline">\(0 \leq r &lt; b\)</span> et <span
+class="math inline">\(0 \leq r&#39; &lt; b\)</span>, on a <span
+class="math inline">\(-b &lt; -r&#39; \leq 0\)</span> donc <span
+class="math inline">\(-b &lt; r-r&#39; &lt; b\)</span> et <span
+class="math inline">\(|r-r&#39;| &lt; b\)</span>.</p>
+<p>Alors, <span class="math inline">\(bq+r = bq&#39;+r&#39; \iff
+b(q-q&#39;) = r-r&#39;\)</span> donc <span
+class="math inline">\(q-q&#39; = \frac{r-r&#39;}{b}\)</span> et <span
+class="math inline">\(|q-q&#39;| = \frac{|r-r&#39;|}{|b|} &lt;
+\frac{|b|}{|b|} = 1\)</span>.</p>
+<p>Comme <span class="math inline">\(|q-q&#39;| \in \mathbb{N}\)</span>,
+<span class="math inline">\(|q-q&#39;| = 0\)</span> donc <span
+class="math inline">\(q=q&#39;\)</span> et par <span
+class="math inline">\(b(q-q&#39;) = r-r\)</span>, on a <span
+class="math inline">\(r=r&#39;\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(E = \left\{bk / k \in
+\mathbb{Z}\text{ et }bk \leq a\right\} \subset \mathbb{Z}\)</span>.</p>
+<p>Cet ensemble est non vide car <span class="math inline">\(bk
+\xrightarrow[k \to -\infty]{} -\infty\)</span>.</p>
+<p>De plus, il est majoré (par <span class="math inline">\(a\)</span>)
+donc par principe du bon ordre, il admet un maximum que l’on note <span
+class="math inline">\(q\)</span>.</p>
+<p>On a alors, <span class="math inline">\(bq \geq a\)</span> et <span
+class="math inline">\(r = a-bq \geq 0\)</span>.</p>
+<p>On a aussi <span class="math inline">\(r &lt; b\)</span> car sinon,
+<span class="math inline">\(a-bq  \geq b \Longrightarrow b(q+1) \leq
+a\)</span> et donc <span class="math inline">\(q+1 \in E\)</span> avec
+<span class="math inline">\(q+1 &gt; q\)</span>, ce qui est
+absurde.</p></li>
+</ul></li>
+<li><p>Cas <span class="math inline">\(b \in
+\mathbb{Z}^{-\star}\)</span> :</p>
+<p>On a donc <span class="math inline">\(-b \in
+\mathbb{N}^{\star}\)</span> et <span class="math inline">\(a = bq+r \iff
+a = (-b)(-q)+r\)</span>.</p>
+<p>Par ce qui précède, on a donc existence et unicité de <span
+class="math inline">\(q\)</span> et <span
+class="math inline">\(r\)</span> tels que <span class="math inline">\(0
+\leq r \leq -b =|b|\)</span>.</p></li>
+</ul>
+</div>
+<h1 data-number="2" id="pgcd-dans-mathbbz"><span
+class="header-section-number">2</span> PGCD dans <span
+class="math inline">\(\mathbb{Z}\)</span></h1>
+<h2 data-number="2.1" id="divisibilité-dans-mathbbz"><span
+class="header-section-number">2.1</span> Divisibilité dans <span
+class="math inline">\(\mathbb{Z}\)</span></h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(a,b \in \mathbb{Z}\)</span>, <span
+class="math inline">\(b\)</span> divise <span
+class="math inline">\(a\)</span> (ou <span
+class="math inline">\(b\)</span> est un diviseur de <span
+class="math inline">\(a\)</span> ou <span
+class="math inline">\(a\)</span> est un multiple de <span
+class="math inline">\(b\)</span>) s’il existe <span
+class="math inline">\(k \in \mathbb{Z}\)</span> tel que <span
+class="math inline">\(a = bk\)</span>. On note alors <span
+class="math inline">\(b|a\)</span>.</p>
+</div>
+<div class="wrem">
+<ul>
+<li><p><span class="math inline">\(\forall b \in \mathbb{Z}, b | 0 =
+0b\)</span>.</p></li>
+<li><p><span class="math inline">\(0\)</span> divise uniquement <span
+class="math inline">\(0\)</span>.</p></li>
+<li><p><span class="math inline">\(\forall a \in \mathbb{Z}, 1|a =
+1.a\)</span>.</p></li>
+<li><p><span class="math inline">\(\forall a \in \mathbb{Z}, a|a =
+a.1\)</span> et <span class="math inline">\(-a|a = a.(-1)\)</span> donc
+<span class="math inline">\(|a|\)</span> divise <span
+class="math inline">\(a\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(b \in \mathbb{Z}^{\star}\)</span>,
+<span class="math inline">\(b |a \iff \text{le reste de la division
+euclidienne de $a$ par $b$ vaut $0$.}\)</span></p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><span id="prop:diviser" label="prop:diviser"></span> Soient <span
+class="math inline">\(a,b,c,d \in \mathbb{Z}\)</span>,</p>
+<ol>
+<li><p>Si <span class="math inline">\(a|b\)</span> et <span
+class="math inline">\(a|c\)</span> alors <span
+class="math inline">\(a|b+c\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(k \in \mathbb{Z}\)</span>, si
+<span class="math inline">\(a|b\)</span>, <span
+class="math inline">\(a|kb\)</span> et <span
+class="math inline">\(ka|kb\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(a|b\)</span> et <span
+class="math inline">\(b \neq 0\)</span> alors <span
+class="math inline">\(|a| \leq |b|\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(a|b\)</span> et <span
+class="math inline">\(c|d\)</span> alors <span
+class="math inline">\(ac|bd\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Si <span class="math inline">\(a|b\)</span> et <span
+class="math inline">\(a|c\)</span>, il existe <span
+class="math inline">\(k,k&#39; \in \mathbb{Z}\)</span> tels que <span
+class="math inline">\(b = ka\)</span> et <span class="math inline">\(c =
+k&#39;a\)</span>. Donc <span class="math inline">\(b+c =
+(k+k&#39;)a\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(a|b\)</span>, il existe <span
+class="math inline">\(\ell \in \mathbb{Z}\)</span> tel que <span
+class="math inline">\(b = \ell a\)</span>.</p>
+<p>Donc <span class="math inline">\(kb = (\ell k)a = \ell
+(ka)\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(a|b\)</span>, il existe <span
+class="math inline">\(k \in \mathbb{Z}\)</span> tel que <span
+class="math inline">\(b = k a\)</span>.</p>
+<p>De plus, comme <span class="math inline">\(b \neq 0, k\neq 0\)</span>
+et comme <span class="math inline">\(k\in \mathbb{Z}\)</span>, on a donc
+<span class="math inline">\(|k| \geq 1\)</span>.</p>
+<p>On en déduit <span class="math inline">\(|a| = \frac{|b|}{|k|} \leq
+|b|\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(a|b\)</span> et <span
+class="math inline">\(c|d\)</span>, il existe <span
+class="math inline">\(k,\ell \in \mathbb{Z}\)</span> tels que <span
+class="math inline">\(b = \ell a\)</span> et <span
+class="math inline">\(d = kc\)</span>.</p>
+<p>Donc <span class="math inline">\(bd = k\ell(ac)\)</span>.</p></li>
+</ol>
+</div>
+<div class="wcor">
+<p>Soit <span class="math inline">\(a \in \mathbb{Z}\)</span> tel que
+<span class="math inline">\(a|1\)</span>, <span class="math inline">\(a
+= -1\)</span> ou <span class="math inline">\(a=1\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Par le 3. de la proposition <a href="#prop:diviser"
+data-reference-type="ref"
+data-reference="prop:diviser">[prop:diviser]</a>, si <span
+class="math inline">\(a|1\)</span>, <span class="math inline">\(|a| \leq
+1\)</span>.</p>
+<p>De plus, <span class="math inline">\(a \neq 0\)</span> donc <span
+class="math inline">\(a=-1\)</span> ou <span
+class="math inline">\(a=1\)</span>.</p>
+<p>Réciproquement, on a bien <span class="math inline">\(1|1\)</span> et
+<span class="math inline">\(1|-1\)</span>.</p>
+</div>
+<div class="wcor">
+<p>Si <span class="math inline">\(a,b,d,u,v \in \mathbb{Z}\)</span>,
+<span class="math inline">\(d|a\)</span> et <span
+class="math inline">\(d|b\)</span> alors <span class="math inline">\(d |
+au+bv\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Par le 2. de la proposition <a href="#prop:diviser"
+data-reference-type="ref"
+data-reference="prop:diviser">[prop:diviser]</a>, <span
+class="math inline">\(d|au\)</span> et <span
+class="math inline">\(d|bv\)</span> et par le 1. de la proposition <a
+href="#prop:diviser" data-reference-type="ref"
+data-reference="prop:diviser">[prop:diviser]</a>, <span
+class="math inline">\(d|au+bv\)</span>.</p>
+</div>
+<div class="wprop">
+<p>La relation de divisibilité est transitive, autrement dit, pour <span
+class="math inline">\(a,b,c \in \mathbb{Z}\)</span>, <span
+class="math inline">\(a|b \text{ et }b |c \Longrightarrow
+a|c\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Si <span class="math inline">\(a|b\)</span> et <span
+class="math inline">\(b|c\)</span>, il existe <span
+class="math inline">\(k,k&#39; \in \mathbb{Z}\)</span> tels que <span
+class="math inline">\(b = ka\)</span> et <span class="math inline">\(c =
+k&#39;b\)</span> donc <span class="math inline">\(c =
+k&#39;ka\)</span>.</p>
+</div>
+<div class="wrem">
+<p>La relation de divisibilité est donc réflexive et transitive mais
+elle n’est ni symétrique, ni antisymétrique.</p>
+<p>En effet, par exemple, <span class="math inline">\(1| 2\)</span> et
+<span class="math inline">\(2 \centernot{|}1\)</span> et par exemple,
+<span class="math inline">\(1|-1\)</span> et <span
+class="math inline">\(-1|1\)</span> mais <span class="math inline">\(1
+\neq -1\)</span>.</p>
+</div>
+<h2 data-number="2.2" id="pgcd-de-deux-entiers"><span
+class="header-section-number">2.2</span> PGCD de deux entiers</h2>
+<h3 data-number="2.2.1" id="définition"><span
+class="header-section-number">2.2.1</span> Définition</h3>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(a \in \mathbb{Z}, b \in
+\mathbb{Z}^{\star}\)</span>, on note <span
+class="math inline">\(\mathscr{D}\left(a,b\right) = \left\{d \in
+\mathbb{N}/ d|a \text{ et }d|b\right\}\)</span> les diviseurs communs de
+<span class="math inline">\(a\)</span> et <span
+class="math inline">\(b\)</span> dans <span
+class="math inline">\(\mathbb{N}\)</span>.</p>
+<p>Alors, <span
+class="math inline">\(\mathscr{D}\left(a,b\right)\)</span> admet un
+maximum que l’on appelle le Plus Grand Commun Diviseur (PGCD) de <span
+class="math inline">\(a\)</span> et <span
+class="math inline">\(b\)</span>, noté <span class="math inline">\(a
+\wedge b\)</span> (ou <span
+class="math inline">\(\mathrm{pgcd}\left(a,b\right)\)</span>).</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\mathscr{D}\left(a,b\right)\)</span> est
+un ensemble de <span class="math inline">\(\mathbb{N}\)</span> non vide
+car <span class="math inline">\(1 \in
+\mathscr{D}\left(a,b\right)\)</span>.</p>
+<p>De plus, il est majoré car si <span class="math inline">\(d \in
+\mathscr{D}\left(a,b\right)\)</span>, <span
+class="math inline">\(d|b\)</span> et par le 3. de la proposition <a
+href="#prop:diviser" data-reference-type="ref"
+data-reference="prop:diviser">[prop:diviser]</a>, <span
+class="math inline">\(d = |d| \leq |b|\)</span>.</p>
+<p>Par principe du bon ordre, <span
+class="math inline">\(\mathscr{D}\left(a,b\right)\)</span> admet un
+maximum.</p>
+</div>
+<div class="wrem">
+<p>Pourquoi <span class="math inline">\(b \neq 0\)</span> ? car si <span
+class="math inline">\(a = b =0\)</span>, <span
+class="math inline">\(\mathscr{D}\left(a,b\right) = \mathbb{N}\)</span>
+n’a pas de minimum.</p>
+</div>
+<h3 data-number="2.2.2" id="algorithme-deuclide"><span
+class="header-section-number">2.2.2</span> Algorithme d’Euclide</h3>
+<div class="wlem">
+<p><span id="lem:div_eucl" label="lem:div_eucl"></span> Soient <span
+class="math inline">\(a,b,c,d \in \mathbb{Z}\)</span> tels que <span
+class="math inline">\(b \neq 0\)</span> et <span class="math inline">\(a
+= bc+d\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(d = 0\)</span>, <span
+class="math inline">\(a \wedge b = |b|\)</span>,</p></li>
+<li><p>Si <span class="math inline">\(d \neq 0\)</span>, <span
+class="math inline">\(a \wedge b = b \wedge d\)</span>.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Si <span class="math inline">\(d = 0\)</span>, montrons que <span
+class="math inline">\(\mathscr{D}\left(a,b\right)=\mathscr{b}\)</span>,
+les diviseurs de <span class="math inline">\(b\)</span> dans <span
+class="math inline">\(\mathbb{N}\)</span>.</p>
+<ul>
+<li><p>On a clairement <span
+class="math inline">\(\mathscr{D}\left(a,b\right) \subset
+\mathscr{D}(b)\)</span>.</p></li>
+<li><p><span class="math inline">\(\left(\mathscr{D}\left(a,b\right)
+\supset \mathscr{D}(b)\right)\)</span>. Si <span
+class="math inline">\(\delta \in \mathscr{D}(b)\)</span>, <span
+class="math inline">\(\delta \in \mathbb{N}\)</span> et <span
+class="math inline">\(\delta |b\)</span> donc <span
+class="math inline">\(\delta |a=bc\)</span>.</p>
+<p>D’où <span class="math inline">\(\delta \in
+\mathscr{D}\left(a,b\right)\)</span>.</p></li>
+</ul>
+<p>De plus, <span class="math inline">\(|b| \in \mathscr{D}(b)\)</span>
+et <span class="math inline">\(\mathscr{D}(b)\)</span> est majoré par
+<span class="math inline">\(|b|\)</span> par le 3. de la proposition <a
+href="#prop:diviser" data-reference-type="ref"
+data-reference="prop:diviser">[prop:diviser]</a>.</p>
+<p>Donc <span class="math inline">\(\max \mathscr{D}(b) = \max
+\mathscr{D}\left(a,b\right) = a \wedge b = |b|\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(d \neq 0\)</span>, montrons que
+<span class="math inline">\(\mathscr{D}\left(a,b\right) =
+\mathscr{D}\left(b,d\right)\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(\left(\mathscr{D}\left(a,b\right)
+\subset \mathscr{D}\left(b,d\right)\right)\)</span>.</p>
+<p>Si <span class="math inline">\(\delta \in
+\mathscr{D}\left(a,b\right)\)</span>, <span class="math inline">\(\delta
+\in \mathbb{N}\)</span>, <span class="math inline">\(\delta |a\)</span>
+et <span class="math inline">\(\delta|b\)</span>.</p>
+<p>Donc <span class="math inline">\(\delta | d=a-bc\)</span> et <span
+class="math inline">\(\delta \in
+\mathscr{D}\left(b,d\right)\)</span>.</p></li>
+<li><p><span class="math inline">\(\left(\mathscr{D}\left(a,b\right)
+\supset \mathscr{D}\left(b,d\right)\right)\)</span>.</p>
+<p>Si <span class="math inline">\(\delta \in
+\mathscr{D}\left(b,d\right)\)</span>, <span class="math inline">\(\delta
+\in \mathbb{N}\)</span>, <span class="math inline">\(\delta |b\)</span>
+et <span class="math inline">\(\delta|d\)</span>.</p>
+<p>Donc <span class="math inline">\(\delta | a = bc+d\)</span> et <span
+class="math inline">\(\delta \in
+\mathscr{D}\left(a,b\right)\)</span>.</p></li>
+</ul>
+<p>On en déduit <span class="math inline">\(a \wedge b = \max
+\mathscr{D}\left(a,b\right) = \max \mathscr{D}\left(b,d\right) = b
+\wedge d\)</span>.</p></li>
+</ul>
+</div>
+<p>Décrivons maintenant l’algorithme d’Euclide.</p>
+<p>Soient <span class="math inline">\(a \in \mathbb{Z}, b \in
+\mathbb{Z}^{\star}\)</span>, cet algorithme vise à déterminer <span
+class="math inline">\(a \wedge b\)</span> en un nombre fini
+d’étapes.</p>
+<ul>
+<li><p>On effectue la division euclidienne de <span
+class="math inline">\(a\)</span> par <span
+class="math inline">\(b\)</span> telle que <span
+class="math display">\[a = bq_0+r_0, \quad 0 \leq r_0 &lt; |b|.\]</span>
+Si <span class="math inline">\(r_0 = 0\)</span>, <span
+class="math inline">\(a \wedge b = |b|\)</span> par le lemme <a
+href="#lem:div_eucl" data-reference-type="ref"
+data-reference="lem:div_eucl">[lem:div_eucl]</a>.</p></li>
+<li><p>Sinon, <span class="math inline">\(r_0 \neq 0\)</span> et par le
+lemme <a href="#lem:div_eucl" data-reference-type="ref"
+data-reference="lem:div_eucl">[lem:div_eucl]</a>, <span
+class="math inline">\(a \wedge b = b \wedge r_0\)</span> et on poursuit
+avec <span class="math inline">\((b,r_0)\)</span>. On effectue la
+division euclidienne de <span class="math inline">\(b\)</span> par <span
+class="math inline">\(r_0\)</span> telle que <span
+class="math display">\[b = r_0q_1+r_1, \quad 0 \leq r_1 &lt;
+r_0.\]</span> Si <span class="math inline">\(r_1 = 0\)</span>, <span
+class="math inline">\(a \wedge b=b \wedge r_0 = r_0\)</span> par le
+lemme <a href="#lem:div_eucl" data-reference-type="ref"
+data-reference="lem:div_eucl">[lem:div_eucl]</a>.</p></li>
+<li><p>Sinon, <span class="math inline">\(r_1 \neq 0\)</span> et par le
+lemme <a href="#lem:div_eucl" data-reference-type="ref"
+data-reference="lem:div_eucl">[lem:div_eucl]</a>, <span
+class="math inline">\(a \wedge b = b \wedge r_0=r_0 \wedge r_1\)</span>
+et on poursuit avec <span class="math inline">\((r_0,r_1)\)</span>. On
+effectue la division euclidienne de <span
+class="math inline">\(r_0\)</span> par <span
+class="math inline">\(r_1\)</span> telle que <span
+class="math display">\[r_0 = r_1q_2+r_2, \quad 0 \leq r_2 &lt;
+r_1.\]</span> Si <span class="math inline">\(r_2 = 0\)</span>, <span
+class="math inline">\(a \wedge b=b \wedge r_0=r_0 \wedge r_1 =
+r_1\)</span> par le lemme <a href="#lem:div_eucl"
+data-reference-type="ref"
+data-reference="lem:div_eucl">[lem:div_eucl]</a>.</p></li>
+<li><p>Sinon, <span class="math inline">\(r_2 \neq 0\)</span> et par le
+lemme <a href="#lem:div_eucl" data-reference-type="ref"
+data-reference="lem:div_eucl">[lem:div_eucl]</a>, <span
+class="math inline">\(a \wedge b = b \wedge r_0=r_0 \wedge r_1=r_1
+\wedge r_2\)</span> et on poursuit avec <span
+class="math inline">\((r_1,r_2)\)</span>. Et ainsi de suite.</p></li>
+</ul>
+<p>Cependant une question demeure :</p>
+<div class="center">
+<p><strong>Comment s’assurer que l’on ne fasse pas un nombre infini
+d’étapes ?</strong></p>
+</div>
+<p>Autrement dit, comment s’assurer que l’on tombe à un moment donné sur
+un reste de division euclidienne qui est nul ?</p>
+<p>Supposons par l’absurde que cet algorithme ne s’arrête jamais.</p>
+<p>Alors, on construit des divisions euclidiennes successives en
+obtenant des restes <span class="math inline">\(\left(r_k\right)_{k\in
+\mathbb{N}}\)</span>.</p>
+<p>La suite <span class="math inline">\(\left(r_k\right)_{k\in
+\mathbb{N}}\)</span> est une suite d’entiers, strictement décroissante
+(car pour chaque <span class="math inline">\(k\)</span>, <span
+class="math inline">\(r_{k+1} &lt; r_k\)</span>).</p>
+<p>Ce qui est absurde car par décroissance, <span
+class="math inline">\(\left(r_k\right)_{k\in \mathbb{N}}\)</span> prend
+ses valeurs dans <span class="math inline">\([\![ 0, r_0 ]\!]\)</span>,
+qui est fini.</p>
+<p>Ainsi, la suite ne peut pas décroitre strictement jusqu’à
+l’infini.</p>
+<div class="wex">
+<p>Faisons tourner l’algorithme d’Euclide pour <span
+class="math inline">\(a = 40\)</span> et <span class="math inline">\(b =
+24\)</span>.</p>
+<ol>
+<li><p><span class="math inline">\(40 = 24 \times 1 + 16\)</span> donc
+<span class="math inline">\(q_0 = 1\)</span> et <span
+class="math inline">\(r_0 = 16 \neq 0\)</span>.</p></li>
+<li><p><span class="math inline">\(24 = 16 \times 1 + 8\)</span> donc
+<span class="math inline">\(q_1 = 1\)</span> et <span
+class="math inline">\(r_1 = 8 \neq 0\)</span>.</p></li>
+<li><p><span class="math inline">\(16 = 8 \times 2 + 0\)</span> donc
+<span class="math inline">\(q_2 = 2\)</span> et <span
+class="math inline">\(r_2 = 0\)</span>.</p></li>
+</ol>
+<p>Donc <span class="math inline">\(a \wedge b = 8\)</span>.</p>
+</div>
+<h3 data-number="2.2.3" id="relation-de-bézout"><span
+class="header-section-number">2.2.3</span> Relation de Bézout</h3>
+<div class="wprop">
+<p>Soient <span class="math inline">\(a \in Z, b \in
+\mathbb{Z}^{\star}\)</span> et <span class="math inline">\(d = a \wedge
+b\)</span>.</p>
+<p>Alors il existe <span class="math inline">\(u,v \in
+\mathbb{Z}\)</span> tels que <span class="math inline">\(d =
+au+bv\)</span>.</p>
+</div>
+<div class="wproof">
+<p>On propose une preuve constructive utilisant l’algorithme
+d’Euclide.</p>
+<p>Supposons que l’algorithme d’Euclide dure <span
+class="math inline">\(n+1\)</span> étapes telles que <span
+class="math display">\[\begin{cases}
+        a &amp; = bq_0+r_0, \quad 0 \leq r_0 &lt; |b|, \\
+        b &amp; = r_0q_1+r_1, \quad 0 \leq r_1 &lt; r_0, \\
+        &amp; \vdots \\
+        r_{k-2} &amp; = r_{k-1}q_k+r_k, \quad 0 \leq r_k &lt; r_{k-1},
+\\
+        &amp; \vdots \\
+        r_{n-2} &amp; = r_{n-1}q_n+0 \\
+    \end{cases}\]</span></p>
+<p>On a donc <span class="math inline">\(a \wedge b = r_{n-1}\)</span>.
+On propose de montrer <span class="math inline">\(r_k = au_k +
+bv_k\)</span> avec <span class="math inline">\(u_k,v_k \in
+\mathbb{Z}\)</span> pour <span class="math inline">\(k \in [\![ 0,n-1
+]\!]\)</span>.</p>
+<ul>
+<li><p>D’abord, <span class="math inline">\(r_0 = a-bq_0 = au_0 +
+bv_0\)</span> avec <span class="math inline">\(u_0 = 1, v_0 =
+-q_0\)</span>.</p></li>
+<li><p>Puis, <span class="math inline">\(r_1 = b-r_0 q_1 = b-(au_0 +
+bv_0)q_1 = a(-u_0 q_1) + b(1-q_1v_0) = au_1 + bv_1\)</span> avec <span
+class="math inline">\(u_1 = -u_0 q_1\)</span> et <span
+class="math inline">\(v_1 = 1-q_1v_0\)</span>.</p></li>
+<li><p><span class="math inline">\(\vdots\)</span></p></li>
+<li><p>Supposons pour <span class="math inline">\(k \in [\![ 0,n-3
+]\!]\)</span> que <span class="math inline">\(r_{k-2} = au_{k-2} +
+bv_{k-2}\)</span> et <span class="math inline">\(r_{k-1} = au_{k-1} +
+bv_{k-1}\)</span> avec <span class="math inline">\(u_{k-2}, v_{k-2},
+u_{k-1}, v_{k-1} \in \mathbb{Z}\)</span>.</p>
+<p>On a alors <span class="math inline">\(r_{k} = r_{k-2}-r_{k-1}q_k =
+a(u_{k-2}-q_ku_{k-1})+b(v_{k-2}-q_kv_{k-1}) = au_k + bv_k\)</span> donc
+<span class="math inline">\(u_k = u_{k-2}-q_ku_{k-1}\)</span> et <span
+class="math inline">\(v_k = v_{k-2}-q_kv_{k-1}\)</span>.</p></li>
+<li><p><span class="math inline">\(\vdots\)</span></p></li>
+</ul>
+<p>On obtient ainsi par "récurrence finie", l’existence de <span
+class="math inline">\(u_{n-1},v_{n-1} \in \mathbb{Z}\)</span> tels que
+<span class="math inline">\(a \wedge b =r_{n-1} = a u_{n-1}  + b
+v_{n-1}\)</span>.</p>
+</div>
+<div class="wex">
+<p>Pour rappel, avec <span class="math inline">\(a = 40\)</span> et
+<span class="math inline">\(b = 24\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(40 = 24 \times 1 + 16\)</span> donc
+<span class="math inline">\(q_0 = 1\)</span> et <span
+class="math inline">\(r_0 = 16 \neq 0\)</span>.</p></li>
+<li><p><span class="math inline">\(24 = 16 \times 1 + 8\)</span> donc
+<span class="math inline">\(q_1 = 1\)</span> et <span
+class="math inline">\(r_1 = 8 \neq 0\)</span>.</p></li>
+<li><p><span class="math inline">\(16 = 8 \times 2 + 0\)</span> donc
+<span class="math inline">\(q_2 = 2\)</span> et <span
+class="math inline">\(r_2 = 0\)</span>.</p></li>
+</ol>
+<p>Donc <span class="math inline">\(a \wedge b = 8\)</span>. En
+appliquant la preuve précédente,</p>
+<ol>
+<li><p><span class="math inline">\(8 = 24-16 =24 + 16 \times
+(-1)\)</span>,</p></li>
+<li><p><span class="math inline">\(8 = 24 + (40 - 24 \times 1)\times
+(-1) = 2 \times 24 + (-1) \times 40\)</span></p></li>
+</ol>
+<p>donc <span class="math inline">\(u = -1, v=2\)</span>
+conviennent.</p>
+</div>
+<div class="wcor">
+<p>Soient <span class="math inline">\(a \in Z, b \in
+\mathbb{Z}^{\star}\)</span> et <span class="math inline">\(d = a \wedge
+b\)</span>.</p>
+<p>Soit <span class="math inline">\(\delta \in
+\mathscr{D}\left(a,b\right)\)</span>, <span class="math inline">\(\delta
+| d\)</span></p>
+</div>
+<div class="wproof">
+<p>Par relation de Bézout, il existe <span class="math inline">\(u,v \in
+\mathbb{Z}\)</span> tels que <span class="math inline">\(d =
+au+bv\)</span>.</p>
+<p>Donc si <span class="math inline">\(\delta \in
+\mathscr{D}\left(a,b\right)\)</span>, <span class="math inline">\(\delta
+| au+bv = d\)</span>.</p>
+</div>
+<div class="wcor">
+<p>Soient <span class="math inline">\(a \in \mathbb{Z}, b \in
+\mathbb{Z}^{\star}, k \in \mathbb{N}^{\star}\)</span>,</p>
+<p>alors <span class="math inline">\((ka) \wedge (kb) = ka \wedge
+b\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Posons <span class="math inline">\(d = a \wedge b\)</span> et
+montrons que <span class="math inline">\(kd = \max
+\mathscr{D}\left(ka,kb\right)\)</span>.</p>
+<p>D’abord, <span class="math inline">\(d | a\)</span> et <span
+class="math inline">\(d | b\)</span> donc <span class="math inline">\(kd
+| ka\)</span>, <span class="math inline">\(kd | kb\)</span> et <span
+class="math inline">\(kd \in \mathscr{D}\left(ka,kb\right)\)</span>.</p>
+<p>Ensuite, soit <span class="math inline">\(\delta \in
+\mathscr{D}\left(ka,kb\right)\)</span>, montrons que <span
+class="math inline">\(\delta \leq kd\)</span>.</p>
+<p>Par relation de Bézout, il existe <span class="math inline">\(u,v \in
+\mathbb{Z}\)</span> tels que <span class="math inline">\(d =
+au+bv\)</span>.</p>
+<p>Donc <span class="math inline">\(kd = kau+kbv\)</span>.</p>
+<p>Or, <span class="math inline">\(\delta | ka\)</span> et <span
+class="math inline">\(\delta |bb\)</span> donc <span
+class="math inline">\(\delta |kau+kbv = kd\)</span> et <span
+class="math inline">\(\delta =|\delta| \leq kd\)</span>.</p>
+</div>
+<h2 data-number="2.3" id="entiers-premiers-entre-eux"><span
+class="header-section-number">2.3</span> Entiers premiers entre eux</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(a\in \mathbb{Z}, b\in
+\mathbb{Z}^{\star}\)</span>. <span class="math inline">\(a\)</span> et
+<span class="math inline">\(b\)</span> sont premiers entre eux si <span
+class="math inline">\(a \wedge b = 1\)</span>.</p>
+</div>
+<div class="wrem">
+<p><span class="math inline">\(a\)</span> et <span
+class="math inline">\(b\)</span> sont premiers entre eux équivaut à
+<span
+class="math inline">\(\mathscr{D}\left(a,b\right)=\left\{1\right\}\)</span>.</p>
+</div>
+<div class="wthm">
+<p><strong>(Théorème de Bézout)</strong> Soient <span
+class="math inline">\(a\in \mathbb{Z}, b\in \mathbb{Z}^{\star}\)</span>,
+<span class="math display">\[\text{$a$ et $b$ sont premiers entre eux}
+\iff \exists u,v \in \mathbb{Z}/ au+bv=1.\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>(<span class="math inline">\(\Longrightarrow\)</span>) Ce sens a
+été démontré avec la relation de Bézout.</p></li>
+<li><p>(<span class="math inline">\(\Longleftarrow\)</span>) Si <span
+class="math inline">\(\delta \in \mathscr{D}\left(a,b\right)\)</span>,
+<span class="math inline">\(\delta | au+bv=1\)</span> donc <span
+class="math inline">\(\delta = 1\)</span>.</p></li>
+</ul>
+</div>
+<div class="wthm">
+<p><strong>(Théorème de Gauss)</strong> Soient <span
+class="math inline">\(a,c \in \mathbb{Z}\)</span> et <span
+class="math inline">\(b \in \mathbb{Z}^{\star}\)</span> tels que <span
+class="math inline">\(a \wedge b = 1\)</span>.</p>
+<p>Alors <span class="math inline">\(a|bc \Longrightarrow
+a|c\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Par relation de Bézout, il existe <span class="math inline">\(u,v \in
+\mathbb{Z}\)</span> tels que <span
+class="math inline">\(1=au+bv\)</span>.</p>
+<p>Donc <span class="math inline">\(c = auc +bvc\)</span> donc <span
+class="math inline">\(a| a(uc) + (bc)v = c\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Le théorème de Gauss est faux pour deux entiers non premiers entre
+eux. Par exemple, avec <span class="math inline">\(a = 9, b = 6\)</span>
+et <span class="math inline">\(c=3\)</span>, <span
+class="math inline">\(a|18=bc\)</span> mais <span
+class="math inline">\(a\centernot{|} c\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(a,c \in \mathbb{Z}\)</span> et
+<span class="math inline">\(b \in \mathbb{Z}^{\star}\)</span> tels que
+<span class="math inline">\(a \wedge b = 1\)</span>.</p>
+<p>Alors <span class="math inline">\(a|c \text{ et }b |c \Longrightarrow
+ab |c\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Par relation de Bézout, il existe <span class="math inline">\(u,v \in
+\mathbb{Z}\)</span> tels que <span
+class="math inline">\(1=au+bv\)</span>.</p>
+<p>Donc <span class="math inline">\(c = auc+bvc\)</span>.</p>
+<p>Or, <span class="math inline">\(a|a\)</span> et <span
+class="math inline">\(b|c\)</span> donc <span
+class="math inline">\(ab|ac\)</span> et <span
+class="math inline">\(a|c\)</span> et <span
+class="math inline">\(b|b\)</span> donc <span
+class="math inline">\(ab|bc\)</span>.</p>
+<p>Donc <span class="math inline">\(ab| auc+bvc = c\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Encore une fois, ce résultat est faux pour deux entiers non premiers
+entre eux. Par exemple, avec <span class="math inline">\(a = 2, b =
+6\)</span> et <span class="math inline">\(c=6\)</span>, <span
+class="math inline">\(a|c, b|c\)</span> mais <span
+class="math inline">\(ab\centernot{|} c\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(a,c \in \mathbb{Z}\)</span> et
+<span class="math inline">\(b \in \mathbb{Z}^{\star}\)</span> tels que
+<span class="math inline">\(a \wedge b = 1 \text{ et }a \wedge c =
+1\)</span>.</p>
+<p>Alors <span class="math inline">\(a \wedge bc = 1\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Montrons que <span class="math inline">\(\mathscr{D}\left(a,bc\right)
+= \left\{1\right\}\)</span>.</p>
+<p>Par relation de Bézout, il existe <span class="math inline">\(u,v \in
+\mathbb{Z}\)</span> tels que <span
+class="math inline">\(1=au+bv\)</span> donc <span
+class="math inline">\(c = auc+bvc\)</span></p>
+<p>Soit <span class="math inline">\(\delta \in
+\mathscr{D}\left(a,bc\right)\)</span>, <span
+class="math inline">\(\delta | a\)</span> et <span
+class="math inline">\(\delta |bc\)</span> donc <span
+class="math inline">\(\delta |a(uc)+bc(v) = c\)</span> donc <span
+class="math inline">\(\delta \in \mathscr{D}\left(a,c\right) =
+\left\{1\right\}\)</span>.</p>
+</div>
+<div class="wcor">
+<p>Soient <span class="math inline">\(a,c \in \mathbb{Z}\)</span> et
+<span class="math inline">\(b \in \mathbb{Z}^{\star}\)</span> tels que
+<span class="math inline">\(a \wedge b = 1\)</span>.</p>
+<p>Alors, pour <span class="math inline">\(n \in \mathbb{N}, a \wedge
+b^n=1\)</span>.</p>
+</div>
+<div class="wproof">
+<p>On peut prouver ce résultat par récurrence sur <span
+class="math inline">\(n\)</span>.</p>
+<ul>
+<li><p><strong>INITIALISATION :</strong> Pour <span
+class="math inline">\(n=0\)</span>, <span class="math inline">\(a \wedge
+1 = 1\)</span>.</p></li>
+<li><p><strong>HÉRÉDITÉ :</strong> Supposons pour <span
+class="math inline">\(n \in \mathbb{N}\)</span> fixé que <span
+class="math inline">\(a \wedge b^n = 1\)</span>. Comme on a aussi <span
+class="math inline">\(a \wedge b = 1\)</span>, on a alors <span
+class="math inline">\(a \wedge b^n \times b = a \wedge
+b^{n+1}=1\)</span>.</p></li>
+<li><p><strong>CONCLUSION :</strong> Pour tout <span
+class="math inline">\(n \in \mathbb{N}, a \wedge
+b^n=1\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><strong>(Caractérisation du PGCD)</strong> Soient <span
+class="math inline">\(a \in \mathbb{Z}\)</span> et <span
+class="math inline">\(b \in \mathbb{Z}^{\star}\)</span> et <span
+class="math inline">\(\delta \mathscr{D}\left(a,b\right)\)</span>.</p>
+<p>Comme <span class="math inline">\(\delta |a\)</span> et <span
+class="math inline">\(\delta | b\)</span>, il existe <span
+class="math inline">\(a&#39;,b&#39;\in \mathbb{Z}\)</span> tels que
+<span class="math inline">\(a=a&#39;\delta\)</span> et <span
+class="math inline">\(b = b&#39;\delta\)</span>.</p>
+<p>On a alors <span class="math display">\[\delta = a \wedge b \iff
+a&#39; \wedge b&#39; = 1.\]</span></p>
+</div>
+<div class="wproof">
+<p>On a <span class="math inline">\(a \wedge b = a&#39;\delta \wedge
+b&#39;\delta = \delta a&#39; \wedge b&#39;\)</span>. De plus, <span
+class="math inline">\(\delta \neq 0\)</span> car <span
+class="math inline">\(b \neq 0\)</span>. Donc <span
+class="math display">\[\delta = a \wedge b \iff \delta a&#39; \wedge
+b&#39; = \delta \iff a&#39; \wedge b&#39; = 1.\]</span></p>
+</div>
+<h2 data-number="2.4" id="représentant-irréductible-dun-rationnel"><span
+class="header-section-number">2.4</span> Représentant irréductible d’un
+rationnel</h2>
+<div class="wrappel">
+<p>Soit <span class="math inline">\(r \in \mathbb{Q}\)</span>, il existe
+<span class="math inline">\(p \in \mathbb{N}, q \in
+\mathbb{Z}^{\star}\)</span> tels que <span class="math inline">\(r =
+\frac{p}{q}\)</span>.</p>
+<p>De plus, pour tout <span class="math inline">\(k \in
+\mathbb{Z}^{\star}\)</span>, <span class="math inline">\(r =
+\frac{kp}{kq}\)</span>.</p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(r \in \mathbb{Q}\)</span> tel que
+<span class="math inline">\(r = \frac{p}{q}\)</span> avec <span
+class="math inline">\(p \in \mathbb{N}, q \in
+\mathbb{Z}^{\star}\)</span>.</p>
+<p><span class="math inline">\((p,q)\)</span> est un <u>représentant</u>
+de <span class="math inline">\(r\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(r \in \mathbb{Q}\)</span>, il existe
+<span class="math inline">\(p_0 \in \mathbb{N}, q_0 \in
+\mathbb{Z}^{\star}\)</span> uniques tels que <span
+class="math inline">\(p_0 \wedge q_0 = 1\)</span> et <span
+class="math inline">\(r = \frac{p_0}{q_0}\)</span>.</p>
+<p><span class="math inline">\((p_0,q_0)\)</span> est
+<u><strong>le</strong> représentant irréductible</u> de <span
+class="math inline">\(r\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>(Existence) Soit <span class="math inline">\(r \in
+\mathbb{Q}\)</span>, il existe <span class="math inline">\(p \in
+\mathbb{N}, q \in \mathbb{Z}^{\star}\)</span> tels que <span
+class="math inline">\(r = \frac{p}{q}\)</span>.</p>
+<p>De plus, en notant <span class="math inline">\(d = p \wedge
+q\)</span>, il existe <span class="math inline">\((p_0,q_0)\)</span> tel
+que <span class="math inline">\(p = dp_0\)</span>, <span
+class="math inline">\(q = dq_0\)</span> et <span
+class="math inline">\(p_0 \wedge q_0 = 1\)</span>.</p>
+<p>De plus, <span class="math inline">\(d \geq 0\)</span> donc <span
+class="math inline">\(p_0 \in \mathbb{N}\)</span> et <span
+class="math inline">\(q \neq 0\)</span> donc <span
+class="math inline">\(q_0 \neq 0\)</span>.</p>
+<p>Donc <span class="math inline">\(r= \frac{p_0}{q_0}\)</span> avec
+<span class="math inline">\(p_0 \in \mathbb{N}, q_0 \in
+\mathbb{Z}^{\star}\)</span> et <span class="math inline">\(p_0 \wedge
+q_0 = 1\)</span>.</p></li>
+<li><p>(Unicité) S’il existe <span class="math inline">\(p_0 \in
+\mathbb{N}, q_0 \in \mathbb{Z}^{\star}\)</span> tels que <span
+class="math inline">\(p_0 \wedge q_0 = 1\)</span> et <span
+class="math inline">\(r = \frac{p_0}{q_0}\)</span> et <span
+class="math inline">\(p_1 \in \mathbb{N}, q_1 \in
+\mathbb{Z}^{\star}\)</span> tels que <span class="math inline">\(p_1
+\wedge q_1 = 1\)</span> et <span class="math inline">\(r =
+\frac{p_1}{q_1}\)</span>.</p>
+<p>Alors, <span class="math inline">\(\frac{p_1}{q_1}=\frac{p_0}{q_0}
+\iff p_1q_0 = p_0q_1\)</span>.</p>
+<p>Donc <span class="math inline">\(q_0 | p_0q_1\)</span> et <span
+class="math inline">\(p_0 \wedge q_0 = 1\)</span> donc par lemme de
+Gauss, <span class="math inline">\(q_0 |q_1\)</span>. Il existe donc
+<span class="math inline">\(k \in \mathbb{Z}\)</span> tel que <span
+class="math inline">\(q_1 = kq_0\)</span> et <span
+class="math inline">\(k \neq 0\)</span>.</p>
+<p>Puis, <span class="math inline">\(p_1q_0 = p_0q_1 = p_0kq_0\)</span>
+donc <span class="math inline">\(p_1 = kp_0\)</span> (<span
+class="math inline">\(q_0 \neq 0\)</span>).</p>
+<p>On en déduit <span class="math inline">\(1 = p_1 \wedge q_1 = kp_0
+\wedge kq_0 = kp_0 \wedge q_0 = k\)</span> donc <span
+class="math inline">\(p_0 = p_1\)</span> et <span
+class="math inline">\(q_0 = q_1\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(r \in \mathbb{Q}\)</span> et <span
+class="math inline">\((p_0,q_0)\)</span> le représentant irréductible de
+<span class="math inline">\(r\)</span>,</p>
+<p>Alors <span class="math display">\[(p,q) \text{ représentant de $r$ }
+\iff \exists k \in Z / p = kp_0, q = kq_0.\]</span></p>
+</div>
+<div class="wproof">
+<p>Il y a juste à prouver <span
+class="math inline">\(\Longrightarrow\)</span> par le rappel.</p>
+<p>Ceci est juste une recopie de la preuve précédente.</p>
+<p>On a <span class="math inline">\(\frac{p}{q} = \frac{p_0}{q_0} \iff
+pq_0 = p_0q\)</span>.</p>
+<p>Donc <span class="math inline">\(q_0 | p_0q\)</span> et <span
+class="math inline">\(p_0 \wedge q_0 = 1\)</span> donc par lemme de
+Gauss, <span class="math inline">\(q_0 |q\)</span>. Il existe donc <span
+class="math inline">\(k \in \mathbb{Z}\)</span> tel que <span
+class="math inline">\(q = kq_0\)</span> et <span class="math inline">\(k
+\neq 0\)</span>.</p>
+<p>Puis, <span class="math inline">\(pq_0 = p_0q = kq_0p_0\)</span> donc
+<span class="math inline">\(p = kp_0\)</span> (<span
+class="math inline">\(q \neq 0\)</span>).</p>
+</div>
+<h2 data-number="2.5" id="extension-de-la-notion-de-pgcd"><span
+class="header-section-number">2.5</span> Extension de la notion de
+PGCD</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(a_1,\ldots,a_r \in
+\mathbb{Z}\)</span> avec <span class="math inline">\(r \in \mathbb{N},
+\geq 2\)</span> et <span class="math inline">\(a_1 \neq 0\)</span>.</p>
+<p>On note <span
+class="math inline">\(\mathscr{D}\left(a_1,\ldots,a_r\right) = \left\{
+\delta \in \mathbb{N}/ \forall 1 \leq i \leq r, \delta
+|a_i\right\}\)</span>, l’ensemble des diviseurs de <span
+class="math inline">\(a_1,\ldots,a_r\)</span>.</p>
+<p>Alors on définit le Plus Grand Commun Diviseur de <span
+class="math inline">\(a_1,\ldots,a_r\)</span> comme le maximum de <span
+class="math inline">\(\mathscr{D}(a_1,\ldots,a_r)\)</span>, noté <span
+class="math inline">\(a_1 \wedge \ldots \wedge a_r\)</span> ou <span
+class="math inline">\(\mathrm{pgcd}\left(a_1,\ldots,a_r\right)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Comme montré précédemment, comme <span class="math inline">\(a_1 \neq
+0\)</span>, <span
+class="math inline">\(\mathscr{D}(a_1,\ldots,a_r)\)</span> est un
+ensemble non vide de <span class="math inline">\(\mathbb{N}\)</span>
+(qui contient <span class="math inline">\(1\)</span>) et majoré par
+<span class="math inline">\(|a_1|\)</span>. Il admet donc un
+maximum.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(a_1,\ldots,a_r \in
+\mathbb{Z}\)</span> avec <span class="math inline">\(r \in \mathbb{N},
+\geq 2\)</span> et <span class="math inline">\(a_1 \neq 0\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(a_1 \wedge \ldots \wedge
+a_r=\left(a_1 \wedge \ldots \wedge a_{r-1}\right) \wedge
+a_r\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\delta \in
+\mathscr{D}\left(a_1,\ldots,a_r\right)\)</span>, <span
+class="math inline">\(\delta | a_1 \wedge \ldots \wedge
+a_r\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<p>Montrons ces deux résultats par une seule récurrence sur <span
+class="math inline">\(r\)</span>.</p>
+<ul>
+<li><p><strong>INITIALISATION :</strong> Pour <span
+class="math inline">\(r=2\)</span>, 1. est évidente et 2. a déjà été
+montré.</p></li>
+<li><p><strong>HÉRÉDITÉ :</strong> Soit <span class="math inline">\(r
+\in \mathbb{N}, \geq 2\)</span> fixé, supposons que la proposition est
+vraie.</p>
+<p>Soient <span class="math inline">\(a_1,\ldots,a_{r+1} \in
+\mathbb{Z}\)</span> avec <span class="math inline">\(a_1 \neq
+0\)</span>,</p>
+<ol>
+<li><p>Montrons <span
+class="math inline">\(\mathscr{D}\left(a_1,\ldots,a_{r+1}\right) =
+\mathscr{D}\left(a_1 \wedge \ldots \wedge
+a_r,a_{r+1}\right)\)</span>.</p>
+<ul>
+<li><p>(<span
+class="math inline">\(\mathscr{D}\left(a_1,\ldots,a_{r+1}\right) \subset
+\mathscr{D}\left(a_1 \wedge \ldots \wedge a_r,a_{r+1}\right)\)</span>)
+Soit <span class="math inline">\(\delta \in
+\mathscr{D}\left(a_1,\ldots,a_{r+1}\right)\)</span>, alors <span
+class="math inline">\(\delta \in
+\mathscr{D}\left(a_1,\ldots,a_{r}\right)\)</span> donc par hypothèse de
+récurrence,</p>
+<p><span class="math inline">\(\delta | a_1 \wedge \ldots \wedge
+a_r\)</span>.</p>
+<p>Donc <span class="math inline">\(\delta \in \mathscr{D}\left(a_1
+\wedge \ldots \wedge a_r,a_{r+1}\right)\)</span>.</p></li>
+<li><p>(<span
+class="math inline">\(\mathscr{D}\left(a_1,\ldots,a_{r+1}\right) \supset
+\mathscr{D}\left(a_1 \wedge \ldots \wedge a_r,a_{r+1}\right)\)</span>)
+Soit <span class="math inline">\(\delta \in \mathscr{D}\left(a_1 \wedge
+\ldots \wedge a_r,a_{r+1}\right)\)</span>, <span
+class="math inline">\(\delta | a_1 \wedge \ldots \wedge a_r\)</span> et
+<span class="math inline">\(\delta | a_{r+1}\)</span>,</p>
+<p>Or, <span class="math inline">\(a_1 \wedge \ldots \wedge a_r |
+a_i\)</span> pour <span class="math inline">\(1 \leq i \leq
+r\)</span>,</p>
+<p>donc <span class="math inline">\(\delta | a_i\)</span> pour <span
+class="math inline">\(1 \leq i \leq r+1\)</span>.</p>
+<p>Donc <span class="math inline">\(\delta \in
+\mathscr{D}\left(a_1,\ldots,a_{r+1}\right)\)</span>.</p></li>
+</ul>
+<p>On en déduit <span class="math inline">\(\max
+\mathscr{D}\left(a_1,\ldots,a_{r+1}\right) = \max\mathscr{D}\left(a_1
+\wedge \ldots \wedge a_r,a_{r+1}\right)\)</span> donc <span
+class="math inline">\(\left(a_1 \wedge \ldots \wedge a_{r}\right) \wedge
+a_{r+1} = a_1 \wedge \ldots \wedge a_{r+1}\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(\delta \in
+\mathscr{D}\left(a_1,\ldots,a_{r+1}\right)\)</span>, par ce qui précède,
+<span class="math inline">\(\delta \in \mathscr{D}\left(a_1 \wedge
+\ldots \wedge a_r,a_{r+1}\right)\)</span>.</p>
+<p>Donc par le cas <span class="math inline">\(r=2\)</span>, <span
+class="math inline">\(\delta | \left(a_1 \wedge \ldots \wedge
+a_{r}\right) \wedge a_{r+1} = a_1 \wedge \ldots \wedge
+a_{r+1}\)</span>.</p></li>
+</ol></li>
+<li><p><strong>CONCLUSION :</strong> Pour tout <span
+class="math inline">\(r \in \mathbb{N}, \geq 2\)</span>, soient <span
+class="math inline">\(a_1,\ldots,a_r \in \mathbb{Z}\)</span> avec <span
+class="math inline">\(a_1 \neq 0\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(a_1 \wedge \ldots \wedge
+a_r=\left(a_1 \wedge \ldots \wedge a_{r-1}\right) \wedge
+a_r\)</span>.</p></li>
+<li><p><span class="math inline">\(\delta \in
+\mathscr{D}\left(a_1,\ldots,a_r\right)\)</span>, <span
+class="math inline">\(\delta | a_1 \wedge \ldots \wedge
+a_r\)</span>.</p></li>
+</ol></li>
+</ul>
+</div>
+<div class="wprop">
+<p><strong>(Égalité de Bézout)</strong> Soient <span
+class="math inline">\(a_1,\ldots,a_r \in \mathbb{Z}\)</span> avec <span
+class="math inline">\(r \in \mathbb{N}, \geq 2\)</span>, <span
+class="math inline">\(a_1 \neq 0\)</span> et <span
+class="math inline">\(d = a_1 \wedge \ldots \wedge a_r\)</span>.</p>
+<p>Alors, il existe <span class="math inline">\(u_1,\ldots,u_r \in
+\mathbb{Z}\)</span> tels que <span class="math inline">\(d =
+a_1u_1+\ldots+a_ru_r\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Montrons ce résultat par récurrence sur <span
+class="math inline">\(r\)</span>.</p>
+<ul>
+<li><p><strong>INITIALISATION :</strong> Pour <span
+class="math inline">\(r=2\)</span>, 1. est évidente et 2. a déjà été
+montré.</p></li>
+<li><p><strong>HÉRÉDITÉ :</strong> Soit <span class="math inline">\(r
+\in \mathbb{N}, \geq 2\)</span> fixé, supposons que la proposition est
+vraie.</p>
+<p>Soient <span class="math inline">\(a_1,\ldots,a_{r+1} \in
+\mathbb{Z}\)</span> avec <span class="math inline">\(a_1 \neq
+0\)</span>, par hypothèse de récurrence, il existe <span
+class="math inline">\(u_1,\ldots,u_r \in \mathbb{Z}\)</span> tels que
+<span class="math inline">\(a_1 \wedge \ldots \wedge a_r =
+a_1u_1+\ldots+a_ru_r\)</span>.</p>
+<p>Or, <span class="math inline">\(\left(a_1 \wedge \ldots \wedge
+a_{r}\right) \wedge a_{r+1} = a_1 \wedge \ldots \wedge a_{r+1}\)</span>
+et par le cas <span class="math inline">\(r=2\)</span>, il existe <span
+class="math inline">\(u,v \in \mathbb{Z}\)</span> tels que <span
+class="math inline">\(\left(a_1 \wedge \ldots \wedge a_{r}\right) \wedge
+a_{r+1} = a_1 \wedge \ldots \wedge a_ru+ a_{r+1}v\)</span>.</p>
+<p>Donc <span class="math inline">\(a_1 \wedge \ldots \wedge a_{r+1} =
+a_1u_1u+\ldots+a_ru_ru + a_{r+1}v\)</span>.</p></li>
+<li><p><strong>CONCLUSION :</strong> Pour tout <span
+class="math inline">\(r \in \mathbb{N}, \geq 2\)</span>, et <span
+class="math inline">\(a_1,\ldots,a_r \in \mathbb{Z}\)</span> avec <span
+class="math inline">\(a_1 \neq 0\)</span> et <span
+class="math inline">\(d = a_1 \wedge \ldots \wedge a_r\)</span>, il
+existe <span class="math inline">\(u_1,\ldots,u_r \in
+\mathbb{Z}\)</span> tels que <span class="math inline">\(d =
+a_1u_1+\ldots+a_ru_r\)</span>.</p></li>
+</ul>
+</div>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(a_1,\ldots,a_r \in
+\mathbb{Z}\)</span> avec <span class="math inline">\(r \in \mathbb{N},
+\geq 2\)</span> et <span class="math inline">\(a_1 \neq 0\)</span>.</p>
+<ul>
+<li><p>On dit que <span class="math inline">\(a_1,\ldots,a_r\)</span>
+sont <u>premiers entre eux dans leur ensemble</u> si <span
+class="math inline">\(a_1 \wedge \ldots \wedge a_r =
+1\)</span>.</p></li>
+<li><p>Si pour tout <span class="math inline">\(1 \leq i \leq
+r\)</span>, <span class="math inline">\(a_i \neq 0\)</span>,</p>
+<p>on dit que <span class="math inline">\(a_1,\ldots,a_r\)</span> sont
+<u>deux à deux premiers entre eux</u> si pour tout <span
+class="math inline">\(1 \leq i \neq j \leq r\)</span>, <span
+class="math inline">\(a_i \wedge a_j = 1\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(a_1,\ldots,a_r \in
+\mathbb{Z}\)</span> avec <span class="math inline">\(r \in \mathbb{N},
+\geq 2\)</span> et pour tout <span class="math inline">\(1 \leq i \leq
+r\)</span>, <span class="math inline">\(a_i \neq 0\)</span>.</p>
+<p>Si les <span class="math inline">\(a_1,\ldots,a_r\)</span> sont deux
+à deux premiers entre eux alors ils sont premiers entre eux dans leur
+ensemble.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(\delta \in
+\mathscr{D}(a_1,\ldots,a_r)\)</span>, alors <span
+class="math inline">\(\delta \in \mathscr{D}\left(a_1,a_2\right) =
+\left\{1\right\}\)</span>. Donc <span class="math inline">\(\delta =
+1\)</span>.</p>
+</div>
+<div class="wrem">
+<p>La réciproque est fausse. Par exemple, avec <span
+class="math inline">\(a_1 = 6, a_2 = 10, a_3 = 15\)</span>, <span
+class="math inline">\(a_1 \wedge a_2 \wedge a_3 = 1\)</span> mais <span
+class="math inline">\(a_1 \wedge a_2 = 2\)</span>, <span
+class="math inline">\(a_2 \wedge a_3 = 5\)</span>, <span
+class="math inline">\(a_1 \wedge a_3 = 3\)</span>.</p>
+</div>
+<h1 data-number="3" id="ppcm-dans-mathbbz"><span
+class="header-section-number">3</span> PPCM dans <span
+class="math inline">\(\mathbb{Z}\)</span></h1>
+<h2 data-number="3.1" id="définition-1"><span
+class="header-section-number">3.1</span> Définition</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(a,b \in
+\mathbb{Z}^{\star}\)</span>.</p>
+<p>On note <span class="math inline">\(\mathscr{M}\left(a,b\right) =
+\left\{\mu \in \mathbb{N}^{\star}/ a|\mu \text{ et
+}b|\mu\right\}\)</span> l’ensemble des multiples communs à <span
+class="math inline">\(a\)</span> et <span
+class="math inline">\(b\)</span> dans <span
+class="math inline">\(\mathbb{N}^{\star}\)</span>.</p>
+<p>Alors, <span
+class="math inline">\(\mathscr{M}\left(a,b\right)\)</span> admet un
+minimum appelé le Plus Petit Commun Multiple (PPCM) de <span
+class="math inline">\(a\)</span> et <span
+class="math inline">\(b\)</span>, noté <span class="math inline">\(a
+\vee b\)</span> ou <span
+class="math inline">\(\mathrm{ppcm}\left(a,b\right)\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\mathscr{M}\left(a,b\right)\)</span> est
+une partie non vide de <span class="math inline">\(\mathbb{N}\)</span>
+car <span class="math inline">\(|ab| \in
+\mathscr{M}\left(a,b\right)\)</span>. De plus, elle est minorée par
+<span class="math inline">\(0\)</span> donc elle admet un minimum.</p>
+</div>
+<div class="wrem">
+<p>Pourquoi <span class="math inline">\(a \neq 0\)</span>
+<strong>et</strong> <span class="math inline">\(b \neq 0\)</span> ?</p>
+<p>Car si <span class="math inline">\(a = 0\)</span> par exemple, <span
+class="math inline">\(\mathscr{M}\left(a,b\right) =
+\emptyset\)</span>.</p>
+</div>
+<div class="wprop">
+<p><strong>(Lien entre PGCD et PPCM)</strong> Soient <span
+class="math inline">\(a,b \in \mathbb{Z}^{\star}\)</span>, tels que
+<span class="math inline">\(d = a \wedge b\)</span> et <span
+class="math inline">\(m = a \vee b\)</span>.</p>
+<p>Alors <span class="math inline">\(md = |ab|\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Par caractérisation du pgcd, il existe <span
+class="math inline">\(a&#39;,b&#39; \in \mathbb{Z}^{\star}\)</span> tels
+que <span class="math inline">\(a&#39; \wedge b&#39;=1\)</span> et <span
+class="math inline">\(a = da&#39;, b=db&#39;\)</span>.</p>
+<p>Montrons que <span class="math inline">\(\mathscr{M}\left(a,b\right)
+= \left\{dk|a&#39;b&#39;|/k\in \mathbb{N}^{\star}\right\}\)</span>.</p>
+<ul>
+<li><p>(<span class="math inline">\(\mathscr{M}\left(a,b\right) \supset
+\left\{dk|a&#39;b&#39;|/k\in \mathbb{N}^{\star}\right\}\)</span>)</p>
+<p>Soit <span class="math inline">\(k\in \mathbb{N}^{\star}\)</span>,
+<span class="math inline">\(dk|a&#39;b&#39;| \in
+\mathbb{N}^{\star}\)</span>, <span
+class="math inline">\(dk|a&#39;b&#39;| = k|da&#39;||b&#39;| =
+k|a||b&#39;|\)</span> donc <span class="math inline">\(a|
+dk|a&#39;b&#39;|\)</span> et <span
+class="math inline">\(dk|a&#39;b&#39;| = k|a&#39;||db&#39;| =
+k|a&#39;||b|\)</span> donc <span class="math inline">\(b|
+dk|a&#39;b&#39;|\)</span>.</p>
+<p>Donc <span class="math inline">\(dk|a&#39;b&#39;| \in
+\mathscr{M}\left(a,b\right)\)</span>.</p></li>
+<li><p>(<span class="math inline">\(\mathscr{M}\left(a,b\right) \subset
+\left\{dk|a&#39;b&#39;|/k\in \mathbb{N}^{\star}\right\}\)</span>)</p>
+<p>Soit <span class="math inline">\(\mu \in
+\mathscr{M}\left(a,b\right)\)</span>, <span class="math inline">\(a|
+\mu\)</span> et <span class="math inline">\(b|\mu\)</span> donc par
+transitivité, <span class="math inline">\(d| \mu\)</span> et il existe
+<span class="math inline">\(\mu&#39; \in \mathbb{N}^{\star}\)</span> tel
+que <span class="math inline">\(\mu = d\mu&#39;\)</span>.</p>
+<p>Donc <span class="math inline">\(a = a&#39;d | \mu =
+d\mu&#39;\)</span> donc <span class="math inline">\(a&#39; |
+\mu&#39;\)</span> et <span class="math inline">\(b = b&#39;d | \mu =
+d\mu&#39;\)</span> donc <span class="math inline">\(b&#39; |
+\mu&#39;\)</span>.</p>
+<p>De plus, <span class="math inline">\(a&#39; \wedge b&#39; =
+1\)</span> donc <span class="math inline">\(a&#39;b&#39; |
+\mu&#39;\)</span>. On en déduit qu’il existe <span
+class="math inline">\(k&#39; \in \mathbb{Z}\)</span> tel que <span
+class="math inline">\(\mu&#39; = k&#39;a&#39;b&#39;\)</span>.</p>
+<p>On a donc <span class="math inline">\(\mu =
+dk&#39;a&#39;b&#39;\)</span>. De plus, <span class="math inline">\(\mu
+\in \mathbb{N}^{\star}\)</span> donc <span class="math inline">\(\mu =
+|\mu| = |dk&#39;a&#39;b&#39;| = d|k&#39;||a&#39;b&#39;| =
+dk|a&#39;b&#39;|\)</span> avec <span class="math inline">\(k = |k&#39;|
+\in \mathbb{N}^{\star}\)</span>.</p></li>
+</ul>
+<p>Étant donné <span class="math inline">\(\mathscr{M}\left(a,b\right) =
+\left\{dk|a&#39;b&#39;|/k\in \mathbb{N}^{\star}\right\}\)</span>,</p>
+<p><span class="math inline">\(m = \min \mathscr{M}\left(a,b\right) =
+\min_{k\in \mathbb{N}^{\star}} dk|a&#39;b&#39;| = d.1.|a&#39;b&#39;| =
+d|a&#39;b&#39;|\)</span>.</p>
+<p>Enfin, <span class="math inline">\(md = d|a&#39;b&#39;|d =
+|a&#39;db&#39;d| = |ab|\)</span>.</p>
+</div>
+<div class="wcor">
+<p>Soient <span class="math inline">\(a,b \in
+\mathbb{Z}^{\star}\)</span>, tels que <span class="math inline">\(m = a
+\vee b\)</span>.</p>
+<p>Alors, soit <span class="math inline">\(\mu \in
+\mathscr{M}\left(a,b\right)\)</span>, <span
+class="math inline">\(m|\mu\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(\mu \in
+\mathscr{M}\left(a,b\right)\)</span>, par la preuve précédente, il
+existe <span class="math inline">\(k \in \mathbb{N}^{\star}\)</span> tel
+que <span class="math inline">\(\mu = kd|a&#39;b&#39;|\)</span> donc
+<span class="math inline">\(m = d|a&#39;b&#39;|\)</span> divise <span
+class="math inline">\(\mu\)</span>.</p>
+</div>
+<h2 data-number="3.2" id="extension-de-la-notion-de-ppcm"><span
+class="header-section-number">3.2</span> Extension de la notion de
+PPCM</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(a_1,\ldots,a_r \in
+\mathbb{Z}^{\star}\)</span> avec <span class="math inline">\(r \in
+\mathbb{N}, \geq 2\)</span>.</p>
+<p>On note <span
+class="math inline">\(\mathscr{M}\left(a_1,\ldots,a_r\right) = \left\{
+\mu \in \mathbb{N}^{\star}/ \forall 1 \leq i \leq r, a_i|\mu
+\right\}\)</span>, l’ensemble des multiples de <span
+class="math inline">\(a_1,\ldots,a_r\)</span>.</p>
+<p>Alors on définit le Plus Petit Commun Multiple de <span
+class="math inline">\(a_1,\ldots,a_r\)</span> comme le minimum de <span
+class="math inline">\(\mathscr{M}(a_1,\ldots,a_r)\)</span>, noté <span
+class="math inline">\(a_1 \vee \ldots \vee a_r\)</span> ou <span
+class="math inline">\(\mathrm{ppcm}\left(a_1,\ldots,a_r\right)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Comme montré précédemment, <span
+class="math inline">\(\mathscr{M}(a_1,\ldots,a_r)\)</span> est un
+ensemble non vide de <span class="math inline">\(\mathbb{N}\)</span>
+(qui contient <span class="math inline">\(|a_1|\ldots|a_r|\)</span>) et
+minoré par <span class="math inline">\(0\)</span>. Il admet donc un
+minimum.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(a_1,\ldots,a_r \in
+\mathbb{Z}^{\star}\)</span> avec <span class="math inline">\(r \in
+\mathbb{N}, \geq 2\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(a_1 \vee \ldots \vee a_r=\left(a_1
+\vee \ldots \vee a_{r-1}\right) \vee a_r\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\mu \in
+\mathscr{M}\left(a_1,\ldots,a_r\right)\)</span>, <span
+class="math inline">\(\mu| a_1 \vee \ldots \vee a_r\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<p>Montrons ces deux résultats par une seule récurrence sur <span
+class="math inline">\(r\)</span>.</p>
+<ul>
+<li><p><strong>INITIALISATION :</strong> Pour <span
+class="math inline">\(r=2\)</span>, 1. est évidente et 2. a déjà été
+montré.</p></li>
+<li><p><strong>HÉRÉDITÉ :</strong> Soit <span class="math inline">\(r
+\in \mathbb{N}, \geq 2\)</span> fixé, supposons que la proposition est
+vraie.</p>
+<p>Soient <span class="math inline">\(a_1,\ldots,a_{r+1} \in
+\mathbb{Z}^{\star}\)</span>,</p>
+<ol>
+<li><p>Montrons <span
+class="math inline">\(\mathscr{M}\left(a_1,\ldots,a_{r+1}\right) =
+\mathscr{M}\left(a_1 \vee \ldots \vee a_r,a_{r+1}\right)\)</span>.</p>
+<ul>
+<li><p>(<span
+class="math inline">\(\mathscr{M}\left(a_1,\ldots,a_{r+1}\right) \subset
+\mathscr{M}\left(a_1 \vee \ldots \vee a_r,a_{r+1}\right)\)</span>) Soit
+<span class="math inline">\(\mu \in
+\mathscr{M}\left(a_1,\ldots,a_{r+1}\right)\)</span>, alors <span
+class="math inline">\(\mu \in
+\mathscr{M}\left(a_1,\ldots,a_{r}\right)\)</span> donc par hypothèse de
+récurrence,</p>
+<p><span class="math inline">\(a_1 \vee \ldots \vee
+a_r|\mu\)</span>.</p>
+<p>Donc <span class="math inline">\(\mu \in \mathscr{M}\left(a_1 \vee
+\ldots \vee a_r,a_{r+1}\right)\)</span>.</p></li>
+<li><p>(<span
+class="math inline">\(\mathscr{M}\left(a_1,\ldots,a_{r+1}\right) \supset
+\mathscr{M}\left(a_1 \vee \ldots \vee a_r,a_{r+1}\right)\)</span>) Soit
+<span class="math inline">\(\mu \in \mathscr{M}\left(a_1 \vee \ldots
+\vee a_r,a_{r+1}\right)\)</span>, <span class="math inline">\(a_1 \vee
+\ldots \vee a_r|\mu\)</span> et <span class="math inline">\(a_{r+1}
+|\mu\)</span>,</p>
+<p>Or, <span class="math inline">\(a_i |a_1 \vee \ldots \vee
+a_r\)</span> pour <span class="math inline">\(1 \leq i \leq
+r\)</span>,</p>
+<p>donc <span class="math inline">\(a_i|\mu\)</span> pour <span
+class="math inline">\(1 \leq i \leq r+1\)</span>.</p>
+<p>Donc <span class="math inline">\(\mu \in
+\mathscr{M}\left(a_1,\ldots,a_{r+1}\right)\)</span>.</p></li>
+</ul>
+<p>On en déduit <span class="math inline">\(\min
+\mathscr{M}\left(a_1,\ldots,a_{r+1}\right) = \min\mathscr{M}\left(a_1
+\vee \ldots \vee a_r,a_{r+1}\right)\)</span> donc <span
+class="math inline">\(\left(a_1 \vee \ldots \vee a_{r}\right) \vee
+a_{r+1} = a_1 \vee \ldots \vee a_{r+1}\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(\mu \in
+\mathscr{M}\left(a_1,\ldots,a_{r+1}\right)\)</span>, par ce qui précède,
+<span class="math inline">\(\mu \in \mathscr{M}\left(a_1 \vee \ldots
+\vee a_r,a_{r+1}\right)\)</span>.</p>
+<p>Donc par le cas <span class="math inline">\(r=2\)</span>, <span
+class="math inline">\(\left(a_1 \vee \ldots \vee a_{r}\right) \vee
+a_{r+1} = a_1 \vee \ldots \vee a_{r+1} |\mu\)</span>.</p></li>
+</ol></li>
+<li><p><strong>CONCLUSION :</strong> Pour tout <span
+class="math inline">\(r \in \mathbb{N}, \geq 2\)</span>, soient <span
+class="math inline">\(a_1,\ldots,a_r \in
+\mathbb{Z}^{\star}\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(a_1 \vee \ldots \vee a_r=\left(a_1
+\vee \ldots \vee a_{r-1}\right) \vee a_r\)</span>.</p></li>
+<li><p><span class="math inline">\(\mu \in
+\mathscr{M}\left(a_1,\ldots,a_r\right)\)</span>, <span
+class="math inline">\(a_1 \vee \ldots \vee a_r |\mu\)</span>.</p></li>
+</ol></li>
+</ul>
+</div>
+<div class="wrem">
+<p>Soient <span class="math inline">\(a_1,\ldots,a_r \in
+\mathbb{Z}^{\star}\)</span> avec <span class="math inline">\(r \in
+\mathbb{N}, \geq 2\)</span>, <span class="math inline">\(d = a_1 \wedge
+\ldots \wedge a_r\)</span> et <span class="math inline">\(m = a_1 \vee
+\ldots \vee a_r\)</span>, en général <span class="math inline">\(md \neq
+|a_1 \ldots a_r|\)</span>.</p>
+<p>Par exemple, avec <span class="math inline">\(a_1 = 2, a_2 = 3, a_3 =
+6\)</span>, <span class="math inline">\(a_1a_2a_3 = 36\)</span>, <span
+class="math inline">\(a_1 \wedge a_2 \wedge a_3 = 1\)</span> et <span
+class="math inline">\(a_1 \vee a_2 \vee a_3 = 6\)</span>.</p>
+</div>
+<h1 data-number="4" id="entiers-premiers"><span
+class="header-section-number">4</span> Entiers premiers</h1>
+<h2 data-number="4.1" id="définition-2"><span
+class="header-section-number">4.1</span> Définition</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(p \in \mathbb{N}\)</span>, <span
+class="math inline">\(p\)</span> est dit premier si <span
+class="math inline">\(p \neq 1\)</span> et les seuls diviseurs de <span
+class="math inline">\(p\)</span> dans <span
+class="math inline">\(\mathbb{N}\)</span> sont <span
+class="math inline">\(1\)</span> et <span
+class="math inline">\(p\)</span>.</p>
+<p>On note <span class="math inline">\(\mathscr{P}\)</span> l’ensemble
+des nombres premiers dans <span
+class="math inline">\(\mathbb{N}\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Si <span class="math inline">\(p \in \mathscr{P}, \neq 2\)</span>,
+<span class="math inline">\(p\)</span> est impair. Sinon, il admet <span
+class="math inline">\(2\)</span> comme diviseur avec <span
+class="math inline">\(2 \neq p\)</span>.</p>
+</div>
+<div class="wlem">
+<p>Soit <span class="math inline">\(n \in \mathbb{N}, \geq 2\)</span>,
+il existe <span class="math inline">\(p \in \mathscr{P}\)</span> tel que
+<span class="math inline">\(p|n\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(\mathscr{D}(n)\)</span> l’ensemble
+des diviseurs de <span class="math inline">\(n\)</span> dans <span
+class="math inline">\(\mathbb{N}\)</span>, <span
+class="math inline">\(\geq 2\)</span>. <span
+class="math inline">\(\mathscr{D}(n)\)</span> est une partie de <span
+class="math inline">\(\mathbb{N}\)</span> non vide, car <span
+class="math inline">\(n \in \mathscr{D}(n)\)</span> et minorée par <span
+class="math inline">\(0\)</span>. On pose <span class="math inline">\(p
+= \min \mathscr{D}(n)\)</span>. Montrons que <span
+class="math inline">\(p\)</span> est premier.</p>
+<p>Soit <span class="math inline">\(q\)</span> un diviseur dans <span
+class="math inline">\(\mathbb{N}\)</span> de <span
+class="math inline">\(p\)</span> tel que <span class="math inline">\(q
+\neq 1\)</span>. Alors, par transitivité, <span class="math inline">\(q
+|n\)</span> donc <span class="math inline">\(q \in
+\mathscr{D}(n)\)</span>.</p>
+<p>De plus, <span class="math inline">\(q \leq p\)</span> donc <span
+class="math inline">\(q = \min \mathscr{D}(n) = p\)</span>.</p>
+<p>On en déduit que <span class="math inline">\(p\)</span> est
+effectivement premier.</p>
+</div>
+<div class="wprop">
+<p><span class="math inline">\(\mathscr{P}\)</span> est infini.</p>
+</div>
+<div class="wproof">
+<p>On sait que <span class="math inline">\(\mathscr{P}\)</span> est non
+vide.</p>
+<p>Par l’absurde, supposons que <span
+class="math inline">\(\mathscr{P}\)</span> est fini avec <span
+class="math inline">\(\mathscr{P}=
+\left\{p_1,\ldots,p_N\right\}\)</span> et <span class="math inline">\(N
+\in \mathbb{N}^{\star}\)</span>.</p>
+<p>Considérons le nombre <span class="math inline">\(a = 1+p_1 \times
+\ldots \times p_N\)</span>.</p>
+<p>Alors, <span class="math inline">\(a \geq 2\)</span> et par le lemme
+précédent, il existe <span class="math inline">\(p \in
+\mathscr{P}\)</span> tel que <span
+class="math inline">\(p|a\)</span>.</p>
+<p>Autrement dit, il existe <span class="math inline">\(1 \leq i \leq
+N\)</span> tel que <span class="math inline">\(p_i |a\)</span>.</p>
+<p>Or, <span class="math inline">\(p_i | p_1 \times \ldots \times
+p_N\)</span> donc <span class="math inline">\(p_i | a-p_1 \times \ldots
+\times p_N = 1\)</span> et <span class="math inline">\(p_i = 1\)</span>,
+ce qui est absurde.</p>
+</div>
+<h2 data-number="4.2" id="propriétés"><span
+class="header-section-number">4.2</span> Propriétés</h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\(p \in \mathscr{P}\)</span> et <span
+class="math inline">\(a \in \mathbb{Z}\)</span> tel que <span
+class="math inline">\(p \centernot{|} a\)</span>.</p>
+<p>Alors, <span class="math inline">\(p \wedge a = 1\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(d = p \wedge a\)</span>.</p>
+<p><span class="math inline">\(d| p\)</span> donc <span
+class="math inline">\(d = p\)</span> ou <span
+class="math inline">\(d=1\)</span>.</p>
+<p>De plus, <span class="math inline">\(d|a\)</span> donc <span
+class="math inline">\(d \neq p\)</span> et <span
+class="math inline">\(d=1\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(p \in \mathscr{P}\)</span> et <span
+class="math inline">\(a_1,\ldots,a_r \in \mathbb{Z}\)</span> (<span
+class="math inline">\(r \in \mathbb{N}, \geq 2\)</span>) tels que <span
+class="math inline">\(p|a_1\ldots a_r\)</span>.</p>
+<p>Alors, il existe <span class="math inline">\(i \in [\![ 1,r
+]\!]\)</span> tel que <span class="math inline">\(p|a_i\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Montrons ce résultat par récurrence sur <span
+class="math inline">\(r\)</span>.</p>
+<ul>
+<li><p><strong>INITIALISATION :</strong> Pour <span
+class="math inline">\(r=2\)</span>,</p>
+<ul>
+<li><p>Soit <span class="math inline">\(p | a_1\)</span>,</p></li>
+<li><p>Soit <span class="math inline">\(p \centernot{|} a_1\)</span> et
+par la propriété précédente, <span class="math inline">\(p \wedge a_1 =
+1\)</span>. On a donc, par lemme de Gauss, <span
+class="math inline">\(p|a_2\)</span>.</p></li>
+</ul></li>
+<li><p><strong>HÉRÉDITÉ :</strong> Soit <span class="math inline">\(r
+\in \mathbb{N}, \geq 2\)</span> fixé, supposons que la proposition est
+vraie.</p>
+<p>Soient <span class="math inline">\(p \in \mathscr{P}\)</span> et
+<span class="math inline">\(a_1,\ldots,a_{r+1} \in \mathbb{Z}\)</span>
+tels que <span class="math inline">\(p|a_1\ldots a_{r+1}\)</span></p>
+<ul>
+<li><p>Soit <span class="math inline">\(p | a_{r+1}\)</span>,</p></li>
+<li><p>Soit <span class="math inline">\(p \centernot{|} a_{r+1}\)</span>
+et par la propriété précédente, <span class="math inline">\(p \wedge
+a_{r+1} = 1\)</span>. On a donc, par lemme de Gauss, <span
+class="math inline">\(p|a_1\ldots a_r\)</span>.</p>
+<p>Par hypothèse de récurrence, on a donc l’existence de <span
+class="math inline">\(i \in [\![ 1,r ]\!]\)</span> tel que <span
+class="math inline">\(p|a_i\)</span>.</p></li>
+</ul></li>
+<li><p><strong>CONCLUSION :</strong> Pour tout <span
+class="math inline">\(r \in \mathbb{N}, \geq 2\)</span>, <span
+class="math inline">\(a_1,\ldots,a_r \in \mathbb{Z}\)</span> et <span
+class="math inline">\(p \in \mathscr{P}\)</span> tels que <span
+class="math inline">\(p|a_1\ldots a_r\)</span>, il existe <span
+class="math inline">\(i \in [\![ 1,r ]\!]\)</span> tel que <span
+class="math inline">\(p|a_i\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="4.3" id="factorisation-à-laide-dentiers-premiers"><span
+class="header-section-number">4.3</span> Factorisation à l’aide
+d’entiers premiers</h2>
+<div class="wthm">
+<p><span id="thm:decompo_nbres_premiers"
+label="thm:decompo_nbres_premiers"></span> Soit <span
+class="math inline">\(n \in \mathbb{N}, \geq 2\)</span>.</p>
+<p>Alors il existe <span class="math inline">\(r\in \mathbb{N}\)</span>,
+<span class="math inline">\(p_1, \ldots, p_r\)</span> entiers premiers
+distincts et <span class="math inline">\(\alpha_1,\ldots,\alpha_r \in
+\mathbb{N}^{\star}\)</span> tels que <span class="math inline">\(n =
+p_1^{\alpha_1} \ldots p_r^{\alpha_r}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Montrons le résultat par récurrence sur <span
+class="math inline">\(n\)</span>.</p>
+<ul>
+<li><p><strong>INITIALISATION :</strong> Pour <span
+class="math inline">\(n=2\)</span>, <span class="math inline">\(r=1, p_1
+= 2, \alpha_1 = 1\)</span> conviennent.</p></li>
+<li><p><strong>HÉRÉDITÉ :</strong> Soit <span class="math inline">\(n
+\in \mathbb{N}, \geq 2\)</span> fixé, supposons que pour tout <span
+class="math inline">\(m \in [\![ 2,n]\!]\)</span>, il existe <span
+class="math inline">\(r\in \mathbb{N}^{\star}\)</span>, <span
+class="math inline">\(p_1, \ldots, p_r\)</span> entiers premiers
+distincts et <span class="math inline">\(\alpha_1,\ldots,\alpha_r \in
+\mathbb{N}^{\star}\)</span> tels que <span class="math inline">\(m =
+p_1^{\alpha_1} \ldots p_r^{\alpha_r}\)</span>.</p>
+<p>Alors, comme <span class="math inline">\(n+1 \geq 2\)</span>, il
+existe <span class="math inline">\(p_1 \in \mathscr{P}\)</span> tel que
+<span class="math inline">\(p_1 | n+1\)</span>. On considère <span
+class="math inline">\(\left\{\ell \in \mathbb{N}^{\star}/ p_1^\ell |
+n+1\right\}\)</span>. Cet ensemble est un ensemble de <span
+class="math inline">\(\mathbb{N}\)</span> non vide, qui contient <span
+class="math inline">\(1\)</span> et est majoré car <span
+class="math inline">\(p_1^\ell \leq n+1 \Longrightarrow \ln(p_1^\ell)=
+\ell \ln(p_1) \leq \ln(n+1) \Longrightarrow \ell \leq
+\frac{\ln(n+1)}{\ln(p_1)}\)</span>.</p>
+<p>On peut donc, par principe du bon ordre, considérer <span
+class="math inline">\(\alpha_1 = \max \left\{\ell \in
+\mathbb{N}^{\star}/ p_1^\ell | n+1\right\}\)</span> et on note <span
+class="math inline">\(m \in \mathbb{N}^{\star}\)</span> tel que <span
+class="math inline">\(n = p_1^{\alpha_1}m\)</span>.</p>
+<ul>
+<li><p>Soit <span class="math inline">\(m=1\)</span> et <span
+class="math inline">\(n =\)</span> <span class="math inline">\(r=1, p_1
+= p_1^{\alpha_1}\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(m \neq 1\)</span> donc <span
+class="math inline">\(m \geq 2\)</span>. On a alors <span
+class="math inline">\(m &lt; n+1\)</span>.</p>
+<p>Donc par hypothèse de récurrence, il existe <span
+class="math inline">\(r\in \mathbb{N}^{\star}\)</span>, <span
+class="math inline">\(p_2, \ldots, p_r\)</span> entiers premiers
+distincts, et <span class="math inline">\(\alpha_2,\ldots,\alpha_r \in
+\mathbb{N}^{\star}\)</span> tels que <span class="math inline">\(m =
+p_2^{\alpha_2} \ldots p_r^{\alpha_r}\)</span>.</p>
+<p>Donc <span class="math inline">\(n = p_1^{\alpha_1}m= p_1^{\alpha_1}
+\ldots p_r^{\alpha_r}\)</span>.</p>
+<p>De plus, pour tout <span class="math inline">\(i \in [\![
+2,r]\!]\)</span>, <span class="math inline">\(p_i \neq p_1\)</span>.</p>
+<p>Car sinon, on aurait <span class="math inline">\(n =
+p_1^{\alpha_1+\alpha_i} \ldots p_r^{\alpha_r}\)</span> donc <span
+class="math inline">\(p_1^{\alpha_1+\alpha_i} |n\)</span>, ce qui est
+contradictoire.</p></li>
+</ul></li>
+<li><p><strong>CONCLUSION :</strong> Pour tout <span
+class="math inline">\(n \in \mathbb{N}, \geq 2\)</span>, il existe <span
+class="math inline">\(r\in \mathbb{N}^{\star}\)</span>, <span
+class="math inline">\(p_1, \ldots, p_r\)</span> entiers premiers
+distincts et <span class="math inline">\(\alpha_1,\ldots,\alpha_r \in
+\mathbb{N}^{\star}\)</span> tels que <span class="math inline">\(n =
+p_1^{\alpha_1} \ldots p_r^{\alpha_r}\)</span>.</p></li>
+</ul>
+</div>
+<div class="wex">
+<p><span class="math inline">\(2016 = 2\times 1008 = 2^2\times 504 = 2^3
+\times 252 = 2^4 \times 126 = 2^5 \times 63 = 2^5 \times 3 \times 21 =
+2^5 \times 3^2 \times 7\)</span>.</p>
+</div>
+<p><strong>"Unicité de la factorisation".</strong> </p>
+<p>On peut alors s’interroger sur l’unicité de cette décomposition. Mais
+en général, par exemple, <span class="math inline">\(p_1p_2 = q_1
+q_2\)</span> avec <span class="math inline">\(q_1 = p_2\)</span> et
+<span class="math inline">\(q_2 = p_1\)</span>. En revanche, on aura
+bien unicité "à l’ordre près".</p>
+<div class="wprop">
+<p>Soient <span class="math inline">\(n \in \mathbb{N}\)</span> tel que
+<span class="math inline">\(n \geq 2\)</span> et</p>
+<p><span class="math inline">\(r\in \mathbb{N}^{\star}\)</span>, <span
+class="math inline">\(p_1, \ldots, p_r\)</span> entiers premiers
+distincts et <span class="math inline">\(k_1,\ldots,k_r \in
+\mathbb{N}^{\star}\)</span> tels que <span class="math inline">\(n =
+p_1^{\alpha_1} \ldots p_r^{\alpha_r}\)</span></p>
+<p>puis <span class="math inline">\(s\in \mathbb{N}^{\star}\)</span>,
+<span class="math inline">\(q_1, \ldots, q_s\)</span> entiers premiers
+distincts et <span class="math inline">\(\beta_1,\ldots,\beta_s \in
+\mathbb{N}^{\star}\)</span> tels que <span class="math inline">\(n =
+q_1^{\beta_1} \ldots q_r^{\beta_r}\)</span>.</p>
+<p>Alors <span class="math inline">\(s=r\)</span> et pour tout <span
+class="math inline">\(i \in [\![ 1,r]\!]\)</span>, il existe <span
+class="math inline">\(j \in [\![ 1,s]\!]\)</span> tel que <span
+class="math inline">\(p_i = q_j\)</span> et <span
+class="math inline">\(\alpha_i = \beta_j\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Commençons par montrer que <span
+class="math inline">\(\left\{p_1,\ldots,p_r\right\}\)</span> est
+l’ensemble des diviseurs premiers de <span
+class="math inline">\(n\)</span>.</p>
+<p>Soit <span class="math inline">\(p \in \mathscr{P}\)</span> tel que
+<span class="math inline">\(p|n\)</span>, alors <span
+class="math inline">\(p| p_1^{\alpha_1} \ldots
+p_r^{\alpha_r}\)</span>.</p>
+<p>Donc il existe <span class="math inline">\(1 \leq i \leq r\)</span>
+tel que <span class="math inline">\(p| p_i^{\alpha_i}\)</span> donc
+<span class="math inline">\(p | p_i\)</span> (<span
+class="math inline">\(p\)</span> divise l’un des facteurs du produit
+<span class="math inline">\(p_i^{\alpha_i}\)</span> donc <span
+class="math inline">\(p_i\)</span>).</p>
+<p>On en déduit que <span class="math inline">\(p \in
+\left\{1,p_i\right\}\)</span> et comme <span class="math inline">\(p\neq
+1\)</span>, <span class="math inline">\(p = p_i\)</span>.</p>
+<p>De plus, les <span class="math inline">\(p_i\)</span> sont des
+diviseurs premiers de <span class="math inline">\(n\)</span>.</p></li>
+<li><p>On en déduit que <span
+class="math inline">\(\left\{q_1,\ldots,q_s\right\}\)</span> est aussi
+l’ensemble des diviseurs premiers de <span
+class="math inline">\(n\)</span> et donc que <span
+class="math inline">\(r=s\)</span> et <span
+class="math inline">\(\left\{p_1,\ldots,p_r\right\} =
+\left\{q_1,\ldots,q_s\right\}\)</span>.</p>
+<p>Quitte à numéroter les <span class="math inline">\(q_j\)</span>, on
+peut supposer que <span class="math inline">\(p_i = q_i\)</span> pour
+tout <span class="math inline">\(1 \leq i \leq r\)</span>.</p></li>
+<li><p>Maintenant, montrons <span class="math inline">\(\alpha_i =
+\beta_i\)</span> pour tout <span class="math inline">\(1 \leq i \leq
+r\)</span>.</p>
+<p>On a <span class="math inline">\(p_1^{\alpha_1} \ldots p_r^{\alpha_r}
+= q_1^{\beta_1} \ldots q_r^{\beta_r}\)</span></p>
+<p>Donc <span class="math inline">\(p_i^{\alpha_i} | q_1^{\beta_1}
+\ldots q_r^{\beta_r}\)</span> et il existe <span class="math inline">\(1
+\leq j \leq r\)</span> tel que <span
+class="math inline">\(p_i^{\alpha_i} | q_j^{\beta_j}\)</span> donc,
+comme dans ce qui précède, on a forcément <span class="math inline">\(j
+= i\)</span>, <span class="math inline">\(p_i^{\alpha_i} |
+q_i^{\beta_i}\)</span> et <span class="math inline">\(\alpha_i \leq
+\beta_i\)</span>.</p>
+<p>De même, en écrivant <span class="math inline">\(q_i^{\alpha_i} |
+p_1^{\alpha_1} \ldots p_r^{\alpha_r}\)</span>, on a <span
+class="math inline">\(\beta_i \leq \alpha_i\)</span>.</p>
+<p>Donc finalement, <span class="math inline">\(\alpha_i =
+\beta_i\)</span>.</p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>Pour avoir une unicité plus agréable à écrire, on peut fixer un ordre
+comme par exemple :</p>
+<p>Soit <span class="math inline">\(n \in \mathbb{N}, \geq
+2\)</span>.</p>
+<p>Alors il existe <span class="math inline">\(r\in \mathbb{N}\)</span>,
+<span class="math inline">\(p_1 &lt; \ldots &lt; p_r\)</span> entiers
+premiers distincts, et <span
+class="math inline">\(\alpha_1,\ldots,\alpha_r \in
+\mathbb{N}^{\star}\)</span> tous uniques tels que <span
+class="math inline">\(n = p_1^{\alpha_1} \ldots
+p_r^{\alpha_r}\)</span>.</p>
+</div>
+<div class="wappli">
+<p>Soit <span class="math inline">\(n \in \mathbb{N}, \geq 2\)</span>
+qui se décompose en <span class="math inline">\(n = p_1^{\alpha_1}
+\ldots p_r^{\alpha_r}\)</span> avec <span class="math inline">\(r\in
+\mathbb{N}\)</span>, <span class="math inline">\(p_1, \ldots,
+p_r\)</span> entiers premiers distincts, et <span
+class="math inline">\(\alpha_1,\ldots,\alpha_r \in
+\mathbb{N}^{\star}\)</span> alors soit <span class="math inline">\(m \in
+\mathbb{N}\)</span>,</p>
+<p><span class="math display">\[m | n \iff m = p_1^{k_1} \ldots
+p_r^{k_r} \text{ avec }0 \leq k_i \leq \alpha_i \text{ pour tout $1 \leq
+i \leq r$}.\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Si <span
+class="math inline">\(m = p_1^{k_1} \ldots p_r^{k_r} \text{ avec }0 \leq
+k_i \leq \alpha_i\)</span> pour tout <span class="math inline">\(1 \leq
+i \leq r\)</span>,</p>
+<p><span class="math inline">\(n = p_1^{\alpha_1} \ldots p_r^{\alpha_r}
+= p_1^{\alpha_1-k_1} \ldots p_r^{\alpha_r-k_r} p_1^{k_1} \ldots
+p_r^{k_r} = p_1^{\alpha_1-k_1} \ldots p_r^{\alpha_r-k_r}m\)</span> avec
+<span class="math inline">\(p_1^{\alpha_1-k_1} \ldots p_r^{\alpha_r-k_r}
+\in \mathbb{Z}\)</span> car <span class="math inline">\(\alpha_i-k_i
+\geq 0\)</span> pour tout <span class="math inline">\(1 \leq i \leq
+r\)</span>.</p>
+<p>Donc <span class="math inline">\(m|n\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Soit <span
+class="math inline">\(m \in \mathbb{N}\)</span> tel que <span
+class="math inline">\(m|n\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(m = 1\)</span>, <span
+class="math inline">\(m = p_1^{k_1} \ldots p_r^{k_r}\)</span> avec <span
+class="math inline">\(k_i = 0\)</span> pour tout <span
+class="math inline">\(1 \leq i \leq r\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(m \geq 2\)</span>, soit <span
+class="math inline">\(p \in \mathscr{P}\)</span> diviseur premier de
+<span class="math inline">\(m\)</span> alors, par transitivité, <span
+class="math inline">\(p|n = p_1^{\alpha_1} \ldots
+p_r^{\alpha_r}\)</span>. Donc il existe <span class="math inline">\(1
+\leq i \leq r\)</span> tel que <span
+class="math inline">\(p|p_i^{\alpha_i}\)</span> donc <span
+class="math inline">\(p|p_i\)</span> et <span
+class="math inline">\(p=p_i\)</span>.</p>
+<p>On en déduit que les diviseurs premiers de <span
+class="math inline">\(m\)</span> sont inclus dans <span
+class="math inline">\(\left\{p_1,\ldots,p_r\right\}\)</span>.</p>
+<p>En particulier, <span class="math inline">\(m = p_1^{k_1} \ldots
+p_r^{k_r}\)</span> avec <span class="math inline">\(k_i \in
+\mathbb{N}\)</span> pour <span class="math inline">\(1 \leq i \leq
+r\)</span>. En particulier, éventuellement <span
+class="math inline">\(k_i = 0\)</span> car si les diviseurs premiers de
+<span class="math inline">\(m\)</span> sont inclus dans <span
+class="math inline">\(\left\{p_1,\ldots,p_r\right\}\)</span>,
+l’inclusion inverse est a priori fausse.</p>
+<p>De plus, pour <span class="math inline">\(1 \leq i \leq r\)</span>,
+si <span class="math inline">\(k_i \neq 0\)</span>, <span
+class="math inline">\(p_i^{k_i} | n\)</span> donc il existe <span
+class="math inline">\(1\leq j \leq r\)</span> tel que <span
+class="math inline">\(p_i^{k_i} | p_j^{\alpha_j}\)</span> et forcément
+<span class="math inline">\(j = i\)</span> donc <span
+class="math inline">\(k_i \leq \alpha_i\)</span>.</p>
+<p>On a donc bien <span class="math inline">\(m = p_1^{k_1} \ldots
+p_r^{k_r}\)</span> avec <span class="math inline">\(0\leq k_i \leq
+\alpha_i\)</span> pour <span class="math inline">\(1 \leq i \leq
+r\)</span>.</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="wex">
+<p>Si <span class="math inline">\(n = p^k\)</span> avec <span
+class="math inline">\(p \in \mathscr{P}\)</span> et <span
+class="math inline">\(k \in \mathbb{N}^{\star}\)</span>, <span
+class="math inline">\(m|n \iff m = p^\ell\)</span> avec <span
+class="math inline">\(0 \leq \ell \leq k\)</span>.</p>
+</div>
+<div class="wappli">
+<p>Soient <span class="math inline">\(a,b \in \mathbb{N}\)</span> tels
+que <span class="math inline">\(a \geq 2\)</span> et <span
+class="math inline">\(b \geq 2\)</span>.</p>
+<ul>
+<li><p>Soit les décompositions en facteurs premiers de <span
+class="math inline">\(a\)</span> et <span
+class="math inline">\(b\)</span> n’ont aucun facteur commun et <span
+class="math inline">\(a \wedge b = 1\)</span>.</p></li>
+<li><p>Soit les décompositions en facteurs premiers de <span
+class="math inline">\(a\)</span> et <span
+class="math inline">\(b\)</span> ont un ou plusieurs facteurs communs.
+On peut alors écrire leurs décompositions en facteurs premiers en <span
+class="math display">\[a=\underbrace{p_1^{\alpha_1} \ldots
+p_t^{\alpha_t}}_{\text{facteurs communs}} p_{t+1}^{\alpha_{t+1}}\ldots
+p_r^{\alpha_r} \text{ et }b=\underbrace{p_1^{\beta_1} \ldots
+p_t^{\beta_t}}_{\text{facteurs communs}} q_{t+1}^{\beta_{t+1}} \ldots
+q_s^{\beta_s}\]</span> avec <span class="math inline">\(r,s\in
+\mathbb{N}\)</span>, <span class="math inline">\(1 \leq t \leq
+\min(r,s)\)</span>, <span class="math inline">\(p_1, \ldots,
+p_r,q_{t+1},\ldots, q_s\)</span> entiers premiers distincts, et <span
+class="math inline">\(\alpha_1,\ldots,\alpha_r,\beta_1,\ldots,\beta_s
+\in \mathbb{N}^{\star}\)</span> et dans ce cas, <span
+class="math inline">\(d = a \wedge b\)</span> se décompose en <span
+class="math display">\[d = p_1^{\min(\alpha_1,\beta_1)} \ldots
+p_t^{\min(\alpha_t,\beta_t)}.\]</span></p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Si les décompositions de <span class="math inline">\(a\)</span>
+et <span class="math inline">\(b\)</span> n’ont aucun facteur commun,
+soit <span class="math inline">\(\delta \in
+\mathscr{D}\left(a,b\right)\)</span>. Supposons par l’absurde que <span
+class="math inline">\(\delta \geq 2\)</span>.</p>
+<p>Alors, <span class="math inline">\(\delta|a\)</span> et <span
+class="math inline">\(\delta |b\)</span> par l’application précédente,
+les facteurs premiers de <span class="math inline">\(\delta\)</span>
+sont parmi les facteurs premiers de <span
+class="math inline">\(a\)</span> et <span
+class="math inline">\(b\)</span>.</p>
+<p>Or, les décompositions de <span class="math inline">\(a\)</span> et
+<span class="math inline">\(b\)</span> n’ont aucun facteur commun donc
+c’est absurde.</p>
+<p>Donc <span class="math inline">\(\delta = 1\)</span> et <span
+class="math inline">\(a \wedge b = 1\)</span>.</p></li>
+<li><p>D’abord, d’après l’application précédente, <span
+class="math inline">\(d =p_1^{\min(\alpha_1,\beta_1)} \ldots
+p_t^{\min(\alpha_t,\beta_t)}\)</span> divise <span
+class="math inline">\(a\)</span> et <span
+class="math inline">\(b\)</span> car <span
+class="math inline">\(\min(\alpha_i,\beta_i) \leq \alpha_i\)</span> et
+<span class="math inline">\(\min(\alpha_i,\beta_i) \leq \beta_i\)</span>
+pour tout <span class="math inline">\(1 \leq i \leq t\)</span>. Donc
+<span class="math inline">\(d \in
+\mathscr{D}\left(a,b\right)\)</span>.</p>
+<p>De plus, si <span class="math inline">\(\delta \in
+\mathscr{D}\left(a,b\right)\)</span>, <span
+class="math inline">\(\delta|a\)</span> donc par l’application
+précédente, <span class="math inline">\(\delta = p_1^{k_1} \ldots
+p_t^{k_t} p_{t+1}^{k_{t+1}}\ldots p_r^{k_r}\)</span> avec <span
+class="math inline">\(0 \leq k_i \leq \alpha_i\)</span> pour tout <span
+class="math inline">\(1 \leq i \leq r\)</span>. Aussi, <span
+class="math inline">\(\delta|b\)</span> donc encore par l’application
+précédente, <span class="math inline">\(\delta = p_1^{\ell_1} \ldots
+p_t^{\ell_t} q_{t+1}^{\ell_{t+1}}\ldots q_s^{\ell_s} \text{ avec }0 \leq
+\ell_i \leq \beta_i\)</span> pour tout <span class="math inline">\(1
+\leq i \leq s\)</span>.</p>
+<p>Par unicité de la décomposition en facteurs premiers, on a forcément
+<span class="math inline">\(k_i = \ell_i\)</span> pour <span
+class="math inline">\(1\leq i \leq t\)</span>, <span
+class="math inline">\(k_i = 0\)</span> pour <span
+class="math inline">\(i \in [\![ t+1,r]\!]\)</span> et <span
+class="math inline">\(\ell_i = 0\)</span> pour <span
+class="math inline">\(i \in [\![ t+1,s]\!]\)</span> (car <span
+class="math inline">\(\left\{p_{t+1},\ldots,p_r\right\} \cap
+\left\{q_{t+1},\ldots,q_s\right\} = \emptyset\)</span>).</p>
+<p>Donc <span class="math inline">\(\delta = p_1^{k_1} \ldots p_t^{k_t}
+p_{t+1}^{k_{t+1}}\)</span> avec <span class="math inline">\(0 \leq k_i
+\leq \alpha_i\)</span> et <span class="math inline">\(0 \leq k_i \leq
+\beta_i\)</span> donc <span class="math inline">\(0\leq k_i \leq
+\min(\alpha_i,\beta_i)\)</span> pour tout <span class="math inline">\(1
+\leq i \leq t\)</span>.</p>
+<p>Donc <span class="math inline">\(\delta \leq d\)</span> et <span
+class="math inline">\(d = \max \mathscr{D}\left(a,b\right) = a \wedge
+b\)</span>.</p></li>
+</ul>
+</div>
+<div class="wcor">
+<p>Soient <span class="math inline">\(a,b \in \mathbb{N}\)</span> tels
+que <span class="math inline">\(a \geq 2\)</span> et <span
+class="math inline">\(b \geq 2\)</span>.</p>
+<ul>
+<li><p>Soit les décompositions en facteurs premiers de <span
+class="math inline">\(a\)</span> et <span
+class="math inline">\(b\)</span> n’ont aucun facteur commun et <span
+class="math inline">\(a \vee b = ab\)</span>.</p></li>
+<li><p>Soit les décompositions en facteurs premiers de <span
+class="math inline">\(a\)</span> et <span
+class="math inline">\(b\)</span> ont un ou plusieurs facteurs communs et
+en reprenant les notations précédentes <span
+class="math display">\[a=\underbrace{p_1^{\alpha_1} \ldots
+p_t^{\alpha_t}}_{\text{facteurs communs}} p_{t+1}^{\alpha_{t+1}}\ldots
+p_r^{\alpha_r} \text{ et }b=\underbrace{p_1^{\beta_1} \ldots
+p_t^{\beta_t}}_{\text{facteurs communs}} q_{t+1}^{\beta_{t+1}} \ldots
+q_s^{\beta_s}\]</span> avec <span class="math inline">\(r,s\in
+\mathbb{N}\)</span>, <span class="math inline">\(1 \leq t \leq
+\min(r,s)\)</span>, <span class="math inline">\(p_1, \ldots,
+p_r,q_{t+1},\ldots, q_s\)</span> entiers premiers distincts, et <span
+class="math inline">\(\alpha_1,\ldots,\alpha_r,\beta_1,\ldots,\beta_s
+\in \mathbb{N}^{\star}\)</span> et dans ce cas, <span
+class="math inline">\(m = a \vee b\)</span> se décompose en <span
+class="math display">\[m = p_1^{\max(\alpha_1,\beta_1)} \ldots
+p_t^{\max(\alpha_t,\beta_t)}p_{t+1}^{\alpha_{t+1}}\ldots
+p_r^{\alpha_r}q_{t+1}^{\beta_{t+1}} \ldots
+q_s^{\beta_s}.\]</span></p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Si les décompositions en facteurs premiers de <span
+class="math inline">\(a\)</span> et <span
+class="math inline">\(b\)</span> n’ont aucun facteur commun, alors <span
+class="math inline">\(a \wedge b = 1\)</span> et <span
+class="math inline">\(a \vee b = \frac{ab}{a \wedge b} =
+ab\)</span>.</p></li>
+<li><p>Soit les décompositions en facteurs premiers de <span
+class="math inline">\(a\)</span> et <span
+class="math inline">\(b\)</span> ont un ou plusieurs facteurs communs et
+par ce qui précède, <span class="math display">\[d = a \wedge b =
+p_1^{\min(\alpha_1,\beta_1)} \ldots
+p_t^{\min(\alpha_t,\beta_t)}.\]</span></p>
+<p>On a donc, <span class="math display">\[\begin{aligned}
+    m
+    &amp; = \frac{ab}{d} \\
+    &amp; = \frac{p_1^{\alpha_1} \ldots
+p_t^{\alpha_t}p_{t+1}^{\alpha_{t+1}}\ldots p_r^{\alpha_r}p_1^{\beta_1}
+\ldots p_t^{\beta_t}q_{t+1}^{\beta_{t+1}} \ldots
+q_s^{\beta_s}}{p_1^{\min(\alpha_1,\beta_1)} \ldots
+p_t^{\min(\alpha_t,\beta_t)}} \\
+    &amp; = \frac{p_1^{\alpha_1+\beta_1} \ldots
+p_t^{\alpha_t+\beta_t}p_{t+1}^{\alpha_{t+1}}\ldots
+p_r^{\alpha_r}q_{t+1}^{\beta_{t+1}} \ldots
+q_s^{\beta_s}}{p_1^{\min(\alpha_1,\beta_1)} \ldots
+p_t^{\min(\alpha_t,\beta_t)}} \\
+    &amp; = p_1^{\alpha_1+\beta_1-\min(\alpha_1,\beta_1)} \ldots
+p_t^{\alpha_t+\beta_t-\min(\alpha_t,\beta_t)}p_{t+1}^{\alpha_{t+1}}\ldots
+p_r^{\alpha_r}q_{t+1}^{\beta_{t+1}} \ldots q_s^{\beta_s}\\
+    \end{aligned}\]</span></p>
+<p>Or, remarquons que pour deux réels <span class="math inline">\(x,y
+\in \mathbb{R}\)</span>, <span class="math inline">\(x+y =
+\max(x,y)+\min(x,y) \Longrightarrow x+y-\min(x,y) =
+\max(x,y)\)</span>.</p>
+<p>On a donc <span class="math display">\[m =
+p_1^{\max(\alpha_1,\beta_1)} \ldots
+p_t^{\max(\alpha_t,\beta_t)}p_{t+1}^{\alpha_{t+1}}\ldots
+p_r^{\alpha_r}q_{t+1}^{\beta_{t+1}} \ldots
+q_s^{\beta_s}.\]</span></p></li>
+</ul>
+</div>
+<div class="wex">
+<p>Avec <span class="math inline">\(a = 180\)</span> et <span
+class="math inline">\(b = 126\)</span>,</p>
+<p><span class="math inline">\(a = 2\times 90 = 2^2 \times 45 = 2^2
+\times 3^2 \times 5\)</span> et <span class="math inline">\(b = 2\times
+63 = 2\times 3^2 \times 7\)</span>.</p>
+<p>Donc <span class="math inline">\(a \wedge b = 2 \times 3^2 =
+18\)</span> et <span class="math inline">\(m = 2^2 \times 3^2 \times 5
+\times 7 = 1260\)</span>.</p>
+</div>
+<h1 data-number="5" id="congruences-modulo-n"><span
+class="header-section-number">5</span> Congruences modulo <span
+class="math inline">\(n\)</span></h1>
+<h2 data-number="5.1" id="définition-3"><span
+class="header-section-number">5.1</span> Définition</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(n \in \mathbb{N}^{\star}\)</span>,
+la relation binaire <span class="math inline">\(\mathscr{R}_n\)</span>
+dans <span class="math inline">\(\mathbb{Z}\)</span> définie par <span
+class="math inline">\(a \mathscr{R}_n b \iff n | b-a\)</span> est une
+relation d’équivalence dans <span
+class="math inline">\(\mathbb{Z}\)</span>, appelée relation de
+congruence modulo <span class="math inline">\(n\)</span>.</p>
+<p>Si <span class="math inline">\(a \mathscr{R}_n b\)</span>, on dit que
+<span class="math inline">\(a\)</span> est congru à <span
+class="math inline">\(b\)</span> modulo <span
+class="math inline">\(n\)</span> et on écrit <span
+class="math inline">\(a \equiv b [n]\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\quad\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\forall a \in \mathbb{Z},
+n|a-a=0\)</span>.</p></li>
+<li><p><span class="math inline">\(\forall a,b \in \mathbb{Z}, n|b-a
+\iff n|a-b\)</span>.</p></li>
+<li><p><span class="math inline">\(\forall a,b,c \in
+\mathbb{Z}\)</span>, <span class="math inline">\(n|b-a \text{ et }n|c-b
+\Longrightarrow n|c-b +b-a = c-a\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(a,b,c,d \in \mathbb{Z}\)</span>,
+si <span class="math inline">\(a \equiv b \left[n\right]\)</span> et
+<span class="math inline">\(c \equiv d \left[n\right]\)</span> alors
+<span class="math inline">\(a+c \equiv b+d \left[n\right]\)</span> et
+<span class="math inline">\(ac \equiv bd \left[n\right]\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Si <span class="math inline">\(n|b-a\)</span> et <span
+class="math inline">\(n|d-c\)</span> alors <span
+class="math inline">\(n|b-a+d-c = (b+d)-(a+c)\)</span> et <span
+class="math inline">\(n|(b-a)d+a(d-c) = bd-ac\)</span>.</p>
+</div>
+<div class="wcor">
+<p><span class="math inline">\(\forall a,b \in \mathbb{Z}\)</span>,
+<span class="math inline">\(\forall k \in \mathbb{N}\)</span>, <span
+class="math inline">\(a \equiv b \left[n\right] \Longrightarrow a^k
+\equiv b^k \left[n\right]\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Prouvons ce résultat par récurrence sur <span
+class="math inline">\(k\)</span>.</p>
+<ul>
+<li><p><strong>INITIALISATION :</strong> Pour <span
+class="math inline">\(k = 0\)</span>, <span
+class="math inline">\(n|b^0-a^0=1\)</span>.</p></li>
+<li><p><strong>HÉRÉDITÉ :</strong> Supposons pour <span
+class="math inline">\(k \in \mathbb{N}\)</span> fixé que <span
+class="math inline">\(a^k \equiv b^k \left[n\right]\)</span>.</p>
+<p>Comme <span class="math inline">\(a \equiv b \left[n\right]\)</span>,
+par la proposition précédente, <span class="math inline">\(aa^k \equiv
+bb^k \left[n\right]\)</span> donc <span class="math inline">\(a^{k+1}
+\equiv b^{k+1} \left[n\right]\)</span>.</p></li>
+<li><p><strong>CONCLUSION :</strong> <span class="math inline">\(\forall
+a,b \in \mathbb{Z}\)</span>, <span class="math inline">\(\forall k \in
+\mathbb{N}\)</span>, <span class="math inline">\(a \equiv b
+\left[n\right] \Longrightarrow a^k \equiv b^k
+\left[n\right]\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(a \in \mathbb{Z}\)</span>, il existe
+<span class="math inline">\(r \in [\![ 0,n-1]\!]\)</span> unique tel que
+<span class="math inline">\(a \equiv r \left[n\right]\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(a \equiv r \left[n\right] \iff n| r-a
+\iff \exists q \in \mathbb{Z}/ r-a = nq \iff \exists q \in \mathbb{Z}/ a
+= nq+r\)</span>.</p>
+<p>Par unicité de la division euclidienne, on a existence et unicité de
+<span class="math inline">\(r\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Soit <span class="math inline">\(a \in \mathbb{Z}\)</span>, <span
+class="math inline">\({\mathrm{C}\ell}_{\mathscr{R}_n}\left(a\right) =
+\left\{b \in \mathbb{Z}/ a \equiv b \left[n\right]\right\} = \left\{a+nk
+/ k \in \mathbb{Z}\right\}\)</span>.</p>
+<p>En particulier, <span
+class="math inline">\({\mathrm{C}\ell}_{\mathscr{R}_n}\left(0\right)
+=  \left\{nk / k \in \mathbb{Z}\right\}\)</span> et est noté <span
+class="math inline">\(n\mathbb{Z}\)</span>.</p>
+<p>On a <span class="math inline">\(x \equiv 0 \left[n\right] \iff x \in
+n\mathbb{Z}\)</span>.</p>
+</div>
+<h2 data-number="5.2" id="applications"><span
+class="header-section-number">5.2</span> Applications</h2>
+<div class="exo*">
+<p>Existe-t-il <span class="math inline">\(k\in
+\mathbb{N}^{\star}\)</span> tel que <span
+class="math inline">\(4k+3\)</span> soit un carré d’entier ?</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(x \in \mathbb{Z}\)</span>, alors
+<span class="math inline">\(x \equiv 0,1,2 \text{ ou }3
+[4]\)</span>.</p>
+<p>Donc <span class="math inline">\(x^2 \equiv 0,1,4 \text{ ou }9
+[4]\)</span> et comme <span class="math inline">\(4 \equiv 0
+\left[4\right]\)</span> et <span class="math inline">\(9 \equiv 1
+\left[4\right]\)</span>, <span class="math inline">\(x^2 \equiv 0 \text{
+ou }1 [4]\)</span>.</p>
+<p>On en déduit qu’on ne peut pas avoir <span class="math inline">\(x^2
+\equiv 3 \left[4\right]\)</span> donc de la forme <span
+class="math inline">\(4k+3\)</span> avec <span
+class="math inline">\(k\in \mathbb{N}\)</span>.</p>
+</div>
+<div class="exo*">
+<p>Soient <span class="math inline">\(p,q,r\)</span> entiers premiers
+<span class="math inline">\(\neq 3\)</span>. Peut-on avoir <span
+class="math inline">\(p^2+q^2+r^2\)</span> premier ?</p>
+</div>
+<div class="corri*">
+<p><span class="math inline">\(p,q,r\)</span> donc des entiers premiers
+<span class="math inline">\(\neq 3\)</span>.</p>
+<p>Donc <span class="math inline">\(p \equiv 1\text{ ou }2
+\left[3\right]\)</span>, <span class="math inline">\(q \equiv 1\text{ ou
+}2 \left[3\right]\)</span> et <span class="math inline">\(r \equiv
+1\text{ ou }2 \left[3\right]\)</span>.</p>
+<p>D’où <span class="math inline">\(p^2 \equiv 1\text{ ou }4
+\left[3\right]\)</span>, <span class="math inline">\(q^2 \equiv 1\text{
+ou }4 \left[3\right]\)</span> et <span class="math inline">\(r^2 \equiv
+1\text{ ou }4 \left[3\right]\)</span>.</p>
+<p>Et comme <span class="math inline">\(4 \equiv 1
+\left[3\right]\)</span>, <span class="math inline">\(p^2 \equiv 1
+\left[3\right]\)</span>, <span class="math inline">\(q^2 \equiv 1
+\left[3\right]\)</span> et <span class="math inline">\(r^2 \equiv 1
+\left[3\right]\)</span>.</p>
+<p>On en déduit <span class="math inline">\(p^2+q^2+r^2 \equiv 0
+\left[3\right]\)</span> donc <span
+class="math inline">\(3|p^2+q^2+r^2\)</span> et donc comme <span
+class="math inline">\(p^2+q^2+r^2 &gt; 3\)</span>, ce nombre n’est pas
+premier.</p>
+</div>
+<div class="exo*">
+<p><span class="math inline">\(\forall n \in \mathbb{N}\)</span>, <span
+class="math inline">\(8^{12n}-3^{12n}\)</span> est divisible par
+143.</p>
+</div>
+<div class="corri*">
+<p>On a <span class="math inline">\(143 = 11\times 13\)</span> et</p>
+<ul>
+<li><p><span class="math inline">\(8 \equiv 1 \left[13\right]\)</span>
+donc <span class="math inline">\(8^{12n} \equiv 1
+\left[13\right]\)</span> et <span class="math inline">\(3 \equiv 1
+\left[13\right]\)</span> donc <span class="math inline">\(3^{12n} \equiv
+1 \left[13\right]\)</span> donc <span
+class="math inline">\(8^{12n}-3^{12n} \equiv 0
+\left[13\right]\)</span>.</p></li>
+<li><p>De plus, on a <span class="math inline">\(8 \equiv -3
+\left[11\right]\)</span> donc <span class="math inline">\(8^{12n} \equiv
+(-3)^{12n} \left[11\right]\)</span> et <span
+class="math inline">\(8^{12n} \equiv 3^{12n}
+\left[11\right]\)</span>.</p>
+<p>On a donc <span class="math inline">\(8^{12n}-3^{12n} \equiv 0
+\left[11\right]\)</span>.</p></li>
+</ul>
+<p>On en déduit alors que <span class="math inline">\(13|
+8^{12n}-3^{12n}\)</span> et <span class="math inline">\(11 |
+8^{12n}-3^{12n}\)</span> et comme <span class="math inline">\(13 \wedge
+11 = 1\)</span>, <span class="math inline">\(143 = 13 \times 11|
+8^{12n}-3^{12n}\)</span>.</p>
+</div>
+<h2 data-number="5.3" id="petit-théorème-de-fermat"><span
+class="header-section-number">5.3</span> Petit théorème de Fermat</h2>
+<div class="wthm">
+<p><strong>(Petit théorème de Fermat)</strong> Soit <span
+class="math inline">\(p \in \mathscr{P}\)</span> et <span
+class="math inline">\(x \in \mathbb{Z}\)</span> alors <span
+class="math inline">\(x^p \equiv x \left[p\right]\)</span>.</p>
+</div>
+<p>Pour la preuve de ce théorème, nous avons besoin du lemme
+suivant.</p>
+<div class="wlem">
+<p>Soit <span class="math inline">\(p \in \mathscr{P}\)</span>, pour
+tout <span class="math inline">\(1 \leq k \leq p-1\)</span>, <span
+class="math inline">\(p | \binom{p}{k}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(1 \leq k \leq p-1\)</span>, <span
+class="math inline">\(\binom{p}{k} = \frac{p!}{k!(p-k)!} =
+\frac{p(p-1)\ldots (p-k+1)}{k!}\Longrightarrow p| k!\binom{p}{k} =
+p(p-1)\ldots (p-k+1)\)</span>.</p>
+<p>Donc <span class="math inline">\(p\centernot{|}k! \Longrightarrow p |
+\binom{p}{k}\)</span> car ainsi <span class="math inline">\(p \wedge
+k!=1\)</span> et par lemme de Gauss, on a bien <span
+class="math inline">\(p| k!\binom{p}{k} \Longrightarrow
+p|\binom{p}{k}\)</span>.</p>
+<p>Or, <span class="math inline">\(k! = k(k-1)\ldots 2\)</span>. Donc,
+par l’absurde, si <span class="math inline">\(p | k!\)</span>, il existe
+<span class="math inline">\(2 \leq \ell \leq k\)</span> tel que <span
+class="math inline">\(p |\ell\)</span>. Or, <span
+class="math inline">\(k &lt; p\)</span> donc c’est impossible.</p>
+</div>
+<div class="wproof">
+<p>On prouve ce résultat pour <span class="math inline">\(x \in
+\mathbb{N}\)</span>, par récurrence sur <span
+class="math inline">\(x\)</span>.</p>
+<ul>
+<li><p><strong>INITIALISATION :</strong> Si <span
+class="math inline">\(x= 0\)</span>, <span class="math inline">\(p|x^p-x
+= 0\)</span>.</p></li>
+<li><p><strong>HÉRÉDITÉ :</strong> Supposons pour <span
+class="math inline">\(x \in \mathbb{N}\)</span> fixé que <span
+class="math inline">\(x^p \equiv x \left[p\right]\)</span>.</p>
+<p>On a alors <span class="math inline">\((x+1)^p = \sum_{k=0}^p
+\binom{p}{k} x^k\)</span> par binôme de Newton.</p>
+<p>De plus, <span class="math inline">\(p|\binom{p}{k}\)</span> pour
+<span class="math inline">\(1 \leq k \leq p-1\)</span> par le lemme.</p>
+<p>Donc <span class="math inline">\(p| \sum_{k=1}^{p-1} \binom{p}{k} x^k
+= (x+1)^p -x^p-1\)</span>.</p>
+<p>Enfin, par hypothèse de récurrence, <span
+class="math inline">\(p|x^p-x\)</span> donc <span
+class="math inline">\(p|(x+1)^p -x^p-1-(x^p-x) =
+(x+1)^p-(x+1)\)</span>.</p></li>
+<li><p><strong>CONCLUSION :</strong> Pour tout <span
+class="math inline">\(x \in \mathbb{Z}\)</span>, <span
+class="math inline">\(x^p \equiv x \left[p\right]\)</span>.</p></li>
+</ul>
+<p>Pour <span class="math inline">\(x \in \mathbb{Z}^{-\star}\)</span>,
+<span class="math inline">\(-x \in \mathbb{N}\)</span> donc par ce qui
+précède, <span class="math inline">\((-x)^p \equiv -x
+\left[p\right]\)</span> donc <span
+class="math inline">\(p|(-x)^p+x\)</span></p>
+<p>Alors, soit <span class="math inline">\(p=2\)</span> et alors <span
+class="math inline">\(x^2-x = x(x-1)\)</span> est divisible par <span
+class="math inline">\(2\)</span> car l’un des deux est pair comme ils
+sont consécutifs, soit <span class="math inline">\(p\)</span> est impair
+et <span class="math inline">\(p|-x^p-x\)</span> donc <span
+class="math inline">\(p|x^p-x\)</span>.</p>
+</div>
+<div class="wcor">
+<p>Soit <span class="math inline">\(p \in \mathscr{P}\)</span> et <span
+class="math inline">\(x \in \mathbb{Z}\)</span> tel que <span
+class="math inline">\(p \centernot{|} x\)</span> alors <span
+class="math inline">\(x^{p-1} \equiv 1 \left[p\right]\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Par le théorème de Fermat, <span class="math inline">\(p|x^p-x =
+x(x^{p-1}-1)\)</span>.</p>
+<p>Or, <span class="math inline">\(p \centernot{|} x\)</span> donc <span
+class="math inline">\(p \wedge x=1\)</span> et par lemme de Gauss, <span
+class="math inline">\(x|x^{p-1}-1\)</span>.</p>
+</div>
+<div class="wappli">
+<p>Soit <span class="math inline">\(n \in \mathbb{Z}\)</span>, <span
+class="math inline">\(\frac{n^7}{7} + \frac{n^5}{5} + \frac{23n}{35} \in
+\mathbb{Z}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(n \in \mathbb{Z}\)</span>, <span
+class="math display">\[\begin{aligned}
+        \frac{n^7}{7} + \frac{n^5}{5} + \frac{23n}{35}
+        &amp; =\frac{n^7}{7} + \frac{n^5}{5} + \frac{(35-12)n}{35}  \\
+        &amp; = \frac{n^7}{7} + \frac{n^5}{5}- \frac{12n}{35} +n \\
+        &amp; = \frac{n^7}{7} + \frac{n^5}{5}- \frac{(5+7)n}{35} +n
+        &amp; = \frac{n^7}{7} + \frac{n^5}{5}-
+\frac{5n}{35}-\frac{7n}{35} +n \\
+        &amp; = \frac{n^7-n}{7} + \frac{n^5-n}{5} +n.
+    \end{aligned}\]</span></p>
+<p>De plus, par petit théorème de Fermat, <span
+class="math inline">\(7|n^7-n\)</span> donc <span
+class="math inline">\(\frac{n^7-n}{7} \in \mathbb{Z}\)</span> et <span
+class="math inline">\(5|n^5-n\)</span> donc <span
+class="math inline">\(\frac{n^5-n}{5} \in \mathbb{Z}\)</span>.</p>
+<p>Donc <span class="math inline">\(\frac{n^7}{7} + \frac{n^5}{5} +
+\frac{23n}{35} \in \mathbb{Z}\)</span>.</p>
+</div>
+<h2 data-number="5.4"
+id="a-propos-du-grand-théorème-de-fermat-et-dautres-problèmes-de-théorie-des-nombres"><span
+class="header-section-number">5.4</span> A propos du grand théorème de
+Fermat et d’autres problèmes de théorie des nombres</h2>
+<p>Pierre de Fermat (1601–1665), juriste à Toulouse, et mathématicien
+dans ses moments de loisirs, énonce dans les années 1650 le résultat
+:</p>
+<div class="wthm">
+<p><strong>(Grand théorème de Fermat)</strong> <span
+class="math inline">\(\text{Pour } n \in \mathbb{N},\ n \ge 3,\textit{
+l&#39;équation } x^n + y^n = z^n\ n&#39;a\ pas\ de\ solutions\ dans\
+\mathbb{N}^*.\)</span></p>
+</div>
+<p>Il prétend avoir une démonstration générale qu’il ne publie pas
+cependant ; pendant plus de 3 siècles, bien qu’on ait montré le résultat
+dans des cas particuliers, on n’a pas obtenu de démonstration générale
+et ce n’est qu’en 1994 que l’anglais A. Wiles prouve un résultat dans un
+domaine extérieur à la théorie des nombres entiers qui entraîne le
+théorème de Fermat (qui est donc maintenant réellement un théorème après
+avoir été longtemps une conjecture).</p>
+<p>D’autres problèmes célèbres résistent toujours à l’heure actuelle ;
+comme par exemple :</p>
+<ul>
+<li><p>la conjecture de Goldbach (1690–1764) affirmant que tout entier
+pair <span class="math inline">\((\ge 4)\)</span> est somme de 2 entiers
+premiers ;</p></li>
+<li><p>le problème des nombres premiers “jumeaux” : si <span
+class="math inline">\(p\)</span> est premier, <span
+class="math inline">\(p+2\)</span> peut l’être aussi (comme par exemple
+3 et 5, 5 et 7, 11 et 13, …). On ignore encore si <span
+class="math display">\[\{p \mid p \text{ et } p+2 \text{ sont
+premiers}\}\]</span> est fini ou non ;</p></li>
+<li><p>le problème des entiers parfaits impairs : un entier <span
+class="math inline">\(n\)</span> est parfait si <span
+class="math inline">\(n\)</span> est égal à la somme de ses diviseurs
+<span class="math inline">\((\neq n)\)</span>. <span
+class="math inline">\(6 = 1+2+3\)</span> est parfait et on connaît tous
+les entiers parfaits pairs. Mais on ignore s’il existe des entiers
+parfaits impairs ;</p></li>
+<li><p>un nombre de la forme <span class="math inline">\(2^n -
+1\)</span> ne peut être premier que si <span
+class="math inline">\(n\)</span> est premier mais on ignore s’il existe
+une infinité d’entiers premiers <span class="math inline">\(p\)</span>
+tels que <span class="math inline">\(M_p = 2^p - 1\)</span> soit premier
+(<span class="math inline">\(M_p\)</span> est un nombre de Mersenne)
+;</p></li>
+<li><p>pour <span class="math inline">\(n \in \mathbb{N}\)</span> on
+pose <span class="math inline">\(F_n = 2^{2^n} + 1.\)</span> <span
+class="math inline">\(F_n\)</span> est un nombre de Fermat. Fermat
+pensait que tous les <span class="math inline">\(F_n\)</span> étaient
+premiers, ce qui est faux dès <span class="math inline">\(n=5\)</span> ;
+mais on ignore s’il existe une infinité d’entiers <span
+class="math inline">\(n\)</span> tels que <span
+class="math inline">\(F_n\)</span> soit premier.</p></li>
+</ul>
+</body>
+</html>
+
+<script>
+
+
+const toggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Appliquer le thème au chargement
+const currentTheme = localStorage.getItem('theme') || 'default';
+body.setAttribute('data-md-color-scheme', currentTheme);
+
+toggle.addEventListener('click', () => {
+    let scheme = body.getAttribute('data-md-color-scheme');
+    let newScheme = (scheme === 'default') ? 'slate' : 'default';
+    
+    body.setAttribute('data-md-color-scheme', newScheme);
+    localStorage.setItem('theme', newScheme);
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+let secCount = -1;
+let thmCount = -1;
+
+let labels = {};
+
+const noms = {
+'wthm':'Théorème',
+'wprop':'Proposition',
+'wdefi':'Définition',
+'wlem':'Lemme',
+'wcor':'Corollaire',
+'wappli':'Application',
+'wrem':'Remarque',
+'wrappel': 'Rappel',
+'wex':'Exemple',
+'wproof':'Preuve'
+};
+
+//////////////////////////////////////////////////////////////////////////////
+// Numérotation des environnements
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll(
+"h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex, .wrappel,.wproof"
+).forEach(el => {
+
+    if (
+        el.tagName.toLowerCase() === "h1"
+        && !el.closest("#TOC")
+    ) {
+
+        secCount++;
+        thmCount = 0;
+    }
+
+    else if (noms[Array.from(el.classList).find(c => noms[c])]) {
+
+        let type = Array.from(el.classList).find(c => noms[c]);
+
+        if (type !== 'wproof') {
+
+            thmCount++;
+
+            let num = secCount + "." + thmCount;
+
+            let id = el.querySelector("span[id]")
+                ? el.querySelector("span[id]").id
+                : null;
+
+            if(id) {
+                labels[id] = {
+                    num: num,
+                    type: type.substring(1)
+                };
+            }
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                let strong = p.querySelector("strong");
+
+                let title = (
+                    strong &&
+                    strong.innerText.includes("(")
+                )
+
+                ? ` <span class="env-title">${strong.outerHTML}</span>`
+                : "";
+
+                if (title) strong.remove();
+
+                p.innerHTML =
+                    `<strong class="env-header">${noms[type]} ${num}</strong>`
+                    + title
+                    + " — "
+                    + p.innerHTML;
+            }
+        }
+
+        else {
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                p.innerHTML =
+                    `<strong class="env-header">Preuve</strong> — `
+                    + p.innerHTML;
+            }
+        }
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Capture des équations MathJax
+//////////////////////////////////////////////////////////////////////////////
+
+setTimeout(() => {
+
+document.querySelectorAll("mjx-math[display='true']").forEach((el, index) => {
+
+    let num = el.querySelector(".mjx-eqn-number");
+
+    if (num) {
+
+        let val = num.innerText.replace(/[()]/g, '');
+
+        let id = el.id || "eq-" + index;
+
+        el.id = id;
+
+        labels[id] = {
+            num: val,
+            type: 'eq'
+        };
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Remplacement des références
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll("body *").forEach(el => {
+
+    if (
+        el.childNodes.length === 1 &&
+        el.childNodes[0].nodeType === Node.TEXT_NODE
+    ) {
+
+        el.innerHTML = el.innerHTML
+
+        .replace(/\\eqref\{(.*?)\}/g, (m, id) => {
+
+            return labels[id]
+                ? `<a href="#${id}">(${labels[id].num})</a>`
+                : m;
+        })
+
+        .replace(
+            /\[(prop|thm|def|cor|lem|appli|rem|rappel|ex):(.*?)\]/g,
+
+            (m, t, id) => {
+
+                let f = t + ":" + id;
+
+                return labels[f]
+                    ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>`
+                    : m;
+            }
+        );
+    }
+});
+
+}, 800);
+
+});
+
+</script>
+

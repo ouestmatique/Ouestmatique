@@ -1,0 +1,3212 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Espaces vectoriels (1^\mathrm{ere} partie)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+
+<header class="site-header">
+
+<div class="site-header-left">
+<a href="/">
+<img src="/assets/logo.svg" class="site-logo" alt="Logo">
+</a>
+</div>
+
+<div class="site-header-right">
+   <button id="theme-toggle"
+style="
+margin-right: 15px;
+cursor: pointer;
+background: transparent;
+border: none;
+font-size: 1.1rem;
+color: var(--md-primary-bg-color);
+">
+🌙 / ☀️
+</button>
+    <a href="/" class="home-link">Retour à l’accueil</a>
+</div>
+
+</header>
+
+
+<header id="title-block-header">
+
+<h1 class="title">Espaces vectoriels (<span
+class="math inline">\(1^\mathrm{ere}\)</span> partie)</h1>
+<p class="pdf-link">
+<a href="espaces_vectoriels_P1.pdf" target="_blank">[PDF]</a>
+</p>
+
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#introduction" id="toc-introduction"><span
+class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="#espace-vectoriel---sous-espace-vectoriel"
+id="toc-espace-vectoriel---sous-espace-vectoriel"><span
+class="toc-section-number">2</span> Espace vectoriel - sous-espace
+vectoriel</a>
+<ul>
+<li><a href="#loi-de-composition-externe"
+id="toc-loi-de-composition-externe"><span
+class="toc-section-number">2.1</span> Loi de composition
+externe</a></li>
+<li><a href="#définition-dun-espace-vectoriel"
+id="toc-définition-dun-espace-vectoriel"><span
+class="toc-section-number">2.2</span> Définition d’un espace
+vectoriel</a></li>
+<li><a href="#règles-de-calcul-dans-un-espace-vectoriel"
+id="toc-règles-de-calcul-dans-un-espace-vectoriel"><span
+class="toc-section-number">2.3</span> Règles de calcul dans un espace
+vectoriel</a></li>
+<li><a href="#sous-espace-vectoriel-dun-espace-vectoriel"
+id="toc-sous-espace-vectoriel-dun-espace-vectoriel"><span
+class="toc-section-number">2.4</span> Sous-espace vectoriel d’un espace
+vectoriel</a></li>
+<li><a
+href="#sous-espace-vectoriel-engendré-par-une-famille-de-vecteurs"
+id="toc-sous-espace-vectoriel-engendré-par-une-famille-de-vecteurs"><span
+class="toc-section-number">2.5</span> Sous-espace vectoriel engendré par
+une famille de vecteurs</a></li>
+<li><a href="#somme-de-sous-espaces-vectoriels"
+id="toc-somme-de-sous-espaces-vectoriels"><span
+class="toc-section-number">2.6</span> Somme de sous-espaces
+vectoriels</a></li>
+<li><a href="#somme-directe" id="toc-somme-directe"><span
+class="toc-section-number">2.7</span> Somme directe</a></li>
+<li><a href="#sous-espace-supplémentaire"
+id="toc-sous-espace-supplémentaire"><span
+class="toc-section-number">2.8</span> Sous-espace
+supplémentaire</a></li>
+</ul></li>
+<li><a href="#applications-linéaires"
+id="toc-applications-linéaires"><span
+class="toc-section-number">3</span> Applications linéaires</a>
+<ul>
+<li><a href="#définition" id="toc-définition"><span
+class="toc-section-number">3.1</span> Définition</a></li>
+<li><a href="#sous-espace-stable-par-un-endomorphisme"
+id="toc-sous-espace-stable-par-un-endomorphisme"><span
+class="toc-section-number">3.2</span> Sous-espace stable par un
+endomorphisme</a></li>
+<li><a href="#propriétés" id="toc-propriétés"><span
+class="toc-section-number">3.3</span> Propriétés</a></li>
+<li><a href="#image-dune-applcation-linéaire"
+id="toc-image-dune-applcation-linéaire"><span
+class="toc-section-number">3.4</span> Image d’une applcation
+linéaire</a></li>
+<li><a href="#noyau-dune-application-linéaire"
+id="toc-noyau-dune-application-linéaire"><span
+class="toc-section-number">3.5</span> Noyau d’une application
+linéaire</a></li>
+<li><a href="#espace-vectoriel-mathscrlef"
+id="toc-espace-vectoriel-mathscrlef"><span
+class="toc-section-number">3.6</span> Espace vectoriel <span
+class="math inline">\(\mathscr{L}(E,F)\)</span></a></li>
+<li><a href="#lanneau-mathscrlecirc"
+id="toc-lanneau-mathscrlecirc"><span
+class="toc-section-number">3.7</span> L’anneau <span
+class="math inline">\((\mathscr{L}(E),+,\circ)\)</span></a></li>
+<li><a href="#le-groupe-linéaire-gle"
+id="toc-le-groupe-linéaire-gle"><span
+class="toc-section-number">3.8</span> Le groupe linéaire <span
+class="math inline">\(GL(E)\)</span></a></li>
+<li><a href="#projecteurs" id="toc-projecteurs"><span
+class="toc-section-number">3.9</span> Projecteurs</a></li>
+<li><a href="#symétries" id="toc-symétries"><span
+class="toc-section-number">3.10</span> Symétries</a></li>
+</ul></li>
+<li><a href="#famille-libre-ou-liée"
+id="toc-famille-libre-ou-liée"><span class="toc-section-number">4</span>
+Famille libre ou liée</a>
+<ul>
+<li><a href="#famille-liée" id="toc-famille-liée"><span
+class="toc-section-number">4.1</span> Famille liée</a></li>
+<li><a href="#famille-libre" id="toc-famille-libre"><span
+class="toc-section-number">4.2</span> Famille libre</a></li>
+<li><a href="#extension-à-des-familles-quelconques"
+id="toc-extension-à-des-familles-quelconques"><span
+class="toc-section-number">4.3</span> Extension à des familles
+quelconques</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="introduction"><span
+class="header-section-number">1</span> Introduction</h1>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\(E\)</span> l’ensemble des vecteurs
+du plan ou de l’espace usuel. Remarquons quelques propriétés de <span
+class="math inline">\(E\)</span>.</p>
+<ul>
+<li><p>Soient <span
+class="math inline">\(\overrightarrow{u},\overrightarrow{v} \in
+E\)</span>, on peut considérer <span
+class="math inline">\(\overrightarrow{u}+\overrightarrow{v}\)</span> et
+il y a donc une addition <span class="math inline">\(+\)</span> dans
+<span class="math inline">\(E\)</span> <span
+class="math inline">\(\begin{array}{lllll}
+&amp; : &amp; E\times E &amp; \to &amp; E \\
+   &amp;   &amp; (\overrightarrow{u},\overrightarrow{v}) &amp; \mapsto
+&amp; \overrightarrow{u}+\overrightarrow{v}
+\end{array}\)</span>. On peut alors montrer que <span
+class="math inline">\((E,+)\)</span> est un groupe commutatif. En
+effet,</p>
+<ol>
+<li><p><span class="math inline">\(+\)</span> est associative,</p></li>
+<li><p><span class="math inline">\(+\)</span> possède un élément neutre
+qui est <span
+class="math inline">\(\overrightarrow{0}\)</span>,</p></li>
+<li><p>Tout élément <span
+class="math inline">\(\overrightarrow{u}\)</span> de <span
+class="math inline">\(E\)</span> admet un élément symétrique qui est
+<span class="math inline">\(-\overrightarrow{u}\)</span>.</p></li>
+</ol></li>
+<li><p>Soit <span class="math inline">\(\alpha \in \mathbb{R}\)</span>
+et <span class="math inline">\(\overrightarrow{u} \in E\)</span>, on
+peut considérer le vecteur <span
+class="math inline">\(\alpha.\overrightarrow{u}\)</span> (noté aussi
+<span class="math inline">\(\alpha
+\overrightarrow{u}\)</span>).</p></li>
+</ul>
+</div>
+<div class="webimg">
+<p><img src="Intro.png" alt="image" /></p>
+</div>
+</div>
+<ul>
+<li><p>On a alors les propriétés suivantes des deux opérations
+précédentes :</p>
+<ol>
+<li><p><span class="math inline">\(\forall \alpha \in \mathbb{R},
+\overrightarrow{u},\overrightarrow{v} \in E\)</span>, <span
+class="math inline">\(\alpha(\overrightarrow{u}+\overrightarrow{v}) =
+\alpha\overrightarrow{u}+\alpha\overrightarrow{v}\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall \alpha,\beta \in \mathbb{R},
+\overrightarrow{u} \in E\)</span>, <span
+class="math inline">\((\alpha+\beta)\overrightarrow{u}=
+\alpha\overrightarrow{u}+\beta\overrightarrow{u}\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall \alpha,\beta \in \mathbb{R},
+\overrightarrow{u} \in E\)</span>, <span
+class="math inline">\(\alpha(\beta \overrightarrow{u}) = (\alpha
+\beta)\overrightarrow{u}\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall \overrightarrow{u} \in E,
+1\overrightarrow{u} = \overrightarrow{u}\)</span>.</p></li>
+</ol>
+<p>Ces propriétés ressemblent à des propriétés de distributivité mais
+pas entre deux lois de composition <u>internes</u>.</p></li>
+</ul>
+<p>Dans ce chapitre, un tel ensemble <span
+class="math inline">\(E\)</span>, muni de <span
+class="math inline">\(+\)</span> et de <span
+class="math inline">\(.\)</span> sera appelé un espace vectoriel et ne
+contiendra pas forcément que des vecteurs du plan ou de l’espace
+usuel.</p>
+<h1 data-number="2" id="espace-vectoriel---sous-espace-vectoriel"><span
+class="header-section-number">2</span> Espace vectoriel - sous-espace
+vectoriel</h1>
+<h2 data-number="2.1" id="loi-de-composition-externe"><span
+class="header-section-number">2.1</span> Loi de composition externe</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(E,A\)</span> deux ensembles non
+vides. Une loi de composition externe dans <span
+class="math inline">\(E\)</span> à domaine d’opérations <span
+class="math inline">\(A\)</span> est une fonction de <span
+class="math inline">\(A \times E\)</span> dans <span
+class="math inline">\(E\)</span> <span
+class="math inline">\(\begin{array}{lllll}
+L &amp; : &amp; A \times E &amp; \to &amp; E \\
+   &amp;   &amp; (\alpha,x) &amp; \mapsto &amp; L(\alpha,x)
+\end{array}\)</span>.</p>
+<p><span class="math inline">\(L(\alpha,x)\)</span> est en général noté
+<span class="math inline">\(\alpha.x\)</span> ou plus simplement <span
+class="math inline">\(\alpha x\)</span>.</p>
+</div>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(E,A\)</span> deux ensembles non
+vides et <span class="math inline">\(.\)</span> une loi de composition
+externe dans <span class="math inline">\(E\)</span> à domaine
+d’opérations <span class="math inline">\(A\)</span>.</p>
+<p>Soit <span class="math inline">\(F \subset E\)</span>, non vide alors
+<span class="math inline">\(F\)</span> est stable par <span
+class="math inline">\(.\)</span> si <span class="math display">\[\forall
+x \in F, \alpha \in A, \alpha.x \in F.\]</span></p>
+</div>
+<div class="wex">
+<p>Avec <span class="math inline">\(E
+=\mathscr{F}(\mathbb{R},\mathbb{R})\)</span>, <span
+class="math inline">\(A =\mathbb{R}\)</span> et <span
+class="math inline">\(.\)</span> tel que pour tout <span
+class="math inline">\(f \in E, \alpha \in \mathbb{R}, x \in \mathbb{R},
+(\alpha.f)(x) = \alpha x\)</span> alors <span
+class="math inline">\(.\)</span> est une loi de composition externe dans
+<span class="math inline">\(E\)</span> à domaine d’opérations <span
+class="math inline">\(A\)</span>.</p>
+<p>De plus, <span class="math inline">\(F =
+\mathscr{C}(\mathbb{R},\mathbb{R})\)</span> est une partie stable par
+"<span class="math inline">\(.\)</span>".</p>
+</div>
+<h2 data-number="2.2" id="définition-dun-espace-vectoriel"><span
+class="header-section-number">2.2</span> Définition d’un espace
+vectoriel</h2>
+<p><span class="math inline">\(\mathbb{K}\)</span> désigne <span
+class="math inline">\(\mathbb{R}\)</span> ou <span
+class="math inline">\(\mathbb{C}\)</span> dans toute la suite.</p>
+<div class="wdefi">
+<p><span id="def:ev" label="def:ev"></span> Soit <span
+class="math inline">\(E\)</span> un ensemble non vide, <span
+class="math inline">\(+\)</span> une loi de composition interne de <span
+class="math inline">\(E\)</span> et <span
+class="math inline">\(.\)</span> une loi de composition externe dans
+<span class="math inline">\(E\)</span> à domaine d’opérations <span
+class="math inline">\(\mathbb{K}\)</span>.</p>
+<p>La donnée <span class="math inline">\((E,+,.)\)</span> définit un
+espace vectoriel sur <span class="math inline">\(\mathbb{K}\)</span> (ou
+un <span class="math inline">\(\mathbb{K}\)</span>-espace vectoriel)
+si</p>
+<ol>
+<li><p><span class="math inline">\((E,+)\)</span> est un groupe
+commutatif d’élément neutre <span
+class="math inline">\(0_{E}\)</span></p></li>
+<li><p><span class="math inline">\(\forall \alpha \in \mathbb{K}, u,v
+\in E\)</span>, <span class="math inline">\(\alpha.(u+v) =
+\alpha.u+\alpha.v\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall \alpha,\beta \in \mathbb{K},
+u \in E\)</span>, <span class="math inline">\((\alpha+\beta).u=
+\alpha.u+\beta.u\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall \alpha,\beta \in \mathbb{K},
+u \in E\)</span>, <span class="math inline">\(\alpha.(\beta.u) =
+(\alpha\beta).u\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall u \in E, 1.u =
+u\)</span>.</p></li>
+</ol>
+</div>
+<div class="wrem">
+<p><strong>(Vocabulaire et notations)</strong></p>
+<ul>
+<li><p>Un élément de <span class="math inline">\(E\)</span> est appelé
+un <u>vecteur</u>,</p></li>
+<li><p>Un élément de <span class="math inline">\(\mathbb{K}\)</span> est
+appelé un <u>scalaire</u>,</p></li>
+<li><p><span class="math inline">\(0_{E}\)</span> est appelé le vecteur
+nul de <span class="math inline">\(E\)</span>,</p></li>
+<li><p>Soit <span class="math inline">\(u \in E\)</span>, on note <span
+class="math inline">\(-u\)</span> le symétrique de <span
+class="math inline">\(u\)</span> pour <span
+class="math inline">\(+\)</span>,</p></li>
+<li><p>Soient <span class="math inline">\(u,v \in E\)</span>, <span
+class="math inline">\(u+(-v)\)</span> est noté <span
+class="math inline">\(u-v\)</span>,</p></li>
+<li><p>Soit <span class="math inline">\(u \in E, \alpha \in
+\mathbb{K}\)</span>, <span class="math inline">\(\alpha.u\)</span> est
+noté <span class="math inline">\(\alpha u\)</span>.</p></li>
+</ul>
+</div>
+<div class="wexs">
+<ul>
+<li><p>L’ensemble des vecteurs du plan ou de l’espace usuel est un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel.</p></li>
+<li><p><span class="math inline">\(E =\mathscr{F}(D,\mathbb{R})\)</span>
+avec <span class="math inline">\(D\subset \mathbb{R}\)</span> non vide
+est un <span class="math inline">\(\mathbb{R}\)</span>-espace vectoriel.
+Le vecteur nul est la fonction nulle <span
+class="math inline">\(\begin{array}{lllll}
+0_{E} &amp; : &amp; D &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; 0
+\end{array}\)</span> et pour <span class="math inline">\(f \in
+E\)</span>, <span class="math inline">\(\begin{array}{lllll}
+-f &amp; : &amp; D &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; -f(x)
+\end{array}\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(D = \mathbb{N}\)</span> dans
+l’exemple précédent, l’ensemble des suites de réels indexées par <span
+class="math inline">\(\mathbb{N}\)</span> est un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel.</p></li>
+<li><p><span class="math inline">\(E = \mathbb{R}\)</span> est un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel.</p></li>
+<li><p><span class="math inline">\(E = \mathbb{C}\)</span> est un <span
+class="math inline">\(\mathbb{C}\)</span>-espace vectoriel.</p></li>
+<li><p><span class="math inline">\(E = \mathbb{R}^2\)</span> est un
+<span class="math inline">\(\mathbb{R}\)</span>-espace vectoriel muni de
+l’addition et de la loi de composition externes suivantes :</p>
+<ul>
+<li><p><span class="math inline">\(\forall (x,y),(x&#39;,y&#39;) \in
+\mathbb{R}^2, (x,y)+(x&#39;,y&#39;) =
+(x+x&#39;,y+y&#39;)\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall (x,y)\in \mathbb{R}^2, \alpha
+\in \mathbb{R}, \alpha.(x,y) = (\alpha x, \alpha y)\)</span>.</p></li>
+</ul>
+<p>Alors, le vecteur nul de <span
+class="math inline">\(\mathbb{R}^2\)</span> est <span
+class="math inline">\(0_{\mathbb{R}^2} = (0,0)\)</span> et pour <span
+class="math inline">\((x,y) \in \mathbb{R}^2, -(x,y) =
+(-x,-y)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wrem">
+<ul>
+<li><p>Soit <span class="math inline">\((E,+_E,._E)\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span>, on peut définir
+le <span class="math inline">\(\mathbb{K}\)</span>-espace vectoriel
+<span class="math inline">\((E^n,+_{E^n},._{E^n})\)</span> où l’addition
+<span class="math inline">\(+_{E^n}\)</span> et le <span
+class="math inline">\(._{E^n}\)</span> sont tels que</p>
+<ul>
+<li><p>Pour <span class="math inline">\((x_1,\ldots,x_n),
+(y_1,\ldots,y_n) \in E^n\)</span>, <span
+class="math inline">\((x_1,\ldots,x_n)+_{E^n} (y_1,\ldots,y_n) =
+(x_1+_{E}y_1,\ldots,x_n+_{E}y_n)\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\((x_1,\ldots,x_n)\in E^n, \alpha
+\in \mathbb{K}\)</span>, <span
+class="math inline">\(\alpha._{E^n}(x_1,\ldots,x_n) = (\alpha._{E}x_1,
+\ldots, \alpha._{E}x_n)\)</span>.</p></li>
+</ul>
+<p>On a alors <span class="math inline">\(0_{E^n} =
+(0_{E},\ldots,0_{E})\)</span> et pour <span
+class="math inline">\((x_1,\ldots,x_n)\in E^n\)</span>, <span
+class="math inline">\(-_{E^n}(x_1,\ldots,x_n) =
+(-_Ex_1,\ldots,-_Ex_n)\)</span>. On note en général sans ambiguité,
+<span class="math inline">\(+\)</span>, <span
+class="math inline">\(.\)</span> et <span
+class="math inline">\(-\)</span> au lieu de <span
+class="math inline">\(+_{E^n},._{E^n},-_{E^n},
++_{E},._{E},-_E\)</span>.</p></li>
+<li><p>Plus généralement, soient <span
+class="math inline">\((E,+_E,._E)\)</span> et <span
+class="math inline">\((F,+_F,._F)\)</span> deux <span
+class="math inline">\(\mathbb{K}\)</span>-espaces vectoriels, on peut
+définir le <span class="math inline">\(\mathbb{K}\)</span>-espace
+vectoriel <span class="math inline">\((E \times F,+_{E\times
+F},._{E\times F})\)</span> où l’addition et le <span
+class="math inline">\(._{E\times F}\)</span> sont tels que</p>
+<ul>
+<li><p>Pour <span class="math inline">\(x,x&#39; \in E, y,y&#39; \in
+F\)</span>, <span class="math inline">\((x,y)+_{E\times
+F}(x&#39;,y&#39;) = (x+_Ex&#39;,y+_Fy&#39;)\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(x \in E, y \in F, \alpha \in
+\mathbb{K}\)</span>, <span class="math inline">\(\alpha._{E\times
+F}(x,y) = (\alpha._Ex, \alpha._Fy)\)</span>.</p></li>
+</ul>
+<p>On a alors <span class="math inline">\(0_{E \times F} =
+(0_{E},0_{F})\)</span> et pour <span class="math inline">\((x,y)\in E
+\times F\)</span>, <span class="math inline">\(-_{E \times F}(x,y) =
+(-_Ex,-_Fy)\)</span>. On peut aussi généraliser à <span
+class="math inline">\(n\)</span> <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel. On note en
+général sans ambiguité, <span class="math inline">\(+\)</span>, <span
+class="math inline">\(.\)</span> et <span
+class="math inline">\(-\)</span> au lieu de <span
+class="math inline">\(+_{E^n},._{E^n},-_{E^n},
++_{E},._{E},-_{E^n}\)</span></p></li>
+</ul>
+</div>
+<h2 data-number="2.3"
+id="règles-de-calcul-dans-un-espace-vectoriel"><span
+class="header-section-number">2.3</span> Règles de calcul dans un espace
+vectoriel</h2>
+<p>Les propriétés suivantes, a priori évidentes, sont à prouver car
+elles ne sont pas incluses dans la définition d’un espace vectoriel.</p>
+<div class="wprop">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel,</p>
+<ul>
+<li><p>Pour tout <span class="math inline">\(v \in E, 0.v =
+0_{E}\)</span>,</p></li>
+<li><p>Pour tout <span class="math inline">\(v \in E\)</span>, <span
+class="math inline">\(\alpha \in \mathbb{K}\)</span>, <span
+class="math inline">\((-\alpha).v = -(\alpha.v)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Soit <span class="math inline">\(v \in E\)</span>, <span
+class="math inline">\(0.v = (0+0).v = 0.v + 0.v\)</span> par le point 3.
+de la définition <a href="#def:ev" data-reference-type="ref"
+data-reference="def:ev">[def:ev]</a>. Donc <span
+class="math inline">\(0.v =  0.v - 0.v = 0_E\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(v \in E\)</span>, <span
+class="math inline">\(\alpha \in \mathbb{K}\)</span>,</p>
+<p><span class="math inline">\(0_E = 0.v = (\alpha-\alpha).v = \alpha.v
++ (-\alpha).v\)</span> par le point 3. de la définition <a
+href="#def:ev" data-reference-type="ref"
+data-reference="def:ev">[def:ev]</a>. Donc <span
+class="math inline">\((-\alpha).v = -(\alpha.v)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel,</p>
+<ul>
+<li><p>Pour tout <span class="math inline">\(\alpha \in \mathbb{K},
+\alpha.0_{E} = 0_{E}\)</span>,</p></li>
+<li><p>Pour tout <span class="math inline">\(v \in E\)</span>, <span
+class="math inline">\(\alpha \in \mathbb{K}\)</span>, <span
+class="math inline">\(\alpha.(-v) = -(\alpha.v)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Soit <span class="math inline">\(\alpha \in \mathbb{K}\)</span>,
+<span class="math inline">\(\alpha.0_{E} = \alpha.(0_{E}+0_{E}) =
+\alpha.0_{E}+\alpha.0_{E}\)</span> par le point 2. de la définition <a
+href="#def:ev" data-reference-type="ref"
+data-reference="def:ev">[def:ev]</a>. Donc <span
+class="math inline">\(\alpha.0_{E} = \alpha.0_{E}+(-\alpha.0_{E}) =
+0_{E}\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(v \in E\)</span>, <span
+class="math inline">\(\alpha \in \mathbb{K}\)</span>, <span
+class="math inline">\(0_{E} = \alpha.(v-v) = \alpha.v +
+\alpha.(-v)\)</span> par le point 2. de la définition <a href="#def:ev"
+data-reference-type="ref" data-reference="def:ev">[def:ev]</a>. Donc
+<span class="math inline">\(\alpha.(-v) = -(\alpha.v)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(\alpha \in E, \alpha \in
+\mathbb{K}\)</span>, <span class="math display">\[\alpha.v = 0_{E} \iff
+\alpha = 0 \text{ ou }v = 0_{E}.\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\(\Longleftarrow\)</span> a été montré
+par les deux propositions précédentes.</p></li>
+<li><p>Si <span class="math inline">\(\alpha.v = 0_{E}\)</span>,</p>
+<ul>
+<li><p>Soit <span class="math inline">\(\alpha = 0\)</span>,</p></li>
+<li><p>Soit <span class="math inline">\(\alpha \neq 0\)</span> et alors
+on peut considérer <span
+class="math inline">\(\frac{1}{\alpha}\)</span>.</p>
+<p>On a donc <span class="math inline">\(\alpha.v = 0_{E}
+\Longrightarrow \frac{1}{\alpha}.(\alpha.v )= \frac{1}{\alpha}.0_{E} =
+0_{E}\)</span> par la proposition précédente.</p>
+<p>De plus, par le point 4. de la définition <a href="#def:ev"
+data-reference-type="ref" data-reference="def:ev">[def:ev]</a>, <span
+class="math inline">\(\frac{1}{\alpha}.(\alpha.v ) =
+\frac{\alpha}{alpha}.v = 1.v = v\)</span> par le point 5. de la
+définition <a href="#def:ev" data-reference-type="ref"
+data-reference="def:ev">[def:ev]</a>.</p>
+<p>Donc <span class="math inline">\(v = 0_{E}\)</span>.</p></li>
+</ul></li>
+</ul>
+</div>
+<h2 data-number="2.4"
+id="sous-espace-vectoriel-dun-espace-vectoriel"><span
+class="header-section-number">2.4</span> Sous-espace vectoriel d’un
+espace vectoriel</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(F \subset E\)</span>.</p>
+<p><span class="math inline">\(F\)</span> est un sous-espace vectoriel
+de <span class="math inline">\(E\)</span> si</p>
+<ol>
+<li><p><span class="math inline">\(0_E \in F\)</span>,</p></li>
+<li><p><span class="math inline">\(F\)</span> est stable par <span
+class="math inline">\(+\)</span>, ie pour tout <span
+class="math inline">\(u,v \in F, u+v \in F\)</span>,</p></li>
+<li><p><span class="math inline">\(F\)</span> est stable par <span
+class="math inline">\(.\)</span>, ie pour tout <span
+class="math inline">\(\alpha \in K, u \in F\)</span>, <span
+class="math inline">\(\alpha.u \in F\)</span>.</p></li>
+</ol>
+</div>
+<div class="wrem">
+<p>Comme <span class="math inline">\(F\)</span> est stable par <span
+class="math inline">\(+\)</span> et <span
+class="math inline">\(.\)</span>, on peut considérer les lois induites
+<span class="math inline">\(\begin{array}{lllll}
++_F &amp; : &amp; F \times F &amp; \to &amp; F \\
+   &amp;   &amp; (u,v) &amp; \mapsto &amp; u+v
+\end{array}\)</span> et <span class="math inline">\(\begin{array}{lllll}
+._F &amp; : &amp; \mathbb{K}\times F &amp; \to &amp; F \\
+   &amp;   &amp; (\alpha,v) &amp; \mapsto &amp; \alpha.v
+\end{array}\)</span> et <span class="math inline">\((F,+_F,._F)\)</span>
+est un <span class="math inline">\(\mathbb{K}\)</span>-espace
+vectoriel.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(F \subset E\)</span>.</p>
+<p><span class="math inline">\(F\)</span> est un sous-espace vectoriel
+de <span class="math inline">\(E\)</span> <span
+class="math inline">\(\iff\)</span> <span
+class="math inline">\(\begin{cases}
+    &amp; 0_E \in F\\
+        &amp; \forall u,v \in F, \lambda \in \mathbb{K},  u+\lambda.v
+\in F
+    \end{cases}\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Soit <span
+class="math inline">\(F\)</span> un sous-espace vectoriel de <span
+class="math inline">\(E\)</span>, <span class="math inline">\(0_E \in
+F\)</span>. De plus, soient <span class="math inline">\(u,v \in E,
+\lambda \in \mathbb{K}\)</span>, <span class="math inline">\(F\)</span>
+est stable par <span class="math inline">\(.\)</span> donc <span
+class="math inline">\(\lambda.v \in F\)</span> et <span
+class="math inline">\(F\)</span> stable par <span
+class="math inline">\(+\)</span> donc <span
+class="math inline">\(u+\lambda.v \in F\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Soit <span
+class="math inline">\(F \subset E\)</span> tel que <span
+class="math inline">\(\begin{cases}
+    &amp; 0_E \in F\\
+        &amp; \forall u,v \in F, \lambda \in \mathbb{K},  u+\lambda.v
+\in F
+    \end{cases}\)</span>.</p>
+<p>Alors,</p>
+<ol>
+<li><p><span class="math inline">\(0_{E} \in F\)</span>,</p></li>
+<li><p>Pour <span class="math inline">\(u,v \in F\)</span>, avec <span
+class="math inline">\(\lambda = 1\)</span>, <span
+class="math inline">\(u+1.v = u+v \in F\)</span>,</p></li>
+<li><p>Pour <span class="math inline">\(v \in F, \alpha \in
+\mathbb{K}\)</span>, avec <span class="math inline">\(u =
+0_{E}\)</span>, <span class="math inline">\(u+\alpha.v = \alpha.v \in
+F\)</span>.</p></li>
+</ol></li>
+</ul>
+</div>
+<div class="wexs">
+<ul>
+<li><p>Soit <span class="math inline">\(E\)</span> un espace-vectoriel,
+et <span class="math inline">\(a \in E\)</span> <span
+class="math inline">\(F = \left\{a\right\}\)</span> est un sous-espace
+vectoriel de <span class="math inline">\(E\)</span> si et seulement si
+<span class="math inline">\(a = 0_{E}\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(v_0 \in E\)</span> et <span
+class="math inline">\(D_{v_0} = \left\{\alpha v_0 / \alpha \in
+\mathbb{K}\right\}\)</span>, <span
+class="math inline">\(D_{v_0}\)</span> est un sous-espace vectoriel de
+<span class="math inline">\(E\)</span>.</p>
+<div class="wproof">
+<p>D’abord, comme <span class="math inline">\(E\)</span> est un espace
+vectoriel, <span class="math inline">\(D_{v_0} \subset E\)</span>. De
+plus,</p>
+<ol>
+<li><p><span class="math inline">\(0_{E} = 0.v_0 \in
+D_{v_0}\)</span>,</p></li>
+<li><p>Soient <span class="math inline">\(u,v \in D_{v_0}\)</span>, il
+existe <span class="math inline">\(\alpha_u,\alpha_v \in
+\mathbb{K}\)</span> tels que <span class="math inline">\(u = \alpha_u
+u\)</span> et <span class="math inline">\(v = \alpha_v v\)</span>. De
+plus, soit <span class="math inline">\(\lambda \in \mathbb{K}\)</span>,
+<span class="math inline">\(u+\lambda v = (\alpha_u + \lambda
+\alpha_v).v_0 \in D_{v_0}\)</span>.</p></li>
+</ol>
+</div></li>
+</ul>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un espace-vectoriel et
+soient <span class="math inline">\(v_0,v \in E\)</span>. S’il existe
+<span class="math inline">\(\alpha \in \mathbb{K}\)</span> tel que <span
+class="math inline">\(v = \lambda v_0\)</span>, on dit que <span
+class="math inline">\(v\)</span> est <u>colinéaire</u> à <span
+class="math inline">\(v_0\)</span>.</p>
+<p>Définissons <span class="math inline">\(D_{v_0} = \left\{\alpha v_0 /
+\alpha \in \mathbb{K}\right\}\)</span> qui est un sous-espace vectoriel
+de <span class="math inline">\(E\)</span> comme montré dans l’exemple
+précédent.</p>
+<ul>
+<li><p>Si <span class="math inline">\(v_0 = 0_{E}, D_{v_0} =
+\left\{0_{E}\right\}\)</span>,</p></li>
+<li><p>Si <span class="math inline">\(v_0 \neq 0_{E}, D_{v_0}\)</span>
+est appelé <u>la droite vectorielle</u> de <span
+class="math inline">\(E\)</span> engendrée par <span
+class="math inline">\(v_0\)</span>.</p></li>
+</ul>
+</div>
+<div class="wexs">
+<ul>
+<li><div class="webtextfigure">
+<div class="webtext">
+<p>Si <span class="math inline">\(E = \mathbb{R}^2\)</span> et <span
+class="math inline">\(v_0 = (x_0,y_0) \neq (0,0) \in E\)</span>.</p>
+<p>Soit <span
+class="math inline">\((O,\overrightarrow{i},\overrightarrow{j})\)</span>
+repère orthonormé du plan <span
+class="math inline">\(\mathscr{P}\)</span>, on considère <span
+class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; E &amp; \to &amp; \mathscr{P} \\
+   &amp;   &amp; (x,y) &amp; \mapsto &amp; M(x,y)
+\end{array}\)</span>.</p>
+<p>Alors, de nouveau avec <span class="math inline">\(D_{v_0} =
+\left\{\alpha v_0 / \alpha \in \mathbb{K}\right\}\)</span> et en notant
+<span class="math inline">\(M_0 = \varphi(v_0)\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+        &amp;M \in \varphi(D_{v_0}) \\
+         &amp; \iff \exists (x,y) \in D_{v_0} / M = \varphi(x,y) \\
+        &amp; \iff \exists \alpha \in \mathbb{R}/ M = (\alpha x_0,
+\alpha y_0) \\
+        &amp; \iff \exists \alpha \in \mathbb{R}/ \overrightarrow{OM} =
+\alpha\overrightarrow{OM_0}.
+        \end{aligned}\]</span></p>
+<p>Donc <span class="math inline">\(\varphi(D_{v_0}) = \left\{M /
+\overrightarrow{OM} = \alpha\overrightarrow{OM_0} \text{ avec }\alpha
+\in \mathbb{R}\right\}\)</span> qui est la droite de <span
+class="math inline">\(\mathscr{P}\)</span> passant par <span
+class="math inline">\(O\)</span> et <span
+class="math inline">\(M_0\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="Droite_vectorielle.png" alt="image" /></p>
+</div>
+</div></li>
+<li><p>Soit <span class="math inline">\(E
+=\mathscr{F}(I,\mathbb{R})\)</span> avec <span
+class="math inline">\(I\)</span> intervalle de <span
+class="math inline">\(\mathbb{R}\)</span> et <span
+class="math inline">\(a : I \to \mathbb{R}\)</span> une fonction
+continue. On considère <span
+class="math inline">\(\mathcal{S}_{(H)}\)</span> l’ensemble des
+solutions sur <span class="math inline">\(I\)</span> de l’équation
+différentielle homogène <span class="math display">\[y&#39;(t) =
+a(t)y(t).
+            \tag{H}\]</span></p>
+<p>Alors, <span class="math inline">\(\mathcal{S}_{(H)} = \left\{t \in I
+\mapsto C e^{A(t)} / C \in \mathbb{R}\right\}\)</span>, avec <span
+class="math inline">\(A\)</span> une primitive de <span
+class="math inline">\(a\)</span> sur <span
+class="math inline">\(I\)</span>, est la droite vectorielle de <span
+class="math inline">\(\mathscr{F}(I,\mathbb{R})\)</span>, dirigée par
+<span class="math inline">\(t \in I \mapsto e^{A(t)}\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E\)</span> un espace vectoriel et
+<span class="math inline">\(F,G\)</span> deux sous-espaces vectoriels de
+<span class="math inline">\(E\)</span>.</p>
+<p>Alors <span class="math inline">\(F \cap G\)</span> est un
+sous-espace vectoriel de <span class="math inline">\(E\)</span>.</p>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Comme <span class="math inline">\(F\)</span> et <span
+class="math inline">\(G\)</span> sont des sous-espaces vectoriels de
+<span class="math inline">\(E\)</span>, <span
+class="math inline">\(0_{E} \in F\)</span> et <span
+class="math inline">\(0_{E} \in G\)</span> donc <span
+class="math inline">\(0_{E} \in F \cap G\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(u,v \in F \cap G\)</span> et
+<span class="math inline">\(\lambda \in \mathbb{K}\)</span>.</p>
+<p>Alors, <span class="math inline">\(u,v \in F\)</span> donc <span
+class="math inline">\(u+\lambda v \in F\)</span> car <span
+class="math inline">\(F\)</span> sous-espace vectoriel de <span
+class="math inline">\(E\)</span>.</p>
+<p>De plus, <span class="math inline">\(u,v \in G\)</span> donc <span
+class="math inline">\(u+\lambda v \in G\)</span> car <span
+class="math inline">\(G\)</span> sous-espace vectoriel de <span
+class="math inline">\(E\)</span>.</p>
+<p>Donc <span class="math inline">\(u+\lambda v \in F \cap
+G\)</span>.</p></li>
+</ol>
+</div>
+<div class="wrem">
+<p>On peut montrer par récurrence : soient <span
+class="math inline">\(E\)</span> un espace vectoriel, <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span> et <span
+class="math inline">\(F_1,\ldots,F_n\)</span> sous-espaces vectoriels de
+<span class="math inline">\(E\)</span> alors <span
+class="math inline">\(\bigcap_{i=1}^n F_i\)</span> est un sous-espace
+vectoriel de <span class="math inline">\(E\)</span>.</p>
+</div>
+<h2 data-number="2.5"
+id="sous-espace-vectoriel-engendré-par-une-famille-de-vecteurs"><span
+class="header-section-number">2.5</span> Sous-espace vectoriel engendré
+par une famille de vecteurs</h2>
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(v_1,\ldots,v_n \in E\)</span> (avec <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span>), on cherche le
+plus petit sous-espace vectoriel de <span
+class="math inline">\(E\)</span> qui contient <span
+class="math inline">\(v_1,\ldots,v_n\)</span>.</p>
+<p>Soit <span class="math inline">\(G\)</span> un sous-espace vectoriel
+de <span class="math inline">\(E\)</span> qui contient <span
+class="math inline">\(v_1,\ldots,v_n\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(v_1,\ldots,v_n \in
+G\)</span>.</p></li>
+<li><p>De plus, en tant que sous-espace vectoriel de <span
+class="math inline">\(E\)</span>, <span class="math inline">\(G\)</span>
+est stable par <span class="math inline">\(+\)</span> donc pour tout
+<span class="math inline">\(i \in [\![ 1,n ]\!]\)</span>, pour tout
+<span class="math inline">\(\alpha_i \in \mathbb{K}\)</span>, <span
+class="math inline">\(\alpha_i v_i \in G\)</span>.</p></li>
+<li><p>Enfin, en tant que sous-espace vectoriel de <span
+class="math inline">\(E\)</span>, <span class="math inline">\(G\)</span>
+est stable par <span class="math inline">\(+\)</span> donc pour tout
+<span class="math inline">\(\alpha_1,\ldots,\alpha_n \in K\)</span>,
+<span class="math inline">\(\sum_{i=1}^n \alpha_i v_i = \alpha_1 v_1
++\ldots+\alpha_n v_n \in G\)</span>.</p></li>
+</ul>
+<p>On en déduit que <span class="math inline">\(\left\{\sum_{i=1}^n
+\alpha_i v_i / \forall 1 \leq i \leq n, \alpha_i \in \mathbb{K}\right\}
+=\left\{\alpha_1 v_1 +\ldots+\alpha_n v_n / \alpha_1,\ldots,\alpha_n \in
+\mathbb{K}\right\} \subset G\)</span>. On a en fait la proposition
+suivante.</p>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(v_1,\ldots,v_n \in E\)</span> (avec <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span>).</p>
+<p>On note <span
+class="math inline">\(\mathop{\mathrm{Vect}}(v_1,\ldots,v_n)\)</span> le
+plus petit sous-espace vectoriel de <span
+class="math inline">\(E\)</span> contenant <span
+class="math inline">\(v_1,\ldots,v_n\)</span>. On l’appelle le
+sous-espace vectoriel de <span class="math inline">\(E\)</span> engendré
+par <span class="math inline">\(v_1,\ldots,v_n\)</span>. On a alors
+<span class="math display">\[\mathop{\mathrm{Vect}}(v_1,\ldots,v_n) =
+\left\{\sum_{i=1}^n \alpha_i v_i / \forall 1 \leq i \leq n, \alpha_i \in
+\mathbb{K}\right\} =\left\{\alpha_1 v_1 +\ldots+\alpha_n v_n /
+\alpha_1,\ldots,\alpha_n \in \mathbb{K}\right\}\]</span>.</p>
+</div>
+<div class="wproof">
+<p>D’après l’introduction, il suffit de montrer que <span
+class="math inline">\(F = \left\{\alpha_1 v_1 +\ldots+\alpha_n v_n /
+\alpha_1,\ldots,\alpha_n \in \mathbb{K}\right\}\)</span> est bien un
+sous-espace vectoriel de <span class="math inline">\(E\)</span>.</p>
+<p>Car alors, si <span class="math inline">\(G\)</span> est un
+sous-espace vectoriel de <span class="math inline">\(E\)</span>
+contenant <span class="math inline">\(v_1,\ldots,v_n\)</span>, par
+l’introduction, on a <span class="math inline">\(F \subset G\)</span> et
+donc <span class="math inline">\(F\)</span> est bien le plus petit
+sous-espace vectoriel de <span class="math inline">\(E\)</span>
+contenant <span class="math inline">\(v_1,\ldots,v_n\)</span>.</p>
+<ol>
+<li><p><span class="math inline">\(0_{E} = \sum_{i=1}^n 0 v_i \in
+F\)</span>,</p></li>
+<li><p>Soient <span class="math inline">\(\lambda \in
+\mathbb{K}\)</span> et <span class="math inline">\(u,w \in
+F\)</span>.</p>
+<p>Il existe <span class="math inline">\(\alpha_1,\ldots,\alpha_n \in
+\mathbb{K}\)</span> et <span
+class="math inline">\(\beta_1,\ldots,\beta_n \in \mathbb{K}\)</span>
+tels que <span class="math inline">\(u = \sum_{i=1}^n \alpha_i
+v_i\)</span> et <span class="math inline">\(w = \sum_{i=1}^n \beta_i
+v_i\)</span>.</p>
+<p>On a donc <span class="math inline">\(u+\lambda w = \sum_{i=1}^n
+(\alpha_i + \lambda\beta_i)v_i \in F\)</span>.</p></li>
+</ol>
+<p>Donc <span class="math inline">\(F\)</span> est un sous-espace
+vectoriel de <span class="math inline">\(E\)</span> et <span
+class="math inline">\(\mathop{\mathrm{Vect}}(v_1,\ldots,v_n) =
+F\)</span>.</p>
+</div>
+<div class="wrem">
+<ul>
+<li><p><span class="math inline">\(\sum_{i=1}^n \alpha_i v_i\)</span>
+est appelé une combinaison linéaire des vecteurs <span
+class="math inline">\(v_i\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(n = 1\)</span> et <span
+class="math inline">\(v_1 \neq 0_{E}\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Vect}}(v_1)\)</span> est la droite
+vectorielle engendrée par <span
+class="math inline">\(v_1\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(n=2\)</span>,</p>
+<ul>
+<li><p>Si <span class="math inline">\(v_1 \neq 0_{E} \text{ et
+}v_2\)</span> est colinéaire à <span class="math inline">\(v_1\)</span>,
+<span class="math inline">\(\mathop{\mathrm{Vect}}(v_1,v_2) =
+\mathop{\mathrm{Vect}}(v_1)\)</span> est la droite engendrée par <span
+class="math inline">\(v_1\)</span>.</p>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\(\mathop{\mathrm{Vect}}(v_1,v_2)
+\supset \mathop{\mathrm{Vect}}(v_1)\)</span> car <span
+class="math inline">\(v_1 \in \mathop{\mathrm{Vect}}(v_1,v_2)\)</span>
+et <span class="math inline">\(\mathop{\mathrm{Vect}}(v_1)\)</span> est
+le plus petit sous-espace vectoriel de <span
+class="math inline">\(E\)</span> contenant <span
+class="math inline">\(v_1\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{Vect}}(v_1,v_2)
+\subset \mathop{\mathrm{Vect}}(v_1)\)</span> car <span
+class="math inline">\(v_2\)</span> est colinéaire à <span
+class="math inline">\(v_1\)</span> donc il existe <span
+class="math inline">\(\lambda \in \mathbb{K}\)</span> tel que <span
+class="math inline">\(v_2 = \lambda v_1\)</span>.</p>
+<p>On en déduit <span
+class="math inline">\(\mathop{\mathrm{Vect}}(v_1,v_2) = \left\{
+(\alpha_1+\lambda \alpha_2)v_1 / \alpha_1,\alpha_2 \in
+\mathbb{K}\right\}
+\subset  \mathop{\mathrm{Vect}}(v_1)\)</span>.</p></li>
+</ul>
+</div></li>
+<li><p>Si <span class="math inline">\(v_1 \neq 0_{E} \text{ et
+}v_2\)</span> n’est pas colinéaire à <span
+class="math inline">\(v_1\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Vect}}(v_1,v_2)\)</span> est
+appelé le <u>plan engendré par <span class="math inline">\(v_1\)</span>
+et <span class="math inline">\(v_2\)</span></u>.</p></li>
+</ul></li>
+<li><div class="webtextfigure">
+<div class="webtext">
+<p>Illustrons la notion de plan précédente. Si <span
+class="math inline">\(E = \mathbb{R}^3\)</span>, soient <span
+class="math inline">\(v_1 = (x_1,y_1,z_1) \neq (0,0)\)</span> et <span
+class="math inline">\(v_2 = (x_2,y_2,z_2)\)</span> non colinéaire à
+<span class="math inline">\(v_1\)</span>.</p>
+<p>Soit <span
+class="math inline">\((O,\overrightarrow{i},\overrightarrow{j},\overrightarrow{k})\)</span>
+repère orthonormé de l’espace usuel <span
+class="math inline">\(\mathscr{E}\)</span>, on considère <span
+class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; E &amp; \to &amp; \mathscr{E} \\
+   &amp;   &amp; (x,y,z) &amp; \mapsto &amp; M(x,y,z)
+\end{array}\)</span>.</p>
+<p>Alors, de nouveau avec en notant <span class="math inline">\(M_1 =
+\varphi(v_1) \text{ et }M_2 = \varphi(v_2)\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+        &amp; \qquad \\
+        &amp; \qquad \\
+        &amp;M \in \varphi(\mathop{\mathrm{Vect}}(v_1,v_2)) \\
+         &amp; \iff \exists (x,y,z) \in \mathop{\mathrm{Vect}}(v_1,v_2)
+/ M = \varphi(x,y,z) \\
+        &amp; \iff \exists \alpha_1,\alpha_2 \in \mathbb{R}/ M =
+(\alpha_1 x_1+\alpha_2 x_2, \alpha_1 y_1+\alpha_2 y_2,\alpha_1
+z_1+\alpha_2 z_2)  \\
+        &amp; \iff \overrightarrow{OM} = \alpha_1 \overrightarrow{OM_1}
++\alpha_2 \overrightarrow{OM_2}.
+        \end{aligned}\]</span></p>
+<p>Donc <span
+class="math inline">\(\varphi(\mathop{\mathrm{Vect}}(v_1,v_2)) =
+\left\{M / \overrightarrow{OM} = \alpha_1 \overrightarrow{OM_1}
++\alpha_2 \overrightarrow{OM_2} \text{ avec }\alpha_1,\alpha_2 \in
+\mathbb{R}\right\}\)</span> qui est le plan de <span
+class="math inline">\(\mathscr{P}\)</span> passant par <span
+class="math inline">\(O\)</span>, <span
+class="math inline">\(M_1\)</span> et <span
+class="math inline">\(M_2\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="Plan_vectoriel.png" alt="image" /></p>
+</div>
+</div></li>
+</ul>
+</div>
+<h2 data-number="2.6" id="somme-de-sous-espaces-vectoriels"><span
+class="header-section-number">2.6</span> Somme de sous-espaces
+vectoriels</h2>
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(F,G\)</span> deux sous-espaces vectoriels de <span
+class="math inline">\(E\)</span>, on cherche le plus petit sous-espace
+vectoriel de <span class="math inline">\(E\)</span> qui contient <span
+class="math inline">\(F\)</span> et <span
+class="math inline">\(G\)</span>. Une piste envisageable est <span
+class="math inline">\(F \cup G\)</span>. On a bien <span
+class="math inline">\(0_{E} \in F\cup G\)</span>. De plus, si <span
+class="math inline">\(u \in F \cup G\)</span>, si <span
+class="math inline">\(u \in F\)</span> donc pour tout <span
+class="math inline">\(\alpha \in \mathbb{K}\)</span>, <span
+class="math inline">\(\alpha u \in F \subset F \cup G\)</span> et de
+même si <span class="math inline">\(u \in G\)</span>. En revanche,
+montrons sur un exemple qu’on a en général pas la stabilité par ".".</p>
+<div class="wex">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Si <span class="math inline">\(E = \mathbb{R}^2\)</span>, <span
+class="math inline">\({i} = (1,0)\)</span> et <span
+class="math inline">\({j} = (0,1)\)</span>. Considérons <span
+class="math inline">\(F = \mathop{\mathrm{Vect}}({i})\)</span> et <span
+class="math inline">\(G = \mathop{\mathrm{Vect}}({j})\)</span>, alors
+<span class="math inline">\(F \cup G\)</span> n’est pas stable par <span
+class="math inline">\(+\)</span>.</p>
+<p>En particulier, <span class="math inline">\(\underbrace{{i}}_{ \in F
+\subset F\cup G} + \underbrace{{j}}_{ \in G \subset F\cup G} \notin F
+\cup G\)</span> comme l’illustre le dessin ci-contre, représentant <span
+class="math inline">\(\mathbb{R}^2\)</span> dans le plan.</p>
+</div>
+<div class="webimg">
+<p><img src="FUG.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<p>Poursuivons donc la recherche. soit <span
+class="math inline">\(H\)</span> un sous-espace vectoriel de <span
+class="math inline">\(E\)</span> qui qui contient <span
+class="math inline">\(F\)</span> et <span
+class="math inline">\(G\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(F \subset H \text{ et }G \subset
+H\)</span>.</p></li>
+<li><p>De plus, en tant que sous-espace vectoriel de <span
+class="math inline">\(E\)</span>, <span class="math inline">\(G\)</span>
+est stable par <span class="math inline">\(+\)</span> donc pour tout
+<span class="math inline">\(u \in F, v \in G\)</span>, <span
+class="math inline">\(u+v \in H\)</span>.</p></li>
+</ul>
+<p>On en déduit que <span class="math inline">\(\left\{u+v / u \in F, v
+\in G\right\} \subset H\)</span>. On a en fait la proposition
+suivante.</p>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(F,G\)</span> deux sous-espaces vectoriels de <span
+class="math inline">\(E\)</span>.</p>
+<p>On définit le plus petit sous-espace vectoriel de <span
+class="math inline">\(E\)</span> contenant <span
+class="math inline">\(F\)</span> et <span
+class="math inline">\(G\)</span>, noté <span
+class="math inline">\(F+G\)</span> par <span class="math display">\[F+G
+= \left\{u+v / u \in F, v \in G\right\}.\]</span></p>
+<p>On dit que <span class="math inline">\(F+G\)</span> est le
+sous-espace vectoriel somme de <span class="math inline">\(F\)</span> et
+<span class="math inline">\(G\)</span> (ou plus simplement la somme de
+<span class="math inline">\(F\)</span> et <span
+class="math inline">\(G\)</span>).</p>
+</div>
+<div class="wproof">
+<p>D’après l’introduction, il suffit de montrer que <span
+class="math inline">\(\left\{u+v / u \in F, v \in G\right\}\)</span> est
+bien un sous-espace vectoriel de <span
+class="math inline">\(E\)</span>.</p>
+<p>Car alors, si <span class="math inline">\(H\)</span> est un
+sous-espace vectoriel de <span class="math inline">\(E\)</span>
+contenant <span class="math inline">\(F\)</span> et <span
+class="math inline">\(G\)</span>, par l’introduction, on a <span
+class="math inline">\(\left\{u+v / u \in F, v \in G\right\} \subset
+H\)</span> et donc <span class="math inline">\(\left\{u+v / u \in F, v
+\in G\right\}\)</span> est bien le plus petit sous-espace vectoriel de
+<span class="math inline">\(E\)</span> contenant <span
+class="math inline">\(F\)</span> et <span
+class="math inline">\(G\)</span>.</p>
+<ol>
+<li><p><span class="math inline">\(0_{E} = \underbrace{0_{E}}_{\in
+F}+\underbrace{0_{E}}_{\in G} \in \left\{u+v / u \in F, v \in
+G\right\}\)</span>,</p></li>
+<li><p>Soient <span class="math inline">\(\lambda \in
+\mathbb{K}\)</span> et <span class="math inline">\(u,w \in \left\{u+v /
+u \in F, v \in G\right\}\)</span>.</p>
+<p>Il existe <span class="math inline">\(u_1,u_2 \in F\)</span> et <span
+class="math inline">\(v_1,v_2 \in G\)</span> tels que <span
+class="math inline">\(u = u_1+u_2\)</span> et <span
+class="math inline">\(v = v_1+v_2\)</span>.</p>
+<p>On a donc <span class="math inline">\(u+\lambda v= \underbrace{u_1 +
+\lambda u_2}_{\in F} + \underbrace{v_1 + \lambda v_2}_{\in G}
+\in\left\{u+v / u \in F, v \in G\right\}\)</span>.</p></li>
+</ol>
+<p>Donc <span class="math inline">\(\left\{u+v / u \in F, v \in
+G\right\}\)</span> est un sous-espace vectoriel de <span
+class="math inline">\(E\)</span> et <span class="math inline">\(F+G =
+\left\{u+v / u \in F, v \in G\right\}\)</span>.</p>
+</div>
+<div class="wdefi">
+<p>Plus généralement, soient <span class="math inline">\(E\)</span> un
+<span class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et
+<span class="math inline">\(F_1,\ldots,F_n\)</span> sous-espaces
+vectoriels de <span class="math inline">\(E\)</span> (<span
+class="math inline">\(n \in \mathbb{N}, n \geq 2\)</span>).</p>
+<p>On définit le plus petit sous-espace vectoriel de <span
+class="math inline">\(E\)</span> contenant <span
+class="math inline">\(F_1,\ldots,F_n\)</span>, noté <span
+class="math inline">\(F_1 + \ldots + F_n\)</span> par <span
+class="math display">\[F_1 + \ldots + F_n = \left\{\sum_{i=1}^n u_i /
+\forall i \in [\![ 1, n]\!], u_i \in F_i\right\}.\]</span></p>
+<p>On dit que <span class="math inline">\(F_1 + \ldots + F_n\)</span>
+est le sous-espace vectoriel somme de <span
+class="math inline">\(F_1,\ldots,F_n\)</span> (ou plus simplement la
+somme de <span class="math inline">\(F_1,\ldots,F_n\)</span>).</p>
+</div>
+<div class="wexs">
+<ul>
+<li><p>Reprenons l’exemple d’introduction : Si <span
+class="math inline">\(E = \mathbb{R}^2\)</span>, <span
+class="math inline">\({i} = (1,0)\)</span> et <span
+class="math inline">\({j} = (0,1)\)</span>. Considérons <span
+class="math inline">\(F = \mathop{\mathrm{Vect}}({i})\)</span> et <span
+class="math inline">\(G = \mathop{\mathrm{Vect}}({j})\)</span>.</p>
+<p>Alors, <span class="math inline">\(F+G = \left\{u+v / u \in F, v \in
+G\right\} = \left\{\alpha{i}+\beta{j} / \alpha, \beta \in
+\mathbb{R}\right\} = \left\{(\alpha,\beta)/ \alpha, \beta \in
+\mathbb{R}\right\} = \mathbb{R}^2\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(E = \mathbb{R}^4\)</span>, <span
+class="math inline">\(\begin{cases}
+            v_1 &amp; = (1,-1,0,0) \\
+            v_2 &amp; = (0,0,1,0) \\
+            v_3 &amp; = (0,0,0,1) \\
+            v_4 &amp; = (-1,1,0,2).
+        \end{cases}, F = \mathop{\mathrm{Vect}}\left(v_1,v_2\right), G =
+\mathop{\mathrm{Vect}}\left(v_3,v_4\right)\)</span>.</p>
+<p>On a <span class="math display">\[F = \left\{\alpha_1v_1+\alpha_2v_2
+= (\alpha_1,-\alpha_1,\alpha_2,0) / \alpha_1,\alpha_2 \in
+\mathbb{R}\right\}\]</span> et <span class="math display">\[G =
+\left\{\alpha_3v_3+\alpha_4v_4 =
+(-\alpha_4,\alpha_4,0,\alpha_3+2\alpha_4) / \alpha_3,\alpha_4 \in
+\mathbb{R}\right\}.\]</span></p>
+<p>Donc <span class="math display">\[F+G = \left\{\sum_{i=1}^4 \alpha_i
+v_i = (\alpha_1-\alpha_4,\alpha_4-\alpha_1,\alpha_2,\alpha_3+2\alpha_4)/
+\alpha_1,\alpha_2,\alpha_3,\alpha_4 \in \mathbb{R}\right\}\]</span></p>
+<p>Montrons que <span class="math inline">\(F+G = H\)</span> avec <span
+class="math inline">\(H:=\left\{(x,-x,y,z) \ x,y,z \in
+\mathbb{R}\right\}\)</span>.</p>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\(F+G \subset H\)</span> Si <span
+class="math inline">\(u \in F+G\)</span>, il existe <span
+class="math inline">\(\alpha_1,\alpha_2,\alpha_3,\alpha_4 \in
+\mathbb{R}\)</span> tel que <span class="math inline">\(u =
+(\alpha_1-\alpha_4,\alpha_4-\alpha_1,\alpha_2,\alpha_3+2\alpha_4)\)</span>.</p>
+<p>Donc avec <span class="math inline">\(x = \alpha_1-\alpha_4, y =
+\alpha_2, z = \alpha_3+2\alpha_4\)</span>, <span class="math inline">\(u
+= (x,-x,y,z) \in H\)</span>.</p></li>
+<li><p><span class="math inline">\(F+G \supset H\)</span> Si <span
+class="math inline">\(u \in H\)</span>, il existe <span
+class="math inline">\(x,y,z \in \mathbb{R}\)</span> tel que <span
+class="math inline">\(u = (x,-x,y,z)\)</span>.</p>
+<p>De plus, soient <span
+class="math inline">\(\alpha_1,\alpha_2,\alpha_3,\alpha_4 \in
+\mathbb{R}\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+            u =
+(\alpha_1-\alpha_4,\alpha_4-\alpha_1,\alpha_2,\alpha_3+2\alpha_4)
+            &amp; \iff \begin{cases}
+                x &amp; = \alpha_1-\alpha_4 \\
+                -x &amp; = \alpha_4-\alpha_1 \\
+                y&amp; =\alpha_2 \\
+                z &amp; =  \alpha_3+2\alpha_4
+            \end{cases} \\
+            &amp; \iff \begin{cases}
+                \alpha_4 &amp; = \alpha_1-x \\
+                \alpha_2 &amp; = y \\
+                \alpha_3 &amp; = z-2\alpha_4
+            \end{cases} \\
+            &amp; \iff \begin{cases}
+                \alpha_4 &amp; = \alpha_1-x \\
+                \alpha_2 &amp; = y \\
+                \alpha_3 &amp; = z-2\alpha_1-2x
+            \end{cases} \\
+            \end{aligned}\]</span></p>
+<p>Donc avec <span class="math inline">\(\alpha_1 = 0, \alpha_2 = y,
+\alpha_3 = z-2x, \alpha_4 = -x\)</span>, <span class="math inline">\(u =
+(\alpha_1-\alpha_4,\alpha_4-\alpha_1,\alpha_2,\alpha_3+2\alpha_4) \in
+F+G\)</span>.</p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>On en déduit aussi donc</p>
+<p><span class="math inline">\(F+G
+=  \left\{x(1,-1,0,0)+y(0,0,1,0)+z(0,0,0,1) / x,y,z \in
+\mathbb{R}\right\} =
+\mathop{\mathrm{Vect}}((1,-1,0,0),(0,0,1,0),(0,0,0,1))\)</span>.</p>
+</div></li>
+</ul>
+</div>
+<h2 data-number="2.7" id="somme-directe"><span
+class="header-section-number">2.7</span> Somme directe</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(E\)</span> un espace vectoriel et
+<span class="math inline">\(F,G\)</span> deux sous-espaces vectoriels de
+<span class="math inline">\(E\)</span>.</p>
+<p><span class="math inline">\(F+G\)</span> est <u>directe</u> si pour
+tout <span class="math inline">\(w \in F+G\)</span>, il existe <span
+class="math inline">\(u \in F\)</span> et <span class="math inline">\(v
+\in G\)</span> <u>uniques</u> tels que <span class="math inline">\(w =
+u+v\)</span>.</p>
+<p>On note alors la somme <span class="math inline">\(F\oplus
+G\)</span>.</p>
+</div>
+<div class="wexs">
+<ul>
+<li><p><span class="math inline">\(E = \mathbb{R}^2\)</span>, <span
+class="math inline">\(F = \mathop{\mathrm{Vect}}\left((1,0)\right), G =
+\mathop{\mathrm{Vect}}\left((1,2)\right)\)</span>.</p>
+<p>Alors, <span class="math inline">\(F+G =
+\left\{\alpha(1,0)+\beta(1,2) = (\alpha+\beta,2\beta)/\alpha,\beta \in
+\mathbb{R}\right\}\)</span>. Montrons que cette somme est directe.</p>
+<p>Soit <span class="math inline">\(u \in F+G\)</span>, supposons qu’il
+existe <span class="math inline">\(\alpha,\beta \in \mathbb{R}\)</span>
+tels que <span class="math inline">\(u = (\alpha+\beta,2\beta)\)</span>
+et <span class="math inline">\(\alpha&#39;,\beta&#39; \in
+\mathbb{R}\)</span> tels que <span class="math inline">\(u =
+(\alpha&#39;+\beta&#39;,2\beta&#39;)\)</span>.</p>
+<p>On a donc <span class="math inline">\(\begin{cases}
+            \alpha+\beta &amp; = \alpha&#39;+\beta&#39;\\
+            2\beta &amp; = 2\beta&#39;
+        \end{cases} \Longrightarrow \begin{cases}
+            \alpha+\beta &amp; = \alpha&#39;+\beta&#39;\\
+            \beta &amp; = \beta&#39;
+        \end{cases} \Longrightarrow \begin{cases}
+            \alpha &amp; = \alpha&#39;\\
+            \beta &amp; = \beta&#39;
+        \end{cases}\)</span>.</p>
+<p>On en déduit que <span class="math inline">\(F+G\)</span> est directe
+et <span class="math inline">\(F\oplus G =
+\left\{(\alpha+\beta,2\beta)/\alpha,\beta \in
+\mathbb{R}\right\}\)</span></p></li>
+<li><p><span class="math inline">\(E=\mathbb{R}^3\)</span>, <span
+class="math inline">\(\begin{cases}
+            v_1 &amp; = (0,1,-1) \\
+            v_2 &amp; = (1,0,1) \\
+            v_3 &amp; = (1,1,0) \\
+            v_4 &amp; = (0,0,1)
+        \end{cases}\)</span> ,<span class="math inline">\(F =
+\mathop{\mathrm{Vect}}(v_1,v_2)\)</span> et <span
+class="math inline">\(G = \mathop{\mathrm{Vect}}(v_3,v_4)\)</span>.</p>
+<p>Alors, <span class="math inline">\(v_3 = \underbrace{0_{E}}_{\in F} +
+\underbrace{v_3}_{\in G} = \underbrace{v_1+v_2}_{\in F} +
+\underbrace{0_{E}}_{\in G}\)</span>.</p>
+<p>Donc <span class="math inline">\(F+G\)</span> n’est pas
+directe.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><span id="prop:CNS_Somme_directe"
+label="prop:CNS_Somme_directe"></span> Soient <span
+class="math inline">\(E\)</span> un espace vectoriel et <span
+class="math inline">\(F,G\)</span> deux sous-espaces vectoriels de <span
+class="math inline">\(E\)</span>.</p>
+<p><span class="math display">\[F+G \text{ directe } \iff F \cap G =
+\left\{0_{E}\right\}.\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(F+G\)</span> est directe, soit <span
+class="math inline">\(u \in F \cap G\)</span> alors <span
+class="math inline">\(u \in F\)</span> et <span
+class="math inline">\(u\in G\)</span> donc <span class="math inline">\(u
+= \underbrace{u}_{\in F} + \underbrace{0_{E}}_{\in G} =
+\underbrace{0_{E}}_{\in F} + \underbrace{u}_{\in G}\)</span>.</p>
+<p>Par unicité de la décomposition de <span
+class="math inline">\(u\)</span>, <span class="math inline">\(u =
+0_{E}\)</span> donc <span class="math inline">\(F \cap G \subset
+\left\{0_{E}\right\}\)</span>.</p>
+<p>De plus, comme <span class="math inline">\(F \cap G\)</span> est un
+sous-espace vectoriel de <span class="math inline">\(E\)</span>, <span
+class="math inline">\(F \cap G \supset
+\left\{0_{E}\right\}\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Si <span
+class="math inline">\(F \cap G = \left\{0_{E}\right\}\)</span>, soit
+<span class="math inline">\(w \in F+G\)</span> tel que <span
+class="math inline">\(w = \underbrace{u}_{\in F} + \underbrace{v}_{\in
+G} = \underbrace{u&#39;}_{\in F} + \underbrace{v&#39;}_{\in
+G}\)</span>.</p>
+<p>Alors, <span class="math inline">\(u+v = u&#39;+v&#39; \iff
+\underbrace{u-u&#39;}_{\in F} = \underbrace{v&#39;-v}_{\in G}\)</span>
+donc <span class="math inline">\(u-u&#39; \in F\cap G\)</span> et <span
+class="math inline">\(v&#39;-v \in F \cap G\)</span>. Donc <span
+class="math inline">\(\begin{cases}
+            u-u&#39; &amp; = 0_{E} \\
+            v&#39;-v &amp; = 0_{E}
+        \end{cases} \iff \begin{cases}
+            u &amp;=u&#39; \\
+            v &amp;=v&#39;
+        \end{cases}.\)</span></p></li>
+</ul>
+</div>
+<div class="wdefi">
+<p>On étend la définition précédente : Soient <span
+class="math inline">\(E\)</span> un espace vectoriel et <span
+class="math inline">\(F_1,\ldots,F_n\)</span> sous-espaces vectoriels de
+<span class="math inline">\(E\)</span> (<span class="math inline">\(n
+\in \mathbb{N}, n \geq 2\)</span>).</p>
+<p><span class="math inline">\(F_1 +\ldots +F_n\)</span> est
+<u>directe</u> si pour tout <span class="math inline">\(w \in F_1
++\ldots +F_n\)</span>, il existe <span class="math inline">\(u_i \in
+F_i\)</span> pour <span class="math inline">\(1 \leq i \leq n\)</span>
+<u>uniques</u> tels que <span class="math inline">\(w = \sum_{i=1}^n
+u_i\)</span>.</p>
+<p>On note alors la somme <span class="math inline">\(F_1 \oplus \ldots
+\oplus F_n\)</span> ou <span class="math inline">\(\bigoplus_{i=1}^n
+F_i\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E\)</span> un espace vectoriel et
+<span class="math inline">\(F_1,\ldots,F_n\)</span> sous-espaces
+vectoriels de <span class="math inline">\(E\)</span> (<span
+class="math inline">\(n \in \mathbb{N}, n \geq 2\)</span>).</p>
+<p><span class="math display">\[F_1 +\ldots +F_n \text{ directe } \iff
+\left(0_{E} = \sum_{i=1}^n u_i \text{ avec }\forall i \in [\![1, n]\!],
+u_i\in F_i \Longrightarrow \forall i \in [\![1, n]\!], u_i =
+0_{E}\right).\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(F_1 +\ldots +F_n\)</span> est directe, <span
+class="math inline">\(0_E = \underbrace{0_E}_{\in
+F_1}+\ldots+\underbrace{0_E}_{\in F_n}\)</span> est l’unique
+décomposition de <span class="math inline">\(0_E\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Soit <span
+class="math inline">\(w \in F_1 +\ldots +F_n\)</span> tel que <span
+class="math inline">\(w = \sum_{i=1}^n \underbrace{u_i}_{\in F_i} =
+\sum_{i=1}^n \underbrace{v_i}_{\in F_i}\)</span></p>
+<p>alors <span class="math inline">\(\sum_{i=1}^n \underbrace{u_i}_{\in
+F_i} = \sum_{i=1}^n \underbrace{v_i}_{\in F_i} \Longrightarrow
+\sum_{i=1}^n \underbrace{u_i-v_i}_{\in F_i} = 0_E \Longrightarrow
+\forall i \in [\![1, n]\!], u_i-v_i = 0 \iff u_i =
+v_i\)</span>.</p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>Si, en cherchant à étendre la proposition <a
+href="#prop:CNS_Somme_directe" data-reference-type="ref"
+data-reference="prop:CNS_Somme_directe">[prop:CNS_Somme_directe]</a>,
+pour tout <span class="math inline">\(i \neq j\)</span>, <span
+class="math inline">\(F_i \subset F_j = \left\{0_{E}\right\}\)</span>,
+la somme <span class="math inline">\(F_1 +\ldots +F_n\)</span> n’est pas
+directe en général.</p>
+<div class="wex">
+<p>Dans <span class="math inline">\(\mathbb{R}^2\)</span>, posons <span
+class="math inline">\(F_1=\mathop{\mathrm{Vect}}((1,0)),
+F_2=\mathop{\mathrm{Vect}}((0,1)),
+F_3=\mathop{\mathrm{Vect}}((1,1)).\)</span></p>
+<p>On a <span class="math inline">\(F_1\cap F_2=F_1\cap F_3=F_2\cap
+F_3=\{0\}.\)</span></p>
+<p>Cependant la somme n’est pas directe car <span
+class="math inline">\((1,0)+(0,1)-(1,1)=(0,0)\)</span> avec <span
+class="math inline">\((1,0)\in F_1\)</span>, <span
+class="math inline">\((0,1)\in F_2\)</span> et <span
+class="math inline">\((1,1)\in F_3\)</span>.</p>
+</div>
+</div>
+<h2 data-number="2.8" id="sous-espace-supplémentaire"><span
+class="header-section-number">2.8</span> Sous-espace supplémentaire</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(E\)</span> un espace vectoriel et
+<span class="math inline">\(F,G\)</span> deux sous-espaces vectoriels de
+<span class="math inline">\(E\)</span>.</p>
+<p>On dit que <span class="math inline">\(F\)</span> et <span
+class="math inline">\(G\)</span> sont supplémentaires de <span
+class="math inline">\(E\)</span> si <span class="math inline">\(E =
+F\oplus G\)</span>.</p>
+<p>C’est-à-dire si pour tout <span class="math inline">\(w \in
+E\)</span>, il existe <span class="math inline">\(u \in F\)</span> et
+<span class="math inline">\(v \in G\)</span> <u>uniques</u> tels que
+<span class="math inline">\(w = u+v\)</span>.</p>
+</div>
+<div class="wexs">
+<ul>
+<li><p>Si <span class="math inline">\(E = \mathbb{R}^2, F =
+\mathop{\mathrm{Vect}}(1,1), G = \mathop{\mathrm{Vect}}(0,3)\)</span>
+alors <span class="math inline">\(E = F\oplus G\)</span>.</p>
+<div class="wproof">
+<p>Soit <span class="math inline">\((x,y) \in \mathbb{R}^2\)</span>, on
+cherche <span class="math inline">\(\alpha, \beta\)</span> tels que
+<span class="math inline">\(x,y = \alpha(1,1) + \beta(0,3) =
+(\alpha,\alpha+3\beta)\)</span>.</p>
+<p>On a alors <span class="math display">\[\begin{cases}
+                \alpha &amp; = x \\
+                \alpha + 3 \beta &amp; = y
+            \end{cases} \iff \begin{cases}
+                \alpha &amp; = x \\
+                 \beta &amp; = \frac{y-x}{3}
+            \end{cases}\]</span> donc de tels <span
+class="math inline">\(\alpha,\beta\)</span> existent et sont uniques
+donc <span class="math inline">\(E = F\oplus G\)</span>.</p>
+</div></li>
+<li><p>Si <span class="math inline">\(E = \mathbb{R}^3\)</span>, <span
+class="math inline">\(\begin{cases}
+            v_1 &amp; = (1,0,-1) \\
+            v_2 &amp; = (0,0,1) \\
+            v_3 &amp; = (1,0,0) \\
+            v_4 &amp; = (-1,0,2).
+        \end{cases}, F = \mathop{\mathrm{Vect}}\left(v_1,v_2\right), G =
+\mathop{\mathrm{Vect}}\left(v_3,v_4\right)\)</span>, <span
+class="math inline">\(v_4 = v_2-v_1 = v_4\)</span> donc la somme n’est
+même pas directe.</p></li>
+<li><div class="exo*">
+<p>Dans <span class="math inline">\(E =
+\mathscr{F}(\mathbb{R},\mathbb{R})\)</span>, on pose <span
+class="math inline">\(P = \left\{f \in E / f\text{
+paire}\right\}\)</span> et <span class="math inline">\(I \left\{g \in E
+/ g\text{ impaire}\right\}\)</span>.</p>
+<ol>
+<li><p>Montrer que <span class="math inline">\(P\)</span> et <span
+class="math inline">\(I\)</span> sont des sous-espaces vectoriels de
+<span class="math inline">\(E\)</span>.</p></li>
+<li><p>Montrer que <span class="math inline">\(E = P \oplus
+I\)</span>.</p></li>
+</ol>
+</div>
+<div class="corri*">
+<ol>
+<li><p>Montrons que <span class="math inline">\(P\)</span> est un
+sous-espace vectoriel de <span class="math inline">\(E\)</span>.</p>
+<ul>
+<li><p>La fonction nulle est paire donc <span
+class="math inline">\(0_{\mathscr{F}(\mathbb{R},\mathbb{R})} \in
+P\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(f_1,f_2 \in P\)</span>, <span
+class="math inline">\(\alpha \in \mathbb{R}\)</span>, pour tout <span
+class="math inline">\(x \in \mathbb{R}\)</span>, <span
+class="math inline">\((\alpha f_1+f_2)(-x) = \alpha f_1(-x) + f_2(-x) =
+\alpha f_1(x) + f_2(x) = (\alpha f_1+f_2)(x)\)</span>. Donc <span
+class="math inline">\(\alpha f_1+f_2 \in P\)</span>.</p></li>
+</ul></li>
+<li><p>Montrons que <span class="math inline">\(I\)</span> est un
+sous-espace vectoriel de <span class="math inline">\(E\)</span>.</p>
+<ul>
+<li><p>La fonction nulle est impaire donc <span
+class="math inline">\(0_{\mathscr{F}(\mathbb{R},\mathbb{R})} \in
+I\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(f_1,f_2 \in I\)</span>, <span
+class="math inline">\(\alpha \in \mathbb{R}\)</span>, pour tout <span
+class="math inline">\(x \in \mathbb{R}\)</span>, <span
+class="math inline">\((\alpha f_1+f_2)(-x) = \alpha f_1(-x) + f_2(-x) =
+-\alpha f_1(x) - f_2(x) = -(\alpha f_1+f_2)(x)\)</span>. Donc <span
+class="math inline">\(\alpha f_1+f_2 \in I\)</span>.</p></li>
+</ul></li>
+<li><p>Soit <span class="math inline">\(h \in E\)</span>, on cherche
+<span class="math inline">\(f \in P,g \in I\)</span> uniques tels que
+<span class="math inline">\(h = f+g\)</span>. Procédons par
+analyse-synthèse.</p>
+<ul>
+<li><p>Si <span class="math inline">\(h = f+g\)</span> avec <span
+class="math inline">\(f \in P,g \in I\)</span> alors pour <span
+class="math inline">\(x \in \mathbb{R}\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+                \begin{cases}
+                    h(x) &amp; = f(x)+g(x) \\
+                    h(-x) &amp; = f(-x)+g(-x) = f(x)-g(x) \\
+                \end{cases}
+                &amp;\Longrightarrow \begin{cases}
+                    h(x)+h(-x) &amp; = 2f(x) \\
+                    h(x)-h(-x) &amp; = 2g(x) \\
+                \end{cases} \\
+                &amp; \Longrightarrow \begin{cases}
+                    f(x) &amp; = \frac{h(x)+h(-x)}{2} \\
+                    g(x) &amp; = \frac{h(x)-h(-x)}{2}.
+                \end{cases}
+                \end{aligned}\]</span> Donc <span
+class="math inline">\(f\)</span> et <span
+class="math inline">\(g\)</span> sont uniques.</p></li>
+<li><p>Vérifions que <span class="math inline">\(f,g\)</span> tels que
+pour tout <span class="math inline">\(x \in \mathbb{R}\)</span>, <span
+class="math inline">\(\begin{cases}
+                    f(x) &amp; = \frac{h(x)+h(-x)}{2} \\
+                    g(x) &amp; = \frac{h(x)-h(-x)}{2}.
+                \end{cases}\)</span> conviennent.</p>
+<p>Pour <span class="math inline">\(x \in \mathbb{R}\)</span>, <span
+class="math inline">\(f(-x) = \frac{h(-x)+h(-(-x))}{2} =
+\frac{h(-x)+h(x)}{2} = f(x)\)</span> donc <span class="math inline">\(f
+\in P\)</span> et <span class="math inline">\(g(-x) =
+\frac{h(-x)-h(-(-x))}{2} = \frac{h(-x)-h(x)}{2} =-g(x)\)</span> donc
+<span class="math inline">\(g \in I\)</span>.</p></li>
+</ul></li>
+</ol>
+</div>
+<div class="wrem">
+<p>Pour <span class="math inline">\(f = \exp\)</span>, <span
+class="math inline">\(f = \mathop{\mathrm{ch}}\)</span> et <span
+class="math inline">\(g = \mathop{\mathrm{sh}}\)</span>.</p>
+</div></li>
+</ul>
+</div>
+<div class="wdefi">
+<p>On étend la définition précédente : Soient <span
+class="math inline">\(E\)</span> un espace vectoriel et <span
+class="math inline">\(F_1,\ldots,F_n\)</span> sous-espaces vectoriels de
+<span class="math inline">\(E\)</span> (<span class="math inline">\(n
+\in \mathbb{N}, n \geq 2\)</span>).</p>
+<p><span class="math inline">\(F_1,\ldots,F_n\)</span> sont
+supplémentaires dans <span class="math inline">\(E\)</span> si <span
+class="math inline">\(E = \bigoplus_{i=1}^n F_i\)</span>.</p>
+</div>
+<h1 data-number="3" id="applications-linéaires"><span
+class="header-section-number">3</span> Applications linéaires</h1>
+<h2 data-number="3.1" id="définition"><span
+class="header-section-number">3.1</span> Définition</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(E,F\)</span> deux <span
+class="math inline">\(\mathbb{K}\)</span>-espaces vectoriels et <span
+class="math inline">\(f \in \mathscr{F}(E,F)\)</span>. <span
+class="math inline">\(f\)</span> est linéaire si</p>
+<ol>
+<li><p><span class="math inline">\(\forall u,v \in E\)</span>, <span
+class="math inline">\(f(u+v) = f(u)+f(v)\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall u \in E, \alpha \in
+\mathbb{K}\)</span>, <span class="math inline">\(f(\alpha u) = \alpha
+f(u)\)</span>.</p></li>
+</ol>
+<p>On note <span class="math inline">\(\mathscr{L}(E,F)\)</span>
+l’ensemble des applications linéaires de <span
+class="math inline">\(E\)</span> dans <span
+class="math inline">\(F\)</span>.</p>
+<p>Si <span class="math inline">\(E = F\)</span>, on note cet ensemble
+<span class="math inline">\(\mathscr{L}(E)\)</span> et les éléments de
+<span class="math inline">\(E\)</span> sont appelés les
+<u>endomorphismes</u> de <span class="math inline">\(E\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Si <span class="math inline">\(f \in \mathscr{L}(E,F)\)</span>, en
+particulier, <span class="math inline">\(f\)</span> est un morphisme de
+groupe de <span class="math inline">\(E\)</span> dans <span
+class="math inline">\(F\)</span> donc <span
+class="math inline">\(f(0_{E}) = 0_{F}\)</span> et pour <span
+class="math inline">\(v\in E, f(-v) = -f(v)\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E,F\)</span> deux <span
+class="math inline">\(\mathbb{K}\)</span>-espaces vectoriels et <span
+class="math inline">\(f \in \mathscr{F}(E,F)\)</span>.</p>
+<p><span class="math inline">\(f\)</span> est linéaire <span
+class="math inline">\(\iff\)</span> <span class="math inline">\(\forall
+u,v \in E, \lambda \in \mathbb{K}\)</span>, <span
+class="math inline">\(f(u+\lambda v) = f(u) + \lambda f(v)\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(f\)</span> est linéaire, soient <span
+class="math inline">\(u,v \in E\)</span> et <span
+class="math inline">\(\lambda \in \mathbb{K}\)</span>, <span
+class="math inline">\(f(u+\lambda v) = f(u)+f(\lambda v) = f(u) +
+\lambda f(v)\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Soient
+<span class="math inline">\(u,v \in E\)</span>, avec <span
+class="math inline">\(\lambda = 1\)</span>,</p>
+<p><span class="math inline">\(f(u+v) = f(u+\lambda v) = f(u)+\lambda
+f(v) = f(u) + f(v)\)</span>.</p>
+<p>Soient <span class="math inline">\(v \in E\)</span> et <span
+class="math inline">\(\lambda \in \mathbb{K}\)</span>, avec <span
+class="math inline">\(u = 0_{E}\)</span>,</p>
+<p><span class="math inline">\(f(\lambda v) = f(u+\lambda v) = f(u) +
+\lambda f(v) = 0_F +  \lambda f(v) = \lambda f(v).\)</span></p></li>
+</ul>
+</div>
+<div class="wexs">
+<ul>
+<li><p><span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; E &amp; \to &amp; F \\
+   &amp;   &amp; v &amp; \mapsto &amp; 0_{f}
+\end{array}\)</span> est linéaire.</p>
+<div class="wproof">
+<p><span class="math inline">\(\forall u,v \in E, \lambda \in
+\mathbb{K}, f(u+\lambda v) = 0_F = 0_F +\lambda 0_F = f(u) + \lambda
+f(v)\)</span>.</p>
+</div></li>
+<li><p><span class="math inline">\(\begin{array}{lllll}
+\mathop{\mathrm{Id}}_E &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; v &amp; \mapsto &amp; v
+\end{array}\)</span> est linéaire.</p></li>
+<li><p>Si <span class="math inline">\(E = \mathbb{R}\)</span> et <span
+class="math inline">\(a \in \mathbb{R}\)</span>, <span
+class="math inline">\(\begin{array}{lllll}
+f_a &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; ax
+\end{array}\)</span> est linéaire.</p>
+<div class="wproof">
+<p>Soient <span class="math inline">\(x,y \in \mathbb{R}\)</span> et
+<span class="math inline">\(\lambda \in \mathbb{R}\)</span>, <span
+class="math inline">\(f_a(x+\lambda y)=a(x+\lambda y) = ax + \lambda ay
+= f_a(x) + \lambda f_a(y)\)</span>.</p>
+</div></li>
+<li><p><span class="math inline">\(\begin{array}{lllll}
+g &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; x^2
+\end{array}\)</span> n’est pas linéaire. Par exemple, <span
+class="math inline">\(g(2) = g(1+1) = 4 \neq g(1)+g(1) =
+2\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(E = \mathbb{R}^2\)</span> et <span
+class="math inline">\(F = \mathbb{R}^3\)</span>, <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{R}^2 &amp; \to &amp; \mathbb{R}^3 \\
+   &amp;   &amp; (x,y) &amp; \mapsto &amp; (x-y,y,x+2y)
+\end{array}\)</span> est linéaire.</p>
+<div class="wproof">
+<p>Soit <span class="math inline">\(\lambda \in \mathbb{R}\)</span> et
+<span class="math inline">\((x,y),(x&#39;,y&#39;) \in
+\mathbb{R}^2\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+        f((x,y)+\lambda(x&#39;,y&#39;))
+        &amp; = f((x+\lambda x&#39;,y+\lambda y&#39;)) \\
+        &amp; = \left(x+\lambda x&#39;-(y+\lambda y&#39;),y+\lambda
+y&#39;,x+\lambda x&#39;+2(y+\lambda y&#39;)\right) \\
+        &amp; = \left(x-y + \lambda(x&#39;-y&#39;), y+\lambda y&#39;,
+x+2y + \lambda(x&#39;+2y&#39;)\right) \\
+        &amp; = \left(x-y,y,x+2y\right)+ \lambda
+\left(x&#39;-y&#39;,y&#39;,x&#39;+2y&#39;\right) \\
+        &amp; = f((x,y)) + \lambda f((x&#39;,y&#39;)).
+        \end{aligned}\]</span></p>
+</div></li>
+<li><p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(\lambda \in \mathbb{K}\)</span> alors <span
+class="math inline">\(\begin{array}{lllll}
+h_\lambda &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; v &amp; \mapsto &amp; \lambda v
+\end{array}\)</span> est linéaire. On appelle cette fonction
+l’homothétie vectorielle de rapport <span
+class="math inline">\(\lambda\)</span>.</p>
+<div class="wproof">
+<p>Soient <span class="math inline">\(u,v \in E\)</span>, <span
+class="math inline">\(\alpha \in \mathbb{K}\)</span>, <span
+class="math display">\[h(u+\alpha v) = \lambda (u+\alpha v) = \lambda u
++ \alpha \lambda v = h_\lambda(u) + \alpha h_\lambda(v).\]</span></p>
+</div></li>
+<li><p>Si <span class="math inline">\(E =
+\mathscr{F}(\mathbb{R},\mathbb{R})\)</span> et <span
+class="math inline">\(F = \mathbb{R}\)</span>, <span
+class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; E &amp; \to &amp; F \\
+   &amp;   &amp; f &amp; \mapsto &amp; f(1)
+\end{array}\)</span> est linéaire.</p>
+<div class="wproof">
+<p>Soient <span class="math inline">\(f,g \in E\)</span> et <span
+class="math inline">\(\lambda \in \mathbb{K}\)</span>, <span
+class="math display">\[\varphi(f+\lambda g) = (f+\lambda g)(1) = f(1) +
+\lambda g(1) = \varphi(f) + \lambda \varphi(g).\]</span></p>
+</div></li>
+</ul>
+</div>
+<h2 data-number="3.2" id="sous-espace-stable-par-un-endomorphisme"><span
+class="header-section-number">3.2</span> Sous-espace stable par un
+endomorphisme</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un espace vectoriel,
+<span class="math inline">\(F \subset E\)</span> un sous-espace
+vectoriel de <span class="math inline">\(E\)</span> et <span
+class="math inline">\(f \in \mathscr{L}(E)\)</span>, <span
+class="math inline">\(F\)</span> est stable par <span
+class="math inline">\(f\)</span> si <span class="math display">\[\forall
+v \in F, f(v) \in F.\]</span></p>
+<p>Dans le cas où <span class="math inline">\(F\)</span> est stable par
+<span class="math inline">\(f\)</span>, on peut considérer <span
+class="math inline">\(\begin{array}{lllll}
+f_F &amp; : &amp; F &amp; \to &amp; F \\
+   &amp;   &amp; v &amp; \mapsto &amp; f(v)
+\end{array}\)</span> qui est un élément de <span
+class="math inline">\(\mathscr{L}(F)\)</span> appelé l’endomorphisme
+induit par <span class="math inline">\(f\)</span> sur <span
+class="math inline">\(F\)</span>.</p>
+</div>
+<h2 data-number="3.3" id="propriétés"><span
+class="header-section-number">3.3</span> Propriétés</h2>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E,F,G\)</span> trois <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriels, <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span> et <span
+class="math inline">\(g \in \mathscr{L}(F,G)\)</span>.</p>
+<p>Alors <span class="math inline">\(g \circ f \in
+\mathscr{L}(E,G)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soient <span class="math inline">\(u,v \in E\)</span> et <span
+class="math inline">\(\lambda \in \mathbb{K}\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+        (g \circ f)(u + \lambda v)
+        &amp; = g(f(u + \lambda v)) \\
+        &amp; = g(f(u) + \lambda f(v)) \text{ car $f$ est linéaire } \\
+        &amp; = g(f(u)) + \lambda g(f(v)) \text{ car $g$ est linéaire }
+\\
+        &amp; = (g \circ f)(u) + \lambda (g \circ f)(v).
+    \end{aligned}\]</span></p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E,F\)</span> deux <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriels et <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span> bijective.</p>
+<p>Alors <span class="math inline">\(f^{-1} \in
+\mathscr{L}(F,E)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soient <span class="math inline">\(w_1,w_2 \in F\)</span> et <span
+class="math inline">\(\lambda \in \mathbb{K}\)</span> tels que <span
+class="math inline">\(f^{-1}(w_1) = u_1 \in E\)</span> et <span
+class="math inline">\(f^{-1}(w_2) = u_2 \in E\)</span>.</p>
+<p>Alors, <span class="math inline">\(f(u_1) = w_1\)</span> et <span
+class="math inline">\(f(u_2) = w_2\)</span>.</p>
+<p>De plus, comme <span class="math inline">\(f\)</span> est linéaire,
+<span class="math inline">\(f(u_1+\lambda u_2) = f(u_1) + \lambda f(u_2)
+= w_1 + \lambda w_2\)</span>.</p>
+<p>Donc <span class="math inline">\(f^{-1}(w_1 + \lambda w_2) =
+u_1+\lambda u_2 = f^{-1}(w_1) + \lambda f^{-1}(w_2)\)</span>.</p>
+</div>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(E,F\)</span> deux <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriels,</p>
+<ul>
+<li><p>Soit <span class="math inline">\(f \in \mathscr{L}(E,F)\)</span>
+bijective alors <span class="math inline">\(f\)</span> est appelé un
+<u>isomorphisme</u> de <span class="math inline">\(E\)</span> dans <span
+class="math inline">\(F\)</span>.</p></li>
+<li><p>S’il existe une bijection linéaire entre <span
+class="math inline">\(E\)</span> et <span
+class="math inline">\(F\)</span>, on dit que <span
+class="math inline">\(E\)</span> et <span
+class="math inline">\(F\)</span> sont isomorphes et on écrit <span
+class="math inline">\(E \simeq F\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="3.4" id="image-dune-applcation-linéaire"><span
+class="header-section-number">3.4</span> Image d’une applcation
+linéaire</h2>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E,F\)</span> deux <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriels et <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span>.</p>
+<p>Alors <span class="math inline">\(\mathop{\mathrm{Im}}f\)</span> est
+un sous-espace vectoriel de <span class="math inline">\(F\)</span>.</p>
+</div>
+<div class="wproof">
+<p>D’abord, <span class="math inline">\(\mathop{\mathrm{Im}}f \subset
+F\)</span>. Ensuite,</p>
+<ol>
+<li><p><span class="math inline">\(0_{F} = f(0_{E}) \in
+\mathop{\mathrm{Im}}f\)</span>,</p></li>
+<li><p>Soient <span class="math inline">\(w_1,w_2 \in
+\mathop{\mathrm{Im}}f\)</span>, il existe <span
+class="math inline">\(u_1,u_2 \in E\)</span> tels que <span
+class="math inline">\(f(u_1) = w_1\)</span> et <span
+class="math inline">\(f(u_2) = w_2\)</span>. Soit <span
+class="math inline">\(\lambda \in \mathbb{K}\)</span>,</p>
+<p>comme <span class="math inline">\(f\)</span> est linéaire, <span
+class="math inline">\(f(u_1+\lambda u_2) = f(u_1) + \lambda f(u_2) =
+w_1+\lambda w_2 \in \mathop{\mathrm{Im}}f\)</span>.</p></li>
+</ol>
+</div>
+<div class="wcor">
+<p>Soient <span class="math inline">\(E,F\)</span> deux <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriels, <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span> et <span
+class="math inline">\(S\)</span> un sous-espace vectoriel de <span
+class="math inline">\(E\)</span>.</p>
+<p>Alors, <span class="math inline">\(f(S)\)</span> est un sous-espace
+vectoriel de <span class="math inline">\(F\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(f(S) =
+\mathop{\mathrm{Im}}f_{|S}\)</span> avec <span
+class="math inline">\(f_{|S} \in \mathscr{L}(S,F)\)</span>.</p>
+</div>
+<h2 data-number="3.5" id="noyau-dune-application-linéaire"><span
+class="header-section-number">3.5</span> Noyau d’une application
+linéaire</h2>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E,F\)</span> deux <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriels et <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span>.</p>
+<p>On définit le noyau de <span class="math inline">\(f\)</span> comme
+son noyau en tant que morphisme de groupes de <span
+class="math inline">\((E,+)\)</span> dans <span
+class="math inline">\((F,+)\)</span> et on le note <span
+class="math inline">\(\mathop{\mathrm{Ker}}f\)</span>.</p>
+<p>On rappelle <span class="math inline">\(\mathop{\mathrm{Ker}}f =
+\left\{x \in E / f(x) = 0_{F}\right\}\)</span>.</p>
+<p>Alors, <span class="math inline">\(\mathop{\mathrm{Ker}}f\)</span>
+est un sous-espace vectoriel de <span
+class="math inline">\(E\)</span>.</p>
+</div>
+<div class="wproof">
+<ol>
+<li><p><span class="math inline">\(0_{E} \in
+\mathop{\mathrm{Ker}}f\)</span> car <span class="math inline">\(f(0_{E})
+= 0_{F}\)</span>,</p></li>
+<li><p>Soient <span class="math inline">\(u,v \in
+\mathop{\mathrm{Ker}}f\)</span> et <span class="math inline">\(\lambda
+\in \mathbb{K}\)</span>,</p>
+<p>alors <span class="math inline">\(f(u+\lambda v) = f(u) + \lambda
+f(v) = 0_{E} + \lambda 0_{E} = 0_{E}\)</span> donc <span
+class="math inline">\(u+\lambda v \in
+\mathop{\mathrm{Ker}}f\)</span>.</p></li>
+</ol>
+</div>
+<div class="wex">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel, <span
+class="math inline">\(\lambda \in \mathbb{K}\)</span> et <span
+class="math inline">\(f \in \mathscr{L}(E)\)</span>. Alors <span
+class="math inline">\(\begin{array}{lllll}
+f-\lambda \mathop{\mathrm{Id}}_E &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; x &amp; \mapsto &amp; f(x)-\lambda x
+\end{array}
+\in \mathscr{L}(E)\)</span>.</p>
+<p>De plus, <span class="math inline">\(x \in
+\mathop{\mathrm{Ker}}(f-\lambda \mathop{\mathrm{Id}}_E) \iff f(x) -
+\lambda x = 0_E \iff f(x) = \lambda x\)</span>.</p>
+<p>Donc <span class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda
+\mathop{\mathrm{Id}}_E)  = \left\{x \in E / f(x) = \lambda
+x\right\}\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E,F\)</span> deux <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriels et <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span>.</p>
+<p>Alors, <span class="math inline">\(f\)</span> injective <span
+class="math inline">\(\iff\)</span> <span
+class="math inline">\(\mathop{\mathrm{Ker}}f =
+\left\{0_{E}\right\}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>On rappelle la preuve dans le cas d’un morphisme de groupes.</p>
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(f\)</span> injective, <span
+class="math inline">\(0_{E}\)</span> est l’unique antécédent de <span
+class="math inline">\(0_{F}\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{Ker}}f =
+\left\{0_{E}\right\}\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Si <span
+class="math inline">\(\mathop{\mathrm{Ker}}f =
+\left\{0_{E}\right\}\)</span>, soient <span
+class="math inline">\(u_1,u_2 \in E\)</span> alors <span
+class="math inline">\(f(u_1) = f(u_2) \Longrightarrow f(u_1) - f(u_2) =
+0_{F} \Longrightarrow f(u_1-u_2) = 0_{F} \Longrightarrow  u_1 - u_2 \in
+\mathop{\mathrm{Ker}}f\)</span>.</p>
+<p>Donc <span class="math inline">\(u_1 - u_2 = 0_{E} \iff u_1 =
+u_2\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="3.6" id="espace-vectoriel-mathscrlef"><span
+class="header-section-number">3.6</span> Espace vectoriel <span
+class="math inline">\(\mathscr{L}(E,F)\)</span></h2>
+<p>Soient <span class="math inline">\(E,F\)</span> deux <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriels, on munit
+<span class="math inline">\(\mathscr{L}(E,F)\)</span> de l’addition
+<span class="math inline">\(+\)</span> et de la multiplication par un
+scalaire "." ainsi :</p>
+<ul>
+<li><p>Pour <span class="math inline">\(f,g \in
+\mathscr{L}(E,F)\)</span>, on pose <span
+class="math inline">\(\begin{array}{lllll}
+f+g &amp; : &amp; E &amp; \to &amp; F \\
+   &amp;   &amp; v &amp; \mapsto &amp; f(v)+g(v)
+\end{array}\)</span>.</p>
+<p>Alors, on a bien <span class="math inline">\(f+g \in
+\mathscr{L}(E,F)\)</span> car pour <span class="math inline">\(u,v \in
+E, \lambda \in \mathbb{K}\)</span>,</p>
+<p><span class="math display">\[(f+g)(u+\lambda v) = f(u+\lambda v) +
+g(u+\lambda v) = f(u)+\lambda f(v) + g(v) + \lambda g(v) = (f+g)(u) +
+\lambda (f+g)(v).\]</span></p></li>
+<li><p>Pour <span class="math inline">\(f \in \mathscr{L}(E,F)\)</span>
+et <span class="math inline">\(\alpha \in \mathbb{K}\)</span>, on pose
+<span class="math inline">\(\begin{array}{lllll}
+\alpha f &amp; : &amp; E &amp; \to &amp; F \\
+   &amp;   &amp; v &amp; \mapsto &amp; \alpha f(v)
+\end{array}\)</span>.</p>
+<p>Alors, on a bien <span class="math inline">\(\alpha f \in
+\mathscr{L}(E,F)\)</span> car pour <span class="math inline">\(u,v \in
+E, \lambda \in \mathbb{K}\)</span>,</p>
+<p><span class="math display">\[(\alpha f)(u+\lambda v) = \alpha
+f(u+\lambda v)  = \alpha f(u)+\alpha \lambda f(v) = (\alpha f)(u) +
+\lambda (\alpha f)(v).\]</span></p></li>
+</ul>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E,F\)</span> deux <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriels.</p>
+<p>Alors, <span class="math inline">\((\mathscr{L}(E,F),+,.)\)</span>
+est un espace vectoriel.</p>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Montrons <span
+class="math inline">\((\mathscr{L}(E,F),+)\)</span> est un groupe
+commutatif : il admet pour neutre <span
+class="math inline">\(\begin{array}{lllll}
+0_{\mathscr{L}(E,F)} &amp; : &amp; E &amp; \to &amp; F \\
+   &amp;   &amp; v &amp; \mapsto &amp; 0_{F}
+\end{array}\)</span> et tout élément <span class="math inline">\(f \in
+\mathscr{L}(E,F)\)</span> admet pour symétrique <span
+class="math inline">\(-f\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(\alpha \in \mathbb{K}, f,g \in
+\mathscr{L}(E,F)\)</span> et <span class="math inline">\(u \in
+E\)</span>,</p>
+<p><span class="math inline">\(\alpha(f+g)(u) = \alpha(f(u)+g(u)) =
+\alpha f(u) + \alpha g(u)\)</span> donc <span
+class="math inline">\(\alpha(f+g) = \alpha f + \alpha
+g\)</span>,</p></li>
+<li><p>Pour <span class="math inline">\(\alpha, \beta \in \mathbb{K},
+f\in \mathscr{L}(E,F)\)</span> et <span class="math inline">\(u \in
+E\)</span>,</p>
+<p><span class="math inline">\((\alpha+\beta)f(u) = \alpha f(u) + \beta
+f(u)\)</span>, donc <span class="math inline">\((\alpha+\beta)f = \alpha
+f + \beta f\)</span>,</p></li>
+<li><p>Pour <span class="math inline">\(\alpha, \beta \in \mathbb{K},
+f\in \mathscr{L}(E,F)\)</span> et <span class="math inline">\(u \in
+E\)</span>,</p>
+<p><span class="math inline">\(\alpha(\beta f(u)) = (\alpha
+\beta)f(u)\)</span> donc <span class="math inline">\(\alpha(\beta f) =
+(\alpha \beta)f\)</span>,</p></li>
+<li><p>Pour <span class="math inline">\(f \in \mathscr{L}(E,F)\)</span>
+et <span class="math inline">\(u \in E\)</span>,</p>
+<p><span class="math inline">\(1f(u) = f(u)\)</span> donc <span
+class="math inline">\(1f = f\)</span>.</p></li>
+</ol>
+</div>
+<div class="wrem">
+<p>Si <span class="math inline">\(F=E\)</span>, <span
+class="math inline">\(\mathscr{L}(E)\)</span> est un espace vectoriel
+sur <span class="math inline">\(\mathbb{K}\)</span>.</p>
+</div>
+<h2 data-number="3.7" id="lanneau-mathscrlecirc"><span
+class="header-section-number">3.7</span> L’anneau <span
+class="math inline">\((\mathscr{L}(E),+,\circ)\)</span></h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel.</p>
+<p>Alors <span class="math inline">\((\mathscr{L}(E),+,\circ)\)</span>
+est un anneau.</p>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Comme montré précédemment, <span
+class="math inline">\((\mathscr{L}(E),+)\)</span> est un groupe
+commutatif.</p></li>
+<li><p>Pour <span class="math inline">\(f,g,h \in
+\mathscr{L}(E)\)</span>, et <span class="math inline">\(u \in
+E\)</span>,</p>
+<p><span class="math inline">\(\left[(f\circ g)\circ h\right](u) =
+(f\circ g)(h(u)) = f(g(h(u))) = f((g\circ h)(u)) = \left[f \circ (g\circ
+h)\right](u).\)</span></p>
+<p>Donc <span class="math inline">\(\circ\)</span> est
+associative.</p></li>
+<li><p>En considérant <span class="math inline">\(\begin{array}{lllll}
+\mathop{\mathrm{Id}}_E &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; x &amp; \mapsto &amp; x
+\end{array}\)</span>, <span class="math inline">\(f \in
+\mathscr{L}(E)\)</span> et <span class="math inline">\(u \in
+E\)</span>,</p>
+<p><span class="math inline">\(\left[\mathop{\mathrm{Id}}_E \circ
+f\right](u) = \mathop{\mathrm{Id}}_E(f(u)) = f(u)\)</span> et <span
+class="math inline">\(\left[f \circ \mathop{\mathrm{Id}}_E \right](u) =
+f(\mathop{\mathrm{Id}}_E(u)) = f(u)\)</span></p>
+<p>donc <span class="math inline">\(\mathop{\mathrm{Id}}_E \circ f = f
+\circ \mathop{\mathrm{Id}}_E = f\)</span> et <span
+class="math inline">\(\mathop{\mathrm{Id}}_E\)</span> est le neutre pour
+<span class="math inline">\(\circ\)</span> dans <span
+class="math inline">\(\mathscr{L}(E)\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(f,g,h \in
+\mathscr{L}(E)\)</span> et <span class="math inline">\(u\in
+E\)</span>,</p>
+<p><span class="math inline">\(\left[(f+g)\circ h\right](u) =
+(f+g)(h(u)) = f(h(u)) + g(h(u)) = (f\circ h)(u) + (g\circ
+h)(u)\)</span></p>
+<p>et <span class="math inline">\(\left[f\circ(g+h)\right](u) =
+f((g+h)(u)) = f(g(u)+h(u)) \underbrace{=}_{\text{$f$ linéaire}}
+f(g(u))+f(h(u)) = (f\circ g)(u) + (f\circ h)(u)\)</span></p>
+<p>donc <span class="math inline">\(\circ\)</span> est distributive par
+rapport à <span class="math inline">\(+\)</span>.</p></li>
+</ol>
+</div>
+<div class="wrem">
+<ul>
+<li><p>En général <span class="math inline">\(\mathscr{L}(E)\)</span>
+n’est pas un anneau commutatif.</p>
+<div class="wex">
+<p>Si <span class="math inline">\(E = \mathbb{R}^2\)</span>, <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; (x,y) &amp; \mapsto &amp; (y,x)
+\end{array}\)</span> et <span class="math inline">\(\begin{array}{lllll}
+g &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; (x,y) &amp; \mapsto &amp; (x,0)
+\end{array}\)</span> alors <span
+class="math inline">\(\begin{array}{lllll}
+f \circ g &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; (x,y) &amp; \mapsto &amp; (0,x)
+\end{array}\)</span> et <span class="math inline">\(\begin{array}{lllll}
+g \circ f &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; (x,y) &amp; \mapsto &amp; (y,0)
+\end{array}\)</span>.</p>
+</div></li>
+<li><p>En général, <span class="math inline">\(\mathscr{L}(E)\)</span>
+n’est pas intègre.</p>
+<div class="wex">
+<p>Si <span class="math inline">\(E = \mathbb{R}^2\)</span>, <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; (x,y) &amp; \mapsto &amp; (x,0)
+\end{array}\)</span> et <span class="math inline">\(\begin{array}{lllll}
+g &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; (x,y) &amp; \mapsto &amp; (0,y)
+\end{array}\)</span> alors <span
+class="math inline">\(\begin{array}{lllll}
+f \circ g &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; (x,y) &amp; \mapsto &amp; (0,0)
+\end{array}\)</span> et <span class="math inline">\(\begin{array}{lllll}
+g \circ f &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; (x,y) &amp; \mapsto &amp; (0,0)
+\end{array}\)</span> mais <span class="math inline">\(f \neq
+0_{\mathscr{L}(E)}\)</span> et <span class="math inline">\(g \neq
+\mathscr{L}(E)\)</span>.</p>
+</div></li>
+</ul>
+</div>
+<div class="wrem">
+<ul>
+<li><p>Pour <span class="math inline">\(f \in \mathscr{L}(E)\)</span> on
+pose <span class="math inline">\(f^0 = \mathop{\mathrm{Id}}_E\)</span>
+et pour <span class="math inline">\(n \in \mathbb{N}\)</span>, <span
+class="math inline">\(f^n = \underbrace{f \circ f \circ \ldots \circ
+f}_{n\text{ fois}}\)</span>.</p></li>
+<li><p>En tant qu’anneau, <span
+class="math inline">\(\mathscr{L}(E)\)</span> vérifie la formule du
+binôme de Newton avec <span class="math inline">\(\circ\)</span> pour
+deux éléments qui commutent. Pour <span class="math inline">\(n \in
+\mathbb{N}\)</span> et <span class="math inline">\(f,g \in
+\mathscr{L}(E)\)</span> tels que <span class="math inline">\(f \circ g=g
+\circ f\)</span>, <span class="math display">\[(f+g)^n = \sum_{k=0}^n
+\binom{n}{k} f^k g^{n-k}\]</span></p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel, <span
+class="math inline">\(\alpha \in \mathbb{K}\)</span>, <span
+class="math inline">\(f \in \mathscr{L}(E), g\in
+\mathscr{L}(E)\)</span></p>
+<p>Alors <span class="math inline">\(\alpha (f \circ g) = (\alpha f
+)\circ g = f \circ (\alpha g)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(u \in E\)</span>, <span
+class="math display">\[\begin{aligned}
+        \alpha (f \circ g)(u)
+        = \alpha f (g(u))
+        = \left[(\alpha f )\circ g\right](u)
+    \end{aligned}\]</span> et <span
+class="math display">\[\begin{aligned}
+        \alpha (f \circ g)(u)
+        = \alpha f (g(u))
+        = f(\alpha g(u)) \text{ car $f$ est linéaire}
+        = \left[f \circ (\alpha g)\right](u).
+    \end{aligned}\]</span></p>
+</div>
+<h2 data-number="3.8" id="le-groupe-linéaire-gle"><span
+class="header-section-number">3.8</span> Le groupe linéaire <span
+class="math inline">\(GL(E)\)</span></h2>
+<div class="wrappel">
+<p>Soit <span class="math inline">\(f \in \mathscr{L}(E)\)</span>, <span
+class="math inline">\(f\)</span> est inversible pour <span
+class="math inline">\(\circ\)</span> s’il existe <span
+class="math inline">\(g \in \mathscr{L}(E)\)</span> tel que <span
+class="math inline">\(f \circ g = g\circ f =
+\mathop{\mathrm{Id}}_{E}\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f \in \mathscr{L}(E)\)</span>,</p>
+<p><span class="math inline">\(f\)</span> est inversible pour <span
+class="math inline">\(\circ\)</span> <span
+class="math inline">\(\iff\)</span> <span
+class="math inline">\(f\)</span> est bijective.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(f\)</span> est inversible pour <span
+class="math inline">\(\circ\)</span>, il existe <span
+class="math inline">\(g \in \mathscr{L}(E)\)</span> tel que <span
+class="math inline">\(f \circ g = g\circ f =
+\mathop{\mathrm{Id}}{E}\)</span>.</p>
+<p><span class="math inline">\(f \circ g\)</span> est donc surjective et
+<span class="math inline">\(f\)</span> est surjective et <span
+class="math inline">\(g \circ f\)</span> est donc injective et <span
+class="math inline">\(f\)</span> est injective.</p>
+<p>Donc <span class="math inline">\(f\)</span> est surjective.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Si <span
+class="math inline">\(f\)</span> est bijective, comme démontré avant,
+<span class="math inline">\(f^{-1} \in \mathscr{L}(E)\)</span> et de
+plus, <span class="math inline">\(f \circ f^{-1} = f^{-1}\circ f =
+\mathop{\mathrm{Id}}{E}\)</span>.</p></li>
+</ul>
+</div>
+<div class="wdefi">
+<p>On note <span class="math inline">\(GL(E)\)</span> l’ensemble des
+éléments inversibles pour <span class="math inline">\(\circ\)</span> de
+<span class="math inline">\(\mathscr{L}(E)\)</span>.</p>
+<p><span class="math inline">\(GL(E)\)</span> est stable par <span
+class="math inline">\(\circ\)</span> et <span
+class="math inline">\((GL(E),\circ)\)</span> est alors un groupe, appelé
+le groupe linéaire.</p>
+<p>Les éléments de <span class="math inline">\(E\)</span> sont appelés
+les <u>automorphismes</u> de <span class="math inline">\(E\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\(GL(E)\)</span> est stable par <span
+class="math inline">\(\circ\)</span> car si <span
+class="math inline">\(f,g \in GL(E)\)</span>, <span
+class="math inline">\(f\)</span> est bijective linéaire et <span
+class="math inline">\(g\)</span> est bijective linéaire donc <span
+class="math inline">\(f\circ g \in GL(E)\)</span>.</p></li>
+<li><p><span class="math inline">\((GL(E),\circ)\)</span> est un
+groupe</p>
+<ol>
+<li><p>Comme montré précédemment, <span
+class="math inline">\(\circ\)</span> est associative.</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{Id}}_E \in
+GL(E)\)</span> car elle est linéaire bijective et elle est donc le
+neutre pour <span class="math inline">\(\circ\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(f \in GL(E)\)</span>, <span
+class="math inline">\(f\)</span> est bijective et <span
+class="math inline">\(f^{-1} \in GL(E)\)</span> et <span
+class="math inline">\(f \circ f^{-1} = f^{-1}\circ f =
+\mathop{\mathrm{Id}}{E}\)</span></p></li>
+</ol></li>
+</ul>
+</div>
+<div class="wrem">
+<ul>
+<li><p>Pour <span class="math inline">\(f,g \in GL(E)\)</span>, <span
+class="math inline">\(\left(f \circ g\right)^{-1} = g^{-1} \circ
+f^{-1}\)</span> (<span class="math inline">\(\neq f^{-1} \circ
+g^{-1}\)</span> en général)</p></li>
+<li><p>Pour <span class="math inline">\(f \in GL(E)\)</span>, <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span>, on peut
+considérer <span class="math inline">\(f^{-n} = \underbrace{f^{-1} \circ
+f^{-1} \circ \ldots \circ f^{-1}}_{n\text{ fois}}\)</span></p></li>
+<li><p>En général <span class="math inline">\(GL(E)\)</span> n’est pas
+stable par <span class="math inline">\(+\)</span>.</p>
+<div class="wex">
+<p><span class="math inline">\(\mathop{\mathrm{Id}}_E \in
+GL(E)\)</span>, <span class="math inline">\(-\mathop{\mathrm{Id}}_E \in
+GL(E)\)</span> mais <span class="math inline">\(0_{\mathscr{L}(E)} =
+\mathop{\mathrm{Id}}_E+(-\mathop{\mathrm{Id}}_E) \notin GL(E)\)</span>
+si <span class="math inline">\(E \neq \left\{0_{E}\right\}\)</span>.</p>
+</div></li>
+</ul>
+</div>
+<h2 data-number="3.9" id="projecteurs"><span
+class="header-section-number">3.9</span> Projecteurs</h2>
+<div class="wdefi">
+<p><span id="def:proj1" label="def:proj1"></span> Soit <span
+class="math inline">\(E\)</span> un espace vectoriel et <span
+class="math inline">\(F,G\)</span> deux sous-espaces vectoriels
+supplémentaires de <span class="math inline">\(E\)</span> tels que <span
+class="math inline">\(E = F\oplus G\)</span>. On définit <span
+class="math display">\[\begin{array}{lllll}
+p &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; w &amp; \mapsto &amp; u \text{ avec
+$w=\underbrace{u}_{\in F} + \underbrace{v}_{\in G}$, l&#39;unique
+décomposition de $w$ dans $F\oplus G$}
+\end{array}\]</span> Alors, cette fonction est linéaire et est appelée
+la projection/le projecteur sur <span class="math inline">\(F\)</span>
+parallèlement à <span class="math inline">\(G\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Montrons que <span class="math inline">\(p\)</span> est bien
+linéaire. Soient <span class="math inline">\(w,w&#39; \in E\)</span>
+tels que <span class="math inline">\(w = \underbrace{u}_{\in F} +
+\underbrace{v}_{\in G}\)</span> et <span class="math inline">\(w&#39;
+=\underbrace{u&#39;}_{\in F} + \underbrace{v&#39;}_{\in G}\)</span> et
+<span class="math inline">\(\lambda \in \mathbb{K}\)</span>.</p>
+<p>Alors, <span class="math inline">\(p(w) = u\)</span>, <span
+class="math inline">\(p(w&#39;) = u&#39;\)</span> et <span
+class="math inline">\(w+\lambda w&#39; = \underbrace{u+\lambda
+u&#39;}_{\in F} + \underbrace{v+\lambda v&#39;}_{\in G}\)</span> donc
+<span class="math inline">\(p(w+\lambda w&#39;) = u+\lambda u&#39; =
+p(w)+\lambda p(w&#39;)\)</span>.</p>
+</div>
+<div class="wrem">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Dans le cas où <span class="math inline">\(E =
+\overrightarrow{\mathscr{P}}\)</span> l’ensemble des vecteurs du
+plan,</p>
+<p>avec <span class="math inline">\(\overrightarrow{i} \neq
+\overrightarrow{0}\)</span> et <span
+class="math inline">\(\overrightarrow{j}\)</span> non colinéaire à <span
+class="math inline">\(\overrightarrow{i}\)</span> tels que <span
+class="math inline">\(F =
+\mathop{\mathrm{Vect}}(\overrightarrow{i})\)</span> et <span
+class="math inline">\(G =
+\mathop{\mathrm{Vect}}(\overrightarrow{j})\)</span>,</p>
+<p>on a <span class="math inline">\(E = F \oplus G\)</span>.</p>
+<p>De plus, soit <span class="math inline">\(\overrightarrow{w} \in
+\overrightarrow{\mathscr{P}}\)</span> tel que <span
+class="math inline">\(\overrightarrow{w} = \alpha \overrightarrow{i} +
+\beta\overrightarrow{j}\)</span>,</p>
+<p>la projection de <span
+class="math inline">\(\overrightarrow{w}\)</span> sur <span
+class="math inline">\(F\)</span> parallèlement à <span
+class="math inline">\(G\)</span> est <span class="math inline">\(\alpha
+\overrightarrow{i}\)</span>,</p>
+<p>la projection de <span
+class="math inline">\(\overrightarrow{w}\)</span> sur <span
+class="math inline">\(G\)</span> parallèlement à <span
+class="math inline">\(F\)</span> est <span class="math inline">\(\beta
+\overrightarrow{j}\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="illus_proj.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wprop">
+<p><span id="prop:proj_props" label="prop:proj_props"></span> Soit <span
+class="math inline">\(E\)</span> un espace vectoriel et <span
+class="math inline">\(F,G\)</span> deux sous-espaces vectoriels
+supplémentaires de <span class="math inline">\(E\)</span> tels que <span
+class="math inline">\(E = F\oplus G\)</span> et <span
+class="math inline">\(p\)</span> la projection sur <span
+class="math inline">\(F\)</span> parallèlement à <span
+class="math inline">\(G\)</span>. Alors,</p>
+<ul>
+<li><p><span class="math inline">\(p \circ p = p\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{Im}}p =
+F\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{Ker}}p =
+G\)</span>,</p></li>
+<li><p><span
+class="math inline">\(\mathop{\mathrm{Im}}(p-\mathop{\mathrm{Id}}_E) =
+G\)</span>,</p></li>
+<li><p><span
+class="math inline">\(\mathop{\mathrm{Ker}}(p-\mathop{\mathrm{Id}}_E) =
+F\)</span>.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Soit <span class="math inline">\(w \in E\)</span> tel que <span
+class="math inline">\(w = \underbrace{u}_{\in F} + \underbrace{v}_{\in
+G}\)</span></p>
+<p>alors <span class="math inline">\(p(w) = u\)</span> et <span
+class="math inline">\(p\circ p(w) = p(p(w)) = p(u) = u = p(w)\)</span>
+car <span class="math inline">\(u = \underbrace{u}_{\in F} +
+\underbrace{0_{E}}_{\in G}\)</span>.</p></li>
+<li><p>Par double inclusion</p>
+<ul>
+<li><p>D’abord, <span class="math inline">\(\mathop{\mathrm{Im}}p
+\subset F\)</span>.</p></li>
+<li><p>De plus, si <span class="math inline">\(u \in F\)</span>, <span
+class="math inline">\(u = \underbrace{u}_{\in F} +
+\underbrace{0_{E}}_{\in G}\)</span> donc <span class="math inline">\(u =
+p(u) \in \mathop{\mathrm{Im}}p\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{Im}}p \supset F\)</span>.</p></li>
+</ul></li>
+<li><p>Par double inclusion,</p>
+<ul>
+<li><p>D’abord, <span class="math inline">\(G \subset
+\mathop{\mathrm{Ker}}p\)</span>. En effet, si <span
+class="math inline">\(v \in G, \underbrace{0_{E}}_{\in F} +
+\underbrace{v}_{\in G}\)</span> donc <span class="math inline">\(p(v) =
+0_{E}\)</span> et <span class="math inline">\(v \in
+\mathop{\mathrm{Ker}}p\)</span>.</p></li>
+<li><p>Ensuite, <span class="math inline">\(G \supset
+\mathop{\mathrm{Ker}}p\)</span> car si <span class="math inline">\(w \in
+\mathop{\mathrm{Ker}}p\)</span> tel que <span class="math inline">\(w =
+\underbrace{u}_{\in F} + \underbrace{v}_{\in G}\)</span> alors</p>
+<p><span class="math inline">\(p(w) = 0_{E} \Longrightarrow u = 0_{E}
+\Longrightarrow w=v \in G\)</span>.</p></li>
+</ul></li>
+<li><p>Par double inclusion,</p>
+<ul>
+<li><p>D’abord, <span
+class="math inline">\(\mathop{\mathrm{Im}}(p-\mathop{\mathrm{Id}}_E)
+\subset G\)</span> car soit <span class="math inline">\(w \in E\)</span>
+tel que <span class="math inline">\(w=\underbrace{u}_{\in F} +
+\underbrace{v}_{\in G}\)</span>,</p>
+<p><span class="math inline">\((p-\mathop{\mathrm{Id}}_E)(w) = u-(u+v) =
+-v \in G\)</span>.</p></li>
+<li><p>Ensuite, <span
+class="math inline">\(\mathop{\mathrm{Im}}(p-\mathop{\mathrm{Id}}_E)
+\supset G\)</span> car soit <span class="math inline">\(v \in G\)</span>
+tel que <span class="math inline">\(-v=\underbrace{0_{E}}_{\in F} +
+\underbrace{-v}_{\in G}\)</span>,</p>
+<p><span class="math inline">\((p-\mathop{\mathrm{Id}}_E)(-v) =
+0_{E}-(-v) = v \in
+\mathop{\mathrm{Im}}(p-\mathop{\mathrm{Id}}_E)\)</span>.</p></li>
+</ul></li>
+<li><p>Pour rappel, <span
+class="math inline">\(\mathop{\mathrm{Ker}}(p-\mathop{\mathrm{Id}}_E) =
+\left\{w \in E / p(w)=w\right\}\)</span>. Or, soit <span
+class="math inline">\(w \in E\)</span> tel que <span
+class="math inline">\(w=\underbrace{u}_{\in F} + \underbrace{v}_{\in
+G}\)</span>, <span class="math display">\[w \in
+\mathop{\mathrm{Ker}}(p-\mathop{\mathrm{Id}}_E) \iff p(w) = w \iff w = u
+\in F.\]</span></p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>Soit <span class="math inline">\(q\)</span> la projection sur <span
+class="math inline">\(G\)</span> parallèlement à <span
+class="math inline">\(F\)</span>, <span class="math inline">\(p+q =
+\mathop{\mathrm{Id}}_E\)</span>.</p>
+</div>
+<div class="wdefi">
+<p><strong>(Deuxième définition d’un projecteur)</strong> <span
+id="def:proj2" label="def:proj2"></span> Soient <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(f \in \mathscr{L}(E)\)</span>. On dit que <span
+class="math inline">\(f\)</span> est un projecteur si <span
+class="math inline">\(f \circ f = f\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Les définitions <a href="#def:proj1" data-reference-type="ref"
+data-reference="def:proj1">[def:proj1]</a> et <a href="#def:proj2"
+data-reference-type="ref" data-reference="def:proj2">[def:proj2]</a>
+sont équivalentes.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>La définition <a href="#def:proj1" data-reference-type="ref"
+data-reference="def:proj1">[def:proj1]</a> implique la définition <a
+href="#def:proj2" data-reference-type="ref"
+data-reference="def:proj2">[def:proj2]</a> par la proposition <a
+href="#prop:proj_props" data-reference-type="ref"
+data-reference="prop:proj_props">[prop:proj_props]</a></p></li>
+<li><p>Montrons maintenant que la définition <a href="#def:proj2"
+data-reference-type="ref" data-reference="def:proj2">[def:proj2]</a>
+implique la définition <a href="#def:proj1" data-reference-type="ref"
+data-reference="def:proj1">[def:proj1]</a>.</p>
+<p>Étant donné <span class="math inline">\(f \in \mathscr{L}(E)\)</span>
+tel que <span class="math inline">\(f \circ f = f\)</span>, cela revient
+à démontrer qu’il existe <span class="math inline">\(F,G\)</span>
+sous-espace vectoriels de <span class="math inline">\(E\)</span> tel que
+<span class="math inline">\(E = F\oplus G\)</span> et pour tout <span
+class="math inline">\(w\in E\)</span> tel que <span
+class="math inline">\(w = \underbrace{u}_{\in F} + \underbrace{v}_{\in
+G}\)</span>, <span class="math inline">\(f(w) = u\)</span>.</p>
+<p>On pose <span class="math inline">\(F =
+\mathop{\mathrm{Ker}}(f-\mathop{\mathrm{Id}}_E)\)</span> et <span
+class="math inline">\(G = \mathop{\mathrm{Ker}}f\)</span>.</p>
+<ol>
+<li><p><span class="math inline">\(F+G\)</span> est directe.</p>
+<p>En effet, soit <span class="math inline">\(u \in F \cap G\)</span>,
+alors <span class="math inline">\(f(u) = 0_{E}\)</span> car <span
+class="math inline">\(u \in G = \mathop{\mathrm{Ker}}f\)</span> et <span
+class="math inline">\(f(u) = u\)</span> car <span
+class="math inline">\(u \in F =
+\mathop{\mathrm{Ker}}(f-\mathop{\mathrm{Id}}_E)\)</span> donc <span
+class="math inline">\(u = 0_{E}\)</span>.</p></li>
+<li><p><span class="math inline">\(E = F + G\)</span>.</p>
+<p>En effet, soit <span class="math inline">\(w \in E\)</span>,
+cherchons <span class="math inline">\(u\in F\)</span> et <span
+class="math inline">\(v \in G\)</span> tels que <span
+class="math inline">\(w = u+v\)</span>.</p>
+<p>Cela implique <span class="math inline">\(f(w) = u\)</span> et donc
+<span class="math inline">\(v = w-f(w)\)</span>. Vérifions <span
+class="math inline">\(u \in F\)</span> et <span class="math inline">\(v
+\in G\)</span>.</p>
+<p>On a <span class="math inline">\(f(u) = f(f(w)) = (f\circ f)(w) =
+f(w) = u\)</span> donc <span class="math inline">\(u \in F
+=  \mathop{\mathrm{Ker}}(f-\mathop{\mathrm{Id}}_E)\)</span>.</p>
+<p>Aussi, <span class="math inline">\(f(v) = f(w)-f(f(w))=f(w)-f(w) =
+0_{E}\)</span> donc <span class="math inline">\(v \in G =
+\mathop{\mathrm{Ker}}f\)</span>.</p></li>
+</ol>
+<p>On en déduit que <span class="math inline">\(E = F\oplus
+G\)</span>.</p>
+<p>De plus, soit <span class="math inline">\(w\in E\)</span> tel que
+<span class="math inline">\(w = \underbrace{u}_{\in F} +
+\underbrace{v}_{\in G}\)</span>,</p>
+<p>alors <span class="math inline">\(f(w) = f(u)+f(v) = u\)</span> car
+<span class="math inline">\(u \in
+\mathop{\mathrm{Ker}}(f-\mathop{\mathrm{Id}}_E)\)</span> et <span
+class="math inline">\(v \in \mathop{\mathrm{Ker}}f\)</span>.</p>
+<p>Donc <span class="math inline">\(f\)</span> rentre bien dans le cadre
+de la définition <a href="#def:proj1" data-reference-type="ref"
+data-reference="def:proj1">[def:proj1]</a>.</p></li>
+</ul>
+</div>
+<h2 data-number="3.10" id="symétries"><span
+class="header-section-number">3.10</span> Symétries</h2>
+<div class="wdefi">
+<p><span id="def:sym1" label="def:sym1"></span> Soit <span
+class="math inline">\(E\)</span> un espace vectoriel et <span
+class="math inline">\(F,G\)</span> deux sous-espaces vectoriels
+supplémentaires de <span class="math inline">\(E\)</span> tels que <span
+class="math inline">\(E = F\oplus G\)</span>. On définit <span
+class="math display">\[\begin{array}{lllll}
+s &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; w &amp; \mapsto &amp; u-v \text{ avec
+$w=\underbrace{u}_{\in F} + \underbrace{v}_{\in G}$, l&#39;unique
+décomposition de $w$ dans $F\oplus G$}
+\end{array}\]</span> Alors, cette fonction est linéaire et est appelée
+la symétrie sur <span class="math inline">\(F\)</span> parallèlement à
+<span class="math inline">\(G\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Montrons que <span class="math inline">\(s\)</span> est bien
+linéaire. Soient <span class="math inline">\(w,w&#39; \in E\)</span>
+tels que <span class="math inline">\(w = \underbrace{u}_{\in F} +
+\underbrace{v}_{\in G}\)</span> et <span class="math inline">\(w&#39;
+=\underbrace{u&#39;}_{\in F} + \underbrace{v&#39;}_{\in G}\)</span> et
+<span class="math inline">\(\lambda \in \mathbb{K}\)</span>.</p>
+<p>Alors, <span class="math inline">\(s(w) = u-v\)</span>, <span
+class="math inline">\(p(w&#39;) = u&#39;-v&#39;\)</span> et <span
+class="math inline">\(w+\lambda w&#39; = \underbrace{u+\lambda
+u&#39;}_{\in F} + \underbrace{v+\lambda v&#39;}_{\in G}\)</span> donc
+<span class="math inline">\(p(w+\lambda w&#39;) = u+\lambda
+u&#39;-(v+\lambda v&#39;) = u-v+\lambda(u&#39;-v&#39;) = p(w)+\lambda
+p(w&#39;)\)</span>.</p>
+</div>
+<div class="wrem">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Dans le cas où <span class="math inline">\(E =
+\overrightarrow{\mathscr{P}}\)</span> l’ensemble des vecteurs du
+plan,</p>
+<p>avec <span class="math inline">\(\overrightarrow{i} \neq
+\overrightarrow{0}\)</span> et <span
+class="math inline">\(\overrightarrow{j}\)</span> non colinéaire à <span
+class="math inline">\(\overrightarrow{i}\)</span> tels que <span
+class="math inline">\(F =
+\mathop{\mathrm{Vect}}(\overrightarrow{i})\)</span> et <span
+class="math inline">\(G =
+\mathop{\mathrm{Vect}}(\overrightarrow{j})\)</span>,</p>
+<p>on a <span class="math inline">\(E = F \oplus G\)</span>.</p>
+<p>De plus, soit <span class="math inline">\(\overrightarrow{w} \in
+\overrightarrow{\mathscr{P}}\)</span> tel que <span
+class="math inline">\(\overrightarrow{w} = \alpha \overrightarrow{i} +
+\beta\overrightarrow{j}\)</span>,</p>
+<p>soit <span class="math inline">\(s\)</span> la symétrie sur <span
+class="math inline">\(F\)</span> parallèlement à <span
+class="math inline">\(G\)</span>,<span
+class="math inline">\(s(\overrightarrow{w}) = \alpha \overrightarrow{i}
+- \beta\overrightarrow{j}\)</span></p>
+</div>
+<div class="webimg">
+<p><img src="illus_sym.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wprop">
+<p><span id="prop:sym_props" label="prop:sym_props"></span> Soit <span
+class="math inline">\(E\)</span> un espace vectoriel et <span
+class="math inline">\(F,G\)</span> deux sous-espaces vectoriels
+supplémentaires de <span class="math inline">\(E\)</span> tels que <span
+class="math inline">\(E = F\oplus G\)</span> et <span
+class="math inline">\(s\)</span> la symétrie sur <span
+class="math inline">\(F\)</span> parallèlement à <span
+class="math inline">\(G\)</span>. Alors,</p>
+<ul>
+<li><p><span class="math inline">\(s \circ s =
+\mathop{\mathrm{Id}}_E\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{Im}}s =
+E\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{Ker}}s =
+\left\{0_{E}\right\}\)</span>,</p></li>
+<li><p><span
+class="math inline">\(\mathop{\mathrm{Ker}}(s-\mathop{\mathrm{Id}}_E) =
+F\)</span>,</p></li>
+<li><p><span
+class="math inline">\(\mathop{\mathrm{Ker}}(s+\mathop{\mathrm{Id}}_E) =
+G\)</span>.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Soit <span class="math inline">\(w \in E\)</span> tel que <span
+class="math inline">\(w = \underbrace{u}_{\in F} + \underbrace{v}_{\in
+G}\)</span></p>
+<p>alors <span class="math inline">\(s(w) = u-v\)</span> et <span
+class="math inline">\(s\circ s(w) = s(s(w)) = s(u-v) = u-(-v) = u+v =
+w\)</span> car <span class="math inline">\(u-v = \underbrace{u}_{\in F}
++ \underbrace{-v}_{\in G}\)</span>.</p></li>
+<li><p><span class="math inline">\(s \circ s =
+\mathop{\mathrm{Id}}_E\)</span> qui est surjective donc <span
+class="math inline">\(s\)</span> est surjective et <span
+class="math inline">\(\mathop{\mathrm{Im}}s = E\)</span>.</p></li>
+<li><p><span class="math inline">\(s \circ s =
+\mathop{\mathrm{Id}}_E\)</span> qui est injective donc <span
+class="math inline">\(s\)</span> est injective et <span
+class="math inline">\(\mathop{\mathrm{Ker}}s =
+\left\{0_{E}\right\}\)</span>.</p></li>
+<li><p>Pour rappel, <span
+class="math inline">\(\mathop{\mathrm{Ker}}(s-\mathop{\mathrm{Id}}_E) =
+\left\{w \in E / s(w)=w\right\}\)</span>. Or, soit <span
+class="math inline">\(w \in E\)</span> tel que <span
+class="math inline">\(w=\underbrace{u}_{\in F} + \underbrace{v}_{\in
+G}\)</span>, <span class="math display">\[w \in
+\mathop{\mathrm{Ker}}(s-\mathop{\mathrm{Id}}_E) \iff s(w) = w \iff u+v =
+u-v \iff v=0_{E} \iff w=u \in F.\]</span></p></li>
+<li><p>Pour rappel, <span
+class="math inline">\(\mathop{\mathrm{Ker}}(s+\mathop{\mathrm{Id}}_E) =
+\left\{w \in E / s(w)=-w\right\}\)</span>. Or, soit <span
+class="math inline">\(w \in E\)</span> tel que <span
+class="math inline">\(w=\underbrace{u}_{\in F} + \underbrace{v}_{\in
+G}\)</span>, <span class="math display">\[w \in
+\mathop{\mathrm{Ker}}(s-\mathop{\mathrm{Id}}_E) \iff s(w) = -w \iff u+v
+= -u+v \iff u=0_{E} \iff w=v \in G.\]</span></p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>Soit <span class="math inline">\(s&#39;\)</span> la symétrie sur
+<span class="math inline">\(G\)</span> parallèlement à <span
+class="math inline">\(F\)</span>, <span class="math inline">\(s+s&#39; =
+0_{\mathscr{L}(E)}\)</span> et <span class="math inline">\(s \circ
+s&#39; = -\mathop{\mathrm{Id}}_E\)</span>.</p>
+</div>
+<div class="wdefi">
+<p><strong>(Deuxième définition d’une symétrie)</strong> <span
+id="def:sym2" label="def:sym2"></span> Soient <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(f \in \mathscr{L}(E)\)</span>. On dit que <span
+class="math inline">\(f\)</span> est une symétrie si <span
+class="math inline">\(f \circ f = \mathop{\mathrm{Id}}_E\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Les définitions <a href="#def:sym1" data-reference-type="ref"
+data-reference="def:sym1">[def:sym1]</a> et <a href="#def:sym2"
+data-reference-type="ref" data-reference="def:sym2">[def:sym2]</a> sont
+équivalentes.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>La définition <a href="#def:sym1" data-reference-type="ref"
+data-reference="def:sym1">[def:sym1]</a> implique la définition <a
+href="#def:sym2" data-reference-type="ref"
+data-reference="def:sym2">[def:sym2]</a> par la proposition <a
+href="#prop:sym_props" data-reference-type="ref"
+data-reference="prop:sym_props">[prop:sym_props]</a></p></li>
+<li><p>Montrons maintenant que la définition <a href="#def:sym2"
+data-reference-type="ref" data-reference="def:sym2">[def:sym2]</a>
+implique la définition <a href="#def:sym1" data-reference-type="ref"
+data-reference="def:sym1">[def:sym1]</a>.</p>
+<p>Étant donné <span class="math inline">\(f \in \mathscr{L}(E)\)</span>
+tel que <span class="math inline">\(f \circ f =
+\mathop{\mathrm{Id}}_E\)</span>, cela revient à démontrer qu’il existe
+<span class="math inline">\(F,G\)</span> sous-espace vectoriels de <span
+class="math inline">\(E\)</span> tel que <span class="math inline">\(E =
+F\oplus G\)</span> et pour tout <span class="math inline">\(w\in
+E\)</span> tel que <span class="math inline">\(w = \underbrace{u}_{\in
+F} + \underbrace{v}_{\in G}\)</span>, <span class="math inline">\(f(w) =
+u-v\)</span>.</p>
+<p>On pose <span class="math inline">\(F =
+\mathop{\mathrm{Ker}}(f-\mathop{\mathrm{Id}}_E)\)</span> et <span
+class="math inline">\(G =
+\mathop{\mathrm{Ker}}(f+\mathop{\mathrm{Id}}_E)\)</span>.</p>
+<ol>
+<li><p><span class="math inline">\(F+G\)</span> est directe.</p>
+<p>En effet, soit <span class="math inline">\(u \in F \cap G\)</span>,
+alors <span class="math inline">\(f(u) = u\)</span> car <span
+class="math inline">\(u \in F =
+\mathop{\mathrm{Ker}}(f-\mathop{\mathrm{Id}}_E)\)</span> et <span
+class="math inline">\(f(u) =- u\)</span> car <span
+class="math inline">\(u \in G =
+\mathop{\mathrm{Ker}}(f+\mathop{\mathrm{Id}}_E)\)</span> donc <span
+class="math inline">\(u = -u\)</span> donc <span
+class="math inline">\(u= 0_{E}\)</span>.</p></li>
+<li><p><span class="math inline">\(E = F + G\)</span>.</p>
+<p>En effet, soit <span class="math inline">\(w \in E\)</span>,
+cherchons <span class="math inline">\(u\in F\)</span> et <span
+class="math inline">\(v \in G\)</span> tels que <span
+class="math inline">\(w = u+v\)</span>.</p>
+<p>Cela implique <span class="math inline">\(f(w) = u-v\)</span> donc
+<span class="math inline">\(u = \frac{w+f(w)}{2}\)</span> et <span
+class="math inline">\(v = \frac{w-f(w)}{2}\)</span>. Vérifions <span
+class="math inline">\(u \in F\)</span> et <span class="math inline">\(v
+\in G\)</span>.</p>
+<p>On a <span class="math inline">\(f(u) = \frac{f(w)+f(f(w))}{2} =
+\frac{f(w)+w}{2} = u\)</span> donc <span class="math inline">\(u \in F
+=  \mathop{\mathrm{Ker}}(f-\mathop{\mathrm{Id}}_E)\)</span>.</p>
+<p>Aussi, <span class="math inline">\(f(v) = \frac{f(w)-f(f(w))}{2} =
+\frac{f(w)-w}{2} = -v\)</span> donc <span class="math inline">\(v \in G
+=  \mathop{\mathrm{Ker}}(f+\mathop{\mathrm{Id}}_E)\)</span>.</p></li>
+</ol>
+<p>On en déduit que <span class="math inline">\(E = F\oplus
+G\)</span>.</p>
+<p>De plus, soit <span class="math inline">\(w\in E\)</span> tel que
+<span class="math inline">\(w = \underbrace{u}_{\in F} +
+\underbrace{v}_{\in G}\)</span>,</p>
+<p>alors <span class="math inline">\(f(w) = f(u)+f(v) = u-v\)</span> car
+<span class="math inline">\(u \in
+F=\mathop{\mathrm{Ker}}(f-\mathop{\mathrm{Id}}_E)\)</span> et <span
+class="math inline">\(v \in
+G=\mathop{\mathrm{Ker}}(f+\mathop{\mathrm{Id}}_E)\)</span>.</p>
+<p>Donc <span class="math inline">\(f\)</span> rentre bien dans le cadre
+de la définition <a href="#def:sym1" data-reference-type="ref"
+data-reference="def:sym1">[def:sym1]</a>.</p></li>
+</ul>
+</div>
+<h1 data-number="4" id="famille-libre-ou-liée"><span
+class="header-section-number">4</span> Famille libre ou liée</h1>
+<h2 data-number="4.1" id="famille-liée"><span
+class="header-section-number">4.1</span> Famille liée</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel, <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span> et <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> une famille de
+<span class="math inline">\(E\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(n \geq 2\)</span>, on dit que
+<span class="math inline">\((v_1,\ldots,v_n)\)</span> est liée s’il
+existe <span class="math inline">\(k \in [\![ 1,n ]\!]\)</span> et <span
+class="math inline">\((\alpha_i)_{\substack{1 \leq i \leq n \\ i \neq
+k}} \in \mathbb{K}^{n-1}\)</span> tels que <span
+class="math display">\[v_k = \sum_{\substack{1 \leq i \leq n \\ i \neq
+k}} \alpha_i v_i.\]</span></p></li>
+<li><p>Si <span class="math inline">\(n=1\)</span>, on dit que <span
+class="math inline">\((v_1)\)</span> est liée si <span
+class="math inline">\(v_1 = 0_{E}\)</span>.</p></li>
+</ul>
+</div>
+<div class="wexs">
+<ul>
+<li><p>Dans <span class="math inline">\(\mathbb{R}^3\)</span>, avec
+<span class="math inline">\(v_1 = (1,1,-1), v_2 = (1,3,0), v_3 =
+(0,2,1)\)</span>, <span class="math inline">\((v_1,v_2,v_3)\)</span> est
+liée car <span class="math inline">\(v_2 = v_1+v_3\)</span>.</p></li>
+<li><p>Dans <span class="math inline">\(\mathbb{R}^2\)</span>, avec
+<span class="math inline">\(v_1=(1,1), v_2 = (0,0)\)</span>, <span
+class="math inline">\((v_1,v_2)\)</span> est liée car <span
+class="math inline">\(v_2 = 0v_1\)</span>.</p>
+<p><span class="math inline"><span class="icon-warning">⚠️</span></span> Il
+n’existe pas <span class="math inline">\(\alpha \in \mathbb{K}\)</span>
+tel que <span class="math inline">\(v_1 = \alpha v_2\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><span id="prop:famille_liee" label="prop:famille_liee"></span> Soient
+<span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel, <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span> et <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> une famille de
+<span class="math inline">\(E\)</span>.</p>
+<p><span class="math inline">\(\text{$(v_1,\ldots,v_n)$ est une famille
+liée $\iff$ il existe $\beta_1,\ldots,\beta_n$ non tous nuls tels que
+$\sum_{i=1}^n \beta_i v_i = 0_{E}$.}\)</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span></p>
+<ul>
+<li><p>Si <span class="math inline">\(n=1\)</span>, <span
+class="math inline">\(\beta_1 = 1\)</span> convient.</p></li>
+<li><p>Si <span class="math inline">\(n \geq 2\)</span>, il existe <span
+class="math inline">\(k \in [\![ 1,n ]\!]\)</span> et <span
+class="math inline">\((\alpha_i)_{\substack{1 \leq i \leq n \\ i \neq
+k}} \in \mathbb{K}^{n-1}\)</span> tels que <span
+class="math inline">\(v_k = \sum_{\substack{1 \leq i \leq n \\ i \neq
+k}} \alpha_i v_i.\)</span></p>
+<p>Alors, avec <span class="math inline">\(\beta_k = 1\)</span> et <span
+class="math inline">\(\beta_i = -\alpha_i\)</span> pour <span
+class="math inline">\(i \neq k\)</span>, <span
+class="math inline">\(\sum_{i=1}^n \beta_i v_i = v_k-\sum_{\substack{1
+\leq i \leq n \\ i \neq k}} \alpha_i v_i = v_k-v_k =
+0_{E}\)</span>.</p></li>
+</ul></li>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span></p>
+<ul>
+<li><p>Si <span class="math inline">\(n=1\)</span>, s’il existe <span
+class="math inline">\(\beta_1 \neq 0\)</span> tel que <span
+class="math inline">\(\beta_1 v_1 = 0_{E}\)</span> alors <span
+class="math inline">\(v_1 = 0_{E}\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(n \geq 2\)</span>, s’il existe
+<span class="math inline">\(\beta_1,\ldots,\beta_n\)</span> non tous
+nuls tels que <span class="math inline">\(\sum_{i=1}^n \beta_i v_i =
+0_{E}\)</span>.</p>
+<p>Alors, comme <span
+class="math inline">\(\beta_1,\ldots,\beta_n\)</span> non tous nuls, il
+existe <span class="math inline">\(1 \leq k \leq n\)</span> tel que
+<span class="math inline">\(\beta_k \neq 0\)</span>.</p>
+<p>Donc <span class="math inline">\(\sum_{i=1}^n \beta_i v_i = 0_{E}
+\iff \beta_k v_k = - \sum_{\substack{1 \leq i \leq n \\ i \neq k}}
+\beta_i v_i \iff v_k = \sum_{\substack{1 \leq i \leq n \\ i \neq k}}
+\alpha_i v_i\)</span></p>
+<p>avec <span class="math inline">\(\alpha_i =
+-\frac{\beta_i}{\beta_k}\)</span> pour <span class="math inline">\(i
+\neq k\)</span>.</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel, <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span> et <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> une famille liée
+de <span class="math inline">\(E\)</span>.</p>
+<p>Alors, pour tout <span class="math inline">\(v \in E\)</span>, <span
+class="math inline">\((v_1,\ldots,v_n,v)\)</span> est liée.</p>
+<p>Ce qui peut se dire "toute sur-famille d’une famille liée est
+liée".</p>
+</div>
+<div class="wproof">
+<p>Si <span class="math inline">\((v_1,\ldots,v_n)\)</span> est liée, il
+existe <span class="math inline">\(\beta_1,\ldots,\beta_n\)</span> non
+tous nuls tels que <span class="math inline">\(\sum_{i=1}^n \beta_i v_i
+= 0_{E}\)</span>.</p>
+<p>Donc avec <span class="math inline">\(\beta_v = 0\)</span>, <span
+class="math inline">\(\beta_1,\ldots,\beta_n,\beta_v\)</span> sont non
+tous nuls et <span class="math inline">\(\sum_{i=1}^n \beta_i v_i
++\beta_v v= 0_{E}\)</span></p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel, <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span> et <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> tel qu’il existe
+<span class="math inline">\(k \in [\![ 1,n ]\!]\)</span> tel que <span
+class="math inline">\(v_k = 0_{E}\)</span> alors <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> est liée.</p>
+</div>
+<div class="wproof">
+<p>Avec <span class="math inline">\(\beta_k = 1\)</span> et <span
+class="math inline">\(\beta_i = 0\)</span> pour <span
+class="math inline">\(1 \leq i \leq n\)</span> et <span
+class="math inline">\(i \neq k\)</span>,</p>
+<p><span class="math inline">\(\sum_{i=1}^n \beta_i v_i = v_k + 0_{E} =
+0_{E}\)</span> et les <span
+class="math inline">\(\beta_1,\ldots,\beta_n\)</span> sont non tous
+nuls.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel, <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span> et <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> tel qu’il existe
+<span class="math inline">\(k,\ell \in [\![ 1,n ]\!]\)</span> tels que
+<span class="math inline">\(k \neq \ell\)</span> et <span
+class="math inline">\(v_k = v_\ell\)</span> alors <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> est liée.</p>
+</div>
+<div class="wproof">
+<p>Avec <span class="math inline">\(\beta_k = 1, \beta_\ell =
+-1\)</span> et <span class="math inline">\(\beta_i = 0\)</span> pour
+<span class="math inline">\(1 \leq i \leq n\)</span> et <span
+class="math inline">\(i \neq k, i \neq \ell\)</span>,</p>
+<p><span class="math inline">\(\sum_{i=1}^n \beta_i v_i =v_k -v_\ell =
+v_k-v_k =0_{E}\)</span> et les <span
+class="math inline">\(\beta_1,\ldots,\beta_n\)</span> sont non tous
+nuls.</p>
+</div>
+<h2 data-number="4.2" id="famille-libre"><span
+class="header-section-number">4.2</span> Famille libre</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel, <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span> et <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> une famille de
+<span class="math inline">\(E\)</span>.</p>
+<p>La famille <span class="math inline">\((v_1,\ldots,v_n)\)</span> est
+libre (ou les vecteurs sont linéairement indépendants) si elle n’est pas
+liée.</p>
+</div>
+<div class="wrem">
+<p>Pour <span class="math inline">\(n = 1\)</span>, <span
+class="math inline">\((v_1)\)</span> est libre si et seulement si <span
+class="math inline">\(v_1 \neq 0_{E}\)</span>.</p>
+</div>
+<div class="wcor">
+<p><strong>(de la proposition <a href="#prop:famille_liee"
+data-reference-type="ref"
+data-reference="prop:famille_liee">[prop:famille_liee]</a>)</strong>
+Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel, <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span> et <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> une famille de
+<span class="math inline">\(E\)</span>.</p>
+<p><span class="math inline">\((v_1,\ldots,v_n)\)</span> est une famille
+libre</p>
+<p><span class="math inline">\(\iff\)</span> il n’existe pas <span
+class="math inline">\(\beta_1,\ldots,\beta_n\)</span> non tous nuls tels
+que <span class="math inline">\(\sum_{i=1}^n \beta_i v_i =
+0_{E}\)</span></p>
+<p><span class="math inline">\(\iff\)</span> soient <span
+class="math inline">\(\beta_1,\ldots,\beta_n\)</span> tels que <span
+class="math inline">\(\sum_{i=1}^n \beta_i v_i = 0_{E}\)</span> alors
+pour tout <span class="math inline">\(1 \leq k \leq n\)</span>, <span
+class="math inline">\(\beta_k = 0\)</span>.</p>
+</div>
+<div class="wexs">
+<ul>
+<li><p>Dans <span class="math inline">\(\mathbb{R}^3\)</span>, avec
+<span class="math inline">\(v_1 = (1,2,-1), v_2 = (2,-1,0) \text{ et
+}v_3 = (3,0,0)\)</span>. Montrons que cette famille est libre.</p>
+<p><em>Méthode : Pour cela, on va introduire <span
+class="math inline">\(\alpha_1,\alpha_2,\alpha_3 \in \mathbb{R}\)</span>
+tels que <span class="math inline">\(\alpha_1 v_1 + \alpha_2 v_2 +
+\alpha_3 v_3 =0_{\mathbb{R}^3} = (0,0,0)\)</span> et montrer qu’on a
+<span class="math inline">\(\alpha_1=\alpha_2=\alpha_3 =
+0\)</span>.</em></p>
+<p>Soient <span class="math inline">\(\alpha_1,\alpha_2,\alpha_3 \in
+\mathbb{R}\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+            \alpha_1 v_1 + \alpha_2 v_2 + \alpha_3 v_3 =0_{\mathbb{R}^3}
+            &amp; \iff
+(\alpha_1+2\alpha_2+3\alpha_3,2\alpha_1-\alpha_2,-\alpha_1) = (0,0,0) \\
+            &amp; \iff \begin{cases}
+                \alpha_1+2\alpha_2+3\alpha_3 &amp; = 0 \\
+                2\alpha_1-\alpha_2 &amp; = 0 \\
+                -\alpha_1 &amp; = 0
+            \end{cases} \\
+            &amp; \iff \begin{cases}
+                \alpha_3 &amp; = \frac{-\alpha_1-2\alpha_2}{3} = 0 \\
+                \alpha_2 &amp; = 2\alpha_1 = 0 \\
+                \alpha_1 &amp; = 0.
+            \end{cases}
+        \end{aligned}\]</span></p>
+<p>Donc <span class="math inline">\((v_1,v_2,v_3)\)</span> est
+libre.</p></li>
+<li><p>Dans <span
+class="math inline">\(F(\mathbb{R},\mathbb{R})\)</span>, avec <span
+class="math inline">\(f_1 = \cos, f_2 = \sin, f_3 =
+\mathop{\mathrm{sh}}\text{ et }f_4 = \mathop{\mathrm{ch}}\)</span>.
+Montrons que cette famille est libre.</p>
+<p><em>Méthode : Pour cela, on va introduire <span
+class="math inline">\(\alpha_1,\alpha_2,\alpha_3, \alpha_4 \in
+\mathbb{R}\)</span> tels que <span class="math inline">\(\alpha_1 f_1 +
+\alpha_2 f_2 + \alpha_3 f_3 + \alpha_4 f_4
+=0_{\mathscr{F}(\mathbb{R},\mathbb{R})}\)</span> la fonction nulle et
+montrer qu’on a <span class="math inline">\(\alpha_1=\alpha_2=\alpha_3 =
+\alpha_4 = 0\)</span>.</em></p>
+<p>Soient <span class="math inline">\(\alpha_1,\alpha_2,\alpha_3,
+\alpha_4 \in \mathbb{R}\)</span>, tels que <span
+class="math inline">\(\alpha_1 f_1 + \alpha_2 f_2 + \alpha_3 f_3 +
+\alpha_4 f_4 =0_{\mathscr{F}(\mathbb{R},\mathbb{R})}\)</span>.</p>
+<p>Alors, <span class="math inline">\(\underbrace{\alpha_1 f_1 +
+\alpha_3 f_3}_{\text{fonction paire}} = \underbrace{\alpha_2 f_2 +
+\alpha_4 f_4}_{\text{fonction impaire}}\)</span>.</p>
+<p>Or, la seule fonction paire est impaire est la fonction nulle.</p>
+<p>Donc <span class="math inline">\(\alpha_1 f_1 + \alpha_3 f_3\)</span>
+et <span class="math inline">\(\alpha_2 f_2 + \alpha_4 f_4\)</span> sont
+des fonctions nulles.</p>
+<p>On a alors en <span class="math inline">\(x=\pi\)</span>, <span
+class="math inline">\(\alpha_2 f_2\left(\pi\right) + \alpha_4 f_4(\pi) =
+\alpha_3 \mathop{\mathrm{sh}}(\pi) = 0\)</span> donc <span
+class="math inline">\(\alpha_4 = 0\)</span> et <span
+class="math inline">\(\alpha_2 f_2\)</span> est la fonction nulle donc
+<span class="math inline">\(\alpha_2 f_2 \left(\frac{\pi}{2}\right) =
+\alpha_2 = 0\)</span>.</p>
+<p>Aussi, en <span class="math inline">\(x=\frac{\pi}{2}\)</span>, <span
+class="math inline">\(\alpha_1 f_1\left(\frac{\pi}{2}\right) + \alpha_3
+f_3\left(\frac{\pi}{2}\right) = \alpha_3
+\mathop{\mathrm{ch}}\left(\frac{\pi}{2}\right) = 0\)</span> donc <span
+class="math inline">\(\alpha_3 = 0\)</span> et <span
+class="math inline">\(\alpha_1 f_1\)</span> est la fonction nulle donc
+<span class="math inline">\(\alpha_1 f_1 \left(\pi\right) =- \alpha_1 =
+0\)</span>.</p>
+<p>Finalement, <span class="math inline">\(\alpha_1=\alpha_2=\alpha_3 =
+\alpha_4 = 0\)</span> donc <span
+class="math inline">\((f_1,f_2,f_3,f_4)\)</span> est libre.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel, <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span> et <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> une famille
+libre de <span class="math inline">\(E\)</span>.</p>
+<p>Alors, pour tout <span class="math inline">\(1 \leq k \leq
+p\)</span>, <span class="math inline">\((v_1,\ldots,v_p)\)</span> est
+libre.</p>
+<p>Ce qui peut se dire "toute sous-famille d’une famille libre est
+libre".</p>
+</div>
+<div class="wproof">
+<p>Soient <span class="math inline">\(\alpha_1, \ldots, \alpha_p \in
+\mathbb{K}\)</span> tels que <span class="math inline">\(\sum_{k=1}^p
+\alpha_k v_k = 0_{E}\)</span>.</p>
+<p>Alors, a fortiori, avec <span class="math inline">\(\alpha_k =
+0\)</span> pour <span class="math inline">\(p \leq k \leq n\)</span>,
+<span class="math inline">\(\sum_{k=1}^n\alpha_k v_k =
+0_{E}\)</span>.</p>
+<p>Comme <span class="math inline">\((v_1,\ldots,v_n)\)</span> est
+libre, on en déduit <span class="math inline">\(\alpha_k = 0\)</span>
+pour tout <span class="math inline">\(1 \leq k \leq n\)</span> et en
+particulier <span class="math inline">\(\alpha_k = 0\)</span> pour tout
+<span class="math inline">\(1 \leq k \leq p\)</span> donc <span
+class="math inline">\((v_1,\ldots,v_p)\)</span> est libre.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel, <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span> et <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> une famille
+libre de <span class="math inline">\(E\)</span>.</p>
+<p>En posant <span class="math inline">\(F =
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_n)\)</span>, soit <span
+class="math inline">\(v \notin F\)</span>, alors <span
+class="math inline">\((v_1,\ldots,v_n,v)\)</span> est libre.</p>
+</div>
+<div class="wproof">
+<p>Soient <span class="math inline">\(\alpha_1,\ldots,\alpha_n,\alpha_v
+\in \mathbb{R}\)</span> tels que <span
+class="math inline">\(\sum_{k=1}^n\alpha_k v_k +\alpha_v v=
+0_{E}\)</span>.</p>
+<p>Par l’absurde, si <span class="math inline">\(\alpha_v \neq
+0\)</span>, on a <span class="math inline">\(v =
+-\sum_{k=1}^n\frac{\alpha_k}{\alpha_v} v_k \in F\)</span>, ce qui est
+une contradiction.</p>
+<p>Donc <span class="math inline">\(\alpha_v = 0\)</span> et <span
+class="math inline">\(\sum_{k=1}^n\alpha_k v_k +\alpha_v v=
+\sum_{k=1}^n\alpha_k v_k=0_{E}\)</span>.</p>
+<p>Comme <span class="math inline">\((v_1,\ldots,v_n)\)</span> est
+libre, <span class="math inline">\(\alpha_1 = \ldots = \alpha_n =
+\alpha_v = 0\)</span>.</p>
+<p>Donc <span class="math inline">\((v_1,\ldots,v_n,v)\)</span> est
+libre.</p>
+</div>
+<div class="wappli">
+<p>Dans <span class="math inline">\(\mathbb{R}^3\)</span>, montrons que
+<span class="math inline">\((v_1,v_2,v_3)\)</span> avec <span
+class="math inline">\(v_1 = (2,0,0), v_2 = (-1,1,0)\)</span> et <span
+class="math inline">\(v_3 = (0,2,3)\)</span> est libre.</p>
+<ol>
+<li><p><span class="math inline">\((v_1)\)</span> est libre car <span
+class="math inline">\(v_1 \neq 0_{E}\)</span>.</p></li>
+<li><p><span class="math inline">\(v_2 \notin
+\mathop{\mathrm{Vect}}(v_1)\)</span> (car sa deuxième coordonnée est non
+nulle) donc <span class="math inline">\((v_1,v_2)\)</span> est
+libre.</p></li>
+<li><p><span class="math inline">\(v_3 \notin
+\mathop{\mathrm{Vect}}(v_1,v_2)\)</span> (car sa troisième coordonnée
+est non nulle) donc <span class="math inline">\((v_1,v_2,v_3)\)</span>
+est libre.</p></li>
+</ol>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel, <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span> et <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> une famille
+libre de <span class="math inline">\(E\)</span>.</p>
+<p>Soient <span class="math inline">\(\alpha_1,\ldots, \alpha_n \in
+\mathbb{K}\)</span> et <span class="math inline">\(\beta_1,\ldots,
+\beta_n \in \mathbb{K}\)</span> tels que <span
+class="math inline">\(\sum_{k=1}^n \alpha_k v_k = \sum_{k=1}^n \beta_k
+v_k\)</span> alors pour tout <span class="math inline">\(k \in [\![
+1,n]\!]\)</span>, <span class="math inline">\(\alpha_k =
+\beta_k\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\sum_{k=1}^n \alpha_k v_k = \sum_{k=1}^n
+\beta_k v_k \iff \sum_{k=1}^n (\alpha_k -\beta_k)v_k =
+0_{E}\)</span>.</p>
+<p>Or, <span class="math inline">\((v_1,\ldots,v_n)\)</span> est
+libre.</p>
+<p>Donc pour tout <span class="math inline">\(k \in [\![
+1,n]\!]\)</span>, <span class="math inline">\(\alpha_k -\beta_k = 0 \iff
+\alpha_k = \beta_k\)</span></p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E,F\)</span> des <span
+class="math inline">\(\mathbb{K}\)</span>-espaces vectoriels, <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span>, <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> une famille
+libre de <span class="math inline">\(E\)</span> et <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span> injective.</p>
+<p>Alors <span class="math inline">\((f(v_1),\ldots,f(v_n)) \in
+F^n\)</span> est une famille libre de <span
+class="math inline">\(F\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soient <span class="math inline">\(\alpha_1,\ldots,\alpha_n \in
+\mathbb{K}\)</span> tels que <span class="math inline">\(\sum_{k=1}^n
+\alpha_k f(v_k) = 0_{E}\)</span>.</p>
+<p>Alors, <span class="math inline">\(f\left(\sum_{k=1}^n \alpha_k
+v_k\right) = \sum_{k=1}^n \alpha_k f(v_k) = 0_{E}\)</span>.</p>
+<p>Donc <span class="math inline">\(\sum_{k=1}^n \alpha_k v_k \in
+\mathop{\mathrm{Ker}}f\)</span> et comme <span
+class="math inline">\(f\)</span> est injective, <span
+class="math inline">\(\sum_{k=1}^n \alpha_k v_k = 0_{E}\)</span>.</p>
+<p>Or, <span class="math inline">\((v_1,\ldots,v_n)\)</span> est libre
+donc <span class="math inline">\(\alpha_1 = \ldots = \alpha_n=
+0\)</span>.</p>
+<p>Donc <span class="math inline">\((f(v_1),\ldots,f(v_n))\)</span> est
+libre.</p>
+</div>
+<h2 data-number="4.3" id="extension-à-des-familles-quelconques"><span
+class="header-section-number">4.3</span> Extension à des familles
+quelconques</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel, <span
+class="math inline">\(I\)</span> un ensemble infini et <span
+class="math inline">\((v_i)_{i\in I}\)</span> une famille de vecteurs de
+<span class="math inline">\(E\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\((v_i)_{i\in I}\)</span> est liée s’il
+existe <span class="math inline">\(i_1,\ldots,i_n\)</span> éléments
+distincts de <span class="math inline">\(I\)</span> tels que <span
+class="math inline">\((v_{i_1},\ldots,v_{i_n})\)</span> est
+liée.</p></li>
+<li><p><span class="math inline">\((v_i)_{i\in I}\)</span> est libre si
+elle n’est pas liée ie si pour tout <span
+class="math inline">\(i_1,\ldots,i_n\)</span> éléments distincts de
+<span class="math inline">\(I\)</span>, <span
+class="math inline">\((v_{i_1},\ldots,v_{i_n})\)</span> est
+libre.</p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>Toutes les propriétés précédentes s’appliquent aux familles
+infinies.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\((v_n)_{n\in \mathbb{N}}\)</span> une famille de
+vecteurs de <span class="math inline">\(E\)</span>.</p>
+<p><span class="math inline">\((v_n)_{n \in \mathbb{N}}\)</span> est
+libre si et seulement si pour tout <span class="math inline">\(N \in
+\mathbb{N}\)</span>, la famille finie <span
+class="math inline">\((v_n)_{0 \leq n \leq N}\)</span> est libre.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Par
+définition d’une famille infinie libre, toute sous-famille finie est
+libre.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Soient
+<span class="math inline">\(i_1,\ldots,i_n\)</span> éléments distincts
+de <span class="math inline">\(\mathbb{N}\)</span> et <span
+class="math inline">\(N = \max(i_1,\ldots,i_n)\)</span>.</p>
+<p>Alors, <span class="math inline">\((v_n)_{0 \leq n \leq N}\)</span>
+est libre.</p>
+<p>On a donc la sous-famille <span
+class="math inline">\((v_{i_1},\ldots,v_{i_n})\)</span> qui est libre
+également.</p></li>
+</ul>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Montrer que la famille <span class="math inline">\((f_n)_{n \geq
+0}\)</span> est libre dans <span
+class="math inline">\(\mathscr{F}(\mathbb{R},\mathbb{R})\)</span> avec
+pour tout <span class="math inline">\(n \in \mathbb{N}\)</span>, <span
+class="math inline">\(f_n : x \in \mathbb{R} \mapsto e^{nx} \in
+\mathbb{R}\)</span>.</p>
+</div>
+<div class="corri*">
+<p>Montrons par récurrence que pour tout <span class="math inline">\(N
+\in \mathbb{N}\)</span>, la famille finie <span
+class="math inline">\((f_n)_{0 \leq n \leq N}\)</span> est libre.</p>
+<ul>
+<li><p><strong>INITIALISATION</strong> Pour <span
+class="math inline">\(n = 0\)</span>, <span
+class="math inline">\(f_0\)</span> est non nulle donc <span
+class="math inline">\((f_0)\)</span> est libre.</p></li>
+<li><p><strong>HÉRÉDITÉ</strong> Soit <span class="math inline">\(N \in
+\mathbb{N}\)</span> fixé, supposons que la famille <span
+class="math inline">\((f_n)_{0 \leq n \leq N}\)</span> est libre.</p>
+<p>Soient <span
+class="math inline">\(\alpha_0,\ldots,\alpha_N,\alpha_{N+1} \in
+\mathbb{R}\)</span> tels que <span
+class="math inline">\(\sum_{i=0}^{N+1} \alpha_i f_i =
+0_{\mathscr{F}(\mathbb{R},\mathbb{R})}\)</span>.</p>
+<p>Pour <span class="math inline">\(x \in \mathbb{R}\)</span>, en
+divisant par <span class="math inline">\(e^{(N+1)x}\)</span>, on a <span
+class="math display">\[\sum_{i=0}^{N+1} \alpha_i e^{(i-(N+1)x)} =
+\sum_{i=0}^{N} \alpha_i e^{\underbrace{(i-(N+1))}_{&gt;0} x} +
+\alpha_{N+1}= 0.\]</span></p>
+<p>Donc en faisant <span class="math inline">\(x \longrightarrow +
+\infty\)</span>, <span class="math inline">\(\alpha_{N+1} =
+0\)</span></p>
+<p>On en déduit <span class="math inline">\(\sum_{i=0}^{N} \alpha_i f_i
+= 0_{\mathscr{F}(\mathbb{R},\mathbb{R})}\)</span> et comme <span
+class="math inline">\((f_n)_{0 \leq n \leq N}\)</span> est libre par
+hypothèse de récurrence, <span class="math inline">\(\alpha_0 = \ldots =
+\alpha_N = 0\)</span>.</p>
+<p>Donc <span class="math inline">\((f_n)_{0 \leq n \leq N+1}\)</span>
+est libre.</p></li>
+<li><p><strong>CONCLUSION</strong> Pour tout <span
+class="math inline">\(N \in \mathbb{N}\)</span>, la famille finie <span
+class="math inline">\((f_n)_{0 \leq n \leq N}\)</span> est libre.</p>
+<p>Donc <span class="math inline">\((f_n)_{n \geq 0}\)</span> est
+libre.</p></li>
+</ul>
+</div>
+</div>
+</body>
+</html>
+
+<script>
+
+
+const toggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Appliquer le thème au chargement
+const currentTheme = localStorage.getItem('theme') || 'default';
+body.setAttribute('data-md-color-scheme', currentTheme);
+
+toggle.addEventListener('click', () => {
+    let scheme = body.getAttribute('data-md-color-scheme');
+    let newScheme = (scheme === 'default') ? 'slate' : 'default';
+    
+    body.setAttribute('data-md-color-scheme', newScheme);
+    localStorage.setItem('theme', newScheme);
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+let secCount = -1;
+let thmCount = -1;
+
+let labels = {};
+
+const noms = {
+'wthm':'Théorème',
+'wprop':'Proposition',
+'wdefi':'Définition',
+'wlem':'Lemme',
+'wcor':'Corollaire',
+'wappli':'Application',
+'wrem':'Remarque',
+'wrappel': 'Rappel',
+'wex':'Exemple',
+'wproof':'Preuve'
+};
+
+//////////////////////////////////////////////////////////////////////////////
+// Numérotation des environnements
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll(
+"h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex, .wrappel,.wproof"
+).forEach(el => {
+
+    if (
+        el.tagName.toLowerCase() === "h1"
+        && !el.closest("#TOC")
+    ) {
+
+        secCount++;
+        thmCount = 0;
+    }
+
+    else if (noms[Array.from(el.classList).find(c => noms[c])]) {
+
+        let type = Array.from(el.classList).find(c => noms[c]);
+
+        if (type !== 'wproof') {
+
+            thmCount++;
+
+            let num = secCount + "." + thmCount;
+
+            let id = el.querySelector("span[id]")
+                ? el.querySelector("span[id]").id
+                : null;
+
+            if(id) {
+                labels[id] = {
+                    num: num,
+                    type: type.substring(1)
+                };
+            }
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                let strong = p.querySelector("strong");
+
+                let title = (
+                    strong &&
+                    strong.innerText.includes("(")
+                )
+
+                ? ` <span class="env-title">${strong.outerHTML}</span>`
+                : "";
+
+                if (title) strong.remove();
+
+                p.innerHTML =
+                    `<strong class="env-header">${noms[type]} ${num}</strong>`
+                    + title
+                    + " — "
+                    + p.innerHTML;
+            }
+        }
+
+        else {
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                p.innerHTML =
+                    `<strong class="env-header">Preuve</strong> — `
+                    + p.innerHTML;
+            }
+        }
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Capture des équations MathJax
+//////////////////////////////////////////////////////////////////////////////
+
+setTimeout(() => {
+
+document.querySelectorAll("mjx-math[display='true']").forEach((el, index) => {
+
+    let num = el.querySelector(".mjx-eqn-number");
+
+    if (num) {
+
+        let val = num.innerText.replace(/[()]/g, '');
+
+        let id = el.id || "eq-" + index;
+
+        el.id = id;
+
+        labels[id] = {
+            num: val,
+            type: 'eq'
+        };
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Remplacement des références
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll("body *").forEach(el => {
+
+    if (
+        el.childNodes.length === 1 &&
+        el.childNodes[0].nodeType === Node.TEXT_NODE
+    ) {
+
+        el.innerHTML = el.innerHTML
+
+        .replace(/\\eqref\{(.*?)\}/g, (m, id) => {
+
+            return labels[id]
+                ? `<a href="#${id}">(${labels[id].num})</a>`
+                : m;
+        })
+
+        .replace(
+            /\[(prop|thm|def|cor|lem|appli|rem|rappel|ex):(.*?)\]/g,
+
+            (m, t, id) => {
+
+                let f = t + ":" + id;
+
+                return labels[f]
+                    ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>`
+                    : m;
+            }
+        );
+    }
+});
+
+}, 800);
+
+});
+
+</script>
+

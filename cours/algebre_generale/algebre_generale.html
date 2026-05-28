@@ -1,0 +1,1883 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Notions d’algèbre générale</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+
+<header class="site-header">
+
+<div class="site-header-left">
+<a href="/">
+<img src="/assets/logo.svg" class="site-logo" alt="Logo">
+</a>
+</div>
+
+<div class="site-header-right">
+   <button id="theme-toggle"
+style="
+margin-right: 15px;
+cursor: pointer;
+background: transparent;
+border: none;
+font-size: 1.1rem;
+color: var(--md-primary-bg-color);
+">
+🌙 / ☀️
+</button>
+    <a href="/" class="home-link">Retour à l’accueil</a>
+</div>
+
+</header>
+
+
+<header id="title-block-header">
+
+<h1 class="title">Notions d’algèbre générale</h1>
+<p class="pdf-link">
+<a href="algebre_generale.pdf" target="_blank">[PDF]</a>
+</p>
+
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#opérations-sur-les-parties-dun-ensemble"
+id="toc-opérations-sur-les-parties-dun-ensemble"><span
+class="toc-section-number">1</span> Opérations sur les parties d’un
+ensemble</a>
+<ul>
+<li><a href="#ensemble-des-parties-dun-ensemble"
+id="toc-ensemble-des-parties-dun-ensemble"><span
+class="toc-section-number">1.1</span> Ensemble des parties d’un
+ensemble</a></li>
+<li><a href="#inclusion-de-parties" id="toc-inclusion-de-parties"><span
+class="toc-section-number">1.2</span> Inclusion de parties</a></li>
+<li><a href="#union---intersection-de-parties"
+id="toc-union---intersection-de-parties"><span
+class="toc-section-number">1.3</span> Union - intersection de
+parties</a></li>
+<li><a href="#complémentaire-dune-partie"
+id="toc-complémentaire-dune-partie"><span
+class="toc-section-number">1.4</span> Complémentaire d’une
+partie</a></li>
+<li><a href="#cardinal-de-mathscrpe"
+id="toc-cardinal-de-mathscrpe"><span
+class="toc-section-number">1.5</span> Cardinal de <span
+class="math inline">\(\mathscr{P}(E)\)</span></a></li>
+</ul></li>
+<li><a href="#fonctions-entre-ensembles-quelconques"
+id="toc-fonctions-entre-ensembles-quelconques"><span
+class="toc-section-number">2</span> Fonctions entre ensembles
+quelconques</a>
+<ul>
+<li><a href="#ensemble-produit-de-n-ensembles"
+id="toc-ensemble-produit-de-n-ensembles"><span
+class="toc-section-number">2.1</span> Ensemble produit de <span
+class="math inline">\(n\)</span> ensembles</a></li>
+<li><a href="#fonction-entre-deux-ensembles"
+id="toc-fonction-entre-deux-ensembles"><span
+class="toc-section-number">2.2</span> Fonction entre deux ensembles</a>
+<ul>
+<li><a href="#définition" id="toc-définition"><span
+class="toc-section-number">2.2.1</span> Définition</a></li>
+<li><a href="#fonctions-égales" id="toc-fonctions-égales"><span
+class="toc-section-number">2.2.2</span> Fonctions égales</a></li>
+<li><a href="#image-directe-dune-partie-de-lensemble-de-départ"
+id="toc-image-directe-dune-partie-de-lensemble-de-départ"><span
+class="toc-section-number">2.2.3</span> Image directe d’une partie de
+l’ensemble de départ</a></li>
+<li><a href="#préimage-dune-partie-de-lensemble-darrivée"
+id="toc-préimage-dune-partie-de-lensemble-darrivée"><span
+class="toc-section-number">2.2.4</span> Préimage d’une partie de
+l’ensemble d’arrivée</a></li>
+</ul></li>
+<li><a href="#fonction-injective-surjective-surjective"
+id="toc-fonction-injective-surjective-surjective"><span
+class="toc-section-number">2.3</span> Fonction injective, surjective,
+surjective</a>
+<ul>
+<li><a href="#fonction-injective" id="toc-fonction-injective"><span
+class="toc-section-number">2.3.1</span> Fonction injective</a></li>
+<li><a href="#fonction-surjective" id="toc-fonction-surjective"><span
+class="toc-section-number">2.3.2</span> Fonction surjective</a></li>
+<li><a href="#fonction-bijective" id="toc-fonction-bijective"><span
+class="toc-section-number">2.3.3</span> Fonction bijective</a></li>
+</ul></li>
+<li><a href="#composée-de-fonctions"
+id="toc-composée-de-fonctions"><span
+class="toc-section-number">2.4</span> Composée de fonctions</a></li>
+<li><a href="#réciproque-dune-bijection"
+id="toc-réciproque-dune-bijection"><span
+class="toc-section-number">2.5</span> Réciproque d’une
+bijection</a></li>
+<li><a href="#restrictionprolongement-dune-fonction"
+id="toc-restrictionprolongement-dune-fonction"><span
+class="toc-section-number">2.6</span> Restriction/Prolongement d’une
+fonction</a></li>
+<li><a href="#famille-déléments-de-e"
+id="toc-famille-déléments-de-e"><span
+class="toc-section-number">2.7</span> Famille d’éléments de <span
+class="math inline">\(E\)</span></a></li>
+</ul></li>
+<li><a href="#relation-binaire-déquivalence-et-dordre-dans-un-ensemble"
+id="toc-relation-binaire-déquivalence-et-dordre-dans-un-ensemble"><span
+class="toc-section-number">3</span> Relation binaire, d’équivalence et
+d’ordre dans un ensemble</a>
+<ul>
+<li><a href="#relation-binaire" id="toc-relation-binaire"><span
+class="toc-section-number">3.1</span> Relation binaire</a></li>
+<li><a href="#relation-déquivalence"
+id="toc-relation-déquivalence"><span
+class="toc-section-number">3.2</span> Relation d’équivalence</a></li>
+<li><a href="#relation-dordre" id="toc-relation-dordre"><span
+class="toc-section-number">3.3</span> Relation d’ordre</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="opérations-sur-les-parties-dun-ensemble"><span
+class="header-section-number">1</span> Opérations sur les parties d’un
+ensemble</h1>
+<h2 data-number="1.1" id="ensemble-des-parties-dun-ensemble"><span
+class="header-section-number">1.1</span> Ensemble des parties d’un
+ensemble</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(E,A\)</span> des ensembles.</p>
+<p>On dit que <span class="math inline">\(A\)</span> est une partie (ou
+un sous-ensemble) de <span class="math inline">\(E\)</span> si pour tout
+<span class="math inline">\(x\in A, x \in E\)</span>.</p>
+</div>
+<div class="wex">
+<ul>
+<li><p>La partie vide <span class="math inline">\(\emptyset\)</span> est
+un sous-ensemble de <span class="math inline">\(E\)</span>.</p></li>
+<li><p><span class="math inline">\(E\)</span> est un sous-ensemble de
+<span class="math inline">\(E\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(a \in E\)</span>, <span
+class="math inline">\(\left\{a\right\}\)</span> est une partie de <span
+class="math inline">\(E\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(a_1,\ldots, a_n \in
+E\)</span>, <span
+class="math inline">\(\left\{a_1,\ldots,a_n\right\}\)</span> est une
+sous-partie de <span class="math inline">\(E\)</span>.</p></li>
+</ul>
+</div>
+<p>On peut considérer l’ensemble des parties de <span
+class="math inline">\(E\)</span>, que l’on note <span
+class="math inline">\(\mathscr{P}(E)\)</span>. Alors, les éléments de
+<span class="math inline">\(\mathscr{P}(E)\)</span> sont des parties de
+<span class="math inline">\(E\)</span>.</p>
+<div class="wex">
+<p>Si <span class="math inline">\(E =\left\{1,2,3\right\}\)</span>,
+<span class="math inline">\(\mathscr{P}(E) = \left\{\emptyset,
+\left\{1\right\},\left\{2\right\},\left\{3\right\},\left\{1,2\right\},\left\{1,3\right\},\left\{2,3\right\},\left\{1,2,3\right\}\right\}\)</span>.</p>
+</div>
+<h2 data-number="1.2" id="inclusion-de-parties"><span
+class="header-section-number">1.2</span> Inclusion de parties</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(A,B \in
+\mathscr{P}(E)\)</span>,</p>
+<p>On dit que <span class="math inline">\(A\)</span> est inclus dans
+<span class="math inline">\(B\)</span> si pour tout <span
+class="math inline">\(x\in A, x \in B\)</span>.</p>
+<p>On note alors <span class="math inline">\(A\subset B\)</span>.</p>
+</div>
+<div class="wrem">
+<ul>
+<li><p>Si <span class="math inline">\(A \subset B\)</span>, on peut
+avoir <span class="math inline">\(A \neq B\)</span> et on note parfois
+<span class="math inline">\(A \subsetneq B\)</span>.</p></li>
+<li><p><span class="math inline">\(A=B \iff A\subset B \text{ et
+}B\subset A\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="1.3" id="union---intersection-de-parties"><span
+class="header-section-number">1.3</span> Union - intersection de
+parties</h2>
+<div class="wdefi">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soient <span class="math inline">\(A,B \in
+\mathscr{P}(E)\)</span>,</p>
+<p>L’union (ou la réunion) de <span class="math inline">\(A\)</span> et
+<span class="math inline">\(B\)</span> est la partie <span
+class="math inline">\(A \cup B\)</span> de <span
+class="math inline">\(E\)</span> définie par</p>
+<p><span class="math display">\[A \cup B = \left\{x \in E / x\in A
+\text{ ou }x \in B\right\}.\]</span></p>
+</div>
+<div class="webimg">
+<p><img src="A_union_B.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wdefi">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soient <span class="math inline">\(A,B \in
+\mathscr{P}(E)\)</span>,</p>
+<p>L’intersection de <span class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span> est la partie <span
+class="math inline">\(A \cap B\)</span> de <span
+class="math inline">\(E\)</span> définie par</p>
+<p><span class="math display">\[A \cap B = \left\{x \in E / x\in A
+\text{ et }x \in B\right\}.\]</span></p>
+</div>
+<div class="webimg">
+<p><img src="A_inter_B.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wprop">
+<p><strong>(Distributivité)</strong></p>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Pour <span class="math inline">\(A,B,C \in
+\mathscr{P}(E)\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(A \cap (B\cup C) = (A\cap B) \cup (A
+\cap C)\)</span>,</p></li>
+<li><p><span class="math inline">\(A \cup (B\cap C) = (A\cup B) \cap (A
+\cup C)\)</span>.</p></li>
+</ol>
+</div>
+<div class="webimg">
+<p><img src="distributivite.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wproof">
+<ol>
+<li><ul>
+<li><p>(<span class="math inline">\(A \cap (B\cup C) \subset (A\cap B)
+\cup (A \cap C)\)</span>)</p>
+<p>Soit <span class="math inline">\(x \in A \cap (B\cup C)\)</span>
+alors <span class="math inline">\(x \in A \text{ et }(x \in B \text{ ou
+}x\in C)\)</span>.</p>
+<p>Si <span class="math inline">\(x \in B\)</span>, <span
+class="math inline">\(x\in A \cap B\)</span> donc <span
+class="math inline">\(x \in (A\cap B) \cup (A \cap C)\)</span>.</p>
+<p>Si <span class="math inline">\(x \in C\)</span>, <span
+class="math inline">\(x\in A \cap C\)</span> donc <span
+class="math inline">\(x \in (A\cap B) \cup (A \cap C)\)</span>.</p></li>
+<li><p>(<span class="math inline">\(A \cap (B\cup C) \supset (A\cap B)
+\cup (A \cap C)\)</span>)</p>
+<p>Soit <span class="math inline">\(x \in (A\cap B) \cup (A \cap
+C)\)</span>, <span class="math inline">\(x \in A\cap B \text{ ou }x \in
+A\cap C\)</span>.</p>
+<p>Si <span class="math inline">\(x \in A\cap B\)</span>, <span
+class="math inline">\(x \in A\)</span> et <span
+class="math inline">\(x\in B \subset B\cup C\)</span> donc <span
+class="math inline">\(x \in A \cap (B\cup C)\)</span>.</p>
+<p>Si <span class="math inline">\(x \in A\cap C\)</span>, <span
+class="math inline">\(x \in A\)</span> et <span
+class="math inline">\(x\in C \subset B\cup C\)</span> donc <span
+class="math inline">\(x \in A \cap (B\cup C)\)</span>.</p></li>
+</ul></li>
+<li><ul>
+<li><p>(<span class="math inline">\(A \cup (B\cap C) \subset (A\cup B)
+\cap (A \cup C)\)</span>).</p>
+<p>Soit <span class="math inline">\(x \in A \cup (B\cap C)\)</span>
+alors <span class="math inline">\(x \in A \text{ ou }x \in B\cup
+C\)</span> donc <span class="math inline">\(x \in A \text{ ou }(x \in B
+\text{ et }x\in C)\)</span>.</p>
+<p>donc <span class="math inline">\(x \in A \cup B \text{ ou }(x \in B
+\text{ et }x\in C)\)</span>.</p>
+<p>Si <span class="math inline">\(x \in A\)</span>, <span
+class="math inline">\(x \in A\cup B\)</span> et <span
+class="math inline">\(x \in A\cup C\)</span> donc <span
+class="math inline">\(x \in (A\cup B) \cap (A \cup C)\)</span>.</p>
+<p>Si <span class="math inline">\(x \in B \text{ et }x\in C\)</span>
+alors <span class="math inline">\(x\)</span> <span
+class="math inline">\(x \in A\cup B\)</span> et <span
+class="math inline">\(x \in A\cup C\)</span> donc <span
+class="math inline">\(x \in (A\cup B) \cap (A \cup C)\)</span>.</p></li>
+<li><p>(<span class="math inline">\(A \cup (B\cap C) \supset (A\cup B)
+\cap (A \cup C)\)</span>).</p>
+<p>Soit <span class="math inline">\(x \in (A\cup B) \cap (A \cup
+C)\)</span>, <span class="math inline">\(x \in A\cup B \text{ et }x \in
+A \cup C\)</span>.</p>
+<p>Si <span class="math inline">\(x \in A, x \in A \cup (B\cap
+C)\)</span>.</p>
+<p>Si <span class="math inline">\(x \notin A\)</span>, <span
+class="math inline">\(x \in B \text{ et }x \in C\)</span> donc <span
+class="math inline">\(x \in B\cap C\)</span> donc <span
+class="math inline">\(x \in A \cup (B\cap C)\)</span>.</p></li>
+</ul></li>
+</ol>
+</div>
+<h2 data-number="1.4" id="complémentaire-dune-partie"><span
+class="header-section-number">1.4</span> Complémentaire d’une
+partie</h2>
+<div class="wdefi">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\(A \in \mathscr{P}(E)\)</span>.</p>
+<p>La partie complémentaire de <span class="math inline">\(A\)</span>
+dans <span class="math inline">\(E\)</span> est <span
+class="math display">\[\{x \in E / x \notin A\},\]</span></p>
+<p>notée <span class="math inline">\(\overline{A}\)</span> ou <span
+class="math inline">\(E \setminus A\)</span> ou .</p>
+</div>
+<div class="webimg">
+<p><img src="compl_A.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wprop">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Pour <span class="math inline">\(A, B \in
+\mathscr{P}(E)\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(\overline{A\cup B} = \overline{A}
+\cap \overline{B}\)</span>,</p></li>
+<li><p><span class="math inline">\(\overline{A\cap B} = \overline{A}
+\cup \overline{B}\)</span>.</p></li>
+</ol>
+</div>
+<div class="webimg">
+<p><img src="compl_prop.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Soit <span class="math inline">\(x \in E\)</span>, <span
+class="math display">\[\begin{aligned}
+            x \in \overline{A\cup B}
+            &amp; \iff x \notin A \cup B \\
+            &amp; \iff x \notin A \text{ et }x \notin B \\
+            &amp; \iff x \in \overline{A} \text{ et }x \in \overline{B}
+\\
+            &amp; \iff x \in \overline{A} \cap \overline{B}.
+        \end{aligned}\]</span></p></li>
+<li><p>Soit <span class="math inline">\(x \in E\)</span>, <span
+class="math display">\[\begin{aligned}
+            x \in \overline{A\cap B}
+            &amp; \iff x \notin A \cap B \\
+            &amp; \iff x \notin A \text{ ou }x \notin B \\
+            &amp; \iff x \in \overline{A} \text{ ou }x \in \overline{B}
+\\
+            &amp; \iff x \in \overline{A} \cup \overline{B}.
+        \end{aligned}\]</span></p></li>
+</ol>
+</div>
+<div class="wdefi">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soient <span class="math inline">\(A,B \in \mathscr{P}(E)\)</span>,
+on considère <span class="math inline">\(A \setminus B\)</span> définie
+par <span class="math display">\[A \setminus B = A \cap \overline{B}=
+\left\{x \in A / x\notin B\right\}.\]</span></p>
+</div>
+<div class="webimg">
+<p><img src="A_prive_B.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<h2 data-number="1.5" id="cardinal-de-mathscrpe"><span
+class="header-section-number">1.5</span> Cardinal de <span
+class="math inline">\(\mathscr{P}(E)\)</span></h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\(E\)</span> un ensemble fini, le
+cardinal de <span class="math inline">\(E\)</span> est le nombre
+d’éléments noté <span class="math inline">\(E\)</span>.</p>
+<p>Si <span class="math inline">\(\mathop{\mathrm{card}}E =n,
+\mathscr{P}(E)\)</span> est fini de cardinal <span
+class="math inline">\(2^n\)</span>.</p>
+</div>
+<div class="webtextfigure">
+<div class="webtext">
+<div class="wproof">
+<p>Nous avons déjà prouver ce résultat à l’aide des coefficients
+binomiaux et du binôme de Newton mais on propose une seconde preuve
+ici.</p>
+<p>Prouvons ce résultat par récurrence sur <span class="math inline">\(n
+= \mathop{\mathrm{card}}E\)</span>.</p>
+<ul>
+<li><p><strong>INITIALISATION :</strong> Pour <span
+class="math inline">\(n=0\)</span>, <span
+class="math inline">\(\mathop{\mathrm{card}}E = 0\)</span> donc <span
+class="math inline">\(E = \emptyset\)</span> et <span
+class="math inline">\(\mathscr{P}(E) =
+\left\{\emptyset\right\}\)</span>, de cardinal <span
+class="math inline">\(2^0=1\)</span>.</p></li>
+<li><p><strong>HÉRÉDITÉ :</strong> Soit <span class="math inline">\(n
+\in \mathbb{N}\)</span>, supposons que pour tout ensemble fini <span
+class="math inline">\(E&#39;\)</span> de cardinal <span
+class="math inline">\(n\)</span>, <span
+class="math inline">\(\mathscr{P}(E&#39;)\)</span> est fini de cardinal
+<span class="math inline">\(2^n\)</span>.</p>
+<p>Soit <span class="math inline">\(E =
+\{x_1,\ldots,x_n,x_{n+1}\}\)</span> un ensemble fini de cardinal <span
+class="math inline">\(n+1\)</span>, on considère <span
+class="math inline">\(E&#39; = \{x_1,\ldots,x_{n}\}\)</span>.</p>
+<p>Soit <span class="math inline">\(A\)</span> une partie de <span
+class="math inline">\(E\)</span>,</p>
+<ul>
+<li><p>Si <span class="math inline">\(x_{n+1}\notin A\)</span>, <span
+class="math inline">\(A\)</span> est une partie de <span
+class="math inline">\(E&#39;\)</span>,</p></li>
+<li><p>Si <span class="math inline">\(x_{n+1}\in A\)</span>, <span
+class="math inline">\(B = A \setminus \{x_{n+1}\}\)</span> est une
+partie de <span class="math inline">\(E&#39;\)</span>.</p></li>
+</ul>
+<p>Or il y a <span class="math inline">\(2^n\)</span> parties de <span
+class="math inline">\(E&#39;\)</span>. Donc il y a <span
+class="math inline">\(2^n+2^n = 2^{n+1}\)</span> parties de <span
+class="math inline">\(E\)</span>.</p>
+<p>Donc <span class="math inline">\(\mathop{\mathrm{card}}\mathscr{P}(E)
+= 2^{n+1}\)</span>.</p></li>
+<li><p><strong>CONCLUSION :</strong> Pour tout ensemble fini <span
+class="math inline">\(E\)</span> de cardinal <span
+class="math inline">\(n\)</span>, <span
+class="math inline">\(\mathscr{P}(E)\)</span> est fini de cardinal <span
+class="math inline">\(2^n\)</span>.</p></li>
+</ul>
+</div>
+</div>
+<div class="webimg">
+<p><img src="cardinal_PE.png" alt="image" /></p>
+</div>
+</div>
+<h1 data-number="2" id="fonctions-entre-ensembles-quelconques"><span
+class="header-section-number">2</span> Fonctions entre ensembles
+quelconques</h1>
+<h2 data-number="2.1" id="ensemble-produit-de-n-ensembles"><span
+class="header-section-number">2.1</span> Ensemble produit de <span
+class="math inline">\(n\)</span> ensembles</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(E_1,\ldots, E_n\)</span> des
+ensembles non vides, on défini l’ensemble produit de <span
+class="math inline">\(E_1,\ldots, E_n\)</span>, noté <span
+class="math inline">\(E_1 \times E_2 \times \ldots \times E_n\)</span>
+par <span class="math display">\[E_1 \times E_2 \times \ldots \times E_n
+= \left\{(x_1,x_2,\ldots,x_{n}) / \forall 1 \leq k \leq n, x_k \in
+E_k\right\}.\]</span></p>
+<p>Si pour tout <span class="math inline">\(1 \leq k \leq n\)</span>,
+<span class="math inline">\(E_k = E\)</span>, on le note <span
+class="math inline">\(E^n\)</span>.</p>
+</div>
+<div class="wex">
+<p><span class="math inline">\(\mathbb{R}^2 = \left\{(x,y) / x,y \in
+\mathbb{R}\right\}\)</span>.</p>
+</div>
+<h2 data-number="2.2" id="fonction-entre-deux-ensembles"><span
+class="header-section-number">2.2</span> Fonction entre deux
+ensembles</h2>
+<h3 data-number="2.2.1" id="définition"><span
+class="header-section-number">2.2.1</span> Définition</h3>
+<div class="wdefi">
+<p>Une fonction (ou application) <span class="math inline">\(f\)</span>
+entre d’un ensemble dans un autre est définie par :</p>
+<ul>
+<li><p>un ensemble non vide <span class="math inline">\(E\)</span>, dit
+"ensemble de départ",</p></li>
+<li><p>un ensemble non vide <span class="math inline">\(F\)</span>, dit
+"ensemble d’arrivée",</p></li>
+<li><p>un procédé permettant d’associer à un élément quelconque de <span
+class="math inline">\(E\)</span>, un unique élément de <span
+class="math inline">\(F\)</span>.</p></li>
+</ul>
+<p>On écrit alors <span class="math inline">\(f : E \to F\)</span> et on
+définit <span class="math inline">\(\mathscr{F}(E,F)\)</span> l’ensemble
+des fonctions de <span class="math inline">\(E\)</span> dans <span
+class="math inline">\(F\)</span>.</p>
+<p>Soit <span class="math inline">\(x \in E\)</span>, <span
+class="math inline">\(f(x) \in F\)</span> est appelé l’image de <span
+class="math inline">\(x\)</span> par <span
+class="math inline">\(f\)</span> noté <span
+class="math inline">\(f(x)\)</span> tandis que <span
+class="math inline">\(x\)</span> est appelé <u>un</u> antécédent de
+<span class="math inline">\(y = f(x)\)</span>.</p>
+<p>On introduit <span class="math inline">\(f\)</span> sous la forme
+<span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; E &amp; \to &amp; F \\
+   &amp;   &amp; x &amp; \mapsto &amp; f(x)
+\end{array}\)</span> ou de manière concise <span class="math inline">\(f
+: x \in E \mapsto f(x) \in F\)</span>.</p>
+<p>Le graphe de <span class="math inline">\(f\)</span> est la partie de
+<span class="math inline">\(E \times F\)</span> définie par <span
+class="math inline">\(\left\{(x,f(x))/x \in E\right\}\)</span>, notée
+<span class="math inline">\(\Gamma_f\)</span>.</p>
+</div>
+<div class="wrem">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Si l’image d’un élément de <span class="math inline">\(x \in
+E\)</span> est unique, en général, un élément <span
+class="math inline">\(y \in F\)</span> peut admettre plusieurs
+antécédents.</p>
+</div>
+<div class="webimg">
+<p><img src="non_unique_antedecent.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wex">
+<ul>
+<li><p><span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{C} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; z &amp; \mapsto &amp; |z|
+\end{array}\)</span>,</p></li>
+<li><div class="webtextfigure">
+<div class="webtext">
+<p>Avec <span class="math inline">\(\mathscr{P}\)</span> le plan usuel
+et <span class="math inline">\(\mathscr{D}\)</span> droite de <span
+class="math inline">\(\mathscr{P}\)</span>, <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathscr{P} &amp; \to &amp; \mathscr{P} \\
+   &amp;   &amp; M &amp; \mapsto &amp; f(M) \text{ le projeté orthogonal
+de $M$ sur $\mathscr{D}$.}
+\end{array}\)</span>,</p>
+</div>
+<div class="webimg">
+<p><img src="fct_projete.png" alt="image" /></p>
+</div>
+</div></li>
+<li><p>Avec <span
+class="math inline">\(\overrightarrow{\mathscr{P}}\)</span> l’ensemble
+des vecteurs du plans, <span class="math display">\[\begin{array}{lllll}
+f &amp; : &amp;
+\overrightarrow{\mathscr{P}}\times\overrightarrow{\mathscr{P}} &amp; \to
+&amp; \mathbb{R} \\
+   &amp;   &amp; (\overrightarrow{u},\overrightarrow{v}) &amp; \mapsto
+&amp; \overrightarrow{u}.\overrightarrow{v},\text{ produit scalaire
+usuel de $\overrightarrow{u}$ et $\overrightarrow{v}$.}
+\end{array}\]</span>,</p></li>
+<li><p>Soit <span class="math inline">\(E\)</span> ensemble quelconque
+et <span class="math inline">\(A \in \mathscr{P}(E)\)</span>,</p>
+<p><span class="math display">\[\begin{array}{lllll}
+f &amp; : &amp; \mathscr{P}(E) &amp; \to &amp; \mathscr{P}(E) \\
+   &amp;   &amp; X &amp; \mapsto &amp; A \cap X
+\end{array}\]</span></p></li>
+<li><p>Avec <span class="math inline">\(E =
+\mathscr{F}(\mathbb{R},\mathbb{R})\)</span>, <span
+class="math display">\[\begin{array}{lllll}
+\varphi &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; f &amp; \mapsto &amp; f(0)
+\end{array}
+.\]</span></p></li>
+</ul>
+</div>
+<h3 data-number="2.2.2" id="fonctions-égales"><span
+class="header-section-number">2.2.2</span> Fonctions égales</h3>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(f,g\)</span> deux fonctions.</p>
+<p><span class="math inline">\(f\)</span> et <span
+class="math inline">\(g\)</span> sont dites égales si <span
+class="math inline">\(f\)</span> et <span
+class="math inline">\(g\)</span> ont</p>
+<ul>
+<li><p>même ensemble de départ <span
+class="math inline">\(E\)</span>,</p></li>
+<li><p>même ensemble d’arrivée <span
+class="math inline">\(F\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall x,y \in E,
+f(x)=g(x)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wex">
+<p><span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; x^2
+\end{array}\)</span> et <span class="math inline">\(\begin{array}{lllll}
+g &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R}^+ \\
+   &amp;   &amp; x &amp; \mapsto &amp; x^2
+\end{array}\)</span> ne sont pas égales.</p>
+</div>
+<h3 data-number="2.2.3"
+id="image-directe-dune-partie-de-lensemble-de-départ"><span
+class="header-section-number">2.2.3</span> Image directe d’une partie de
+l’ensemble de départ</h3>
+<div class="wdefi">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\(f \in \mathscr{F}(E,F)\)</span> et
+<span class="math inline">\(A \in \mathscr{P}(E)\)</span>, non vide, on
+définit l’image directe de <span class="math inline">\(A\)</span>, notée
+<span class="math inline">\(f(A)\)</span> par <span
+class="math display">\[f(A) := \left\{f(x) / x \in A\right\}.\]</span>
+Si <span class="math inline">\(A = \emptyset\)</span>, on pose <span
+class="math inline">\(f(A) = \emptyset\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="image_d_un_ensemble.png" alt="image" /></p>
+</div>
+</div>
+<p>Si <span class="math inline">\(A = E\)</span>, <span
+class="math inline">\(f(E)\)</span> est l’image de <span
+class="math inline">\(f\)</span>, notée <span
+class="math inline">\(\mathop{\mathrm{Im}}f = \left\{f(x) \in F / x \in
+E\right\}\)</span>.</p>
+</div>
+<div class="wex">
+<ul>
+<li><p>Avec <span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; x^2
+\end{array}\)</span>, <span class="math inline">\(f([-2,1]) =
+[0,4]\)</span>.</p></li>
+<li><div class="webtextfigure">
+<div class="webtext">
+<p>Avec <span class="math inline">\(\mathscr{P}\)</span> le plan usuel
+et <span class="math inline">\(\mathscr{D}\)</span> droite de <span
+class="math inline">\(\mathscr{P}\)</span> et <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathscr{P} &amp; \to &amp; \mathscr{P} \\
+   &amp;   &amp; M &amp; \mapsto &amp; f(M) \text{ le projeté orthogonal
+de $M$ sur $\mathscr{D}$.}
+\end{array}\)</span>.</p>
+<p>Soit <span class="math inline">\(\Delta\)</span> la droite de <span
+class="math inline">\(\mathscr{P}\)</span>, perpendiculaire à <span
+class="math inline">\(\mathscr{D}\)</span>, <span
+class="math inline">\(f(\Delta) = \left\{\text{Point d&#39;intersection
+de $\mathscr{D}$ et $\Delta$}\right\}.\)</span></p>
+</div>
+<div class="webimg">
+<p><img src="image_perp.png" alt="image" /></p>
+</div>
+</div></li>
+<li><p>Soit <span class="math inline">\(E =
+\mathscr{F}(\mathbb{R},\mathbb{R})\)</span>, <span
+class="math inline">\(A = \left\{f \in E / \forall x \in \mathbb{R}^{+},
+f(x) \geq 1\right\}\)</span> et <span
+class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; f &amp; \mapsto &amp; f(0)
+\end{array}
+,\)</span> montrons que <span class="math inline">\(f(A) =
+[1,+\infty[\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(f(A) \subset [1,+\infty[\)</span> car
+si <span class="math inline">\(f\in A, f(0) \geq 1\)</span> donc <span
+class="math inline">\(\varphi(f) \geq 1\)</span>.</p></li>
+<li><p><span class="math inline">\(f(A) \supset [1,+\infty[\)</span> car
+soit <span class="math inline">\(\alpha \in [1,+\infty[\)</span>, avec
+<span class="math inline">\(f : x \in \mathbb{R}\mapsto \alpha\)</span>,
+<span class="math inline">\(f \in A\)</span> et <span
+class="math inline">\(\varphi(f) = \alpha\)</span>.</p></li>
+</ul></li>
+<li><p>Soit <span class="math inline">\(E\)</span> ensemble quelconque
+et <span class="math inline">\(A \in \mathscr{P}(E)\)</span>,</p>
+<p><span class="math display">\[\begin{array}{lllll}
+f &amp; : &amp; \mathscr{P}(E) &amp; \to &amp; \mathscr{P}(E) \\
+   &amp;   &amp; X &amp; \mapsto &amp; A \cap X
+\end{array}\]</span></p>
+<p>Montrons que <span class="math inline">\(\mathop{\mathrm{Im}}f =
+\mathscr{P}(A)\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(\mathop{\mathrm{Im}}f \subset
+\mathscr{P}(A)\)</span> car si <span class="math inline">\(X \in
+\mathscr{P}(E)\)</span>, <span class="math inline">\(f(X) = X \cap A \in
+\mathscr{P}(A)\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{Im}}f \supset
+\mathscr{P}(A)\)</span> car si <span class="math inline">\(Y \in
+\mathscr{P}(A)\)</span>, <span class="math inline">\(f(Y) = Y \cap A =
+Y\)</span>.</p></li>
+</ul></li>
+</ul>
+</div>
+<h3 data-number="2.2.4"
+id="préimage-dune-partie-de-lensemble-darrivée"><span
+class="header-section-number">2.2.4</span> Préimage d’une partie de
+l’ensemble d’arrivée</h3>
+<div class="wdefi">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\(f \in \mathscr{F}(E,F)\)</span> et
+<span class="math inline">\(B \in \mathscr{P}(F)\)</span>, la préimage
+(ou image réciproque) de <span class="math inline">\(B\)</span> par
+<span class="math inline">\(f\)</span> est la partie de <span
+class="math inline">\(E\)</span>, notée <span
+class="math inline">\(f^{-1}(B)\)</span> et égale à <span
+class="math display">\[f^{-1}(B) = \left\{x \in E / f(x) \in
+B\right\}.\]</span></p>
+</div>
+<div class="webimg">
+<p><img src="preimage_d_un_ensemble.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f \in \mathscr{F}(E,F)\)</span> et
+<span class="math inline">\(B \in \mathscr{P}(F)\)</span>, <span
+class="math display">\[f^{-1}(B) \neq \emptyset \iff B \cap
+\mathop{\mathrm{Im}}f \neq \emptyset.\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Si <span class="math inline">\(f^{-1}(B) \neq \emptyset\)</span>,
+il existe <span class="math inline">\(x \in E\)</span> tel que <span
+class="math inline">\(f(x) \in B\)</span> donc <span
+class="math inline">\(f(x) \in B \cap \mathop{\mathrm{Im}}f \neq
+\emptyset\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(B \cap \mathop{\mathrm{Im}}f \neq
+\emptyset\)</span>, il existe <span class="math inline">\(y \in B \cap
+\mathop{\mathrm{Im}}f\)</span>. Comme <span class="math inline">\(y \in
+\mathop{\mathrm{Im}}f\)</span>, il existe <span class="math inline">\(x
+\in E\)</span> tel que <span class="math inline">\(f(x) = y\)</span> et
+donc <span class="math inline">\(x \in f^{-1}(B) \neq
+\emptyset\)</span>.</p></li>
+</ul>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Soit <span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; x^2
+\end{array}\)</span>, <span class="math inline">\(B_1 = [0,2]\)</span>
+et <span class="math inline">\(B_2 = [-1,3]\)</span>. Déterminer <span
+class="math inline">\(f^{-1}(B_1), f^{-1}(B_2),
+f\left(f^{-1}(B_2)\right)\)</span>.</p>
+</div>
+<div class="corri*">
+<ul>
+<li><p><span class="math inline">\(f^{-1}(B_1) =
+[-\sqrt{2},\sqrt{2}]\)</span>,</p></li>
+<li><p><span class="math inline">\(f^{-1}(B_2) =
+[-\sqrt{3},\sqrt{3}]\)</span>,</p></li>
+<li><p><span class="math inline">\(f\left(f^{-1}(B_2)\right)=
+[0,3]\)</span>.</p></li>
+</ul>
+</div>
+</div>
+<div class="wrem">
+<p>Comme l’illustre l’exemple précédent, en général <span
+class="math inline">\(f(f^{-1}(B)) \neq B\)</span>.</p>
+</div>
+<div class="wex">
+<p>Avec <span class="math inline">\(\mathscr{P}\)</span> le plan usuel
+et <span class="math inline">\(\mathscr{D}\)</span> droite de <span
+class="math inline">\(\mathscr{P}\)</span> et <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathscr{P} &amp; \to &amp; \mathscr{P} \\
+   &amp;   &amp; M &amp; \mapsto &amp; f(M) \text{ le projeté orthogonal
+de $M$ sur $\mathscr{D}$.}
+\end{array}\)</span>.</p>
+<p>Soit <span class="math inline">\(M_0 \in \mathscr{P}\)</span>,</p>
+<ul>
+<li><p>Si <span class="math inline">\(M_0 \notin \mathscr{D}\)</span>,
+<span class="math inline">\(f^{-1}(M_0) = \emptyset\)</span></p></li>
+<li><p>Si <span class="math inline">\(M_0 \in \mathscr{D}\)</span>,
+<span class="math inline">\(f^{-1}(M_0) = \text{ la droite
+perpendiculaire à $\mathscr{D}$ passant par $M_0$.}\)</span></p></li>
+</ul>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Soit <span
+class="math inline">\((0,\overrightarrow{i},\overrightarrow{j})\)</span>
+repère de <span class="math inline">\(\mathscr{P}\)</span> et <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathscr{P} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; M(x,y) &amp; \mapsto &amp; y-x^2
+\end{array}\)</span>, représenter <span
+class="math inline">\(f^{-1}([1,+\infty[)\)</span>.</p>
+</div>
+<div class="webtextfigure">
+<div class="webtext">
+<div class="corri*">
+<p><span class="math display">\[\begin{aligned}
+            f^{-1}([1,+\infty[)
+            &amp; = \left\{M \in \mathscr{P}/ f(M) \in
+[1,+\infty[\right\} \\
+            &amp; = \left\{M(x,y)  \in \mathscr{P}/  y-x^2 \geq
+1\right\} \\
+            &amp; = \left\{M(x,y)  \in \mathscr{P}/  y \geq
+1+x^2\right\} \\
+    \end{aligned}\]</span></p>
+</div>
+</div>
+<div class="webimg">
+<p><img src="ex_parabole.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<h2 data-number="2.3"
+id="fonction-injective-surjective-surjective"><span
+class="header-section-number">2.3</span> Fonction injective, surjective,
+surjective</h2>
+<h3 data-number="2.3.1" id="fonction-injective"><span
+class="header-section-number">2.3.1</span> Fonction injective</h3>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(f \in \mathscr{F}(E,F)\)</span>,
+<span class="math inline">\(f\)</span> est injective (ou une injection
+de <span class="math inline">\(E\)</span> dans <span
+class="math inline">\(F\)</span>) si <span
+class="math display">\[\forall x,x&#39; \in E, x \neq x&#39;
+\Longrightarrow f(x) \neq f(x&#39;)\]</span> ou de façon équivalente,
+<span class="math display">\[\forall x,x&#39; \in E, f(x) = f(x&#39;)
+\Longrightarrow x=x&#39;.\]</span></p>
+</div>
+<div class="wrem">
+<p>Autrement dit, chaque élément de <span
+class="math inline">\(\mathop{\mathrm{Im}}f\)</span> admet un unique
+antécédent.</p>
+</div>
+<div class="wprop">
+<p><span class="math inline">\(f \text{ injective} \iff \text{Pour tout
+} b \in F, \text{ l&#39;équation $f(x)=b$ admet au plus une solution
+dans $E$.}\)</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(f\)</span> est injective, soit <span
+class="math inline">\(b \in F\)</span>, supposons que l’équation <span
+class="math inline">\(f(x)=b\)</span> admet <span
+class="math inline">\(x_1,x_2 \in E\)</span> comme solution.</p>
+<p>Alors, <span class="math inline">\(f(x_1) = f(x_2) = b\)</span> donc
+<span class="math inline">\(x_1=x_2\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Soient
+<span class="math inline">\(x_1,x_2 \in E\)</span> tels que <span
+class="math inline">\(f(x_1) = f(x_2) \in F\)</span>.</p>
+<p>Alors <span class="math inline">\(x_1\)</span> et <span
+class="math inline">\(x_2\)</span> sont solutions de l’équation <span
+class="math inline">\(f(x)=f(x_1)\)</span> donc <span
+class="math inline">\(x_1 = x_2\)</span>.</p></li>
+</ul>
+</div>
+<div class="wex">
+<ul>
+<li><p>Soit <span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; x^2
+\end{array}\)</span> alors <span class="math inline">\(f(1) = f(-1) =
+1\)</span> donc <span class="math inline">\(f\)</span> est non
+injective. En revanche, <span class="math inline">\(\begin{array}{lllll}
+g &amp; : &amp; \mathbb{R}^+ &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; x^2
+\end{array}\)</span> est bien injective.</p></li>
+<li><p>Soient <span class="math inline">\(E\)</span> ensemble quelconque
+et <span class="math inline">\(A \in \mathscr{P}(E)\)</span> tel que
+<span class="math inline">\(A \neq E\)</span> et <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathscr{P}(E) &amp; \to &amp; \mathscr{P}(E) \\
+   &amp;   &amp; X &amp; \mapsto &amp; A \cap X
+\end{array}\)</span>.</p>
+<p>Alors, on a <span class="math inline">\(f(A) = A\)</span> et <span
+class="math inline">\(f(E) = A\)</span> avec <span
+class="math inline">\(E \neq A\)</span> donc <span
+class="math inline">\(f\)</span> n’est pas injective.</p></li>
+<li><p>Soient <span class="math inline">\(E =
+\mathscr{F}(\mathbb{R},\mathbb{R})\)</span> et <span
+class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; f &amp; \mapsto &amp; f(0)
+\end{array}\)</span>, alors avec <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; 0
+\end{array}\)</span> et <span class="math inline">\(\begin{array}{lllll}
+g &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; x
+\end{array}\)</span>, <span class="math inline">\(f \neq g\)</span> et
+<span class="math inline">\(\varphi(f) = \varphi(g) = 0\)</span> donc
+<span class="math inline">\(\varphi\)</span> est non injective.</p></li>
+</ul>
+</div>
+<h3 data-number="2.3.2" id="fonction-surjective"><span
+class="header-section-number">2.3.2</span> Fonction surjective</h3>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(f \in \mathscr{F}(E,F)\)</span>,
+<span class="math inline">\(f\)</span> est surjective (ou une surjection
+de <span class="math inline">\(E\)</span> dans <span
+class="math inline">\(F\)</span>) si <span
+class="math display">\[\begin{aligned}
+    f \text{ surjective}
+    &amp; \iff \mathop{\mathrm{Im}}f  = F \\
+    &amp; \iff \forall y \in F, \exists x \in E / f(x) = y.
+    \end{aligned}\]</span></p>
+</div>
+<div class="wrem">
+<p>Autrement dit, chaque élément de <span
+class="math inline">\(F\)</span> admet au moins un antécédent.</p>
+</div>
+<div class="wprop">
+<p><span class="math inline">\(f\)</span> surjective si et seulement si
+Pour tout <span class="math inline">\(b \in F\)</span>, l’équation <span
+class="math inline">\(f(x)=b\)</span> admet au moins une solution dans
+<span class="math inline">\(E\)</span>.</p>
+</div>
+<div class="wex">
+<ul>
+<li><p>Soit <span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; x^2
+\end{array}\)</span> alors <span class="math inline">\(f\)</span> est
+non surjective car <span class="math inline">\(\mathop{\mathrm{Im}}f =
+\mathbb{R}^{+}\)</span>. En revanche, <span
+class="math inline">\(\begin{array}{lllll}
+g &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R}^{+} \\
+   &amp;   &amp; x &amp; \mapsto &amp; x^2
+\end{array}\)</span> est bien surjective.</p></li>
+<li><p>Avec <span class="math inline">\(\mathscr{P}\)</span> le plan
+usuel, <span class="math inline">\(\mathscr{D}\)</span> droite de <span
+class="math inline">\(\mathscr{P}\)</span> et <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathscr{P} &amp; \to &amp; \mathscr{P} \\
+   &amp;   &amp; M &amp; \mapsto &amp; f(M) \text{ le projeté orthogonal
+de $M$ sur $\mathscr{D}$.}
+\end{array}\)</span>, <span class="math inline">\(f\)</span> n’est pas
+surjective car <span class="math inline">\(\mathop{\mathrm{Im}}f =
+\mathscr{D}\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(E =
+\mathscr{F}(\mathbb{R},\mathbb{R})\)</span> et <span
+class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; f &amp; \mapsto &amp; f(0)
+\end{array}\)</span>, alors <span class="math inline">\(\varphi\)</span>
+est injective car pour <span class="math inline">\(\alpha \in
+\mathbb{R}\)</span>, <span class="math inline">\(\alpha =
+\varphi\left(f_\alpha\right) \text{ avec }f_\alpha : x \in \mathbb{R}
+\mapsto \alpha \in \mathbb{R}\)</span>. Soient <span
+class="math inline">\(E\)</span> ensemble quelconque et <span
+class="math inline">\(A \in \mathscr{P}(E)\)</span> tel que <span
+class="math inline">\(A \neq E\)</span> et <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathscr{P}(E) &amp; \to &amp; \mathscr{P}(E) \\
+   &amp;   &amp; X &amp; \mapsto &amp; A \cap X
+\end{array}\)</span>.</p>
+<p>Alors, <span class="math inline">\(f\)</span> est non surjective car
+<span class="math inline">\(\mathop{\mathrm{Im}}f = \mathscr{P}(A) \neq
+\mathscr{P}(E)\)</span>.</p></li>
+</ul>
+</div>
+<h3 data-number="2.3.3" id="fonction-bijective"><span
+class="header-section-number">2.3.3</span> Fonction bijective</h3>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(f \in \mathscr{F}(E,F)\)</span>,
+<span class="math inline">\(f\)</span> est bijective (ou une bijection
+de <span class="math inline">\(E\)</span> dans <span
+class="math inline">\(F\)</span>) si elle est injective et surjective.
+Autrement dit, <span class="math display">\[\forall y \in F, \exists! x
+\in E, f(x)=y.\]</span> On note <span
+class="math inline">\(\mathcal{B}(E,R)\)</span> l’ensemble des fonctions
+bijectives de <span class="math inline">\(E\)</span> dans <span
+class="math inline">\(F\)</span>.</p>
+</div>
+<div class="wprop">
+<p><span class="math inline">\(f\)</span> bijective si et seulement si
+pour tout <span class="math inline">\(b \in F\)</span>, l’équation <span
+class="math inline">\(f(x)=b\)</span> admet une unique solution dans
+<span class="math inline">\(E\)</span>.</p>
+</div>
+<div class="wexs">
+<ul>
+<li><p>Soit <span class="math inline">\(E\)</span> un ensemble non vide,
+<span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; x &amp; \mapsto &amp; x
+\end{array}\)</span> est une bijection, appelée la fonction identité et
+notée <span class="math inline">\(\mathrm{id}_{E}\)</span>.</p></li>
+<li><p><span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \left[-\frac{\pi}{2},\frac{\pi}{2}\right] &amp; \to
+&amp; \left[-1,1\right] \\
+   &amp;   &amp; x &amp; \mapsto &amp; \sin x
+\end{array}\)</span> est bijective.</p></li>
+<li><p>Si <span class="math inline">\(E =
+\left\{1,2,3\right\}\)</span>,</p>
+<p><span class="math inline">\(\mathscr{B}(E)=\left\{
+\begin{aligned}
+&amp;\begin{array}{lllll}
+f &amp; : &amp; E &amp; \to &amp; E\\
+  &amp;   &amp; 1 &amp; \mapsto &amp; 1\\
+  &amp;   &amp; 2 &amp; \mapsto &amp; 2\\
+  &amp;   &amp; 3 &amp; \mapsto &amp; 3
+\end{array},
+\begin{array}{lllll}
+f &amp; : &amp; E &amp; \to &amp; E\\
+  &amp;   &amp; 1 &amp; \mapsto &amp; 2\\
+  &amp;   &amp; 2 &amp; \mapsto &amp; 1\\
+  &amp;   &amp; 3 &amp; \mapsto &amp; 3
+\end{array},
+\begin{array}{lllll}
+f &amp; : &amp; E &amp; \to &amp; E\\
+  &amp;   &amp; 1 &amp; \mapsto &amp; 3\\
+  &amp;   &amp; 2 &amp; \mapsto &amp; 2\\
+  &amp;   &amp; 3 &amp; \mapsto &amp; 1
+\end{array},\\[0.5em]
+&amp;\begin{array}{lllll}
+f &amp; : &amp; E &amp; \to &amp; E\\
+  &amp;   &amp; 1 &amp; \mapsto &amp; 1\\
+  &amp;   &amp; 2 &amp; \mapsto &amp; 3\\
+  &amp;   &amp; 3 &amp; \mapsto &amp; 2
+\end{array},
+\begin{array}{lllll}
+f &amp; : &amp; E &amp; \to &amp; E\\
+  &amp;   &amp; 1 &amp; \mapsto &amp; 2\\
+  &amp;   &amp; 2 &amp; \mapsto &amp; 3\\
+  &amp;   &amp; 3 &amp; \mapsto &amp; 1
+\end{array},
+\begin{array}{lllll}
+f &amp; : &amp; E &amp; \to &amp; E\\
+  &amp;   &amp; 1 &amp; \mapsto &amp; 3\\
+  &amp;   &amp; 2 &amp; \mapsto &amp; 1\\
+  &amp;   &amp; 3 &amp; \mapsto &amp; 2
+\end{array}
+\end{aligned}
+\right\}\)</span></p>
+<p>donc <span class="math inline">\(\mathscr{B}(E)\)</span> est de
+cardinal fini <span class="math inline">\(6 (=3!)\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="2.4" id="composée-de-fonctions"><span
+class="header-section-number">2.4</span> Composée de fonctions</h2>
+<div class="wdefi">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soient <span class="math inline">\(f \in \mathscr{F}(E,F), g \in
+\mathscr{F}(F,G)\)</span> telles que pour tout <span
+class="math inline">\(x\in E\)</span>, <span class="math inline">\(f(x)
+\in F\)</span>.</p>
+<p>On peut considérer la fonction composée de <span
+class="math inline">\(f\)</span> par <span
+class="math inline">\(g\)</span>, notée <span
+class="math inline">\(g\circ f\)</span> et définie par <span
+class="math display">\[\begin{array}{lllll}
+g\circ f &amp; : &amp; E &amp; \to &amp; G \\
+   &amp;   &amp; x &amp; \mapsto &amp; g(f(x))
+\end{array}
+.\]</span></p>
+</div>
+<div class="webimg">
+<p><img src="composition_applications.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(f \in \mathscr{F}(E,F), g \in
+\mathscr{F}(F,G), h \in \mathscr{F}(G,H)\)</span> telles que <span
+class="math inline">\(x\in E\)</span>, <span class="math inline">\(f(x)
+\in F\)</span> et pour tout <span class="math inline">\(y\in F, g(y) \in
+G\)</span>.</p>
+<p>On peut considérer <span class="math inline">\(g\circ f \in
+\mathscr{F}(E,G)\)</span>, <span class="math inline">\(h \circ (g\circ
+f) \in \mathscr{F}(E,H)\)</span>, <span class="math inline">\(h\circ g
+\in \mathscr{F}(G,H)\)</span> et <span class="math inline">\((h \circ
+g)\circ f \in \mathscr{F}(E,H)\)</span>.</p>
+<p>Alors <span class="math inline">\(h\circ(g \circ f) = (h\circ g)
+\circ f\)</span>. On note alors simplement, sans ambiguïté, <span
+class="math inline">\(h \circ g \circ f\)</span>.</p>
+</div>
+<div class="wproof">
+<p>D’abord, comme <span class="math inline">\(h \circ (g\circ f) \in
+\mathscr{F}(E,H)\)</span> et <span class="math inline">\((h \circ
+g)\circ f \in \mathscr{F}(E,H)\)</span>, ces fonctions ont même
+ensembles de départ et d’arrivée.</p>
+<p>Ensuite, pour <span class="math inline">\(x \in E\)</span>, <span
+class="math inline">\(h\circ(g \circ f)(x) = h\left((g \circ
+f)(x)\right) = h\left(g\left(f(x)\right)\right)\)</span> et <span
+class="math inline">\((h \circ g)\circ f (x) = (h \circ
+g)\left(f(x)\right) = h\left(g\left(f(x)\right)\right)\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(f \in \mathscr{F}(E,F)\)</span> et
+<span class="math inline">\(g \in \mathscr{F}(F,G)\)</span>,</p>
+<ol>
+<li><p>Si <span class="math inline">\(f\)</span> et <span
+class="math inline">\(g\)</span> sont injectives, <span
+class="math inline">\(g \circ f\)</span> est injective,</p></li>
+<li><p>Si <span class="math inline">\(f\)</span> et <span
+class="math inline">\(g\)</span> sont surjectives, <span
+class="math inline">\(g \circ f\)</span> est surjective,</p></li>
+<li><p>Si <span class="math inline">\(f\)</span> et <span
+class="math inline">\(g\)</span> sont bijectives, <span
+class="math inline">\(g \circ f\)</span> est bijective.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Soient <span class="math inline">\(x,x&#39; \in E\)</span> tels
+que <span class="math inline">\((g \circ f)(x) = (g \circ
+f)(x&#39;)\)</span>.</p>
+<p>Alors, <span class="math inline">\(g(f(x)) = g(f(x&#39;))\)</span>.
+Or, <span class="math inline">\(g\)</span> est injective donc <span
+class="math inline">\(f(x)=f(x&#39;)\)</span>. Or, <span
+class="math inline">\(f\)</span> est injective donc <span
+class="math inline">\(x=x&#39;\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(z \in G\)</span>, il existe
+<span class="math inline">\(y \in F\)</span> tel que <span
+class="math inline">\(g(y) = z\)</span> car <span
+class="math inline">\(g\)</span> est surjective.</p>
+<p>Or, <span class="math inline">\(f\)</span> est surjective donc il
+existe <span class="math inline">\(x \in E\)</span> tel que <span
+class="math inline">\(f(x) = y\)</span> et donc <span
+class="math inline">\((g \circ f)(x) = g(f(x)) = g(y)
+=z\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(f\)</span> et <span
+class="math inline">\(g\)</span> sont bijectives, <span
+class="math inline">\(f\)</span> et <span
+class="math inline">\(g\)</span> sont injectives et surjectives donc
+d’après ce qui précède, <span class="math inline">\(g \circ f\)</span>
+est injective et surjective donc bijective.</p></li>
+</ol>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(f \in \mathscr{F}(E,F)\)</span> et
+<span class="math inline">\(g \in \mathscr{F}(F,G)\)</span>,</p>
+<ol>
+<li><p>Si <span class="math inline">\(g \circ f\)</span> est injective,
+<span class="math inline">\(f\)</span> est injective,</p></li>
+<li><p>Si <span class="math inline">\(g \circ f\)</span> est surjective,
+<span class="math inline">\(g\)</span> est surjective.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Soient <span class="math inline">\(x,x&#39; \in E\)</span> tels
+que <span class="math inline">\(f(x)=f(x&#39;)\)</span> alors <span
+class="math inline">\(g(f(x))=g(f(x&#39;))\)</span>.</p>
+<p>Or, <span class="math inline">\(g \circ f\)</span> est injective donc
+<span class="math inline">\(x=x&#39;\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(z \in G\)</span>. <span
+class="math inline">\(g \circ f\)</span> est surjective donc il existe
+<span class="math inline">\(x \in E\)</span> tel que <span
+class="math inline">\(g(f(x)) = z\)</span>. Donc avec <span
+class="math inline">\(y = f(x) \in F\)</span>, <span
+class="math inline">\(g(y) = z\)</span>.</p></li>
+</ol>
+</div>
+<h2 data-number="2.5" id="réciproque-dune-bijection"><span
+class="header-section-number">2.5</span> Réciproque d’une bijection</h2>
+<div class="wdefi">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\(f \in \mathscr{F}(E,F)\)</span>
+bijective.</p>
+<p>Soit <span class="math inline">\(y \in F\)</span>, il existe <span
+class="math inline">\(x_y \in E\)</span> unique tel que <span
+class="math inline">\(f\left(x_y\right) = y\)</span>. On définit la
+fonction réciproque de <span class="math inline">\(f\)</span>, notée
+<span class="math inline">\(f^{-1}\)</span>, comme <span
+class="math display">\[\begin{array}{lllll}
+f^{-1} &amp; : &amp; F &amp; \to &amp; E \\
+   &amp;   &amp; y &amp; \mapsto &amp; x_y
+\end{array}
+.\]</span></p>
+</div>
+<div class="webimg">
+<p><img src="bijection_inverse.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f \in \mathscr{F}(E,F)\)</span>
+bijective,</p>
+<p><span class="math inline">\(f \circ f^{-1} = \mathrm{id}_{F}\)</span>
+et <span class="math inline">\(f^{-1} \circ f =
+\mathrm{id}_{E}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(y \in F\)</span> et <span
+class="math inline">\(x_y \in E\)</span>, l’unique antécédent de <span
+class="math inline">\(y\)</span> par <span
+class="math inline">\(f\)</span>.</p>
+<p>Alors, <span class="math inline">\(f \circ f^{-1} (y) =
+f\left(f^{-1}(y)\right) = f\left(x_y\right) = y\)</span>.</p>
+<p>Soit <span class="math inline">\(x \in E\)</span>, et <span
+class="math inline">\(y = f(x) \in F\)</span> tel que <span
+class="math inline">\(x = x_y\)</span>,</p>
+<p>Alors <span class="math inline">\(f^{-1} \circ f(x) = f^{-1}(f(x_y))
+= f^{-1}(y) = x_y = x\)</span>.</p>
+</div>
+<div class="wcor">
+<p>Soit <span class="math inline">\(f \in \mathscr{F}(E,F)\)</span>
+bijective, <span class="math inline">\(f^{-1}\)</span> est
+bijective.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(f \circ f^{-1} = \mathrm{id}_{F}\)</span>
+qui est bijective donc injective donc <span
+class="math inline">\(f^{-1}\)</span> est injective.</p>
+<p><span class="math inline">\(f^{-1} \circ f = \mathrm{id}_{E}\)</span>
+qui est bijective donc surjective donc <span
+class="math inline">\(f^{-1}\)</span> est surjective.</p>
+<p>Donc <span class="math inline">\(f^{-1}\)</span> est injective et
+surjective donc bijective.</p>
+</div>
+<div class="wrem">
+<p>Dans le cas où <span class="math inline">\(f\)</span> est bijective,
+la préimage d’un ensemble <span class="math inline">\(A \in
+\mathscr{P}(E)\)</span> coincide avec l’image directe de cet ensemble
+par <span class="math inline">\(f^{-1}\)</span>. En particulier, on a
+bien <span class="math inline">\(f\left(f^{-1}\right)(A) =
+A.\)</span></p>
+</div>
+<h2 data-number="2.6" id="restrictionprolongement-dune-fonction"><span
+class="header-section-number">2.6</span> Restriction/Prolongement d’une
+fonction</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(f \in \mathscr{F}(E,F)\)</span>,</p>
+<ul>
+<li><p>Soit <span class="math inline">\(A \in \mathscr{P}(E)\)</span>
+non vide, la restriction de <span class="math inline">\(f\)</span> à
+<span class="math inline">\(A\)</span>, notée <span
+class="math inline">\(f_{|A}\)</span> est la fonction <span
+class="math inline">\(\begin{array}{lllll}
+f_{|A} &amp; : &amp; A &amp; \to &amp; F \\
+   &amp;   &amp; x &amp; \mapsto &amp; f(x)
+\end{array}
+\in \mathscr{F}(A,F)\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(E&#39; \text{ tel que }E\subset
+E&#39;\)</span>, un prolongement de <span
+class="math inline">\(f\)</span> à <span
+class="math inline">\(E&#39;\)</span> est une fonction <span
+class="math inline">\(g \in \mathscr{F}(E&#39;,F)\)</span> telle que
+<span class="math inline">\(g_{|E} = f\)</span>.</p></li>
+</ul>
+</div>
+<div class="wex">
+<ul>
+<li><p>Soient <span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{R}^{+\star} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \frac{1}{x}
+\end{array}\)</span>, <span class="math inline">\(\begin{array}{lllll}
+g_1 &amp; : &amp; \mathbb{R}&amp; \to &amp; \mathbb{R}\\
+  &amp;   &amp; x &amp; \mapsto &amp; \frac{1}{x} \mbox{ si $x \neq
+0$}\\
+  &amp;   &amp; 0 &amp; \mapsto &amp;  0
+\end{array}\)</span> et <span class="math inline">\(\begin{array}{lllll}
+g_2 &amp; : &amp; \mathbb{R}&amp; \to &amp; \mathbb{R}\\
+  &amp;   &amp; x &amp; \mapsto &amp; \frac{1}{x} \mbox{ si $x \neq
+0$}\\
+  &amp;   &amp; 0 &amp; \mapsto &amp;  \frac{\pi^2}{6}
+\end{array}.\)</span></p>
+<p>Alors, <span class="math inline">\(g_1,g_2\)</span> sont des
+prolongements de <span class="math inline">\(g\)</span>.</p>
+<div class="wrem">
+<p><span class="math inline">\(g\)</span> n’admet pas de prolongement
+continu à <span class="math inline">\(\mathbb{R}\)</span> car <span
+class="math inline">\(g(x) \xrightarrow[x \to 0^+]{}
++\infty\)</span>.</p>
+</div></li>
+</ul>
+</div>
+<h2 data-number="2.7" id="famille-déléments-de-e"><span
+class="header-section-number">2.7</span> Famille d’éléments de <span
+class="math inline">\(E\)</span></h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un ensemble non vide. Une
+suite d’éléments de <span class="math inline">\(E\)</span> est indexée
+par <span class="math inline">\(\mathbb{N}\)</span> est une fonction
+<span class="math inline">\(u \in \mathscr{F}(\mathbb{N},E)\)</span>
+notée <span class="math inline">\(\left(u_n\right)_{n\in
+\mathbb{N}}\)</span>.</p>
+<p>Pour <span class="math inline">\(I\)</span> un ensemble quelconque
+d’indices, une famille d’éléments de <span
+class="math inline">\(E\)</span> est une fonction <span
+class="math inline">\(\begin{array}{lllll}
+x &amp; : &amp; I &amp; \to &amp; E \\
+   &amp;   &amp; i &amp; \mapsto &amp; x(i)
+\end{array}\)</span>. <span class="math inline">\(x(i)\)</span> est
+alors noté <span class="math inline">\(x_i\)</span> est la famille <span
+class="math inline">\(\left(x_i\right)_{i\in I}\)</span>.</p>
+</div>
+<div class="wex">
+<p>Pour <span class="math inline">\(E =
+\mathscr{F}(\mathbb{R},\mathbb{R})\)</span> et <span
+class="math inline">\(I = \mathbb{R}\)</span>, on peut considérer la
+famille <span
+class="math inline">\(\left(f_\alpha\right)_{\alpha\in\mathbb{R}}\)</span>
+avec <span class="math inline">\(\begin{array}{lllll}
+f_\alpha &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; x+\alpha
+\end{array}\)</span>.</p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un ensemble quelconque et
+<span class="math inline">\(I\)</span> un ensemble quelconque non
+vide.</p>
+<p>A partir d’une famille <span
+class="math inline">\(\left(A_i\right)_{i\in I}\)</span> d’éléments de
+<span class="math inline">\(\mathscr{P}(E)\)</span>, on peut considérer
+les sous-ensembles de E <span class="math display">\[\begin{aligned}
+        \bigcup_{i\in I}A_i &amp; = \left\{x \in E / \exists i \in I
+\text{ tel que }x\in A_i\right\} \\
+        \text{ et }\bigcap_{i\in I}A_i &amp; = \left\{x \in E / \forall
+i \in I, x\in A_i\right\} \\
+    \end{aligned}\]</span></p>
+<p>Si <span class="math inline">\(I = [\![ 1,n ]\!]\)</span> avec <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span>, on les note
+aussi <span class="math inline">\(\bigcup_{i=1}^n A_i\)</span> et <span
+class="math inline">\(\bigcap_{i=1}^n A_i\)</span>.</p>
+</div>
+<div class="wexs">
+<ul>
+<li><p>Avec <span class="math inline">\(E =\mathbb{R}\)</span> et <span
+class="math inline">\(I = \mathbb{N}\)</span>, pour <span
+class="math inline">\(n \in \mathbb{N}\)</span>, on pose <span
+class="math inline">\(A_n =\left[\frac{1}{n+1},2\right]\)</span>.</p>
+<p>On a alors <span class="math inline">\(\bigcup_{n \in \mathbb{N}} A_n
+= ]0,2]\)</span>.</p></li>
+<li><p>Avec <span class="math inline">\(E =\mathbb{R}\)</span> et <span
+class="math inline">\(I = \mathbb{N}\)</span>, pour <span
+class="math inline">\(n \in \mathbb{N}\)</span>, on pose <span
+class="math inline">\(B_n =[\sqrt{n},+\infty[\)</span>.</p>
+<p>On a alors <span class="math inline">\(\bigcap_{n \in \mathbb{N}} B_n
+= \emptyset\)</span>.</p></li>
+</ul>
+</div>
+<h1 data-number="3"
+id="relation-binaire-déquivalence-et-dordre-dans-un-ensemble"><span
+class="header-section-number">3</span> Relation binaire, d’équivalence
+et d’ordre dans un ensemble</h1>
+<h2 data-number="3.1" id="relation-binaire"><span
+class="header-section-number">3.1</span> Relation binaire</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un ensemble non vide. Une
+relation binaire <span class="math inline">\(\mathscr{R}\)</span> de
+<span class="math inline">\(E\)</span> est définie par une propriété
+<span class="math inline">\((P)\)</span> faisant intervenir deux
+éléments de <span class="math inline">\(E\)</span>.</p>
+<p>Soient <span class="math inline">\(x,y \in E\)</span>, <span
+class="math inline">\(x\)</span> et <span
+class="math inline">\(y\)</span> ont une relation par <span
+class="math inline">\(\mathscr{R}\)</span> (dans cet ordre) si <span
+class="math inline">\(x\)</span> et <span
+class="math inline">\(y\)</span> satisfont (dans cet ordre) <span
+class="math inline">\((P)\)</span>. On note alors <span
+class="math inline">\(x\mathscr{R}y\)</span>.</p>
+</div>
+<div class="wexs">
+<ul>
+<li><p>Soit <span class="math inline">\(E\)</span> ensemble non vide,
+<span class="math inline">\(\mathscr{R}\)</span> la relation d’égalité
+dans <span class="math inline">\(E\)</span> est définie par <span
+class="math inline">\(x\mathscr{R}y \iff x = y\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(E\)</span> ensemble non vide,
+<span class="math inline">\(\mathscr{R}\)</span> la relation d’inclusion
+dans <span class="math inline">\(\mathscr{P}(E)\)</span> est définie par
+<span class="math inline">\(A\mathscr{R}B \iff A \subset
+B\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathscr{R}\)</span> la relation de
+divisibilité dans <span class="math inline">\(\mathbb{N}\)</span> est
+définie par <span class="math inline">\(x\mathscr{R}y \iff \exists z \in
+N/ y=xy\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(n \in \mathbb{N}\)</span>, <span
+class="math inline">\(\mathscr{R}_n\)</span> la relation de congruence
+modulo <span class="math inline">\(n\)</span> dans <span
+class="math inline">\(\mathbb{Z}\)</span> est définie par <span
+class="math inline">\(x \mathscr{R}_n y \iff \exists z \in \mathbb{Z}/
+x-y=nz\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="3.2" id="relation-déquivalence"><span
+class="header-section-number">3.2</span> Relation d’équivalence</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(\mathscr{R}\)</span> une relation
+binaire de <span class="math inline">\(E\)</span>, <span
+class="math inline">\(\mathscr{R}\)</span> est dite d’équivalence dans
+<span class="math inline">\(E\)</span> si elle vérifie les trois
+propriétés suivantes</p>
+<p><span class="math display">\[\begin{aligned}
+        \text{(Réflexivité)}\quad &amp;\forall x \in E, x\mathscr{R}x
+&amp; \\
+        \text{(Symétrie)}\quad &amp; \forall x,y \in E, x\mathscr{R}y
+&amp;\iff y\mathscr{R}x \\
+        \text{(Transitivité)}\quad &amp;\forall x,y,z \in E,
+x\mathscr{R}y \text{ et }y\mathscr{R}z  &amp;\Longrightarrow
+x\mathscr{R}z.
+    
+\end{aligned}\]</span></p>
+</div>
+<div class="wexs">
+<ul>
+<li><p>Soit <span class="math inline">\(E\)</span> un ensemble non vide,
+la relation d’égalité est une relation d’équivalence.</p></li>
+<li><p>Soit <span class="math inline">\(n \in \mathbb{N}\)</span>, la
+relation de congruence modulo <span class="math inline">\(n\)</span>
+dans <span class="math inline">\(\mathbb{Z}\)</span> est une relation
+d’équivalence.</p>
+<div class="wproof">
+<ul>
+<li><p>Soit <span class="math inline">\(x \in \mathbb{Z}\)</span>, <span
+class="math inline">\(x-x =0n\)</span> donc <span
+class="math inline">\(\mathscr{R}_n\)</span> est réflexive.</p></li>
+<li><p>Soient <span class="math inline">\(x,y \in \mathbb{Z}\)</span>,
+et <span class="math inline">\(z \in \mathbb{N}\)</span>, <span
+class="math inline">\(x-y =nz \iff y-x=(-n)z\)</span> donc <span
+class="math inline">\(\mathscr{R}_n\)</span> est symétrique.</p></li>
+<li><p>Soient <span class="math inline">\(x,y,z \in \mathbb{Z}\)</span>,
+si <span class="math inline">\(x \mathscr{R}_n y\)</span>, il existe
+<span class="math inline">\(k \in \mathbb{Z}\)</span> tel que <span
+class="math inline">\(x-y = nk\)</span> et si <span
+class="math inline">\(y \mathscr{R}_n z\)</span>, il existe <span
+class="math inline">\(\ell \in \mathbb{Z}\)</span> tel que <span
+class="math inline">\(y-z = n\ell\)</span>.</p>
+<p>On a alors <span class="math inline">\(x-z = (x-y)+(y-z) =
+n(k+\ell)\)</span> donc <span
+class="math inline">\(\mathscr{R}_n\)</span> est transitive.</p></li>
+</ul>
+</div></li>
+<li><p>Si <span class="math inline">\(E
+=\mathscr{F}(\mathbb{N},\mathbb{R})\)</span> et <span
+class="math inline">\(\mathscr{R}\)</span> la relation binaire dans
+<span class="math inline">\(E\)</span> définie par <span
+class="math inline">\((u_n)\mathscr{R}(v_n) \iff u_n \underset{n\to
++\infty}{\sim} v_n\)</span>. Alors, <span
+class="math inline">\(\mathscr{R}\)</span> est une relation
+d’équivalence.</p>
+<div class="wproof">
+<ul>
+<li><p>Soit <span class="math inline">\((u_n) \in E\)</span>, <span
+class="math inline">\(\forall n \in \mathbb{N}, u_n = w_n u_n\)</span>
+avec <span class="math inline">\((w_n)\)</span> la suite constante égale
+à <span class="math inline">\(1\)</span> qui tend vers <span
+class="math inline">\(1\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\((u_n), (v_n) \in E\)</span>,
+telles que <span class="math inline">\((u_n)\mathscr{R}(v_n)\)</span>.
+Il existe <span class="math inline">\((w_n) \in E\)</span> telles que
+<span class="math inline">\(w_n \xrightarrow[n \to +\infty]{} 1\)</span>
+et <span class="math inline">\(\forall n \in \mathbb{N}, u_n = v_n
+w_n\)</span>.</p>
+<p>Comme <span class="math inline">\((w_n)\)</span> a une limite
+strictement positive, il existe <span class="math inline">\(N \in
+\mathbb{N}\)</span> tel que <span class="math inline">\(\forall n \geq
+N, w_n &gt; 0\)</span>. <span
+class="math inline">\(\left(\frac{1}{w_n}\right)_{n \geq N}\)</span> est
+donc définie, <span class="math inline">\(\frac{1}{w_n} \xrightarrow[n
+\to +\infty]{} 1\)</span> et <span class="math inline">\(\forall n \geq
+N\)</span>, <span class="math inline">\(v_n =
+v_n\frac{1}{w_n}\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\((u_n), (v_n), (r_n) \in
+E\)</span>. Si <span
+class="math inline">\((u_n)\mathscr{R}(v_n)\)</span>, il existe <span
+class="math inline">\((w_n) \in E\)</span> telles que <span
+class="math inline">\(w_n \xrightarrow[n \to +\infty]{} 1\)</span> et
+<span class="math inline">\(\forall n \in \mathbb{N}, u_n = v_n
+w_n\)</span>.</p>
+<p>Si <span class="math inline">\((v_n)\mathscr{R}(r_n)\)</span>, il
+existe <span class="math inline">\((w&#39;_n) \in E\)</span> telles que
+<span class="math inline">\(w&#39;_n \xrightarrow[n \to +\infty]{}
+1\)</span> et <span class="math inline">\(\forall n \in \mathbb{N}, v_n
+= r_n w&#39;_n\)</span>.</p>
+<p>Et alors <span class="math inline">\(w_nw&#39;_n \xrightarrow[n \to
++\infty]{} 1\)</span> et <span class="math inline">\(\forall n \in
+\mathbb{N}, u_n = r_n w&#39;_n w_n\)</span>.</p></li>
+</ul>
+</div></li>
+</ul>
+</div>
+<p><strong>Classe d’équivalence de <span class="math inline">\(x_0 \in
+E\)</span>.</strong> <span class="math inline">\(\quad\)</span></p>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(\mathscr{R}\)</span> relation
+d’équivalence dans <span class="math inline">\(E\)</span> et <span
+class="math inline">\(x_0 \in E\)</span>.</p>
+<p>La classe d’équivalence de <span class="math inline">\(x_0\)</span>
+est la partie de <span class="math inline">\(E\)</span>, notée <span
+class="math inline">\({\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right)\)</span>,
+définie par <span
+class="math display">\[{\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right) =
+\left\{x \in E / x_0\mathscr{R}x\right\}.\]</span></p>
+</div>
+<div class="wrem">
+<p><span class="math inline">\(\mathscr{R}\)</span> est réflexive donc
+<span class="math inline">\(x_0\mathscr{R}x_0\)</span> donc <span
+class="math inline">\(x_0 \in
+{\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right)\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(x_0 \in E, x_1 \in E\)</span>
+alors on a seulement les deux possibilités suivantes :</p>
+<ul>
+<li><p>Soit <span
+class="math inline">\({\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right)
+\cap {\mathrm{C}\ell}_{\mathscr{R}}\left(x_1\right) =
+\emptyset\)</span>,</p></li>
+<li><p>Soit <span
+class="math inline">\({\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right) =
+{\mathrm{C}\ell}_{\mathscr{R}}\left(x_1\right)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Si <span
+class="math inline">\({\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right)
+\cap {\mathrm{C}\ell}_{\mathscr{R}}\left(x_1\right) =
+\emptyset\)</span>, on ne peut pas avoir <span
+class="math inline">\({\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right) =
+{\mathrm{C}\ell}_{\mathscr{R}}\left(x_1\right)\)</span> car sinon on
+aurait <span
+class="math inline">\({\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right)
+\cap {\mathrm{C}\ell}_{\mathscr{R}}\left(x_1\right) =
+{\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right) \neq
+\emptyset\)</span>.</p></li>
+<li><p>Si <span
+class="math inline">\({\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right)
+\cap {\mathrm{C}\ell}_{\mathscr{R}}\left(x_1\right) \neq
+\emptyset\)</span>, il existe <span class="math inline">\(y \in
+{\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right) \cap
+{\mathrm{C}\ell}_{\mathscr{R}}\left(x_1\right)\)</span>. On alors <span
+class="math inline">\(y\mathscr{R}x_0\)</span> et <span
+class="math inline">\(y\mathscr{R}x_1\)</span> et même <span
+class="math inline">\(x_0\mathscr{R}y\)</span> et <span
+class="math inline">\(x_1\mathscr{R}y\)</span> par symétrie.</p>
+<p>On a donc pour tout <span class="math inline">\(z_0 \in
+{\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right)\)</span>, <span
+class="math inline">\(y\mathscr{R}x_0\)</span> et <span
+class="math inline">\(x_0\mathscr{R}z_0\)</span> donc par transitivité,
+<span class="math inline">\(y\mathscr{R}z_0\)</span>. De plus, <span
+class="math inline">\(x_1\mathscr{R}y\)</span> donc de nouveau par
+transitivité, <span class="math inline">\(x_1\mathscr{R}z_0\)</span>
+donc <span class="math inline">\(z_0  \in
+{\mathrm{C}\ell}_{\mathscr{R}}\left(x_1\right)\)</span> et on en déduit
+<span
+class="math inline">\({\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right)
+\subset {\mathrm{C}\ell}_{\mathscr{R}}\left(x_1\right)\)</span>.</p>
+<p>Puis, pour tout <span class="math inline">\(z_1 \in
+{\mathrm{C}\ell}_{\mathscr{R}}\left(x_1\right)\)</span>, <span
+class="math inline">\(y\mathscr{R}x_1\)</span> et <span
+class="math inline">\(x_1\mathscr{R}z_1\)</span> donc par transitivité,
+<span class="math inline">\(y\mathscr{R}z_1\)</span>. De plus, <span
+class="math inline">\(x_0\mathscr{R}y\)</span> donc de nouveau par
+transitivité, <span class="math inline">\(x_0\mathscr{R}z_1\)</span>
+donc <span class="math inline">\(z_1  \in
+{\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right)\)</span> et on en déduit
+<span
+class="math inline">\({\mathrm{C}\ell}_{\mathscr{R}}\left(x_1\right)
+\subset {\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right)\)</span>.</p>
+<p>Donc <span
+class="math inline">\({\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right) =
+{\mathrm{C}\ell}_{\mathscr{R}}\left(x_1\right)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wex">
+<p>Soit <span class="math inline">\(n \in \mathbb{N}\)</span>, et <span
+class="math inline">\(\mathscr{R}_n\)</span> la relation de congruence
+modulo <span class="math inline">\(n\)</span> dans <span
+class="math inline">\(\mathbb{Z}\)</span>, <span
+class="math inline">\({\mathrm{C}\ell}_{\mathscr{R}_n}\left(0\right) =
+\left\{kn, k \in \mathbb{Z}\right\}\)</span> et <span
+class="math inline">\({\mathrm{C}\ell}_{\mathscr{R}_n}\left(1\right) =
+\left\{kn+1, k \in \mathbb{Z}\right\}\)</span>.</p>
+<p>Pour <span class="math inline">\(n=2\)</span>, on a les pairs et les
+impairs.</p>
+</div>
+<h2 data-number="3.3" id="relation-dordre"><span
+class="header-section-number">3.3</span> Relation d’ordre</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(\mathscr{R}\)</span> une relation
+binaire de <span class="math inline">\(E\)</span>, <span
+class="math inline">\(\mathscr{R}\)</span> est une relation d’ordre dans
+<span class="math inline">\(E\)</span> si elle vérifie les trois
+propriétés suivantes</p>
+<p><span class="math display">\[\begin{aligned}
+        \text{(Réflexivité)}\quad &amp; \forall x \in E, x\mathscr{R}x
+&amp; \\
+        \text{(Antisymétrie)}\quad &amp; \forall x,y \in E,
+x\mathscr{R}y \text{ et }y\mathscr{R}x &amp;\iff x=y  \\
+        \text{(Transitivité)}\quad &amp;\forall x,y,z \in E,
+x\mathscr{R}y \text{ et }y\mathscr{R}z  &amp;\Longrightarrow
+x\mathscr{R}z.
+    
+\end{aligned}\]</span></p>
+</div>
+<div class="wexs">
+<ul>
+<li><p>La relation <span class="math inline">\(\leq\)</span> est une
+relation d’ordre dans <span
+class="math inline">\(\mathbb{R}\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(E\)</span> un ensemble, la
+relation d’inclusion est une relation d’ordre dans <span
+class="math inline">\(\mathscr{P}(E)\)</span>.</p>
+<div class="wproof">
+<ul>
+<li><p>Pour <span class="math inline">\(A \in \mathscr{P}(E)\)</span>,
+<span class="math inline">\(A \subset A\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(A,B \in \mathscr{P}(E)\)</span>,
+<span class="math inline">\(A \subset B \text{ et }B \subset A \iff A =
+B\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(A,B,C \in
+\mathscr{P}(E)\)</span>, <span class="math inline">\(A \subset B \text{
+et }B \subset C \Longrightarrow A \subset C\)</span>.</p></li>
+</ul>
+</div></li>
+<li><p>La relation de divisibilité dans <span
+class="math inline">\(\mathbb{N}\)</span> est une relation d’ordre dans
+<span class="math inline">\(\mathbb{N}\)</span>.</p>
+<div class="wproof">
+<ul>
+<li><p>Soit <span class="math inline">\(x \in \mathbb{N}\)</span>, <span
+class="math inline">\(x = 1x\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(x,y \in \mathbb{N}\)</span>,
+si <span class="math inline">\(x\mathscr{R}y\)</span>, il existe <span
+class="math inline">\(k \in \mathbb{N}\)</span> tel que <span
+class="math inline">\(y = kx\)</span> et si <span
+class="math inline">\(y\mathscr{R}x\)</span>, il existe <span
+class="math inline">\(k&#39; \in \mathbb{N}\)</span> tel que <span
+class="math inline">\(x = k&#39;y\)</span>. Donc <span
+class="math inline">\(y=kk&#39;y\)</span> donc si <span
+class="math inline">\(y \neq 0\)</span>, <span
+class="math inline">\(kk&#39; = 1\)</span> donc <span
+class="math inline">\(k=k&#39;\)</span> et <span
+class="math inline">\(x=y\)</span> et si <span class="math inline">\(y =
+0\)</span>, <span class="math inline">\(x=0=y\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(x,y,z \in \mathbb{N}\)</span>,
+si <span class="math inline">\(x\mathscr{R}y\)</span>, il existe <span
+class="math inline">\(k \in \mathbb{N}\)</span> tel que <span
+class="math inline">\(y = kx\)</span> et si <span
+class="math inline">\(y\mathscr{R}z\)</span>, il existe <span
+class="math inline">\(k&#39; \in \mathbb{N}\)</span> tel que <span
+class="math inline">\(z = k&#39;y\)</span>. Donc <span
+class="math inline">\(z=kk&#39;x\)</span> donc <span
+class="math inline">\(x\mathscr{R}z\)</span>.</p></li>
+</ul>
+</div></li>
+</ul>
+<div class="wrem">
+<p>Sur <span class="math inline">\(\mathbb{Z}\)</span>, la relation de
+divisibilité définie par <span class="math display">\[x\mathscr{R}y \iff
+\exists k \in \mathbb{Z}, y=kx\]</span> n’est pas antisymétrique. On a
+par exemple <span class="math inline">\(1 = (-1)(-1)\)</span> et <span
+class="math inline">\(-1 = (-1)1\)</span> mais <span
+class="math inline">\(1 \neq -1\)</span>.</p>
+</div>
+</div>
+<p><strong>Relation d’ordre total/partiel.</strong> <span
+class="math inline">\(\quad\)</span></p>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(\mathscr{R}\)</span> relation
+d’ordre dans <span class="math inline">\(E\)</span>. <span
+class="math inline">\(\mathscr{R}\)</span> est dite totale si <span
+class="math display">\[\forall x,y \in E, x\mathscr{R}y \text{ ou
+}y\mathscr{R}x.\]</span></p>
+</div>
+<div class="wex">
+<p>La relation d’ordre <span class="math inline">\(\leq\)</span> usuel
+sur <span class="math inline">\(\mathbb{R}\)</span> est totale.</p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(\mathscr{R}\)</span> relation
+d’ordre dans <span class="math inline">\(E\)</span>. <span
+class="math inline">\(\mathscr{R}\)</span> est dite partielle si elle
+n’est pas totale. C’est-à-dire s’il existe <span
+class="math inline">\(x_0,y_0 \in E\)</span> tels qu’on n’a <span
+class="math inline">\(\text{ni } x_0\mathscr{R}y_0, \text{ ni
+}  y_0\mathscr{R}x_0.\)</span></p>
+</div>
+<div class="wex">
+<p>Soit <span class="math inline">\(E\)</span> un ensemble possédant au
+moins deux éléments distincts, la relation d’inclusion dans <span
+class="math inline">\(\mathscr{P}(E)\)</span> est une relation d’ordre
+partiel.</p>
+<div class="wproof">
+<p>Notons <span class="math inline">\(x_0,x_1 \in E\)</span> tels que
+<span class="math inline">\(x_0 \neq x_1\)</span>. Alors, avec <span
+class="math inline">\(A = \left\{x_0\right\}\)</span> et <span
+class="math inline">\(B = \left\{x_1\right\}\)</span>, on n’a ni <span
+class="math inline">\(A \subset B\)</span>, ni <span
+class="math inline">\(B \subset A\)</span>.</p>
+</div>
+</div>
+</body>
+</html>
+
+<script>
+
+
+const toggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Appliquer le thème au chargement
+const currentTheme = localStorage.getItem('theme') || 'default';
+body.setAttribute('data-md-color-scheme', currentTheme);
+
+toggle.addEventListener('click', () => {
+    let scheme = body.getAttribute('data-md-color-scheme');
+    let newScheme = (scheme === 'default') ? 'slate' : 'default';
+    
+    body.setAttribute('data-md-color-scheme', newScheme);
+    localStorage.setItem('theme', newScheme);
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+let secCount = -1;
+let thmCount = -1;
+
+let labels = {};
+
+const noms = {
+'wthm':'Théorème',
+'wprop':'Proposition',
+'wdefi':'Définition',
+'wlem':'Lemme',
+'wcor':'Corollaire',
+'wappli':'Application',
+'wrem':'Remarque',
+'wrappel': 'Rappel',
+'wex':'Exemple',
+'wproof':'Preuve'
+};
+
+//////////////////////////////////////////////////////////////////////////////
+// Numérotation des environnements
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll(
+"h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex, .wrappel,.wproof"
+).forEach(el => {
+
+    if (
+        el.tagName.toLowerCase() === "h1"
+        && !el.closest("#TOC")
+    ) {
+
+        secCount++;
+        thmCount = 0;
+    }
+
+    else if (noms[Array.from(el.classList).find(c => noms[c])]) {
+
+        let type = Array.from(el.classList).find(c => noms[c]);
+
+        if (type !== 'wproof') {
+
+            thmCount++;
+
+            let num = secCount + "." + thmCount;
+
+            let id = el.querySelector("span[id]")
+                ? el.querySelector("span[id]").id
+                : null;
+
+            if(id) {
+                labels[id] = {
+                    num: num,
+                    type: type.substring(1)
+                };
+            }
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                let strong = p.querySelector("strong");
+
+                let title = (
+                    strong &&
+                    strong.innerText.includes("(")
+                )
+
+                ? ` <span class="env-title">${strong.outerHTML}</span>`
+                : "";
+
+                if (title) strong.remove();
+
+                p.innerHTML =
+                    `<strong class="env-header">${noms[type]} ${num}</strong>`
+                    + title
+                    + " — "
+                    + p.innerHTML;
+            }
+        }
+
+        else {
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                p.innerHTML =
+                    `<strong class="env-header">Preuve</strong> — `
+                    + p.innerHTML;
+            }
+        }
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Capture des équations MathJax
+//////////////////////////////////////////////////////////////////////////////
+
+setTimeout(() => {
+
+document.querySelectorAll("mjx-math[display='true']").forEach((el, index) => {
+
+    let num = el.querySelector(".mjx-eqn-number");
+
+    if (num) {
+
+        let val = num.innerText.replace(/[()]/g, '');
+
+        let id = el.id || "eq-" + index;
+
+        el.id = id;
+
+        labels[id] = {
+            num: val,
+            type: 'eq'
+        };
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Remplacement des références
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll("body *").forEach(el => {
+
+    if (
+        el.childNodes.length === 1 &&
+        el.childNodes[0].nodeType === Node.TEXT_NODE
+    ) {
+
+        el.innerHTML = el.innerHTML
+
+        .replace(/\\eqref\{(.*?)\}/g, (m, id) => {
+
+            return labels[id]
+                ? `<a href="#${id}">(${labels[id].num})</a>`
+                : m;
+        })
+
+        .replace(
+            /\[(prop|thm|def|cor|lem|appli|rem|rappel|ex):(.*?)\]/g,
+
+            (m, t, id) => {
+
+                let f = t + ":" + id;
+
+                return labels[f]
+                    ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>`
+                    : m;
+            }
+        );
+    }
+});
+
+}, 800);
+
+});
+
+</script>
+

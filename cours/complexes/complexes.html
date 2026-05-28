@@ -1,0 +1,1961 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Rappels et compléments sur \mathbb{C}</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+
+<header class="site-header">
+
+<div class="site-header-left">
+<a href="/">
+<img src="/assets/logo.svg" class="site-logo" alt="Logo">
+</a>
+</div>
+
+<div class="site-header-right">
+   <button id="theme-toggle"
+style="
+margin-right: 15px;
+cursor: pointer;
+background: transparent;
+border: none;
+font-size: 1.1rem;
+color: var(--md-primary-bg-color);
+">
+🌙 / ☀️
+</button>
+    <a href="/" class="home-link">Retour à l’accueil</a>
+</div>
+
+</header>
+
+
+<header id="title-block-header">
+
+<h1 class="title">Rappels et compléments sur <span
+class="math inline">\(\mathbb{C}\)</span></h1>
+<p class="pdf-link">
+<a href="complexes.pdf" target="_blank">[PDF]</a>
+</p>
+
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#généralités" id="toc-généralités"><span
+class="toc-section-number">1</span> Généralités</a>
+<ul>
+<li><a href="#opérations-sur-mathbbc"
+id="toc-opérations-sur-mathbbc"><span
+class="toc-section-number">1.1</span> Opérations sur <span
+class="math inline">\(\mathbb{C}\)</span></a></li>
+<li><a href="#représentation-géométrique"
+id="toc-représentation-géométrique"><span
+class="toc-section-number">1.2</span> Représentation géométrique</a>
+<ul>
+<li><a href="#affixe-dun-point-ou-dun-vecteur"
+id="toc-affixe-dun-point-ou-dun-vecteur"><span
+class="toc-section-number">1.2.1</span> Affixe d’un point ou d’un
+vecteur</a></li>
+<li><a href="#cns-dalignements-de-trois-points"
+id="toc-cns-dalignements-de-trois-points"><span
+class="toc-section-number">1.2.2</span> CNS d’alignements de trois
+points</a></li>
+</ul></li>
+<li><a href="#conjugaison" id="toc-conjugaison"><span
+class="toc-section-number">1.3</span> Conjugaison</a></li>
+<li><a href="#module-dun-nombre-complexe"
+id="toc-module-dun-nombre-complexe"><span
+class="toc-section-number">1.4</span> Module d’un nombre
+complexe</a></li>
+<li><a href="#argument-dun-nombre-complexe"
+id="toc-argument-dun-nombre-complexe"><span
+class="toc-section-number">1.5</span> Argument d’un nombre
+complexe</a></li>
+<li><a href="#exponentielle-de-zin-mathbbc"
+id="toc-exponentielle-de-zin-mathbbc"><span
+class="toc-section-number">1.6</span> Exponentielle de <span
+class="math inline">\(z\in \mathbb{C}\)</span></a>
+<ul>
+<li><a href="#exponentielle-dun-imaginaire-pur"
+id="toc-exponentielle-dun-imaginaire-pur"><span
+class="toc-section-number">1.6.1</span> Exponentielle d’un imaginaire
+pur</a></li>
+<li><a href="#cas-général" id="toc-cas-général"><span
+class="toc-section-number">1.6.2</span> Cas général</a></li>
+</ul></li>
+<li><a href="#utilisation-de-langle-moitié"
+id="toc-utilisation-de-langle-moitié"><span
+class="toc-section-number">1.7</span> Utilisation de l’angle
+moitié</a></li>
+</ul></li>
+<li><a href="#racines-n-ièmes-de-lunité"
+id="toc-racines-n-ièmes-de-lunité"><span
+class="toc-section-number">2</span> Racines <span
+class="math inline">\(n\)</span>-ièmes de l’unité</a>
+<ul>
+<li><a href="#introduction" id="toc-introduction"><span
+class="toc-section-number">2.1</span> Introduction</a></li>
+<li><a href="#représentation-géométrique-1"
+id="toc-représentation-géométrique-1"><span
+class="toc-section-number">2.2</span> Représentation
+géométrique</a></li>
+</ul></li>
+<li><a href="#equations-du-second-degré"
+id="toc-equations-du-second-degré"><span
+class="toc-section-number">3</span> Equations du second degré</a></li>
+<li><a
+href="#etude-de-fonctions-beginarraylllll-f-mathbbc-to-mathbbc-z-mapsto-azb-endarray."
+id="toc-etude-de-fonctions-beginarraylllll-f-mathbbc-to-mathbbc-z-mapsto-azb-endarray."><span
+class="toc-section-number">4</span> Etude de fonctions <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{C}&amp; \to &amp; \mathbb{C}\\
+&amp; &amp; z  &amp; \mapsto &amp; az+b \\
+\end{array}.\)</span></a>
+<ul>
+<li><a href="#cas-a1" id="toc-cas-a1"><span
+class="toc-section-number">4.1</span> Cas <span
+class="math inline">\(a=1\)</span></a></li>
+<li><a href="#cas-a-neq-1" id="toc-cas-a-neq-1"><span
+class="toc-section-number">4.2</span> Cas <span class="math inline">\(a
+\neq 1\)</span></a>
+<ul>
+<li><a href="#si-a-in-mathbbr-neq-0-neq-1"
+id="toc-si-a-in-mathbbr-neq-0-neq-1"><span
+class="toc-section-number">4.2.1</span> Si <span class="math inline">\(a
+\in \mathbb{R}, \neq 0, \neq 1\)</span></a></li>
+<li><a href="#si-a-notin-mathbbr-et-a-1"
+id="toc-si-a-notin-mathbbr-et-a-1"><span
+class="toc-section-number">4.2.2</span> Si <span class="math inline">\(a
+\notin \mathbb{R}\)</span> et <span class="math inline">\(|a| =
+1\)</span></a></li>
+<li><a href="#cas-général-où-a-notin-mathbbr"
+id="toc-cas-général-où-a-notin-mathbbr"><span
+class="toc-section-number">4.2.3</span> Cas général où <span
+class="math inline">\(a \notin \mathbb{R}\)</span></a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="généralités"><span
+class="header-section-number">1</span> Généralités</h1>
+<h2 data-number="1.1" id="opérations-sur-mathbbc"><span
+class="header-section-number">1.1</span> Opérations sur <span
+class="math inline">\(\mathbb{C}\)</span></h2>
+<p><span class="math inline">\(\mathbb{C}\)</span> contient <span
+class="math inline">\(\mathbb{R}\)</span>. Dans <span
+class="math inline">\(\mathbb{C}\)</span>, on dispose de deux opérations
+: <span class="math inline">\(+\)</span> et <span
+class="math inline">\(\times\)</span>, elles possèdent les propriétés
+suivantes :</p>
+<ol>
+<li><p>La commutativité : Pour tout <span
+class="math inline">\(z,z&#39;\in\mathbb{C}\)</span>,</p>
+<ul>
+<li><p><span class="math inline">\(z&#39;+z = z+z&#39;\)</span></p></li>
+<li><p><span class="math inline">\(z\times z&#39; = z&#39;\times
+z\)</span></p></li>
+</ul></li>
+<li><p>L’associativité : Pour tout <span
+class="math inline">\(z,z&#39;,z&#39;&#39;\in\mathbb{C}\)</span>,</p>
+<ul>
+<li><p><span class="math inline">\((z+z&#39;)+z&#39;&#39; = z +
+(z&#39;+z&#39;&#39;)\)</span></p></li>
+<li><p><span class="math inline">\((z\times z&#39;)\times z&#39;&#39; =
+z \times (z&#39;\times z&#39;&#39;)\)</span></p></li>
+</ul></li>
+<li><p>L’existence d’éléments neutres : Pour tout <span
+class="math inline">\(z\in \mathbb{C}\)</span>,</p>
+<ul>
+<li><p><span class="math inline">\(z+0 = z\)</span></p></li>
+<li><p><span class="math inline">\(z \times 1 = z\)</span></p></li>
+</ul></li>
+<li><p>La distributivité : Pour tout <span
+class="math inline">\(z,z&#39;,z&#39;&#39;\in\mathbb{C}\)</span>,</p>
+<ul>
+<li><p><span class="math inline">\(z\times(z&#39;+z&#39;&#39;) = z\times
+z&#39;+z\times z&#39;&#39;\)</span></p></li>
+</ul></li>
+<li><p>L’existence d’un opposé : Pour tout <span
+class="math inline">\(z\in \mathbb{C}\)</span>,</p>
+<ul>
+<li><p>il existe <span class="math inline">\(z&#39; \in
+\mathbb{C}\)</span> tel que <span class="math inline">\(z+z&#39; =
+0\)</span>. <span class="math inline">\(z&#39;\)</span> est unique et
+est noté <span class="math inline">\(-z\)</span>.</p></li>
+</ul></li>
+</ol>
+<p>De plus, l’équation <span class="math inline">\(z^2 = -1\)</span>
+possède exactement deux solutions dans <span
+class="math inline">\(\mathbb{C}\)</span> : <span
+class="math inline">\(i\)</span> et <span
+class="math inline">\(-i\)</span>. On introduit alors les parties réelle
+et imaginaire d’un complexe.</p>
+<div class="wdefi">
+<p><strong>(Parties réelle et imaginaire, forme algébrique)</strong>
+Soit <span class="math inline">\(z\in \mathbb{C}\)</span>, il existe
+<span class="math inline">\(a,b \in \mathbb{R}\)</span> uniques tels que
+<span class="math inline">\(z = a+ib\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(a\)</span> est la partie réelle de
+<span class="math inline">\(z\)</span>, noté <span
+class="math inline">\(\mathop{\mathrm{Re}}(z)\)</span></p></li>
+<li><p><span class="math inline">\(b\)</span> est la partie réelle de
+<span class="math inline">\(z\)</span>, noté <span
+class="math inline">\(\mathop{\mathrm{Im}}(z)\)</span></p></li>
+</ul>
+<p>On appelle <span class="math inline">\(z = a+ib\)</span>, <u>la forme
+algébrique</u> de <span class="math inline">\(z\)</span>. Si <span
+class="math inline">\(a = 0\)</span>, <span
+class="math inline">\(z\)</span> est dit "imaginaire pur". On note <span
+class="math inline">\(i\mathbb{R}\)</span> l’ensemble des imaginaires
+purs.</p>
+</div>
+<div class="wprop">
+<p><strong>(Inverse)</strong> Soit <span class="math inline">\(z \in
+\mathbb{C}^\star\)</span>, il existe <span class="math inline">\(z&#39;
+\in \mathbb{C}^\star\)</span> unique tel que <span
+class="math inline">\(zz&#39; = 1\)</span>. <span
+class="math inline">\(z&#39;\)</span> est l’inverse de <span
+class="math inline">\(z\)</span>, noté <span
+class="math inline">\(\frac{1}{z}\)</span></p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(z = a+ib \neq 0\)</span>, on cherche
+<span class="math inline">\(a&#39;,b&#39; \in \mathbb{R}\)</span> tels
+que <span class="math inline">\(z(a&#39;+ib&#39;) = 1\)</span>. Cela
+impose : <span class="math display">\[\begin{aligned}
+    (a+ib)(a&#39;+ib&#39;) = 1 \iff
+    aa&#39;+iba&#39; + aib&#39; -bb&#39;  = 1 \iff
+    (aa&#39;-bb&#39;)+i(ba&#39;+ab&#39;)  = 1
+\end{aligned}\]</span></p>
+<p>Donc : <span class="math display">\[(S)\left\{
+    \begin{array}{ll}
+        &amp; aa&#39;-bb&#39; = 1\\
+        &amp; ba&#39;+ab&#39; = 0
+    \end{array}
+\right. \text{ qui est un système dont les deux inconnues sont
+$a&#39;,b&#39;$}\]</span> Or <span class="math inline">\(\begin{vmatrix}
+a &amp; -b \\ b &amp; a
+\end{vmatrix} = a^2+b^2 \neq 0\)</span> car <span
+class="math inline">\(z\neq 0\)</span> donc <span
+class="math inline">\((S)\)</span> a une unique solution qui est :<br />
+<span class="math display">\[a&#39; = \frac{\begin{vmatrix} 1 &amp; -b
+\\ 0 &amp; a
+\end{vmatrix}}{a^2+b^2} = \frac{a}{a^2+b^2} \text{ et } b&#39; =
+\frac{\begin{vmatrix} a &amp; 1 \\ b &amp; 0
+\end{vmatrix}}{a^2+b^2} = \frac{-b}{a^2+b^2}\]</span></p>
+<p>d’où l’existence et l’unicité de <span class="math inline">\(zz&#39;
+\in \mathbb{C}^\star\)</span> tel que <span class="math inline">\(z&#39;
+= 1\)</span> avec <span class="math inline">\(z&#39; =
+\frac{1}{a^2+b^2}(a-ib) ( = \frac{\overline{z}}{|z|} )\)</span></p>
+</div>
+<div class="wrem">
+<p><strong>(Relation d’ordre)</strong> <span
+class="math inline"><span class="icon-warning">⚠️</span></span> On
+n’introduit pas de relation d’ordre dans <span
+class="math inline">\(\mathbb{C}\)</span>. En clair, on ne peut pas
+écrire "<span class="math inline">\(z \leq z&#39;\)</span>" pour deux
+complexes.</p>
+</div>
+<h2 data-number="1.2" id="représentation-géométrique"><span
+class="header-section-number">1.2</span> Représentation géométrique</h2>
+<h3 data-number="1.2.1" id="affixe-dun-point-ou-dun-vecteur"><span
+class="header-section-number">1.2.1</span> Affixe d’un point ou d’un
+vecteur</h3>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span
+class="math inline">\((O,\overrightarrow{u},\overrightarrow{v})\)</span>
+repère orthonormé du plan <span
+class="math inline">\(\mathscr{P}\)</span>. Soit <span
+class="math inline">\(\begin{array}{ccccc}
+\varphi &amp; : &amp; \mathbb{C}&amp; \to &amp; \mathscr{P} \\
+&amp; &amp; z &amp; \mapsto &amp; M(a,b) \text{ où $z=a+ib$, $a,b\in
+\mathbb{R}$} \\
+\end{array}.\)</span></p>
+<p><span class="math inline">\(\varphi\)</span> est <u>bijective</u> ie
+pout tout point <span class="math inline">\(P\)</span>, il existe <span
+class="math inline">\(z\in \mathbb{C}\)</span> unique tel que <span
+class="math inline">\(\varphi(z) = P\)</span>. L’unique <span
+class="math inline">\(z \in \mathbb{C}\)</span> tel que <span
+class="math inline">\(\varphi(z) = N\)</span> est appelé <u>l’affixe de
+<span class="math inline">\(N\)</span></u></p>
+</div>
+<div class="webimg">
+<p><img src="Affixe.png" alt="image" /></p>
+</div>
+</div>
+<div class="webtextfigure">
+<div class="webtext">
+<p>En designant par <span
+class="math inline">\(\overrightarrow{\mathscr{P}}\)</span> l’ensemble
+des vecteurs du plan, soit <span
+class="math inline">\(\begin{array}{ccccc}
+\psi &amp; : &amp; \mathbb{C}&amp; \to &amp;
+\overrightarrow{\mathscr{P}} \\
+&amp; &amp; z &amp; \mapsto &amp; a \overrightarrow{u} +
+b\overrightarrow{v} \text{ où $z=a+ib$, $a,b\in \mathbb{R}$} \\
+\end{array}\)</span>, <span class="math inline">\(\psi\)</span> est
+bijective : pour tout vecteur <span
+class="math inline">\(\overrightarrow{w}\)</span> du plan, il existe
+<span class="math inline">\(z \in \mathbb{C}\)</span> unique tel que
+<span class="math inline">\(\psi(z) = \overrightarrow{w}\)</span>.
+L’unique <span class="math inline">\(z \in \mathbb{C}\)</span> tel que
+<span class="math inline">\(\psi(z) = \overrightarrow{w}\)</span>. <span
+class="math inline">\(z\)</span> est appelé <u>l’affixe de <span
+class="math inline">\(\overrightarrow{w}\)</span></u></p>
+</div>
+<div class="webimg">
+<p><img src="Affixe_vecteur.png" alt="image" /></p>
+</div>
+</div>
+<div class="webtextfigure">
+<div class="webtext">
+<p>De plus, soient <span class="math inline">\(z = a+ib, z&#39; =
+a&#39;+ib&#39;\in \mathbb{C}\)</span> et <span class="math inline">\(M =
+\varphi(z), M&#39; = \varphi(z&#39;)\)</span> alors <span
+class="math inline">\(M&#39;&#39; = \varphi(z+z&#39;)\)</span>
+vérifie</p>
+<p><span class="math display">\[\begin{aligned}
+    \overrightarrow{OM&#39;&#39;}&amp; = (a+a&#39;)\overrightarrow{u} +
+(b+b&#39;)\overrightarrow{v} \\
+    &amp; = (a\overrightarrow{u}+b\overrightarrow{v}) +
+(a&#39;\overrightarrow{u}+b&#39;\overrightarrow{v})\\
+    &amp;= \overrightarrow{OM} + \overrightarrow{OM&#39;}.
+\end{aligned}\]</span></p>
+</div>
+<div class="webimg">
+<p><img src="somme_vecteurs.png" alt="image" /></p>
+</div>
+</div>
+<h3 data-number="1.2.2" id="cns-dalignements-de-trois-points"><span
+class="header-section-number">1.2.2</span> CNS d’alignements de trois
+points</h3>
+<p>Soient <span class="math inline">\(A,B,C\)</span> trois points
+distincts de <span class="math inline">\(\mathscr{P}\)</span>. On note
+<span class="math inline">\(a,b,c\)</span> les affixes associées.</p>
+<p>Alors,</p>
+<p><span class="math display">\[A,B,C \text{ alignés } \iff \exists
+\alpha \in \mathbb{R}\text{ tel que }\overrightarrow{AC} = \alpha
+\overrightarrow{AB}.\]</span></p>
+<p>De plus, l’affixe de <span
+class="math inline">\(\overrightarrow{AB}\)</span> est <span
+class="math inline">\(b-a\)</span> car <span
+class="math inline">\(\overrightarrow{AB} =
+\overrightarrow{0B}-\overrightarrow{OA}\)</span> et pour <span
+class="math inline">\(\alpha \in \mathbb{R}\)</span>, l’affixe de <span
+class="math inline">\(\alpha \overrightarrow{AB}\)</span> est <span
+class="math inline">\(\alpha(b-a)\)</span>.</p>
+<p>Donc <span class="math display">\[\begin{aligned}
+A,B,C \text{ alignés }  \iff \exists \alpha \in \mathbb{R}\text{ tel que
+}(c-a) = \alpha (b-a) \iff \frac{c-a}{b-a} \in \mathbb{R}&amp;  \\
+\hfill \text{ ($b\neq a$ car $A \neq B$)}&amp; .
+\end{aligned}\]</span></p>
+<h2 data-number="1.3" id="conjugaison"><span
+class="header-section-number">1.3</span> Conjugaison</h2>
+<div class="wdefi">
+<p><strong>(Conjugué d’un nombre complexe)</strong> Soit <span
+class="math inline">\(z \in \mathbb{C}\)</span>, le conjugué de <span
+class="math inline">\(z\)</span> est le nombre complexe noté <span
+class="math inline">\(\overline{z}\)</span> avec <span
+class="math inline">\(\left\{\begin{array}{ll}
+        \mathop{\mathrm{Re}}(\overline{z}) &amp; =
+\mathop{\mathrm{Re}}(z) \\
+        \mathop{\mathrm{Im}}(\overline{z}) &amp; =
+\mathop{\mathrm{Im}}(z) \\
+    \end{array}\right.\)</span>.</p>
+</div>
+<p>En clair, si <span class="math inline">\(z = a+ib\)</span> avec <span
+class="math inline">\(a,b \in \mathbb{R}\)</span>, <span
+class="math inline">\(\overline{z}= a-ib\)</span>.</p>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Géométriquement, en notant <span class="math inline">\(M\)</span> le
+point d’affixe <span class="math inline">\(z\)</span> et <span
+class="math inline">\(M&#39;\)</span> le point d’affixe <span
+class="math inline">\(\overline{z}\)</span>, <span
+class="math inline">\(M&#39;\)</span> est le point symmétrique à <span
+class="math inline">\(M\)</span> par rapport à l’axe <span
+class="math inline">\((O,\overrightarrow{u})\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="Conjugue.png" alt="image" /></p>
+</div>
+</div>
+<div class="wprop">
+<p><strong>(Conjugué et opérations)</strong> Pour tout <span
+class="math inline">\(z,z&#39; \in \mathbb{C}\)</span>,</p>
+<ol>
+<li><p><span
+class="math inline">\(\overline{\overline{z}}=z\)</span>,</p></li>
+<li><p><span class="math inline">\(\overline{z+z&#39;} = \overline{z} +
+\overline{z&#39;}\)</span>,</p></li>
+<li><p><span class="math inline">\(\overline{z\times z&#39;} =
+\overline{z} \times  \overline{z&#39;}\)</span>,</p></li>
+<li><p>si <span class="math inline">\(z&#39; \neq 0\)</span>, <span
+class="math inline">\(\overline{\frac{z}{z&#39;}} =
+\frac{\overline{z}}{\overline{z&#39;}}\)</span>. En particulier, <span
+class="math inline">\(\overline{\frac{1}{z&#39;}} =
+\frac{1}{\overline{z&#39;}}\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<p>Soient <span class="math inline">\(a,b\)</span> (resp. <span
+class="math inline">\(a&#39;b&#39;\)</span>) <span
+class="math inline">\(\in \mathbb{R}\)</span> tels que <span
+class="math inline">\(z = a+ib\)</span> (resp. <span
+class="math inline">\(z&#39; = a&#39;+ib&#39;\)</span>),</p>
+<ol>
+<li><p><span class="math inline">\(\overline{\overline{z}} =
+\overline{a-ib} = a-i(-b)=a+ib=z\)</span>.</p></li>
+<li><p><span class="math inline">\(\overline{z+z&#39;}  =
+\overline{a+ib+a&#39;+ib&#39;} = \overline{a+a&#39;+i(b+b&#39;)} =
+a+a&#39; -i(b+b&#39;) = a-ib + a&#39;-ib&#39; = \overline{z} +
+\overline{z&#39;}\)</span>.</p></li>
+<li><p><span class="math inline">\(z\times z&#39; =
+(a+ib)(a&#39;+ib&#39;) = aa&#39; -bb&#39; +i(ab&#39;+a&#39;b)\)</span>
+donc <span class="math inline">\(\overline{z\times z&#39;} = aa&#39;
+-bb&#39; -i(ab&#39;+a&#39;b)\)</span>. D’autre part, <span
+class="math inline">\(\overline{z} \times  \overline{z&#39;} =
+(a-ib)(a&#39;-ib&#39;) = aa&#39; -bb&#39; +i(-ab&#39;-a&#39;b) = aa&#39;
+-bb&#39; -i(ab&#39;+a&#39;b)\)</span>.</p></li>
+<li><p>si <span class="math inline">\(z&#39; \neq 0\)</span>, <span
+class="math inline">\(z&#39; \frac{z}{z&#39;} = z\)</span> donc d’après
+ce qui précède, <span class="math inline">\(\overline{z&#39;
+\frac{z}{z&#39;}} = \overline{z&#39;}\overline{\frac{z}{z&#39;}} =
+\overline{z}\)</span>. Ce qui donne <span
+class="math inline">\(\overline{z&#39;}\overline{\frac{1}{z&#39;}} =
+\overline{z} \iff \overline{\frac{1}{z&#39;}}  =
+\frac{\overline{z}}{\overline{z&#39;}}\)</span>.</p></li>
+</ol>
+</div>
+<div class="wprop">
+<p><strong>(Conjugué et parties réelles/imaginaires)</strong> Pour tout
+<span class="math inline">\(z,z&#39; \in \mathbb{C}\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(z + \overline{z} =
+2\mathop{\mathrm{Re}}(z)\)</span>,</p></li>
+<li><p><span class="math inline">\(z - \overline{z} =
+2i\mathop{\mathrm{Im}}(z)\)</span>,</p></li>
+<li><p><span class="math inline">\(z \in \mathbb{R}\iff z =
+\overline{z}\)</span>,</p></li>
+<li><p><span class="math inline">\(z \in i\mathbb{R}\iff z =
+-\overline{z}\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<p>Soient <span class="math inline">\(a,b\in \mathbb{R}\)</span> tels
+que <span class="math inline">\(z = a+ib\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(z + \overline{z} = a+ib + a-ib = 2a =
+2\mathop{\mathrm{Re}}(z)\)</span>.</p></li>
+<li><p><span class="math inline">\(z - \overline{z} = a+ib - (a-ib) =
+2ib = 2\mathop{\mathrm{Im}}(z)\)</span>.</p></li>
+<li><p><span class="math inline">\(z \in \mathbb{R}\iff
+\mathop{\mathrm{Im}}(z) = 0 \iff 2\mathop{\mathrm{Im}}(z) = 0 \iff z -
+\overline{z} = 0 \iff z = \overline{z}\)</span>.</p></li>
+<li><p><span class="math inline">\(z \in i\mathbb{R}\iff
+\mathop{\mathrm{Re}}(z) = 0 \iff 2\mathop{\mathrm{Re}}(z) = 0 \iff z +
+\overline{z} = 0 \iff z = -\overline{z}\)</span>.</p></li>
+</ol>
+</div>
+<div class="wex">
+<p>Les points 3. et 4. de la proposition précédente sont
+particulièrement pratique pour certaines exercices. Par exemple,</p>
+<div class="exo*">
+<p>Déterminer les complexes <span class="math inline">\(z\)</span> tels
+que <span class="math inline">\(Z=\frac{\overline{z}-i}{iz+2}\)</span>
+soit imaginaire pur.</p>
+</div>
+<div class="corri*">
+<p><span class="math display">\[\begin{aligned}
+    Z \in i\mathbb{R}
+    &amp; \iff Z=-\overline{Z}
+     \iff \frac{\overline{z}-i}{iz+2} = -\frac{z+i}{-i\overline{z}+2} \\
+    &amp; \iff (\overline{z}-i)(-i\overline{z}+2) = -(iz+2)(z+i) \\
+    &amp; \iff -i\overline{z}^2 +2\overline{z}-\overline{z}-2i = -iz^2
++z -2z -2i  \\
+    &amp; \iff -i\overline{z}^2 +\overline{z}= -iz^2 -z \\
+    &amp; \iff -i(z^2-\overline{z}^2) - \overline{z}+z = 0 \\
+    &amp; \iff -i(z-\overline{z})(z+\overline{z}) - \overline{z}+z = 0
+\\
+    &amp; \iff (\overline{z}+z)(i\overline{z}-iz -1) = 0 \\
+    &amp; \iff  (\overline{z}+z)(i(\overline{z}-z) -1) = 0 \\
+    &amp; \iff  (\overline{z}+z)(2\mathop{\mathrm{Im}}(z) -1) = 0 \\
+    &amp; \iff z \in i\mathbb{R}\text{ ou }\mathop{\mathrm{Im}}(z) =
+\frac{1}{2}.
+\end{aligned}\]</span></p>
+</div>
+</div>
+<div class="wprop">
+<p><strong>(Multiplication par le conjugué)</strong> Soit <span
+class="math inline">\(z \in \mathbb{C}^\star\)</span>, <span
+class="math inline">\(\frac{1}{z} = \frac{\overline{z}}{|z|^2} =
+\frac{\mathop{\mathrm{Re}}(z)}{|z|^2} -
+\frac{\mathop{\mathrm{Im}}(z)}{|z|^2}\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\frac{1}{z} =
+\frac{1}{z}\frac{\overline{z}}{\overline{z}} =
+\frac{\overline{z}}{z\overline{z}} =
+\frac{\overline{z}}{|z|^2}\)</span></p>
+</div>
+<div class="wrem">
+<p><strong>(Utilisation de la multiplication par le conjugué)</strong>
+La propriété précédente est très pratique pour écrire l’inverse d’un
+nombre complexe sous forme algébrique. Par exemple,</p>
+<div class="exo*">
+<p>Ecrire <span class="math inline">\(\frac{1}{1+i}\)</span> sous forme
+algébrique.</p>
+</div>
+<div class="corri*">
+<p><span class="math inline">\(\frac{1}{1+i} = \frac{1-i}{|1+i|^2} =
+\frac{1}{2} -\frac{1}{2}i\)</span>.</p>
+</div>
+</div>
+<h2 data-number="1.4" id="module-dun-nombre-complexe"><span
+class="header-section-number">1.4</span> Module d’un nombre
+complexe</h2>
+<div class="wdefi">
+<p><strong>(Module d’un nombre complexe)</strong> Soit <span
+class="math inline">\(z\in \mathbb{C}\)</span> tel que <span
+class="math inline">\(z=a+ib\)</span> avec <span
+class="math inline">\(a,b\in \mathbb{R}\)</span>, on définit le
+<u>module</u> de <span class="math inline">\(z\)</span> comme le réel
+positif égal à <span class="math inline">\(\sqrt{a^2+b^2}\)</span>. On
+le note <span class="math inline">\(|z|\)</span>.</p>
+</div>
+<div class="wrem">
+<ul>
+<li><p>Si <span class="math inline">\(z\in \mathbb{R}\)</span>, le
+module de <span class="math inline">\(z\)</span> est sa valeur
+absolue,</p></li>
+<li><p><span class="math inline">\(z = 0 \iff |z| = 0\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall \lambda \in \mathbb{R}, z \in
+\mathbb{C}, |\lambda z| = |\lambda||z|\)</span>.</p></li>
+</ul>
+</div>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Géométriquement, <span class="math inline">\(z\)</span> est la norme
+du vecteur <span class="math inline">\(\overrightarrow{OM}\)</span> avec
+<span class="math inline">\(M\)</span> le point d’affixe <span
+class="math inline">\(z\)</span>, comme représenté ci-contre.</p>
+</div>
+<div class="webimg">
+<p><img src="module.png" alt="image" /></p>
+</div>
+</div>
+<div class="wprop">
+<p><strong>(Module et opérations)</strong> Pour <span
+class="math inline">\(z,z&#39; \in \mathbb{C}\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(|z|^2 =
+z\overline{z}\)</span>,</p></li>
+<li><p><span class="math inline">\(|zz&#39;| =
+|z||z&#39;|\)</span>,</p></li>
+<li><p>Si <span class="math inline">\(z&#39; \neq 0\)</span>, <span
+class="math inline">\(\left|\frac{z}{z&#39;}\right| =
+\frac{|z|}{|z&#39;|}\)</span>,</p></li>
+<li><p><span class="math inline">\(|z+z&#39;|^2 =
+|z|^2+|z&#39;|^2+2\mathop{\mathrm{Re}}(z\overline{z&#39;})\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Soient <span class="math inline">\(a,b\)</span> <span
+class="math inline">\(\in \mathbb{R}\)</span> tels que <span
+class="math inline">\(z = a+ib\)</span>, <span
+class="math inline">\(z\overline{z}= (a+ib)(a-ib) = a^2+b^2 +i(-ab+ab) =
+a^2+b^2 = |z|^2\)</span>.</p></li>
+<li><p><span class="math inline">\(|zz&#39;|^2 =
+\overline{zz&#39;}zz&#39; = \overline{z}\overline{z&#39;}zz&#39; =
+\overline{z}z\overline{z&#39;}z&#39; = |z|^2|z&#39;|^2\)</span> et comme
+<span class="math inline">\(|zz&#39;| \geq 0\)</span> et <span
+class="math inline">\(|z||z&#39;| \geq 0\)</span>, <span
+class="math inline">\(|zz&#39;| = |z||z&#39;|\)</span>.</p></li>
+<li><p><span class="math inline">\(\left|\frac{z}{z&#39;}\right| =
+\frac{z}{z&#39;}\overline{\frac{z}{z&#39;}} =
+\frac{z}{z&#39;}\frac{\overline{z}}{\overline{z&#39;}} =
+\frac{z\overline{z}}{z&#39;\overline{z&#39;}} =
+\frac{|z|^2}{|z&#39;|^2}\)</span> et comme <span
+class="math inline">\(\left|\frac{z}{z&#39;}\right| \geq 0,
+\frac{|z|}{|z&#39;|}\geq 0\)</span> et <span
+class="math inline">\(\left|\frac{z}{z&#39;}\right| =
+\frac{|z|}{|z&#39;|}\)</span>.</p></li>
+<li><p><span class="math inline">\(|z+z&#39;|^2 =
+(z+z&#39;)\overline{z+z&#39;} =
+(z+z&#39;)(\overline{z}+\overline{z&#39;}) = z\overline{z} +
+z&#39;\overline{z&#39;}+z\overline{z&#39;}+z&#39;\overline{z} =
+|z|^2+|z&#39;|^2 + z\overline{z&#39;}+\overline{z\overline{z&#39;}} =
+|z|^2+|z&#39;|^2+2\mathop{\mathrm{Re}}(z\overline{z&#39;})\)</span>.</p></li>
+</ol>
+</div>
+<p>Avant de prouver la célèbre inégalité triangulaire, nous avons besoin
+du lemme suivant.</p>
+<div class="wlem">
+<p><strong>(Comparaison de la partie réelle et du module)</strong> <span
+id="lem:re_module" label="lem:re_module"></span> Soit <span
+class="math inline">\(z\in \mathbb{C}\)</span>, <span
+class="math display">\[\mathop{\mathrm{Re}}(z) \leq |z|\]</span> avec
+égalité si et seulement si <span class="math inline">\(z \in
+\mathbb{R}^+\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soient <span class="math inline">\(a,b \in \mathbb{R}\)</span> tels
+que <span class="math inline">\(z = a+ib\)</span>, <span
+class="math inline">\(|z|^2 = a^2+b^2 \geq a^2 =\)</span> donc <span
+class="math inline">\(\sqrt{|z|^2} \geq \sqrt{a^2} \iff |z| \geq |a|\geq
+a = \mathop{\mathrm{Re}}(z)\)</span>. De plus, <span
+class="math inline">\(|z| = \mathop{\mathrm{Re}}(z) \Longrightarrow
+|z|^2 = \mathop{\mathrm{Re}}(z)^2 \Longrightarrow a^2+b^2 =a^2
+\Longrightarrow b = 0\)</span>. De plus, <span class="math inline">\(|z|
+= \mathop{\mathrm{Re}}(z) \Longrightarrow \mathop{\mathrm{Re}}(z) \geq
+0\)</span>. Et récriproquement, si <span class="math inline">\(z \in
+\mathbb{R}^+, |z| = z\)</span>.</p>
+</div>
+<div class="wprop">
+<p><strong>(Inégalité triangulaire)</strong> Pour tout <span
+class="math inline">\(z,z&#39; \in \mathbb{C}\)</span>, <span
+class="math display">\[|z+z&#39;| \leq |z|+|z&#39;|\]</span> avec
+égalité si et seulement s’il existe <span class="math inline">\(\lambda
+\in \mathbb{R}^+\)</span> tel que <span
+class="math inline">\(z&#39;=\lambda z\)</span> ou <span
+class="math inline">\(z = \lambda z&#39;\)</span>.</p>
+</div>
+<div class="wproof">
+<p>D’après la proposition précédente, <span
+class="math inline">\(|z+z&#39;|^2 =
+|z|^2+|z&#39;|^2+2\mathop{\mathrm{Re}}(z\overline{z&#39;}).\)</span>
+Donc <span class="math display">\[\begin{aligned}
+        |z+z&#39;| \leq |z|+|z&#39;|
+        &amp; \iff |z+z&#39;|^2 \leq (|z|+|z&#39;|)^2 \\
+        &amp; \iff
+|z|^2+|z&#39;|^2+2\mathop{\mathrm{Re}}(z\overline{z&#39;}) \leq
+|z|^2+|z&#39;|^2+2|z||z&#39;| \\
+        &amp; \iff \mathop{\mathrm{Re}}(z\overline{z&#39;}) \leq
+|z||z&#39;| \\
+        &amp; \iff \mathop{\mathrm{Re}}(u) \leq u, \text{ avec }u =
+z\overline{z&#39;}
+    \end{aligned}\]</span> qui est une égalité juste d’après le lemme <a
+href="#lem:re_module" data-reference-type="ref"
+data-reference="lem:re_module">[lem:re_module]</a>. De plus, on a
+égalité si et seulement si <span class="math inline">\(u =
+z\overline{z&#39;} \in \mathbb{R}^+\)</span>.</p>
+<p>Or, si <span class="math inline">\(z\overline{z&#39;} \in
+\mathbb{R}^+\)</span>,</p>
+<ul>
+<li><p>si <span class="math inline">\(z&#39; \neq 0\)</span> alors <span
+class="math inline">\(|z&#39;| \neq 0\)</span> et <span
+class="math inline">\(z=
+\frac{z&#39;\overline{z&#39;}}{z&#39;\overline{z&#39;}}z =
+\underbrace{\frac{z\overline{z&#39;}}{|z&#39;|^2}}_{\in
+\mathbb{R}^+}z&#39;\)</span>.</p></li>
+<li><p>si <span class="math inline">\(z \neq 0\)</span> alors <span
+class="math inline">\(|z| \neq 0\)</span>, <span
+class="math inline">\(z&#39;\overline{z} = \overline{z\overline{z&#39;}}
+\in \mathbb{R}^+\)</span> et <span class="math inline">\(z&#39;=
+\frac{z\overline{z}}{z\overline{z}}z&#39; =
+\underbrace{\frac{z&#39;\overline{z}}{|z|^2}}_{\in
+\mathbb{R}^+}z\)</span>.</p></li>
+<li><p>si <span class="math inline">\(z = z&#39; = 0\)</span>, <span
+class="math inline">\(z = \underbrace{0}_{\in
+\mathbb{R}^+}z&#39;\)</span>.</p></li>
+</ul>
+<p>et réciproquement, si <span class="math inline">\(z&#39; = \lambda
+z\)</span>, avec <span class="math inline">\(\lambda \in
+\mathbb{R}^+\)</span>, <span class="math inline">\(u = \lambda |z|^2 \in
+\mathbb{R}^+\)</span> ou si <span class="math inline">\(z = \lambda
+z&#39;\)</span>, avec <span class="math inline">\(\lambda \in
+\mathbb{R}^+\)</span>, <span class="math inline">\(u = \lambda
+|z&#39;|^2 \in \mathbb{R}^+\)</span>.</p>
+</div>
+<div class="wrem">
+<p><span class="math inline"><span class="icon-warning">⚠️</span></span> La
+nuance "<span class="math inline">\(z&#39;=\lambda z\)</span> ou <span
+class="math inline">\(z = \lambda z&#39;\)</span>" est importante dans
+le cas où l’un des deux nombres est nul. Par exemple, si <span
+class="math inline">\(z = 0, z&#39; = 1\)</span>, on a bien <span
+class="math inline">\(|z+z&#39;| = |z|+|z&#39;|\)</span> mais on n’a pas
+<span class="math inline">\(z&#39;=\lambda z\)</span>.</p>
+</div>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Géométriquement, on interprète ce résultat comme "la ligne droite est
+le chemin le plus rapide", comme illustré sur la figure ci-contre avec
+<span class="math inline">\(M,M&#39;,M&#39;&#39;\)</span> points
+d’affixes <span class="math inline">\(z,z&#39;,z+z&#39;\in
+\mathbb{C}\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="somme_vecteurs.png" alt="image" /></p>
+</div>
+</div>
+<div class="wrem">
+<p>Soient <span class="math inline">\(z_1,z_2,\ldots, z_n \in
+\mathbb{C}\)</span>, alors <span
+class="math inline">\(\left|\sum_{k=1}^n z_k\right| \leq \sum_{k=1}^n
+|z_k|\)</span>. La preuve peut être menée par récurrence (et est un bon
+exercice !).</p>
+</div>
+<p><strong>Ensemble des complexes de module 1.</strong> </p>
+<p>Soit <span class="math inline">\(\mathbb{U}= \{z \in \mathbb{Z}/
+|z|=1\}\)</span>, pour <span class="math inline">\(z,z&#39; \in
+\mathbb{U}\)</span>,</p>
+<ul>
+<li><p><span class="math inline">\(zz&#39; \in
+\mathbb{U}\)</span>,</p></li>
+<li><p><span class="math inline">\(\overline{z}\in
+\mathbb{U}\)</span>,</p></li>
+<li><p><span class="math inline">\(z \neq 0\)</span>, <span
+class="math inline">\(\frac{1}{z} \in \mathbb{U}\)</span> et <span
+class="math inline">\(\frac{z&#39;}{z} \in \mathbb{U}\)</span>.</p></li>
+</ul>
+<div class="webtextfigure">
+<div class="webtext">
+<p>L’ensemble <span class="math inline">\(\mathbb{U}\)</span> peut être
+représenté comme ci-contre.</p>
+</div>
+<div class="webimg">
+<p><img src="cercle_U.png" alt="image" /></p>
+</div>
+</div>
+<h2 data-number="1.5" id="argument-dun-nombre-complexe"><span
+class="header-section-number">1.5</span> Argument d’un nombre
+complexe</h2>
+<div class="wdefi">
+<p><strong>(Argument d’un nombre complexe non nul)</strong> Soit <span
+class="math inline">\(z \in \mathbb{C}^\star\)</span>, <span
+class="math inline">\(|z| \neq 0\)</span> et <span
+class="math inline">\(\frac{z}{|z|} \in \mathbb{U}\)</span>. En
+particulier, soit <span class="math inline">\(a,b \in
+\mathbb{R}\)</span> tels que <span class="math inline">\(\frac{z}{|z|} =
+a+ib\)</span>, alors <span class="math inline">\(a^2+b^2 = 1\)</span>.
+Il existe donc <span class="math inline">\(\theta \in
+\mathbb{R}\)</span> tel que <span
+class="math inline">\(\left\{\begin{array}{ll}
+            a &amp; = \cos \theta \\
+            b &amp; = \sin \theta
+        \end{array}\right.\)</span> et on appelle <span
+class="math inline">\(\theta\)</span> un argument de <span
+class="math inline">\(z\)</span>. On note <span
+class="math inline">\(\arg(z)\)</span> un argument de <span
+class="math inline">\(z\)</span>.</p>
+</div>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Géométriquement, on peut représenter l’angle de mesure <span
+class="math inline">\(\theta\)</span> comme ci-dessous avec <span
+class="math inline">\(M\)</span> le point d’affixe <span
+class="math inline">\(z\)</span> et <span
+class="math inline">\((O,\overrightarrow{u},\overrightarrow{v})\)</span>
+un repère orthonormé direct du plan.</p>
+</div>
+<div class="webimg">
+<p><img src="argument.png" alt="image" /></p>
+</div>
+</div>
+<div class="wdefi">
+<p><strong>(Forme trigonométrique d’un nombre complexe non nul)</strong>
+Soit <span class="math inline">\(z \in \mathbb{C}^\star\)</span> et
+<span class="math inline">\(\theta \in \mathbb{R}\)</span> un argument
+de <span class="math inline">\(z\)</span> alors <span
+class="math inline">\(z = \cos(\theta) +i \sin(\theta)\)</span> est
+appelée la forme trigonométrique de <span
+class="math inline">\(z\)</span>.</p>
+</div>
+<ul>
+<li><p>Un argument de <span class="math inline">\(z \in
+\mathbb{C}^\star\)</span> est défini à <span
+class="math inline">\(2\pi\)</span> près. Autrement dit, soit <span
+class="math inline">\(\theta_0 \in \mathbb{R}\)</span> argument de <span
+class="math inline">\(z\)</span>,</p>
+<p><span class="math inline">\(\theta\)</span> est un argument de <span
+class="math inline">\(z\)</span> <span
+class="math inline">\(\iff\)</span> <span class="math inline">\(\theta =
+\theta_0 + 2k\pi, k \in \mathbb{Z}\)</span>.</p></li>
+<li><p>Il existe un unique argument de <span
+class="math inline">\(z\)</span> dans <span
+class="math inline">\([0,2\pi[\)</span>, dans <span
+class="math inline">\([-\pi,\pi[\)</span> ou bien dans <span
+class="math inline">\([\alpha,\alpha+2\pi[\)</span> pour <span
+class="math inline">\(\alpha \in \mathbb{R}\)</span>.</p></li>
+</ul>
+<div class="wprop">
+<p><strong>(Argument et opérations)</strong> Soient <span
+class="math inline">\(z,z&#39; \in \mathbb{C}^\star\)</span> et <span
+class="math inline">\(\theta, \theta&#39;\)</span> des arguments
+associés alors</p>
+<ol>
+<li><p><span class="math inline">\(\theta+\theta&#39;\)</span> est un
+argument de <span class="math inline">\(zz&#39;\)</span>,</p></li>
+<li><p><span class="math inline">\(-\theta\)</span> est un argument de
+<span class="math inline">\(\overline{z}\)</span>,</p></li>
+<li><p><span class="math inline">\(\theta-\theta&#39;\)</span> est un
+argument de <span
+class="math inline">\(\frac{z}{z&#39;}\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p><span class="math display">\[\begin{aligned}
+        zz&#39;
+        &amp; = \left[|z|(\cos \theta + i\sin
+\theta)\right]\left[|z&#39;|(\cos \theta&#39; + i\sin
+\theta&#39;)\right] \\
+        &amp; = |z||z&#39;|\left[\cos \theta\cos \theta&#39; - \sin
+\theta \sin \theta&#39; +i(\cos \theta \sin \theta&#39; + \sin \theta
+\cos \theta&#39;)\right] \\
+        &amp; = |zz&#39;|\left[\cos(\theta+\theta&#39;)
++i\sin(\theta+\theta&#39;)\right]
+\end{aligned}\]</span>,</p></li>
+<li><p><span class="math display">\[\begin{aligned}
+\overline{z}
+&amp; = \overline{|z|(\cos \theta + i\sin \theta)}
+&amp; = |z|(\cos \theta - i\sin \theta)
+&amp; = |\overline{z}|(\cos (-\theta) + i\sin(-\theta))
+\end{aligned}\]</span>,</p></li>
+<li><p><span class="math display">\[\begin{aligned}
+        \frac{z}{z&#39;}
+        &amp; = \frac{z\overline{z&#39;}}{z&#39;\overline{z&#39;}} \\
+        &amp; = \frac{1}{|z&#39;|^2}\left[|z|(\cos \theta + i\sin
+\theta)\right]\left[|z&#39;|(\cos \theta&#39; -i\sin \theta&#39;)\right]
+\\
+        &amp; = \frac{|z||z&#39;|}{|z&#39;|^2}\left[\cos \theta\cos
+\theta&#39; + \sin \theta \sin \theta&#39; +i(-\cos \theta \sin
+\theta&#39; + \sin \theta \cos \theta&#39;)\right] \\
+        &amp; =
+\left|\frac{z}{z&#39;}\right|\left[\cos(\theta-\theta&#39;)
++i\sin(\theta-\theta&#39;)\right]
+     \end{aligned}\]</span></p></li>
+</ol>
+</div>
+<p><strong>Application.</strong> </p>
+<ul>
+<li><div class="webtextfigure">
+<div class="webtext">
+<p>Etant donné les points <span class="math inline">\(M,M&#39;\)</span>
+d’affixes <span class="math inline">\(z,z&#39; \in
+\mathbb{C}^\star\)</span>, comment tracer le point <span
+class="math inline">\(M&#39;&#39;\)</span> d’affixe <span
+class="math inline">\(zz&#39;\)</span> ?</p>
+<p><span class="math inline">\(M&#39;&#39;\)</span> est de module <span
+class="math inline">\(|z||z&#39;|\)</span> et d’agument <span
+class="math inline">\(\theta+\theta&#39;\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="representer_produit.png" alt="image" /></p>
+</div>
+</div></li>
+<li><p>Etant donné les points <span
+class="math inline">\(M,M&#39;\)</span> d’affixes <span
+class="math inline">\(z,z&#39; \in \mathbb{C}^\star\)</span>, alors
+<span class="math inline">\(\alpha\)</span> argument de <span
+class="math inline">\(\frac{z&#39;}{z}\)</span> est une mesure de
+l’angle <span
+class="math inline">\((\overrightarrow{OM},\overrightarrow{OM&#39;})\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(A,B,C\)</span> trois points
+distincts du plan. CNS pour que <span
+class="math inline">\(\overrightarrow{AB}\)</span> et <span
+class="math inline">\(\overrightarrow{AC}\)</span> soient orthogonaux ?
+En notant <span class="math inline">\(a,b,c\)</span> les affixes
+associées,</p>
+<p><span class="math display">\[\begin{aligned}
+    \overrightarrow{AB} \text{ et }\overrightarrow{AC} \text{
+orthogonaux }
+    &amp; \iff \pm\frac{\pi}{2} \text{ est une mesure de
+$(\overrightarrow{AB},\overrightarrow{AC})$} \\
+    &amp; \iff \pm\frac{\pi}{2} \text{ argument de } \frac{c-a}{b-a} \\
+    &amp; \iff \frac{c-a}{b-a} \in i\mathbb{R}.
+        \end{aligned}\]</span></p></li>
+</ul>
+<h2 data-number="1.6" id="exponentielle-de-zin-mathbbc"><span
+class="header-section-number">1.6</span> Exponentielle de <span
+class="math inline">\(z\in \mathbb{C}\)</span></h2>
+<h3 data-number="1.6.1" id="exponentielle-dun-imaginaire-pur"><span
+class="header-section-number">1.6.1</span> Exponentielle d’un imaginaire
+pur</h3>
+<div class="wdefi">
+<p><strong>(Exponentielle d’un imaginaire pur)</strong> Soit <span
+class="math inline">\(z \in \mathbb{C}\)</span>, <u>imaginaire pur</u>
+avec <span class="math inline">\(z = i\theta\)</span>, <span
+class="math inline">\(\theta \in \mathbb{R}\)</span>, on pose <span
+class="math inline">\(e^{i\theta} = \cos \theta + i\sin
+\theta\)</span>.</p>
+</div>
+<p>Alors, on a pour tout <span class="math inline">\(\theta,\theta&#39;
+\in \mathbb{R}\)</span>,</p>
+<ul>
+<li><p><span
+class="math inline">\(e^{i\theta}e^{i\theta&#39;}=e^{i\theta+
+\theta&#39;}\)</span>,</p></li>
+<li><p><span class="math inline">\(|e^{i\theta}| = 1\)</span>,</p></li>
+<li><p><span class="math inline">\(e^{i(\theta+2\pi)} =
+e^{i\theta}\)</span>,</p></li>
+<li><p><span class="math inline">\(e^{i\theta} = 1 \iff \theta = 2k\pi,
+k \in \mathbb{Z}\)</span>,</p></li>
+<li><p><span class="math inline">\(e^{i\pi} = -1\)</span></p></li>
+<li><p><span class="math inline">\(\overline{e^{i\theta}} =
+e^{-i\theta}\)</span>,</p></li>
+<li><p><span class="math inline">\(\theta\)</span> est un argument de
+<span class="math inline">\(e^{i\theta}\)</span>.</p></li>
+</ul>
+<div class="wprop">
+<p><strong>(Formules d’Euler)</strong> Soit <span
+class="math inline">\(\theta \in \mathbb{R}\)</span>, <span
+class="math display">\[\begin{aligned}
+        \cos \theta &amp; = \frac{e^{i\theta}+e^{-i\theta}}{2} \\
+        \sin \theta &amp; = \frac{e^{i\theta}-e^{-i\theta}}{2i} \\
+    \end{aligned}\]</span></p>
+</div>
+<h3 data-number="1.6.2" id="cas-général"><span
+class="header-section-number">1.6.2</span> Cas général</h3>
+<div class="wdefi">
+<p><strong>(Exponentielle d’un nombre complexe)</strong> Soit <span
+class="math inline">\(z \in \mathbb{C}\)</span> tel que <span
+class="math inline">\(z=a+ib\)</span> avec <span
+class="math inline">\(a,b \in \mathbb{R}\)</span>. On pose <span
+class="math inline">\(e^{z} = e^ae^{ib}= e^a(\cos b + i \sin
+b)\)</span>.</p>
+</div>
+<p>Remarquons que</p>
+<ul>
+<li><p><span class="math inline">\(\forall z \in \mathbb{C}\)</span>,
+<span class="math inline">\(|e^z| = e^a =
+e^{\mathop{\mathrm{Re}}(z)}\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall z \in \mathbb{C}\)</span>,
+<span class="math inline">\(e^z \neq 0\)</span> car <span
+class="math inline">\(|e^z| = 0\)</span>.</p></li>
+</ul>
+<div class="wdefi">
+<p><strong>(Forme exponentielle)</strong> Soit <span
+class="math inline">\(z \in \mathbb{C}^\star\)</span> et <span
+class="math inline">\(\theta = \arg(z)\)</span>, <span
+class="math inline">\(z = |z|e^{i\theta}\)</span> est appelé la <u>forme
+exponentielle </u> de <span class="math inline">\(z\)</span>.</p>
+</div>
+<div class="wprop">
+<p><strong>(Produit des exponentielles)</strong> <span
+class="math inline">\(\forall z,z&#39; \in \mathbb{C}, e^{z}e^{z&#39;} =
+e^z e^{z&#39;}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soient <span class="math inline">\(a,b,a&#39;,b&#39; \in
+\mathbb{R}\)</span> tels que <span class="math inline">\(z = a+ib,
+z&#39;=a&#39;+ib&#39;\)</span> alors <span
+class="math display">\[e^{z}e^{z&#39;} =  e^{a}e^{ib}e^{a}e^{ib&#39;} =
+e^{a+a&#39;}e^{i(b+b&#39;)} = e^{a+a&#39;+i(b+b&#39;)} =
+e^{z+z&#39;}.\]</span></p>
+</div>
+<div class="wcor">
+<p><strong>(Inverse d’une exponentielle)</strong> <span
+class="math inline">\(\forall z \in \mathbb{C}, e^{-z} =
+\frac{1}{e^z}\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(e^{z-z} = z^0 = 1\)</span>.</p>
+</div>
+<div class="wprop">
+<p><strong>(Puissances et exponentielles)</strong> Soit <span
+class="math inline">\(z \in \mathbb{C}, n \in \mathbb{Z},
+\left(e^{z}\right)^n = e^{nz}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Commençons par prouver la proposition pour <span
+class="math inline">\(n \in \mathbb{N}, z \in \mathbb{C}\)</span> par
+récurrence.</p>
+<ul>
+<li><p><strong>INITIALISATION :</strong> Pour <span
+class="math inline">\(n= 0\)</span>, <span class="math inline">\(e^{0z}
+= (e^{z})^0 = 1\)</span>.</p></li>
+<li><p><strong>HÉRÉDITÉ :</strong> Soit <span class="math inline">\(n
+\in \mathbb{N}\)</span>, supposons <span
+class="math inline">\(\left(e^{z}\right)^n = e^{nz}\)</span>. On a alors
+<span class="math inline">\(\left(e^{z}\right)^{n+1} =
+\left(e^{z}\right)^n e^z \underbrace{=}_{\text{par hypothèse de
+récurrence}} e^{nz}e^z = e^{nz+z} = e^{(n+1)z}\)</span>.</p></li>
+<li><p><strong>CONCLUSION :</strong> <span class="math inline">\(\forall
+n \in \mathbb{N}, \left(e^{z}\right)^n = e^{nz}\)</span>.</p></li>
+</ul>
+<p>Pour <span class="math inline">\(n \in \mathbb{Z}\)</span> tel que
+<span class="math inline">\(n &lt; 0\)</span> alors <span
+class="math inline">\(-n \in \mathbb{N}\)</span>. D’après ce qui
+précède, on a donc <span class="math inline">\(e^{-nz} = (e^{z})^{-n}
+\iff \frac{1}{e^{-nz}} = \frac{1}{(e^{z})^{-n}} \iff e^{nz} =
+(e^{z})^{n}\)</span>.</p>
+</div>
+<div class="wrem">
+<p><strong>(Forme exponentielle et produits)</strong> La proposition
+précédente fait de la forme exponentielle particulièrement adaptée pour
+des produits, inverses, puissances de nombres complexes. Au contraire,
+pour sommer, la forme algébrique est préférable. Par exemple,</p>
+<div class="exo*">
+<p>Pour <span class="math inline">\(n\in \mathbb{N}^\star\)</span>,
+calculer <span class="math inline">\((1+i)^n\)</span>.</p>
+</div>
+<div class="corri*">
+<p>En écrivant <span class="math inline">\(1+i\)</span> sous forme
+exponentielle, on obtient <span class="math inline">\(1+i =
+\sqrt{2}\left(\frac{1}{\sqrt{2}}+\frac{i}{\sqrt{2}}\right) =
+\sqrt{2}e^{i\frac{\pi}{4}}\)</span> et on en déduit <span
+class="math inline">\((1+i)^n =
+(\sqrt{2})^ne^{i\frac{n\pi}{4}}\)</span>.</p>
+</div>
+</div>
+<div class="wcor">
+<p><strong>(Formule de Moivre)</strong> Pour <span
+class="math inline">\(\theta \in \mathbb{R}, n \in \mathbb{Z}\)</span>,
+<span class="math display">\[(\cos \theta + i\sin\theta)^n =
+\cos(n\theta)+i\sin(n\theta).\]</span></p>
+</div>
+<h2 data-number="1.7" id="utilisation-de-langle-moitié"><span
+class="header-section-number">1.7</span> Utilisation de l’angle
+moitié</h2>
+<div class="exo*">
+<p>Soit <span class="math inline">\(\theta \in \mathbb{R}\)</span> tel
+que <span class="math inline">\(1+e^{i\theta} \neq 0\)</span>, calculer
+<span class="math inline">\(|1+e^{i\theta}|\)</span> et <span
+class="math inline">\(\arg(1+e^{i\theta})\)</span>.</p>
+</div>
+<div class="corri*">
+<p><span class="math display">\[\begin{aligned}
+    1+e^{i\theta}
+    &amp; = e^{i0}+e^{i\theta} \\
+    &amp; = e^{i\tfrac{\theta}{2}-\tfrac{\theta}{2}}
++e^{i\tfrac{\theta}{2}+\tfrac{\theta}{2}} \\
+    &amp; =
+e^{i\tfrac{\theta}{2}}\left(e^{-i\tfrac{\theta}{2}}+e^{i\tfrac{\theta}{2}}\right)
+\\
+    &amp; = 2e^{i\tfrac{\theta}{2}} \cos\left(\tfrac{\theta}{2}\right)
+\text{ par la formule d&#39;Euler.}
+\end{aligned}\]</span></p>
+<p>On en déduit <span class="math display">\[\begin{aligned}
+    \left|1+e^{i\theta}\right|
+    &amp; = \left|2e^{i\tfrac{\theta}{2}}
+\cos\left(\tfrac{\theta}{2}\right)\right|
+    &amp; = 2\left|\cos\left(\tfrac{\theta}{2}\right)\right|
+\end{aligned}\]</span></p>
+<p>Concernant l’argument, il y a deux cas à traiter.</p>
+<ul>
+<li><p>Si <span class="math inline">\(\cos(\theta/2) \geq 0\)</span>,
+d’après ce qui précède <span class="math inline">\(1+e^{i\theta} =
+2e^{i\tfrac{\theta}{2}} \cos\left(\tfrac{\theta}{2}\right) =
+2\left|\cos\left(\tfrac{\theta}{2}\right)\right|e^{i\tfrac{\theta}{2}}\)</span>
+et <span class="math inline">\(\arg(1+e^{i\theta}) =
+\theta/2\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\cos(\theta/2) &lt; 0\)</span>,
+d’après ce qui précède <span class="math inline">\(1+e^{i\theta} =
+2e^{i\tfrac{\theta}{2}} \cos\left(\tfrac{\theta}{2}\right) =
+-2\left|\cos\left(\tfrac{\theta}{2}\right)\right|e^{i\tfrac{\theta}{2}}=2e^{i\pi}\left|\cos\left(\tfrac{\theta}{2}\right)\right|e^{i\tfrac{\theta}{2}}\)</span>
+et <span class="math inline">\(\arg(1+e^{i\theta}) =
+\pi+\theta/2\)</span>.</p></li>
+</ul>
+</div>
+<p>A traiter à la maison :</p>
+<div class="exo*">
+<p>Soit <span class="math inline">\(\theta \in \mathbb{R}\)</span> tel
+que <span class="math inline">\(1-e^{i\theta} \neq 0\)</span>, calculer
+<span class="math inline">\(|1-e^{i\theta}|\)</span> et <span
+class="math inline">\(\arg(1+e^{i\theta})\)</span>.</p>
+</div>
+<div class="exo*">
+<p>Soit <span class="math inline">\(\theta,\theta&#39; \in
+\mathbb{R}\)</span> tel que <span
+class="math inline">\(e^{i\theta}+e^{i\theta&#39;} \neq 0\)</span>,
+calculer <span
+class="math inline">\(|e^{i\theta}+e^{i\theta&#39;}|\)</span> et <span
+class="math inline">\(\arg(e^{i\theta}+e^{i\theta&#39;})\)</span>.</p>
+</div>
+<div class="corri*">
+<p>Remarquons que <span class="math display">\[\begin{aligned}
+        \theta &amp;=
+\frac{\theta+\theta&#39;}{2}+\frac{\theta-\theta&#39;}{2} \\
+        \theta&#39;&amp;=
+\frac{\theta+\theta&#39;}{2}-\frac{\theta-\theta&#39;}{2}
+    \end{aligned}\]</span></p>
+<p>On a alors <span class="math display">\[\begin{aligned}
+        e^{i\theta}+e^{i\theta&#39;}
+        &amp; =
+e^{i\left(\frac{\theta+\theta&#39;}{2}+\frac{\theta-\theta&#39;}{2}\right)}+e^{i\left(\frac{\theta+\theta&#39;}{2}-\frac{\theta-\theta&#39;}{2}\right)}
+\\
+        &amp; = e^{i\frac{\theta+\theta&#39;}{2}}\left(
+e^{i\frac{\theta-\theta&#39;}{2}}+e^{-i\frac{\theta-\theta&#39;}{2}}\right)
+\\
+        &amp; = 2e^{i\frac{\theta+\theta&#39;}{2}}
+\cos\left(\frac{\theta-\theta&#39;}{2}\right)
+    \end{aligned}\]</span></p>
+<p>On en déduit <span
+class="math inline">\(|e^{i\theta}+e^{i\theta&#39;}| =
+2\left|\cos\left(\frac{\theta-\theta&#39;}{2}\right)\right|\)</span>.</p>
+<p>Concernant l’argument,</p>
+<ul>
+<li><p>Si <span
+class="math inline">\(\cos\left(\frac{\theta-\theta&#39;}{2}\right) \geq
+0\)</span>, <span
+class="math inline">\(\arg(e^{i\theta}+e^{i\theta&#39;}) =
+\frac{\theta-\theta&#39;}{2}\)</span>,</p></li>
+<li><p>Si <span
+class="math inline">\(\cos\left(\frac{\theta-\theta&#39;}{2}\right) &lt;
+0\)</span>, <span
+class="math inline">\(\arg(e^{i\theta}+e^{i\theta&#39;}) =
+\pi+\frac{\theta-\theta&#39;}{2}\)</span>.</p></li>
+</ul>
+</div>
+<div class="wcor">
+<p>Pour <span class="math inline">\(\theta, \theta&#39;\in
+\mathbb{R}\)</span>, <span class="math display">\[\begin{aligned}
+            \cos \theta + \cos \theta&#39; &amp; =
+2\cos\left(\frac{\theta+\theta&#39;}{2}\right)\cos\left(\frac{\theta-\theta&#39;}{2}\right)
+\\
+            \sin \theta + \sin \theta&#39; &amp; =
+2\sin\left(\frac{\theta+\theta&#39;}{2}\right)\cos\left(\frac{\theta-\theta&#39;}{2}\right)
+    \end{aligned}\]</span></p>
+</div>
+<div class="wproof">
+<p>Remarquer que les calculs précédents, hors calcul de l’argument,
+fonctionnent pour tout <span class="math inline">\(\theta,\theta&#39;
+\in \mathbb{R}\)</span> et que <span class="math inline">\(\cos \theta +
+\cos \theta&#39; =
+\mathop{\mathrm{Re}}(e^{i\theta}+e^{i\theta&#39;})\)</span> et <span
+class="math inline">\(\sin \theta + \sin \theta&#39; =
+\mathop{\mathrm{Im}}(e^{i\theta}+e^{i\theta&#39;})\)</span>.</p>
+</div>
+<p>A traiter à la maison :</p>
+<div class="exo*">
+<p>Soit <span class="math inline">\(\theta,\theta&#39; \in
+\mathbb{R}\)</span> tel que <span
+class="math inline">\(e^{i\theta}-e^{i\theta&#39;} \neq 0\)</span>,
+calculer <span
+class="math inline">\(|e^{i\theta}-e^{i\theta&#39;}|\)</span> et <span
+class="math inline">\(\arg(e^{i\theta}-e^{i\theta&#39;})\)</span>.</p>
+</div>
+<h1 data-number="2" id="racines-n-ièmes-de-lunité"><span
+class="header-section-number">2</span> Racines <span
+class="math inline">\(n\)</span>-ièmes de l’unité</h1>
+<h2 data-number="2.1" id="introduction"><span
+class="header-section-number">2.1</span> Introduction</h2>
+<div class="wdefi">
+<p><strong>(Racines <span class="math inline">\(n\)</span>-ièmes d’un
+complexe)</strong> Soit <span class="math inline">\(n \in
+\mathbb{N}^\star\)</span> et <span class="math inline">\(Z \in
+\mathbb{C}\)</span>. Une racine <span
+class="math inline">\(n\)</span>-ième de <span
+class="math inline">\(Z\)</span> dans <span
+class="math inline">\(\mathbb{C}\)</span> est un complexe <span
+class="math inline">\(z \in \mathbb{C}\)</span> tel que <span
+class="math inline">\(z^n = Z\)</span>.</p>
+</div>
+<div class="wrem">
+<p><strong>(Racines <span class="math inline">\(n\)</span>-ièmes dans
+<span class="math inline">\(\mathbb{R}\)</span>)</strong> La définition
+précédente est différente de la définition de <u>la</u> racine <span
+class="math inline">\(n-\)</span>ième dans <span
+class="math inline">\(\mathbb{R}\)</span>. Pour <span
+class="math inline">\(x \in \mathbb{R}^+\)</span>, <span
+class="math inline">\(\sqrt[n]{x}\)</span> est l’unique nombre <u>réel
+positif</u> tel que <span class="math inline">\((\sqrt[n]{x})^n =
+x\)</span>.</p>
+</div>
+<p>Si <span class="math inline">\(Z = 0\)</span>, <span
+class="math inline">\(z^n = 0 \iff z = 0\)</span>.</p>
+<p>Si <span class="math inline">\(Z \neq 0\)</span>, en écrivant <span
+class="math inline">\(Z = |Z|e^{i\theta}\)</span> avec <span
+class="math inline">\(\theta\)</span> un argument de <span
+class="math inline">\(Z\)</span> alors <span class="math inline">\(z_0 =
+\sqrt[n]{|Z|}e^{i\tfrac{\theta}{n}}\)</span> est une racine <span
+class="math inline">\(n\)</span>-ième de <span
+class="math inline">\(Z\)</span>.</p>
+<div class="center">
+<p>Y en a t il d’autres ?</p>
+</div>
+<p>Cherchons. Soit <span class="math inline">\(z\in
+\mathbb{C}\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+    z^n = Z
+    &amp; \iff z^n = z_0^n \\
+    &amp; \iff \left(\frac{z}{z_0}\right)^n = 1 \quad (z_0 \neq 0) \\
+    &amp; \iff u^n = 1 \text{ avec }u = \frac{z}{z_0}.
+\end{aligned}\]</span></p>
+<p>Donc chercher les racines <span
+class="math inline">\(n\)</span>-ièmes d’un complexe non nul revient à
+chercher les <span class="math inline">\(u \in \mathbb{C}\)</span> tels
+que <span class="math inline">\(u^n = 1\)</span>.</p>
+<div class="wdefi">
+<p><strong>(Racines <span class="math inline">\(n\)</span>-ièmes de
+l’unité)</strong> Soit <span class="math inline">\(n \in
+\mathbb{N}^\star\)</span>. Une racine <span
+class="math inline">\(n\)</span>-ième de l’unité dans <span
+class="math inline">\(\mathbb{C}\)</span> est un complexe <span
+class="math inline">\(z \in \mathbb{C}\)</span> tel que <span
+class="math inline">\(z^n = Z\)</span>. On note <span
+class="math inline">\(\mathbb{U}_n \subset \mathbb{C}^\star\)</span>
+l’ensemble des racines <span class="math inline">\(n\)</span>-ième de
+l’unité dans <span class="math inline">\(\mathbb{C}\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(n \in \mathbb{N}^\star\)</span>,
+<span class="math display">\[\mathbb{U}_n = \{ \omega_k :=
+e^{\frac{2ik\pi}{n}} / 0 \leq k \leq n-1\}\]</span> et ces <span
+class="math inline">\(n\)</span> nombres sont distincts. En particulier,
+il existe exactement <span class="math inline">\(n\)</span> racines de
+l’unité.</p>
+</div>
+<div class="wproof">
+<p><strong>Analyse</strong> Cherchons les racines de l’unité sous la
+forme <span class="math inline">\(u = |u|e^{i\theta}\)</span> avec <span
+class="math inline">\(\theta\)</span> son unique argument dans <span
+class="math inline">\([0,2\pi[\)</span>.</p>
+<p>D’abord, <span class="math inline">\(u^n = 1 \Longrightarrow |u|^n =
+1 \Longrightarrow |u| = 1\)</span> car <span class="math inline">\(|u|
+\in \mathbb{R}^+\)</span>.</p>
+<p>Ensuite, <span class="math inline">\(u^n = 1 \iff e^{in\theta} = 1
+\iff n\theta = 2k\pi, k \in \mathbb{Z}\iff \theta =
+\frac{2k\pi}{n}\)</span>.</p>
+<p>En imposant <span class="math inline">\(0 \leq \theta &lt;
+2\pi\)</span>, cela donne <span class="math inline">\(0 \leq k &lt;
+n\)</span> ou encore <span class="math inline">\(0 \leq k \leq
+n-1\)</span>.</p>
+<p>Finalement, on a donc <span class="math inline">\(u =
+e^{\frac{2ik\pi}{n}}\)</span> pour <span class="math inline">\(0 \leq k
+\leq n-1\)</span>.</p>
+<p><strong>Synthèse</strong> Si <span class="math inline">\(u =
+e^{\frac{2ik\pi}{n}}\)</span> avec <span class="math inline">\(0 \leq k
+\leq n-1\)</span>, <span class="math inline">\(u^n = e^{2ik\pi} =
+1\)</span>.</p>
+<p>De plus, ces racines sont bien distinctes car d’arguments distincts
+dans <span class="math inline">\([0,2\pi[\)</span>.</p>
+</div>
+<div class="wcor">
+<p><strong>(Racines <span class="math inline">\(n\)</span>-ièmes d’un
+complexe)</strong> <span id="cor:racine_nieme_complexe"
+label="cor:racine_nieme_complexe"></span> Soit <span
+class="math inline">\(n \in \mathbb{N}^\star\)</span> et <span
+class="math inline">\(Z \in \mathbb{C}^\star\)</span>. <span
+class="math inline">\(Z\)</span> possèdent <span
+class="math inline">\(n\)</span> racines <span
+class="math inline">\(n-ièmes\)</span> distinctes qui s’écrivent <span
+class="math inline">\(z_0 e^{\frac{2ik\pi}{n}} =
+\sqrt[n]{|Z|}e^{i\tfrac{\theta+2k\pi}{n}}\)</span> pour <span
+class="math inline">\(0 \leq k \leq n-1\)</span>.</p>
+</div>
+<div class="wprop">
+<p><strong>(<span class="math inline">\(\mathbb{U}_n\)</span> est un
+groupe)</strong> Pour tout <span class="math inline">\(n \in
+\mathbb{N}^\star\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(1 \in \mathbb{U}_n\)</span>,</p></li>
+<li><p>Pour tout <span class="math inline">\(z,z&#39; \in U_n\)</span>,
+<span class="math inline">\(zz&#39; \in \mathbb{U}_n\)</span>,</p></li>
+<li><p>Pour tout <span class="math inline">\(z \in U_n\)</span>, <span
+class="math inline">\(z \neq 0\)</span> et <span
+class="math inline">\(\frac{1}{z} \in \mathbb{U}_n\)</span>.</p></li>
+</ol>
+<p>On dit alors que <span class="math inline">\(\mathbb{U}_n\)</span>
+est un groupe pour la multiplication. On a en plus</p>
+<ol>
+<li><p>Pour tout <span class="math inline">\(z \in U_n\)</span>, <span
+class="math inline">\(\overline{z} \in \mathbb{U}_n\)</span>.</p></li>
+</ol>
+</div>
+<p>On a aussi la propriété suivante.</p>
+<div class="wprop">
+<p><strong>(Somme des racines <span
+class="math inline">\(n\)</span>-ièmes de l’unité)</strong> <span
+id="prop:somme_racines_nieme" label="prop:somme_racines_nieme"></span>
+Soit <span class="math inline">\(n \in \mathbb{N}^\star\)</span>, <span
+class="math display">\[\sum_{k=0}^{n-1} \omega_k = 0.\]</span></p>
+</div>
+<div class="wproof">
+<p>Notons que <span class="math inline">\(e^{\frac{2i\pi}{n}}\)</span>
+et donc <span class="math display">\[\begin{aligned}
+    \sum_{k=0}^{n-1} \omega_k
+    &amp; = \sum_{k=0}^{n-1}e^{\frac{2ik\pi}{n}}
+    &amp; = \sum_{k=0}^{n-1}\left(e^{\frac{2i\pi}{n}} \right)^k
+    &amp; =
+\frac{\left(e^{\frac{2i\pi}{n}}\right)^n-1}{e^{\frac{2i\pi}{n}}-1} = 0.
+    \end{aligned}\]</span></p>
+</div>
+<h2 data-number="2.2" id="représentation-géométrique-1"><span
+class="header-section-number">2.2</span> Représentation géométrique</h2>
+<ul>
+<li><p>Pour <span class="math inline">\(n=2\)</span>, <span
+class="math inline">\(\mathbb{U}_2 = \{-1,1\}\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(n=3\)</span>, <span
+class="math inline">\(\mathbb{U}_3 =
+\{1,e^{\frac{2i\pi}{3}},e^{\frac{4i\pi}{3}}\}\)</span>.</p>
+<div class="wdefi">
+<p><strong>(Le nombre <span class="math inline">\(j\)</span>)</strong>
+On définit le nombre <span class="math inline">\(j = e^{\frac{2i\pi}{3}}
+= -\frac{1}{2}+\frac{\sqrt{3}}{2}i\)</span> tel que <span
+class="math inline">\(\mathbb{U}_3 = \{1,j,j^2\}\)</span>.</p>
+</div>
+<div class="wprop">
+<p><strong>(Propriétés de <span
+class="math inline">\(j\)</span>)</strong></p>
+<ol>
+<li><p><span class="math inline">\(1+j+j^2 = 0\)</span>,</p></li>
+<li><p><span class="math inline">\(\frac{1}{j} =
+\overline{j}\)</span>,</p></li>
+<li><p><span class="math inline">\(\frac{1}{j} = j^2\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Cela provient de la Proposition <a
+href="#prop:somme_racines_nieme" data-reference-type="ref"
+data-reference="prop:somme_racines_nieme">[prop:somme_racines_nieme]</a>,</p></li>
+<li><p><span class="math inline">\(|j|^2 = 1\)</span> donc <span
+class="math inline">\(j\overline{j} = 1\)</span>,</p></li>
+<li><p><span class="math inline">\(j^3 =1\)</span>.</p></li>
+</ol>
+</div></li>
+<li><p>Pour <span class="math inline">\(n=4\)</span>, <span
+class="math inline">\(\mathbb{U}_4 = \{-1,-i,1,i\}\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(n\)</span> quelconque, <span
+class="math inline">\(\mathbb{U}_n = \{e^{\frac{2ik\pi}{n}} / 0 \leq k
+\leq n-1\}\)</span>.</p>
+<p>En notant <span class="math inline">\(M_k\)</span> le point d’affixe
+<span class="math inline">\(e^{\frac{2ik\pi}{n}}\)</span>, pour <span
+class="math inline">\(0 \leq k \leq n-2\)</span>, une mesure de l’angle
+entre <span class="math inline">\(\overrightarrow{OM}_k\)</span> et
+<span class="math inline">\(\overrightarrow{OM}_{k+1}\)</span> est <span
+class="math inline">\(\frac{2\pi}{n}\)</span>. C’est aussi une mesure de
+l’angle entre <span
+class="math inline">\(\overrightarrow{OM}_{n-1}\)</span> et <span
+class="math inline">\(\overrightarrow{OM}_{0}\)</span>. En fait, les
+points <span class="math inline">\(M_k\)</span> sont les sommets d’un
+polygone régulier à <span class="math inline">\(n\)</span> côtés de
+centre <span class="math inline">\(O\)</span>.</p></li>
+</ul>
+<div class="center">
+<p><img src="racines_unite.png" alt="image" /></p>
+</div>
+<h1 data-number="3" id="equations-du-second-degré"><span
+class="header-section-number">3</span> Equations du second degré</h1>
+<p>Soient <span class="math inline">\(a \in \mathbb{C}^\star, b,c \in
+\mathbb{C}\)</span>, on considère l’équation <span
+class="math display">\[\mathrm{(e)} \quad  az^2+bz+c = 0\]</span>
+d’inconnue <span class="math inline">\(z \in \mathbb{C}\)</span>, que
+l’on cherche à résoudre. Le cas <span
+class="math inline">\(a,b,c\)</span> réels est déjà connu mais nous
+allons le redémontrer dans un cadre plus général. Soit <span
+class="math inline">\(z \in \mathbb{C}\)</span>, <span
+class="math display">\[\begin{aligned}
+    az^2+bz+c =0
+    &amp; \iff z^2 + \frac{b}{a}z  +\frac{c}{a} = 0 \quad &amp;(\text{en
+divisant par }a \neq 0) \\
+    &amp; \iff z^2 + 2\frac{b}{2a}z + \left(\frac{b}{2a}\right)^2
+-\left(\frac{b}{2a}\right)^2 +\frac{c}{a} = 0 &amp;\\
+    &amp; \iff \left(z^2 + 2\times \frac{b}{2a}\times z +
+\left(\frac{b}{2a}\right)^2\right) -\frac{b^2}{4a^2} +\frac{c}{a} = 0
+&amp;\\
+    &amp; \iff \left(z + \frac{b}{2a}\right)^2 -\frac{b^2-4ac}{4a^2} = 0
+&amp;\\
+    &amp; \iff \left(z + \frac{b}{2a}\right)^2= \frac{b^2-4ac}{4a^2}
+&amp;\\
+    &amp; \iff \left(z + \frac{b}{2a}\right)^2= \frac{\Delta}{4a^2}
+\quad &amp;(\text{en posant } \Delta = b^2-4ac).
+\end{aligned}\]</span></p>
+<p><span class="math inline"><span class="icon-warning">⚠️</span></span>
+Dans notre cas, on a <span class="math inline">\(\Delta \in
+\mathbb{C}\)</span> et en général, <span class="math inline">\(\Delta
+\notin \mathbb{R}\)</span>.</p>
+<p><span class="math inline">\(\Delta\)</span> est appelé le
+discriminant associé à <span
+class="math inline">\(\mathrm{(e)}\)</span>. En tant que complexe,
+d’après le Corollaire <a href="#cor:racine_nieme_complexe"
+data-reference-type="ref"
+data-reference="cor:racine_nieme_complexe">[cor:racine_nieme_complexe]</a>,
+<span class="math inline">\(\Delta\)</span> possède deux racines
+complexes dans <span class="math inline">\(\mathbb{C}\)</span> qui
+s’écrivent <span class="math inline">\(\delta\)</span> et <span
+class="math inline">\(-\delta\)</span>. On en déduit que les racines de
+<span class="math inline">\(\frac{\Delta}{4a^2}\)</span> sont <span
+class="math inline">\(\pm \frac{\delta}{2a}\)</span> et <span
+class="math display">\[\begin{aligned}
+    az^2+bz+c =0
+    &amp; \iff \left(z + \frac{b}{2a}\right)^2 = \frac{\Delta}{4a^2} \\
+    &amp; \iff z + \frac{b}{2a} = \pm \frac{\delta}{2a} \\
+    &amp; \iff z = \frac{-b \pm \delta}{2a}.
+\end{aligned}\]</span></p>
+<ul>
+<li><p>Si <span class="math inline">\(\Delta = 0\)</span>, <span
+class="math inline">\(\delta = -\delta = 0\)</span> et <span
+class="math inline">\(\mathrm{(e)}\)</span> possède une unique solution
+qui est <span class="math inline">\(z = -\frac{b}{2a}\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\Delta \neq 0\)</span>, <span
+class="math inline">\(\delta \neq -\delta\)</span> et <span
+class="math inline">\(\mathrm{(e)}\)</span> possède deux racines
+distinctes qui sont <span class="math inline">\(z_{\pm} = \frac{-b \pm
+\delta}{2a}\)</span>.</p></li>
+</ul>
+<div class="wrem">
+<p><strong>(Cas réel)</strong> Dans le cas particulier où <span
+class="math inline">\(a \in \mathbb{R}^\star,b,c \in \mathbb{R}\)</span>
+alors <span class="math inline">\(\Delta \in \mathbb{R}\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(\Delta &gt; 0\)</span>, <span
+class="math inline">\(\mathrm{(e)}\)</span> possède deux racines
+disctinctes réelles qui sont <span class="math inline">\(\frac{-b \pm
+\sqrt{\Delta}}{2a}\)</span>,</p></li>
+<li><p>Si <span class="math inline">\(\Delta = 0\)</span>, <span
+class="math inline">\(\mathrm{(e)}\)</span> possède une unique racine
+réelle qui sont <span
+class="math inline">\(\frac{-b}{2a}\)</span>,</p></li>
+<li><p>Si <span class="math inline">\(\Delta &lt; 0\)</span>, <span
+class="math inline">\(\mathrm{(e)}\)</span> possède deux racines
+complexes non réelles qui sont <span class="math inline">\(\frac{-b \pm
+i\sqrt{-\Delta}}{2a}\)</span> car <span class="math inline">\(\delta =
+i\sqrt{-\Delta}\)</span> est racine carrée de <span
+class="math inline">\(\Delta\)</span>. De plus, ces deux racines sont
+conjuguées l’une de l’autre.</p></li>
+</ul>
+</div>
+<p><strong>Calcul de racines carrées complexes.</strong> Pour pouvoir
+résoudre une équation du second degré, il faut donc pouvoir calculer les
+racines carrées complexes d’un nombre complexe. Voici ci-dessous la
+méthode générale. Soit <span class="math inline">\(Z = a+ib \in
+\mathbb{C}\)</span>,avec <span class="math inline">\(a,b \in
+\mathbb{R}\)</span> on cherche <span class="math inline">\(z =
+x+iy\)</span> avec <span class="math inline">\(x,y \in
+\mathbb{R}\)</span> tels que <span class="math inline">\(z^2 =
+Z\)</span>.</p>
+<p><span class="math inline">\(z^2 = (x+iy)^2 = x^2 -y^2 + 2ixy\)</span>
+donc</p>
+<p><span class="math inline">\(z^2 = Z \Longrightarrow
+\left\{\begin{array}{ll}
+    \mathop{\mathrm{Re}}(z^2) &amp; = \mathop{\mathrm{Re}}(Z) \\
+    \mathop{\mathrm{Im}}(z^2) &amp; = \mathop{\mathrm{Im}}(Z) \\
+\end{array}\right. \Longrightarrow \left\{\begin{array}{ll}
+    x^2 -y^2 &amp; = a \\
+    2xy &amp; = b \\
+\end{array}\right..\)</span></p>
+<p>Ces deux équations sont insuffisantes. On a bien un système à deux
+inconnues (<span class="math inline">\(x,y\)</span>), deux équations
+mais il est commode d’en ajouter une. On rajoute l’équation suivante :
+<span class="math inline">\(|z^2| = |z|^2 = |Z|\)</span>, ce qui donne
+<span class="math inline">\(x^2+y^2 = |Z|\)</span> et on obtient le
+système <span class="math display">\[\begin{aligned}
+\left\{\begin{array}{ll}
+    x^2 -y^2 &amp; = a \\
+    2xy &amp; = b \\
+    x^2+y^2 &amp; = |Z|
+\end{array}\right.
+&amp; \iff
+\left\{\begin{array}{ll}
+    2x^2 &amp; = a+|Z| \quad L_1 \leftarrow L_1+L_3\\
+    2xy &amp; = b \\
+    2y^2 &amp; = |Z|-a \quad L_3 \leftarrow L_3+L_1
+\end{array}\right. \\
+&amp; \iff
+\left\{\begin{array}{ll}
+    x^2 &amp; = \frac{a+|Z|}{2}\\
+    2xy &amp; = b \\
+    y^2 &amp; = \frac{|Z|-a}{2}
+\end{array}\right..
+\end{aligned}\]</span> Or, on a bien <span class="math inline">\(|a| =
+|\mathop{\mathrm{Re}}(Z)| \leq |Z|\)</span> (voir Lemme <a
+href="#lem:re_module" data-reference-type="ref"
+data-reference="lem:re_module">[lem:re_module]</a>) donc <span
+class="math inline">\(a+|Z| \geq 0, |Z|-a \geq 0\)</span> et on en
+déduit <span class="math display">\[\left\{\begin{array}{ll}
+    x &amp; = \pm \sqrt{\frac{a+|Z|}{2}}\\
+    y &amp; = \pm \sqrt{\frac{|Z|-a}{2}} \\
+    2xy &amp; = b \\
+\end{array}\right..\]</span> On aurait donc quatre racines carrées de
+<span class="math inline">\(Z\)</span> qui seraient</p>
+<p><span class="math display">\[\begin{aligned}
+&amp;
+\left\{  +\sqrt{\frac{a+|Z|}{2}}+i\sqrt{\frac{|Z|-a}{2}};+\sqrt{\frac{a+|Z|}{2}}-i\sqrt{\frac{|Z|-a}{2}};
+\right.\\
+&amp; \left.
+-\sqrt{\frac{a+|Z|}{2}}+i\sqrt{\frac{|Z|-a}{2}};-\sqrt{\frac{a+|Z|}{2}}-i\sqrt{\frac{|Z|-a}{2}}\right\}
+?
+\end{aligned}\]</span></p>
+<p>En fait, on n’a pas exploité <span class="math inline">\(2xy =
+b\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(b \geq 0\)</span>, on a alors
+<span class="math inline">\(x,y\)</span> de même signe, ce qui donne
+deux racines <span
+class="math inline">\(+\sqrt{\frac{a+|Z|}{2}}+i\sqrt{\frac{|Z|-a}{2}}\)</span>
+et <span
+class="math inline">\(-\sqrt{\frac{a+|Z|}{2}}-i\sqrt{\frac{|Z|-a}{2}}\)</span>,</p></li>
+<li><p>Si <span class="math inline">\(b &lt; 0\)</span>, on a alors
+<span class="math inline">\(x,y\)</span> de signes opposés, ce qui donne
+deux racines <span
+class="math inline">\(+\sqrt{\frac{a+|Z|}{2}}-i\sqrt{\frac{|Z|-a}{2}}\)</span>
+et <span
+class="math inline">\(-\sqrt{\frac{a+|Z|}{2}}+i\sqrt{\frac{|Z|-a}{2}}\)</span>.</p></li>
+</ul>
+<div class="wex">
+<p><strong>(Calcul de racine carrée complexe)</strong></p>
+<div class="exo*">
+<p>Calculer les racines carrées complexes de <span
+class="math inline">\(1-2i\)</span>.</p>
+</div>
+<div class="corri*">
+<p>Cherchons <span class="math inline">\(z = x+iy\)</span> avec <span
+class="math inline">\(x,y \in \mathbb{R}\)</span> tel que <span
+class="math inline">\(z^2 = 1-2i\)</span>.</p>
+<p>Alors, <span class="math display">\[\begin{aligned}
+        z^2 = 1-2i
+        &amp; \iff \left\{
+        \begin{array}{ll}
+            \mathop{\mathrm{Re}}(z^2) &amp; = \mathop{\mathrm{Re}}(1-2i)
+\\
+            \mathop{\mathrm{Im}}(z^2) &amp; = \mathop{\mathrm{Im}}(1-2i)
+\\
+            |z^2| &amp; = |1-2i| \\
+        \end{array}
+        \right. \\
+        &amp; \iff \left\{
+        \begin{array}{ll}
+            x^2-y^2 &amp; = 1 \\
+            2xy &amp; = -2 \\
+            x^2+y^2 &amp; = \sqrt{5} \\
+        \end{array}
+        \right. \\
+        &amp; \iff \left\{\begin{array}{ll}
+    2x^2 &amp; = 1+ \sqrt{5}  \quad L_1 \leftarrow L_1+L_3\\
+    2xy &amp; = -2 \\
+    2y^2 &amp; =  \sqrt{5} -1 \quad L_3 \leftarrow L_3+L_1
+\end{array}\right. \\
+&amp; \iff \left\{\begin{array}{ll}
+    x &amp; = \pm \sqrt{\frac{1+ \sqrt{5}}{2}} \\
+    2xy &amp; = -2 \\
+    y &amp; = \pm \sqrt{\frac{\sqrt{5} -1}{2}}
+\end{array}\right. \\
+    \end{aligned}\]</span> et comme <span class="math inline">\(xy &lt;
+0\)</span>, ils sont de signes opposés et les racines carrées de <span
+class="math inline">\(1-2i\)</span> sont <span
+class="math inline">\(\sqrt{\frac{1+ \sqrt{5}}{2}} -
+\sqrt{\frac{\sqrt{5} -1}{2}}\)</span> et <span
+class="math inline">\(-\sqrt{\frac{1+ \sqrt{5}}{2}} +
+\sqrt{\frac{\sqrt{5} -1}{2}}\)</span>.</p>
+</div>
+</div>
+<div class="wex">
+<p><strong>(Résolution d’une équation du second degré dans <span
+class="math inline">\(\mathbb{C}\)</span>)</strong> Traitons un exemple
+de résolution concrète d’une équation du second degré.</p>
+<div class="exo*">
+<p>Résoudre dans <span class="math inline">\(\mathbb{C}\)</span>,
+l’équation <span class="math display">\[\mathrm{(E)} \quad z^2 -
+(5-4i)z+1-13i = 0\]</span> d’inconnue <span class="math inline">\(z \in
+\mathbb{C}\)</span>.</p>
+</div>
+<div class="corri*">
+<p>Le discriminant vaut <span class="math inline">\(\Delta = ( -
+(5-4i))^2 - 4 \times 1 \times(1-13i) = 5+12i\)</span>.</p>
+<p>Exercice à la maison: montrer que les racines carrées de <span
+class="math inline">\(\Delta\)</span> sont <span
+class="math inline">\(\pm (3+2i)\)</span>.</p>
+<p>On en déduit que (E) admet deux racines distinctes qui sont</p>
+<p><span class="math display">\[\left\{\begin{array}{ll}
+            \frac{5-4i+3+2i}{2} &amp; = 4-i\\
+             \frac{5-4i-3-2i}{2} &amp; = 1-3i
+        \end{array}\right..\]</span></p>
+</div>
+</div>
+<h1 data-number="4"
+id="etude-de-fonctions-beginarraylllll-f-mathbbc-to-mathbbc-z-mapsto-azb-endarray."><span
+class="header-section-number">4</span> Etude de fonctions <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{C}&amp; \to &amp; \mathbb{C}\\
+&amp; &amp; z  &amp; \mapsto &amp; az+b \\
+\end{array}.\)</span></h1>
+<p>Soient <span class="math inline">\(a \in \mathbb{C}^\star\)</span> et
+<span class="math inline">\(b \in \mathbb{C}\)</span>, on considère</p>
+<p><span class="math display">\[\begin{array}{lllll}
+f &amp; : &amp; \mathbb{C}&amp; \to &amp; \mathbb{C}\\
+&amp; &amp; z  &amp; \mapsto &amp; az+b \\
+\end{array}.\]</span></p>
+<p>Soit <span
+class="math inline">\((O,\overrightarrow{u},\overrightarrow{v})\)</span>
+repère orthonormé du plan <span
+class="math inline">\(\mathscr{P}\)</span>, on considère</p>
+<p><span class="math display">\[\begin{array}{lllll}
+F &amp; : &amp; \mathscr{P} &amp; \to &amp; \mathscr{P} \\
+&amp; &amp; M  &amp; \mapsto &amp; M&#39; \text{ point d&#39;affixe
+$f(z)$ si $M$ est le point d&#39;affixe $z$} \\
+\end{array}.\]</span></p>
+<h2 data-number="4.1" id="cas-a1"><span
+class="header-section-number">4.1</span> Cas <span
+class="math inline">\(a=1\)</span></h2>
+<div class="webtextfigure">
+<div class="webtext">
+<p>On étudie donc <span class="math display">\[\begin{array}{lllll}
+f &amp; : &amp; \mathbb{C}&amp; \to &amp; \mathbb{C}\\
+&amp; &amp; z  &amp; \mapsto &amp; z+b \\
+\end{array}.\]</span></p>
+<p>Soit <span class="math inline">\(M\)</span> le point d’affixe <span
+class="math inline">\(z \in \mathbb{C}\)</span> et <span
+class="math inline">\(M&#39;\)</span> le point d’affixe <span
+class="math inline">\(z+b\)</span>. Soit <span
+class="math inline">\(\overrightarrow{V}_0\)</span> vecteur d’affixe
+<span class="math inline">\(b\)</span> alors</p>
+<p><span class="math display">\[\overrightarrow{OM&#39;} =
+\overrightarrow{OM} + \overrightarrow{V}_0 \iff \overrightarrow{MM&#39;}
+= \overrightarrow{V}_0.\]</span></p>
+<p>Donc <span class="math inline">\(F\)</span> est la translation du
+vecteur <span class="math inline">\(\overrightarrow{V}_0\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="translation.png" alt="image" /></p>
+</div>
+</div>
+<h2 data-number="4.2" id="cas-a-neq-1"><span
+class="header-section-number">4.2</span> Cas <span
+class="math inline">\(a \neq 1\)</span></h2>
+<p>Il existe <span class="math inline">\(z_0 \in \mathbb{C}\)</span>
+unique tel que <span class="math inline">\(f(z_0) = z_0\)</span>. En
+effet, <span class="math display">\[f(z) = z \iff az+b = z \iff z =
+\frac{b}{1-a}.\]</span> Alors, pour tout <span class="math inline">\(z
+\in \mathbb{C}\)</span>,</p>
+<p><span class="math display">\[f(z) = az+b = az + (1-a)a_0 =
+z_0+a(z-z_0).\]</span></p>
+<h3 data-number="4.2.1" id="si-a-in-mathbbr-neq-0-neq-1"><span
+class="header-section-number">4.2.1</span> Si <span
+class="math inline">\(a \in \mathbb{R}, \neq 0, \neq 1\)</span></h3>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\(\Omega\)</span> le point du plan
+d’affixe <span class="math inline">\(z_0\)</span> alors <span
+class="math inline">\(\overrightarrow{\Omega M&#39;}= a
+\overrightarrow{\Omega M}\)</span>. <span
+class="math inline">\(F\)</span> est appelée l’homothétie de centre
+<span class="math inline">\(\Omega\)</span>, de rapport <span
+class="math inline">\(a\)</span>.</p>
+<div class="wrem">
+<p>Si <span class="math inline">\(a = -1\)</span>, <span
+class="math inline">\(F\)</span> est la symétrie de centre <span
+class="math inline">\(\Omega\)</span>.</p>
+</div>
+</div>
+<div class="webimg">
+<p><img src="homothetie.png" alt="image" /></p>
+</div>
+</div>
+<h3 data-number="4.2.2" id="si-a-notin-mathbbr-et-a-1"><span
+class="header-section-number">4.2.2</span> Si <span
+class="math inline">\(a \notin \mathbb{R}\)</span> et <span
+class="math inline">\(|a| = 1\)</span></h3>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Alors, il existe <span class="math inline">\(\theta \in ]0,2\pi[,
+\neq \pi\)</span> tel que <span class="math inline">\(a =
+e^{i\theta}\)</span>.</p>
+<p>De plus, <span class="math inline">\(\forall z \in \mathbb{C},
+f(z)-z_0 = e^{i\theta}(z-z_0)\)</span>.</p>
+<p>On a alors <span class="math inline">\(\|\overrightarrow{\Omega
+M&#39;}\| = \|\overrightarrow{\Omega M}\| = |z-z_0|\)</span>.</p>
+<p>De plus, si <span class="math inline">\(M \neq \Omega\)</span>, une
+mesure de l’angle entre <span
+class="math inline">\(\overrightarrow{\Omega M}\)</span> et <span
+class="math inline">\(\overrightarrow{\Omega M&#39;}\)</span> est <span
+class="math inline">\(\theta\)</span>.</p>
+<p><span class="math inline">\(F\)</span> est alors la rotation de
+centre <span class="math inline">\(\Omega\)</span>, d’angle <span
+class="math inline">\(\theta\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="rotation.png" alt="image" /></p>
+</div>
+</div>
+<h3 data-number="4.2.3" id="cas-général-où-a-notin-mathbbr"><span
+class="header-section-number">4.2.3</span> Cas général où <span
+class="math inline">\(a \notin \mathbb{R}\)</span></h3>
+<p>Alors, il existe <span class="math inline">\(\theta \in ]0,2\pi[,
+\neq \pi\)</span> tel que <span class="math inline">\(a =
+|a|e^{i\theta}\)</span>.</p>
+<p>On introduit <span class="math inline">\(\begin{array}{lllll}
+g &amp; : &amp; \mathbb{C}&amp; \to &amp; \mathbb{C}\\
+&amp; &amp; z  &amp; \mapsto &amp; z_0+e^{i\theta}(z-z_0) \\
+\end{array}\)</span> et <span class="math inline">\(\begin{array}{lllll}
+h &amp; : &amp; \mathbb{C}&amp; \to &amp; \mathbb{C}\\
+&amp; &amp; z  &amp; \mapsto &amp; z_0+|a|(z-z_0) \\
+\end{array}.\)</span> Soit <span class="math inline">\(z \in
+\mathbb{C}\)</span>,</p>
+<p><span class="math inline">\(h(g(z)) =
+z_0+|a|(g(z)-z_0)z_0+|a|e^{i\theta}(z-z_0) = f(z)\)</span>.</p>
+<p>Soient <span class="math inline">\(\begin{array}{lllll}
+G &amp; : &amp; \mathscr{P} &amp; \to &amp; \mathscr{P} \\
+&amp; &amp; M &amp; \mapsto &amp; G(M) \\
+\end{array}\)</span> et <span class="math inline">\(\begin{array}{lllll}
+H &amp; : &amp; \mathscr{P} &amp; \to &amp; \mathscr{P} \\
+&amp; &amp; M &amp; \mapsto &amp; H(M) \\
+\end{array}\)</span> qui correspondent aux transformations géométrique
+de <span class="math inline">\(g\)</span> et <span
+class="math inline">\(h\)</span> alors <span class="math inline">\(F(M)
+= H(G(M))\)</span>.</p>
+<p>Or, d’après ce qui précède, <span class="math inline">\(G\)</span>
+est la rotation de centre <span class="math inline">\(\Omega\)</span>,
+d’angle <span class="math inline">\(\theta\)</span> et <span
+class="math inline">\(H\)</span> est l’homothétie de centre <span
+class="math inline">\(\Omega\)</span>, de rapport <span
+class="math inline">\(|a|\)</span>.</p>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Dans ce cas, <span class="math inline">\(F\)</span> est la similitude
+directe de centre <span class="math inline">\(\Omega\)</span>, de mesure
+<span class="math inline">\(\theta\)</span> et de rapport <span
+class="math inline">\(|a|\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="similitude.png" alt="image" /></p>
+</div>
+</div>
+<div class="wex">
+<p><strong>(Etude d’une simulitude directe)</strong></p>
+<div class="exo*">
+<p>Etudier <span class="math display">\[\begin{array}{lllll}
+f &amp; : &amp; \mathbb{C}&amp; \to &amp; \mathbb{C}\\
+&amp; &amp; z  &amp; \mapsto &amp; (1-i\sqrt{3})z+\sqrt{3}(1-2i) \\
+\end{array}.\]</span></p>
+</div>
+<div class="corri*">
+<p>Notons que <span class="math inline">\(a = (1-i\sqrt{3}) \neq
+1\)</span>.</p>
+<p>On a donc <span class="math inline">\(z_0 = \frac{b}{1-a} =
+i+2\)</span>.</p>
+<p>De plus, <span class="math inline">\(a = 1-i\sqrt{3} =
+2\left(\frac{1}{2}-i\frac{\sqrt{3}}{2}\right) =
+2e^{-i\frac{\pi}{3}}\)</span>.</p>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Donc <span class="math inline">\(F\)</span> est la similitude directe
+de centre <span class="math inline">\((2,1)\)</span>, de mesure <span
+class="math inline">\(-\frac{\pi}{3}\)</span> et de rapport <span
+class="math inline">\(2\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="similitude_ex.png" alt="image" /></p>
+</div>
+</div>
+</div>
+</div>
+<div class="wrem">
+<p><strong>(Isométries du plan)</strong> Soient <span
+class="math inline">\(M_1 \in \mathscr{P}\)</span>, d’affixe <span
+class="math inline">\(z_1\)</span> et <span class="math inline">\(M_2
+\in \mathscr{P}\)</span>, d’affixe <span
+class="math inline">\(z_2\)</span>,</p>
+<p><span
+class="math display">\[\|\overrightarrow{OF(M_1)}-\overrightarrow{OF(M_2)}\|
+= |f(z_1)-f(z_2)| = |a||z_1-z_2| =
+|a|\|\overrightarrow{OM_1}-\overrightarrow{OM_2}\|\]</span></p>
+<p>Si <span class="math inline">\(|a|=1\)</span>, <span
+class="math inline">\(F\)</span> est dite isométrie du plan <span
+class="math inline">\(\mathscr{P}\)</span>.</p>
+</div>
+</body>
+</html>
+
+<script>
+
+
+const toggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Appliquer le thème au chargement
+const currentTheme = localStorage.getItem('theme') || 'default';
+body.setAttribute('data-md-color-scheme', currentTheme);
+
+toggle.addEventListener('click', () => {
+    let scheme = body.getAttribute('data-md-color-scheme');
+    let newScheme = (scheme === 'default') ? 'slate' : 'default';
+    
+    body.setAttribute('data-md-color-scheme', newScheme);
+    localStorage.setItem('theme', newScheme);
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+let secCount = -1;
+let thmCount = -1;
+
+let labels = {};
+
+const noms = {
+'wthm':'Théorème',
+'wprop':'Proposition',
+'wdefi':'Définition',
+'wlem':'Lemme',
+'wcor':'Corollaire',
+'wappli':'Application',
+'wrem':'Remarque',
+'wrappel': 'Rappel',
+'wex':'Exemple',
+'wproof':'Preuve'
+};
+
+//////////////////////////////////////////////////////////////////////////////
+// Numérotation des environnements
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll(
+"h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex, .wrappel,.wproof"
+).forEach(el => {
+
+    if (
+        el.tagName.toLowerCase() === "h1"
+        && !el.closest("#TOC")
+    ) {
+
+        secCount++;
+        thmCount = 0;
+    }
+
+    else if (noms[Array.from(el.classList).find(c => noms[c])]) {
+
+        let type = Array.from(el.classList).find(c => noms[c]);
+
+        if (type !== 'wproof') {
+
+            thmCount++;
+
+            let num = secCount + "." + thmCount;
+
+            let id = el.querySelector("span[id]")
+                ? el.querySelector("span[id]").id
+                : null;
+
+            if(id) {
+                labels[id] = {
+                    num: num,
+                    type: type.substring(1)
+                };
+            }
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                let strong = p.querySelector("strong");
+
+                let title = (
+                    strong &&
+                    strong.innerText.includes("(")
+                )
+
+                ? ` <span class="env-title">${strong.outerHTML}</span>`
+                : "";
+
+                if (title) strong.remove();
+
+                p.innerHTML =
+                    `<strong class="env-header">${noms[type]} ${num}</strong>`
+                    + title
+                    + " — "
+                    + p.innerHTML;
+            }
+        }
+
+        else {
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                p.innerHTML =
+                    `<strong class="env-header">Preuve</strong> — `
+                    + p.innerHTML;
+            }
+        }
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Capture des équations MathJax
+//////////////////////////////////////////////////////////////////////////////
+
+setTimeout(() => {
+
+document.querySelectorAll("mjx-math[display='true']").forEach((el, index) => {
+
+    let num = el.querySelector(".mjx-eqn-number");
+
+    if (num) {
+
+        let val = num.innerText.replace(/[()]/g, '');
+
+        let id = el.id || "eq-" + index;
+
+        el.id = id;
+
+        labels[id] = {
+            num: val,
+            type: 'eq'
+        };
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Remplacement des références
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll("body *").forEach(el => {
+
+    if (
+        el.childNodes.length === 1 &&
+        el.childNodes[0].nodeType === Node.TEXT_NODE
+    ) {
+
+        el.innerHTML = el.innerHTML
+
+        .replace(/\\eqref\{(.*?)\}/g, (m, id) => {
+
+            return labels[id]
+                ? `<a href="#${id}">(${labels[id].num})</a>`
+                : m;
+        })
+
+        .replace(
+            /\[(prop|thm|def|cor|lem|appli|rem|rappel|ex):(.*?)\]/g,
+
+            (m, t, id) => {
+
+                let f = t + ":" + id;
+
+                return labels[f]
+                    ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>`
+                    : m;
+            }
+        );
+    }
+});
+
+}, 800);
+
+});
+
+</script>
+

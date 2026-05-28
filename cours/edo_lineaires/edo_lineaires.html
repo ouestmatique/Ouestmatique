@@ -1,0 +1,2017 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Équations différentielles linéaires</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+
+<header class="site-header">
+
+<div class="site-header-left">
+<a href="/">
+<img src="/assets/logo.svg" class="site-logo" alt="Logo">
+</a>
+</div>
+
+<div class="site-header-right">
+   <button id="theme-toggle"
+style="
+margin-right: 15px;
+cursor: pointer;
+background: transparent;
+border: none;
+font-size: 1.1rem;
+color: var(--md-primary-bg-color);
+">
+🌙 / ☀️
+</button>
+    <a href="/" class="home-link">Retour à l’accueil</a>
+</div>
+
+</header>
+
+
+<header id="title-block-header">
+
+<h1 class="title">Équations différentielles linéaires</h1>
+<p class="pdf-link">
+<a href="edo_lineaires.pdf" target="_blank">[PDF]</a>
+</p>
+
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#équations-différentielles-linéaires-dordre-1"
+id="toc-équations-différentielles-linéaires-dordre-1"><span
+class="toc-section-number">1</span> Équations différentielles linéaires
+d’ordre 1</a>
+<ul>
+<li><a href="#définition" id="toc-définition"><span
+class="toc-section-number">1.1</span> Définition</a></li>
+<li><a
+href="#ensemble-des-solutions-de-eqrefeqedo_lin_ordre_unen-supposant-une-solution-y_0-connue"
+id="toc-ensemble-des-solutions-de-eqrefeqedo_lin_ordre_unen-supposant-une-solution-y_0-connue"><span
+class="toc-section-number">1.2</span> Ensemble des solutions de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span>en supposant
+une solution <span class="math inline">\(y_0\)</span> connue</a></li>
+<li><a
+href="#ensemble-des-solutions-de-léquation-homogène-eqrefeqedo_lin_ordre_un_homogene"
+id="toc-ensemble-des-solutions-de-léquation-homogène-eqrefeqedo_lin_ordre_un_homogene"><span
+class="toc-section-number">1.3</span> Ensemble des solutions de
+l’équation homogène <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un_homogene}\)</span></a></li>
+<li><a
+href="#recherche-dune-solution-particulière-de-eqrefeqedo_lin_ordre_un"
+id="toc-recherche-dune-solution-particulière-de-eqrefeqedo_lin_ordre_un"><span
+class="toc-section-number">1.4</span> Recherche d’une solution
+particulière de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span></a></li>
+<li><a
+href="#recherche-dune-solution-de-eqrefeqedo_lin_ordre_unsatisfaisant-une-condition-initiale"
+id="toc-recherche-dune-solution-de-eqrefeqedo_lin_ordre_unsatisfaisant-une-condition-initiale"><span
+class="toc-section-number">1.5</span> Recherche d’une solution de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span>satisfaisant
+une condition initiale</a></li>
+<li><a href="#extension-au-cas-de-fonctions-à-valeurs-dans-mathbbc"
+id="toc-extension-au-cas-de-fonctions-à-valeurs-dans-mathbbc"><span
+class="toc-section-number">1.6</span> Extension au cas de fonctions à
+valeurs dans <span class="math inline">\(\mathbb{C}\)</span></a>
+<ul>
+<li><a
+href="#continuité-et-dérivabilité-dune-fonction-à-valeurs-dans-mathbbc"
+id="toc-continuité-et-dérivabilité-dune-fonction-à-valeurs-dans-mathbbc"><span
+class="toc-section-number">1.6.1</span> Continuité et dérivabilité d’une
+fonction à valeurs dans <span
+class="math inline">\(\mathbb{C}\)</span></a></li>
+<li><a
+href="#équations-différentielles-linéaires-dordre-1-avec-des-fonctions-à-valeurs-dans-mathbbc"
+id="toc-équations-différentielles-linéaires-dordre-1-avec-des-fonctions-à-valeurs-dans-mathbbc"><span
+class="toc-section-number">1.6.2</span> Équations différentielles
+linéaires d’ordre <span class="math inline">\(1\)</span> avec des
+fonctions à valeurs dans <span
+class="math inline">\(\mathbb{C}\)</span></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#primitives-usuelles" id="toc-primitives-usuelles"><span
+class="toc-section-number">2</span> Primitives usuelles</a></li>
+<li><a href="#équations-différentielles-linéaires-du-second-ordre"
+id="toc-équations-différentielles-linéaires-du-second-ordre"><span
+class="toc-section-number">3</span> Équations différentielles linéaires
+du second ordre</a>
+<ul>
+<li><a href="#définition-1" id="toc-définition-1"><span
+class="toc-section-number">3.1</span> Définition</a></li>
+<li><a
+href="#ensemble-des-solutions-de-eqrefeqedo_lin_ordre_deuxen-supposant-une-solution-y_0-connue"
+id="toc-ensemble-des-solutions-de-eqrefeqedo_lin_ordre_deuxen-supposant-une-solution-y_0-connue"><span
+class="toc-section-number">3.2</span> Ensemble des solutions de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux}\)</span>en supposant
+une solution <span class="math inline">\(y_0\)</span> connue</a></li>
+<li><a
+href="#résolution-de-eqrefeqedo_lin_ordre_deux_homogenedans-le-cas-où-abc-sont-constantes"
+id="toc-résolution-de-eqrefeqedo_lin_ordre_deux_homogenedans-le-cas-où-abc-sont-constantes"><span
+class="toc-section-number">3.3</span> Résolution de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_homogene}\)</span>dans
+le cas où <span class="math inline">\(a,b,c\)</span> sont
+constantes</a></li>
+<li><a
+href="#résolution-de-eqrefeqedo_lin_ordre_deux_homogene_constantesdans-le-cas-où-abc-sont-des-constantes-réelles"
+id="toc-résolution-de-eqrefeqedo_lin_ordre_deux_homogene_constantesdans-le-cas-où-abc-sont-des-constantes-réelles"><span
+class="toc-section-number">3.4</span> Résolution de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_homogene_constantes}\)</span>dans
+le cas où <span class="math inline">\(a,b,c\)</span> sont des constantes
+réelles</a></li>
+<li><a
+href="#résolution-de-eqrefeqedo_lin_ordre_deuxdans-des-cas-particuliers-avec-abc-constantes"
+id="toc-résolution-de-eqrefeqedo_lin_ordre_deuxdans-des-cas-particuliers-avec-abc-constantes"><span
+class="toc-section-number">3.5</span> Résolution de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux}\)</span>dans des cas
+particuliers avec <span class="math inline">\(a,b,c\)</span>
+constantes</a>
+<ul>
+<li><a href="#cas-dt-aealpha-t" id="toc-cas-dt-aealpha-t"><span
+class="toc-section-number">3.5.1</span> Cas <span
+class="math inline">\(d(t) = Ae^{\alpha t}\)</span></a></li>
+<li><a
+href="#cas-où-abc-in-mathbbr-et-dt-acosomega-t-avec-a-in-mathbbr-omega-in-mathbbrstar"
+id="toc-cas-où-abc-in-mathbbr-et-dt-acosomega-t-avec-a-in-mathbbr-omega-in-mathbbrstar"><span
+class="toc-section-number">3.5.2</span> Cas où <span
+class="math inline">\(a,b,c \in \mathbb{R}\)</span> et <span
+class="math inline">\(d(t) = A\cos(\omega t)\)</span> avec <span
+class="math inline">\(A \in \mathbb{R}, \omega \in
+\mathbb{R}^{\star}\)</span></a></li>
+</ul></li>
+<li><a
+href="#existence-et-unicité-dune-solution-deeqrefeqedo_lin_ordre_deux_constantessatisfaisant-deux-conditions-initiales"
+id="toc-existence-et-unicité-dune-solution-deeqrefeqedo_lin_ordre_deux_constantessatisfaisant-deux-conditions-initiales"><span
+class="toc-section-number">3.6</span> Existence et unicité d’une
+solution de<span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_constantes}\)</span>satisfaisant
+deux conditions initiales</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1"
+id="équations-différentielles-linéaires-dordre-1"><span
+class="header-section-number">1</span> Équations différentielles
+linéaires d’ordre 1</h1>
+<h2 data-number="1.1" id="définition"><span
+class="header-section-number">1.1</span> Définition</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(a : I \to \mathbb{R}, b: I \to
+\mathbb{R}\)</span> continues sur <span
+class="math inline">\(I\)</span>, intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>. L’équation différentielle
+linéaire d’ordre 1 associée à <span class="math inline">\(a\)</span> et
+<span class="math inline">\(b\)</span> s’écrit <span
+class="math display">\[\label{eq:edo_lin_ordre_un}
+        \tag{$E_1$}
+        y&#39;(t) = a(t)y(t)+b(t).\]</span> Une solution de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span>sur <span
+class="math inline">\(I\)</span> est une fonction <span
+class="math inline">\(y\)</span> de <span
+class="math inline">\(I\)</span> dans <span
+class="math inline">\(\mathbb{R}\)</span> dérivable sur <span
+class="math inline">\(I\)</span> telle que <span
+class="math display">\[\forall t \in I, y&#39;(t) =
+a(t)y(t)+b(t).\]</span></p>
+</div>
+<div class="wex">
+<ul>
+<li><p>Si <span class="math inline">\(a\)</span> est la fonction
+nulle,<span class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span>se
+réduit à <span class="math display">\[\tag{$E_1$}
+        y&#39;(t) = b(t)\]</span> et alors <span
+class="math display">\[y \text{ solution
+de~$\eqref{eq:edo_lin_ordre_un}$} \iff y \text{ est une primitive de $b$
+sur $I$}.\]</span></p></li>
+<li><p>Si pour tout <span class="math inline">\(t \in I, a(t) = 1, b(t)
+= 0\)</span> ,<span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span>se réduit à
+<span class="math display">\[\label{eq:ex_exp}
+            \tag{$E_1$}
+        y&#39;(t) = y(t)\]</span> et alors <span
+class="math inline">\(\begin{array}{lllll}
+y_0 &amp; : &amp; I &amp; \to &amp; \mathbb{R}\\
+&amp; &amp; t  &amp; \mapsto &amp; e^t \\
+\end{array}.\)</span> est solution de <span
+class="math inline">\(\eqref{eq:ex_exp}\)</span>sur <span
+class="math inline">\(I\)</span>.</p>
+<p>Soit <span class="math inline">\(C \in \mathbb{R}\)</span>, notons
+que les fonctions <span class="math inline">\(\begin{array}{lllll}
+y &amp; : &amp; I &amp; \to &amp; \mathbb{R}\\
+&amp; &amp; t  &amp; \mapsto &amp; Ce^t \\
+\end{array}.\)</span> sont aussi solutions de <span
+class="math inline">\(\eqref{eq:ex_exp}\)</span>sur <span
+class="math inline">\(I\)</span>.</p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>Soient <span class="math inline">\(a : I \to \mathbb{R}, b: I \to
+\mathbb{R}, c: I \to \mathbb{R}\)</span> continues sur <span
+class="math inline">\(I\)</span>, intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>. On peut considérer l’équation
+différentielle linéaire associée à <span
+class="math inline">\(a,b,c\)</span> : <span
+class="math display">\[\label{eq:edo_non_resolue}
+            \tag{$F_1$}
+        c(t)y&#39;(t) = a(t)y(t)+b(t)\]</span> qui est équivalente à la
+formulation de la définition si pour <span class="math inline">\(t \in
+I, c(t) \neq 0\)</span> parce qu’alors <span
+class="math display">\[y&#39;(t) =
+\frac{a(t)}{c(t)}y(t)+\frac{b(t)}{c(t)}.\]</span></p>
+<p>Si <span class="math inline">\(c\)</span> s’annule sur <span
+class="math inline">\(I\)</span>, on dit que<span
+class="math inline">\(\eqref{eq:edo_non_resolue}\)</span>est non résolue
+sur <span class="math inline">\(I\)</span> et son étude est plus
+compliquée que ce qui suit.</p>
+</div>
+<h2 data-number="1.2"
+id="ensemble-des-solutions-de-eqrefeqedo_lin_ordre_unen-supposant-une-solution-y_0-connue"><span
+class="header-section-number">1.2</span> Ensemble des solutions de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span>en supposant
+une solution <span class="math inline">\(y_0\)</span> connue</h2>
+<p>Considérons <span class="math display">\[\tag{$E_1$}
+        y&#39;(t) = a(t)y(t)+b(t).\]</span> sur <span
+class="math inline">\(I\)</span> et supposons qu’elle possède une
+solution <span class="math inline">\(y_0 : I \to \mathbb{R}\)</span> sur
+<span class="math inline">\(I\)</span>. Cela signifie que pour tout
+<span class="math inline">\(t\in I\)</span>, <span
+class="math inline">\(y_0&#39;(t) = a(t)y_0(t)+b(t)\)</span>.</p>
+<p>Recherchons les autres solutions. Soit <span class="math inline">\(y:
+I \to \mathbb{R}\)</span>, <span class="math display">\[\begin{aligned}
+    \text{$y$ solution de~$\eqref{eq:edo_lin_ordre_un}$sur $I$}
+    &amp; \iff \text{$y$ dérivable sur $I$} \text{ et }\forall t \in I,
+y&#39;(t) = a(t)y(t)+b(t) \\
+    &amp; \iff \text{$y$ dérivable sur $I$} \text{ et }\forall t \in I,
+y&#39;(t)-y_0&#39;(t) = a(t)(y(t)-y_0(t)) \\
+    &amp; \iff \text{$y$ dérivable sur $I$} \text{ et }\forall t \in I,
+(y-y_0)&#39;(t) = a(t)(y-y_0)(t). \\  
+\end{aligned}\]</span></p>
+<div class="wdefi">
+<p><strong>(Équation différentielle homogène)</strong> On considère
+l’équation différentielle <span
+class="math display">\[\label{eq:edo_lin_ordre_un_homogene}
+        \tag{$H_1$}
+        z&#39;(t) = a(t)z(t).\]</span> appelée <u>équation
+différentielle homogène associée à <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span></u>.</p>
+</div>
+<p>On a alors <span class="math display">\[\begin{aligned}
+    \text{$y$ solution de~$\eqref{eq:edo_lin_ordre_un}$sur $I$}
+    &amp; \iff \text{ $z := y-y_0$ solution
+de~$\eqref{eq:edo_lin_ordre_un_homogene}$sur $I$}.  
+\end{aligned}\]</span></p>
+<div class="wrem">
+<p>Si <span class="math inline">\(z\)</span> est solution de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un_homogene}\)</span>sur
+<span class="math inline">\(I\)</span> alors <span
+class="math inline">\(z\)</span> est dérivable sur <span
+class="math inline">\(I\)</span> donc <span class="math inline">\(y =
+y_0+z\)</span> est dérivable sur <span
+class="math inline">\(I\)</span>.</p>
+</div>
+<div class="wprop">
+<p>En notant <span
+class="math inline">\(\mathcal{S}_\eqref{eq:edo_lin_ordre_un}\)</span>
+l’ensemble des solutions de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span>sur <span
+class="math inline">\(I\)</span> alors <span
+class="math display">\[\mathcal{S}_\eqref{eq:edo_lin_ordre_un} :=
+\{y_0+z / z \text{ solution de~$\eqref{eq:edo_lin_ordre_un_homogene}$sur
+$I$}\}\]</span></p>
+</div>
+<h2 data-number="1.3"
+id="ensemble-des-solutions-de-léquation-homogène-eqrefeqedo_lin_ordre_un_homogene"><span
+class="header-section-number">1.3</span> Ensemble des solutions de
+l’équation homogène <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un_homogene}\)</span></h2>
+<p>Supposons que <span class="math inline">\(z\)</span> est strictement
+positive sur <span class="math inline">\(I\)</span>. Alors <span
+class="math display">\[\begin{aligned}
+    &amp; z \text{ solution de~$\eqref{eq:edo_lin_ordre_un_homogene}$sur
+$I$} \\
+    &amp; \iff \text{ $z$ dérivable sur $I$ et $\forall t \in I,
+z&#39;(t) = a(t)z(t)$} \\
+    &amp; \iff \text{ $z$ dérivable sur $I$ et $\forall t \in I,
+\frac{z&#39;(t)}{z(t)} = a(t)$ ($z$ ne s&#39;annule pas sur $I$)}\\
+    &amp; \iff \text{ $z$ dérivable sur $I$ et $\forall t \in I, (\ln
+\circ z)&#39;(t) = a(t)$ ($z$ strictement positive sur $I$)}\\
+    &amp; \iff \text{ $z$ dérivable sur $I$ et $\forall t \in I, (\ln (
+z(t)) = A(t) + C$  avec $A$ primitive de $a$ et $C \in \mathbb{R}$}\\
+    &amp; \iff \text{ $z$ dérivable sur $I$ et $\forall t \in I, z(t) =
+C&#39;e^{A(t)}$  avec $A$ primitive de $a$ et $C&#39; \in
+\mathbb{R}^{+\star}$.}
+\end{aligned}\]</span> Cela correspond effectivement aux solutions
+de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un_homogene}\)</span>au
+détail du signe près.</p>
+<div class="wprop">
+<p><strong>(Ensemble des solutions de l’équation homogène <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un_homogene}\)</span>)</strong>
+L’ensemble des solutions de l’équation homogène <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un_homogene}\)</span>sur
+<span class="math inline">\(I\)</span> s’écrit <span
+class="math display">\[\mathcal{S}_\eqref{eq:edo_lin_ordre_un_homogene}
+= \{t \in I \mapsto Ce^{A(t)}/ C\in \mathbb{R}\}\]</span> avec <span
+class="math inline">\(A\)</span> une primitive de <span
+class="math inline">\(a\)</span>.</p>
+</div>
+<div class="wproof">
+<p>D’abord, <span class="math inline">\(a\)</span> est continue sur
+<span class="math inline">\(I\)</span> donc admet bien une primitive.
+Ensuite, faisons la preuve par double inclusion.</p>
+<ul>
+<li><p>Soit <span class="math inline">\(C \in \mathbb{R}\)</span>, en
+posant <span class="math inline">\(z : t \in I \mapsto
+Ce^{A(t)}\)</span>, <span class="math inline">\(z\)</span> est dérivable
+sur <span class="math inline">\(I\)</span> et <span
+class="math display">\[\forall t \in I, z&#39;(t) = a(t)Ce^{A(t)} =
+a(t)z(t)\]</span> donc <span class="math inline">\(z\)</span> est
+solution de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un_homogene}\)</span>sur
+<span class="math inline">\(I\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(z\)</span> solution de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un_homogene}\)</span>sur
+<span class="math inline">\(I\)</span>, on pose <span
+class="math inline">\(f : t \in I \mapsto z(t)e^{-A(t)}\)</span>.
+Montrons que <span class="math inline">\(f\)</span> est constante sur
+<span class="math inline">\(I\)</span>. <span
+class="math display">\[\forall t \in I, f&#39;(t) =
+z&#39;(t)e^{-A(t)}-a(t)z(t)e^{-A(t)} =
+a(t)z(t)e^{-A(t)}-a(t)z(t)e^{-A(t)} = 0\]</span> Or <span
+class="math inline">\(I\)</span> est un intervalle donc <span
+class="math inline">\(f\)</span> est constante sur <span
+class="math inline">\(I\)</span>. Il existe donc <span
+class="math inline">\(C \in \mathbb{R}\)</span> tel que <span
+class="math display">\[\forall t \in I, z(t)e^{-A(t)} = C \iff \forall t
+\in I,  z(t)=Ce^{A(t)}.\]</span></p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>Pourquoi cela ne dépend pas de la primitive de <span
+class="math inline">\(a\)</span> ? Si on note <span
+class="math inline">\(B\)</span>, une autre primitive de <span
+class="math inline">\(a\)</span>, il existe <span
+class="math inline">\(c \in \mathbb{R}\)</span> tel que <span
+class="math inline">\(B = A+c\)</span>. Donc pour <span
+class="math inline">\(C \in \mathbb{R}, Ce^{A(t)} = Ce^{B(t)-c} =
+C&#39;e^{B(t)}\)</span> avec <span class="math inline">\(C&#39; =
+Ce^{-c}\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(z\)</span> solution de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un_homogene}\)</span>sur
+<span class="math inline">\(I\)</span> alors soit <span
+class="math inline">\(z\)</span> est nulle, soit <span
+class="math inline">\(z\)</span> ne s’annule pas sur <span
+class="math inline">\(I\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(z\)</span> solution de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un_homogene}\)</span>sur
+<span class="math inline">\(I\)</span> alors il existe <span
+class="math inline">\(C \in \mathbb{R}\)</span> tel que <span
+class="math inline">\(\forall t \in I, z(t) = Ce^{A(t)}\)</span>. Soit
+<span class="math inline">\(C = 0\)</span> et <span
+class="math inline">\(z\)</span> est nulle, soit <span
+class="math inline">\(C \neq 0\)</span> et <span
+class="math inline">\(z\)</span> ne s’annule pas sur <span
+class="math inline">\(I\)</span>.</p>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Résoudre sur <span class="math inline">\(\mathbb{R}\)</span> : <span
+class="math display">\[\label{eq:ex1_homogene}
+            \tag{$Ex_1$}
+            (e^t+1)z&#39;(t) = 2z(t)\]</span></p>
+</div>
+<div class="corri*">
+<p><span class="math inline">\(z\)</span> solution sur <span
+class="math inline">\(\mathbb{R}\)</span> de <span
+class="math inline">\(\eqref{eq:ex1_homogene}\)</span> <span
+class="math inline">\(\iff\)</span> <span
+class="math inline">\(z\)</span> dérivable sur <span
+class="math inline">\(\mathbb{R}\)</span> et <span
+class="math inline">\(z\)</span> solution de <span
+class="math inline">\((F&#39;_0) : z&#39;(t) =
+\frac{2}{e^t+1}z(t)\)</span> (<span class="math inline">\(t \in
+\mathbb{R}\mapsto e^t+1\)</span> est non nulle.)</p>
+<p>On retombe donc sur le cas des propositions précédents et il suffit
+de déterminer une primitive de <span class="math inline">\(a: t\in
+\mathbb{R}\mapsto \frac{2}{e^t+1}\)</span>.</p>
+<p>Or, la primitive de <span class="math inline">\(a\)</span> qui
+s’annule en <span class="math inline">\(0\)</span> s’écrit <span
+class="math inline">\(A(x) = \int_0^x \frac{2}{e^t+1}dt\)</span>.</p>
+<p>En faisant le changement de variables <span class="math inline">\(u =
+e^t\)</span>, on a <span class="math inline">\(du = e^t dt \iff dt =
+\frac{du}{u}\)</span> et donc</p>
+<p><span class="math display">\[A(x) = \int_1^{e^x}
+\frac{2}{u+1}\frac{du}{u}\]</span></p>
+<p>De plus, pour <span class="math inline">\(u &gt; 0\)</span>, <span
+class="math inline">\(\frac{1}{u(u+1)} =
+\frac{1}{u}-\frac{1}{u+1}\)</span></p>
+<p>donc <span class="math display">\[\begin{aligned}
+        A(x)
+        &amp; =
+2\int_1^{e^x}\frac{1}{u}\frac{du}{u}-2\int_1^{e^x}\frac{1}{u+1}\frac{du}{u}
+\\
+        &amp; = 2[\ln u]_1^{e^x} -  2[\ln (1+u)]_1^{e^x} \\
+        &amp; = 2x-2\ln(1+e^x)+\text{Cste}.
+        \end{aligned}\]</span></p>
+<p>Donc les solutions de <span
+class="math inline">\(\eqref{eq:ex1_homogene}\)</span>sur <span
+class="math inline">\(\mathbb{R}\)</span> s’écrivent</p>
+<p><span class="math display">\[z : t \in \mathbb{R}\mapsto
+Ce^{2t-2\ln(1+e^t)} = C\frac{e^{2t}}{(1+e^t)^2}, C \in
+\mathbb{R}.\]</span></p>
+</div>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Résoudre sur <span class="math inline">\(]-1,1[\)</span> : <span
+class="math display">\[\label{eq:ex2_homogene}
+            \tag{$Ex_2$}
+            z&#39;(t) = \sqrt{1-t^2}z(t)\]</span></p>
+</div>
+<div class="corri*">
+<p>Il suffit de déterminer une primitive de <span
+class="math inline">\(a: t\in ]-1,1[ \mapsto \sqrt{1-t^2}\)</span>.</p>
+<p>Or, la primitive de <span class="math inline">\(a\)</span> qui
+s’annule en <span class="math inline">\(0\)</span> s’écrit <span
+class="math inline">\(A(x) = \int_0^x \sqrt{1-t^2}dt\)</span>.</p>
+<p>En faisant le changement de variables <span class="math inline">\(t =
+\sin u\)</span>, on a <span class="math inline">\(dt = \cos u
+du\)</span> et donc</p>
+<p><span class="math display">\[\begin{aligned}
+        A(x)
+        &amp; = \int_{0}^{\mathop{\mathrm{Arcsin}}(x)} \sqrt{1-\sin^2 u}
+\cos u du \\
+        &amp; =\int_{0}^{\mathop{\mathrm{Arcsin}}(x)} \cos^2 u du\\
+        \end{aligned}\]</span></p>
+<p>Or, <span class="math inline">\(\cos^2 u = \frac{1+\cos
+2u}{2}\)</span> donc</p>
+<p><span class="math display">\[\begin{aligned}
+        A(x)
+        &amp;
+=\frac{1}{2}\int_{0}^{\mathop{\mathrm{Arcsin}}(x)}du+\frac{1}{2}\int_{0}^{\mathop{\mathrm{Arcsin}}(x)}
+\cos(2u)du\\
+        &amp; = \frac{1}{2}\mathop{\mathrm{Arcsin}}(x) +
+\frac{1}{4}\left[\sin(2u)\right]_0^{\mathop{\mathrm{Arcsin}}(x)} \\
+        &amp; =
+\frac{1}{2}\mathop{\mathrm{Arcsin}}(x)+\frac{1}{4}\sin(2\mathop{\mathrm{Arcsin}}(x)).
+        \end{aligned}\]</span></p>
+<p>Or, comme <span class="math inline">\(\sin(2x) =
+2\cos(x)\sin(x)\)</span>,</p>
+<p><span class="math display">\[\sin(2\mathop{\mathrm{Arcsin}}(x)) =
+2\cos(\mathop{\mathrm{Arcsin}}(x))\sin(\mathop{\mathrm{Arcsin}}(x)) =
+2x\sqrt{1-x^2}\]</span></p>
+<p>donc <span class="math display">\[\begin{aligned}
+        A(x)
+        &amp; =
+\frac{1}{2}\mathop{\mathrm{Arcsin}}(x)+\frac{1}{2}x\sqrt{1-x^2}
+        \end{aligned}\]</span></p>
+<p>Donc les solutions de <span
+class="math inline">\(\eqref{eq:ex1_homogene}\)</span>sur <span
+class="math inline">\(\mathbb{R}\)</span> s’écrivent</p>
+<p><span class="math display">\[z : t \in \mathbb{R}\mapsto
+Ce^{\frac{1}{2}\mathop{\mathrm{Arcsin}}(t)+\frac{1}{2}t\sqrt{1-t^2}}, C
+\in \mathbb{R}.\]</span></p>
+</div>
+</div>
+<h2 data-number="1.4"
+id="recherche-dune-solution-particulière-de-eqrefeqedo_lin_ordre_un"><span
+class="header-section-number">1.4</span> Recherche d’une solution
+particulière de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span></h2>
+<p>Rappelons l’expression de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span>: <span
+class="math display">\[\tag{$E_1$}
+        y&#39;(t) = a(t)y(t)+b(t).\]</span></p>
+<p>On connaît la forme des solutions sur <span
+class="math inline">\(I\)</span> de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span> <span
+class="math inline">\(\mathcal{S}_\eqref{eq:edo_lin_ordre_un} := \{y_0+z
+/ z \text{ solution de~$\eqref{eq:edo_lin_ordre_un_homogene}$sur
+$I$}\}\)</span> mais elle dépend d’une première solution <span
+class="math inline">\(y_0\)</span>.</p>
+<p><strong>Cas particulier.</strong> Dans certains cas, on peut obtenir
+directement <span class="math inline">\(y_0\)</span> :</p>
+<div class="wex">
+<p>Si pour tout <span class="math inline">\(t\in I, a(t) = C, b(t) =
+d\)</span> pour <span class="math inline">\(C,d \in \mathbb{R}\)</span>
+alors <span class="math inline">\(y_0 : t \in I \mapsto
+-\frac{d}{c}\)</span> convient.</p>
+</div>
+<p><strong>Cas général : Méthode de la variation de la
+constante.</strong> </p>
+<p>Pour rappel, les solutions de l’équation homogène <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un_homogene}\)</span>s’écrivent
+<span class="math inline">\(t \in I \mapsto Ce^{A(t)}\)</span> avec
+<span class="math inline">\(C \in \mathbb{R}, A\)</span> primitive de
+<span class="math inline">\(a\)</span>.</p>
+<p>La méthode de la variation de la constante consiste à chercher une
+solution <span class="math inline">\(y_0\)</span> de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span>sous la forme
+<span class="math inline">\(y_0 : t \in I \mapsto C(t)e^{A(t)}\)</span>
+où <span class="math inline">\(C\)</span> n’est plus une constante mais
+une fonction dérivable sur <span class="math inline">\(I\)</span>.</p>
+<p>On a alors <span class="math inline">\(y_0\)</span> dérivable sur
+<span class="math inline">\(I\)</span> et <span
+class="math display">\[\begin{aligned}
+    y_0 : t \in I \mapsto C(t)e^{A(t)} \text{ solution
+de~$\eqref{eq:edo_lin_ordre_un}$sur $I$}
+    &amp; \iff y_0&#39;(t) = a(t)y_0(t) + b(t) \\
+    &amp; \iff C&#39;(t)e^{A(t)} + a(t)y_0(t) = a(t)y_0(t) + b(t) \\
+    &amp; \iff C&#39;(t) = b(t)e^{-A(t)}
+\end{aligned}\]</span></p>
+<p>et il suffit alors de prendre <span class="math inline">\(C\)</span>
+primitive de <span class="math inline">\(t \in I \mapsto
+b(t)e^{-A(t)}\)</span> (qui est continue) pour avoir <span
+class="math inline">\(y_0\)</span> solution de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span>.</p>
+<p>Cela donne donc</p>
+<ol>
+<li><p><span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span>admet toujours
+une solution,</p></li>
+<li><p>une méthode pour trouver une solution explicite.</p></li>
+</ol>
+<div class="wex">
+<div class="exo*">
+<p>Résoudre <span class="math inline">\((E): y&#39;(t) + \frac{1}{t}y(t)
+= e^{-t}\)</span> sur <span class="math inline">\(I =
+\mathbb{R}^{+\star}\)</span>.</p>
+</div>
+<div class="corri*">
+<ol>
+<li><p>Résolution de l’équation homogène <span
+class="math inline">\((H): y&#39;(t) + \frac{1}{t}y(t) = 0 \iff
+y&#39;(t) = -\frac{1}{t}y(t)\)</span>.</p>
+<p>Une primitive de <span class="math inline">\(t \in
+\mathbb{R}^{+\star}\mapsto -\frac{1}{t}\)</span> est <span
+class="math inline">\(t \in \mathbb{R}^{+\star}\mapsto -\ln(t)\)</span>
+donc les solutions de l’équation homogène s’écrivent <span
+class="math inline">\(t \in \mathbb{R}^{+\star}\mapsto C^{-\ln(t)} =
+\frac{C}{t}\)</span> avec <span class="math inline">\(C \in
+\mathbb{R}\)</span>.</p></li>
+<li><p>Détermination d’une solution <span
+class="math inline">\(y_0\)</span> de <span
+class="math inline">\((E)\)</span></p>
+<p>Posons <span class="math inline">\(y_0 : t \in
+\mathbb{R}^{+\star}\mapsto \frac{C(t)}{t}\)</span> avec <span
+class="math inline">\(C\)</span> dérivable sur <span
+class="math inline">\(\mathbb{R}^{+\star}\)</span>.</p>
+<p>Alors, <span class="math inline">\(y_0\)</span> est dérivable sur
+<span class="math inline">\(\mathbb{R}^{+\star}\)</span> et pour tout
+<span class="math inline">\(t \in \mathbb{R}^{+\star}\)</span>,</p>
+<p><span class="math inline">\(y_0\)</span> solution de <span
+class="math inline">\((E)\)</span> <span class="math inline">\(\iff
+\forall t \in I, \frac{C&#39;(t)}{t}-\frac{C(t)}{t^2} + \frac{C(t)}{t^2}
+= e^{-t} \iff \forall t \in I, C&#39;(t) = te^{-t}\)</span>.</p>
+<p>Il reste donc à déterminer une primitive de <span
+class="math inline">\(t\in \mathbb{R}^{+\star}\mapsto
+te^{-t}\)</span>.</p>
+<p>La primitive de <span class="math inline">\(t \in
+\mathbb{R}^{+\star}\mapsto te^{-t}\)</span> qui s’annule en <span
+class="math inline">\(0\)</span> s’écrit <span
+class="math inline">\(\int_0^x te^{-t}dt\)</span>. En intégrant par
+parties avec <span class="math inline">\(\begin{cases}
+                u(t) &amp;= t \\
+                v(t) &amp; = -e^{-t}
+            \end{cases} \Longrightarrow \begin{cases}
+                u&#39;(t) &amp;= 1\\
+                v&#39;(t) &amp; = e^{-t}
+            \end{cases}\)</span>, on a <span
+class="math display">\[\int_0^x te^{-t}dt =
+[-te^{-t}]_0^x+\int_0^xe^{-t} =
+-xe^{-x}-e^{-x}+\text{cste}.\]</span></p>
+<p>Donc <span class="math inline">\(y_0 : t \in
+\mathbb{R}^{+\star}\mapsto \frac{-te^{-t}-e^{-t}}{t} =
+-e^{-t}-\frac{e^{-t}}{t}\)</span> est solution.</p></li>
+<li><p>Détermination de toutes les solutions.</p>
+<p>Toutes les solutions de <span class="math inline">\((E)\)</span>
+s’écrivent donc <span class="math inline">\(t \in
+\mathbb{R}^{+\star}\mapsto -e^{-t}+\frac{C-e^{-t}}{t}\)</span>, <span
+class="math inline">\(C\in \mathbb{R}\)</span>.</p></li>
+</ol>
+</div>
+</div>
+<h2 data-number="1.5"
+id="recherche-dune-solution-de-eqrefeqedo_lin_ordre_unsatisfaisant-une-condition-initiale"><span
+class="header-section-number">1.5</span> Recherche d’une solution
+de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span>satisfaisant
+une condition initiale</h2>
+<div class="wprop">
+<p><span id="prop:unique_cond_init"
+label="prop:unique_cond_init"></span> Soient <span
+class="math inline">\(t_0 \in I\)</span>, <span
+class="math inline">\(u_0 \in \mathbb{R}\)</span>, il existe une unique
+solution de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span>telle que
+<span class="math inline">\(Y(t_0) = u_0\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Les solutions de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span>s’écrivent
+<span class="math inline">\(Y : t \in I \mapsto y_0(t) +
+Ce^{A(t)}\)</span> avec <span class="math inline">\(C \in \mathbb{R},
+A\)</span> primitive de <span class="math inline">\(a\)</span> sur <span
+class="math inline">\(I\)</span> et <span class="math display">\[Y(t_0)
+= u_0 \iff y_0(t_0) + Ce^{A(t_0)} = u_0 \iff C =
+(u_0-y_0(t_0))e^{-A(t_0)}.\]</span></p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\((O,\vec{i},\vec{j})\)</span> un
+repère orthonormé du plan. Une courbe intégrale de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span>est la courbe
+représentative d’une solution de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span>dans le
+plan.</p>
+</div>
+<p>D’après ce qui précède, pour <span class="math inline">\(M_0 =
+(t_0,y_0) \in I \times \mathbb{R}\)</span>, il existe une unique courbe
+intégrale passant par <span class="math inline">\(M_0\)</span>.</p>
+<div class="wprop">
+<p>Les courbes intégrales de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span>ne se croisent
+pas.</p>
+</div>
+<div class="wproof">
+<p>Supposons que deux courbes intégrales associées à deux solutions
+<span class="math inline">\(y_1,y_2\)</span> se croisent en un point
+<span class="math inline">\(M_0 = (t_0,y_0) \in I \times
+\mathbb{R}\)</span>.</p>
+<p>Alors, <span class="math inline">\(y_1(t_0) = y_0 = y_2(t_0)\)</span>
+donc par la proposition <a href="#prop:unique_cond_init"
+data-reference-type="ref"
+data-reference="prop:unique_cond_init">[prop:unique_cond_init]</a>,
+<span class="math inline">\(y_1 = y_2\)</span>.</p>
+</div>
+<div class="webtextfigure">
+<div class="webtext">
+<p>On illustre ci-contre quelques courbes intégrales de <span
+class="math inline">\(y&#39;(t) = y(t)\)</span> pour <span
+class="math inline">\(t \in \mathbb{R}\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="courbes_integrales.png" alt="image" /></p>
+</div>
+</div>
+<h2 data-number="1.6"
+id="extension-au-cas-de-fonctions-à-valeurs-dans-mathbbc"><span
+class="header-section-number">1.6</span> Extension au cas de fonctions à
+valeurs dans <span class="math inline">\(\mathbb{C}\)</span></h2>
+<h3 data-number="1.6.1"
+id="continuité-et-dérivabilité-dune-fonction-à-valeurs-dans-mathbbc"><span
+class="header-section-number">1.6.1</span> Continuité et dérivabilité
+d’une fonction à valeurs dans <span
+class="math inline">\(\mathbb{C}\)</span></h3>
+<p>Soit <span class="math inline">\(f : I \to \mathbb{C}\)</span>. Pour
+<span class="math inline">\(t \in I\)</span>, on écrit <span
+class="math inline">\(f(t) = f_1(t)+if_2(t)\)</span> avec <span
+class="math inline">\(f_1 : t \in I \mapsto \mathop{\mathrm{Re}}(f(t))
+\in \mathbb{R}\)</span> et <span class="math inline">\(f_2 : t \in I
+\mapsto \mathop{\mathrm{Im}}(f(t)) \in \mathbb{R}\)</span>.</p>
+<div class="wdefi">
+<p><strong>(Continuité et dérivabilité d’une fonction à valeurs dans
+<span class="math inline">\(\mathbb{C}\)</span>)</strong> Par
+définition,</p>
+<ul>
+<li><p><span class="math inline">\(f\)</span> est dite continue sur
+<span class="math inline">\(I\)</span> si <span
+class="math inline">\(f_1\)</span> et <span
+class="math inline">\(f_2\)</span> sont continues sur <span
+class="math inline">\(I\)</span>,</p></li>
+<li><p><span class="math inline">\(f\)</span> est dite dérivables sur
+<span class="math inline">\(I\)</span> si <span
+class="math inline">\(f_1\)</span> et <span
+class="math inline">\(f_2\)</span> sont dérivables sur <span
+class="math inline">\(I\)</span>. Dans ces cas, pour <span
+class="math inline">\(t \in I\)</span>, la dérivée de <span
+class="math inline">\(f\)</span> en <span
+class="math inline">\(t\)</span> est <span
+class="math inline">\(f&#39;(t) =
+f_1&#39;(t)+if_2&#39;(t)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wex">
+<ol>
+<li><p><span class="math inline">\(f : t \in \mathbb{R}\mapsto e^{it}
+\in \mathbb{C}\)</span> est dérivable sur <span
+class="math inline">\(\mathbb{R}\)</span> avec pour <span
+class="math inline">\(t \in \mathbb{R}, f&#39;(t) = -\sin(t) + i\cos(t)
+= i(i\sin(t) + \cos(t)) = ie^{it}\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(z \in \mathbb{C}\)</span>, tel
+que <span class="math inline">\(z=a+ib\)</span> avec <span
+class="math inline">\(a,b\in \mathbb{R}\)</span>, en posant <span
+class="math inline">\(f : t \in \mathbb{R}\mapsto e^{zt} \in
+\mathbb{C}\)</span>, <span class="math inline">\(f_1(t) =
+\mathop{\mathrm{Re}}(f(t)) = e^{at}\cos(bt)\)</span> et <span
+class="math inline">\(f_2(t) = \mathop{\mathrm{Im}}(f(t)) =
+e^{at}\sin(bt)\)</span>.</p>
+<p>Donc <span class="math inline">\(f\)</span> est dérivable sur <span
+class="math inline">\(\mathbb{R}\)</span> avec pour <span
+class="math inline">\(t\in \mathbb{R}\)</span>, <span
+class="math display">\[\begin{aligned}
+        f&#39;(t)
+        &amp; = f_1&#39;(t)+if_2&#39;(t) \\
+        &amp; = ae^{at}\cos(bt) -be^{at}\sin(bt) + iae^{at}\cos(bt)
++ibe^{at}\sin(bt) \\
+        &amp; = af_1(t) -bf_2(t) + iaf_2(t) +ibf_1(t) \\
+        &amp; = z(f_1(t)+if_2(t)) \\
+        &amp; = e^{tz}
+    \end{aligned}\]</span></p></li>
+</ol>
+</div>
+<p>Les règles de calculs de fonctions à valeurs réelles s’étendent aux
+fonctions à valeurs dans <span
+class="math inline">\(\mathbb{C}\)</span>.</p>
+<h3 data-number="1.6.2"
+id="équations-différentielles-linéaires-dordre-1-avec-des-fonctions-à-valeurs-dans-mathbbc"><span
+class="header-section-number">1.6.2</span> Équations différentielles
+linéaires d’ordre <span class="math inline">\(1\)</span> avec des
+fonctions à valeurs dans <span
+class="math inline">\(\mathbb{C}\)</span></h3>
+<p>Les équations différent équations différentielles linéaires d’ordre
+<span class="math inline">\(1\)</span> avec des fonctions à valeurs dans
+<span class="math inline">\(\mathbb{C}\)</span> fonctionnent
+précédemment, c’est l’occasion de faire le bilan de ce qui précède.</p>
+<ol>
+<li><p>Soit <span class="math inline">\(a : I \to \mathbb{R}, b: I \to
+\mathbb{R}\)</span> continues sur <span
+class="math inline">\(I\)</span>, intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>, à valeurs dans <span
+class="math inline">\(\mathbb{C}\)</span>. L’équation différentielle
+linéaire d’ordre 1 associée à <span class="math inline">\(a\)</span> et
+<span class="math inline">\(b\)</span> s’écrit <span
+class="math display">\[\label{eq:ordre_1_complexes}
+        \tag{$E_1$}
+        y&#39;(t) = a(t)y(t)+b(t).\]</span></p></li>
+<li><p>L’équation homogène associée à <span
+class="math inline">\(\eqref{eq:ordre_1_complexes}\)</span>s’écrit <span
+class="math display">\[\label{eq:ordre_1_complexes_homogene}
+        \tag{$H_1$}
+        y&#39;(t) = a(t)y(t)+b(t).\]</span></p></li>
+<li><p>Les solutions sur <span class="math inline">\(I\)</span> de <span
+class="math inline">\(\eqref{eq:ordre_1_complexes_homogene}\)</span>s’écrivent
+<span
+class="math display">\[\mathcal{S}_\eqref{eq:ordre_1_complexes_homogene}
+= \{t \in I \mapsto Ce^{A(t)} / C\in \mathbb{R}\text{ et }A\text{
+primitive de $a$}\}\]</span></p></li>
+<li><p>Soit <span class="math inline">\(y_0\)</span> solution
+particulière de <span
+class="math inline">\(\eqref{eq:ordre_1_complexes}\)</span>sur <span
+class="math inline">\(I\)</span>, les solutions sur <span
+class="math inline">\(I\)</span> de <span
+class="math inline">\(\eqref{eq:ordre_1_complexes}\)</span>s’écrivent
+<span class="math display">\[\mathcal{S}_\eqref{eq:ordre_1_complexes} =
+\{y_0 + z / \text{$z$ solution  de l&#39;équation homogène
+associée~$\eqref{eq:ordre_1_complexes_homogene}$sur
+$I$}\}\]</span></p></li>
+<li><p>Une solution particulière <span
+class="math inline">\(y_0\)</span> sur <span
+class="math inline">\(I\)</span> de <span
+class="math inline">\(\eqref{eq:ordre_1_complexes}\)</span>peut être
+déterminée à l’aide de la méthode de la variation de la
+constante.</p></li>
+</ol>
+<h1 data-number="2" id="primitives-usuelles"><span
+class="header-section-number">2</span> Primitives usuelles</h1>
+<div class="center">
+<p><embed src="table_primitives.pdf" /></p>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Pour <span class="math inline">\(x \in D\)</span> et <span
+class="math inline">\(\alpha \neq -1\)</span>, <span
+class="math inline">\(F(x) =
+\frac{1}{\alpha+1}e^{(\alpha+1)\ln(x)}+C\)</span> donc <span
+class="math inline">\(F&#39;(x) =
+\frac{\alpha+1}{(\alpha+1)x}e^{(\alpha+1)\ln(x)} =
+\frac{x^{\alpha+1}}{x} = x^\alpha\)</span>.</p></li>
+<li><p>Par la partie précédente, pour <span class="math inline">\(x\in
+\mathbb{R}\)</span>, <span class="math inline">\(F&#39;(x) =
+f(x)\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(x \in \mathbb{R}\)</span>, <span
+class="math inline">\(\cos(\alpha x)\cos(\beta x) =
+\frac{1}{2}(\cos((\alpha+\beta)x)+\cos((\alpha-\beta)x))\)</span>
+donc</p>
+<ul>
+<li><p>pour <span class="math inline">\(\alpha = \beta\)</span>, <span
+class="math inline">\(\cos(\alpha x)\cos(\beta x) =
+\frac{1}{2}(\cos(2\alpha x)+1)\)</span> et <span
+class="math inline">\(F(x) = \frac{1}{2}(\frac{1}{2\alpha}\sin(2\alpha
+x)+x)\)</span>,</p></li>
+<li><p>pour <span class="math inline">\(\alpha \neq \beta\)</span>,
+<span class="math inline">\(F(x) =
+\frac{1}{2}(\frac{1}{\alpha+\beta}\sin((\alpha+\beta)
+x)+\frac{1}{\alpha-\beta}\sin((\alpha-\beta) x))\)</span>.</p></li>
+</ul></li>
+<li><p>Cf cours précédent.</p></li>
+<li><p>Cf cours précédent.</p></li>
+<li><p>Pour <span class="math inline">\(x \in  \mathbb{R}\setminus
+\{-1,1\}, \frac{1}{1-x^2} = \frac{1}{(1-x)(1+x)} =
+\frac{1}{2}\left[\frac{1}{1+x}+\frac{1}{1-x}\right]\)</span> donc <span
+class="math inline">\(F(x) =
+\frac{1}{2}\left[\ln(|1+x|)-\ln(|1-x|)\right]\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(\alpha, \beta \in
+\mathbb{R}^{\star}, f(x) =
+\mathop{\mathrm{Re}}(e^{(\alpha+i\beta)x})\)</span>.</p>
+<p>Or, une primitive sur <span class="math inline">\(\mathbb{R}\)</span>
+de <span class="math inline">\(g:x \mapsto e^{(\alpha+i\beta)x}\)</span>
+est <span class="math inline">\(G:x \mapsto \frac{1}{\alpha+i\beta
+}e^{(\alpha+i\beta)x}\)</span>.</p>
+<p>Notons que si <span class="math inline">\(G&#39;(x) = g(x)\)</span>
+alors <span class="math inline">\(\mathop{\mathrm{Re}}(G&#39;(x)) =
+\mathop{\mathrm{Re}}(g(x))\)</span> car <span
+class="math inline">\(G&#39;(x) = \mathop{\mathrm{Re}}(G&#39;(x)) +
+i\mathop{\mathrm{Im}}(G&#39;(x))\)</span>. Donc une primitive de <span
+class="math inline">\(f\)</span> est <span
+class="math display">\[\begin{aligned}
+        \mathop{\mathrm{Re}}\left(\frac{1}{\alpha+i\beta
+}e^{(\alpha+i\beta)x}\right)
+        &amp; =
+\mathop{\mathrm{Re}}\left(\frac{\alpha-i\beta}{\alpha^2+\beta^2}e^{(\alpha+i\beta)x}\right)
+        &amp; = \frac{e^{\alpha x}}{\alpha^2+\beta^2} \left(\alpha
+\cos(\beta x)+ \beta \sin(\beta x)\right).
+        \end{aligned}\]</span></p></li>
+</ol>
+</div>
+<h1 data-number="3"
+id="équations-différentielles-linéaires-du-second-ordre"><span
+class="header-section-number">3</span> Équations différentielles
+linéaires du second ordre</h1>
+<h2 data-number="3.1" id="définition-1"><span
+class="header-section-number">3.1</span> Définition</h2>
+<div class="wdefi">
+<p><strong>(Fonctions deux fois dérivables)</strong> Soit <span
+class="math inline">\(f : I \to \mathbb{C}\)</span>, on suppose <span
+class="math inline">\(f\)</span> dérivable sur <span
+class="math inline">\(I\)</span>. Si <span
+class="math inline">\(f&#39;\)</span> est dérivable sur <span
+class="math inline">\(I\)</span> on dit que <span
+class="math inline">\(f\)</span> est deux fois dérivables sur <span
+class="math inline">\(I\)</span> et on note <span
+class="math inline">\(f&#39;&#39; = (f&#39;)&#39;\)</span>. <span
+class="math inline">\(f&#39;&#39;\)</span> se lit "<span
+class="math inline">\(f\)</span> seconde" ou fonction dérivée d’ordre
+<span class="math inline">\(2\)</span> de <span
+class="math inline">\(f\)</span>.</p>
+</div>
+<div class="wex">
+<p>Soit <span class="math inline">\(z \in \mathbb{C}\)</span> et <span
+class="math inline">\(f : t \in \mathbb{R}\mapsto e^{zt} \in
+\mathbb{C}\)</span>, <span class="math inline">\(f\)</span> est deux
+fois dérivables sur <span class="math inline">\(\mathbb{R}\)</span> de
+dérivée second <span class="math inline">\(f&#39;&#39;(t) =
+z^2e^{zt}\)</span>.</p>
+</div>
+<div class="wdefi">
+<p><strong>(Équations différentielles linéaires du second
+ordre)</strong> Soient <span class="math inline">\(a : I \to \mathbb{C},
+b : I \to \mathbb{C}, c : I \to \mathbb{C}, d : I \to
+\mathbb{C}\)</span> continues sur <span
+class="math inline">\(I\)</span>, intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>, on définit <span
+class="math display">\[\tag{$E_2$}
+    \label{eq:edo_lin_ordre_deux}
+    a(t)y&#39;&#39;(t) + b(t)y&#39;(t) +c(t)y(t) = d(t)\]</span>
+l’équation d’ordre <span class="math inline">\(2\)</span> associée à
+<span class="math inline">\(a,b,c,d\)</span>. Un solution de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux}\)</span>sur <span
+class="math inline">\(I\)</span> est une fonction de <span
+class="math inline">\(I\)</span> dans <span
+class="math inline">\(\mathbb{C}\)</span> deux fois dérivables telles
+que <span class="math display">\[\forall t \in I, a(t)y&#39;&#39;(t) +
+b(t)y&#39;(t) +c(t)y(t) = d(t).\]</span></p>
+</div>
+<h2 data-number="3.2"
+id="ensemble-des-solutions-de-eqrefeqedo_lin_ordre_deuxen-supposant-une-solution-y_0-connue"><span
+class="header-section-number">3.2</span> Ensemble des solutions de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux}\)</span>en supposant
+une solution <span class="math inline">\(y_0\)</span> connue</h2>
+<p>Considérons <span class="math display">\[\tag{$E_2$}
+        a(t)y&#39;&#39;(t) + b(t)y&#39;(t) +c(t)y(y) = d(t).\]</span>
+sur <span class="math inline">\(I\)</span> et supposons qu’elle possède
+une solution <span class="math inline">\(y_0 : I \to \mathbb{C}\)</span>
+sur <span class="math inline">\(I\)</span>. Cela signifie que <span
+class="math inline">\(y_0\)</span> est deux fois dérivables et que pour
+tout <span class="math inline">\(t\in I\)</span>, <span
+class="math inline">\(a(t)y_0&#39;&#39;(t) + b(t)y_0&#39;(t) +c(t)y_0(t)
+= d(t)\)</span>.</p>
+<p>Recherchons les autres solutions. Soit <span class="math inline">\(y:
+I \to \mathbb{R}\)</span>, <span class="math display">\[\begin{aligned}
+    &amp; \text{$y$ solution de~$\eqref{eq:edo_lin_ordre_deux}$sur
+$I$}\\
+    &amp; \iff \text{$y$ deux fois dérivable sur $I$} \text{ et }\forall
+t \in I, a(t)y&#39;&#39;(t) + b(t)y&#39;(t) +c(t)y(t) = d(t) \\
+    &amp; \iff \text{$y$ dérivable sur $I$} \text{ et }\forall t \in I,
+a(t)(y-y_0)&#39;&#39;(t) + b(t)(y-y_0)&#39;(t) +c(t)(y-y_0)(t) = 0 \\
+\end{aligned}\]</span></p>
+<div class="wdefi">
+<p><strong>(Équation différentielle homogène)</strong> On considère
+l’équation différentielle <span
+class="math display">\[\label{eq:edo_lin_ordre_deux_homogene}
+        \tag{$H_2$}
+        a(t)y&#39;&#39;(t) + b(t)y&#39;(t) +c(t)y(t) = 0.\]</span>
+appelée <u>équation différentielle homogène associée à <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux}\)</span></u>.</p>
+</div>
+<p>On a alors <span class="math display">\[\begin{aligned}
+    \text{$y$ solution de~$\eqref{eq:edo_lin_ordre_deux}$sur $I$}
+    &amp; \iff \text{ $z := y-y_0$ solution
+de~$\eqref{eq:edo_lin_ordre_deux_homogene}$sur $I$}.  
+\end{aligned}\]</span></p>
+<div class="wprop">
+<p>En notant <span
+class="math inline">\(\mathcal{S}_\eqref{eq:edo_lin_ordre_deux}\)</span>
+l’ensemble des solutions de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux}\)</span>sur <span
+class="math inline">\(I\)</span> alors <span
+class="math display">\[\mathcal{S}_\eqref{eq:edo_lin_ordre_deux} :=
+\{y_0+z / z \text{ solution
+de~$\eqref{eq:edo_lin_ordre_deux_homogene}$sur $I$}\}\]</span></p>
+</div>
+<h2 data-number="3.3"
+id="résolution-de-eqrefeqedo_lin_ordre_deux_homogenedans-le-cas-où-abc-sont-constantes"><span
+class="header-section-number">3.3</span> Résolution de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_homogene}\)</span>dans
+le cas où <span class="math inline">\(a,b,c\)</span> sont
+constantes</h2>
+<p>Soient <span class="math inline">\(a,b,c \in \mathbb{C}\)</span> tels
+que <span class="math inline">\(a \neq 0\)</span>. On prend <span
+class="math inline">\(I = \mathbb{R}\)</span> et on considère <span
+class="math display">\[\label{eq:edo_lin_ordre_deux_homogene_constantes}
+        \tag{$H_{2,cste}$}
+        az&#39;&#39;(t) + bz&#39;(t) +cz(t) = 0.\]</span></p>
+<p>Cherchons une solution particulière de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_homogene_constantes}\)</span>.
+Pour <span class="math inline">\(r \in \mathbb{C}\)</span>, à quelles
+conditions (nécessaires et suffisantes) <span class="math inline">\(z :
+t \in \mathbb{R}\mapsto e^{rt} \in \mathbb{C}\)</span> est solution
+de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_homogene_constantes}\)</span>?</p>
+<p><span class="math inline">\(z\)</span> est deux fois dérivables sur
+<span class="math inline">\(\mathbb{R}\)</span>. De plus, <span
+class="math display">\[\begin{aligned}
+    \text{$z$ solution
+de~$\eqref{eq:edo_lin_ordre_deux_homogene_constantes}$sur $\mathbb{R}$}
+    &amp; \iff \forall t \in \mathbb{R}, az&#39;&#39;(t) + bz&#39;(t)
++cz(t) = 0 \\
+    &amp; \iff \forall t \in \mathbb{R}, ar^2 e^{rt} + bre^{rt} +
+ce^{rt} = 0 \\
+    &amp; \iff  \forall t \in \mathbb{R}, (ar^2+br+c)e^{rt} = 0 \\
+    &amp; \iff ar^2+br+c = 0 \text{ }(e^{rt} \neq 0 \text{ pour } t\in
+\mathbb{R}) \\
+    &amp; \iff r \text{ racine de $az^2+bz+c$}.
+\end{aligned}\]</span></p>
+<p>On considère <span class="math display">\[\tag{e}
+    \label{eq:equation_caracteristique_lineaire_ordre_2}
+    ax^2+bx+c = 0\]</span> d’inconnue <span class="math inline">\(x \in
+\mathbb{C}\)</span>, que l’on appelle <u>l’équation caractéristique</u>
+associée à <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_homogene_constantes}\)</span>.
+Pour rappel, les racines de <span
+class="math inline">\(\eqref{eq:equation_caracteristique_lineaire_ordre_2}\)</span>s’écrivent
+<span class="math inline">\(r_1 = \frac{-b+\delta}{2a}\)</span> et <span
+class="math inline">\(r_2 = \frac{-b-\delta}{2a}\)</span> avec <span
+class="math inline">\(\delta\)</span> racine carrée dans <span
+class="math inline">\(\mathbb{C}\)</span> de <span
+class="math inline">\(\Delta = b^2-4ac\)</span> et éventuellement <span
+class="math inline">\(r_1 = r_2\)</span>, si <span
+class="math inline">\(\Delta = 0\)</span>. On va pouvoir maintenant
+montrer la proposition suivante.</p>
+<div class="wprop">
+<p><strong>(Solutions de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_homogene_constantes}\)</span>)</strong>
+<span id="prop:solutions_homogene_ordre_2"
+label="prop:solutions_homogene_ordre_2"></span> Soient <span
+class="math inline">\(r_1, r_2\)</span> solutions dans <span
+class="math inline">\(\mathbb{C}\)</span> de <span
+class="math inline">\(\eqref{eq:equation_caracteristique_lineaire_ordre_2}\)</span>,</p>
+<ul>
+<li><p>Si <span class="math inline">\(r_1 \neq r_2\)</span>, les
+solutions de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_homogene_constantes}\)</span>sur
+<span class="math inline">\(\mathbb{R}\)</span> sont l’ensemble <span
+class="math display">\[\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_homogene_constantes}
+= \left\{z: t \in \mathbb{R}\mapsto C_1 e^{r_1t}+ C_2 e^{r_2t}/ C_1, C_2
+\in \mathbb{C}\right\}.\]</span></p></li>
+<li><p>Si <span class="math inline">\(r_1 = r_2\)</span>, les solutions
+de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_homogene_constantes}\)</span>sur
+<span class="math inline">\(\mathbb{R}\)</span> sont l’ensemble <span
+class="math display">\[\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_homogene_constantes}
+= \left\{z: t \in \mathbb{R}\mapsto (C_1 +C_2t) e^{r_1t}/ C_1, C_2 \in
+\mathbb{C}\right\}.\]</span></p></li>
+</ul>
+</div>
+<div class="wproof">
+<p>Procédons par double inclusion.</p>
+<ul>
+<li><p>Soit <span class="math inline">\(z\)</span> solution de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_homogene_constantes}\)</span>sur
+<span class="math inline">\(\mathbb{R}\)</span>, considérons <span
+class="math inline">\(u : t \in \mathbb{R}\mapsto
+z(t)e^{-r_1t}\)</span>.</p>
+<p>Alors, <span class="math display">\[\begin{aligned}
+            \forall t \in \mathbb{R}, u&#39;(t) &amp; = z&#39;(t)e^{-r_1
+t} -r_1 z(t)e^{-r_1t} \\
+            u&#39;&#39;(t) &amp; = z&#39;&#39;(t)e^{-r_1 t} -r_1
+z&#39;(t)e^{-r_1t} -r_1 z&#39;(t)e^{-r_1t}+r_1^2z(t)e^{-r_1t} \\
+            &amp; = (z&#39;&#39;(t) -2r_1 z&#39;(t) +r_1^2z(t))e^{-r_1t}
+    \end{aligned}\]</span></p>
+<p>En particulier,</p>
+<p><span class="math display">\[\begin{aligned}
+    \forall t \in \mathbb{R},
+    au&#39;&#39;(t)
+    &amp; = (az&#39;&#39;(t) -2ar_1 z&#39;(t) +ar_1^2z(t))e^{-r_1t} \\
+    &amp; = (-bz&#39;(t)-cz(t)-2ar_1 z&#39;(t) +ar_1^2z(t))e^{-r_1t}
+\text{ car $z$ solution
+de~$\eqref{eq:edo_lin_ordre_deux_homogene_constantes}$} \\
+    &amp; = (-(2ar_1+b) z&#39;(t) +\underbrace{(ar_1^2-c)}_{=
+ar_1^2+ar_1^2+br_1}z(t))e^{-r_1t} \\
+    &amp; = (-(2ar_1+b) z&#39;(t) +(2ar_1^2+br_1)z(t))e^{-r_1t} \\
+    &amp; = -(2ar_1+b)(z&#39;(t) -r_1z(t))e^{-r_1t} \\
+    &amp; = -(2ar_1+b)u&#39;(t)
+    \end{aligned}\]</span></p>
+<p>Donc <span class="math inline">\(u&#39;\)</span> est solution sur
+<span class="math inline">\(\mathbb{R}\)</span> de <span
+class="math display">\[ay&#39;(t) + (2ar_1+b)y(t) = 0 \iff y&#39;(t) +
+(2r_1+\frac{b}{a})y(t) = 0.\]</span></p>
+<p>Or, <span class="math inline">\(r_1 + r_2 = -\frac{b}{a}\)</span>
+donc <span class="math inline">\(2r_1+\frac{b}{a} = 2r_1-r_1-r_2 =
+r_1-r_2\)</span>.</p>
+<p>Donc <span class="math inline">\(u&#39;\)</span> est solution sur
+<span class="math inline">\(\mathbb{R}\)</span> de <span
+class="math display">\[y&#39;(t) + (r_1-r_2)y(t) = 0.\]</span></p>
+<p>D’après nos connaissances des équations différentielles linéaires
+d’ordre 1, il existe <span class="math inline">\(C_1 \in
+\mathbb{C}\)</span> tel que <span class="math inline">\(\forall t \in
+\mathbb{R}, u&#39;(t) = C_1e^{-(r_1-r_2)t}\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(r_1 = r_2\)</span>, <span
+class="math inline">\(\forall t \in \mathbb{R}, u&#39;(t) = C_1\)</span>
+et il existe <span class="math inline">\(C_2 \in \mathbb{C}\)</span> tel
+que <span class="math inline">\(\forall t \in \mathbb{R}, u(t) =
+z(t)e^{-r_1t} = C_1t + C_2\)</span> donc <span
+class="math inline">\(\forall t \in \mathbb{R}, z(t) = (C_1t +
+C_2)e^{r_1 t}\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(r_1 \neq r_2\)</span>, il existe
+<span class="math inline">\(C_2 \in \mathbb{C}\)</span> telle que <span
+class="math inline">\(\forall t \in \mathbb{R}, u(t) = z(t)e^{-r_1t} =
+\frac{C_1}{r_2-r_1}e^{-(r_1-r_2)t} +C_2\)</span> donc <span
+class="math inline">\(\forall t \in \mathbb{R}, z(t) =C&#39;_1e^{r_2 t}
++ C_2e^{r_1 t}\)</span> avec <span class="math inline">\(C&#39;_1 =
+\frac{C_1}{r_2-r_1} \in \mathbb{C}\)</span>.</p></li>
+</ul></li>
+<li><ul>
+<li><p>Si <span class="math inline">\(r_1 =r_2\)</span>, en posant <span
+class="math inline">\(z: t \in\mathbb{R}\mapsto (C_1t+C_2)
+e^{r_1t}\)</span> avec <span class="math inline">\(C_1,C_2 \in
+\mathbb{C}\)</span>, <span class="math display">\[\begin{aligned}
+        \forall t \in \mathbb{R},
+        z&#39;(t) &amp; = C_1 tr_1 e^{r_1t}+C_1e^{r_1t}+C_2 r_2 e^{r_1t}
+\\
+        z&#39;&#39;(t) &amp; =  C_1r_1 e^{r_1t}+C_1t r_1^2e^{r_1t}+C_1
+r_1 e^{r_1t}+C_2 r_2^2 e^{r_2t} \\
+        &amp; =  C_1t r_1^2e^{r_1t}+2C_1 r_1 e^{r_1t}+C_2 r_2^2 e^{r_2t}
+\\
+        az&#39;&#39;(t) + bz&#39;(t) +cz(t)
+        &amp; = C_1(c t+b(r_1t+1) + a(2r_1+tr_1^2) )e^{r_1t} +
+C_2[\underbrace{ar_2^2+br_2+c}_{=0}]e^{r_2t} = 0 \\
+        &amp; =  C_1(t\underbrace{(c+b+ar_1^2)}_{= 0} +
+\underbrace{(br_1+2ar_1)}_{=0 \text{ car $r_1 = -b/2a$}} )e^{r_1t} \\
+        &amp; = 0.
+    \end{aligned}\]</span></p></li>
+<li><p>Si <span class="math inline">\(r_1 \neq r_2\)</span>, en posant
+<span class="math inline">\(z: t \in\mathbb{R}\mapsto C_1
+e^{r_1t}+C_2e^{r_2t}\)</span> avec <span class="math inline">\(C_1,C_2
+\in \mathbb{C}\)</span>, <span class="math display">\[\begin{aligned}
+        \forall t \in \mathbb{R},
+        z&#39;(t) &amp; = C_1 r_1 e^{r_1t}+C_2 r_2 e^{r_2t} \\
+        z&#39;&#39;(t) &amp; = C_1 r_1^2 e^{r_1t}+C_2 r_2^2 e^{r_2t} \\
+        az&#39;&#39;(t) + bz&#39;(t) +cz(t) &amp; =
+C_1\underbrace{[ar_1^2+br_1+c]}_{=0}e^{r_1t} +
+C_2\underbrace{[ar_2^2+br_2+c]}_{=0}e^{r_2t} = 0.
+    \end{aligned}\]</span></p></li>
+</ul></li>
+</ul>
+</div>
+<h2 data-number="3.4"
+id="résolution-de-eqrefeqedo_lin_ordre_deux_homogene_constantesdans-le-cas-où-abc-sont-des-constantes-réelles"><span
+class="header-section-number">3.4</span> Résolution de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_homogene_constantes}\)</span>dans
+le cas où <span class="math inline">\(a,b,c\)</span> sont des constantes
+réelles</h2>
+<p>Soient <span class="math inline">\(a,b,c \in \mathbb{R}\)</span> tels
+que <span class="math inline">\(a \neq 0\)</span>. On prend <span
+class="math inline">\(I = \mathbb{R}\)</span> et on considère <span
+class="math display">\[\label{eq:edo_lin_ordre_deux_homogene_constantes_reelles}
+        \tag{$H_{2,cste}$}
+        az&#39;&#39;(t) + bz&#39;(t) +cz(t) = 0.\]</span></p>
+<p>Dans ce cas, il est légitime de rechercher les solutions à valeurs
+réelles, comme les coefficients sont réels. Pour cela, on introduit la
+notation <span
+class="math display">\[\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_homogene_constantes_reelles},\mathbb{R}:=
+\{z \in
+\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_homogene_constantes_reelles} /
+\forall t \in \mathbb{R}, z(t) \in \mathbb{R}\}\]</span> On considère de
+nouveau l’équation caractéristique associée <span
+class="math display">\[\tag{e}
+    ax^2+bx+c = 0\]</span> d’inconnu <span
+class="math inline">\(x\)</span> et les deux solutions complexes <span
+class="math inline">\(r_1,r_2 \in \mathbb{C}\)</span> et on peut montrer
+le lemme très naturelle suivant.</p>
+<div class="wlem">
+<p><strong>(Lien entre solutions à valeurs réelles et solutions à
+valeurs complexes)</strong> Si <span class="math inline">\(a,b,c \in
+\mathbb{R}\)</span> (avec <span class="math inline">\(a \neq
+0\)</span>), <span
+class="math display">\[\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_homogene_constantes_reelles},\mathbb{R}:=
+\{t \in \mathbb{R}\mapsto \mathop{\mathrm{Re}}(z(t)) / z \in
+\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_homogene_constantes_reelles}\}.\]</span></p>
+</div>
+<p><span class="math inline"><span class="icon-warning">⚠️</span></span> Ce
+lemme vaut seulement pour <span class="math inline">\(a,b,c \in
+\mathbb{R}\)</span>.</p>
+<div class="wproof">
+<p>Procédons par double inclusion.</p>
+<ul>
+<li><p>Soit <span class="math inline">\(z \in
+\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_homogene_constantes_reelles},\mathbb{R}\)</span>
+alors <span class="math inline">\(z \in
+\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_homogene_constantes_reelles}\)</span>
+par définition et de plus comme <span class="math inline">\(z\)</span>
+est à valeurs réelles, <span class="math display">\[\forall t \in
+\mathbb{R}, z(t) = \mathop{\mathrm{Re}}(z(t)).\]</span></p></li>
+<li><p>Soit <span class="math inline">\(z \in
+\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_homogene_constantes_reelles}\)</span>
+alors <span class="math display">\[\forall t \in \mathbb{R},
+az&#39;&#39;(t) + bz&#39;(t) +cz(t) = 0.\]</span></p>
+<p>De plus, pour rappel, en notant <span class="math inline">\(z_1: t
+\in \mathbb{R}\mapsto \mathop{\mathrm{Re}}(z(t)), z_2: t \in
+\mathbb{R}\mapsto \mathop{\mathrm{Im}}(z(t))\)</span>, <span
+class="math display">\[\begin{aligned}
+        \forall t \in \mathbb{R}, z&#39;(t) &amp; = z_1&#39;(t) + i
+z_2&#39;(t) \\
+        z&#39;&#39;(t) &amp; = z_1&#39;&#39;(t) + i z_2&#39;&#39;(t).
+    \end{aligned}\]</span></p>
+<p>On a donc <span class="math display">\[\begin{aligned}
+        &amp; \forall t \in \mathbb{R}, a(z_1&#39;&#39;(t) + i
+z_2&#39;&#39;(t)) + b(z_1&#39;(t) + i z_2&#39;(t)) +c(z_1(t) + i z_2(t))
+= 0 \\
+        &amp; \iff \forall t \in \mathbb{R},
+\underbrace{(az_1&#39;&#39;(t) + bz_1&#39;(t) +cz_1(t))}_{\in
+\mathbb{R}\text{ car } a,b,c \in \mathbb{R}} +
+i\underbrace{(az_2&#39;&#39;(t) + bz_2&#39;(t) +cz_2(t))}_{\in
+\mathbb{R}\text{ car } a,b,c \in \mathbb{R}} = 0 \\
+        &amp; \iff \forall t \in \mathbb{R}, \begin{cases}
+            az_1&#39;&#39;(t) + bz_1&#39;(t) +cz_1(t) &amp; = 0, \\
+            az_2&#39;&#39;(t) + bz_2&#39;(t) +cz_2(t) &amp; = 0.
+        \end{cases}     
+    \end{aligned}\]</span></p>
+<p>Donc en particulier, <span class="math inline">\(z_1 \in
+\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_homogene_constantes_reelles},\mathbb{R}\)</span>.</p></li>
+</ul>
+</div>
+<p>On en déduit donc la proposition suivante.</p>
+<div class="wprop">
+<p><strong>(Solutions de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_homogene_constantes_reelles}\)</span>à
+valeurs réelles)</strong> <span
+id="prop:solutions_homogene_ordre_2_reels"
+label="prop:solutions_homogene_ordre_2_reels"></span> Si <span
+class="math inline">\(a,b,c \in \mathbb{R}\)</span> <span
+class="math inline">\((a\neq 0)\)</span>,</p>
+<ul>
+<li><p>Si <span class="math inline">\(r_1 = r_2 \in \mathbb{R}\)</span>
+(ie <span class="math inline">\(\Delta = 0\)</span>), <span
+class="math display">\[\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_homogene_constantes_reelles},\mathbb{R}
+        =  \left\{z: t \in \mathbb{R}\mapsto (K_1+K_2t) e^{r_1t}/ K_1,
+K_2 \in \mathbb{R}\right\}.\]</span></p></li>
+<li><p>Si <span class="math inline">\(r_1 \neq r_2\)</span> et <span
+class="math inline">\(r_1,r_2 \in \mathbb{R}\)</span> (ie <span
+class="math inline">\(\Delta &gt; 0\)</span>), <span
+class="math display">\[\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_homogene_constantes_reelles},\mathbb{R}
+        =  \left\{z: t \in \mathbb{R}\mapsto K_1 e^{r_1t}+ K_2 e^{r_2t}/
+K_1, K_2 \in \mathbb{R}\right\}.\]</span></p></li>
+<li><p>Si <span class="math inline">\(r_1 \neq r_2\)</span> et <span
+class="math inline">\(r_1,r_2 \in \mathbb{C}\setminus
+\mathbb{R}\)</span> (ie <span class="math inline">\(\Delta &lt;
+0\)</span>), alors <span class="math inline">\(r_1 =
+\overline{r_2}\)</span> et en notant <span class="math inline">\(r_1 =
+\alpha + i\beta\)</span> avec <span class="math inline">\(\alpha,\beta
+\in \mathbb{R}\)</span>, <span
+class="math display">\[\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_homogene_constantes_reelles},\mathbb{R}
+        =  \left\{z: t \in \mathbb{R}\mapsto e^{\alpha t}\left[K_1
+\cos(\beta t) + K_2 \sin (\beta t)\right]/ K_1, K_2 \in
+\mathbb{R}\right\}.\]</span></p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Si <span class="math inline">\(r_1 = r_2\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+        \mathcal{S}_\eqref{eq:edo_lin_ordre_deux_homogene_constantes_reelles},\mathbb{R}
+        &amp;= \{z: t \in \mathbb{R}\mapsto
+\mathop{\mathrm{Re}}((C_1+C_2t)e^{r_1t}) / C_1,C_2 \in \mathbb{C}\} \\
+        &amp;= \{z: t \in \mathbb{R}\mapsto
+(\mathop{\mathrm{Re}}(C_1)+\mathop{\mathrm{Re}}(C_2)t)e^{r_1t} / C_1,C_2
+\in \mathbb{C}\} \\
+        &amp;= \left\{z: t \in \mathbb{R}\mapsto (K_1+K_2t) e^{r_1t}/
+K_1, K_2 \in \mathbb{R}\right\}
+         \end{aligned}\]</span></p></li>
+<li><p>Si <span class="math inline">\(r_1 \neq r_2\)</span> et <span
+class="math inline">\(r_1,r_2 \in \mathbb{R}\)</span>, la preuve est la
+même que pour <span class="math inline">\(r_1=r_2\)</span>. <span
+class="math display">\[\begin{aligned}
+        \mathcal{S}_\eqref{eq:edo_lin_ordre_deux_homogene_constantes_reelles},\mathbb{R}
+        &amp;= \{z: t \in \mathbb{R}\mapsto \mathop{\mathrm{Re}}(C_1
+e^{r_1t}+ C_2 e^{r_2t}) / C_1,C_2 \in \mathbb{C}\} \\
+        &amp;= \{z: t \in \mathbb{R}\mapsto
+\mathop{\mathrm{Re}}(C_1)e^{r_1t}+\mathop{\mathrm{Re}}(C_2)e^{r_2t} /
+C_1,C_2 \in \mathbb{C}\} \\
+        &amp;= \left\{z: t \in \mathbb{R}\mapsto  K_1 e^{r_1t}+ K_2
+e^{r_2t}/ K_1, K_2 \in \mathbb{R}\right\}
+         \end{aligned}\]</span></p></li>
+<li><p>Si <span class="math inline">\(r_1 \neq r_2\)</span> et <span
+class="math inline">\(r_1,r_2 \in  \mathbb{C}\setminus
+\mathbb{R}\)</span>, <span class="math display">\[\begin{aligned}
+        &amp;
+\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_homogene_constantes_reelles},\mathbb{R}\\
+        &amp;= \{z: t \in \mathbb{R}\mapsto \mathop{\mathrm{Re}}(C_1
+e^{r_1t}+ C_2 e^{r_2t}) / C_1,C_2 \in \mathbb{C}\} \\
+        &amp;= \{z: t \in \mathbb{R}\mapsto \mathop{\mathrm{Re}}(C_1
+e^{(\alpha+i\beta)t}+ C_2 e^{(\alpha-i\beta)t}) / C_1,C_2 \in
+\mathbb{C}\} \\
+        &amp;= \{z: t \in \mathbb{R}\mapsto e^{\alpha
+t}\mathop{\mathrm{Re}}(C_1 e^{i\beta t}+ C_2 e^{-i\beta t}) / C_1,C_2
+\in \mathbb{C}\} \\
+        &amp;= \{z: t \in \mathbb{R}\mapsto e^{\alpha
+t}\mathop{\mathrm{Re}}((A_1+iB_1) e^{i\beta t}+ (A_2+iB_2) e^{-i\beta
+t}) /  A_1,A_2,B_1,B_2 \in \mathbb{R}\} \\
+        &amp;= \{z: t \in \mathbb{R}\mapsto e^{\alpha
+t}(A_1+A_2)\cos(\beta t)+ (B_2-B_1)\sin(\beta t) /  A_1,A_2,B_1,B_2 \in
+\mathbb{R}\} \\
+        &amp;= \left\{z: t \in \mathbb{R}\mapsto e^{\alpha t}\left[K_1
+\cos(\beta t) + K_2 \sin (\beta t)\right]/ K_1, K_2 \in
+\mathbb{R}\right\}.
+         \end{aligned}\]</span></p>
+<p>L’égalité entre les deux derniers ensembles est moins évidente que
+dans les cas précédents.</p>
+<p>On a évidemment <span class="math inline">\(\subset\)</span> et on
+<span class="math inline">\(\supset\)</span> en prenant <span
+class="math inline">\(A_1 = A_2=\frac{K_1}{2}\)</span>, <span
+class="math inline">\(B_2 = \frac{K_2}{2}, B_1
+=-\frac{K_2}{2}\)</span>.</p></li>
+</ul>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Soit <span class="math inline">\(a \in \mathbb{R}\)</span>,
+déterminer les solutions sur <span
+class="math inline">\(\mathbb{R}\)</span> à valeurs réelles de <span
+class="math display">\[\tag{$E_a$}
+            \label{eq:ex_ordre2_oscillateur}
+            z&#39;&#39;(t) - az(t) = 0\]</span></p>
+</div>
+<div class="corri*">
+<p>On commence par considérer l’équation caractéristique associée <span
+class="math display">\[\tag{$e_a$}
+            \label{eq:ex_ordre2_oscillateur_caractéristique}
+            x^2-a = 0\]</span></p>
+<ul>
+<li><p>Si <span class="math inline">\(a = 0\)</span>,<span
+class="math inline">\(\eqref{eq:ex_ordre2_oscillateur_caractéristique}\)</span>admet
+une racine double <span class="math inline">\(r_1 = 0\)</span> donc les
+solutions sur <span class="math inline">\(\mathbb{R}\)</span> à valeurs
+réelles de <span
+class="math inline">\(\eqref{eq:ex_ordre2_oscillateur}\)</span>s’écrivent
+<span
+class="math display">\[\mathcal{S}_\eqref{eq:ex_ordre2_oscillateur},
+\mathbb{R}
+            = \{z: t \in \mathbb{R}\mapsto K_1+K_2t / K_1, K_2 \in
+\mathbb{R}\}\]</span></p></li>
+<li><p>Si <span class="math inline">\(a &gt; 0\)</span>,<span
+class="math inline">\(\eqref{eq:ex_ordre2_oscillateur_caractéristique}\)</span>admet
+deux racines réelles distinctes <span class="math inline">\(r_1 =
+\sqrt{a}, r_2 = -\sqrt{a}\)</span> donc les solutions sur <span
+class="math inline">\(\mathbb{R}\)</span> à valeurs réelles de <span
+class="math inline">\(\eqref{eq:ex_ordre2_oscillateur}\)</span>s’écrivent
+<span
+class="math display">\[\mathcal{S}_\eqref{eq:ex_ordre2_oscillateur},
+\mathbb{R}
+            = \{z: t \in \mathbb{R}\mapsto
+K_1e^{\sqrt{a}t}+K_2e^{-\sqrt{a}t} / K_1, K_2 \in
+\mathbb{R}\}\]</span></p></li>
+<li><p>Si <span class="math inline">\(a &lt; 0\)</span>,<span
+class="math inline">\(\eqref{eq:ex_ordre2_oscillateur_caractéristique}\)</span>admet
+deux racines complexes conjuguées distinctes <span
+class="math inline">\(r_1 = i\sqrt{-a}, r_2 = -i\sqrt{-a}\)</span> donc
+les solutions sur <span class="math inline">\(\mathbb{R}\)</span> à
+valeurs réelles de <span
+class="math inline">\(\eqref{eq:ex_ordre2_oscillateur}\)</span>s’écrivent
+<span
+class="math display">\[\mathcal{S}_\eqref{eq:ex_ordre2_oscillateur},
+\mathbb{R}
+            = \{z: t \in \mathbb{R}\mapsto
+K_1\cos(\sqrt{-a}t)+K_2\sin(\sqrt{-a}t) / K_1, K_2 \in
+\mathbb{R}\}\]</span></p></li>
+</ul>
+</div>
+</div>
+<div class="wex">
+<p><span id="ex:ordre2_j" label="ex:ordre2_j"></span></p>
+<div class="exo*">
+<p>Soit <span class="math inline">\(a \in \mathbb{R}\)</span>,
+déterminer les solutions sur <span
+class="math inline">\(\mathbb{R}\)</span> à valeurs réelles de <span
+class="math display">\[\tag{$H$}
+            \label{eq:ex_ordre2_j}
+            z&#39;&#39;(t) +z&#39;(t)+z(t) = 0\]</span></p>
+</div>
+<div class="corri*">
+<p>On commence par considérer l’équation caractéristique associée <span
+class="math display">\[\tag{$e$}
+            \label{eq:ex_ordre2_j_caractéristique}
+            x^2+x+1 = 0\]</span></p>
+<p><span
+class="math inline">\(\eqref{eq:ex_ordre2_oscillateur_caractéristique}\)</span>admet
+deux racines complexes conjuguées distinctes <span
+class="math inline">\(r_1 = j, r_2 = \overline{j}\)</span> avec <span
+class="math inline">\(j = e^{\frac{2i\pi}{3}} =
+-\frac{1}{2}+i\frac{\sqrt{3}}{2}\)</span> donc les solutions sur <span
+class="math inline">\(\mathbb{R}\)</span> à valeurs réelles de <span
+class="math inline">\(\eqref{eq:ex_ordre2_j}\)</span>s’écrivent <span
+class="math display">\[\mathcal{S}_\eqref{eq:ex_ordre2_j}, \mathbb{R}
+            = \{z: t \in \mathbb{R}\mapsto
+e^{—\tfrac{1}{2}t}\left(K_1\cos(\frac{\sqrt{3}}{2}t)+K_2\sin(\frac{\sqrt{3}}{2}t)\right)
+/ K_1, K_2 \in \mathbb{R}\}\]</span></p>
+</div>
+</div>
+<h2 data-number="3.5"
+id="résolution-de-eqrefeqedo_lin_ordre_deuxdans-des-cas-particuliers-avec-abc-constantes"><span
+class="header-section-number">3.5</span> Résolution de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux}\)</span>dans des cas
+particuliers avec <span class="math inline">\(a,b,c\)</span>
+constantes</h2>
+<p>Soient <span class="math inline">\(a,b,c \in \mathbb{C}\)</span> tels
+que <span class="math inline">\(a \neq 0\)</span>. On prend <span
+class="math inline">\(I = \mathbb{R}\)</span> et on considère <span
+class="math inline">\(d : I \to \mathbb{C}\)</span> continue et <span
+class="math display">\[\label{eq:edo_lin_ordre_deux_constantes}
+        \tag{$E_{2,cste}$}
+        az&#39;&#39;(t) + bz&#39;(t) +cz(t) = d(t).\]</span> On sait
+déjà que la forme des solutions est <span
+class="math display">\[\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_constantes}
+:= \{y_0+z / z \text{ solution
+de~$\eqref{eq:edo_lin_ordre_deux_homogene_constantes}$sur
+$I$}\}\]</span> avec <span class="math inline">\(y_0\)</span> solution
+particulière de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_constantes}\)</span>et <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_homogene_constantes}\)</span>étudiée
+précédemment.</p>
+<p>On va trouver une solution particulière dans certains cas
+particulierS.</p>
+<h3 data-number="3.5.1" id="cas-dt-aealpha-t"><span
+class="header-section-number">3.5.1</span> Cas <span
+class="math inline">\(d(t) = Ae^{\alpha t}\)</span></h3>
+<p>On suppose que pour tout <span class="math inline">\(t \in
+\mathbb{R}, d(t) = Ae^{\alpha t}\)</span> avec <span
+class="math inline">\(A,\alpha\in\mathbb{C}\)</span> dans <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_constantes}\)</span>.</p>
+<p>Considérons de nouveau l’équation caractéristique <span
+class="math display">\[\tag{e}
+    ax^2+bx+c = 0\]</span> associée à <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_homogene_constantes}\)</span>.</p>
+<div class="wprop">
+<p><strong>(Solution particulière de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_constantes}\)</span>dans
+le cas où <span class="math inline">\(d(t) = Ae^{\alpha
+t}\)</span>)</strong> <span id="prop:solution_particuliere_ordre_2_exp"
+label="prop:solution_particuliere_ordre_2_exp"></span></p>
+<ul>
+<li><p>Si <span class="math inline">\(\alpha\)</span> n’est pas solution
+de <span
+class="math inline">\(\eqref{eq:equation_caracteristique_lineaire_ordre_2}\)</span>,
+on peut trouver une solution particulière de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_constantes}\)</span>sous
+la forme <span class="math display">\[y_0 : t \in \mathbb{R}\mapsto
+Ke^{\alpha t}\]</span> avec <span class="math inline">\(K \in
+\mathbb{C}\)</span>,</p></li>
+<li><p>Si <span class="math inline">\(\alpha\)</span> est solution
+simple de <span
+class="math inline">\(\eqref{eq:equation_caracteristique_lineaire_ordre_2}\)</span>,
+on peut trouver une solution particulière de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_constantes}\)</span>sous
+la forme <span class="math display">\[y_0 : t \in \mathbb{R}\mapsto
+Kte^{\alpha t}\]</span> avec <span class="math inline">\(K\in
+\mathbb{C}\)</span>,</p></li>
+<li><p>Si <span class="math inline">\(\alpha\)</span> est solution
+double de <span
+class="math inline">\(\eqref{eq:equation_caracteristique_lineaire_ordre_2}\)</span>,
+on peut trouver une solution particulière de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_constantes}\)</span>sous
+la forme <span class="math display">\[y_0 : t \in \mathbb{R}\mapsto
+Kt^2e^{\alpha t}\]</span> avec <span class="math inline">\(K \in
+\mathbb{C}\)</span>.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Si <span class="math inline">\(\alpha\)</span> n’est pas solution
+de <span
+class="math inline">\(\eqref{eq:equation_caracteristique_lineaire_ordre_2}\)</span>,
+en posant <span class="math inline">\(y_0 : t \in \mathbb{R}\mapsto
+Ke^{\alpha t}\)</span> avec <span class="math inline">\(K \in
+\mathbb{C}\)</span>, qui est deux fois dérivable sur <span
+class="math inline">\(\mathbb{R}\)</span>, on a <span
+class="math display">\[\begin{aligned}
+                \forall t \in \mathbb{R}, y_0&#39;(t) &amp; = K\alpha
+e^{\alpha t} \\
+                 y_0&#39;&#39;(t) &amp; = K\alpha^2 e^{\alpha t}
+            \end{aligned}\]</span> donc</p>
+<p><span class="math display">\[\begin{aligned}
+                \text{$y_0$ solution
+de~$\eqref{eq:edo_lin_ordre_deux_constantes}$sur $\mathbb{R}$}
+                &amp; \iff \forall t \in \mathbb{R},
+K\underbrace{(a\alpha^2+b\alpha+c)}_{\neq 0}e^{\alpha t} = Ae^{\alpha t}
+\\
+                &amp; \iff  K= \frac{A}{a\alpha^2+b\alpha+c}.
+            \end{aligned}\]</span></p></li>
+<li><p>Si <span class="math inline">\(\alpha\)</span> est solution
+simple de <span
+class="math inline">\(\eqref{eq:equation_caracteristique_lineaire_ordre_2}\)</span>,
+alors <span class="math inline">\(\alpha \neq
+-\frac{b}{2a}\)</span>.</p>
+<p>De plus, en posant <span class="math inline">\(y_0 : t \in
+\mathbb{R}\mapsto Kte^{\alpha t}\)</span> avec <span
+class="math inline">\(K \in \mathbb{C}\)</span>, qui est deux fois
+dérivable sur <span class="math inline">\(\mathbb{R}\)</span>, on a
+<span class="math display">\[\begin{aligned}
+                \forall t \in \mathbb{R}, y_0&#39;(t) &amp; = K\alpha
+te^{\alpha t}+ Ke^{\alpha t} \\
+                 y_0&#39;&#39;(t) &amp; = K\alpha^2 te^{\alpha
+t}+K\alpha e^{\alpha t}+ K\alpha e^{\alpha t} \\
+                 &amp; = K\alpha^2 te^{\alpha t}+2K\alpha e^{\alpha t}  
+            \end{aligned}\]</span> donc</p>
+<p><span class="math display">\[\begin{aligned}
+                 \text{$y_0$ solution
+de~$\eqref{eq:edo_lin_ordre_deux_constantes}$sur $\mathbb{R}$}
+                &amp; \iff \forall t \in \mathbb{R},
+K(t\underbrace{(a\alpha^2+b\alpha+c)}_{=
+0}+\underbrace{(2a\alpha+b)}_{\neq 0})e^{\alpha t} = Ae^{\alpha t} \\
+                &amp; \iff  K= \frac{A}{2a\alpha+b}.
+            \end{aligned}\]</span></p></li>
+<li><p>Si <span class="math inline">\(\alpha\)</span> est solution
+double de <span
+class="math inline">\(\eqref{eq:equation_caracteristique_lineaire_ordre_2}\)</span>,
+alors <span class="math inline">\(\alpha =-\frac{b}{2a}\)</span>.</p>
+<p>De plus, en posant <span class="math inline">\(y_0 : t \in
+\mathbb{R}\mapsto Kt^2e^{\alpha t}\)</span> avec <span
+class="math inline">\(K \in \mathbb{C}\)</span>, qui est deux fois
+dérivable sur <span class="math inline">\(\mathbb{R}\)</span>, on a
+<span class="math display">\[\begin{aligned}
+                \forall t \in \mathbb{R}, y_0&#39;(t) &amp; = K\alpha
+t^2e^{\alpha t}+ 2Kte^{\alpha t} \\
+                 y_0&#39;&#39;(t) &amp; = 2K\alpha te^{\alpha
+t}+K\alpha^2 t^2e^{\alpha t}+ 2Ke^{\alpha t}+2Kt\alpha e^{\alpha t} \\
+                 &amp; = K\alpha^2 t^2e^{\alpha t}+4Kt\alpha e^{\alpha
+t}+2K e^{\alpha t}   
+            \end{aligned}\]</span> donc</p>
+<p><span class="math display">\[\begin{aligned}
+                 \text{$y_0$ solution
+de~$\eqref{eq:edo_lin_ordre_deux_constantes}$sur $\mathbb{R}$}
+                &amp; \iff \forall t \in \mathbb{R},
+K(t^2\underbrace{(a\alpha^2+b\alpha+c)}_{=
+0}+2t\underbrace{(2a\alpha+b)}_{= 0}+\underbrace{2a}_{\neq 0})e^{\alpha
+t} = Ae^{\alpha t} \\
+                &amp; \iff  K= \frac{A}{2a}.
+            \end{aligned}\]</span></p></li>
+</ul>
+</div>
+<div class="wrem">
+<p><strong>(Solutions à valeurs réelles)</strong> Dans le cas où <span
+class="math inline">\(a,b,c \in \mathbb{R}\)</span> et <span
+class="math inline">\(u\)</span> à valeurs réelles ie <span
+class="math inline">\(A,\alpha \in \mathbb{R}\)</span> alors les
+solutions particulières <span class="math inline">\(y_0\)</span>
+précédentes sont réelles et <span
+class="math display">\[\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_constantes},\mathbb{R}=
+\{y_0+z / z
+\in~\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_homogene_constantes},\mathbb{R}\}.\]</span></p>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Trouver les solutions sur <span
+class="math inline">\(\mathbb{R}\)</span> à valeurs réelles de <span
+class="math display">\[\tag{$Ex_3$}
+                \label{eq:ex_ordre2_1}
+                y&#39;&#39;(t)+y&#39;(t)+y(t)=e^{2t}.\]</span></p>
+</div>
+<div class="corri*">
+<ol>
+<li><p>On a déjà vu dans l’exemple <a href="#ex:ordre2_j"
+data-reference-type="ref" data-reference="ex:ordre2_j">[ex:ordre2_j]</a>
+que l’ensemble des solutions à valeurs réelles de l’équation homogène
+associée s’écrit <span
+class="math display">\[\mathcal{S}_\eqref{eq:ex_ordre2_j}, \mathbb{R}
+            = \{z: t \in \mathbb{R}\mapsto
+e^{—\tfrac{1}{2}t}\left(K_1\cos(\frac{\sqrt{3}}{2}t)+K_2\sin(\frac{\sqrt{3}}{2}t)\right)
+/ K_1, K_2 \in \mathbb{R}\}\]</span></p></li>
+<li><p>Ici, <span class="math inline">\(d(t) = Ae^{\alpha t}\)</span>
+avec <span class="math inline">\(A=1\)</span> et <span
+class="math inline">\(\alpha=2\)</span> non solution de <span
+class="math inline">\(x^2+x+1 = 0\)</span>. On cherche donc une solution
+particulière sous la forme <span class="math inline">\(y_0: t \in
+\mathbb{R}\mapsto Ke^{2t}\)</span> avec <span
+class="math inline">\(\mathbb{K}\in \mathbb{R}\)</span>.</p>
+<p><span class="math display">\[\begin{aligned}
+                \text{$y_0$ solution de~$\eqref{eq:ex_ordre2_1}$sur
+$\mathbb{R}$}
+                &amp; \iff \forall t \in \mathbb{R}, K(2^2+2+1)e^{2 t} =
+e^{2 t} \\
+                &amp; \iff  K= \frac{1}{7}.
+            \end{aligned}\]</span></p>
+<p>Donc <span class="math inline">\(y_0: t \in \mathbb{R}\mapsto
+\frac{1}{7}e^{2t}\)</span> est solution de <span
+class="math inline">\(\eqref{eq:ex_ordre2_1}\)</span>sur <span
+class="math inline">\(\mathbb{R}\)</span>.</p></li>
+<li><p><span
+class="math display">\[\mathcal{S}_\eqref{eq:ex_ordre2_1},\mathbb{R}=
+\left\{\frac{1}{7}e^{2t}+
+e^{—\tfrac{1}{2}t}\left(K_1\cos(\frac{\sqrt{3}}{2}t)+K_2\sin(\frac{\sqrt{3}}{2}t)\right)
+/ K_1, K_2 \in \mathbb{R}\right\}.\]</span></p></li>
+</ol>
+</div>
+</div>
+<h3 data-number="3.5.2"
+id="cas-où-abc-in-mathbbr-et-dt-acosomega-t-avec-a-in-mathbbr-omega-in-mathbbrstar"><span
+class="header-section-number">3.5.2</span> Cas où <span
+class="math inline">\(a,b,c \in \mathbb{R}\)</span> et <span
+class="math inline">\(d(t) = A\cos(\omega t)\)</span> avec <span
+class="math inline">\(A \in \mathbb{R}, \omega \in
+\mathbb{R}^{\star}\)</span></h3>
+<p>On suppose que pour tout <span class="math inline">\(t \in
+\mathbb{R}, d(t) = Ae^{\alpha t}\)</span> avec <span
+class="math inline">\(A \in \mathbb{R}, \omega \in
+\mathbb{R}^{\star}\)</span> dans <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_constantes}\)</span>.
+On va s’intéresser aux solutions à valeurs réelles.</p>
+<p>On va s’appuyer sur la partie précédente en remarquant <span
+class="math display">\[\forall t \in \mathbb{R}, A\cos(\omega t) =
+\mathop{\mathrm{Re}}\left(Ae^{i\omega t}\right).\]</span></p>
+<div class="wprop">
+<p><strong>(Solutions de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_constantes}\)</span>dans
+le cas où <span class="math inline">\(d(t) = Ae^{\alpha
+t}\)</span>)</strong> On considère <span
+class="math display">\[\tag{$E_\omega$}
+        \label{eq:ordre2_cos}
+                ay&#39;&#39;(t)+by&#39;(t)+cy(t)=A\cos(\omega
+t)\]</span> avec <span class="math inline">\(a,b,c \in
+\mathbb{R}\)</span> (<span class="math inline">\(a \neq 0\)</span>) et
+<span class="math inline">\(A \in \mathbb{R}, \omega \in
+\mathbb{R}^{\star}\)</span>. et <span
+class="math display">\[\tag{$E_{\omega,\mathbb{C}}$}
+        \label{eq:ordre2_exp}
+                ay&#39;&#39;(t)+by&#39;(t)+cy(t)=Ae^{i\omega
+t}.\]</span> Alors, l’ensemble des solutions à valeurs réelles de <span
+class="math inline">\(\eqref{eq:ordre2_cos}\)</span>s’écrit <span
+class="math display">\[\mathcal{S}_\eqref{eq:ordre2_cos},\mathbb{R}
+    = \left\{\mathop{\mathrm{Re}}(y_0) + z / z \in
+\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_homogene_constantes_reelles},\mathbb{R}\right\}\]</span>
+où <span class="math inline">\(y_0\)</span> est une solution
+particulière de <span
+class="math inline">\(\eqref{eq:ordre2_exp}\)</span>donnée par exemple
+par la proposition <a href="#prop:solution_particuliere_ordre_2_exp"
+data-reference-type="ref"
+data-reference="prop:solution_particuliere_ordre_2_exp">[prop:solution_particuliere_ordre_2_exp]</a>
+et <span
+class="math inline">\(\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_homogene_constantes_reelles},\mathbb{R}\)</span>
+est donné par la proposition <a
+href="#prop:solutions_homogene_ordre_2_reels" data-reference-type="ref"
+data-reference="prop:solutions_homogene_ordre_2_reels">[prop:solutions_homogene_ordre_2_reels]</a>.</p>
+</div>
+<div class="wproof">
+<p>Par les résultats précédents, il suffit de montrer que pour <span
+class="math inline">\(y_0\)</span> est une solution particulière
+de <span class="math inline">\(\eqref{eq:ordre2_exp}\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Re}}(y_0)\)</span> est une
+solution particulière de <span
+class="math inline">\(\eqref{eq:ordre2_cos}\)</span>.</p>
+<p>On a <span class="math display">\[\forall t \in \mathbb{R},
+ay_0&#39;&#39;(t)+by_0&#39;(t)+cy_0(t)=Ae^{i\omega t}.\]</span> donc
+<span class="math display">\[\begin{aligned}
+            \forall t \in \mathbb{R},
+\mathop{\mathrm{Re}}(ay_0&#39;&#39;(t)+by_0&#39;(t)+cy_0(t))
+            &amp; = a\mathop{\mathrm{Re}}(y_0)&#39;&#39;(t)
++b\mathop{\mathrm{Re}}(y_0)&#39;(t)+c\mathop{\mathrm{Re}}(y_0)(t) \\
+            &amp;  = \mathop{\mathrm{Re}}(Ae^{i\omega t}) = A\cos(\omega
+t).
+        \end{aligned}\]</span></p>
+</div>
+<div class="wrem">
+<p>En fait, <span
+class="math display">\[\mathcal{S}_\eqref{eq:ordre2_cos},\mathbb{R}
+    = \left\{\mathop{\mathrm{Re}}(y)/ y \in
+\mathcal{S}_\eqref{eq:ordre2_exp}\right\}\]</span></p>
+</div>
+<p>On peut imaginer des variantes plus ou moins compliquées comme
+illustré ci-dessous.</p>
+<div class="wex">
+<div class="exo*">
+<p>Trouver les solutions sur <span
+class="math inline">\(\mathbb{R}\)</span> à valeurs réelles de <span
+class="math display">\[\tag{$Ex_4$}
+                \label{eq:ex_ordre2_2}
+                y&#39;&#39;(t)+y&#39;(t)+y(t)=e^{-\tfrac{t}{2}}\sin(\omega
+t).\]</span> avec <span class="math inline">\(\omega \in
+\mathbb{R}^{+\star}\)</span>.</p>
+</div>
+<div class="corri*">
+<ol>
+<li><p>On a déjà vu dans l’exemple <a href="#ex:ordre2_j"
+data-reference-type="ref" data-reference="ex:ordre2_j">[ex:ordre2_j]</a>
+que l’ensemble des solutions à valeurs réelles de l’équation homogène
+associée s’écrit <span
+class="math display">\[\mathcal{S}_\eqref{eq:ex_ordre2_j}, \mathbb{R}
+            = \{z: t \in \mathbb{R}\mapsto
+e^{—\tfrac{1}{2}t}\left(K_1\cos(\frac{\sqrt{3}}{2}t)+K_2\sin(\frac{\sqrt{3}}{2}t)\right)
+/ K_1, K_2 \in \mathbb{R}\}\]</span></p></li>
+<li><p>Déterminons une solution particulière de<span
+class="math inline">\(\eqref{eq:ex_ordre2_2}\)</span>. On remarque que
+pour <span class="math inline">\(t \in \mathbb{R},
+e^{-\tfrac{t}{2}}\sin(\omega t) =
+\mathop{\mathrm{Im}}(e^{t\left((-\tfrac{1}{2}+i\omega\right)})\)</span>.
+On considère donc <span class="math display">\[\label{eq:ex_ordre2_2_C}
+                \tag{$H_{Ex_{4}}$}
+                y&#39;&#39;(t)+y&#39;(t)+y(t)=e^{t\left(-\tfrac{1}{2}+i\omega\right)}.\]</span></p>
+<ul>
+<li><p>Si <span class="math inline">\(\omega \neq
+\frac{\sqrt{3}}{2}\)</span>, <span
+class="math inline">\(-\tfrac{1}{2}+i\omega\)</span> n’est pas solution
+de <span class="math inline">\(x^2+x+1 = 0\)</span>. On cherche donc une
+solution particulière <span
+class="math inline">\(y_{0,\mathbb{C}}\)</span> de <span
+class="math inline">\(\eqref{eq:ex_ordre2_2_C}\)</span>sous la forme
+<span class="math inline">\(y_{0,\mathbb{C}}: t \in \mathbb{R}\mapsto
+Ke^{t\left(-\tfrac{1}{2}+i\omega\right)}\)</span>. On a alors <span
+class="math display">\[\begin{aligned}
+                &amp; \text{$y_{0,\mathbb{C}}$ solution
+de~$\eqref{eq:ex_ordre2_2}$sur $\mathbb{R}$} \\
+                &amp; \iff \forall t \in \mathbb{R},
+K(\left(-\tfrac{1}{2}+i\omega\right)^2+\left(-\tfrac{1}{2}+i\omega\right)+1)e^{t\left(-\tfrac{1}{2}+i\omega\right)}
+= e^{t\left(-\tfrac{1}{2}+i\omega\right)} \\
+                &amp; \iff  K=
+\frac{1}{\left(-\tfrac{1}{2}+i\omega\right)^2+\left(-\tfrac{1}{2}+i\omega\right)+1}
+\\
+                &amp; \iff K = \frac{1}{\frac{3}{4}-\omega^2}       
+            \end{aligned}\]</span></p>
+<p>Donc une solution particulière de <span
+class="math inline">\(\eqref{eq:ex_ordre2_2}\)</span>est <span
+class="math display">\[y_0 : t \in \mathbb{R}\mapsto
+\mathop{\mathrm{Im}}(y_{0,\mathbb{C}}(t)) =
+\frac{1}{\frac{3}{4}-\omega^2}e^{-\tfrac{1}{2}t}\sin(\omega
+t).\]</span></p></li>
+<li><p>Si <span class="math inline">\(\omega =
+\frac{\sqrt{3}}{2}\)</span>, <span class="math inline">\(j=
+-\tfrac{1}{2}+i\omega\)</span> est solution simple de <span
+class="math inline">\(x^2+x+1 = 0\)</span>. On cherche donc une solution
+particulière <span class="math inline">\(y_{0,\mathbb{C}}\)</span>
+de <span class="math inline">\(\eqref{eq:ex_ordre2_2_C}\)</span>sous la
+forme <span class="math inline">\(y_{0,\mathbb{C}}: t \in
+\mathbb{R}\mapsto Kte^{jt}\)</span>. On a alors <span
+class="math display">\[\begin{aligned}
+                 \text{$y_{0,\mathbb{C}}$ solution
+de~$\eqref{eq:ex_ordre2_2}$sur $\mathbb{R}$}
+                &amp; \iff \forall t \in \mathbb{R},
+K(t(j^2+j+1)+2j+1)e^{jt} = e^{jt} \\
+                &amp; \iff  K= \frac{1}{2j+1} \\
+                &amp; \iff K = \frac{1}{\sqrt{3}i}      
+            \end{aligned}\]</span></p>
+<p>Donc une solution particulière de <span
+class="math inline">\(\eqref{eq:ex_ordre2_2}\)</span>est <span
+class="math display">\[y_0 : t \in \mathbb{R}\mapsto
+\mathop{\mathrm{Im}}(y_{0,\mathbb{C}}(t)) =
+-\frac{1}{\sqrt{3}}e^{-\tfrac{1}{2}t}\cos\left(\frac{\sqrt{3}}{2}
+t\right).\]</span></p></li>
+</ul></li>
+<li><ul>
+<li><p>Si <span class="math inline">\(\omega \neq
+\frac{\sqrt{3}}{2}\)</span>, <span
+class="math display">\[\mathcal{S}_\eqref{eq:ex_ordre2_1},\mathbb{R}=
+\left\{\frac{1}{\frac{3}{4}-\omega^2}e^{-\tfrac{1}{2}t}\sin(\omega t)+
+e^{—\tfrac{1}{2}t}\left(K_1\cos(\frac{\sqrt{3}}{2}t)+K_2\sin(\frac{\sqrt{3}}{2}t)\right)
+/ K_1, K_2 \in \mathbb{R}\right\}.\]</span></p></li>
+<li></li>
+<li><p>Si <span class="math inline">\(\omega=
+\frac{\sqrt{3}}{2}\)</span>, <span
+class="math display">\[\mathcal{S}_\eqref{eq:ex_ordre2_1},\mathbb{R}=
+\left\{-\frac{1}{\sqrt{3}}e^{-\tfrac{1}{2}t}\cos\left(\frac{\sqrt{3}}{2}
+t\right)+
+e^{—\tfrac{1}{2}t}\left(K_1\cos(\frac{\sqrt{3}}{2}t)+K_2\sin(\frac{\sqrt{3}}{2}t)\right)
+/ K_1, K_2 \in \mathbb{R}\right\}.\]</span></p></li>
+</ul></li>
+</ol>
+</div>
+</div>
+<h2 data-number="3.6"
+id="existence-et-unicité-dune-solution-deeqrefeqedo_lin_ordre_deux_constantessatisfaisant-deux-conditions-initiales"><span
+class="header-section-number">3.6</span> Existence et unicité d’une
+solution de<span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_constantes}\)</span>satisfaisant
+deux conditions initiales</h2>
+<p>Soient <span class="math inline">\(a,b,c \in \mathbb{C}\)</span> tels
+que <span class="math inline">\(a \neq 0\)</span>. On prend <span
+class="math inline">\(I=\mathbb{R}\)</span> et on considère <span
+class="math inline">\(d : I \to \mathbb{C}\)</span> continue et de
+nouveau <span class="math display">\[\tag{$E_{2,cste}$}
+        az&#39;&#39;(t) + bz&#39;(t) +cz(t) = d(t).\]</span></p>
+<div class="wprop">
+<p><span id="prop:unique_cond_init_ordre_2"
+label="prop:unique_cond_init_ordre_2"></span> Soient <span
+class="math inline">\(t_0 \in \mathbb{R}\)</span>, <span
+class="math inline">\(u_0 \in \mathbb{C}, u_0&#39; \in
+\mathbb{C}\)</span>, il existe une unique solution <span
+class="math inline">\(Y\)</span> de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_constantes}\)</span>telle
+que <span class="math inline">\(\begin{cases}
+        Y(t_0) &amp; = u_0 \\
+        Y&#39;(t_0) &amp; = u&#39;_0
+    \end{cases}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Pour rappel, <span
+class="math display">\[\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_constantes}
+:= \{y_0+z / z \text{ solution
+de~$\eqref{eq:edo_lin_ordre_deux_homogene_constantes}$sur
+$I$}\}\]</span> avec <span class="math inline">\(y_0\)</span> solution
+particulière de <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_constantes}\)</span>.
+En considérant de nouveau <span class="math inline">\(r_1,r_2\)</span>
+les solutions de l’équation caractéristique associée à <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_homogene_constantes}\)</span>,</p>
+<ul>
+<li><p>Si <span class="math inline">\(r_1 \neq r_2\)</span>, <span
+class="math display">\[\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_constantes}
+:= \{y_0(t)+C_1e^{r_1t}+C_2e^{r_2t}/ C_1, C_2 \in \mathbb{C}\}.\]</span>
+Soit <span class="math inline">\(Y : t \in I \mapsto
+y_0(t)+C_1e^{r_1t}+C_2e^{r_2t}\)</span> élément de <span
+class="math inline">\(\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_constantes}\)</span>
+avec <span class="math inline">\(C_1,C_2 \in \mathbb{C}\)</span>, <span
+class="math display">\[\begin{aligned}
+        \begin{cases}
+        Y(t_0) &amp; = u_0 \\
+        Y&#39;(t_0) &amp; = u&#39;_0
+    \end{cases}
+    &amp; \iff
+    \begin{cases}
+        C_1e^{r_1t_0}+C_2e^{r_2t_0} &amp; = u_0-y_0(t_0) \\
+        C_1r_1e^{r_1t_0}+C_2r_2e^{r_2t_0} &amp; = u&#39;_0-y&#39;_0(t_0)
+\\
+    \end{cases} \\
+        \end{aligned}\]</span></p>
+<p>Or <span class="math inline">\(\begin{vmatrix}
+            e^{r_1t_0} &amp; e^{r_2t_0}\\
+            r_1e^{r_1t_0} &amp; r_2e^{r_2t_0}\\
+        \end{vmatrix} = e^{(r_1-r_2)t_0}(r_2-r_2) \neq 0\)</span> donc
+ce système admet une unique solution.</p></li>
+<li><p>Si <span class="math inline">\(r_1 = r_2\)</span>, <span
+class="math display">\[\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_constantes}
+:= \{y_0(t)+(C_1+C_2t)e^{r_1t}/ C_1, C_2 \in \mathbb{C}\}.\]</span> Soit
+<span class="math inline">\(Y : t \in I \mapsto
+y_0(t)+(C_1+C_2t)e^{r_1t}\)</span> élément de <span
+class="math inline">\(\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_constantes}\)</span>
+avec <span class="math inline">\(C_1,C_2 \in \mathbb{C}\)</span>, <span
+class="math display">\[\begin{aligned}
+        \begin{cases}
+        Y(t_0) &amp; = u_0 \\
+        Y&#39;(t_0) &amp; = u&#39;_0
+    \end{cases}
+    &amp; \iff
+    \begin{cases}
+        (C_1+C_2t_0)e^{r_1t_0} &amp; = u_0-y_0(t_0) \\
+        (C_1r_1+C_2 r_1t_0+ C_2)e^{r_1t_0} &amp; =
+u&#39;_0-y&#39;_0(t_0) \\
+    \end{cases} \\
+        \end{aligned}\]</span> Or <span
+class="math inline">\(\begin{vmatrix}
+            e^{r_1t_0} &amp; t_0e^{r_1t_0}\\
+            r_1e^{r_1t_0} &amp; (r_1t_0+1)e^{r_1t_0}\\
+        \end{vmatrix} = e^{2r_1t_0}(r_1t_0+1-t_0r_1) = e^{2r_1t_0} \neq
+0\)</span> donc ce système admet une unique solution.</p></li>
+</ul>
+</div>
+</body>
+</html>
+
+<script>
+
+
+const toggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Appliquer le thème au chargement
+const currentTheme = localStorage.getItem('theme') || 'default';
+body.setAttribute('data-md-color-scheme', currentTheme);
+
+toggle.addEventListener('click', () => {
+    let scheme = body.getAttribute('data-md-color-scheme');
+    let newScheme = (scheme === 'default') ? 'slate' : 'default';
+    
+    body.setAttribute('data-md-color-scheme', newScheme);
+    localStorage.setItem('theme', newScheme);
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+let secCount = -1;
+let thmCount = -1;
+
+let labels = {};
+
+const noms = {
+'wthm':'Théorème',
+'wprop':'Proposition',
+'wdefi':'Définition',
+'wlem':'Lemme',
+'wcor':'Corollaire',
+'wappli':'Application',
+'wrem':'Remarque',
+'wrappel': 'Rappel',
+'wex':'Exemple',
+'wproof':'Preuve'
+};
+
+//////////////////////////////////////////////////////////////////////////////
+// Numérotation des environnements
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll(
+"h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex, .wrappel,.wproof"
+).forEach(el => {
+
+    if (
+        el.tagName.toLowerCase() === "h1"
+        && !el.closest("#TOC")
+    ) {
+
+        secCount++;
+        thmCount = 0;
+    }
+
+    else if (noms[Array.from(el.classList).find(c => noms[c])]) {
+
+        let type = Array.from(el.classList).find(c => noms[c]);
+
+        if (type !== 'wproof') {
+
+            thmCount++;
+
+            let num = secCount + "." + thmCount;
+
+            let id = el.querySelector("span[id]")
+                ? el.querySelector("span[id]").id
+                : null;
+
+            if(id) {
+                labels[id] = {
+                    num: num,
+                    type: type.substring(1)
+                };
+            }
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                let strong = p.querySelector("strong");
+
+                let title = (
+                    strong &&
+                    strong.innerText.includes("(")
+                )
+
+                ? ` <span class="env-title">${strong.outerHTML}</span>`
+                : "";
+
+                if (title) strong.remove();
+
+                p.innerHTML =
+                    `<strong class="env-header">${noms[type]} ${num}</strong>`
+                    + title
+                    + " — "
+                    + p.innerHTML;
+            }
+        }
+
+        else {
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                p.innerHTML =
+                    `<strong class="env-header">Preuve</strong> — `
+                    + p.innerHTML;
+            }
+        }
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Capture des équations MathJax
+//////////////////////////////////////////////////////////////////////////////
+
+setTimeout(() => {
+
+document.querySelectorAll("mjx-math[display='true']").forEach((el, index) => {
+
+    let num = el.querySelector(".mjx-eqn-number");
+
+    if (num) {
+
+        let val = num.innerText.replace(/[()]/g, '');
+
+        let id = el.id || "eq-" + index;
+
+        el.id = id;
+
+        labels[id] = {
+            num: val,
+            type: 'eq'
+        };
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Remplacement des références
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll("body *").forEach(el => {
+
+    if (
+        el.childNodes.length === 1 &&
+        el.childNodes[0].nodeType === Node.TEXT_NODE
+    ) {
+
+        el.innerHTML = el.innerHTML
+
+        .replace(/\\eqref\{(.*?)\}/g, (m, id) => {
+
+            return labels[id]
+                ? `<a href="#${id}">(${labels[id].num})</a>`
+                : m;
+        })
+
+        .replace(
+            /\[(prop|thm|def|cor|lem|appli|rem|rappel|ex):(.*?)\]/g,
+
+            (m, t, id) => {
+
+                let f = t + ":" + id;
+
+                return labels[f]
+                    ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>`
+                    : m;
+            }
+        );
+    }
+});
+
+}, 800);
+
+});
+
+</script>
+

@@ -1,0 +1,377 @@
+/* =========================================================
+   OUESTMATIQUE — THEME MODERNE
+========================================================= */
+
+/* =========================================================
+   LIGHT MODE
+========================================================= */
+
+[data-md-color-scheme="default"] {
+
+  --md-default-bg-color: #f6f3eb;
+  --md-default-bg-color--light: #fffdf8;
+
+  --md-default-fg-color: #2d1b12;
+  --md-default-fg-color--light: #6b5b52;
+  --md-default-fg-color--lighter: #8d8176;
+
+  --md-primary-fg-color: #f6f3eb;
+  --md-primary-bg-color: #2d1b12;
+
+  --md-accent-fg-color: #8aa04b;
+
+  --link-color: #7a3f16;
+
+  --surface: #fffdf8;
+
+  --border-color: #e6dfd2;
+}
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+[data-md-color-scheme="slate"] {
+
+  --md-default-bg-color: #11110f;
+  --md-default-bg-color--light: #1a1916;
+
+  --md-default-fg-color: #f3eee3;
+  --md-default-fg-color--light: #b9afa1;
+  --md-default-fg-color--lighter: #8f877b;
+
+  --md-primary-fg-color: #11110f;
+  --md-primary-bg-color: #f3eee3;
+
+  --md-accent-fg-color: #b2c96b;
+
+  --link-color: #e0a15f;
+
+  --surface: #1b1a17;
+
+  --border-color: rgba(255,255,255,0.08);
+}
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+body,
+.md-main,
+.md-content,
+.md-container,
+.md-sidebar,
+.md-tabs,
+.md-typeset table:not([class]) {
+  background: var(--md-default-bg-color);
+}
+
+/* largeur globale */
+
+.md-grid {
+  max-width: 1400px;
+}
+
+/* contenu plus premium */
+
+.md-content__inner {
+  max-width: 860px;
+  margin: auto;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.md-header {
+
+  background: color-mix(
+    in srgb,
+    var(--md-default-bg-color) 82%,
+    transparent
+  );
+
+  backdrop-filter: blur(18px);
+
+  border-bottom: 1px solid var(--border-color);
+
+  box-shadow: none;
+}
+
+/* titre site */
+
+.md-header__title,
+.md-header__topic,
+.md-ellipsis {
+  color: var(--md-default-fg-color) !important;
+}
+
+/* =========================================================
+   HEADER BRANDING
+========================================================= */
+
+/* hauteur du header */
+
+.md-header__inner {
+  min-height: 110px;
+}
+
+/* logo */
+
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+  height: 5rem !important;
+}
+
+/* espace logo */
+
+.md-header__button.md-logo {
+  margin-right: 1.2rem;
+}
+
+/* titre du site */
+
+.md-header__title {
+
+  font-size: 2.2rem;
+
+  font-weight: 800;
+
+  letter-spacing: -0.04em;
+
+  line-height: 1;
+}
+
+/* texte réel */
+
+.md-header__topic,
+.md-ellipsis {
+
+  font-size: inherit;
+
+  font-weight: inherit;
+}
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.md-sidebar {
+  background: transparent;
+}
+
+.md-sidebar__scrollwrap {
+  border-right: 1px solid var(--border-color);
+}
+
+/* liens sidebar */
+
+.md-nav__link {
+  border-radius: 10px;
+
+  transition: all 0.2s ease;
+}
+
+.md-nav__link:hover {
+  color: var(--md-accent-fg-color);
+}
+
+/* =========================================================
+   TABS
+========================================================= */
+
+.md-tabs {
+  border-bottom: 1px solid var(--border-color);
+
+  background: transparent;
+}
+
+/* =========================================================
+   TYPOGRAPHIE
+========================================================= */
+
+.md-typeset h1 {
+
+  color: var(--md-default-fg-color);
+
+  font-size: 3rem;
+
+  font-weight: 800;
+
+  letter-spacing: -0.04em;
+
+  margin-bottom: 1rem;
+}
+
+.md-typeset h2 {
+
+  color: var(--md-default-fg-color);
+
+  font-weight: 700;
+
+  letter-spacing: -0.03em;
+}
+
+.md-typeset h3 {
+  font-weight: 650;
+}
+
+/* texte */
+
+.md-typeset p,
+.md-typeset li {
+
+  color: var(--md-default-fg-color--light);
+
+  line-height: 1.85;
+}
+
+/* =========================================================
+   LIENS
+========================================================= */
+
+.md-typeset a {
+
+  color: var(--link-color);
+
+  text-decoration: none;
+
+  border-bottom: 1px solid color-mix(
+    in srgb,
+    var(--link-color) 35%,
+    transparent
+  );
+
+  transition: all 0.2s ease;
+}
+
+.md-typeset a:hover {
+
+  color: var(--md-accent-fg-color);
+
+  border-color: var(--md-accent-fg-color);
+}
+
+/* =========================================================
+   CODE
+========================================================= */
+
+.highlight pre {
+
+  background: var(--surface);
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 18px;
+
+  padding: 1rem;
+}
+
+/* code inline */
+
+.md-typeset code {
+
+  background: color-mix(
+    in srgb,
+    var(--surface) 92%,
+    transparent
+  );
+
+  border-radius: 8px;
+}
+
+/* =========================================================
+   BLOCS / ADMONITIONS
+========================================================= */
+
+.md-typeset .admonition,
+.md-typeset details {
+
+  background: color-mix(
+    in srgb,
+    var(--surface) 94%,
+    transparent
+  );
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 18px;
+
+  box-shadow: none;
+}
+
+/* =========================================================
+   BOUTONS
+========================================================= */
+
+.md-button {
+
+  border-radius: 999px;
+
+  border: none;
+
+  background: var(--md-accent-fg-color);
+
+  color: #ffffff !important;
+
+  transition: all 0.2s ease;
+}
+
+.md-button:hover {
+  transform: translateY(-1px);
+}
+
+/* =========================================================
+   SEARCH BAR
+========================================================= */
+
+.md-search__form {
+
+  border-radius: 14px;
+
+  border: 1px solid var(--border-color);
+
+  background: var(--surface);
+}
+
+/* =========================================================
+   TABLES
+========================================================= */
+
+.md-typeset table:not([class]) {
+
+  border: 1px solid var(--border-color);
+
+  border-radius: 16px;
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.md-footer,
+.md-footer-meta {
+
+  background: transparent;
+
+  border-top: 1px solid var(--border-color);
+}
+
+/* cache le branding Material */
+
+.md-copyright {
+  display: none;
+}
+
+/* =========================================================
+   TRANSITIONS
+========================================================= */
+
+* {
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
+}

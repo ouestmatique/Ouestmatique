@@ -1,0 +1,1851 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Calculs algébriques de base</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+
+<header class="site-header">
+
+<div class="site-header-left">
+<a href="/">
+<img src="/assets/logo.svg" class="site-logo" alt="Logo">
+</a>
+</div>
+
+<div class="site-header-right">
+   <button id="theme-toggle"
+style="
+margin-right: 15px;
+cursor: pointer;
+background: transparent;
+border: none;
+font-size: 1.1rem;
+color: var(--md-primary-bg-color);
+">
+🌙 / ☀️
+</button>
+    <a href="/" class="home-link">Retour à l’accueil</a>
+</div>
+
+</header>
+
+
+<header id="title-block-header">
+
+<h1 class="title">Calculs algébriques de base</h1>
+<p class="pdf-link">
+<a href="calculs_algebriques.pdf" target="_blank">[PDF]</a>
+</p>
+
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#calculs-de-sommes" id="toc-calculs-de-sommes"><span
+class="toc-section-number">1</span> Calculs de sommes</a>
+<ul>
+<li><a href="#sommes-télescopiques" id="toc-sommes-télescopiques"><span
+class="toc-section-number">1.1</span> Sommes télescopiques</a></li>
+<li><a href="#sommes-géométriques" id="toc-sommes-géométriques"><span
+class="toc-section-number">1.2</span> Sommes géométriques</a></li>
+<li><a
+href="#calculs-des-sommes-classiques-displaystylesum_k0n-k-et-displaystylesum_k0n-k2"
+id="toc-calculs-des-sommes-classiques-displaystylesum_k0n-k-et-displaystylesum_k0n-k2"><span
+class="toc-section-number">1.3</span> Calculs des sommes classiques
+<span class="math inline">\(\displaystyle\sum_{k=0}^n k\)</span> et
+<span class="math inline">\(\displaystyle\sum_{k=0}^n k^2\)</span></a>
+<ul>
+<li><a href="#calcul-de-displaystylesum_k0n-k"
+id="toc-calcul-de-displaystylesum_k0n-k"><span
+class="toc-section-number">1.3.1</span> Calcul de <span
+class="math inline">\(\displaystyle\sum_{k=0}^n k\)</span></a></li>
+<li><a href="#calcul-de-displaystylesum_k0n-k2"
+id="toc-calcul-de-displaystylesum_k0n-k2"><span
+class="toc-section-number">1.3.2</span> Calcul de <span
+class="math inline">\(\displaystyle\sum_{k=0}^n k^2\)</span></a></li>
+</ul></li>
+<li><a href="#changement-dindice-dans-une-somme"
+id="toc-changement-dindice-dans-une-somme"><span
+class="toc-section-number">1.4</span> Changement d’indice dans une
+somme</a></li>
+<li><a href="#sommes-doubles" id="toc-sommes-doubles"><span
+class="toc-section-number">1.5</span> Sommes doubles</a></li>
+<li><a href="#factorisation-de-an-bn"
+id="toc-factorisation-de-an-bn"><span
+class="toc-section-number">1.6</span> Factorisation de <span
+class="math inline">\(a^n-b^n\)</span></a></li>
+</ul></li>
+<li><a href="#calculs-de-produits" id="toc-calculs-de-produits"><span
+class="toc-section-number">2</span> Calculs de produits</a></li>
+<li><a href="#formule-du-binôme-de-newton"
+id="toc-formule-du-binôme-de-newton"><span
+class="toc-section-number">3</span> Formule du binôme de Newton</a>
+<ul>
+<li><a href="#coefficients-binomiaux"
+id="toc-coefficients-binomiaux"><span
+class="toc-section-number">3.1</span> Coefficients binomiaux</a></li>
+<li><a href="#triangle-de-pascal" id="toc-triangle-de-pascal"><span
+class="toc-section-number">3.2</span> Triangle de Pascal</a></li>
+<li><a href="#formule-du-binôme-de-newton-1"
+id="toc-formule-du-binôme-de-newton-1"><span
+class="toc-section-number">3.3</span> Formule du binôme de
+Newton</a></li>
+<li><a
+href="#expression-des-coefficients-binomiaux-à-laide-de-factorielles"
+id="toc-expression-des-coefficients-binomiaux-à-laide-de-factorielles"><span
+class="toc-section-number">3.4</span> Expression des coefficients
+binomiaux à l’aide de factorielles</a></li>
+</ul></li>
+<li><a href="#notion-sur-les-sytèmes-linéaires"
+id="toc-notion-sur-les-sytèmes-linéaires"><span
+class="toc-section-number">4</span> Notion sur les sytèmes linéaires</a>
+<ul>
+<li><a href="#système-linéaire-à-deux-équations-deux-inconnues"
+id="toc-système-linéaire-à-deux-équations-deux-inconnues"><span
+class="toc-section-number">4.1</span> Système linéaire à deux équations,
+deux inconnues</a></li>
+<li><a href="#applications-géométriques"
+id="toc-applications-géométriques"><span
+class="toc-section-number">4.2</span> Applications géométriques</a>
+<ul>
+<li><a href="#intersection-de-deux-droites-non-parallèles-du-plan"
+id="toc-intersection-de-deux-droites-non-parallèles-du-plan"><span
+class="toc-section-number">4.2.1</span> Intersection de deux droites non
+parallèles du plan</a></li>
+<li><a href="#intersection-de-deux-plans-non-parallèles-de-lespace"
+id="toc-intersection-de-deux-plans-non-parallèles-de-lespace"><span
+class="toc-section-number">4.2.2</span> Intersection de deux plans non
+parallèles de l’espace</a></li>
+</ul></li>
+<li><a href="#système-linéaire-de-trois-équations-à-trois-inconnues"
+id="toc-système-linéaire-de-trois-équations-à-trois-inconnues"><span
+class="toc-section-number">4.3</span> Système linéaire de trois
+équations à trois inconnues</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="calculs-de-sommes"><span
+class="header-section-number">1</span> Calculs de sommes</h1>
+<p>Soient <span class="math inline">\((a_k)_{k\in\mathbb{N}}\)</span> (
+ou <span class="math inline">\((a_k)_{k\geq k_0}\)</span>, avec <span
+class="math inline">\(k_0 \in \mathbb{N}\)</span> ) une suite d’éléments
+de <span class="math inline">\(\mathbb{R}\)</span> ou <span
+class="math inline">\(\mathbb{C}\)</span>, <span class="math inline">\(n
+\in \mathbb{N}\)</span> (<span class="math inline">\(n\)</span>
+quelconque ou <span class="math inline">\(n \geq k_0\)</span> ). On
+considère <span class="math inline">\(u_0 + \ldots + u_n\)</span> (ou
+<span class="math inline">\(u_{k_0} + \ldots + u_n\)</span> ) que l’on
+note <span class="math inline">\(\sum_{k=0}^na_k\)</span> (ou <span
+class="math inline">\(\sum_{k=k_0}^n a_k\)</span> ).</p>
+<h2 data-number="1.1" id="sommes-télescopiques"><span
+class="header-section-number">1.1</span> Sommes télescopiques</h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\((b_k)_{k \geq 0}\)</span> une suite
+de réels ou complexes et <span class="math inline">\((a_k)_{k \geq
+0}\)</span> tel que <span class="math inline">\(\forall k \in
+\mathbb{N}, a_k = b_{k+1}-b_k\)</span> alors :</p>
+<p><span class="math display">\[\begin{aligned}
+\sum_{k=0}^na_k
+&amp; = \sum_{k=0}^n (b_{k+1}-b_k) \\
+&amp; = (b_1-b_0) + (b_2-b_1) + (b_3-b_2)+\ldots +(b_{n}-b_{n-1})
++(b_{n+1}-b_n) \\
+&amp; = -b_0 +(b_1-b_1) + (b_2-b_2) + \ldots + (b_{n}-b_n) + b_{n+1} \\
+&amp; = -b_0+b_{n+1}
+\end{aligned}\]</span></p>
+<p>Une telle somme est appelée une somme télescopique.</p>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Soit <span class="math inline">\((u_n)_{n\geq 1}\)</span> définie par
+<span class="math inline">\(\forall n \in \mathbb{N}^\star,
+u_n=\sum_{k=1}^n \frac{1}{k^2}\)</span>. Etudier la convergence de <span
+class="math inline">\((u_n)\)</span>.</p>
+</div>
+<div class="corri*">
+<p><strong><span class="math inline">\((u_n)\)</span> majorée ? ie
+existence de <span class="math inline">\(M \in \mathbb{R}\)</span> tel
+que <span class="math inline">\(\forall n \in \mathbb{N}^\star, u_n \leq
+M\)</span> ?</strong></p>
+<p>Pour <span class="math inline">\(n \in \mathbb{N}, \geq 2, k \in
+\{2,\ldots,n\}\)</span>, <span class="math inline">\(k^2 = k\times k
+\geq (k-1)k &gt; 0\)</span>.</p>
+<p>D’où</p>
+<p><span class="math display">\[\frac{1}{k^2} \leq \frac{1}{k(k-1)} \leq
+\frac{1}{k-1}-\frac{1}{k}.\]</span></p>
+<p>On en déduit donc :</p>
+<p><span class="math display">\[u_n = 1 + \sum_{k=2}^n \frac{1}{k^2}
+\leq 1 + \sum_{k=2}^n \left(\frac{1}{k-1}-\frac{1}{k}\right) \leq
+2-\frac{1}{n} \leq 2.\]</span></p>
+<p><strong><span class="math inline">\((u_n)\)</span> croissante
+?</strong></p>
+<p><span class="math inline">\(u_{n+1}-u_n = \frac{1}{(n+1)^2} &gt;
+0\)</span></p>
+<p>On en déduit que <span class="math inline">\((u_n)\)</span> est
+croissante et majorée donc convergente (Pour la culture, sa limite est
+<span class="math inline">\(\frac{\pi^2}{6}\)</span>).</p>
+</div>
+</div>
+<h2 data-number="1.2" id="sommes-géométriques"><span
+class="header-section-number">1.2</span> Sommes géométriques</h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\(x \in \mathbb{C}, \neq 1\)</span>,
+<span class="math inline">\(n \in \mathbb{N}\)</span>, <span
+class="math display">\[\sum_{k=0}^n x^k =
+\frac{x^{n+1}-1}{x-1}.\]</span> Une telle somme est appelée une suite
+géométrique.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(x \in \mathbb{C}, \neq 1\)</span>,
+et <span class="math inline">\(k \in \mathbb{N}\)</span>. <span
+class="math display">\[x^{k+1} - x^k = x^k\underbrace{(x-1)}_{\neq
+0}.\]</span> Donc <span class="math display">\[x^k =
+\frac{1}{x-1}(x^{k+1} - x^k)\]</span>.</p>
+<p>D’où, par télescopage, <span class="math display">\[\begin{aligned}
+    \sum_{k=0}^n x^k
+    &amp; = \frac{1}{x-1}\sum_{k=0}^n(x^{k+1} - x^k) \\
+    &amp; = \frac{x^{n+1}-1}{x-1}.
+\end{aligned}\]</span></p>
+</div>
+<div class="wrem">
+<p>Si <span class="math inline">\(x = 1\)</span>, <span
+class="math inline">\(\displaystyle\sum_{k=0}^n x^k = \sum_{k=0}^n 1 =
+n+1.\)</span></p>
+</div>
+<h2 data-number="1.3"
+id="calculs-des-sommes-classiques-displaystylesum_k0n-k-et-displaystylesum_k0n-k2"><span
+class="header-section-number">1.3</span> Calculs des sommes classiques
+<span class="math inline">\(\displaystyle\sum_{k=0}^n k\)</span> et
+<span class="math inline">\(\displaystyle\sum_{k=0}^n k^2\)</span></h2>
+<h3 data-number="1.3.1" id="calcul-de-displaystylesum_k0n-k"><span
+class="header-section-number">1.3.1</span> Calcul de <span
+class="math inline">\(\displaystyle\sum_{k=0}^n k\)</span></h3>
+<div class="wprop">
+<p>Soit <span class="math inline">\(n \in \mathbb{N}, S_n = \sum_{k=0}^n
+k = 0+1 + 2 + \ldots + n = \frac{n(n+1)}{2}\)</span>,</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\quad\)</span></p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><span
+class="math inline">\(S_n\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(=\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(0\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(+\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(+\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(2\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(+\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(\ldots\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(+\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(n-1\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(+\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(n\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;">+<span
+class="math inline">\(\,\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(S_n\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(=\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(n\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(+\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(n-1\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(+\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(n-2\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(+\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(\ldots\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(+\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(1\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(+\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(0\)</span></td>
+</tr>
+<tr>
+<td style="text-align: left;"><span>1-14</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(2S_n\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(=\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(n\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(+\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(n\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(+\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(n\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(+\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(\ldots\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(+\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(n\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(+\)</span></td>
+<td style="text-align: left;"><span
+class="math inline">\(n\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>donc <span class="math inline">\(2S_n
+=\underbrace{n+n+n+\cdots+n}_{n+1\text{ fois}}= n(n+1)\)</span> et <span
+class="math inline">\(S_n = \frac{n(n+1)}{2} \in
+\mathbb{N}^\star\)</span></p>
+</div>
+<div class="wrem">
+<p><span class="math inline">\(\frac{n(n+1)}{2}\)</span> est un entier
+car <span class="math inline">\(n\)</span> ou <span
+class="math inline">\(n+1\)</span> est pair.</p>
+</div>
+<div class="wex">
+<p>Soit <span class="math inline">\(\alpha \in \mathbb{R},
+\beta\in\mathbb{R}, (u_k)_{k \geq 0}\)</span> définie par <span
+class="math inline">\(\forall k \in \mathbb{N}, u_k = \alpha + k
+\beta\)</span></p>
+<p>Alors pour <span class="math inline">\(n \geq 0\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+\sum_{k=0}^nu_k
+&amp; = \sum_{k=0}^n \left(\alpha + k \beta\right) \\
+&amp; = \alpha \sum_{k=0}^n 1 + \beta \sum_{k=0}^n k \\
+&amp; = \alpha(n+1) + \beta\frac{n(n+1)}{2} \\
+&amp; = (n+1)\left(\alpha+\frac{n\beta}{2}\right) \\
+&amp; = (n+1)\left(\frac{2\alpha+n\beta}{2}\right) \\
+&amp; = (n+1)\left(\frac{\alpha+(\alpha+n\beta)}{2}\right) \\
+&amp; = (n+1)\frac{u_0+u_n}{2}.
+\end{aligned}\]</span></p>
+</div>
+<h3 data-number="1.3.2" id="calcul-de-displaystylesum_k0n-k2"><span
+class="header-section-number">1.3.2</span> Calcul de <span
+class="math inline">\(\displaystyle\sum_{k=0}^n k^2\)</span></h3>
+<div class="wprop">
+<p>Pour <span class="math inline">\(n \in \mathbb{N}\)</span>, <span
+class="math inline">\(\sum_{k=0}^n k^2 =
+\frac{n(n+1)(2n+1)}{6}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Posons <span class="math inline">\(T_n = \sum_{k=1}^n k^2\)</span> et
+montrons l’existence de <span class="math inline">\(a,b,c \in
+\mathbb{R}\)</span> tels que pour <span class="math inline">\(k \in
+\mathbb{N}\)</span>,</p>
+<p><span class="math display">\[k^2 = u_{k+1} - u_k \text{ avec }u_k =
+ak^3+bk^2+ck\]</span></p>
+<p>Pour <span class="math inline">\(k \in \mathbb{N}\)</span>, <span
+class="math display">\[\begin{aligned}
+u_{k+1} - u_k
+    &amp; = a(k+1)^3+b(k+1)^2+c(k+1) - ak^3-bk^2-ck \\
+    &amp; = 3ak^2 + (3a+2b)k + a+b+c
+\end{aligned}\]</span> D’où <span class="math inline">\(a,b,c\)</span>
+tels que : <span class="math display">\[\left\{
+    \begin{array}{ll}
+        3a  &amp;= 1 \\
+        3a+2b &amp; = 0 \\
+        a+b+c &amp; = 0
+    \end{array}
+\right.\]</span> conviennent ie <span class="math inline">\(a =
+\frac{1}{3}, b = -\frac{1}{2}, c = \frac{1}{6}\)</span>.</p>
+<p>On en déduit donc : <span class="math display">\[\begin{aligned}
+    \sum_{k=0}^nk^2
+    &amp; = \sum_{k=0}^n (u_{k+1}-u_k) \\
+    &amp; = u_{n+1}-u_0 \\
+    &amp; = u_{n+1} \\
+    &amp; = \frac{1}{3}(n+1)^3-\frac{1}{2}(n+1)^2 + \frac{1}{6}(n+1) \\
+    &amp; = \frac{(n+1)}{6}(2(n+1)^2-3(n+1)+1) \\
+    &amp; = \frac{(n+1)}{6}(2n^2+n) \\
+    &amp; = \frac{n(n+1)(2n+1)}{6}
+\end{aligned}\]</span></p>
+</div>
+<h2 data-number="1.4" id="changement-dindice-dans-une-somme"><span
+class="header-section-number">1.4</span> Changement d’indice dans une
+somme</h2>
+<p>Soient <span class="math inline">\(n\in \mathbb{N}\)</span> et <span
+class="math inline">\(a_0,\ldots,a_n \in \mathbb{C}\)</span>, remarquons
+que <span class="math display">\[\sum_{k=0}^na_k = \sum_{\ell=0}^n
+a_\ell.\]</span></p>
+<p><span class="math inline"><span class="icon-warning">⚠️</span></span> En
+revanche, <span class="math inline">\(\sum_{k=0}^na_k  \neq
+\sum_{k=0}^na_\ell = (n+1)a_\ell\)</span>.</p>
+<p>Si on complexifie un peu : <span
+class="math display">\[\sum_{k=0}^{n-1} a_{k+1} = a_1+a_2+\ldots = a_{n}
+= \sum_{\ell=1}^n a_\ell.\]</span> Passer de la première écriture à la
+deuxième revient à faire le changement d’indice <span
+class="math inline">\(\ell = k+1\)</span>. On a alors, <span
+class="math inline">\(0 \leq k \leq n-1 \Longrightarrow 1 \leq k+1 \leq
+n \Longrightarrow 1 \leq \ell \leq n\)</span>. Les changements d’indice,
+utilisés dans des preuves dans la suite du cours, permettent de
+simplifier certaines sommes.</p>
+<div class="center">
+<p><img src="chgt_indice_1.png" alt="image" /></p>
+</div>
+<div class="wex">
+<p>Reprenons la preuve de la valeur d’une somme télescopique.</p>
+<p>Soit <span class="math inline">\((b_k)_{k \geq 0}\)</span> une suite
+de réels ou complexes et <span class="math inline">\((a_k)_{k \geq
+0}\)</span> tel que <span class="math inline">\(\forall k \in
+\mathbb{N}, a_k = b_{k+1}-b_k\)</span> alors :</p>
+<p><span class="math display">\[\begin{aligned}
+\sum_{k=0}^na_k
+&amp; = \sum_{k=0}^n b_{k+1}-b_k \\
+&amp; = \sum_{k=0}^n b_{k+1}- \sum_{k=0}^nb_k. \\
+\end{aligned}\]</span> En faisant le changement d’indice <span
+class="math inline">\(\ell = k+1\)</span> dans la première somme, on a
+<span class="math display">\[\sum_{k=0}^n b_{k+1} =
+\sum_{\ell=1}^{n+1}b_\ell.\]</span></p>
+<div class="center">
+<p><img src="chgt_indice_2.png" alt="image" /></p>
+</div>
+<p>Donc <span class="math display">\[\begin{aligned}
+\sum_{k=0}^na_k
+&amp; = \sum_{k=0}^n b_{k+1}- \sum_{k=0}^nb_k \\
+&amp; = \sum_{k=1}^{n+1} b_{\ell}- \sum_{k=0}^nb_k \\
+&amp; = \sum_{k=1}^{n+1} b_k- \sum_{k=0}^nb_k \\
+&amp; = \left(\sum_{k=1}^{n} b_k+b_{n+1}\right)-
+\left(b_0+\sum_{k=1}^nb_k\right) \\
+&amp; = b_{n+1}+\sum_{k=1}^{n} b_k- b_0-\sum_{k=1}^nb_k \\
+&amp; = b_{n+1}-b_0.
+\end{aligned}\]</span></p>
+</div>
+<div class="wex">
+<p>Soit <span class="math inline">\(x \in \mathbb{C}, \neq 1\)</span>,
+<span class="math inline">\(k_0 \in \mathbb{N}\)</span> et <span
+class="math inline">\(n \geq k_0\)</span>, <span
+class="math inline">\(\displaystyle\sum_{k=k_0}^n x^k =
+\frac{x^{n+1}-x^{k_0}}{x-1}\)</span></p>
+<div class="wproof">
+<p>En posant <span class="math inline">\(\ell = k-k_0 \iff
+k=\ell+k_0\)</span>,</p>
+<div class="center">
+<p><img src="chgt_indice_4.png" alt="image" /></p>
+</div>
+<p><span class="math display">\[\begin{aligned}
+    \sum_{k=k_0}^n x^k
+    &amp; = \sum_{\ell=0}^{n-k_0} x^{\ell+k_0} \\
+    &amp; = \sum_{\ell=0}^{n-k_0} x^{\ell}x^{k_0} \\
+    &amp; = x^{k_0} \sum_{\ell=0}^{n-k_0} x^{\ell} \\
+    &amp; = x^{k_0}\frac{x^{n-k_0+1}-1}{x-1} \\
+    &amp; = \frac{x^{n+1}-x^{k_0}}{x-1}.
+    \end{aligned}\]</span></p>
+</div>
+</div>
+<div class="wex">
+<p>Reprenons le calcul de la somme <span class="math inline">\(S_n =
+\sum_{k=0}^n k\)</span> pour <span class="math inline">\(n \in
+\mathbb{N}\)</span>.</p>
+<p>En faisant le changement d’indice <span class="math inline">\(\ell =
+n-k\)</span>, on a <span class="math inline">\(k = n-\ell\)</span>
+et</p>
+<p><span class="math inline">\(0 \leq k \leq n \Longrightarrow -n \leq
+-k \leq 0 \Longrightarrow 0 \leq n-k \leq n \Longrightarrow 0 \leq \ell
+\leq n\)</span>.</p>
+<div class="center">
+<p><img src="chgt_indice_3.png" alt="image" /></p>
+</div>
+<p>Donc <span class="math display">\[S_n = \sum_{k=0}^n k =
+\sum_{\ell=0}^n (n-\ell) = \sum_{\ell=0}^n n - \sum_{\ell=0}^n \ell  =
+n(n+1)-S_n\]</span> Donc <span class="math inline">\(2S_n = n^2+n =
+n(n+1)\)</span> donc <span class="math inline">\(S_n =
+\frac{n(n+1)}{2}\)</span>.</p>
+</div>
+<div class="wex">
+<p>Calculons <span class="math inline">\(S_n&#39; = \sum_{k=k_0}^n
+k\)</span> pour <span class="math inline">\(n,k_0 \in
+\mathbb{N}\)</span> tels que <span class="math inline">\(k_0 \leq
+n\)</span>.</p>
+<p>En posant <span class="math inline">\(\ell = k-k_0 \iff
+k=\ell+k_0\)</span>,</p>
+<div class="center">
+<p><img src="chgt_indice_4.png" alt="image" /></p>
+</div>
+<p><span class="math display">\[\begin{aligned}
+S_n&#39;
+&amp;= \sum_{k=k_0}^n k \\
+&amp;= \sum_{\ell=0}^{n-k_0} (\ell + k_0) \\
+&amp;= \sum_{\ell=0}^{n-k_0} \ell + k_0 \sum_{\ell=0}^{n-k_0} 1 \\
+&amp;= \frac{(n-k_0)(n-k_0+1)}{2} + k_0(n-k_0+1) \\
+&amp;= \frac{(n-k_0+1)(n+k_0)}{2}
+\end{aligned}\]</span></p>
+</div>
+<h2 data-number="1.5" id="sommes-doubles"><span
+class="header-section-number">1.5</span> Sommes doubles</h2>
+<div class="wprop">
+<p>Pour <span class="math inline">\(k,\ell \in \mathbb{N}\)</span>, on
+considère <span class="math inline">\(u_{k,\ell}\)</span> dans <span
+class="math inline">\(\mathbb{C}\)</span>.</p>
+<p>Soient <span class="math inline">\(n \in \mathbb{N},p \in
+\mathbb{N}\)</span>, on fixe <span class="math inline">\(k \in
+[\![0,\ldots,n]\!]\)</span> et on considère <span
+class="math inline">\(\displaystyle\sum_{\ell=0}^p u_{k,\ell}\)</span>
+qui dépend de <span class="math inline">\(k\)</span>.</p>
+<p>On fixe <span class="math inline">\(\ell \in
+[\![0,\ldots,p]\!]\)</span> et on considère <span
+class="math inline">\(\displaystyle\sum_{k=0}^n u_{k,\ell}\)</span> qui
+dépend de <span class="math inline">\(\ell\)</span>.</p>
+<p>Alors on a : <span class="math display">\[\displaystyle\sum_{k=0}^n
+\left(\sum_{\ell = 0}^p u_{k,\ell}\right) = \sum_{\ell =
+0}^p\left(\sum_{k=0}^n u_{k,\ell}\right)\]</span></p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\quad\)</span></p>
+<div class="center">
+<p><img src="sommes_doubles-1.png" alt="image" /></p>
+</div>
+<p><span class="math display">\[\begin{aligned}
+    {\color{blue}\sum_{\ell = 0}^p\left(\sum_{k=0}^n u_{k,\ell}\right)}
+     = &amp; \sum_{k=0}^n u_{k,0} + \ldots + \sum_{k=0}^n u_{k,p} \\
+    = &amp; u_{0,0} + u_{1,0} + \ldots +u_{n,0} \\
+    &amp; + u_{0,1} + u_{1,1} + \ldots + u_{n,1}\\
+    &amp; + \ldots +\\
+    &amp; + u_{0,p} + u_{1,p} + \ldots + u_{n,p}\\
+    = &amp;\sum_{\ell = 0}^pu_{0,\ell} + \sum_{\ell = 0}^pu_{1,\ell} +
+\ldots + \sum_{\ell = 0}^pu_{n,\ell} \\
+    = &amp; {\color{red}\sum_{k=0}^n \left(\sum_{\ell = 0}^p
+u_{k,\ell}\right)}
+\end{aligned}\]</span></p>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Soient <span class="math inline">\(p,n \in
+\mathbb{N}^{\star}\)</span>, calculer <span class="math inline">\(S =
+\displaystyle\sum_{\ell = 0}^p\sum_{k=1}^n \left(\frac{1}{(k+1)^\ell} -
+\frac{1}{k^l}\right).\)</span></p>
+</div>
+<div class="corri*">
+<p><span class="math display">\[\begin{aligned}
+S
+&amp;= \sum_{\ell=0}^p\sum_{k=1}^n
+\left(\frac{1}{(k+1)^\ell}-\frac{1}{k^\ell}\right) \\
+&amp;= \sum_{\ell=0}^p \left(\frac{1}{(n+1)^\ell}-1\right) \\
+&amp;= \sum_{\ell=0}^p \frac{1}{(n+1)^\ell}-(p+1) \\
+&amp;= \frac{1-\left(\frac{1}{n+1}\right)^{p+1}}{1-\frac{1}{n+1}}-(p+1)
+\\
+&amp;=
+\frac{n+1}{n}\left(1-\left(\frac{1}{n+1}\right)^{p+1}\right)-(p+1).
+\end{aligned}\]</span></p>
+</div>
+</div>
+<div class="wrem">
+<p>Dans le cas où <span class="math inline">\(u_{k,\ell} =
+a_kb_\ell\)</span>,</p>
+<p><span class="math display">\[\displaystyle\sum_{\ell =
+0}^p\left(\sum_{k=0}^n a_kb_\ell\right) = \sum_{\ell =
+0}^pb_\ell\left(\sum_{k=0}^n a_k\right) = \left(\sum_{\ell =
+0}^pb_\ell\right)\left(\sum_{k=0}^n a_k\right).\]</span> En revanche, en
+général, <span class="math display">\[\sum_{k=0}^n a_kb_k \neq
+\left(\sum_{k=0}^n a_k\right)\left(\sum_{k=0}^n b_k\right).\]</span></p>
+</div>
+<h2 data-number="1.6" id="factorisation-de-an-bn"><span
+class="header-section-number">1.6</span> Factorisation de <span
+class="math inline">\(a^n-b^n\)</span></h2>
+<div class="wprop">
+<p>Soient <span class="math inline">\(a,b \in \mathbb{C}, n \in
+\mathbb{N}, \geq 2\)</span>. <span class="math display">\[a^n-b^n =
+(a-b)\sum_{k=0}^{n-1}a^{n-1-k}b^{k}\]</span></p>
+</div>
+<div class="wproof">
+<p><span class="math display">\[\begin{aligned}
+        (a-b)\sum_{k=0}^{n-1}a^{n-1-k}b^{k}
+        &amp; =
+a\sum_{k=0}^{n-1}a^{n-1-k}b^{k}-b\sum_{k=0}^{n-1}a^{n-1-k}b^{k} \\
+        &amp; =
+\sum_{k=0}^{n-1}a^{n-k}b^{k}-\sum_{k=0}^{n-1}a^{n-1-k}b^{k+1} \\
+        &amp; =
+\sum_{k=0}^{n-1}a^{n-k}b^{k}-\sum_{\ell=1}^{n}a^{n-\ell}b^{\ell} \text{
+en posant le changement d&#39;indice $\ell = k+1$,}\\
+        &amp; =
+a^n+\sum_{k=1}^{n-1}a^{n-k}b^{k}-\sum_{\ell=1}^{n-1}a^{n-\ell}b^{\ell}-b^n
+\\
+        &amp; = a^b-b^n.
+    \end{aligned}\]</span></p>
+</div>
+<h1 data-number="2" id="calculs-de-produits"><span
+class="header-section-number">2</span> Calculs de produits</h1>
+<p>Soit <span class="math inline">\((a_k)_{k\in\mathbb{N}}\)</span> ( ou
+<span class="math inline">\((a_k)_{k\geq k_0}\)</span> ) suite
+d’éléments de <span class="math inline">\(\mathbb{C}\)</span> et <span
+class="math inline">\(n \in \mathbb{N}\)</span> ( ou <span
+class="math inline">\(n \geq k_0\)</span> ), on considère <span
+class="math inline">\(a_0\times a_1 \ldots \times  a_n\)</span> ( ou
+<span class="math inline">\(a_{k_0}\times a_1 \ldots \times a_n\)</span>
+) noté <span class="math inline">\(\prod_{k=0}^na_k\)</span> ( ou <span
+class="math inline">\(\prod_{k=k_0}^n a_k\)</span> )</p>
+<div class="wex">
+<ol>
+<li><p>Si <span class="math inline">\(a_k = \frac{b_{k+1}}{b_k}\)</span>
+où <span class="math inline">\(b_k \neq 0\)</span>, <span
+class="math display">\[\prod_{k=0}^n a_k =
+\prod_{k=0}^n\frac{b_{k+1}}{b_k} =\frac{\prod_{k=0}^n
+b_{k+1}}{\prod_{k=0}^n b_k} = \frac{b_1 \ldots \times  b_n \times
+b_{n+1}}{b_0\times b_1 \ldots \times  b_n}
+=\frac{b_{n+1}}{b_0}\]</span></p></li>
+<li><p>Si <span class="math inline">\(a_k = a^k\)</span>, <span
+class="math display">\[\prod_{k=0}^n a_k =
+a^{\displaystyle\sum_{k=0}^nk} = a^\frac{n(n+1)}{2}\]</span></p></li>
+<li><p>Si <span class="math inline">\(a_k =k\)</span>,<br />
+<span class="math inline">\(\prod_{k=0}^n a_k = 1\times 2 \times 3
+\ldots \times n\)</span> est la factorielle de <span
+class="math inline">\(n\)</span>, noté <span
+class="math inline">\(n!\)</span></p></li>
+<li><p>Soient <span class="math inline">\(a_0,\ldots,a_n\)</span> réels,
+<span class="math display">\[e^{\sum_{k=0}^na_k} =
+\prod_{k=0}^ne^{a_k}\]</span></p></li>
+<li><p>Soient <span class="math inline">\(b_0,\ldots,b_n\)</span> réels
+strictement positifs, <span
+class="math display">\[\ln\left(\prod_{k=0}^nb_k\right) =
+\sum_{k=0}^n\ln(b_k)\]</span></p></li>
+</ol>
+</div>
+<h1 data-number="3" id="formule-du-binôme-de-newton"><span
+class="header-section-number">3</span> Formule du binôme de Newton</h1>
+<h2 data-number="3.1" id="coefficients-binomiaux"><span
+class="header-section-number">3.1</span> Coefficients binomiaux</h2>
+<p>Soient <span class="math inline">\(n,p\in \mathbb{N}\)</span> avec
+<span class="math inline">\(p\leq n\)</span>,</p>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(n \in \mathbb{N}\)</span> et <span
+class="math inline">\(E\)</span> un ensemble fini à <span
+class="math inline">\(n\)</span> éléments ( dans ce cas, <span
+class="math inline">\(E\)</span> est dit de <u>cardinal</u> <span
+class="math inline">\(n\)</span> ).</p>
+<p>Soit <span class="math inline">\(k \in [\![ 0,n ]\!]\)</span>, le
+nombre nombre de parties de <span class="math inline">\(E\)</span> à
+<span class="math inline">\(k\)</span> éléments, est noté <span
+class="math inline">\(\binom{n}{k}\)</span>, lu "<span
+class="math inline">\(k\)</span> parmi <span
+class="math inline">\(n\)</span>". Ces nombres sont appelés les
+coefficients binomiaux.</p>
+</div>
+<div class="wex">
+<ul>
+<li><p>Il y a une partie de <span class="math inline">\(E\)</span> à
+<span class="math inline">\(0\)</span> élément qui est l’ensemble vide
+<span class="math inline">\(\emptyset\)</span> donc <span
+class="math inline">\(\binom{n}{0} = 1\)</span>.</p></li>
+<li><p>Il y a une partie de <span class="math inline">\(E\)</span> à
+<span class="math inline">\(n\)</span> éléments qui est <span
+class="math inline">\(E\)</span> donc <span
+class="math inline">\(\binom{n}{n} = 1\)</span>.</p></li>
+<li><p>Il y a <span class="math inline">\(n\)</span> parties de <span
+class="math inline">\(E\)</span> à <span
+class="math inline">\(n\)</span> éléments. En effet, si <span
+class="math inline">\(E =\left\{x_1,\ldots,x_n\right\}\)</span>, ces
+parties sont les <span class="math inline">\(\left\{x_k\right\}\)</span>
+pour <span class="math inline">\(1 \leq k \leq n\)</span>. Donc <span
+class="math inline">\(\binom{n}{n} = 1\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><span class="math inline">\(\forall n \in \mathbb{N}, k \in
+[\![0,n]\!], \binom{n}{n-k} = \binom{n}{k}\)</span></p>
+</div>
+<div class="webtextfigure">
+<div class="webtext">
+<div class="wproof">
+<p>Soit <span class="math inline">\(E\)</span> de cardinal <span
+class="math inline">\(n\)</span>.</p>
+<p>Soit <span class="math inline">\(\mathcal{A}_k\)</span> l’ensemble
+des parties de <span class="math inline">\(E\)</span> à <span
+class="math inline">\(k\)</span> éléments et <span
+class="math inline">\(\mathcal{B}_{n-k}\)</span> l’ensemble des parties
+de <span class="math inline">\(E\)</span> à <span
+class="math inline">\(n-k\)</span> éléments.</p>
+<p>Soit <span class="math inline">\(A \in \mathcal{A}_k\)</span> alors
+<span class="math inline">\(E\setminus A \in \mathcal{B}_{n-k}\)</span>
+donc <span class="math inline">\(\mathcal{B}_{n-k}\)</span> est
+l’ensemble des parties <span
+class="math inline">\(E\setminus  A\)</span> avec <span
+class="math inline">\(A \in \mathcal{A}_k\)</span>.</p>
+<p>Réciproquement, <span class="math inline">\(\mathcal{A}_k\)</span>
+est l’ensemble des parties <span class="math inline">\(E\setminus
+B\)</span> avec <span class="math inline">\(B \in
+\mathcal{B}_{n-k}\)</span>.</p>
+<p>Donc <span class="math inline">\(\mathcal{A}_k\)</span> et <span
+class="math inline">\(\mathcal{B}_{n-k}\)</span> ont le même nombre
+d’éléments.</p>
+</div>
+</div>
+<div class="webimg">
+<p><img src="test_compl.png" alt="image" /></p>
+</div>
+</div>
+<h2 data-number="3.2" id="triangle-de-pascal"><span
+class="header-section-number">3.2</span> Triangle de Pascal</h2>
+<div class="wprop">
+<p><strong>(Formule du triangle)</strong> <span
+class="math inline">\(\forall n \geq 2, k \in [\![1,n-1]\!]\)</span>,
+<span class="math inline">\(\binom{n}{k} = \binom{n-1}{k} +
+\binom{n-1}{k-1}\)</span>.</p>
+</div>
+<div class="webtextfigure">
+<div class="webtext">
+<div class="wproof">
+<p>On considère <span class="math inline">\(E =
+\{x_1,\ldots,x_n\}\)</span> et <span class="math inline">\(E&#39; =
+\{x_1,\ldots,x_{n-1}\}\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\binom{n}{k}\)</span> est nombre de
+parties de <span class="math inline">\(E\)</span> à <span
+class="math inline">\(k\)</span> éléments</p></li>
+<li><p><span class="math inline">\(\binom{n-1}{k}\)</span> est nombre de
+parties de <span class="math inline">\(E&#39;\)</span> à <span
+class="math inline">\(k\)</span> éléments</p></li>
+<li><p><span class="math inline">\(\binom{n-1}{k-1}\)</span> est nombre
+de parties de <span class="math inline">\(E&#39;\)</span> à <span
+class="math inline">\(k-1\)</span> éléments</p></li>
+</ul>
+<p>Soit <span class="math inline">\(A\)</span> une partie de <span
+class="math inline">\(E\)</span> à <span
+class="math inline">\(k\)</span> éléments,</p>
+<ul>
+<li><p>Si <span class="math inline">\(x_n\notin A\)</span>, <span
+class="math inline">\(A\)</span> est une partie de <span
+class="math inline">\(E&#39;\)</span> à <span
+class="math inline">\(k\)</span> éléments</p></li>
+<li><p>Si <span class="math inline">\(x_n\in A\)</span>, <span
+class="math inline">\(B = A \setminus \{x_n\}\)</span> est une partie de
+<span class="math inline">\(E&#39;\)</span> à <span
+class="math inline">\(k-1\)</span> éléments</p></li>
+</ul>
+<p>Or il y a <span class="math inline">\(\binom{n-1}{k}\)</span> parties
+de <span class="math inline">\(E&#39;\)</span> à <span
+class="math inline">\(k\)</span> éléments et il y a <span
+class="math inline">\(\binom{n-1}{k-1}\)</span> parties <span
+class="math inline">\(B\)</span> possibles</p>
+<p>Donc il y a <span class="math inline">\(\binom{n-1}{k} +
+\binom{n-1}{k-1}\)</span> parties de <span
+class="math inline">\(E\)</span> à <span
+class="math inline">\(l\)</span> éléments.</p>
+<p>Donc <span class="math inline">\(\binom{n}{k} = \binom{n-1}{k} +
+\binom{n-1}{k-1}\)</span></p>
+</div>
+</div>
+<div class="webimg">
+<p><img src="ensemble_triangle_all.png" alt="image" /></p>
+</div>
+</div>
+<p>On en déduit le dessin du triangle de Pascal ci-dessous.</p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><img src="triangle_0.png"
+alt="image" /></td>
+</tr>
+<tr>
+<td style="text-align: left;"><img src="triangle_1.png"
+alt="image" /></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><img src="triangle_2.png"
+alt="image" /></td>
+</tr>
+<tr>
+<td style="text-align: left;"><img src="triangle_3.png"
+alt="image" /></td>
+</tr>
+<tr>
+<td style="text-align: left;"><img src="triangle_4.png"
+alt="image" /></td>
+</tr>
+<tr>
+<td style="text-align: left;"><img src="triangle_5.png"
+alt="image" /></td>
+</tr>
+<tr>
+<td style="text-align: left;"><img src="triangle_6.png"
+alt="image" /></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;"><img src="triangle_7.png"
+alt="image" /></td>
+</tr>
+<tr>
+<td style="text-align: left;"><img src="triangle_8.png"
+alt="image" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>que l’on peut étendre et dessiner simplement</p>
+<div class="center">
+<p><img src="triangle_9.png" alt="image" /></p>
+</div>
+<h2 data-number="3.3" id="formule-du-binôme-de-newton-1"><span
+class="header-section-number">3.3</span> Formule du binôme de
+Newton</h2>
+<div class="wprop">
+<p><strong>(Formule du binôme de Newton)</strong> Soient <span
+class="math inline">\(a,b \in \mathbb{C}, n \in \mathbb{N}\)</span>, on
+a <span class="math display">\[(a+b)^n = \displaystyle\sum_{k=0}^n
+\binom{n}{k}a^kb^{n-k}.\]</span></p>
+</div>
+<div class="wproof">
+<p>Prouvons ce résultat par récurrence sur <span
+class="math inline">\(n\)</span> pour <span class="math inline">\(a,b
+\in \mathbb{C}\)</span> fixés.</p>
+<p><strong>INITIALISATION :</strong> Si <span class="math inline">\(n =
+0, (a+b)^0 = 1 = \sum_{k=0}^0 \binom{0}{k}a^kb^{0-k}\)</span></p>
+<p><strong>HÉRÉDITÉ :</strong> Supposons que pour <span
+class="math inline">\(n \in \mathbb{N}^\star\)</span> fixé,<span
+class="math inline">\((a+b)^n = \displaystyle\sum_{k=0}^n
+\binom{n}{k}a^kb^{n-k}.\)</span></p>
+<p>On a alors <span class="math display">\[\begin{aligned}
+    (a+b)^{n+1}
+    &amp; = (a+b)^n(a+b) \\
+    &amp; = \left(\sum_{k=0}^n \binom{n}{k}a^kb^{n-k}\right)(a+b) \text{
+par hypothèse de récurrence}\\
+    &amp; = a\sum_{k=0}^n \binom{n}{k}a^kb^{n-k}+b\sum_{k=0}^n
+\binom{n}{k}a^kb^{n-k} \\
+    &amp; = \underbrace{\sum_{k=0}^{n}\binom{n}{k}a^{k+1}b^{n-k}}_{=
+S_1} + \sum_{k=0}^{n}\binom{n}{k}a^{k}b^{n+1-k}
+\end{aligned}\]</span> En utilisant le changement d’indice <span
+class="math inline">\(\ell = k+1\)</span>, <span
+class="math display">\[S_1 = \displaystyle\sum_{\ell =
+1}^{n+1}\binom{n}{\ell-1}a^\ell b^{n-(\ell-1)}=\sum_{\ell =
+1}^{n+1}\binom{n}{\ell-1}a^\ell b^{n+1-\ell}\]</span></p>
+<p>D’où : <span class="math display">\[\begin{aligned}
+    (a+b)^{n+1}
+    &amp; = \sum_{\ell = 1}^{n+1}\binom{n}{\ell-1}a^\ell b^{n+1-\ell} +
+\sum_{\ell=0}^{n}\binom{n}{\ell}a^{\ell}b^{n+1-\ell} \\
+    &amp; = \sum_{\ell = 1}^{n}\binom{n}{\ell-1}a^\ell b^{n+1-\ell} +
+\binom{n}{n}a^{n+1}b^0+ \binom{n}{0}a^0b^{n+1}+
+\sum_{\ell=1}^{n}\binom{n}{\ell}a^{\ell}b^{n+1-\ell} \\
+    &amp; = \underbrace{\binom{n}{n}}_{ =1= \binom{n+1}{n+1}}a^{n+1}b^0+
+\underbrace{\binom{n}{0}}_{=1=\binom{n+1}{0}}a^0b^{n+1}+\sum_{\ell=1}^{n}\underbrace{\left(\binom{n}{\ell-1}
++ \binom{n}{\ell}\right)}_{ = \binom{n+1}{\ell}}a^{\ell}b^{n+1-\ell} \\
+    &amp; = \sum_{\ell=0}^{n+1} \binom{n+1}{\ell}a^\ell b^{n+1-\ell}
+\end{aligned}\]</span> <strong>Conclusion :</strong> <span
+class="math inline">\(\forall n \in \mathbb{N}\)</span>, on a <span
+class="math inline">\((a+b)^n = \displaystyle\sum_{k=0}^n
+\binom{n}{k}a^kb^{n-k}\)</span></p>
+</div>
+<p>Pour retrouver ces formules, on peut dessiner le triangle de
+Pascal.</p>
+<div class="center">
+<p><img src="triangle_binome.png" alt="image" /></p>
+</div>
+<div class="wex">
+<p><span class="math inline">\(\forall n \in \mathbb{N},
+\displaystyle\sum_{pk0}^n \binom{n}{k} = 2^n\)</span> .</p>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Soit <span class="math inline">\(n \in \mathbb{N}^\star\)</span>, on
+considère les entiers <span class="math inline">\(\binom{n}{2k}\)</span>
+si <span class="math inline">\(2k \leq n\iff k \leq \frac{n}{2}\)</span>
+donc <span class="math inline">\(k \in
+[\![0,\left\lfloor\frac{n}{2}\right\rfloor]\!]\)</span> et de même <span
+class="math inline">\(\binom{n}{2k+1}\)</span> pour <span
+class="math inline">\(k \in
+[\![0,\left\lfloor\frac{n-1}{2}\right\rfloor]\!]\)</span>.</p>
+<p>Calculer <span
+class="math inline">\(\displaystyle\sum_{k=0}^{\left\lfloor\frac{n}{2}\right\rfloor}\binom{n}{2k}\)</span>
+et <span
+class="math inline">\(\displaystyle\sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\binom{n}{2k+1}\)</span>.</p>
+</div>
+<div class="corri*">
+<p>Avec <span class="math inline">\(a=-1,b=1\)</span>, <span
+class="math display">\[\begin{aligned}
+    0
+    &amp; = \sum_{p=0}^n\binom{n}{p}(-1)^p \\
+    &amp; =
+\sum_{k=0}^{\left\lfloor\frac{n}{2}\right\rfloor}\binom{n}{2k}(-1)^{2k}
++
+\sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\binom{n}{2k+1}(-1)^{2k+1}
+\\
+    &amp; =
+\sum_{k=0}^{\left\lfloor\frac{n}{2}\right\rfloor}\binom{n}{2k}-
+\sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\binom{n}{2k+1}
+\end{aligned}\]</span> Donc : <span class="math inline">\(\displaystyle
+\sum_{k=0}^{\left\lfloor\frac{n}{2}\right\rfloor}\binom{n}{2k}
+=  \sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\binom{n}{2k+1}\)</span><br />
+De plus, <span
+class="math inline">\(\sum_{k=0}^{\left\lfloor\frac{n}{2}\right\rfloor}\binom{n}{2k}
++ \sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\binom{n}{2k+1} =
+\sum_{p=0}^n\binom{n}{p} = 2^n\)</span><br />
+Donc : <span class="math inline">\(\displaystyle
+\sum_{k=0}^{\left\lfloor\frac{n}{2}\right\rfloor}\binom{n}{2k}
+=  \sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\binom{n}{2k+1} =
+2^{n-1}\)</span></p>
+</div>
+</div>
+<h2 data-number="3.4"
+id="expression-des-coefficients-binomiaux-à-laide-de-factorielles"><span
+class="header-section-number">3.4</span> Expression des coefficients
+binomiaux à l’aide de factorielles</h2>
+<div class="wprop">
+<p>Soient <span class="math inline">\(n \in \mathbb{N}^\star\)</span> et
+<span class="math inline">\(k \in [\![1,n]\!]\)</span>, <span
+class="math display">\[\binom{n}{k} = \frac{n!}{k!(n-k)!}\]</span></p>
+</div>
+<div class="wproof">
+<p>Soient <span class="math inline">\(n \in \mathbb{N}^\star\)</span> et
+<span class="math inline">\(k \in [\![1,n]\!]\)</span> et <span
+class="math inline">\(E\)</span> un ensemble de cardinal <span
+class="math inline">\(n\)</span>.</p>
+<p>Soit <span class="math inline">\(\begin{array}{ccccc}
+f &amp; : &amp; [\![1,k]\!] &amp; \to &amp; E \\
+&amp; &amp; i &amp; \mapsto &amp; f(i) \text{ noté } x_i \\
+\end{array}\)</span></p>
+<p>On suppose que pour <span class="math inline">\(i \neq j \in
+[\![1,k]\!]\)</span>, <span class="math inline">\(f(i) \neq
+f(j)\)</span>.</p>
+<p>Donc on suppose que les <span class="math inline">\(x_i\)</span> sont
+tous distincts et <span
+class="math inline">\(\{f(1),\ldots,f(k)\}\)</span> a <span
+class="math inline">\(k\)</span> éléments.</p>
+<p>On dit que <span class="math inline">\(f\)</span> est un <span
+class="math inline">\(k\)</span>-arrangement des éléments de <span
+class="math inline">\(E\)</span>.</p>
+<p>Notons <span class="math inline">\(N_k\)</span> le nombre de <span
+class="math inline">\(k\)</span>-arrangements de <span
+class="math inline">\(E\)</span>.</p>
+<p><strong>Calculons le nombre de <span
+class="math inline">\(k\)</span>-arrangements des éléments de <span
+class="math inline">\(E\)</span> de deux façons</strong></p>
+<div class="webtextfigure">
+<div class="webtext">
+<p><strong>Méthode 1 :</strong></p>
+<ul>
+<li><p>On a <strong><span class="math inline">\(n\)</span></strong>
+valeurs possibles pour <strong><span
+class="math inline">\(f(1)\)</span></strong></p></li>
+<li><p>On a <strong><span class="math inline">\(n-1\)</span></strong>
+valeurs possibles pour <strong><span
+class="math inline">\(f(2)\)</span></strong> ( car <span
+class="math inline">\(f(2) \neq f(1)\)</span> )</p></li>
+<li><p>On a <strong><span class="math inline">\(n-2\)</span></strong>
+valeurs possibles pour <strong><span
+class="math inline">\(f(3)\)</span></strong> ( car <span
+class="math inline">\(f(2) \neq f(1), f(2)\)</span> )</p></li>
+<li><p><span class="math inline">\(\vdots\)</span></p></li>
+<li><p>On a <strong><span
+class="math inline">\(n-(k-2)\)</span></strong> valeurs possibles pour
+<strong><span class="math inline">\(f(k-1)\)</span></strong> ( car <span
+class="math inline">\(f(k-1) \neq f(1), f(2), \ldots, f(k-2)\)</span>
+)</p></li>
+<li><p>On a <strong><span
+class="math inline">\(n-(k-1)\)</span></strong> valeurs possibles pour
+<strong><span class="math inline">\(f(k)\)</span></strong> ( car <span
+class="math inline">\(f(k) \neq f(1), f(2), \ldots, f(k-1)\)</span>
+)</p></li>
+</ul>
+<p>Donc le nombre de <span class="math inline">\(k\)</span>-arrangements
+des éléments de <span class="math inline">\(E\)</span> est <span> <span
+class="math display">\[\begin{aligned}
+N_k
+&amp; =\displaystyle \prod_{i=0}^{k-1} (n-i) \\
+&amp; = n \times (n-1) \times \ldots (n-(k-1)) \\
+&amp; = \frac{n \times (n-1) \times \ldots (n-(k-1)) \times (n-k) \times
+\ldots 2 \times 1}{(n-k) \times \ldots 2 \times 1} \\
+&amp; = \frac{n!}{(n-k)!}
+\end{aligned}\]</span> </span></p>
+</div>
+<div class="webimg">
+<p><img src="combinatoire_factorielle_all.png" alt="image" /></p>
+</div>
+</div>
+<div class="webtextfigure">
+<div class="webtext">
+<p><strong>Méthode 2 :</strong></p>
+<p>Construire un <span class="math inline">\(k\)</span>-arrangement
+<span class="math inline">\(f\)</span> de <span
+class="math inline">\(E\)</span> revient à choisir une partie <span
+class="math inline">\(A\)</span> de cardinal <span
+class="math inline">\(k\)</span> tel que <span class="math inline">\(A =
+\left\{f(1),f(2),\ldots,f(k)\right\}\)</span>.</p>
+<p>Soit <span class="math inline">\(f\)</span> <span
+class="math inline">\(k\)</span>-arrangement tel que <span
+class="math inline">\(\{f(1),\ldots,f(k)\} = A\)</span>,</p>
+<ul>
+<li><p><span class="math inline">\(f(1)\)</span> doit être un des
+éléments de <span class="math inline">\(A\)</span> d’où <span
+class="math inline">\(k\)</span> possibilités pour <span
+class="math inline">\(f(1)\)</span></p></li>
+<li><p><span class="math inline">\(f(2)\)</span> doit être un des
+éléments de <span class="math inline">\(A\)</span>, <span
+class="math inline">\(\neq f(1)\)</span> d’où <span
+class="math inline">\(k-1\)</span> possibilités pour <span
+class="math inline">\(f(2)\)</span></p></li>
+<li><p><span class="math inline">\(\vdots\)</span></p></li>
+<li><p><span class="math inline">\(f(k)\)</span> doit être un des
+éléments de <span class="math inline">\(A\)</span>, <span
+class="math inline">\(\neq f(1), \ldots, f(k-1)\)</span> d’où <span
+class="math inline">\(k-(k-1)=1\)</span> possibilité pour <span
+class="math inline">\(f(k)\)</span></p></li>
+</ul>
+<p>Donc <span class="math inline">\(k\times(k-1)\times\ldots\times 1=
+k!\)</span> <span class="math inline">\(k\)</span>-arrangements donnent
+<span class="math inline">\(A\)</span> et il y a <span
+class="math inline">\(\binom{n}{k}\)</span> "A possibles" donc <span
+class="math inline">\(N_k = k!\binom{n}{k}\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="method2_combinatoire_factorielle_all.png"
+alt="image" /></p>
+</div>
+</div>
+<p><strong>Conclusion</strong> On a <span class="math display">\[N_k =
+\frac{n!}{(n-k)!}= k! \binom{n}{k}\]</span> Donc <span
+class="math display">\[\binom{n}{k} = \frac{n!}{k!(n-k)!}\]</span></p>
+</div>
+<div class="wex">
+<p>Si <span class="math inline">\(k = 2\)</span>, <span
+class="math inline">\(\binom{n}{k} = \frac{n(n-1)}{2}\)</span>.</p>
+</div>
+<p>Par convention, on pose <span class="math inline">\(0! = 1\)</span>
+et alors l’égalité reste valable pour <span class="math inline">\(k =
+0\)</span> et <span class="math inline">\(k = n\)</span>.</p>
+<p><strong>Vérification :</strong></p>
+<ul>
+<li><p><span class="math inline">\(\binom{n}{0} = 1 =
+\frac{n!}{0!(n-0)!}\)</span>,</p></li>
+<li><p><span class="math inline">\(\binom{n}{n} = 1 =
+\frac{n!}{n!(n-n)!}\)</span>.</p></li>
+</ul>
+<h1 data-number="4" id="notion-sur-les-sytèmes-linéaires"><span
+class="header-section-number">4</span> Notion sur les sytèmes
+linéaires</h1>
+<h2 data-number="4.1"
+id="système-linéaire-à-deux-équations-deux-inconnues"><span
+class="header-section-number">4.1</span> Système linéaire à deux
+équations, deux inconnues</h2>
+<div class="wprop">
+<p>Soient <span class="math inline">\(a_1,a_2,b_1,b_2,\alpha,\beta \in
+\mathbb{R}\)</span> (ou <span
+class="math inline">\(\mathbb{C}\)</span>), on considère le système
+suivant aux inconnues <span class="math inline">\(x\)</span> et <span
+class="math inline">\(y\)</span> <span
+class="math display">\[(S)\begin{cases}
+        &amp; a_1 x + b_1 y = \alpha \\
+         &amp; a_2 x + b_2 y = \beta
+\end{cases}\]</span>. On définit le <u>déterminant</u> de <span
+class="math inline">\((S)\)</span>, noté <span
+class="math inline">\(\begin{vmatrix} a_1 &amp; b_1 \\ a_2 &amp; b_2
+\end{vmatrix} = a_1b_2 - b_1a_2\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(\begin{vmatrix} a_1 &amp; b_1 \\
+a_2 &amp; b_2 \end{vmatrix} \neq 0\)</span>, <span
+class="math inline">\((S)\)</span> admet une unique solution <span
+class="math inline">\((x_0,y_0)\)</span> telle que <span
+class="math display">\[x_0  = \frac{\begin{vmatrix} \alpha &amp; b_1\\
+\beta &amp; b_2 \end{vmatrix}}{\begin{vmatrix} a_1 &amp; b_1 \\ a_2
+&amp; b_2 \end{vmatrix}}
+\text{ et }y_0  = \frac{\begin{vmatrix} a_1 &amp; \alpha \\ a_2 &amp;
+\beta \end{vmatrix}}{\begin{vmatrix} a_1 &amp; b_1 \\ a_2 &amp; b_2
+\end{vmatrix}}\]</span></p></li>
+<li><p>Si <span class="math inline">\(\begin{vmatrix} a_1 &amp; b_1 \\
+a_2 &amp; b_2 \end{vmatrix} = 0\)</span>, soit <span
+class="math inline">\((S)\)</span> n’admet pas de solution, soit <span
+class="math inline">\((S)\)</span> admet une infinité de
+solution.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Si <span class="math inline">\(\begin{vmatrix} a_1 &amp; b_1 \\
+a_2 &amp; b_2 \end{vmatrix} = a_1b_2 - b_1a_2 \neq 0\)</span> alors
+<span class="math inline">\(a_1 \neq 0\)</span> ou <span
+class="math inline">\(a_2 \neq 0\)</span>. Par exemple, <span
+class="math inline">\(a_1 \neq 0\)</span> : <span
+class="math display">\[\begin{aligned}
+    (S)\begin{cases}
+        &amp; a_1 x + b_1 y = \alpha \\
+         &amp; a_2 x + b_2 y = \beta
+\end{cases}
+&amp; \iff
+\begin{cases}
+        &amp; a_1 x = \alpha - b_1 y \\
+         &amp; a_2 x  +b_2 y= \beta
+\end{cases} \\
+    &amp; \iff \begin{cases}
+        &amp; x = \frac{\alpha}{a_1} - \frac{b_1}{a_1}y \\
+         &amp; a_2x + b_2 y = \beta
+    \end{cases} \text{ car $a_1 \neq 0$}\\
+     &amp; \iff \begin{cases}
+        &amp; x = \frac{\alpha}{a_1} - \frac{b_1}{a_1}y \\
+         &amp; a_2\left(\frac{\alpha}{a_1} - \frac{b_1}{a_1}y\right) +
+b_2 y = \beta
+    \end{cases} \\
+    &amp; \iff \begin{cases}
+        &amp; x = \frac{\alpha}{a_1} - \frac{b_1}{a_1}y \\
+         &amp; \left(b_2 - \frac{b_1}{a_1}a_2\right)y = \beta -
+\frac{a_2}{a_1}\alpha
+     \end{cases}\\
+    &amp; \iff \begin{cases}
+        &amp; x = \frac{\alpha}{a_1} - \frac{b_1}{a_1}y \\
+         &amp; \left(a_1b_2 - b_1a_2\right)y  = \beta a_1 - a_2\alpha
+     \end{cases} \\
+     &amp; \iff \begin{cases}
+        &amp; x = \frac{\alpha}{a_1} - \frac{b_1}{a_1}y \\
+         &amp; y  = \frac{\beta a_1 - a_2\alpha}{a_1b_2 - b_1a_2} =
+\frac{\begin{vmatrix} a_1 &amp; \alpha \\ a_2 &amp; \beta
+\end{vmatrix}}{\begin{vmatrix} a_1 &amp; b_1 \\ a_2 &amp; b_2
+\end{vmatrix}}
+     \end{cases}.
+\end{aligned}\]</span></p>
+<p>Et on a alors <span class="math display">\[\begin{aligned}
+    x
+    &amp; = \frac{\alpha}{a_1} - \frac{b_1}{a_1}y \\
+    &amp; = \frac{\alpha}{a_1} - \frac{b_1}{a_1}\frac{\beta a_1 -
+a_2\alpha}{a_1b_2 - b_1a_2}  \\
+    &amp; = \frac{\alpha a_1b_2-\alpha b_1a_2-b_1\beta a_1 +
+b_1a_2\alpha}{a_1(a_1b_2 - b_1a_2)} \\
+    &amp; = \frac{a_1(\alpha b_2-b_1\beta)}{a_1(a_1b_2 - b_1a_2)} \\
+    &amp; = \frac{\alpha b_2-b_1\beta}{a_1b_2 - b_1a_2} \\
+    &amp; = \frac{\begin{vmatrix} \alpha &amp; b_1\\ \beta &amp; b_2
+\end{vmatrix}}{\begin{vmatrix} a_1 &amp; b_1 \\ a_2 &amp; b_2
+\end{vmatrix}}.
+\end{aligned}\]</span></p>
+<p>On obtient le même résultat avec <span class="math inline">\(a_1=0
+\text{ et }a_2 \neq 0\)</span> et en divisant par <span
+class="math inline">\(a_2\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\begin{vmatrix} a_1 &amp; b_1 \\
+a_2 &amp; b_2 \end{vmatrix} = a_1b_2 - b_1a_2 = 0\)</span>,</p>
+<ul>
+<li><p>Si <span class="math inline">\(a_1 = 0\)</span> et <span
+class="math inline">\(a_2 = 0\)</span>, <span class="math display">\[(S)
+\iff \left\{
+    \begin{array}{ll}
+        &amp; b_1 y = \alpha \\
+         &amp; b_2 y = \beta
+    \end{array}
+\right.\]</span></p>
+<ul>
+<li><p>Si <span class="math inline">\(b_1 = 0 \text{ et }b_2 =
+0\)</span>,</p>
+<ul>
+<li><p>si <span class="math inline">\(\alpha = \beta = 0\)</span>, on a
+<span class="math inline">\((S) \iff \left\{
+    \begin{array}{ll}
+        &amp; 0 = 0\\
+         &amp;0 = 0
+    \end{array}
+\right.\)</span> et l’infinité de solution <span
+class="math inline">\(\left\{(x,y) / x,y \in
+\mathbb{R}\right\}\)</span>.</p></li>
+<li><p>si <span class="math inline">\(\alpha \neq 0\)</span>, on a <span
+class="math inline">\((S) \iff \left\{
+    \begin{array}{ll}
+        &amp; 0 = \alpha \\
+         &amp; 0= 0
+    \end{array}
+\right.\)</span> donc aucune solution et de même si <span
+class="math inline">\(\beta \neq 0\)</span>.</p></li>
+</ul></li>
+<li><p>Si <span class="math inline">\(b_1 \neq 0 \text{ et }b_2 =
+0\)</span>,</p>
+<ul>
+<li><p>si <span class="math inline">\(\beta = 0\)</span>, on a <span
+class="math inline">\((S) \iff \left\{
+    \begin{array}{ll}
+        &amp; b_1 y = \alpha \iff y = \frac{\alpha}{b_1} \\
+         &amp;0 = 0
+    \end{array}
+\right.\)</span> et l’infinité de solution <span
+class="math inline">\(\left\{(x,\frac{\alpha}{b_1}) / x\in
+\mathbb{R}\right\}\)</span>.</p></li>
+<li><p>si <span class="math inline">\(\beta \neq 0\)</span>, on a <span
+class="math inline">\((S) \iff \left\{
+    \begin{array}{ll}
+        &amp; b_1 y = \alpha  \\
+         &amp;0 = \beta
+    \end{array}
+\right.\)</span> donc aucune solution.</p></li>
+</ul></li>
+<li><p>Si <span class="math inline">\(b_1 = 0 \text{ et }b_2 \neq
+0\)</span>,</p>
+<ul>
+<li><p>si <span class="math inline">\(\alpha = 0\)</span>, on a <span
+class="math inline">\((S) \iff \left\{
+    \begin{array}{ll}
+        &amp; 0 = 0  \\
+         &amp;b_2 y = \beta \iff y = \frac{\beta}{b_2}
+    \end{array}
+\right.\)</span> et l’infinité de solution <span
+class="math inline">\(\left\{(x,\frac{\beta}{b_2}) / x\in
+\mathbb{R}\right\}\)</span>.</p></li>
+<li><p>si <span class="math inline">\(\alpha \neq 0\)</span>, on a <span
+class="math inline">\((S) \iff \left\{
+    \begin{array}{ll}
+        &amp; 0 = \alpha  \\
+         &amp;b_2 y = \beta
+    \end{array}
+\right.\)</span> donc aucune solution.</p></li>
+</ul></li>
+<li><p>Si <span class="math inline">\(b_1 \neq 0 \text{ et }b_2 \neq
+0\)</span>, on a <span class="math inline">\((S) \iff \left\{
+    \begin{array}{ll}
+        &amp; b_1y = \alpha  \iff y = \frac{\alpha}{b_1}\\
+         &amp;b_2 y = \beta \iff y = \frac{\beta}{b_2}
+    \end{array}
+\right.\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(\frac{\alpha}{b_1} =
+\frac{\beta}{b_2}\)</span>, on a l’infinité de solution <span
+class="math inline">\(\left\{(x,\frac{\alpha}{b_1}) / x\in
+\mathbb{R}\right\} =\left\{(x,\frac{\beta}{b_2}) / x\in
+\mathbb{R}\right\}\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\frac{\alpha}{b_1} \neq
+\frac{\beta}{b_2}\)</span>, on n’a aucune solution.</p></li>
+</ul></li>
+</ul></li>
+<li><p>Si <span class="math inline">\(a_1 \neq 0\)</span> ou <span
+class="math inline">\(a_2 \neq 0\)</span>. Par exemple, avec <span
+class="math inline">\(a_1 \neq 0\)</span>, on peut refaire le calcul
+précédent et on a <span class="math display">\[\begin{aligned}
+    (S)\begin{cases}
+        &amp; a_1 x + b_1 y = \alpha \\
+         &amp; a_2 x + b_2 y = \beta
+\end{cases}
+    &amp; \iff \begin{cases}
+        &amp; x = \frac{\alpha}{a_1} - \frac{b_1}{a_1}y \\
+         &amp; \left(a_1b_2 - b_1a_2\right)y  = \beta a_1 - a_2\alpha
+     \end{cases} \\
+     &amp; \iff \begin{cases}
+        &amp; x = \frac{\alpha}{a_1} - \frac{b_1}{a_1}y \\
+         &amp; 0  = \beta a_1 - a_2\alpha
+     \end{cases} \\
+\end{aligned}\]</span></p>
+<ul>
+<li><p>Si <span class="math inline">\(\beta a_1 - a_2\alpha =
+0\)</span>, on a l’infinité de solution <span
+class="math inline">\(\left\{\left(\frac{\alpha}{a_1} -
+\frac{b_1}{a_1}y,y\right)/y \in \mathbb{R}\right\}\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\beta a_1 - a_2\alpha \neq
+0\)</span>, on n’a aucune solution.</p></li>
+</ul>
+<p>On obtient le même résultat avec <span class="math inline">\(a_1=0
+\text{ et }a_2 \neq 0\)</span> et en divisant par <span
+class="math inline">\(a_2\)</span>.</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Résoudre <span class="math inline">\((S) \left\{
+    \begin{array}{ll}
+         2x+y &amp;= 1 \\
+         -x+3y &amp;= 2
+    \end{array}
+\right.\)</span>.</p>
+</div>
+<div class="corri*">
+<ol>
+<li><p>D’abord, vérifions s’il a une unique solution : <span
+class="math display">\[\begin{vmatrix} 2 &amp; 1 \\ -1 &amp; 3
+\end{vmatrix} = 2 \times 3 - 1\times(-1) = 7 \neq 0\]</span></p></li>
+<li><p>On a donc : <span class="math display">\[x_0  =
+\frac{\begin{vmatrix} 1 &amp; 1\\ 2 &amp; 3 \end{vmatrix}}{7} =
+\frac{1}{7}\text{ et }y_0 = \frac{\begin{vmatrix} 2 &amp; 1 \\ -1 &amp;
+2 \end{vmatrix}}{7} = \frac{5}{7}.\]</span></p></li>
+</ol>
+</div>
+</div>
+<p><strong>Méthode du pivot de Gauss.</strong> </p>
+<p>Reprenons l’exemple précédent, pour illustrer la méthode du pivot de
+Gauss, plus efficace en pratique. Étant donné <span
+class="math display">\[(S) \left\{
+    \begin{array}{ll}
+         2x+y &amp;= 1 \\
+         -x+3y &amp;= 2
+    \end{array}
+\right.,\]</span> la méthode du pivot de Gauss consiste à faire des
+opérations sur les lignes pour faire disparaître les éléments un à un.
+Sur notre exemple, on fait disparaître le terme en <span
+class="math inline">\(x\)</span> de la deuxième ligne et en déroulant,
+on a <span class="math display">\[\begin{aligned}
+(S) \left\{
+    \begin{array}{ll}
+         2x+y &amp;= 1 \\
+         -x+3y &amp;= 2
+    \end{array}
+\right.
+\underset{L_2 \leftarrow L_2+\frac{1}{2}L_1}{\iff}
+\left\{
+    \begin{array}{ll}
+         2x+y &amp;= 1 \\
+         \frac{7}{2}y &amp;= \frac{5}{2}
+    \end{array}
+\right.
+\Longrightarrow
+\left\{
+    \begin{array}{ll}
+         2x+y &amp;= 1 \Longrightarrow x = \frac{1-y}{2} = \frac{1}{7}
+\\
+         y &amp;= \frac{5}{7}
+    \end{array}
+\right..
+\end{aligned}\]</span></p>
+<p>Cela dit, il aurait été plus pertinent de commencer par inverser les
+deux lignes pour faire une opération plus simple sur les lignes. Cela
+donne <span class="math display">\[\begin{aligned}
+(S) \left\{
+    \begin{array}{ll}
+         2x+y &amp;= 1 \\
+         -x+3y &amp;= 2
+    \end{array}
+\right.
+&amp; \underset{L_2 \leftrightarrow L_1}{\iff}
+\left\{\begin{array}{ll}
+   -x+3y &amp;= 2 \\
+    2x+y &amp;= 1
+    \end{array}
+\right. \\
+&amp; \underset{L_2 \leftarrow L_2+2L_1}{\iff}
+\left\{\begin{array}{ll}
+   -x+3y &amp;= 2 \\
+    7y &amp;= 5
+    \end{array}
+\right.
+\iff
+\left\{\begin{array}{ll}
+   x &amp;= 3y-2 = \frac{1}{7} \\
+    y &amp;= \frac{5}{7}
+    \end{array}
+\right..
+\end{aligned}\]</span></p>
+<h2 data-number="4.2" id="applications-géométriques"><span
+class="header-section-number">4.2</span> Applications géométriques</h2>
+<h3 data-number="4.2.1"
+id="intersection-de-deux-droites-non-parallèles-du-plan"><span
+class="header-section-number">4.2.1</span> Intersection de deux droites
+non parallèles du plan</h3>
+<div class="wprop">
+<p>Soient <span class="math inline">\((O,\vec{i},\vec{j})\)</span>
+repère orthonormé du plan, <span
+class="math inline">\(\mathscr{D}_1,\mathscr{D}_2\)</span> droites du
+plan avec <span class="math inline">\(\mathscr{D}_1\)</span> d’équation
+<span class="math inline">\(a_1x + b_1 y = c_1\)</span> <span
+class="math inline">\(\mathscr{D}_2\)</span> d’équation <span
+class="math inline">\(a_2x + b_2 y = c_2\)</span>, <span
+class="math inline">\(a_1,b_1,a_2,b_2 \in \mathbb{R}\text{ et }a_1 \neq
+0\)</span>. <span class="math display">\[\text{$\mathscr{D}_1$ et
+$\mathscr{D}_2$ sont parallèles $\iff$ $\begin{vmatrix} a_1 &amp; b_1 \\
+a_2 &amp; b_2 \end{vmatrix} = 0$.}\]</span></p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\mathscr{D}_1\)</span> et <span
+class="math inline">\(\mathscr{D}_2\)</span> sont parallèles si et
+seulement s’il existe <span class="math inline">\(\lambda \in
+\mathbb{R}\)</span> tel que <span
+class="math display">\[\underbrace{a_2\vec{i} + b_2
+\vec{j}}_{\text{vecteur normal à }\mathscr{D}_2} =
+\underbrace{\lambda(a_1\vec{i} + b_1 \vec{j})}_{\text{vecteur normal à
+}\mathscr{D}_1}\]</span> donc si et seulement s’il existe <span
+class="math inline">\(\lambda \in \mathbb{R}\)</span> tel que <span
+class="math inline">\(a_2 = \lambda a_1\)</span> et <span
+class="math inline">\(b_2 = \lambda b_1\)</span></p>
+<ul>
+<li><p>(<span class="math inline">\(\Longrightarrow\)</span>) Si <span
+class="math inline">\(\mathscr{D}_1\)</span> et <span
+class="math inline">\(\mathscr{D}_2\)</span> sont parallèles, <span
+class="math inline">\(\begin{vmatrix} a_1 &amp; b_1 \\ a_2 &amp; b_2
+\end{vmatrix} = a_1b_2 - a_2b_1 = a_1 \lambda b_1 - \lambda a_1 b_1 =
+0\)</span></p></li>
+<li><p>(<span class="math inline">\(\Longleftarrow\)</span>)
+Réciproquement, si <span class="math inline">\(\begin{vmatrix} a_1 &amp;
+b_1 \\ a_2 &amp; b_2 \end{vmatrix} = 0\)</span>, comme <span
+class="math inline">\(a_1 \neq 0\)</span>, <span
+class="math inline">\(b_2 = \frac{a_2}{a_1} b_1\)</span> et <span
+class="math inline">\(a_2 = \frac{a_2}{a_1}a_1\)</span> et <span
+class="math inline">\(\lambda = \frac{a_2}{a_1}\)</span>
+convient.</p></li>
+</ul>
+</div>
+<div class="wcor">
+<p>Si les droites <span class="math inline">\(\mathscr{D}_1\)</span> et
+<span class="math inline">\(\mathscr{D}_2\)</span> sont non parallèles,
+elles admettent un point d’intersection.</p>
+</div>
+<h3 data-number="4.2.2"
+id="intersection-de-deux-plans-non-parallèles-de-lespace"><span
+class="header-section-number">4.2.2</span> Intersection de deux plans
+non parallèles de l’espace</h3>
+<div class="wprop">
+<p>Soient <span
+class="math inline">\((O,\vec{i},\vec{j},\vec{k})\)</span> repère
+orthonormé de l’espace et <span
+class="math inline">\(\mathscr{P}_1,\mathscr{P}_2\)</span> plans de
+l’espace d’équations respectives <span class="math inline">\(a_1x + b_1
+y + c_1 z = d_1\)</span> et <span class="math inline">\(a_2x + b_2y +
+c_2z = d_2\)</span> avec <span
+class="math inline">\(a_1,b_1,c_1,a_2,b_2,c_2 \in \mathbb{R}\text{ et
+}a_1 \neq 0\)</span>. <span class="math display">\[\mathscr{P}_1 \text{
+et } \mathscr{P}_2 \text{ sont parallèles } \iff
+\begin{vmatrix} a_1 &amp; b_1 \\ a_2 &amp; b_2 \end{vmatrix} = 0 \text{
+et }\begin{vmatrix} a_1 &amp; c_1 \\ a_2 &amp; c_2 \end{vmatrix} =
+0\]</span></p>
+</div>
+<div class="wproof">
+<p><span class="math display">\[\mathscr{P}_1 \text{ et } \mathscr{P}_2
+\text{ sont parallèles } \iff \exists \lambda \in \mathbb{R}\text{ tel
+que } \left\{
+    \begin{array}{ll}
+        &amp; a_2 = \lambda a_1 \\
+        &amp; b_2 = \lambda b_1 \\
+        &amp; c_2 = \lambda c_1
+    \end{array}
+\right.\]</span></p>
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> S’il
+existe <span class="math inline">\(\lambda \in \mathbb{R}\text{ tel que
+}\left\{\begin{array}{ll}
+        &amp; a_2 = \lambda a_1 \\
+        &amp; b_2 = \lambda b_1 \\
+        &amp; c_2 = \lambda c_1
+    \end{array}\right.\)</span> alors <span
+class="math inline">\(\begin{vmatrix} a_1 &amp; b_1 \\ a_2 &amp; b_2
+\end{vmatrix} = 0 \text{ et }\begin{vmatrix} a_1 &amp; c_1 \\ a_2 &amp;
+c_2 \end{vmatrix} = 0\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Si <span
+class="math inline">\(\begin{vmatrix} a_1 &amp; b_1 \\ a_2 &amp; b_2
+\end{vmatrix} = 0\)</span> et <span
+class="math inline">\(\begin{vmatrix} a_1 &amp; c_1 \\ a_2 &amp; c_2
+\end{vmatrix} = 0\)</span>, comme <span class="math inline">\(a_1 \neq
+0\)</span>, on a</p>
+<p><span class="math inline">\(a_1 b_2 - b_1 a_2 = 0\)</span> donc <span
+class="math inline">\(b_2 = b_1 \frac{a_2}{a_1}\)</span> et <span
+class="math inline">\(a_1 c_2 - c_1 a_2 = 0\)</span> donc <span
+class="math inline">\(c_2 = c_1 \frac{a_2}{a_1}\)</span></p>
+<p>donc avec <span class="math inline">\(\lambda =
+\frac{a_2}{a_1}\)</span>, on retrouve que <span
+class="math inline">\(\mathscr{P}_1\)</span> et <span
+class="math inline">\(\mathscr{P}_2\)</span> sont parallèles.</p></li>
+</ul>
+</div>
+<div class="wcor">
+<p>Si <span class="math inline">\(\mathscr{P}_1\)</span> et <span
+class="math inline">\(\mathscr{P}_2\)</span> sont non parallèles alors
+ils admettent une droite comme intersection.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\begin{vmatrix} a_1 &amp; b_1 \\ a_2
+&amp; b_2 \end{vmatrix} \neq 0\)</span> ou <span
+class="math inline">\(\begin{vmatrix} a_1 &amp; c_1 \\ a_2 &amp; c_2
+\end{vmatrix} \neq 0\)</span> et traitons le cas <span
+class="math inline">\(\begin{vmatrix} a_1 &amp; b_1 \\ a_2 &amp; b_2
+\end{vmatrix} \neq 0\)</span>.</p>
+<p>Soit <span class="math inline">\(M(x,y,z_0) \in \mathscr{P}_1 \cap
+\mathscr{P}_2\)</span>, <span class="math display">\[\begin{aligned}
+    \left\{\begin{array}{ll}
+        &amp; a_1x + b_1 y + c_1 z_0 = d_1 \\
+        &amp; a_2x + b_2y + c_2z_0 = d_2\\ \end{array}\right.
+    &amp; \iff (x,y) \text{ est solution de } \left\{\begin{array}{ll}
+        &amp; a_1x + b_1 y= d_1 - c_1 z_0  \\
+        &amp; a_2x + b_2y = d_2 - c_2z_0\\ \end{array}\right.
+\end{aligned}\]</span></p>
+<p>Or <span class="math inline">\(\begin{vmatrix} a_1 &amp; b_1 \\ a_2
+&amp; b_2 \end{vmatrix} \neq 0\)</span> donc ce système possède une
+unique solution <span class="math inline">\((x_0,y_0)\)</span> qui
+s’exprime <span class="math display">\[\begin{aligned}
+    x_0 &amp; = \frac{\begin{vmatrix} d_1 - c_1 z_0&amp; b_1 \\ d_2 -
+c_2 z_0 &amp; b_2 \end{vmatrix}}{\begin{vmatrix} a_1 &amp; b_1 \\ a_2
+&amp; b_2  \end{vmatrix}} = \alpha z_0 + \beta \text{ avec $\alpha$ et
+$\beta$ indépendants de $z_0$} \\
+    y_0 &amp; = \frac{\begin{vmatrix} a_1 &amp; d_1 -  c_1 z_0 \\ a_2
+&amp; d_2- c_2 z_0  \end{vmatrix}}{\begin{vmatrix} a_1 &amp; b_1 \\ a_2
+&amp; b_2  \end{vmatrix}} = \gamma z_0 + \delta \text{ avec $\gamma$ et
+$\delta$ indépendants de $z_0$}.
+\end{aligned}\]</span> Donc : <span
+class="math display">\[\begin{aligned}
+M(x,y,z) \in \mathscr{P}_1 \cap \mathscr{P}_2
+\iff \exists t \in \mathbb{R}, \left\{\begin{array}{ll}
+        &amp;  x = \alpha + \beta t  \\
+      &amp; y = \gamma + \delta t\\
+      &amp; z = t
+      \end{array}\right.
+\end{aligned}\]</span> qui est la représentation paramétrique d’une
+droite.</p>
+<p>Donc l’intersection de <span class="math inline">\(\mathscr{P}_1 \cap
+\mathscr{P}_2\)</span> est dirigée par <span class="math inline">\(\beta
+\vec{i} + \delta \vec{j} + \vec{k}\)</span></p>
+</div>
+<div class="wex">
+<p>Considérons les deux plans <span class="math inline">\(\mathscr{P}_1
+: x+y+2z = 1\)</span> et <span class="math inline">\(\mathscr{P}_2 :
+3x-y+z = 2\)</span>. On a <span class="math inline">\(\begin{vmatrix} 1
+&amp; 1 \\ 3 &amp; -1 \end{vmatrix} = -4 \neq 0\)</span> donc ces plans
+sont non parallèles. De plus, <span
+class="math display">\[\begin{aligned}
+    M(x,y,z) \in \mathscr{P}_1 \cap \mathscr{P}_2
+    &amp; \iff (S)  \left\{
+    \begin{array}{ll}
+        &amp; x+y+2z = 1 \\
+        &amp; 3x-y+z = 2
+    \end{array}
+\right.
+    \\
+    &amp; \iff
+    \left\{
+    \begin{array}{ll}
+        &amp; x+y = 1-2z   \\
+        &amp; 3x-y = 2-z
+    \end{array}
+\right.
+    \\
+    &amp; \underset{L_2 \leftarrow L_2+2L_1}{\iff}
+    \left\{
+    \begin{array}{ll}
+        &amp; x+y = 1-2z  \\
+        &amp; 4x = 3-3z
+    \end{array}
+\right.
+    \\
+    &amp; \iff
+    \left\{
+    \begin{array}{ll}
+        &amp; y = 1-2z-x\\
+        &amp; x = \frac{3}{4}-\frac{3}{4}z
+    \end{array}
+\right.
+    \\
+    &amp; \iff
+    \left\{
+    \begin{array}{ll}
+        &amp; y = \frac{1}{4}-\frac{5}{4}z\\
+        &amp; x = \frac{3}{4}-\frac{3}{4}z
+    \end{array}
+\right.
+\end{aligned}\]</span></p>
+<p>D’où :</p>
+<p><span class="math display">\[M(x,y,z) \in \mathscr{P}_1 \cap
+\mathscr{P}_2 \iff \exists t \in \mathbb{R}, \left\{\begin{array}{lll}
+        &amp; x = \frac{3}{4}-\frac{3}{4}t \\
+        &amp; y = \frac{1}{4}-\frac{5}{4}t\\
+        &amp; z = t
+    \end{array}
+\right.\]</span></p>
+<p>Donc <span class="math inline">\(\mathscr{P}_1 \cap
+\mathscr{P}_2\)</span> est la droite passant par <span
+class="math inline">\(\left(\frac{3}{4},\frac{1}{4},0\right)\)</span> et
+dirigé par <span class="math inline">\(-3\vec{i} -5\vec{j} +
+4\vec{k}\)</span></p>
+</div>
+<h2 data-number="4.3"
+id="système-linéaire-de-trois-équations-à-trois-inconnues"><span
+class="header-section-number">4.3</span> Système linéaire de trois
+équations à trois inconnues</h2>
+<p>Soient <span
+class="math inline">\(a_1,b_1,c_1,a_2,b_2,c_2,a_3,b_3,c_3,
+\alpha,\beta,\gamma \in \mathbb{R}\)</span> ( ou <span
+class="math inline">\(\mathbb{C}\)</span> ),</p>
+<p>On considère <span class="math inline">\((S)
+\left\{\begin{array}{lll}
+        &amp; a_1 x +b_1 y + c_1 z = \alpha  \\
+        &amp; a_2 x +b_2 y + c_2 z = \beta  \\
+        &amp; a_3 x +b_3 y + c_3 z = \gamma
+    \end{array}
+\right..\)</span></p>
+<ul>
+<li><p>Si <span class="math inline">\(a_1 = a_2 = a_3 = 0\)</span>,</p>
+<p><span class="math inline">\((S)\)</span> ne possède aucune solution
+ou en possède une infinité.</p></li>
+<li><p>Si <span class="math inline">\(a_1 \neq 0\)</span>,</p>
+<p>on opère <span class="math inline">\(L_2 \leftarrow
+L_2-\frac{a_2}{a_1} L_1\)</span> et <span class="math inline">\(L_3
+\leftarrow L_3-\frac{a_3}{a_1} (L_1)\)</span></p>
+<p>Ainsi, <span class="math inline">\((S)\)</span> devient <span
+class="math inline">\((S&#39;) \left\{\begin{array}{lll}
+        &amp; a_1 x +b_1 y + c_1 z = \alpha \\
+        &amp; b&#39;_2y + c_2&#39; z = \beta&#39;\\
+        &amp; b_3&#39; y + c_3&#39; z = \gamma&#39;
+    \end{array}
+\right.\)</span></p>
+<p>et il reste à étudier le système <span
+class="math inline">\(\left\{\begin{array}{ll}
+        &amp; b&#39;_2y + c_2&#39; z = \beta&#39;  \\
+        &amp; b_3&#39; y + c_3&#39; z = \gamma&#39;
+    \end{array}
+\right..\)</span></p></li>
+</ul>
+<div class="wex">
+<p><span class="math display">\[\begin{aligned}
+(S) \left\{\begin{array}{lll}
+        &amp; y+2 z = 1  \\
+        &amp; x -y + 3z = 2 \\
+        &amp; 2x +3 y - z = 3
+    \end{array}
+\right.
+&amp; \underset{L_2 \leftrightarrow L_1}{\iff}
+\left\{\begin{array}{lll}
+        &amp;  x -y + 3z = 2   \\
+        &amp; y+2 z = 1 \\
+        &amp; 2x +3 y - z = 3
+    \end{array}
+\right.
+\\
+&amp; \underset{L_3 \leftrightarrow L_3-2L_1}{\iff}
+\left\{\begin{array}{lll}
+        &amp;  x -y + 3z = 2 \\
+        &amp; y+2 z = 1 \\
+        &amp; 5y-7z = -1
+    \end{array}
+\right.
+\end{aligned}\]</span></p>
+<p>On s’intéresse donc à : <span class="math inline">\((S&#39;)
+\left\{\begin{array}{ll}
+        &amp; y+2z = 1 \\
+        &amp; 5y-7z = -1 \\
+    \end{array}
+\right.\)</span></p>
+<p><span class="math inline">\(\begin{vmatrix} 1 &amp; 2 \\ 5 &amp; -7
+\end{vmatrix} = -17 \neq 0\)</span> donc ce système possède une unique
+solution <span class="math inline">\((y_0,z_0)\)</span>.</p>
+<p>En utilisant les formules précédentes, on a <span
+class="math inline">\(y_0 = \frac{5}{17}\)</span> et <span
+class="math inline">\(z_0 = \frac{6}{17}\)</span> donc <span
+class="math inline">\(x_0 =2+y_0-3Z_0= \frac{21}{17}\)</span></p>
+<p>D’où <span class="math inline">\((S)\)</span> a pour unique solution
+<span
+class="math inline">\((\frac{21}{17},\frac{5}{17},\frac{6}{17})\)</span>
+Ceci est une nouvelle illustration de <strong>la méthode du pivot de
+Gauss</strong>.</p>
+</div>
+</body>
+</html>
+
+<script>
+
+
+const toggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Appliquer le thème au chargement
+const currentTheme = localStorage.getItem('theme') || 'default';
+body.setAttribute('data-md-color-scheme', currentTheme);
+
+toggle.addEventListener('click', () => {
+    let scheme = body.getAttribute('data-md-color-scheme');
+    let newScheme = (scheme === 'default') ? 'slate' : 'default';
+    
+    body.setAttribute('data-md-color-scheme', newScheme);
+    localStorage.setItem('theme', newScheme);
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+let secCount = -1;
+let thmCount = -1;
+
+let labels = {};
+
+const noms = {
+'wthm':'Théorème',
+'wprop':'Proposition',
+'wdefi':'Définition',
+'wlem':'Lemme',
+'wcor':'Corollaire',
+'wappli':'Application',
+'wrem':'Remarque',
+'wrappel': 'Rappel',
+'wex':'Exemple',
+'wproof':'Preuve'
+};
+
+//////////////////////////////////////////////////////////////////////////////
+// Numérotation des environnements
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll(
+"h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex, .wrappel,.wproof"
+).forEach(el => {
+
+    if (
+        el.tagName.toLowerCase() === "h1"
+        && !el.closest("#TOC")
+    ) {
+
+        secCount++;
+        thmCount = 0;
+    }
+
+    else if (noms[Array.from(el.classList).find(c => noms[c])]) {
+
+        let type = Array.from(el.classList).find(c => noms[c]);
+
+        if (type !== 'wproof') {
+
+            thmCount++;
+
+            let num = secCount + "." + thmCount;
+
+            let id = el.querySelector("span[id]")
+                ? el.querySelector("span[id]").id
+                : null;
+
+            if(id) {
+                labels[id] = {
+                    num: num,
+                    type: type.substring(1)
+                };
+            }
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                let strong = p.querySelector("strong");
+
+                let title = (
+                    strong &&
+                    strong.innerText.includes("(")
+                )
+
+                ? ` <span class="env-title">${strong.outerHTML}</span>`
+                : "";
+
+                if (title) strong.remove();
+
+                p.innerHTML =
+                    `<strong class="env-header">${noms[type]} ${num}</strong>`
+                    + title
+                    + " — "
+                    + p.innerHTML;
+            }
+        }
+
+        else {
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                p.innerHTML =
+                    `<strong class="env-header">Preuve</strong> — `
+                    + p.innerHTML;
+            }
+        }
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Capture des équations MathJax
+//////////////////////////////////////////////////////////////////////////////
+
+setTimeout(() => {
+
+document.querySelectorAll("mjx-math[display='true']").forEach((el, index) => {
+
+    let num = el.querySelector(".mjx-eqn-number");
+
+    if (num) {
+
+        let val = num.innerText.replace(/[()]/g, '');
+
+        let id = el.id || "eq-" + index;
+
+        el.id = id;
+
+        labels[id] = {
+            num: val,
+            type: 'eq'
+        };
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Remplacement des références
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll("body *").forEach(el => {
+
+    if (
+        el.childNodes.length === 1 &&
+        el.childNodes[0].nodeType === Node.TEXT_NODE
+    ) {
+
+        el.innerHTML = el.innerHTML
+
+        .replace(/\\eqref\{(.*?)\}/g, (m, id) => {
+
+            return labels[id]
+                ? `<a href="#${id}">(${labels[id].num})</a>`
+                : m;
+        })
+
+        .replace(
+            /\[(prop|thm|def|cor|lem|appli|rem|rappel|ex):(.*?)\]/g,
+
+            (m, t, id) => {
+
+                let f = t + ":" + id;
+
+                return labels[f]
+                    ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>`
+                    : m;
+            }
+        );
+    }
+});
+
+}, 800);
+
+});
+
+</script>
+

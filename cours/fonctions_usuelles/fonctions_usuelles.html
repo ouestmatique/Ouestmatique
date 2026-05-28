@@ -1,0 +1,3932 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Fonctions usuelles</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+
+<header class="site-header">
+
+<div class="site-header-left">
+<a href="/">
+<img src="/assets/logo.svg" class="site-logo" alt="Logo">
+</a>
+</div>
+
+<div class="site-header-right">
+   <button id="theme-toggle"
+style="
+margin-right: 15px;
+cursor: pointer;
+background: transparent;
+border: none;
+font-size: 1.1rem;
+color: var(--md-primary-bg-color);
+">
+🌙 / ☀️
+</button>
+    <a href="/" class="home-link">Retour à l’accueil</a>
+</div>
+
+</header>
+
+
+<header id="title-block-header">
+
+<h1 class="title">Fonctions usuelles</h1>
+<p class="pdf-link">
+<a href="fonctions_usuelles.pdf" target="_blank">[PDF]</a>
+</p>
+
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#rappels-sur-la-relation-dordre-de-mathbbr"
+id="toc-rappels-sur-la-relation-dordre-de-mathbbr"><span
+class="toc-section-number">1</span> Rappels sur la relation d’ordre de
+<span class="math inline">\(\mathbb{R}\)</span></a>
+<ul>
+<li><a href="#relation-dordre-dans-mathbbr"
+id="toc-relation-dordre-dans-mathbbr"><span
+class="toc-section-number">1.1</span> Relation d’ordre dans <span
+class="math inline">\(\mathbb{R}\)</span></a></li>
+<li><a href="#valeur-absolue" id="toc-valeur-absolue"><span
+class="toc-section-number">1.2</span> Valeur absolue</a></li>
+</ul></li>
+<li><a
+href="#généralités-sur-les-fonctions-dune-variable-réelle-à-valeurs-réelles"
+id="toc-généralités-sur-les-fonctions-dune-variable-réelle-à-valeurs-réelles"><span
+class="toc-section-number">2</span> Généralités sur les fonctions d’une
+variable réelle à valeurs réelles</a>
+<ul>
+<li><a href="#opérations" id="toc-opérations"><span
+class="toc-section-number">2.1</span> Opérations</a></li>
+<li><a href="#fonctions-paires-et-impaires"
+id="toc-fonctions-paires-et-impaires"><span
+class="toc-section-number">2.2</span> Fonctions paires et
+impaires</a></li>
+<li><a href="#fonctions-périodiques"
+id="toc-fonctions-périodiques"><span
+class="toc-section-number">2.3</span> Fonctions périodiques</a></li>
+<li><a href="#fonctions-monotones" id="toc-fonctions-monotones"><span
+class="toc-section-number">2.4</span> Fonctions monotones</a></li>
+<li><a href="#fonctions-majorées-minorées-bornées"
+id="toc-fonctions-majorées-minorées-bornées"><span
+class="toc-section-number">2.5</span> Fonctions majorées, minorées,
+bornées</a></li>
+<li><a href="#dérivabilité" id="toc-dérivabilité"><span
+class="toc-section-number">2.6</span> Dérivabilité</a>
+<ul>
+<li><a href="#définition" id="toc-définition"><span
+class="toc-section-number">2.6.1</span> Définition</a></li>
+<li><a href="#tangente-en-un-point" id="toc-tangente-en-un-point"><span
+class="toc-section-number">2.6.2</span> Tangente en un point</a></li>
+<li><a href="#opérations-sur-les-fonctions-dérivables"
+id="toc-opérations-sur-les-fonctions-dérivables"><span
+class="toc-section-number">2.6.3</span> Opérations sur les fonctions
+dérivables</a></li>
+<li><a href="#dérivabilité-de-gcirc-f"
+id="toc-dérivabilité-de-gcirc-f"><span
+class="toc-section-number">2.6.4</span> Dérivabilité de <span
+class="math inline">\(g\circ f\)</span></a></li>
+<li><a href="#sens-de-variation-dune-fonction-dérivable"
+id="toc-sens-de-variation-dune-fonction-dérivable"><span
+class="toc-section-number">2.6.5</span> Sens de variation d’une fonction
+dérivable</a></li>
+<li><a href="#dérivabilité-dune-fonction-réciproque"
+id="toc-dérivabilité-dune-fonction-réciproque"><span
+class="toc-section-number">2.6.6</span> Dérivabilité d’une fonction
+réciproque</a></li>
+</ul></li>
+<li><a href="#application-au-calcul-dintégrales"
+id="toc-application-au-calcul-dintégrales"><span
+class="toc-section-number">2.7</span> Application au calcul
+d’intégrales</a>
+<ul>
+<li><a href="#quelques-rappels" id="toc-quelques-rappels"><span
+class="toc-section-number">2.7.1</span> Quelques rappels</a></li>
+<li><a href="#intégration-par-parties"
+id="toc-intégration-par-parties"><span
+class="toc-section-number">2.7.2</span> Intégration par parties</a></li>
+<li><a href="#changement-de-variable"
+id="toc-changement-de-variable"><span
+class="toc-section-number">2.7.3</span> Changement de variable</a></li>
+</ul></li>
+<li><a href="#asymptote-ou-branches-infinie"
+id="toc-asymptote-ou-branches-infinie"><span
+class="toc-section-number">2.8</span> Asymptote (ou branches
+infinie)</a></li>
+</ul></li>
+<li><a href="#fonctions-usuelles" id="toc-fonctions-usuelles"><span
+class="toc-section-number">3</span> Fonctions usuelles</a>
+<ul>
+<li><a href="#fonctions-trigonométriques"
+id="toc-fonctions-trigonométriques"><span
+class="toc-section-number">3.1</span> Fonctions trigonométriques</a>
+<ul>
+<li><a href="#cos-et-sin" id="toc-cos-et-sin"><span
+class="toc-section-number">3.1.1</span> <span
+class="math inline">\(\cos\)</span> et <span
+class="math inline">\(\sin\)</span></a></li>
+<li><a href="#tan" id="toc-tan"><span
+class="toc-section-number">3.1.2</span> <span
+class="math inline">\(\tan\)</span></a></li>
+</ul></li>
+<li><a href="#fonctions-trigonométriques-réciproques"
+id="toc-fonctions-trigonométriques-réciproques"><span
+class="toc-section-number">3.2</span> Fonctions trigonométriques
+réciproques</a>
+<ul>
+<li><a href="#introduction-aux-réciproques-partielles"
+id="toc-introduction-aux-réciproques-partielles"><span
+class="toc-section-number">3.2.1</span> Introduction aux réciproques
+partielles</a></li>
+<li><a href="#mathopmathrmarcsin" id="toc-mathopmathrmarcsin"><span
+class="toc-section-number">3.2.2</span> <span
+class="math inline">\(\mathop{\mathrm{Arcsin}}\)</span></a></li>
+<li><a href="#mathopmathrmarccos" id="toc-mathopmathrmarccos"><span
+class="toc-section-number">3.2.3</span> <span
+class="math inline">\(\mathop{\mathrm{Arccos}}\)</span></a></li>
+<li><a href="#mathopmathrmarctan" id="toc-mathopmathrmarctan"><span
+class="toc-section-number">3.2.4</span> <span
+class="math inline">\(\mathop{\mathrm{Arctan}}\)</span></a></li>
+</ul></li>
+<li><a href="#rappels-sur-les-fonctions-ln-et-exp"
+id="toc-rappels-sur-les-fonctions-ln-et-exp"><span
+class="toc-section-number">3.3</span> Rappels sur les fonctions <span
+class="math inline">\(\ln\)</span> et <span
+class="math inline">\(\exp\)</span></a>
+<ul>
+<li><a href="#la-fonction-ln" id="toc-la-fonction-ln"><span
+class="toc-section-number">3.3.1</span> La fonction <span
+class="math inline">\(\ln\)</span></a></li>
+<li><a href="#fonction-exponentielle-ou-exp"
+id="toc-fonction-exponentielle-ou-exp"><span
+class="toc-section-number">3.3.2</span> Fonction exponentielle (ou <span
+class="math inline">\(\exp\)</span>)</a></li>
+</ul></li>
+<li><a
+href="#fonctions-hyperboliques-mathopmathrmchmathopmathrmshmathopmathrmth"
+id="toc-fonctions-hyperboliques-mathopmathrmchmathopmathrmshmathopmathrmth"><span
+class="toc-section-number">3.4</span> Fonctions hyperboliques <span
+class="math inline">\(\mathop{\mathrm{ch}},\mathop{\mathrm{sh}},\mathop{\mathrm{th}}\)</span></a>
+<ul>
+<li><a
+href="#fonctions-cosinus-hyperbolique-mathopmathrmch-et-sinus-hyperbolique-mathopmathrmsh"
+id="toc-fonctions-cosinus-hyperbolique-mathopmathrmch-et-sinus-hyperbolique-mathopmathrmsh"><span
+class="toc-section-number">3.4.1</span> Fonctions cosinus hyperbolique
+<span class="math inline">\(\mathop{\mathrm{ch}}\)</span> et sinus
+hyperbolique <span
+class="math inline">\(\mathop{\mathrm{sh}}\)</span></a></li>
+<li><a href="#fonction-tangente-hyperbolique-mathopmathrmth"
+id="toc-fonction-tangente-hyperbolique-mathopmathrmth"><span
+class="toc-section-number">3.4.2</span> Fonction tangente hyperbolique
+<span class="math inline">\(\mathop{\mathrm{th}}\)</span></a></li>
+</ul></li>
+<li><a href="#fonctions-puissances" id="toc-fonctions-puissances"><span
+class="toc-section-number">3.5</span> Fonctions puissances</a></li>
+<li><a href="#croissances-comparées-des-fonctions-ln-exp-et-puissances"
+id="toc-croissances-comparées-des-fonctions-ln-exp-et-puissances"><span
+class="toc-section-number">3.6</span> Croissances comparées des
+fonctions <span class="math inline">\(\ln\)</span>, <span
+class="math inline">\(\exp\)</span> et puissances</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="rappels-sur-la-relation-dordre-de-mathbbr"><span
+class="header-section-number">1</span> Rappels sur la relation d’ordre
+de <span class="math inline">\(\mathbb{R}\)</span></h1>
+<h2 data-number="1.1" id="relation-dordre-dans-mathbbr"><span
+class="header-section-number">1.1</span> Relation d’ordre dans <span
+class="math inline">\(\mathbb{R}\)</span></h2>
+<p>On dispose dans <span class="math inline">\(\mathbb{R}\)</span> d’une
+relation d’ordre notée <span class="math inline">\(\leq\)</span> avec
+les propriétés :</p>
+<p><span class="math display">\[\begin{aligned}
+    \text{(réflexivité)}\quad &amp;\forall a \in \mathbb{R}, &amp; a
+\leq a, \\
+    \text{(antisymétrie)}\quad &amp;\forall a,b \in \mathbb{R},
+    &amp; a \leq b \text{ et }b \leq a \iff b=a, \\
+    \text{(transitivité)}\quad &amp;\forall a,b,c \in \mathbb{R},
+    &amp; a \leq b \text{ et }b \leq c \Longrightarrow a \leq c, \\
+    \text{(ordre total)}\quad &amp;\forall a,b \in \mathbb{R},
+    &amp; a \leq b \text{ ou }b \leq a, \\
+    &amp;\forall a,b,c,d \in \mathbb{R},
+    &amp; a \leq c \text{ et }b \leq d \Longrightarrow a+b \leq c+d. \\
+    &amp;\forall a,b,c\in \mathbb{R},
+    &amp; a \leq b, c \geq 0  \Longrightarrow ab \leq bc \\
+    &amp;\forall a,b,c\in \mathbb{R},
+    &amp; a \leq b, c \leq 0  \Longrightarrow ab \geq bc \\
+    &amp;\forall a,b\in \mathbb{R},
+    &amp; 0 &lt; a \leq b  \Longrightarrow \frac{1}{a} \geq
+\frac{1}{b}\\
+    &amp;\forall a,b\in \mathbb{R},
+    &amp; a \leq b &lt; 0  \Longrightarrow \frac{1}{a} \geq \frac{1}{b}
+\end{aligned}\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{R}^+ = \{a \in \mathbb{R}, a
+\geq 0\}\)</span> est l’ensemble des réels positifs,</p></li>
+<li><p><span class="math inline">\(\mathbb{R}^{+\star} = \{a \in
+\mathbb{R}, a &gt; 0\}\)</span> est l’ensemble des réels strictement
+positifs,</p></li>
+<li><p><span class="math inline">\(\mathbb{R}^+ = \{a \in \mathbb{R}, a
+\leq 0\}\)</span> est l’ensemble des réels négatifs,</p></li>
+<li><p><span class="math inline">\(\mathbb{R}^{-\star} = \{a \in
+\mathbb{R}, a &lt; 0\}\)</span> est l’ensemble des réels strictement
+négatifs,</p></li>
+</ul>
+<h2 data-number="1.2" id="valeur-absolue"><span
+class="header-section-number">1.2</span> Valeur absolue</h2>
+<div class="wdefi">
+<p><strong>(Valeur absolue)</strong> Soit <span class="math inline">\(a
+\in \mathbb{R}\)</span>, la <u>valeur absolue de <span
+class="math inline">\(a\)</span></u> est le réel positif, noté <span
+class="math inline">\(|a|\)</span>, défini par <span
+class="math display">\[|a| = \left\{\begin{array}{ll}
+        a &amp; \mbox{ si } a \geq 0 \\
+        -a &amp; \mbox{ si } a &lt; 0
+    \end{array}\right.\]</span>.</p>
+</div>
+<div class="wprop">
+<p><strong>(Propriétés de la valeur absolue)</strong></p>
+<ol>
+<li><p><span class="math inline">\(\forall a \in \mathbb{R}, |a| = 0
+\iff a = 0\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall a,b \in \mathbb{R},
+|ab|=|a||b|\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall a \in \mathbb{R}, a \leq
+|a|\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall a \in \mathbb{R}, a = |a|
+\iff a \geq 0\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall a,b \in \mathbb{R}, |a+b|
+\leq |a|+|b|\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall a_1,\ldots,a_n \in
+\mathbb{R}\)</span>, <span class="math inline">\(\left|\sum_{k=1}^n
+a_k\right| \leq \sum_{k=1}^n |a_k|\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall a\in \mathbb{R}, b\in
+\mathbb{R}^+\)</span>, <span class="math inline">\(|a| \leq b \iff -b
+\leq a \leq b\)</span>,</p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Soient <span class="math inline">\(a,b \in
+\mathbb{R}\)</span>,</p>
+<p><span class="math inline">\(|a+b| \leq |a|+|b| \iff |(a+b)^2|=
+|a+b|^2 \leq (|a|+|b|)^2 \iff ab \leq |ab|\)</span>.</p></li>
+</ol>
+</div>
+<h1 data-number="2"
+id="généralités-sur-les-fonctions-dune-variable-réelle-à-valeurs-réelles"><span
+class="header-section-number">2</span> Généralités sur les fonctions
+d’une variable réelle à valeurs réelles</h1>
+<h2 data-number="2.1" id="opérations"><span
+class="header-section-number">2.1</span> Opérations</h2>
+<ul>
+<li><p>Soit <span class="math inline">\(D\)</span> une partie de <span
+class="math inline">\(\mathbb{R}\)</span>, non vide, on considère une
+fonction <span class="math inline">\(f\)</span> de <span
+class="math inline">\(D\)</span> dans <span
+class="math inline">\(\mathbb{R}\)</span>. <span
+class="math inline">\(D\)</span> est le domaine de définition de <span
+class="math inline">\(f\)</span> et on note</p>
+<p><span class="math display">\[\begin{array}{lllll}
+f &amp; : &amp; D &amp; \to &amp; \mathbb{R}\\
+&amp; &amp; x  &amp; \mapsto &amp; f(x) \\
+\end{array}.\]</span></p>
+<p>On note parfois plus simplement <span class="math inline">\(f : x \in
+D \mapsto f(x) \in \mathbb{R}\)</span> ou même <span
+class="math inline">\(f : x \in D \mapsto f(x)\)</span>.</p></li>
+<li><p>On note <span class="math inline">\(f(D) := \{f(x)/x \in
+D\}\)</span> l’ensemble des valeurs prises par <span
+class="math inline">\(f\)</span>.</p>
+<div class="wex">
+<p>Pour <span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{R}&amp; \to &amp; \mathbb{R}\\
+&amp; &amp; x  &amp; \mapsto &amp; 1 \\
+\end{array}\)</span>, <span class="math inline">\(f(\mathbb{R}) =
+\{1\}\)</span>.</p>
+</div></li>
+<li><p>On note <span
+class="math inline">\(\mathscr{F}(D,\mathbb{R})\)</span> l’ensemble des
+fonctions de <span class="math inline">\(D\)</span> dans <span
+class="math inline">\(\mathbb{R}\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(f \in
+\mathscr{F}(D,\mathbb{R})\)</span>, on dit que <span
+class="math inline">\(f\)</span> est non nulle s’il existe <span
+class="math inline">\(x_0 \in D\)</span> tel que <span
+class="math inline">\(f(x_0) \neq 0\)</span>.</p>
+<div class="wrem">
+<p>En général, on n’a pas : <span class="math inline">\(\forall x \in D,
+f(x) \neq 0\)</span>.</p>
+</div></li>
+<li><p>Soient <span class="math inline">\(f,g \in
+\mathscr{F}(D,\mathbb{R})\)</span>, on peut considérer les fonctions</p>
+<p><span class="math inline">\(\begin{array}{lllll}
+f +g&amp; : &amp; \mathbb{R}&amp; \to &amp; \mathbb{R}\\
+&amp; &amp; x  &amp; \mapsto &amp; f(x)+g(x) \\
+\end{array}\)</span> et <span class="math inline">\(\begin{array}{lllll}
+fg&amp; : &amp; \mathbb{R}&amp; \to &amp; \mathbb{R}\\
+&amp; &amp; x  &amp; \mapsto &amp; f(x)g(x) \\
+\end{array}.\)</span></p></li>
+<li><p>Soit <span class="math inline">\(f \in
+\mathscr{F}(D,\mathbb{R})\)</span> et <span class="math inline">\(\alpha
+\in \mathbb{R}\)</span>, on peut considérer la fonction <span
+class="math display">\[\begin{array}{lllll}
+\alpha f&amp; : &amp; \mathbb{R}&amp; \to &amp; \mathbb{R}\\
+&amp; &amp; x  &amp; \mapsto &amp; \alpha f(x) \\
+\end{array}.\]</span></p></li>
+<li><p>Soit <span class="math inline">\(h \in
+\mathscr{F}(D&#39;,\mathbb{R})\)</span> (avec en général <span
+class="math inline">\(D&#39; \neq D\)</span>). En supposant <span
+class="math inline">\(f(D) \subset D&#39;\)</span>, on peut considérer
+<span class="math inline">\(f(x)\)</span> et <span
+class="math inline">\(h(f(x))\)</span> pour <span
+class="math inline">\(x \in D\)</span>. On considère aussi la fonction
+composée de <span class="math inline">\(f\)</span> par <span
+class="math inline">\(h\)</span>, notée <span class="math inline">\(h
+\circ f\)</span> : <span class="math display">\[\begin{array}{lllll}
+h\circ f&amp; : &amp; \mathbb{R}&amp; \to &amp; \mathbb{R}\\
+&amp; &amp; x  &amp; \mapsto &amp;  h(f(x)) \\
+\end{array}.\]</span> On dessine parfois</p>
+<p><img src="diagramme_compo-1.png" alt="image" />.</p>
+<div class="wex">
+<p>Avec <span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \left]-\frac{\pi}{2},\frac{\pi}{2}\right[ &amp; \to
+&amp; \mathbb{R}\\
+&amp; &amp; x  &amp; \mapsto &amp; \sin(x) \\
+\end{array}\)</span> et <span class="math inline">\(\begin{array}{lllll}
+h &amp; : &amp; ]-1,1[ &amp; \to &amp; \mathbb{R}\\
+&amp; &amp; t  &amp; \mapsto &amp; \frac{1}{\sqrt{1-t^2}} \\
+\end{array}\)</span>,</p>
+<p>on a bien <span
+class="math inline">\(f\left(\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\right)
+\subset ]-1,1[\)</span> et pour <span class="math inline">\(x \in
+\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\)</span>, <span
+class="math inline">\(h(f(x)) = \frac{1}{\sqrt{1-\sin^2(x)}} =
+\frac{1}{\sqrt{\cos^2(x)}} = \frac{1}{\cos(x)}\)</span> car <span
+class="math inline">\(\cos\)</span> est positif sur <span
+class="math inline">\(\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\)</span>.</p>
+</div></li>
+</ul>
+<h2 data-number="2.2" id="fonctions-paires-et-impaires"><span
+class="header-section-number">2.2</span> Fonctions paires et
+impaires</h2>
+<div class="wdefi">
+<p><strong>(Fonction paire/impaire)</strong> Soit <span
+class="math inline">\(f \in \mathscr{F}(D,\mathbb{R})\)</span> avec :
+pour tout <span class="math inline">\(x \in D, -x \in D\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(f\)</span> est dite <u>paire</u> si :
+<span class="math inline">\(\forall x \in D, f(-x) =
+f(x)\)</span>,</p></li>
+<li><p><span class="math inline">\(f\)</span> est dite <u>impaire</u> si
+: <span class="math inline">\(\forall x \in D, f(-x) =
+-f(x)\)</span>.</p></li>
+</ul>
+</div>
+<p><span class="math inline"><span class="icon-warning">⚠️</span></span>
+Cela n’a pas de sens de parler de fonction paire ou impaire sur <span
+class="math inline">\([0,1]\)</span>, car on n’a pas "pour tout <span
+class="math inline">\(x \in D, -x \in D\)</span>".</p>
+<div class="wprop">
+<p><strong>(Operations et fonctions paires/impaires)</strong> Soient
+<span class="math inline">\(f,g \in \mathscr{F}(D,\mathbb{R})\)</span>,
+<span class="math inline">\(\alpha \in \mathbb{R}\)</span>,</p>
+<ol>
+<li><p>Si <span class="math inline">\(f \text{ et }g\)</span> sont
+paires, <span class="math inline">\(\alpha f\)</span>, <span
+class="math inline">\(f+g\)</span> et <span
+class="math inline">\(fg\)</span> sont paires,</p></li>
+<li><p>Si <span class="math inline">\(f \text{ et }g\)</span> sont
+impaires, <span class="math inline">\(\alpha f\)</span> et <span
+class="math inline">\(f+g\)</span> sont impaires tandis que <span
+class="math inline">\(fg\)</span> est paire.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Soit <span class="math inline">\(x \in D\)</span>, <span
+class="math display">\[\begin{aligned}
+            (\alpha f)(-x) &amp; = \alpha f(-x) = \alpha f(x) = (\alpha
+f)(x) \\
+            (f+g)(-x) &amp; = f(-x)+g(-x) = f(x) + g(x) = (f+g)(x) \\
+            (fg)(-x) &amp; = f(-x)g(-x) = f(x)g(x) = (fg)(x) \\
+        \end{aligned}\]</span></p></li>
+<li><p>Soit <span class="math inline">\(x \in D\)</span>, <span
+class="math display">\[\begin{aligned}
+            (\alpha f)(-x) &amp; = \alpha f(-x) = \alpha(- f(x)) =
+-\alpha f(x) = -(\alpha f)(x) \\
+            (f+g)(-x) &amp; = f(-x)+g(-x) = -f(x) + (-g(x))=-(f(x)+g(x))
+= -(f+g)(x) \\
+            (fg)(-x) &amp; = f(-x)g(-x) = -f(x)(-g(x)) = f(x)g(x) =
+(fg)(x) \\
+        \end{aligned}\]</span></p></li>
+</ol>
+</div>
+<p>Soit <span
+class="math inline">\((O,\overrightarrow{i},\overrightarrow{j})\)</span>,
+repère orthonormé du plan et <span class="math inline">\((C) =
+\{(x,f(x)) / x\in D\}\)</span>, la courbe de <span
+class="math inline">\(f\)</span>.</p>
+<ul>
+<li><div class="webtextfigure">
+<div class="webtext">
+<p>Si <span class="math inline">\(f\)</span> est paire, <span
+class="math inline">\((C)\)</span> est symétrique par rapport à <span
+class="math inline">\((O,\overrightarrow{j})\)</span>. Plus précisément,
+pour <span class="math inline">\(x \in D\)</span>, le point <span
+class="math inline">\((-x,f(-x))\)</span> est le symétrique de <span
+class="math inline">\((x,f(x))\)</span> par rapport à <span
+class="math inline">\((O,\overrightarrow{j})\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="Paire.png" alt="image" /></p>
+</div>
+</div></li>
+<li><div class="webtextfigure">
+<div class="webtext">
+<p>Si <span class="math inline">\(f\)</span> est impaire, <span
+class="math inline">\((C)\)</span> est symétrique par rapport à <span
+class="math inline">\(O\)</span>. Plus précisément, pour <span
+class="math inline">\(x \in D\)</span>, le point <span
+class="math inline">\((-x,f(-x))\)</span> est le symétrique de <span
+class="math inline">\((x,f(x))\)</span> par rapport à <span
+class="math inline">\(O\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="Impaire.png" alt="image" /></p>
+</div>
+</div></li>
+</ul>
+<h2 data-number="2.3" id="fonctions-périodiques"><span
+class="header-section-number">2.3</span> Fonctions périodiques</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{F}(D,\mathbb{R})\)</span> et <span class="math inline">\(T \in
+\mathbb{R}^{+\star}\)</span> tel que pour tout <span
+class="math inline">\(x \in D, x+T \in D \text{ et }x-T \in D\)</span>.
+<span class="math inline">\(f\)</span> est dite <span
+class="math inline">\(T\)</span>-périodique si <span
+class="math display">\[\forall x \in D, f(X+T) = f(x).\]</span></p>
+</div>
+<div class="wrem">
+<p>Si <span class="math inline">\(f\)</span> est <span
+class="math inline">\(T\)</span>-périodique, on a : pour tout <span
+class="math inline">\(x \in D, f(x-T) = f(x)\)</span>.</p>
+<p>En effet, <span class="math inline">\(f(x) = f((x-T)+T) =
+f(x)\)</span>.</p>
+<p>On a même : pour tout <span class="math inline">\(k \in \mathbb{Z},
+f(x+kT) = f(x)\)</span></p>
+</div>
+<div class="wprop">
+<p><strong>(Périodicité et opérations)</strong> Soient <span
+class="math inline">\(f,g \in \mathscr{F}(D,\mathbb{R})\)</span> <span
+class="math inline">\(T\)</span>-périodiques et <span
+class="math inline">\(\alpha \in \mathbb{R}\)</span> alors <span
+class="math inline">\(\alpha f, f+g\)</span> et <span
+class="math inline">\(fg\)</span> sont <span
+class="math inline">\(T\)</span>-périodiques.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(x \in D\)</span>,</p>
+<ul>
+<li><p><span class="math inline">\((\alpha f)(x+T) = \alpha f(x+T) =
+\alpha f(x) = (\alpha f)(x)\)</span>,</p></li>
+<li><p><span class="math inline">\((f+g)(x+T) = f(x+T) + g(x+T) =
+f(x)+g(x) = (f+g)(x)\)</span>,</p></li>
+<li><p><span class="math inline">\((fg)(x+T) = f(x+T)g(x+T) = f(x)g(x) =
+(fg)(x)\)</span>.</p></li>
+</ul>
+</div>
+<p>Soit <span
+class="math inline">\((O,\overrightarrow{i},\overrightarrow{j})\)</span>,
+repère orthonormé du plan et <span class="math inline">\((C) =
+\{(x,f(x)) / x\in D\}\)</span>, la courbe de <span
+class="math inline">\(f\)</span>. Si <span
+class="math inline">\(f\)</span> est <span
+class="math inline">\(T\)</span>-périodique, en notant <span
+class="math inline">\((C&#39;) = \{(x+T,f(x)) / x\in D\}\)</span> la
+translatée de <span class="math inline">\((C)\)</span> par le vecteur
+<span class="math inline">\(T\overrightarrow{i}\)</span> alors <span
+class="math inline">\((C&#39;)=(C)\)</span>. En effet,</p>
+<div class="wproof">
+<ul>
+<li><p>Si <span class="math inline">\((x,f(x)) \in (C)\)</span>, <span
+class="math inline">\((x,f(x)) = ((x-T)+T,f(x-T)) \in
+(C&#39;)\)</span>.</p></li>
+<li><p>Si <span class="math inline">\((x+T,f(x)) \in (C&#39;)\)</span>,
+<span class="math inline">\((x+T,f(x)) = (x+T,f(x+T)) \in
+(C)\)</span>.</p></li>
+</ul>
+</div>
+<div class="center">
+<p><img src="Periodique.png" alt="image" /></p>
+</div>
+<h2 data-number="2.4" id="fonctions-monotones"><span
+class="header-section-number">2.4</span> Fonctions monotones</h2>
+<div class="wdefi">
+<p><strong>(Fonctions croissantes/décroissantes)</strong> Soit <span
+class="math inline">\(f \in \mathscr{F}(D,\mathbb{R})\)</span>,</p>
+<ul>
+<li><p><span class="math inline">\(f\)</span> est dite croissante sur
+<span class="math inline">\(D\)</span> si <span
+class="math display">\[\forall x,y \in D, x \leq y \Longrightarrow f(x)
+\leq f(y),\]</span></p></li>
+<li><p><span class="math inline">\(f\)</span> est dite strictement
+croissante sur <span class="math inline">\(D\)</span> si <span
+class="math display">\[\forall x,y \in D, x &lt; y \Longrightarrow f(x)
+&lt; f(y),\]</span></p></li>
+<li><p><span class="math inline">\(f\)</span> est dite décroissante sur
+<span class="math inline">\(D\)</span> si <span
+class="math display">\[\forall x,y \in D, x \leq y \Longrightarrow f(x)
+\geq f(y),\]</span></p></li>
+<li><p><span class="math inline">\(f\)</span> est dite strictement
+décroissante sur <span class="math inline">\(D\)</span> si <span
+class="math display">\[\forall x,y \in D, x &lt; y \Longrightarrow f(x)
+&gt; f(y),\]</span></p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><strong>(Croissance et opérations)</strong> Soient <span
+class="math inline">\(f,g \in \mathscr{F}(D,\mathbb{R})\)</span>
+croissantes sur <span class="math inline">\(D\)</span>, alors</p>
+<ol>
+<li><p><span class="math inline">\(f+g\)</span> est croissante sur <span
+class="math inline">\(D\)</span>,</p></li>
+<li><p><span
+class="math inline"><span class="icon-warning">⚠️</span></span> en général,
+<span class="math inline">\(fg\)</span> n’est pas croissante sur <span
+class="math inline">\(D\)</span>,</p></li>
+<li><p>si de plus <span class="math inline">\(f\)</span> et <span
+class="math inline">\(g\)</span> sont positives sur <span
+class="math inline">\(D\)</span>, <span
+class="math inline">\(fg\)</span> est croissante sur <span
+class="math inline">\(D\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Soient <span class="math inline">\(x,y \in D\)</span> tels que
+<span class="math inline">\(x \leq y\)</span> alors <span
+class="math display">\[(f+g)(x) = f(x) + g(x) \leq f(y) + g(y) =
+(f+g)(y).\]</span></p></li>
+<li><p><span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{R}&amp; \to &amp; \mathbb{R}\\
+&amp; &amp; x  &amp; \mapsto &amp; x \\
+\end{array}\)</span> et <span class="math inline">\(\begin{array}{lllll}
+g &amp; : &amp; \mathbb{R}&amp; \to &amp; \mathbb{R}\\
+&amp; &amp; x  &amp; \mapsto &amp; x \\
+\end{array}\)</span> sont croissantes sur <span
+class="math inline">\(\mathbb{R}\)</span> mais pas <span
+class="math inline">\(\begin{array}{lllll}
+fg &amp; : &amp; \mathbb{R}&amp; \to &amp; \mathbb{R}\\
+&amp; &amp; x  &amp; \mapsto &amp; x^2 \\
+\end{array}.\)</span></p></li>
+<li><p>Soient <span class="math inline">\(x,y \in D\)</span> tels que
+<span class="math inline">\(x \leq y\)</span> alors <span
+class="math display">\[(fg)(x) = f(x)g(x) \underbrace{\leq}_{g(x) \geq 0
+\text{ et }f(x) \leq f(y)} f(y)g(x) \underbrace{\leq}_{f(y) \geq 0
+\text{ et }g(x) \leq g(y)} f(y)g(y) = (fg)(y).\]</span></p></li>
+</ol>
+</div>
+<div class="wprop">
+<p><strong>(Croissance et composition)</strong> Soit <span
+class="math inline">\(f \in \mathscr{F}(D,\mathbb{R})\)</span> et <span
+class="math inline">\(h\in \mathscr{F}(D&#39;,\mathbb{R})\)</span> tel
+que <span class="math inline">\(f(D) \subset D&#39;\)</span>. Si <span
+class="math inline">\(f\)</span> et <span
+class="math inline">\(h\)</span> sont croissantes alors <span
+class="math inline">\(h\circ f\)</span> est croissante.</p>
+</div>
+<div class="wproof">
+<p>Soient <span class="math inline">\(x,y \in D\)</span> tels que <span
+class="math inline">\(x \leq y\)</span> alors <span
+class="math inline">\(f(x) \leq f(y)\)</span> par croissance de <span
+class="math inline">\(f\)</span> donc <span
+class="math inline">\(h(f(x)) \leq h(f(y))\)</span> par croissance de
+<span class="math inline">\(h\)</span>.</p>
+</div>
+<h2 data-number="2.5" id="fonctions-majorées-minorées-bornées"><span
+class="header-section-number">2.5</span> Fonctions majorées, minorées,
+bornées</h2>
+<div class="wdefi">
+<p><strong>(Fonctions majorées, minorées, bornées)</strong> Soit <span
+class="math inline">\(f \in \mathscr{F}(D,\mathbb{R})\)</span>,</p>
+<ul>
+<li><p><span class="math inline">\(f\)</span> est majorée sur <span
+class="math inline">\(D\)</span> s’il existe <span
+class="math inline">\(M \in \mathbb{R}\)</span> tel que <span
+class="math display">\[\forall x \in D, f(x) \leq M,\]</span></p></li>
+<li><p><span class="math inline">\(f\)</span> est minorée sur <span
+class="math inline">\(D\)</span> s’il existe <span
+class="math inline">\(m \in \mathbb{R}\)</span> tel que <span
+class="math display">\[\forall x \in D, f(x) \geq m,\]</span></p></li>
+<li><p><span class="math inline">\(f\)</span> est minorée sur <span
+class="math inline">\(D\)</span> si <span
+class="math inline">\(f\)</span> est majorée et minorée sur <span
+class="math inline">\(D\)</span> ie il existe <span
+class="math inline">\(m,M \in \mathbb{R}\)</span> tel que <span
+class="math display">\[\forall x \in D, m \leq f(x) \leq
+M.\]</span></p></li>
+</ul>
+</div>
+<div class="wrem">
+<p><span class="math inline">\(f\)</span> est bornée sur <span
+class="math inline">\(D\)</span> <span class="math inline">\(\iff
+\exists M_0 \in \mathbb{R}^+, \forall x \in D, |f(x)|\leq
+M_0\)</span>.</p>
+<ul>
+<li><p>s’il existe <span class="math inline">\(m,M \in
+\mathbb{R}\)</span> tel que <span class="math display">\[\forall x \in
+D, m \leq f(x) \leq M.\]</span> alors <span class="math inline">\(M_0 =
+\max(|m|,|M|)\)</span> convient.</p></li>
+<li><p>On a donc <span class="math inline">\(\forall x \in D, -M_0 \leq
+f(x) \leq M_0.\)</span> donc <span class="math inline">\(m = -M_0, M =
+M_0\)</span> conviennent.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><strong>(Bornage et opérations)</strong> Soient <span
+class="math inline">\(f,g \in \mathscr{F}(D,\mathbb{R})\)</span> bornées
+sur <span class="math inline">\(D\)</span> et <span
+class="math inline">\(\alpha \in \mathbb{R}\)</span> alors <span
+class="math inline">\(\alpha f, f+g, fg\)</span> sont bornées sur <span
+class="math inline">\(D\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soient <span class="math inline">\(M_0\in \mathbb{R}^+\)</span> et
+<span class="math inline">\(M_1 \in \mathbb{R}^+\)</span> tels que <span
+class="math display">\[\begin{aligned}
+        \forall x \in D, |f(x)| &amp; \leq M_0 \\
+        |g(x)| &amp; \leq M_1 \\
+    \end{aligned}\]</span></p>
+<p>alors pour <span class="math inline">\(x \in D\)</span>,</p>
+<ul>
+<li><p><span class="math inline">\(|(\alpha f)(x)| = |\alpha| |f(x)|
+\leq |\alpha|M_0\)</span>,</p></li>
+<li><p><span class="math inline">\(|(f+g)(x)|
+\underbrace{\leq}_{\text{par inégalité triangulaire}}  |f(x)|
++|g(x)|\leq M_0+M_1\)</span>,</p></li>
+<li><p><span class="math inline">\(|(fg)(x)| \leq   |f(x)|M_1\leq
+M_0M_1\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="2.6" id="dérivabilité"><span
+class="header-section-number">2.6</span> Dérivabilité</h2>
+<h3 data-number="2.6.1" id="définition"><span
+class="header-section-number">2.6.1</span> Définition</h3>
+<div class="wdefi">
+<p><strong>(Intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>)</strong> Un intervalle de
+<span class="math inline">\(\mathbb{R}\)</span> est un ensemble sous la
+forme</p>
+<ul>
+<li><p><span class="math inline">\(I = \mathbb{R}\)</span>,</p></li>
+<li><p><span class="math inline">\(I = [a,+\infty[\)</span> ou <span
+class="math inline">\(I = ]a,+\infty[\)</span> avec <span
+class="math inline">\(a \in \mathbb{R}\)</span>,</p></li>
+<li><p><span class="math inline">\(I = -]\infty,b]\)</span> ou <span
+class="math inline">\(I = -]\infty,b[\)</span> avec <span
+class="math inline">\(b \in \mathbb{R}\)</span>,</p></li>
+<li><p><span class="math inline">\(I = [a,b]\)</span> ou <span
+class="math inline">\(I = [a,b[\)</span> ou <span
+class="math inline">\(I = ]a,b[\)</span> ou <span
+class="math inline">\(I = ]a,b]\)</span>.</p></li>
+</ul>
+</div>
+<div class="wdefi">
+<p><strong>(Dérivabilité en <span
+class="math inline">\(x_0\)</span>)</strong> Soit <span
+class="math inline">\(f : I \to \mathbb{R}\)</span> avec <span
+class="math inline">\(I\)</span> intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>, non réduit à un seul élément.
+Soit <span class="math inline">\(x_0 \in I\)</span>, <span
+class="math inline">\(f\)</span> est dérivable en <span
+class="math inline">\(x_0\)</span> s’il existe <span
+class="math inline">\(\ell \in \mathbb{R}\)</span> tel que <span
+class="math display">\[\frac{f(x_0+h)-f(x_0)}{h} \underset{h
+\longrightarrow 0}{\longrightarrow} \ell.\]</span> <span
+class="math inline">\(\frac{f(x_0+h)-f(x_0)}{h}\)</span> est le taux
+d’accroissement de <span class="math inline">\(f\)</span> en <span
+class="math inline">\(x_0\)</span> par <span
+class="math inline">\(h\)</span>. <span
+class="math inline">\(\ell\)</span> est alors appelé la dérivée de <span
+class="math inline">\(f\)</span> en <span
+class="math inline">\(x_0\)</span> noté <span
+class="math inline">\(f&#39;(x_0)\)</span>.</p>
+<p>Si <span class="math inline">\(f\)</span> est dérivable en tout point
+de <span class="math inline">\(I\)</span>, on dit que <span
+class="math inline">\(f\)</span> est dérivable sur <span
+class="math inline">\(I\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Il est équivalent d’étudier la limite <span
+class="math inline">\(\lim_{h \longrightarrow 0}
+\frac{f(x_0+h)-f(x_0)}{h}\)</span> et la limite <span
+class="math inline">\(\lim_{x \longrightarrow x_0}
+\frac{f(x)-f(x_0)}{x-x_0}\)</span> en posant <span
+class="math inline">\(h = x-x_0\)</span>.</p>
+</div>
+<p>Nous détaillerons ce point dans un prochain chapitre mais si <span
+class="math inline">\(f\)</span> est dérivable en <span
+class="math inline">\(x_0\)</span> alors <span
+class="math inline">\(f\)</span> est continue en <span
+class="math inline">\(x_0\)</span>.</p>
+<p>En effet, <span class="math inline">\(\frac{f(x_0+h)-f(x_0)}{h}
+\underset{h \longrightarrow 0}{\longrightarrow} f&#39;(x_0)\)</span>
+donc <span class="math inline">\(f(x_0+h)-f(x_0) \underset{h
+\longrightarrow 0}{\longrightarrow} 0\)</span> et <span
+class="math inline">\(f(x_0+h) \underset{h \longrightarrow
+0}{\longrightarrow} f(x_0)\)</span>.</p>
+<p>En revanche, la réciproque est fausse.</p>
+<div class="wex">
+<p><strong>(Fonction continue non dérivable en un point)</strong> <span
+id="ex:valeur_aboslue_non_derivable"
+label="ex:valeur_aboslue_non_derivable"></span> <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{R}&amp; \to &amp; \mathbb{R}\\
+&amp; &amp; x  &amp; \mapsto &amp; |x| \\
+\end{array}\)</span> est continue sur <span
+class="math inline">\(\mathbb{R}\)</span> mais en revanche elle n’est
+pas dérivable en <span class="math inline">\(0\)</span>. En effet,</p>
+<ul>
+<li><p>pour <span class="math inline">\(h &gt; 0\)</span>, <span
+class="math inline">\(\frac{f(0+h)-f(0)}{h} = \frac{|h|}{h} =
+\frac{h}{h} = 1 \underset{h \longrightarrow 0}{\longrightarrow}
+1\)</span></p></li>
+<li><p>mais pour <span class="math inline">\(h &lt; 0\)</span>, <span
+class="math inline">\(\frac{f(0+h)-f(0)}{h} = \frac{|h|}{h} =
+\frac{-h}{h} = -1 \underset{h \longrightarrow 0}{\longrightarrow}
+-1\)</span>.</p></li>
+</ul>
+</div>
+<h3 data-number="2.6.2" id="tangente-en-un-point"><span
+class="header-section-number">2.6.2</span> Tangente en un point</h3>
+<p>Soit <span class="math inline">\(f : I \to \mathbb{R}\)</span> une
+fonction dérivable en un point <span class="math inline">\(x_0 \in
+I\)</span>.</p>
+<p>Dans un repère orthonormé <span
+class="math inline">\((O,\vec{i},\vec{j})\)</span>, on considère <span
+class="math inline">\((C)=\{ M_x = (x,f(x)) \mid x \in I \}.\)</span> la
+courbe représentative de <span class="math inline">\(f\)</span>. Pour
+tout <span class="math inline">\(h \neq 0\)</span> tel que <span
+class="math inline">\(x_0+h \in I\)</span>, on note <span
+class="math inline">\(\mathscr{D}_h\)</span> la droite passant par les
+points <span class="math inline">\(M_{x_0}\)</span> et <span
+class="math inline">\(M_{x_0+h}\)</span>. Le coefficient directeur de
+<span class="math inline">\(\mathscr{D}_h\)</span> est <span
+class="math display">\[\frac{f(x_0+h)-f(x_0)}{h}.\]</span> Une équation
+de <span class="math inline">\(\mathscr{D}_h\)</span> est donc <span
+class="math display">\[y =
+\frac{f(x_0+h)-f(x_0)}{h}(x-x_0)+f(x_0).\]</span> Comme <span
+class="math inline">\(f\)</span> est dérivable en <span
+class="math inline">\(x_0\)</span>, on a <span
+class="math display">\[\lim_{h \to 0} \frac{f(x_0+h)-f(x_0)}{h} =
+f&#39;(x_0).\]</span></p>
+<p>La droite limite, d’équation <span class="math display">\[y =
+f&#39;(x_0)(x-x_0) + f(x_0),\]</span> est appelée <u>droite tangente</u>
+à la courbe <span class="math inline">\((C)\)</span> au point d’abscisse
+<span class="math inline">\(x_0\)</span>.</p>
+<div class="center">
+<p><img src="Derive.png" alt="image" /></p>
+</div>
+<div class="wrem">
+<p><strong>(Tangente et non-dérivabilité)</strong> Parmi tant d’autres,
+deux cas se présentent pour des fonctions non dérivables en un certain
+point. La fonction valeur absolue "admet deux tangentes en <span
+class="math inline">\(0\)</span>" (voir l’exemple <a
+href="#ex:valeur_aboslue_non_derivable" data-reference-type="ref"
+data-reference="ex:valeur_aboslue_non_derivable">[ex:valeur_aboslue_non_derivable]</a>)
+tandis que la fonction racine carrée admet une "tangente verticale" en
+<span class="math inline">\(0\)</span> (qui n’admet donc pas de
+coefficient directeur).</p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><img src="valeur_absolue.png"
+alt="image" /></td>
+<td style="text-align: center;"><img src="racine.png"
+alt="image" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<h3 data-number="2.6.3"
+id="opérations-sur-les-fonctions-dérivables"><span
+class="header-section-number">2.6.3</span> Opérations sur les fonctions
+dérivables</h3>
+<div class="wprop">
+<p><strong>(Opérations sur les fonctions dérivables)</strong> Soient
+<span class="math inline">\(u,v \in \mathscr{F}(I,\mathbb{R})\)</span>
+dérivables en <span class="math inline">\(x_0 \in I\)</span> et <span
+class="math inline">\(\alpha \in \mathbb{R}, n \in
+\mathbb{N}^\star\)</span> alors <span class="math inline">\(\alpha u,
+u+v\)</span>, <span class="math inline">\(uv\)</span> et <span
+class="math inline">\(u^n\)</span> sont dérivables en <span
+class="math inline">\(x_0\)</span> avec</p>
+<ol>
+<li><p><span class="math inline">\((\alpha u)&#39;(x_0)=\alpha
+u&#39;(x_0)\)</span>,</p></li>
+<li><p><span class="math inline">\((u+v)&#39;(x_0) =
+u&#39;(x_0)+v&#39;(x_0)\)</span>,</p></li>
+<li><p><span class="math inline">\((uv)&#39;(x_0) =
+u&#39;(x_0)v(x_0)+u(x_0)v&#39;(x_0)\)</span>,</p></li>
+<li><p><span class="math inline">\((u^n)&#39;(x_0) =
+nu&#39;(x_0)u^{n-1}(x_0)\)</span></p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Dans un chapitre ultérieur,</p></li>
+<li><p>dans un chapitre ultérieur,</p></li>
+<li><p>dans un chapitre ultérieur,</p></li>
+<li><p>Prouvons ce résultat par récurrence. On note <span
+class="math inline">\(\mathscr{P}(n) : &quot;u^n \text{ est dérivable en
+$x_0$ avec $(u^n)&#39;(x_0) = nu&#39;(x_0)u^{n-1}(x_0)$}&quot;\)</span>
+pour <span class="math inline">\(n\in \mathbb{N}^\star\)</span>.</p>
+<ul>
+<li><p><strong>INITIALISATION :</strong> Pour <span
+class="math inline">\(n= 1\)</span>, <span
+class="math inline">\(nu&#39;(x_0)u^{n-1}(x_0) =
+u&#39;(x_0)\)</span>.</p></li>
+<li><p><strong>HÉRÉDITÉ :</strong> Soit <span class="math inline">\(n
+\in \mathbb{N}^\star, \geq 2\)</span>, supposons <span
+class="math inline">\(\mathscr{P}(n-1)\)</span>.</p>
+<p>On a <span class="math inline">\(u^n = u u^{n-1}\)</span> donc par la
+propriété <span class="math inline">\(3.\)</span>, <span
+class="math inline">\(u^n\)</span> est dérivable en <span
+class="math inline">\(x_0\)</span> avec</p>
+<p><span class="math display">\[\begin{aligned}
+        (u^n)&#39;(x_0) &amp; = u&#39;(x_0)u^{n-1}(x_0) +
+u(x_0)(u^{n-1})&#39;(x_0)\\
+        &amp; \underbrace{=}_{\text{par $\mathscr{P}(n-1)$}}
+u&#39;(x_0)u^{n-1}(x_0) + u(x_0)(n-1)u&#39;(x_0)u^{n-2}(x_0) \\
+        &amp; =   u&#39;(x_0)u^{n-1}(x_0)+(n-1)u&#39;(x_0)u^{n-1}(x_0)
+\\
+        &amp; = nu&#39;(x_0)u^{n-1}(x_0)
+        \end{aligned}\]</span></p></li>
+<li><p><strong>CONCLUSION :</strong> <span class="math inline">\(\forall
+n \in \mathbb{N}, (u^n)&#39;(x_0) =
+nu&#39;(x_0)u^{n-1}(x_0)\)</span>.</p></li>
+</ul></li>
+</ol>
+</div>
+<div class="wprop">
+<p><strong>(Quotients et fonctions dérivables)</strong> Soient <span
+class="math inline">\(u,v \in \mathscr{F}(I,\mathbb{R})\)</span>
+dérivables en <span class="math inline">\(x_0 \in I\)</span> telles que
+<span class="math inline">\(v\)</span> ne s’annule pas sur <span
+class="math inline">\(I\)</span> alors <span
+class="math inline">\(\frac{1}{v}\)</span> et <span
+class="math inline">\(\frac{u}{v}\)</span> sont dérivables en <span
+class="math inline">\(x_0\)</span> avec</p>
+<ol>
+<li><p><span
+class="math inline">\(\left(\frac{1}{v}\right)&#39;(x_0)=-\frac{v&#39;(x_0)}{v(x_0)^2}\)</span>,</p></li>
+<li><p><span
+class="math inline">\(\left(\frac{u}{v}\right)&#39;(x_0)=\frac{u&#39;(x_0)v(x_0)-u(x_0)v&#39;(x_0)}{v(x_0)^2}\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Dans un chapitre ultérieur,</p></li>
+<li><p><span class="math inline">\(\frac{u}{v} = u\frac{1}{v}\)</span>
+donc par les propriétés précédentes, <span
+class="math display">\[\left(\frac{u}{v}\right)&#39;(x_0) =
+u&#39;(x_0)\left(\frac{1}{v}\right)(x_0)
++u(x_0)\left(\frac{1}{v}\right)&#39;(x_0) = \frac{u&#39;(x_0)}{v(x_0)} -
+\frac{u(x_0)v&#39;(x_0)}{v^2(x_0)} =
+\frac{u&#39;(x_0)v(x_0)-u(x_0)v&#39;(x_0)}{v^2(x_0)}\]</span></p></li>
+</ol>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Calculer la dérivée en <span class="math inline">\(x_0\)</span> de
+<span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{R}^\star &amp; \to &amp; \mathbb{R}\\
+&amp; &amp; x  &amp; \mapsto &amp; \frac{1}{x^n} \\
+\end{array}\)</span>.</p>
+</div>
+<div class="corri*">
+<p><span class="math inline">\(f = \frac{1}{v}\)</span> avec <span
+class="math inline">\(v = u^n\)</span> où <span
+class="math inline">\(u(x) = x\)</span>. Donc <span
+class="math display">\[f&#39;(x_0) = \frac{-v&#39;(x_0)}{v(x_0)^2} =
+-n\frac{x_0^{n-1}}{x_0^{2n}} = -nx_0^{-n-1}.\]</span></p>
+</div>
+<p>Remarque ?</p>
+</div>
+<h3 data-number="2.6.4" id="dérivabilité-de-gcirc-f"><span
+class="header-section-number">2.6.4</span> Dérivabilité de <span
+class="math inline">\(g\circ f\)</span></h3>
+<div class="wprop">
+<p>Soient <span class="math inline">\(f : I \to \mathbb{R}\)</span> et
+<span class="math inline">\(g : J \to \mathbb{R}\)</span> tels que <span
+class="math inline">\(f(I) \subset J\)</span>, <span
+class="math inline">\(f\)</span> est dérivable en <span
+class="math inline">\(x_0\)</span> et <span
+class="math inline">\(g\)</span> est dérivable en <span
+class="math inline">\(f(x_0)\)</span> alors <span
+class="math inline">\(g \circ f\)</span> est dérivable en <span
+class="math inline">\(x_0\)</span> avec <span
+class="math display">\[(g\circ f)&#39;(x_0) =
+g&#39;(f(x_0))f&#39;(x_0).\]</span></p>
+</div>
+<div class="wproof">
+<p>Dans un chapitre ultérieur.</p>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Calculer la dérivée de <span
+class="math inline">\(\begin{array}{lllll}
+h &amp; : &amp; \mathbb{R}&amp; \to &amp; \mathbb{R}\\
+&amp; &amp; x  &amp; \mapsto &amp; \sin(x^3+x) \\
+\end{array}\)</span> en tout point <span class="math inline">\(x_0 \in
+\mathbb{R}\)</span>.</p>
+</div>
+<div class="corri*">
+<p><span class="math inline">\(h = g\circ f\)</span> avec <span
+class="math inline">\(g : y \in \mathbb{R}\mapsto \sin(y)\)</span> et
+<span class="math inline">\(f : x \in \mathbb{R}\mapsto x^3+x\)</span>
+dérivables sur <span class="math inline">\(\mathbb{R}\)</span>. Donc
+<span class="math inline">\(h\)</span> est dérivable sur <span
+class="math inline">\(\mathbb{R}\)</span> avec pour tout <span
+class="math inline">\(x_0 \in \mathbb{R}\)</span>, <span
+class="math display">\[h&#39;(x_0) = g&#39;(f(x_0))f&#39;(x_0) =
+\cos(x_0^3+x_0)(3x_0+1).\]</span></p>
+</div>
+<div class="exo*">
+<p>Calculer la dérivée de <span
+class="math inline">\(\begin{array}{lllll}
+h &amp; : &amp; \mathbb{R}^{\star}&amp; \to &amp; \mathbb{R}\\
+&amp; &amp; x  &amp; \mapsto &amp;
+\ln(x^2+1)\cos\left(\frac{1}{x}\right) \\
+\end{array}\)</span> en tout point <span class="math inline">\(x_0 \in
+\mathbb{R}^\star\)</span>.</p>
+</div>
+<div class="corri*">
+<p><span class="math inline">\(h = uv\)</span> avec <span
+class="math inline">\(u : x \in \mathbb{R}\mapsto \ln(x^2+1)\)</span> et
+<span class="math inline">\(v : x \in \mathbb{R}^\star \mapsto
+\cos\left(\frac{1}{x}\right)\)</span>.</p>
+<p>De plus, <span class="math inline">\(u = g_1 \circ f_1\)</span> avec
+<span class="math inline">\(g_1 : y \in \mathbb{R}^{+\star}\mapsto
+\ln(y)\)</span>, dérivable sur <span
+class="math inline">\(\mathbb{R}^{+\star}\)</span> et <span
+class="math inline">\(f_1 : x \in \mathbb{R}^\star \mapsto
+x^2+1\)</span>, à valeurs dans <span
+class="math inline">\(\mathbb{R}^{+\star}\)</span> et dérivable sur
+<span class="math inline">\(\mathbb{R}^\star\)</span> donc <span
+class="math inline">\(u\)</span> est dérivable sur <span
+class="math inline">\(\mathbb{R}^\star.\)</span></p>
+<p>Aussi, <span class="math inline">\(v = g_2 \circ f_2\)</span> avec
+<span class="math inline">\(g_2 : y \in \mathbb{R}\mapsto
+\cos(y)\)</span>, dérivable sur <span
+class="math inline">\(\mathbb{R}\)</span> et <span
+class="math inline">\(f_2 : x \in \mathbb{R}^\star \mapsto
+\frac{1}{x}\)</span> dérivable sur <span
+class="math inline">\(\mathbb{R}^\star\)</span> donc <span
+class="math inline">\(v\)</span> est dérivable sur <span
+class="math inline">\(\mathbb{R}^\star.\)</span></p>
+<p>On a donc</p>
+<p><span class="math display">\[\begin{aligned}
+            h&#39;(x_0)
+            &amp; = (uv)&#39;(x_0) \\
+            &amp; = u&#39;(x_0)v(x_0) + u(x_0)v&#39;(x_0) \\
+            &amp; =
+g_1&#39;(f_1(x_0))f_1&#39;(x_0)v(x_0)+u(x_0)g_2&#39;(f_2(x_0))f_2&#39;(x_0)
+\\
+            &amp; = \frac{2x}{x^2+1}\cos\left(\frac{1}{x}\right)
++\ln(x^2+1)\frac{\sin\left(\frac{1}{x}\right)}{x^2}.
+        \end{aligned}\]</span></p>
+</div>
+<div class="exo*">
+<p>Calculer la dérivée de <span
+class="math inline">\(\begin{array}{lllll}
+h &amp; : &amp; \mathbb{R}&amp; \to &amp; \mathbb{R}\\
+&amp; &amp; x  &amp; \mapsto &amp; \frac{2x^2+1}{x^2+3} \\
+\end{array}\)</span> en tout point <span class="math inline">\(x_0 \in
+\mathbb{R}\)</span>.</p>
+</div>
+</div>
+<h3 data-number="2.6.5"
+id="sens-de-variation-dune-fonction-dérivable"><span
+class="header-section-number">2.6.5</span> Sens de variation d’une
+fonction dérivable</h3>
+<div class="wprop">
+<p><strong>(Monotonie et dérivation)</strong> Soit <span
+class="math inline">\(f\)</span> une fonction dérivable sur <span
+class="math inline">\(I\)</span> alors</p>
+<ul>
+<li><p><span class="math inline">\(f\)</span> croissante sur <span
+class="math inline">\(I\)</span> <span
+class="math inline">\(\iff\)</span> <span class="math inline">\(\forall
+x \in I, f&#39;(x) \geq 0\)</span>,</p></li>
+<li><p><span class="math inline">\(f\)</span> décroissante sur <span
+class="math inline">\(I\)</span> <span
+class="math inline">\(\iff\)</span> <span class="math inline">\(\forall
+x \in I, f&#39;(x) \leq 0\)</span>,</p></li>
+<li><p><span class="math inline">\(f\)</span> constante sur <span
+class="math inline">\(I\)</span> <span
+class="math inline">\(\iff\)</span> <span class="math inline">\(\forall
+x \in I, f&#39;(x) = 0\)</span>,</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><strong>(Stricte monotonie et dérivation)</strong> Soit <span
+class="math inline">\(f\)</span> une fonction dérivable sur <span
+class="math inline">\(I\)</span> alors</p>
+<ul>
+<li><p>Si <span class="math inline">\(\forall x \in I, f&#39;(x) &gt;
+0\)</span>, <span class="math inline">\(f\)</span> est strictement
+croissante sur <span class="math inline">\(I\)</span>,</p></li>
+<li><p>Si <span class="math inline">\(\forall x \in I, f&#39;(x) &lt;
+0\)</span>, <span class="math inline">\(f\)</span> est strictement
+décroissante sur <span class="math inline">\(I\)</span>.</p></li>
+</ul>
+</div>
+<div class="wex">
+<p>On peut avoir <span class="math inline">\(f\)</span> dérivable
+strictement croissante sur <span class="math inline">\(I\)</span> mais
+<span class="math inline">\(f&#39;\)</span> s’annule sur <span
+class="math inline">\(I\)</span>. Par exemple <span
+class="math inline">\(f : x \in \mathbb{R}\mapsto x^3\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Soit <span class="math inline">\(f : I:=I_1 \cup I_2 \to
+\mathbb{R}\)</span> avec <span class="math inline">\(I_1, I_2\)</span>
+intervalles disjoints de <span
+class="math inline">\(\mathbb{R}\)</span>. Alors <span
+class="math inline">\(f&#39;\)</span> positive sur <span
+class="math inline">\(I\)</span> implique <span
+class="math inline">\(f\)</span> croissante sur <span
+class="math inline">\(I_1\)</span> et <span
+class="math inline">\(f\)</span> croissante sur <span
+class="math inline">\(I_2\)</span> mais en général pas <span
+class="math inline">\(f\)</span> croissante sur <span
+class="math inline">\(I\)</span>.</p>
+<div class="wex">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Pour <span class="math inline">\(f : x \in \mathbb{R}^{+\star} \cup
+\mathbb{R}^{-\star} \mapsto \frac{1}{x} \in \mathbb{R}\)</span>, <span
+class="math inline">\(\forall x \in \mathbb{R}^\star, f&#39;(x) =
+-\frac{1}{x^2} &lt; 0\)</span>. En revanche, <span
+class="math inline">\(f\)</span> n’est pas strictement décroissante sur
+<span class="math inline">\(\mathbb{R}\)</span> car <span
+class="math inline">\(f(1) = 1 &gt; -1 = f(-1)\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="Inverse.png" alt="image" /></p>
+</div>
+</div>
+</div>
+</div>
+<h3 data-number="2.6.6" id="dérivabilité-dune-fonction-réciproque"><span
+class="header-section-number">2.6.6</span> Dérivabilité d’une fonction
+réciproque</h3>
+<div class="wdefi">
+<p><strong>(Fonction bijective)</strong> Une fonction <span
+class="math inline">\(f : I \to J\)</span> est dite bijective si <span
+class="math display">\[\forall y \in J, \exists! x \in I / f(x) =
+y.\]</span></p>
+</div>
+<div class="wex">
+<ul>
+<li><p><span class="math inline">\(f : x \in \mathbb{R}\to x \in
+\mathbb{R}\)</span> est bijective,</p></li>
+<li><p><span class="math inline">\(f : x \in \mathbb{R}\to x^2 \in
+\mathbb{R}\)</span> n’est pas bijective,</p></li>
+<li><p><span class="math inline">\(f : x \in \mathbb{R}^+ \to x^2 \in
+\mathbb{R}\)</span> n’est pas bijective,</p></li>
+<li><p><span class="math inline">\(f : x \in \mathbb{R}^+ \to x^2 \in
+\mathbb{R}^+\)</span> est bijective.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f : I \to \mathbb{R}\)</span> avec
+<u><span class="math inline">\(f\)</span> strictement monotone sur <span
+class="math inline">\(I\)</span></u>. En posant <span
+class="math inline">\(J = f(I)\)</span>, <span
+class="math inline">\(f\)</span> définit une bijection entre <span
+class="math inline">\(I\)</span> et <span
+class="math inline">\(J\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(y \in f(I)\)</span>, supposons qu’il
+existe <span class="math inline">\(x,x&#39; \in I\)</span>,</p>
+<ul>
+<li><p>Si <span class="math inline">\(x &lt; x&#39;\)</span> alors <span
+class="math inline">\(f(x) &lt; f(x&#39;)\)</span> (ou <span
+class="math inline">\(f(x) &gt; f(x&#39;)\)</span>) si <span
+class="math inline">\(f\)</span> est strictement croissante (ou
+strictement décroissante), ce qui est contradictoire.</p></li>
+<li><p>Si <span class="math inline">\(x&#39; &lt; x\)</span> alors <span
+class="math inline">\(f(x&#39;) &lt; f(x)\)</span> (ou <span
+class="math inline">\(f(x&#39;) &gt; f(x)\)</span>) si <span
+class="math inline">\(f\)</span> est strictement croissante (ou
+strictement décroissante), ce qui est contradictoire.</p></li>
+</ul>
+</div>
+<div class="wdefi">
+<p>Soit fonction <span class="math inline">\(f : I \to J\)</span>
+bijective, on définit ainsi sa fonction réciproque, notée <span
+class="math inline">\(f^{-1}\)</span> : <span
+class="math display">\[\begin{array}{lllll}
+f^{-1} &amp; : &amp; J &amp; \to &amp; I \\
+&amp; &amp; y  &amp; \mapsto &amp; \text{l&#39;unique $x \in I$ tel que
+$f(x) = y$} \\
+\end{array}.\]</span></p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f : I \to J\)</span> avec <u><span
+class="math inline">\(f\)</span> strictement monotone sur <span
+class="math inline">\(I\)</span></u> et <span class="math inline">\(J =
+f(I)\)</span> alors <span class="math inline">\(f^{-1}\)</span> est
+strictement monotone sur <span class="math inline">\(J\)</span>, de même
+monotonie que <span class="math inline">\(f\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Si <span class="math inline">\(f\)</span> est strictement
+croissante sur <span class="math inline">\(I\)</span>, si <span
+class="math inline">\(y &lt; y&#39;\)</span>, alors par l’absurde, si
+<span class="math inline">\(f^{-1}(y) \geq f^{-1}(y&#39;)\)</span>,
+<span class="math display">\[f(f^{-1}(y)) \geq f(f^{-1}(y&#39;))
+\Longrightarrow y \geq y&#39; \text{ ce qui est absurde}\]</span></p>
+<p>Donc <span class="math inline">\(f^{-1}(y) &lt;
+f^{-1}(y&#39;)\)</span> et <span class="math inline">\(f^{-1}\)</span>
+est strictement croissante sur <span
+class="math inline">\(J\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(f\)</span> est strictement
+décroissante sur <span class="math inline">\(I\)</span>, si <span
+class="math inline">\(y &lt; y&#39;\)</span>, alors par l’absurde, si
+<span class="math inline">\(f^{-1}(y) \leq f^{-1}(y&#39;)\)</span>,
+<span class="math display">\[f(f^{-1}(y)) \leq f(f^{-1}(y&#39;))
+\Longrightarrow y \leq y&#39; \text{ ce qui est absurde}\]</span></p>
+<p>Donc <span class="math inline">\(f^{-1}(y) &gt;
+f^{-1}(y&#39;)\)</span> et <span class="math inline">\(f^{-1}\)</span>
+est strictement décroissante sur <span
+class="math inline">\(J\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Si <span class="math inline">\(f\)</span> est continue sur <span
+class="math inline">\(I\)</span> et bijective, <span
+class="math inline">\(J = f(I)\)</span> est aussi un intervalle de <span
+class="math inline">\(\mathbb{R}\)</span> et <span
+class="math inline">\(f^{-1}\)</span> est continue sur <span
+class="math inline">\(J\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Dans un chapitre ultérieur.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f : I \to J\)</span> bijective et
+<span class="math inline">\(x_0 \in I\)</span> tel que <span
+class="math inline">\(f&#39;(x_0) \neq 0\)</span> alors <span
+class="math inline">\(f^{-1}\)</span> est dérivable en <span
+class="math inline">\(f(x_0)\)</span> <span
+class="math display">\[\left(f^{-1}\right)&#39;(f(x_0)) =
+\frac{1}{f&#39;(x_0))}.\]</span></p>
+</div>
+<div class="wproof">
+<p>La preuve que <span class="math inline">\(f^{-1}\)</span> est
+dérivable sera prouvé dans un chapitre ultérieur. Supposant cette
+dérivabilité, on peut tout de même prouver la formule :</p>
+<p><span class="math display">\[f^{-1}(f(x_0)) = x_0\]</span></p>
+<p>Donc en utilisant la formule de la dérivation de la composée,</p>
+<p><span
+class="math display">\[\left(f^{-1}\right)&#39;(f(x_0))f&#39;(x_0) = x_0
+\iff \left(f^{-1}\right)&#39;(f(x_0)) =
+\frac{1}{f&#39;(x_0))}.\]</span></p>
+</div>
+<div class="wcor">
+<p><span id="cor:derivee_reciproque"
+label="cor:derivee_reciproque"></span> Soit <span
+class="math inline">\(f : I \to J\)</span> bijective. Soit <span
+class="math inline">\(y_0 \in J\)</span>, il existe un unique <span
+class="math inline">\(x_0 \in I\)</span> tel que <span
+class="math inline">\(f(x_0) = y_0\)</span>. Si <span
+class="math inline">\(f\)</span> est dérivable en <span
+class="math inline">\(x_0\)</span> et <span
+class="math inline">\(f&#39;(x_0) \neq 0\)</span> alors <span
+class="math inline">\(f^{-1}\)</span> est dérivable en <span
+class="math inline">\(y_0\)</span> et <span
+class="math display">\[\left(f^{-1}\right)&#39;(y_0) =
+\frac{1}{f&#39;(f^{-1}(y_0))}.\]</span></p>
+</div>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\(f : I \to J\)</span> une fonction
+bijective.</p>
+<p>Dans un repère orthonormé <span
+class="math inline">\((O,\vec{i},\vec{j})\)</span>, on considère <span
+class="math inline">\((C)=\{ M_x = (x,f(x)) \mid x \in I \}\)</span> la
+courbe représentative de <span class="math inline">\(f\)</span> et <span
+class="math inline">\((C&#39;)=\{ M&#39;_y = (y,f^{-1}(y)) \mid y \in J
+\}\)</span> la courbe représentative de <span
+class="math inline">\(f^{-1}\)</span>.</p>
+<p>On remarque que <span class="math inline">\((C&#39;)=\{ M&#39;_{f(x)}
+= (f(x),x) \mid x \in I \}\)</span> et donc que <span
+class="math inline">\((C&#39;)\)</span> est le symétrique de <span
+class="math inline">\((C)\)</span> par rapport à la droite d’équation
+<span class="math inline">\(y=x\)</span>.</p>
+<p>Sachant que la pente de la tangente à <span
+class="math inline">\((C)\)</span> en <span
+class="math inline">\(x_0\)</span> a pour équation <span
+class="math inline">\(\overrightarrow{i}+f&#39;(x_0)\overrightarrow{j}\)</span>,
+la droite symétrique par rapport à <span
+class="math inline">\(y=x\)</span> est <span
+class="math inline">\(f&#39;(x_0)\overrightarrow{i}+\overrightarrow{j}\)</span>
+qui a aussi pour équation <span
+class="math inline">\(\overrightarrow{i}+\frac{1}{f&#39;(x_0)}\overrightarrow{j}\)</span>
+(en divisant par <span class="math inline">\(f&#39;(x_0)\)</span>).</p>
+</div>
+<div class="webimg">
+<p><img src="Reciproque.png" alt="image" /></p>
+</div>
+</div>
+<div class="wrem">
+<p><strong>(Et si <span class="math inline">\(f&#39;(x_0) = 0\)</span>
+?)</strong></p>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Si <span class="math inline">\(f&#39;(x_0) = 0\)</span>, <span
+class="math inline">\(f\)</span> admet une tangente horizontale en <span
+class="math inline">\(x_0\)</span> et <span
+class="math inline">\(f^{-1}\)</span> admet donc une tangente verticale
+en <span class="math inline">\(f(x_0)\)</span> (par symétrie par rapport
+à <span class="math inline">\(y=x\)</span>) et est donc non dérivable en
+<span class="math inline">\(f(x_0)\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="Reciproque_non_der.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<h2 data-number="2.7" id="application-au-calcul-dintégrales"><span
+class="header-section-number">2.7</span> Application au calcul
+d’intégrales</h2>
+<h3 data-number="2.7.1" id="quelques-rappels"><span
+class="header-section-number">2.7.1</span> Quelques rappels</h3>
+<p>Soit <span class="math inline">\(f : [a,b] \to \mathbb{R}\)</span>,
+continue, on peut considérer son intégrale <span
+class="math inline">\(\int_a^b f(x)dx\)</span> qui correspond
+géométriquement à l’aire algébrique sous la courbe de <span
+class="math inline">\(f\)</span> entre <span
+class="math inline">\(a\)</span> et <span
+class="math inline">\(b\)</span> (en unités d’aires).</p>
+<p>De plus, <span class="math inline">\(f\)</span> admet une unique
+primitive qui s’annule en <span class="math inline">\(a\)</span> qui
+s’écrit <span class="math inline">\(F : x \in [a,b] \mapsto \int_a^x
+f(t)dt\)</span>. Toute autre primitve s’écrit alors <span
+class="math inline">\(x \in [a,b] \mapsto \int_a^x f(t)dt + C\)</span>
+avec une constante <span class="math inline">\(C \in
+\mathbb{R}\)</span>.</p>
+<p>Calculer une primitive de <span class="math inline">\(f\)</span>
+revient donc à calculer une intégrale de <span
+class="math inline">\(f\)</span> et les méthodes présentées ci-dessous
+peuvent être utilisées.</p>
+<p>Nous reverrons ces notions plus précisément dans un chapitre
+ultérieur.</p>
+<h3 data-number="2.7.2" id="intégration-par-parties"><span
+class="header-section-number">2.7.2</span> Intégration par parties</h3>
+<div class="wthm">
+<p><strong>(Intégration par parties)</strong> Soient <span
+class="math inline">\(u : I \to \mathbb{R}\)</span> et <span
+class="math inline">\(v: I \to \mathbb{R}\)</span> dérivables sur <span
+class="math inline">\(I\)</span> avec <span
+class="math inline">\(u&#39;,v&#39;\)</span> continues et <span
+class="math inline">\(a, b \in I\)</span> alors <span
+class="math display">\[\int_a^b u&#39;(x)v(x)dx = [u(x)v(x)]_a^b -
+\int_a^b u(x)v&#39;(x)dx.\]</span></p>
+</div>
+<div class="wproof">
+<p><span class="math display">\[\int_a^b (uv)&#39;(x)dx =
+[u(x)v(x)]_a^b.\]</span></p>
+<p>Or, <span class="math inline">\((uv)&#39; = u&#39;v+uv&#39;\)</span>
+donc <span class="math display">\[\begin{aligned}
+        &amp; \int_a^b (uv)&#39;(x)dx = \int_a^b u&#39;(x)v(x)dx+
+\int_a^b u(x)v&#39;(x)dx=[u(x)v(x)]_a^b \\
+        &amp; \iff \int_a^b u&#39;(x)v(x)dx = [u(x)v(x)]_a^b - \int_a^b
+u(x)v&#39;(x)dx.
+    \end{aligned}\]</span></p>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Calculer <span class="math inline">\(A = \int_1^2
+\frac{\ln(x)}{x^2}dx\)</span>.</p>
+</div>
+<div class="corri*">
+<p><span class="math inline">\(A = \int_1^2 u&#39;(x)v(x)dx\)</span>
+avec <span class="math inline">\(\left\{\begin{array}{ll}
+        u(x) &amp; = -\frac{1}{x} \\
+        v(x) &amp; = \ln(x)
+    \end{array}\right. \Rightarrow \left\{\begin{array}{ll}
+        u&#39;(x) &amp; = \frac{1}{x^2} \\
+        v&#39;(x) &amp; = \frac{1}{x}
+    \end{array}\right.\)</span></p>
+<p>Donc par intégration par parties,</p>
+<p><span class="math display">\[A = \left[-\frac{\ln x}{x}\right]_1^2 +
+\int_1^2 \frac{1}{x^2}dx = \ln(1)-\frac{\ln(2)}{2} +[-\frac{1}{x}]_1^2 =
+-\frac{\ln(2)}{2}-\frac{1}{2}+1=-\frac{\ln(2)}{2}+\frac{1}{2}.\]</span></p>
+</div>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Calculer <span class="math inline">\(B = \int_2^3
+\ln(x)dx\)</span>.</p>
+</div>
+<div class="corri*">
+<p><span class="math inline">\(B = \int_2^3 1\times \ln(x)dx = \int_2^3
+u&#39;(x)v(x)dx\)</span> avec <span
+class="math inline">\(\left\{\begin{array}{ll}
+        u(x) &amp; = x \\
+        v(x) &amp; = \ln(x)
+    \end{array}\right. \Rightarrow \left\{\begin{array}{ll}
+        u&#39;(x) &amp; = 1 \\
+        v&#39;(x) &amp; = \frac{1}{x}
+    \end{array}\right.\)</span></p>
+<p>Donc par intégration par parties,</p>
+<p><span class="math display">\[B = \left[x\ln x\right]_2^3 - \int_2^3 1
+dx = 3\ln(3)-2\ln(2)-1\]</span></p>
+</div>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Calculer <span class="math inline">\(C = \int_0^2
+x^3e^{x^2}dx\)</span>.</p>
+</div>
+<div class="corri*">
+<p><span class="math inline">\(C = \int_0^2 x^2\times x e^{x^2}dx =
+\int_0^2 u&#39;(x)v(x)dx\)</span> avec <span
+class="math inline">\(\left\{\begin{array}{ll}
+        u(x) &amp; = \frac{1}{2}e^{x^2} \\
+        v(x) &amp; = x^2
+    \end{array}\right. \Rightarrow \left\{\begin{array}{ll}
+        u&#39;(x) &amp; = x e^{x^2} \\
+        v&#39;(x) &amp; = 2x
+    \end{array}\right.\)</span></p>
+<p>Donc par intégration par parties,</p>
+<p><span class="math display">\[C =
+\left[\frac{x^2}{2}e^{x^2}\right]_0^2 - \int_0^2 xe^{x^2} dx = 2e^4 -
+\left[\frac{1}{2}e^{x^2}\right]_0^2 = \frac{3}{2}e^4  +
+\frac{1}{2}\]</span></p>
+</div>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Calculer les primitives de <span class="math inline">\(f: t \in
+\mathbb{R}^{+\star}\mapsto t^n \ln t dt\)</span>.</p>
+</div>
+<div class="corri*">
+<p>La primitive de <span class="math inline">\(f\)</span> qui s’annule
+en <span class="math inline">\(1\)</span> s’écrit, pour <span
+class="math inline">\(x &gt; 0\)</span>, <span
+class="math display">\[F(x) = \int_1^x t^n \ln t dt = \int_1^x
+u&#39;(t)v(t) dt\]</span> avec <span
+class="math inline">\(\left\{\begin{array}{ll}
+        u(t) &amp; = \frac{1}{n+1}t^{n+1} \\
+        v(t) &amp; = \ln(t)
+    \end{array}\right. \Rightarrow \left\{\begin{array}{ll}
+        u&#39;(t) &amp; = t^n \\
+        v&#39;(t) &amp; = \frac{1}{t}
+    \end{array}\right.\)</span></p>
+<p>Donc <span class="math display">\[\begin{aligned}
+    F(x)
+    &amp; =
+\left[\frac{t^{n+1}\ln(t)}{n+1}\right]_1^x-\frac{1}{n+1}\int_1^x
+t^{n}dt\\
+    &amp;  = \frac{x^{n+1}}{n+1}
+-\frac{1}{n+1}\left[\frac{t^{n+1}}{n+1}\right]_1^x \\
+    &amp; = \left(\frac{1}{n+1}- \frac{1}{(n+1)^2}\right)x^{n+1}
++\text{Cste}\\
+    &amp; = \frac{n}{(n+1)^2}x^{n+1} +\text{Cste}
+    \end{aligned}\]</span></p>
+<p>Donc les primitives de <span class="math inline">\(f\)</span>
+s’écrivent <span class="math inline">\(x &gt;0 \mapsto
+\frac{n}{(n+1)^2}x^{n+1}+\text{Cste}\)</span>.</p>
+</div>
+</div>
+<h3 data-number="2.7.3" id="changement-de-variable"><span
+class="header-section-number">2.7.3</span> Changement de variable</h3>
+<div class="wthm">
+<p><strong>(Changement de variable)</strong> Soit <span
+class="math inline">\(f : I \to \mathbb{R}\)</span> continue sur <span
+class="math inline">\(I\)</span> et <span class="math inline">\(\varphi
+: J \to \mathbb{R}\)</span> (avec <span class="math inline">\(J\)</span>
+intervalle de <span class="math inline">\(\mathbb{R}\)</span>). On
+suppose <span class="math inline">\(\varphi\)</span> dérivable sur <span
+class="math inline">\(J\)</span>, <span
+class="math inline">\(\varphi&#39;\)</span> continue sur <span
+class="math inline">\(J\)</span> et <span
+class="math inline">\(\varphi(J) \subset I\)</span>. Alors, soient <span
+class="math inline">\(\alpha, \beta \in J\)</span>, <span
+class="math display">\[\int_\alpha^\beta  (f\circ \varphi)(t)
+\varphi&#39;(t)dt =
+\int_{\varphi(\alpha)}^{\varphi(\beta)}f(x)dx.\]</span></p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(f\)</span> est continue sur <span
+class="math inline">\(I\)</span> donc elle admet une primitive continue
+<span class="math inline">\(F : I \to \mathbb{R}\)</span>. De plus,
+<span class="math inline">\(F \circ \varphi\)</span> est une primitive
+de <span class="math inline">\(t \in J \to (f\circ \varphi)(t)
+\varphi&#39;(t)\)</span>. Donc <span
+class="math display">\[\int_{\varphi(\alpha)}^{\varphi(\beta)} (f\circ
+\varphi)(t) \varphi&#39;(t)dt
+    = \left[F \circ \varphi(t)\right]_\alpha^\beta
+    = \left[F (x)\right]_{\varphi(\alpha)}^{\varphi(\beta)}
+    = \int_{\varphi(\alpha)}^{\varphi(\beta)}f(x)dx\]</span></p>
+</div>
+<p>Voici une formulation bien compliquée que nous allons voir comment
+utiliser en pratique dans les exemples ci-dessous.</p>
+<div class="wex">
+<div class="exo*">
+<p>Calculer <span class="math inline">\(A = \int_1^4
+\frac{1-\sqrt{t}}{2\sqrt{t}}dt\)</span>.</p>
+</div>
+<div class="corri*">
+<p><em>Intuition : En règle générale, on veut utiliser le changement de
+variables pour se débarrasser de fonctions désagréables dans une
+intégrale. Ici, on repère le désagréable <span
+class="math inline">\(\sqrt{t}\)</span>.</em></p>
+<p>On propose le changement de variable <span class="math inline">\(u =
+\sqrt{t}\)</span>. Alors, par un procédé pas très mathématique, on écrit
+<span class="math inline">\(du = \frac{1}{2\sqrt{t}} dt\)</span> (il
+faut dériver le terme de droite). On peut alors opérer le changement de
+variables avec tous les ingrédients nécessaires.</p>
+<ol>
+<li><p>On remplace <span
+class="math inline">\(\frac{dt}{2\sqrt{t}}\)</span> par <span
+class="math inline">\(du\)</span></p></li>
+<li><p>On remplace <span class="math inline">\(1-\sqrt{t}\)</span> par
+<span class="math inline">\(1-u\)</span>.</p></li>
+<li><p>Pour les bornes, quand <span class="math inline">\(t =
+1\)</span>, <span class="math inline">\(u = \sqrt{t} = 1\)</span> et
+quand <span class="math inline">\(t = 4\)</span>, <span
+class="math inline">\(u = \sqrt{t}  = 2\)</span>.</p></li>
+</ol>
+<p>Donc finalement,</p>
+<p><span class="math display">\[A =  \int_1^4
+\frac{1-\sqrt{t}}{2\sqrt{t}}dt=  \int_1^{2}(1-u)du =
+\left[u-\frac{1}{2}u^2\right]_1^2 = -\frac{1}{2}.\]</span></p>
+<div class="wrem">
+<p><strong>(Lien avec la formule du théorème)</strong> Avec <span
+class="math inline">\(\varphi : t \mapsto \sqrt{t}\)</span>, <span
+class="math inline">\(f : x \mapsto 1-x\)</span> et <span
+class="math inline">\(\alpha = 1, \beta = 4\)</span> on a bien écrit
+<span class="math display">\[\int_\alpha^\beta  (f\circ \varphi)(t)
+\varphi&#39;(t)dt =
+\int_{\varphi(\alpha)}^{\varphi(\beta)}f(x)dx.\]</span></p>
+</div>
+<p>On a montré l’égalité entre les deux aires algébriques suivantes.</p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><img src="chgtvarex12.png"
+alt="image" /></td>
+<td style="text-align: center;"><img src="chgtvarex11.png"
+alt="image" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Calculer <span class="math inline">\(B = \int_0^{\tfrac{\pi}{2}}
+\frac{\cos t}{4-\sin^2 t}dt\)</span>.</p>
+</div>
+<div class="corri*">
+<p><em>Intuition : En règle générale, on veut utiliser le changement de
+variables pour se débarrasser de fonctions désagréables dans une
+intégrale. Ici, on repère de désagréable <span
+class="math inline">\(\cos t\)</span> et <span
+class="math inline">\(\sin t\)</span>.</em></p>
+<p>On propose le changement de variable <span class="math inline">\(u =
+\sin t\)</span>. Alors, par un procédé pas très mathématique, on écrit
+<span class="math inline">\(du = \cos t dt\)</span> (il faut dériver le
+terme de droite). On peut alors opérer le changement de variables avec
+tous les ingrédients nécessaires.</p>
+<ol>
+<li><p>On remplace <span class="math inline">\(\cos t dt\)</span> par
+<span class="math inline">\(du\)</span></p></li>
+<li><p>On remplace <span class="math inline">\(\sin^2t\)</span> par
+<span class="math inline">\(u^2\)</span>.</p></li>
+<li><p>Pour les bornes, quand <span class="math inline">\(t =
+0\)</span>, <span class="math inline">\(u = \sin t = 0\)</span> et quand
+<span class="math inline">\(t = \tfrac{\pi}{2}\)</span>, <span
+class="math inline">\(u = \sin t = 1\)</span>.</p></li>
+</ol>
+<p>Donc finalement,</p>
+<p><span class="math display">\[B =  \int_0^{\tfrac{\pi}{2}} \frac{\cos
+t}{4-\sin^2 t}dt =  \int_0^{1} \frac{du}{4-u^2}.\]</span></p>
+<p>De plus, par une identité remarquable, <span
+class="math inline">\(4-u^2 = (2-u)(2+u)\)</span> et on cherche <span
+class="math inline">\(\alpha,\beta \in \mathbb{R}\)</span> tels que
+<span class="math inline">\(\frac{1}{4-u^2} =
+\frac{\alpha}{2-u}+\frac{\beta}{2+u}\)</span>. On trouve <span
+class="math inline">\(\alpha = \frac{1}{4}\)</span> et <span
+class="math inline">\(\beta = \frac{1}{4}\)</span>.</p>
+<p>On a donc <span class="math display">\[B = \frac{1}{4}\int_0^{1}
+\frac{du}{2-u}+\frac{1}{4}\int_0^{1} \frac{du}{2+u} =
+\frac{1}{4}\left[-\ln(2-u)\right]_0^1
++  \frac{1}{4}\left[\ln(2+u)\right]_0^1 =
+\frac{1}{4}\ln(3).\]</span></p>
+<div class="wrem">
+<p><strong>(Lien avec la formule du théorème)</strong> Avec <span
+class="math inline">\(\varphi : t \mapsto \sin(t)\)</span>, <span
+class="math inline">\(f : x \mapsto \frac{1}{4-x^2}\)</span> et <span
+class="math inline">\(\alpha = 0, \beta = \frac{\pi}{2}\)</span> on a
+bien écrit <span class="math display">\[\int_\alpha^\beta  (f\circ
+\varphi)(t) \varphi&#39;(t)dt =
+\int_{\varphi(\alpha)}^{\varphi(\beta)}f(x)dx.\]</span></p>
+</div>
+<p>On a montré l’égalité entre les deux aires algébriques suivantes.</p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><img src="chgtvarex22.png"
+alt="image" /></td>
+<td style="text-align: center;"><img src="chgtvarex21.png"
+alt="image" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Calculer <span class="math inline">\(C = \int_0^{2}
+\frac{1}{2+\sqrt{t+1}}dt\)</span>.</p>
+</div>
+<div class="corri*">
+<p><em>Intuition : En règle générale, on veut utiliser le changement de
+variables pour se débarrasser de fonctions désagréables dans une
+intégrale. Ici, on repère le désagréable <span
+class="math inline">\(\sqrt{t+1}\)</span>.</em></p>
+<p>On propose le changement de variable <span class="math inline">\(u =
+\sqrt{t+1}\)</span>. Alors, par un procédé pas très mathématique, on
+écrit <span class="math inline">\(du = \frac{1}{2\sqrt{t+1}} dt\)</span>
+(il faut dériver le terme de droite). On peut alors opérer le changement
+de variables avec tous les ingrédients nécessaires.</p>
+<ol>
+<li><p>On remplace <span
+class="math inline">\(\frac{1}{2\sqrt{t+1}}dt\)</span> par <span
+class="math inline">\(du\)</span></p>
+<p><strong>Problème !</strong> Ce terme n’apparaît pas dans notre
+intégrale. On a besoin d’un peu plus de travail.</p></li>
+</ol>
+<p><span class="math inline">\(du = \frac{1}{2\sqrt{t+1}} dt \iff dt =
+2\sqrt{t+1}du = 2udu\)</span>. On reprend donc,</p>
+<ol>
+<li><p>On remplace <span class="math inline">\(dt\)</span> par <span
+class="math inline">\(2udu\)</span>,</p></li>
+<li><p>On remplace <span class="math inline">\(\sqrt{t+1}\)</span> par
+<span class="math inline">\(u\)</span>.</p></li>
+<li><p>Pour les bornes, quand <span class="math inline">\(t =
+0\)</span>, <span class="math inline">\(u = \sqrt{t+1} = 1\)</span> et
+quand <span class="math inline">\(t = 2\)</span>, <span
+class="math inline">\(u = \sqrt{t+1} = \sqrt{3}\)</span>.</p></li>
+</ol>
+<p>Donc finalement,</p>
+<p><span class="math display">\[C =   \int_0^{2}
+\frac{1}{2+\sqrt{t+1}}dt=  \int_1^{\sqrt{3}}\frac{2udu}{2+u}.\]</span></p>
+<p>Or, <span class="math inline">\(\frac{u}{2+u} = \frac{2+u-2}{2+u} =
+1-\frac{2}{2+u}\)</span></p>
+<p>On a donc <span class="math display">\[C =  2\int_1^{\sqrt{3}}1du -
+4\int_1^{\sqrt{3}}\frac{du}{2+u} = 2\sqrt{3}-4
+\left[\ln(2+u)\right]_1^{\sqrt{3}} =  2\sqrt{3}-2 +4\ln(3)
+-4\ln(2+\sqrt{3}).\]</span></p>
+<div class="wrem">
+<p><strong>(Lien avec la formule du théorème)</strong> En remarquant
+<span class="math inline">\(\frac{1}{2+\sqrt{t+1}} =
+\frac{2\sqrt{t+1}}{2+\sqrt{t+1}}\frac{1}{2\sqrt{t+1}}\)</span>, avec
+<span class="math inline">\(\varphi : t \mapsto \sqrt{t+1}\)</span>,
+<span class="math inline">\(f : x \mapsto \frac{2x}{2+x}\)</span> et
+<span class="math inline">\(\alpha = 0, \beta = 2\)</span> on a bien
+écrit <span class="math display">\[\int_\alpha^\beta  (f\circ
+\varphi)(t) \varphi&#39;(t)dt =
+\int_{\varphi(\alpha)}^{\varphi(\beta)}f(x)dx.\]</span></p>
+</div>
+<p>On a montré l’égalité entre les deux aires algébriques suivantes.</p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><img src="chgtvarex32.png"
+alt="image" /></td>
+<td style="text-align: center;"><img src="chgtvarex31.png"
+alt="image" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Calculer la primitive de <span class="math inline">\(t &gt; 0\mapsto
+\frac{\ln t}{t+t(\ln t)^2}\)</span> qui s’annule en <span
+class="math inline">\(1\)</span>.</p>
+</div>
+<div class="corri*">
+<p>La primitive de <span class="math inline">\(f\)</span> qui s’annule
+en <span class="math inline">\(1\)</span> s’écrit, pour <span
+class="math inline">\(x &gt; 0\)</span>, <span
+class="math display">\[F(x) = \int_1^x \frac{\ln t}{t+t(\ln t)^2}
+dt.\]</span></p>
+<p><em>Intuition : En règle générale, on veut utiliser le changement de
+variables pour se débarrasser de fonctions désagréables dans une
+intégrale. Ici, on repère le désagréable <span class="math inline">\(\ln
+t\)</span>.</em></p>
+<p>On propose le changement de variable <span class="math inline">\(u =
+\ln t\)</span>. Alors, <span class="math inline">\(du =
+\frac{dt}{t}\)</span> On peut alors opérer le changement de variables
+avec tous les ingrédients nécessaires.</p>
+<ol>
+<li><p>On remplace <span class="math inline">\(\frac{dt}{t}\)</span> par
+<span class="math inline">\(du\)</span></p></li>
+<li><p>On remplace <span class="math inline">\(\ln t\)</span> par <span
+class="math inline">\(u\)</span>.</p></li>
+<li><p>Pour les bornes, quand <span class="math inline">\(t =
+1\)</span>, <span class="math inline">\(u = \ln t = 0\)</span> et quand
+<span class="math inline">\(t = x\)</span>, <span
+class="math inline">\(u = \ln t = \ln x\)</span>.</p></li>
+</ol>
+<p>Donc finalement,</p>
+<p><span class="math display">\[F(x) = \int_0^{\ln x} \frac{u}{1+u^2} du
+= [\frac{1}{2}\ln(1+u^2)]_0^{\ln x} =
+\frac{1}{2}\ln(1+\ln^2(x)).\]</span></p>
+</div>
+</div>
+<h2 data-number="2.8" id="asymptote-ou-branches-infinie"><span
+class="header-section-number">2.8</span> Asymptote (ou branches
+infinie)</h2>
+<div class="wdefi">
+<p><strong>(Asymptote (ou branches infinie))</strong> Soit <span
+class="math inline">\(f : I \to \mathbb{R}\)</span> une fonction, <span
+class="math inline">\((O,\vec{i},\vec{j})\)</span> un repère orthonormé
+du plan et <span class="math inline">\((C)=\{ M_x = (x,f(x)) \mid x \in
+I \}\)</span> la courbe représentative de <span
+class="math inline">\(f\)</span>.</p>
+<ol>
+<li><p>Si <span class="math inline">\(I = [a,b[\)</span> avec <span
+class="math inline">\(a,b \in \mathbb{R}, a&lt;b\)</span> et <span
+class="math inline">\(f(x) \underset{x \longrightarrow
+b}{\longrightarrow} + \infty\)</span> ou <span
+class="math inline">\(f(x) \underset{x \longrightarrow
+b}{\longrightarrow} - \infty\)</span>, la droite d’équation <span
+class="math inline">\(x = b\)</span> est dite <u>asymptote verticale</u>
+à <span class="math inline">\((C)\)</span> quand <span
+class="math inline">\(x\)</span> tend vers <span
+class="math inline">\(b\)</span>.</p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><img src="Asymptote11.png"
+alt="image" /></td>
+<td style="text-align: center;"><img src="Asymptote12.png"
+alt="image" /></td>
+</tr>
+</tbody>
+</table>
+</div></li>
+<li><p>Si <span class="math inline">\(I = [a,+\infty[\)</span> avec
+<span class="math inline">\(a \in \mathbb{R}\)</span> et il existe <span
+class="math inline">\(\ell \in \mathbb{R}\)</span> tel que <span
+class="math inline">\(f(x) \underset{x \longrightarrow
++\infty}{\longrightarrow} \ell\)</span>, la droite d’équation <span
+class="math inline">\(y = \ell\)</span> est dite <u>asymptote
+horizontale</u> à <span class="math inline">\((C)\)</span> quand <span
+class="math inline">\(x\)</span> tend vers <span
+class="math inline">\(+\infty\)</span>.</p>
+<div class="center">
+<p><img src="Asymptote2.png" alt="image" /></p>
+</div></li>
+<li><p>Si <span class="math inline">\(I = [a,+\infty[\)</span> avec
+<span class="math inline">\(a \in \mathbb{R}\)</span> et <span
+class="math inline">\(f(x) \underset{x \longrightarrow
++\infty}{\longrightarrow} +\infty\)</span> ou <span
+class="math inline">\(f(x) \underset{x \longrightarrow
++\infty}{\longrightarrow} -\infty\)</span>, la droite d’équation <span
+class="math inline">\(y = \alpha x + \beta\)</span> avec <span
+class="math inline">\(\alpha,\beta \in \mathbb{R}\)</span> est dite
+<u>asymptote oblique</u> à <span class="math inline">\((C)\)</span>
+quand <span class="math inline">\(x\)</span> tend vers <span
+class="math inline">\(+\infty\)</span> si <span
+class="math inline">\(f(x) - \alpha x -\beta \underset{x \longrightarrow
++\infty}{\longrightarrow} 0\)</span>.</p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><img src="Asymptote31.png"
+alt="image" /></td>
+<td style="text-align: center;"><img src="Asymptote32.png"
+alt="image" /></td>
+</tr>
+</tbody>
+</table>
+</div></li>
+</ol>
+</div>
+<div class="wrem">
+<p>On peut étendre les 2. et 3. en des asymptotes en <span
+class="math inline">\(-\infty\)</span>, ainsi</p>
+<ul>
+<li><p>Si <span class="math inline">\(I = ]-\infty,b]\)</span> avec
+<span class="math inline">\(b \in \mathbb{R}\)</span> et il existe <span
+class="math inline">\(\ell \in \mathbb{R}\)</span> tel que <span
+class="math inline">\(f(x) \underset{x \longrightarrow
+-\infty}{\longrightarrow} \ell\)</span>, la droite d’équation <span
+class="math inline">\(y = \ell\)</span> est dite <u>asymptote
+horizontale</u> à <span class="math inline">\((C)\)</span> quand <span
+class="math inline">\(x\)</span> tend vers <span
+class="math inline">\(-\infty\)</span>.</p>
+<div class="center">
+<p><img src="Asymptote2p.png" alt="image" /></p>
+</div></li>
+<li><p>Si <span class="math inline">\(I = ]-\infty,b]\)</span> avec
+<span class="math inline">\(b \in \mathbb{R}\)</span> et <span
+class="math inline">\(f(x) \underset{x \longrightarrow
+-\infty}{\longrightarrow} +\infty\)</span> ou <span
+class="math inline">\(f(x) \underset{x \longrightarrow
+-\infty}{\longrightarrow} -\infty\)</span>, la droite d’équation <span
+class="math inline">\(y = \alpha x + \beta\)</span> avec <span
+class="math inline">\(\alpha,\beta \in \mathbb{R}\)</span> est dite
+<u>asymptote oblique</u> à <span class="math inline">\((C)\)</span>
+quand <span class="math inline">\(x\)</span> tend vers <span
+class="math inline">\(-\infty\)</span> si <span
+class="math inline">\(f(x) - \alpha x -\beta \underset{x \longrightarrow
+-\infty}{\longrightarrow} 0\)</span>.</p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><img src="Asymptote31p.png"
+alt="image" /></td>
+<td style="text-align: center;"><img src="Asymptote32p.png"
+alt="image" /></td>
+</tr>
+</tbody>
+</table>
+</div></li>
+</ul>
+</div>
+<div class="wprop">
+<p><strong>(Conditions nécessaires et suffisantes d’existence d’une
+asymptote oblique)</strong> Soit <span class="math inline">\(f :
+[a,+\infty[ \to \mathbb{R}\)</span> avec <span class="math inline">\(a
+\in \mathbb{R}\)</span> et <span class="math inline">\(\alpha, \beta \in
+\mathbb{R}\)</span>, sa courbe admet pour asymptote oblique la droite
+d’équation <span class="math inline">\(y= \alpha x + \beta\)</span>
+quand <span class="math inline">\(x\)</span> tend vers <span
+class="math inline">\(+\infty\)</span> si et seulement si <span
+class="math inline">\(\frac{f(x)}{x} \underset{x \longrightarrow
++\infty}{\longrightarrow} \alpha\)</span> et <span
+class="math inline">\(f(x)-\alpha x \underset{x \longrightarrow
++\infty}{\longrightarrow} \beta\)</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Si <span class="math inline">\(f(x) - \alpha x -\beta \underset{x
+\longrightarrow +\infty}{\longrightarrow} 0\)</span> alors <span
+class="math inline">\(\frac{f(x)}{x} = \frac{f(x)-\alpha x - \beta}{x}
++\alpha +\frac{\beta}{x} \underset{x \longrightarrow
++\infty}{\longrightarrow} \alpha\)</span>. De plus, <span
+class="math inline">\(f(x)-\alpha x =f(x) - \alpha x -\beta + \beta
+\underset{x \longrightarrow +\infty}{\longrightarrow}
+\beta\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(f(x)-\alpha x \underset{x
+\longrightarrow +\infty}{\longrightarrow} \beta\)</span>, alors <span
+class="math inline">\(f(x) - \alpha x -\beta \underset{x \longrightarrow
++\infty}{\longrightarrow} 0\)</span>.</p></li>
+</ul>
+</div>
+<p>Cette proposition est très utile en pratique, comme le démontre
+l’exemple ci-dessous.</p>
+<div class="wex">
+<p>Considérons <span class="math inline">\(f : x \in \mathbb{R}\mapsto
+\sqrt{x^2+2x+3}\)</span>.</p>
+<p>Remarquons d’abord que <span class="math inline">\(f\)</span> est
+bien définie sur <span class="math inline">\(\mathbb{R}\)</span> car
+<span class="math inline">\(x^2+2x+3 = x^2+2x+1 +2 = (x+1)^2+2 \geq
+0\)</span>.</p>
+<p>D’autre part, pour <span class="math inline">\(x \geq 0\)</span>,</p>
+<p><span class="math display">\[\frac{f(x)}{x} =
+\frac{\sqrt{x^2+2x+3}}{x} \underbrace{=}_{\text{car } x \geq 0}
+\frac{\sqrt{x^2+2x+3}}{\sqrt{x^2}} =
+\sqrt{1+\frac{2}{x}+\frac{3}{x^2}}\underset{x \longrightarrow
++\infty}{\longrightarrow} 1.\]</span></p>
+<p>De plus,</p>
+<p><span class="math display">\[\begin{aligned}
+    f(x)-1 &amp; = \sqrt{x^2+2x+3}-x \\
+    &amp; =
+\frac{(\sqrt{x^2+2x+3}-x)(\sqrt{x^2+2x+3}+x)}{\sqrt{x^2+2x+3}+x}
+\text{\small en multipliant par la quantité conjuguée} \\
+    &amp;  = \frac{x^2+2x+3-x^2}{\sqrt{x^2+2x+3}+x} \\
+    &amp;  = \frac{2x+3}{\sqrt{x^2+2x+3}+x} \\
+    &amp; =
+\frac{x\left(2+\frac{3}{x}\right)}{x(\sqrt{1+\frac{2}{x}+\frac{3}{x^2}}+1)}
+\\
+    &amp; = \frac{2+\frac{3}{x}}{\sqrt{1+\frac{2}{x}+\frac{3}{x^2}}+1}
+\\
+    &amp; \underset{x \longrightarrow +\infty}{\longrightarrow}
+\frac{2}{2} = 1.
+     \end{aligned}\]</span></p>
+<p>Donc la courbe de <span class="math inline">\(f\)</span> admet la
+droite d’équation <span class="math inline">\(y=x+1\)</span> comme
+asymptote oblique quand <span class="math inline">\(x\)</span> tend vers
+<span class="math inline">\(+\infty\)</span>.</p>
+</div>
+<h1 data-number="3" id="fonctions-usuelles"><span
+class="header-section-number">3</span> Fonctions usuelles</h1>
+<h2 data-number="3.1" id="fonctions-trigonométriques"><span
+class="header-section-number">3.1</span> Fonctions trigonométriques</h2>
+<h3 data-number="3.1.1" id="cos-et-sin"><span
+class="header-section-number">3.1.1</span> <span
+class="math inline">\(\cos\)</span> et <span
+class="math inline">\(\sin\)</span></h3>
+<p><span class="math inline">\(\sin\)</span> et <span
+class="math inline">\(\cos\)</span> sont dérivables sur <span
+class="math inline">\(\mathbb{R}\)</span> avec <span
+class="math inline">\(\cos&#39; = -\sin\)</span>, <span
+class="math inline">\(\sin&#39; = \cos\)</span>. Ce sont des fonctions
+<span class="math inline">\(2\pi\)</span>-périodiques. <span
+class="math inline">\(\sin\)</span> est impaire tandis que <span
+class="math inline">\(\cos\)</span> est paire.</p>
+<p><strong>Allure des courbes.</strong> </p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(\sin\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\cos\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><img src="sin.png" alt="image" /></td>
+<td style="text-align: center;"><img src="cos.png" alt="image" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 data-number="3.1.2" id="tan"><span
+class="header-section-number">3.1.2</span> <span
+class="math inline">\(\tan\)</span></h3>
+<p>En notant <span class="math inline">\(D_{\tan} = \{x \in \mathbb{R}/
+\cos x \neq 0\}=  \mathbb{R}\setminus \{\frac{\pi}{2} + 2k\pi / k \in
+\mathbb{Z}\}\)</span>, on définit pour <span class="math inline">\(x \in
+D_{\tan}\)</span>, <span class="math display">\[\tan x = \frac{\sin
+x}{\cos x}.\]</span></p>
+<ul>
+<li><p><span class="math inline">\(\tan\left(\frac{\pi}{4}\right) = 1,
+\tan\left(\frac{\pi}{3}\right) = \sqrt{3},
+\tan\left(\frac{\pi}{6}\right) = \frac{1}{\sqrt{3}}\)</span>.</p></li>
+<li><p><span class="math inline">\(\tan\)</span> est impaire</p>
+<div class="wproof">
+<p>Pour <span class="math inline">\(x \in D_{\tan}\)</span>, <span
+class="math inline">\(\tan(-x) = \frac{\sin(-x)}{\cos(-x)} = \frac{-\sin
+x}{\cos x} =-\tan x\)</span></p>
+</div></li>
+<li><p><span class="math inline">\(\tan\)</span> est <span
+class="math inline">\(\pi\)</span>-périodique</p>
+<div class="wproof">
+<p>Pour <span class="math inline">\(x \in D_{\tan}\)</span>, <span
+class="math inline">\(\tan(x+\pi) = \frac{\sin(x+\pi)}{\cos(x+\pi)} =
+\frac{-\sin x}{-\cos x} =\tan x\)</span></p>
+</div></li>
+<li><p><span class="math inline">\(\tan\)</span> est dérivable sur <span
+class="math inline">\(D_{\tan}\)</span>, avec <span
+class="math inline">\(\tan&#39; = 1+\tan^2 =
+\frac{1}{\cos^2}\)</span>.</p>
+<div class="wproof">
+<p><span class="math display">\[\begin{aligned}
+        \forall x \in D_{\tan}, \tan&#39;(x) &amp;= \frac{\sin&#39; x
+\cos x - \sin x \cos&#39; x}{\cos^2 x} \\
+        &amp;= \frac{\cos^2 x + \sin^2 x }{\cos^2 x}
+=\left\{\begin{array}{ll}
+            &amp; \frac{1}{\cos^2 x} \\
+            &amp; \frac{\cos^2 x(1 + \frac{\sin^2 x}{\cos^2 x} }{\cos^2
+x} = 1+\tan^2 x
+        \end{array}\right.
+                \end{aligned}\]</span>.</p>
+</div></li>
+</ul>
+<p><strong>Allure de la courbe.</strong> </p>
+<div class="center">
+<p><img src="tan.png" alt="image" /></p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(a,b \in D_{\tan}\)</span>, tels
+que <span class="math inline">\(a+b \in D_{\tan}\)</span> <span
+class="math display">\[\tan(a+b) = \frac{\tan a+\tan b}{1-\tan a \tan
+b}\]</span></p>
+</div>
+<div class="wproof">
+<p><span class="math display">\[\tan(a+b)
+    = \frac{\sin(a+b)}{\cos(a+b)}
+    = \frac{\sin a \cos b + \cos a \sin b}{\cos a \cos b - \sin a \sin
+b}
+    = \frac{\cos a \cos b}{\cos a \cos b}\frac{\frac{\sin a}{\cos a} +
+\frac{\sin b}{\cos b}}{1 - \frac{\sin a}{\cos a} \frac{\sin b}{\cos b}}
+    = \frac{\tan a+\tan b}{1-(\tan a \tan b)}\]</span></p>
+</div>
+<div class="wcor">
+<ul>
+<li><p>Soient <span class="math inline">\(a,b \in D_{\tan}\)</span>,
+tels que <span class="math inline">\(a-b \in D_{\tan}\)</span> <span
+class="math display">\[\tan(a-b) = \frac{\tan a-\tan b}{1+\tan a \tan
+b}\]</span></p></li>
+<li><p>Soit <span class="math inline">\(a \in D_{\tan}\)</span>, tel que
+<span class="math inline">\(2a \in D_{\tan}\)</span> <span
+class="math display">\[\tan(2a) = \frac{2\tan a}{1+\tan^2
+a}\]</span></p></li>
+</ul>
+</div>
+<h2 data-number="3.2" id="fonctions-trigonométriques-réciproques"><span
+class="header-section-number">3.2</span> Fonctions trigonométriques
+réciproques</h2>
+<h3 data-number="3.2.1"
+id="introduction-aux-réciproques-partielles"><span
+class="header-section-number">3.2.1</span> Introduction aux réciproques
+partielles</h3>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Considérons la fonction carrée <span class="math inline">\(f: x \in
+\mathbb{R}\mapsto x^2 \in \mathbb{R}^+\)</span>. Cette fonction n’est
+pas une bijection : on a par exemple <span
+class="math inline">\(f(1)=f(-1) = 1\)</span>. En revanche, la fonction
+<span class="math inline">\(g : x \in \mathbb{R}^+ \mapsto x^2\in
+\mathbb{R}^+\)</span> est bien une bijection car elle est strictement
+croissante. On peut alors considérer sa réciproque, notée <span
+class="math inline">\(\sqrt{}\)</span>, que l’on appelle ici <span
+class="math inline">\(h : x \in \mathbb{R}^+ \mapsto \sqrt{x} \in
+\mathbb{R}^+\)</span>. En traçant le graphe de <span
+class="math inline">\(g\)</span> et <span
+class="math inline">\(h\)</span> ci-contre, on retrouve bien la
+propriété de la courbe d’une fonction réciproque.</p>
+<p>En revanche, on n’a pas <span class="math inline">\(h =
+f^{-1}\)</span>, comme <span class="math inline">\(f\)</span> n’est pas
+bijective ! En particulier, pour <span class="math inline">\(x \in
+\mathbb{R}\)</span>, on a en général <span class="math inline">\(h(f(x))
+= \sqrt{x^2} = |x| \neq x\)</span> bien que l’on ait <span
+class="math inline">\(f(h(x)) = (\sqrt{x})^2 = x\)</span> pour <span
+class="math inline">\(x \in \mathbb{R}^+\)</span>. Des phénomènes
+similaires vont se produire pour les fonctions trigonométriques
+réciproques.</p>
+</div>
+<div class="webimg">
+<p><img src="sqrt_square.png" alt="image" /></p>
+</div>
+</div>
+<h3 data-number="3.2.2" id="mathopmathrmarcsin"><span
+class="header-section-number">3.2.2</span> <span
+class="math inline">\(\mathop{\mathrm{Arcsin}}\)</span></h3>
+<div class="webtextfigure">
+<div class="webtext">
+<p>La fonction <span class="math inline">\(\sin\)</span> n’est pas
+bijective, on a par exemple <span class="math inline">\(\sin(0) =
+\sin(\pi) = 0\)</span>. En revanche, la fonction <span
+class="math inline">\(g : x \in
+\left[-\frac{\pi}{2},\frac{\pi}{2}\right] \mapsto \sin(x) \in
+[-1,1]\)</span> est bijective car elle est strictement croissante, comme
+illustré sur le graphe ci-contre.</p>
+</div>
+<div class="webimg">
+<p><img src="sin_extract.png" alt="image" /></p>
+</div>
+</div>
+<div class="wdefi">
+<p><strong>(<span
+class="math inline">\(\mathop{\mathrm{Arcsin}}\)</span>)</strong> <span
+class="math inline">\(\mathop{\mathrm{Arcsin}}: [-1,1] \to
+\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span> est définie comme la
+bijection réciproque de la bijection <span class="math inline">\(x \in
+\left[-\frac{\pi}{2},\frac{\pi}{2}\right] \mapsto \sin(x) \in
+[-1,1]\)</span>.</p>
+</div>
+<div class="wrem">
+<p><span class="math inline"><span class="icon-warning">⚠️</span></span>
+<span class="math inline">\(\sin^{-1}\)</span> n’a aucun sens (Encore
+une fois, <span class="math inline">\(\sin\)</span> n’est pas une
+bijection !).</p>
+</div>
+<ul>
+<li><p>Soit <span class="math inline">\(y \in [-1,1]\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Arcsin}}(y)\)</span> est l’unique
+<span class="math inline">\(x \in
+\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span> tel que <span
+class="math inline">\(\sin x = y\)</span>.</p></li>
+<li><p>En particulier, pour <span class="math inline">\(y \in [-1,1],
+\sin(\mathop{\mathrm{Arcsin}}(y)) = \sin(x) = y\)</span>.</p></li>
+<li><p>Aussi, pour <span class="math inline">\(x
+\in  \left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Arcsin}}(\sin(x)) =
+x\)</span>.</p></li>
+<li><p>En revanche, en général, pour <span class="math inline">\(x \in
+\mathbb{R}\)</span> tel que <span class="math inline">\(x \notin
+\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Arcsin}}(\sin(x)) \neq x\)</span>
+car <span class="math inline">\(\mathop{\mathrm{Arcsin}}(\sin(x)) \in
+\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span>.</p></li>
+</ul>
+<div class="wprop">
+<p><strong>(Propriétés de la fonction <span
+class="math inline">\(\mathop{\mathrm{Arcsin}}\)</span>)</strong></p>
+<ol>
+<li><p><span class="math inline">\(\mathop{\mathrm{Arcsin}}(0) = 0,
+\mathop{\mathrm{Arcsin}}(1) = \frac{\pi}{2},
+\mathop{\mathrm{Arcsin}}(-1) = -\frac{\pi}{2},\)</span></p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{Arcsin}}\)</span> est
+impaire,</p></li>
+<li><p>pour <span class="math inline">\(y \in [-1,1]\)</span>, <span
+class="math inline">\(\cos(\mathop{\mathrm{Arcsin}}(y)) =
+\sqrt{1-y^2}\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{Arcsin}}\)</span> est
+dérivable sur <span class="math inline">\(\left]-1,1\right[\)</span> tel
+que pour <span class="math inline">\(y \in \left]-1,1\right[\)</span>,
+<span class="math display">\[\mathop{\mathrm{Arcsin}}&#39;(y) =
+\frac{1}{\sqrt{1-y^2}}.\]</span></p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Pour <span class="math inline">\(y \in [-1,1]\)</span>, notons
+<span class="math inline">\(x = \mathop{\mathrm{Arcsin}}(y) \in
+\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span>.</p>
+<p>On a <span class="math inline">\(\sin(x) = y\)</span> et de plus,
+<span class="math inline">\(\sin(-x) = -\sin x = -y\)</span> avec <span
+class="math inline">\(-x \in
+\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span>.</p>
+<p>Donc <span class="math inline">\(-x\)</span> est l’unique élément de
+<span
+class="math inline">\(\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span>
+tel que <span class="math inline">\(\sin(-x) = y\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{Arcsin}}(-y) = -x = -
+\mathop{\mathrm{Arcsin}}(y)\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(y \in [-1,1]\)</span>, <span
+class="math inline">\(\cos^2(\mathop{\mathrm{Arcsin}}(y)) =
+1-\sin^2(\mathop{\mathrm{Arcsin}}(y)) = 1-y^2\)</span> donc <span
+class="math inline">\(\sqrt{\cos^2(\mathop{\mathrm{Arcsin}}(y))} =
+\sqrt{1-y^2}\)</span>.</p>
+<p>Or, <span class="math inline">\(\cos\)</span> est positive sur <span
+class="math inline">\(\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span>
+donc <span class="math inline">\(\cos(\mathop{\mathrm{Arcsin}}(y)) =
+\sqrt{1-y^2}\)</span>.</p></li>
+<li><p>Par le corollaire <a href="#cor:derivee_reciproque"
+data-reference-type="ref"
+data-reference="cor:derivee_reciproque">[cor:derivee_reciproque]</a>,
+<span class="math inline">\(\mathop{\mathrm{Arcsin}}\)</span> est
+dérivable en les points <span class="math inline">\(y \in
+[-1,1]\)</span> tels que <span class="math inline">\(y=\sin(x)\)</span>,
+<span class="math inline">\(x \in
+\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span> et <span
+class="math inline">\(\sin&#39;(x)  = \cos(x)\neq 0\)</span> donc pour
+<span class="math inline">\(x \in
+\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\)</span> et <span
+class="math inline">\(y = \sin(x) \in ]-1,1[\)</span>.</p>
+<p>De plus, pour <span class="math inline">\(y \in
+\left]-1,1\right[\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Arcsin}}&#39;(y)
+=\frac{1}{\sin&#39;(x)} = \frac{1}{\cos(\mathop{\mathrm{Arcsin}}(y))} =
+\frac{1}{\sqrt{1-y^2}}\)</span>.</p></li>
+</ol>
+</div>
+<p><strong>Allure de la courbe.</strong> </p>
+<div class="center">
+<p><img src="arcsin.png" alt="image" /></p>
+</div>
+<p><strong>Etude de <span
+class="math inline">\(\boldsymbol{\mathop{\mathrm{Arcsin}}(sin).}\
+\)</span></strong></p>
+<p>Pour <span class="math inline">\(x \in \mathbb{R}\)</span>, <span
+class="math inline">\(\sin x \in [-1,1]\)</span> donc on peut considérer
+<span class="math inline">\(f : x \in \mathbb{R}\mapsto
+\mathop{\mathrm{Arcsin}}(\sin x)\)</span>.</p>
+<p>Comme discuté précédemment, en général, <span
+class="math inline">\(\mathop{\mathrm{Arcsin}}(\sin x) \neq
+x\)</span>.</p>
+<p>En revanche, <span class="math inline">\(f\)</span> est <span
+class="math inline">\(2\pi\)</span>-périodique, et il suffit donc de la
+déterminer sur <span
+class="math inline">\(\left[-\frac{\pi}{2},\frac{3\pi}{2}\right]\)</span>.</p>
+<ul>
+<li><p>Pour <span class="math inline">\(x \in
+\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span>, <span
+class="math inline">\(f(x) = \mathop{\mathrm{Arcsin}}(\sin x) =
+x\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(x \in
+\left[\frac{\pi}{2},\frac{3\pi}{2}\right]\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Arcsin}}(\sin x)\)</span> est
+l’unique élément <span class="math inline">\(t\)</span> de <span
+class="math inline">\(\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span>
+tel que <span class="math inline">\(\sin(t) = \sin(x)\)</span>.</p>
+<p>Or, <span class="math inline">\(\sin(x) = \sin(\pi -x)\)</span> et
+pour <span class="math inline">\(x \in
+\left[\frac{\pi}{2},\frac{3\pi}{2}\right]\)</span>, <span
+class="math inline">\(t = \pi-x \in
+\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span>.</p>
+<p>Donc <span class="math inline">\(f(x) = \mathop{\mathrm{Arcsin}}(\sin
+x) = \pi -x\)</span>.</p></li>
+</ul>
+<p>On peut donc tracer le graphe de <span
+class="math inline">\(f\)</span> par <span
+class="math inline">\(2\pi\)</span>-périodicité.</p>
+<div class="center">
+<p><img src="arcsin_sin.png" alt="image" /></p>
+</div>
+<h3 data-number="3.2.3" id="mathopmathrmarccos"><span
+class="header-section-number">3.2.3</span> <span
+class="math inline">\(\mathop{\mathrm{Arccos}}\)</span></h3>
+<div class="webtextfigure">
+<div class="webtext">
+<p>La fonction <span class="math inline">\(\cos\)</span> n’est pas
+bijective, on a par exemple <span class="math inline">\(\cos(0) =
+\cos(\pi) = 1\)</span>. En revanche, la fonction <span
+class="math inline">\(g : x \in \left[0,\pi\right] \mapsto \cos(x) \in
+[-1,1]\)</span> est bijective car elle est strictement décroissante,
+comme illustré sur le graphe ci-contre.</p>
+</div>
+<div class="webimg">
+<p><img src="cos_extract.png" alt="image" /></p>
+</div>
+</div>
+<div class="wdefi">
+<p><strong>(<span
+class="math inline">\(\mathop{\mathrm{Arccos}}\)</span>)</strong> <span
+class="math inline">\(\mathop{\mathrm{Arccos}}: [-1,1] \to
+\left[0,\pi\right]\)</span> est définie comme la bijection réciproque de
+la bijection <span class="math inline">\(x \in \left[0,\pi\right]
+\mapsto \cos(x) \in [-1,1]\)</span>.</p>
+</div>
+<div class="wrem">
+<p><span class="math inline"><span class="icon-warning">⚠️</span></span>
+<span class="math inline">\(\cos^{-1}\)</span> n’a aucun sens (Encore
+une fois, <span class="math inline">\(\cos\)</span> n’est pas une
+bijection !).</p>
+</div>
+<ul>
+<li><p>Soit <span class="math inline">\(y \in [-1,1]\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Arccos}}(y)\)</span> est l’unique
+<span class="math inline">\(x \in \left[0,\pi\right]\)</span> tel que
+<span class="math inline">\(\cos x = y\)</span>.</p></li>
+<li><p>En particulier, pour <span class="math inline">\(y \in [-1,1],
+\cos(\mathop{\mathrm{Arccos}}(y)) = \cos(x) = y\)</span>.</p></li>
+<li><p>Aussi, pour <span class="math inline">\(x
+\in  \left[0,\pi\right]\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Arccos}}(\cos(x)) =
+x\)</span>.</p></li>
+<li><p>En revanche, en général, pour <span class="math inline">\(x \in
+\mathbb{R}\)</span> tel que <span class="math inline">\(x \notin
+\left[0,\pi\right]\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Arccos}}(\cos(x)) \neq x\)</span>
+car <span class="math inline">\(\mathop{\mathrm{Arccos}}(\cos(x)) \in
+\left[0,\pi\right]\)</span>.</p></li>
+</ul>
+<div class="wprop">
+<p><strong>(Lien entre <span
+class="math inline">\(\mathop{\mathrm{Arccos}}\)</span> et <span
+class="math inline">\(\mathop{\mathrm{Arcsin}}\)</span>)</strong> Soit
+<span class="math inline">\(y \in [-1,1]\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Arccos}}(y) +
+\mathop{\mathrm{Arcsin}}(y) = \frac{\pi}{2}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(y \in [-1,1]\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Arcsin}}(y)\)</span> est l’unique
+<span class="math inline">\(t \in
+\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span> tel que <span
+class="math inline">\(\sin t = y\)</span>.</p>
+<p>Or, pour <span class="math inline">\(t \in \mathbb{R}\)</span>, <span
+class="math inline">\(\sin(t) =
+\cos\left(\frac{\pi}{2}-t\right)\)</span>.</p>
+<p>et pour <span class="math inline">\(t \in
+\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span>, <span
+class="math inline">\(\frac{\pi}{2}-t \in [0,\pi]\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{Arccos}}(y) =
+\mathop{\mathrm{Arccos}}(\sin t) =\mathop{\mathrm{Arccos}}\left(
+\cos\left(\frac{\pi}{2}-t\right)\right) = \frac{\pi}{2}-t =
+\frac{\pi}{2}-\mathop{\mathrm{Arcsin}}(y)\)</span>.</p>
+<p>On en déduit <span class="math inline">\(\mathop{\mathrm{Arccos}}(y)
+= \frac{\pi}{2}-\mathop{\mathrm{Arcsin}}(y) \iff
+\mathop{\mathrm{Arccos}}(y) + \mathop{\mathrm{Arcsin}}(y) =
+\frac{\pi}{2}\)</span>.</p>
+</div>
+<div class="wprop">
+<p><strong>(Propriétés de <span
+class="math inline">\(\mathop{\mathrm{Arccos}}\)</span>)</strong></p>
+<ol>
+<li><p><span class="math inline">\(\mathop{\mathrm{Arccos}}(0) =
+\frac{\pi}{2},  \mathop{\mathrm{Arccos}}(1) = 0,
+\mathop{\mathrm{Arccos}}(-1) = \pi\)</span>,</p></li>
+<li><p>Pour <span class="math inline">\(y \in [-1,1],
+\mathop{\mathrm{Arccos}}(y) = \pi -
+\mathop{\mathrm{Arccos}}(y)\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{Arccos}}\)</span> est
+dérivable sur <span class="math inline">\(]–1,1[\)</span> avec pour
+<span class="math inline">\(y \in ]-1,1[\)</span>, <span
+class="math display">\[\mathop{\mathrm{Arccos}}&#39;(y) =
+-\frac{1}{\sqrt{1-y^2}}\]</span></p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Pour <span class="math inline">\(y \in [-1,1],
+\mathop{\mathrm{Arccos}}(y)\)</span> est l’unique <span
+class="math inline">\(t \in [0,\pi]\)</span> tel que <span
+class="math inline">\(\cos t = y\)</span>.</p>
+<p>Or, <span class="math inline">\(\pi - t \in [0,\pi]\)</span> et <span
+class="math inline">\(\cos(\pi-t) = -\cos(t) = -y\)</span></p>
+<p>donc <span class="math inline">\(\mathop{\mathrm{Arccos}}(-y) = \pi-t
+= \pi - \mathop{\mathrm{Arccos}}(y)\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(y \in [-1,1]\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Arccos}}(y) = \frac{\pi}{2}
+-  \mathop{\mathrm{Arcsin}}(y)\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{Arccos}}\)</span> est dérivable
+sur <span class="math inline">\(]-1,1[\)</span> et pour <span
+class="math inline">\(y \in ]-1,1[\)</span>, <span
+class="math display">\[\mathop{\mathrm{Arccos}}&#39;(y) =
+-\mathop{\mathrm{Arcsin}}&#39;(y)
+=-\frac{1}{\sqrt{1-y^2}}.\]</span></p></li>
+</ol>
+</div>
+<p><strong>Allure de la courbe.</strong> </p>
+<div class="center">
+<p><img src="arccos.png" alt="image" /></p>
+</div>
+<p><strong>Etude de <span
+class="math inline">\(\boldsymbol{\mathop{\mathrm{Arccos}}(cos).}\
+\)</span></strong></p>
+<p>Pour <span class="math inline">\(x \in \mathbb{R}\)</span>, <span
+class="math inline">\(\cos x \in [-1,1]\)</span> donc on peut considérer
+<span class="math inline">\(f : x \in \mathbb{R}\mapsto
+\mathop{\mathrm{Arccos}}(\cos x)\)</span>.</p>
+<p>Comme discuté précédemment, en général, <span
+class="math inline">\(\mathop{\mathrm{Arccos}}(\cos x) \neq
+x\)</span>.</p>
+<p>En revanche, <span class="math inline">\(f\)</span> est <span
+class="math inline">\(2\pi\)</span>-périodique, et il suffit donc de la
+déterminer sur <span
+class="math inline">\(\left[0,2\pi\right]\)</span>.</p>
+<ul>
+<li><p>Pour <span class="math inline">\(x \in
+\left[0,\pi\right]\)</span>, <span class="math inline">\(f(x) =
+\mathop{\mathrm{Arccos}}(\cos x) = x\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(x \in
+\left[\pi,2\pi\right]\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Arccos}}(\cos x)\)</span> est
+l’unique élément <span class="math inline">\(t\)</span> de <span
+class="math inline">\(\left[0,\pi\right]\)</span> tel que <span
+class="math inline">\(\cos(t) = \cos(x)\)</span>.</p>
+<p>Or, <span class="math inline">\(\cos(x) = \cos(2\pi -x)\)</span> et
+pour <span class="math inline">\(x \in \left[\pi,2\pi\right]\)</span>,
+<span class="math inline">\(t = 2\pi-x \in
+\left[0,\pi\right]\)</span>.</p>
+<p>Donc <span class="math inline">\(f(x) = \mathop{\mathrm{Arccos}}(\cos
+x) = 2\pi -x\)</span>.</p></li>
+</ul>
+<p>On peut donc tracer le graphe de <span
+class="math inline">\(f\)</span> par <span
+class="math inline">\(2\pi\)</span>-périodicité.</p>
+<div class="center">
+<p><img src="arccos_cos.png" alt="image" /></p>
+</div>
+<h3 data-number="3.2.4" id="mathopmathrmarctan"><span
+class="header-section-number">3.2.4</span> <span
+class="math inline">\(\mathop{\mathrm{Arctan}}\)</span></h3>
+<div class="webtextfigure">
+<div class="webtext">
+<p>La fonction <span class="math inline">\(\tan\)</span> n’est pas
+bijective, on a par exemple <span class="math inline">\(\tan(0) =
+\tan(\pi) = 0\)</span>. En revanche, la fonction <span
+class="math inline">\(g : x \in
+\left]-\frac{\pi}{2},\frac{\pi}{2}\right[ \mapsto \tan(x) \in
+\mathbb{R}\)</span> est bijective car elle est strictement croissante,
+comme illustré sur le graphe ci-contre.</p>
+</div>
+<div class="webimg">
+<p><img src="tan_extract.png" alt="image" /></p>
+</div>
+</div>
+<div class="wdefi">
+<p><strong>(<span
+class="math inline">\(\mathop{\mathrm{Arctan}}\)</span>)</strong> <span
+class="math inline">\(\mathop{\mathrm{Arctan}}: \mathbb{R}\to
+\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\)</span> est définie comme la
+bijection réciproque de la bijection <span class="math inline">\(x \in
+\left]-\frac{\pi}{2},\frac{\pi}{2}\right[ \mapsto \tan(x) \in
+\mathbb{R}\)</span>.</p>
+</div>
+<div class="wrem">
+<p><span class="math inline"><span class="icon-warning">⚠️</span></span>
+<span class="math inline">\(\tan^{-1}\)</span> n’a aucun sens (Encore
+une fois, <span class="math inline">\(\tan\)</span> n’est pas une
+bijection !).</p>
+</div>
+<ul>
+<li><p>Soit <span class="math inline">\(y \in \mathbb{R}\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Arctan}}(y)\)</span> est l’unique
+<span class="math inline">\(x \in
+\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\)</span> tel que <span
+class="math inline">\(\tan x = y\)</span>.</p></li>
+<li><p>En particulier, pour <span class="math inline">\(y \in
+\mathbb{R}, \tan(\mathop{\mathrm{Arctan}}(y)) = \tan(x) =
+y\)</span>.</p></li>
+<li><p>Aussi, pour <span class="math inline">\(x
+\in  \left]-\frac{\pi}{2},\frac{\pi}{2}\right[\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Arctan}}(\tan(x)) =
+x\)</span>.</p></li>
+<li><p>En revanche, en général, pour <span class="math inline">\(x \in
+D_{\tan}\)</span> tel que <span class="math inline">\(x \notin
+\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Arctan}}(\tan(x)) \neq x\)</span>
+car <span class="math inline">\(\mathop{\mathrm{Arctan}}(\tan(x)) \in
+\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\)</span>.</p></li>
+</ul>
+<div class="wprop">
+<p><strong>(Propriétés de la fonction <span
+class="math inline">\(\mathop{\mathrm{Arctan}}\)</span>)</strong></p>
+<ol>
+<li><p><span class="math inline">\(\mathop{\mathrm{Arctan}}(0) = 0,
+\mathop{\mathrm{Arctan}}(1) = \frac{\pi}{4},
+\mathop{\mathrm{Arctan}}(-1) = -\frac{\pi}{4},\)</span></p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{Arctan}}\)</span> est
+impaire,</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{Arctan}}\)</span> est
+dérivable sur <span class="math inline">\(\mathbb{R}\)</span> tel que
+pour <span class="math inline">\(y \in \mathbb{R}\)</span>, <span
+class="math display">\[\mathop{\mathrm{Arctan}}&#39;(y) =
+\frac{1}{1+y^2}.\]</span></p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Pour <span class="math inline">\(y \in \mathbb{R}\)</span>,
+notons <span class="math inline">\(x = \mathop{\mathrm{Arctan}}(y) \in
+\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\)</span>.</p>
+<p>On a <span class="math inline">\(\tan(x) = y\)</span> et de plus,
+<span class="math inline">\(\tan(-x) = -\tan x = -y\)</span> avec <span
+class="math inline">\(-x \in
+\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\)</span>.</p>
+<p>Donc <span class="math inline">\(-x\)</span> est l’unique élément de
+<span
+class="math inline">\(\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\)</span>
+tel que <span class="math inline">\(\tan(-x) = y\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{Arctan}}(-y) = -x = -
+\mathop{\mathrm{Arctan}}(y)\)</span>.</p></li>
+<li><p>Par le corrolaire <a href="#cor:derivee_reciproque"
+data-reference-type="ref"
+data-reference="cor:derivee_reciproque">[cor:derivee_reciproque]</a>,
+<span class="math inline">\(\mathop{\mathrm{Arctan}}\)</span> est
+dérivable en les points <span class="math inline">\(y \in
+\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\)</span> tels que <span
+class="math inline">\(y=\tan x\)</span> avec <span
+class="math inline">\(x \in
+\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\)</span> et <span
+class="math inline">\(\tan&#39;(x) = \frac{1}{\cos^2 x} \neq 0\)</span>
+donc pour tout <span class="math inline">\(x \in
+\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\)</span> et <span
+class="math inline">\(y \in \mathbb{R}\)</span>.</p>
+<p>De plus, pour <span class="math inline">\(y\in \mathbb{R}\)</span>,
+<span class="math inline">\(\mathop{\mathrm{Arctan}}&#39;(y)
+=\frac{1}{\tan&#39; (\mathop{\mathrm{Arctan}}(y))} =\frac{1}{1+ \tan^2
+(\mathop{\mathrm{Arctan}}(y))} = \frac{1}{1+y^2}\)</span>.</p></li>
+</ol>
+</div>
+<p><strong>Allure de la courbe.</strong> </p>
+<div class="center">
+<p><img src="arctan.png" style="width:50.0%" alt="image" /></p>
+</div>
+<p><strong>Etude de <span
+class="math inline">\(\mathop{\mathrm{Arctan}}(tan)\)</span>.</strong> </p>
+<p>On peut considérer <span class="math inline">\(f : x \in D_{\tan}
+\mapsto \mathop{\mathrm{Arctan}}(\tan x)\)</span>.</p>
+<p>Comme discuté précédemment, en général, <span
+class="math inline">\(\mathop{\mathrm{Arccos}}(\tan x) \neq
+x\)</span>.</p>
+<p>En revanche, <span class="math inline">\(f\)</span> est <span
+class="math inline">\(\pi\)</span>-périodique, et il suffit donc de la
+déterminer sur <span
+class="math inline">\(\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\)</span>.</p>
+<p>Or, précisément pour <span class="math inline">\(x \in
+\left]-\frac{\pi}{2},\frac{\pi}{2}\right[, f(x) =
+\mathop{\mathrm{Arctan}}(\tan x) = x\)</span>.</p>
+<p>On peut donc tracer le graphe de <span
+class="math inline">\(f\)</span> par <span
+class="math inline">\(pi\)</span>-périodicité.</p>
+<div class="center">
+<p><img src="arctan_tan.png" alt="image" /></p>
+</div>
+<p><strong>Utilisation de <span
+class="math inline">\(\mathop{\mathrm{Arctan}}\)</span> pour les
+complexes.</strong> </p>
+<p>Soit <span class="math inline">\(z \in \mathbb{C}^\star\)</span> et
+<span class="math inline">\(\theta\)</span> l’unique argument de <span
+class="math inline">\(z\)</span> dans <span
+class="math inline">\(\left[-\frac{\pi}{2},\frac{3\pi}{2}\right[\)</span>.
+On note aussi <span class="math inline">\(z = a+ib\)</span> avec <span
+class="math inline">\(a,b \in \mathbb{R}\)</span>.</p>
+<p>On a donc <span class="math inline">\(z = |z|(\cos \theta +i \sin
+\theta) \iff \left\{\begin{array}{ll}
+    a&amp; = |z|\cos \theta \\
+    b&amp; = |z|\sin \theta
+    \end{array}\right..\)</span></p>
+<ul>
+<li><p>Si <span class="math inline">\(a = 0\)</span>, <span
+class="math inline">\(\theta = \left\{\begin{array}{ll}
+    \frac{\pi}{2}&amp; \mbox{ si $b &gt; 0$}\\
+    -\frac{\pi}{2}&amp; \mbox{ si $b &lt; 0$}
+    \end{array}\right..\)</span></p></li>
+<li><div class="webtextfigure">
+<div class="webtext">
+<p>Si <span class="math inline">\(a &gt; 0\)</span>, <span
+class="math inline">\(\theta \in \left]-\frac{\pi}{2},
+\frac{\pi}{2}\right[\)</span> et <span class="math inline">\(\tan \theta
+= \frac{b}{a}\)</span> donc <span class="math inline">\(\theta =
+\mathop{\mathrm{Arctan}}\left(\frac{b}{a}\right)\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="arctan_complexe_apos.png" alt="image" /></p>
+</div>
+</div></li>
+<li><div class="webtextfigure">
+<div class="webtext">
+<p>Si <span class="math inline">\(a &lt; 0\)</span>, <span
+class="math inline">\(\theta \in \left]\frac{\pi}{2},
+\frac{3\pi}{2}\right[\)</span> et <span class="math inline">\(\tan
+\theta = \frac{b}{a}\)</span> donc <span class="math inline">\(\theta =
+\pi+\mathop{\mathrm{Arctan}}\left(\frac{b}{a}\right)\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="arctan_complexe_aneg.png" alt="image" /></p>
+</div>
+</div></li>
+</ul>
+<p><strong>Utilisation de <span
+class="math inline">\(\mathop{\mathrm{Arctan}}\)</span> pour calculer
+des primitives.</strong> </p>
+<div class="exo*">
+<p>Calculer les primitives de <span class="math inline">\(f: x &gt; 0
+\mapsto \frac{x^2+2}{(x-2)(x^2+4)}\)</span>.</p>
+<p><em>Montrer qu’il existe <span class="math inline">\(a,b,c \in
+\mathbb{R}\)</span> tels que <span
+class="math inline">\(\frac{x^2+2}{(x-2)(x^2+4)} =
+\frac{a}{x-2}+\frac{bx+c}{x^2+4}\)</span>.</em></p>
+</div>
+<div class="corri*">
+<p>En suivant l’indication, après calculs, on a <span
+class="math inline">\(a = \frac{3}{4}, b = \frac{1}{4}, c =
+\frac{1}{2}\)</span>.</p>
+<p>La primitive de <span class="math inline">\(f\)</span> qui s’annule
+en <span class="math inline">\(1\)</span> s’écrit</p>
+<p><span class="math display">\[F(x) = \int_1^x f(x)dx =
+\frac{3}{4}\int_1^x \frac{1}{x-2}dx + \frac{1}{4}\int_1^x
+\frac{x}{x^2+4}dx + \frac{1}{2}\int_1^x \frac{1}{x^2+4}dx.\]</span></p>
+<p>Or, <span class="math display">\[\begin{aligned}
+        \frac{3}{4}\int_1^x \frac{1}{x-2}dx
+        &amp; = \frac{3}{4}\left[\ln|x-2|\right]_1^x =\frac{3}{4}
+\ln|x-2| + \text{Cste} \\
+        \frac{1}{4}\int_1^x \frac{x}{x^2+4}dx
+        &amp; = \frac{1}{8}\left[\ln(x^2+4)\right]_1^x =\frac{1}{8}
+\ln(x^2+4) + \text{Cste} \\
+        \frac{1}{2}\int_1^x \frac{1}{x^2+4}dx
+        &amp; = \frac{1}{8}\int_1^x
+\frac{1}{1+\left(\frac{x}{2}\right)^2}dx =
+\frac{1}{4}\mathop{\mathrm{Arctan}}\left(\frac{x}{2}\right)+ \text{Cste}
+    \end{aligned}\]</span></p>
+<p>Donc les primitives de <span class="math inline">\(f\)</span>
+s’écrivent <span class="math inline">\(x&gt; 0 \mapsto \frac{3}{4}
+\ln|x-2| +\frac{1}{8}
+\ln(x^2+4)+\frac{1}{4}\mathop{\mathrm{Arctan}}\left(\frac{x}{2}\right)+
+\text{Cste}\)</span>.</p>
+</div>
+<h2 data-number="3.3" id="rappels-sur-les-fonctions-ln-et-exp"><span
+class="header-section-number">3.3</span> Rappels sur les fonctions <span
+class="math inline">\(\ln\)</span> et <span
+class="math inline">\(\exp\)</span></h2>
+<h3 data-number="3.3.1" id="la-fonction-ln"><span
+class="header-section-number">3.3.1</span> La fonction <span
+class="math inline">\(\ln\)</span></h3>
+<div class="wdefi">
+<p><strong>(Logarithme népérien)</strong> On définit la fonction
+logarithme népérien comme l’unique primitive de <span
+class="math inline">\(x \in \mathbb{R}^{+\star} \to \frac{1}{x} \in
+\mathbb{R}\)</span> qui s’annule en <span
+class="math inline">\(1\)</span> et on la note <span
+class="math inline">\(\ln\)</span>.</p>
+</div>
+<div class="wrem">
+<p><span class="math inline">\(\forall x &gt;0, \ln(x) = \int_1^x
+\frac{1}{t}dt\)</span>.</p>
+</div>
+<div class="wprop">
+<p><strong>(Propriétés de <span
+class="math inline">\(\ln\)</span>)</strong></p>
+<ol>
+<li><p><span class="math inline">\(\ln\)</span> est strictement
+croissante sur <span
+class="math inline">\(\mathbb{R}^{+\star}\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall x,x&#39; \in
+\mathbb{R}^{+\star}\)</span>, <span class="math inline">\(\ln(xx&#39;) =
+\ln(x)+\ln(x&#39;)\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p><span class="math inline">\(\forall x \in
+\mathbb{R}^{+\star}\)</span>, <span class="math inline">\(\ln&#39;(x) =
+\frac{1}{x} &gt; 0\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(x_0 \in
+\mathbb{R}^{+\star}\)</span>, on pose <span
+class="math inline">\(g_{x_0}: x\in \mathbb{R}^{+\star}\mapsto \ln(xx_0)
+\in \mathbb{R}\)</span>. Alors, <span
+class="math inline">\(g_{x_0}\)</span> est dérivable sur <span
+class="math inline">\(\mathbb{R}^{+\star}\)</span> avec pour <span
+class="math inline">\(x\in \mathbb{R}^{+\star}\)</span>, <span
+class="math inline">\(g_{x_0}&#39;(x) = \frac{x_0}{xx_0} =
+\frac{1}{x}\)</span>.</p>
+<p>Donc pour <span class="math inline">\(x\in
+\mathbb{R}^{+\star}\)</span>, <span class="math inline">\(g_{x_0}(x) =
+\ln(x) + C\)</span> avec <span class="math inline">\(C \in
+\mathbb{R}\)</span>. De plus, <span class="math inline">\(g_{x_0}(1) =
+\ln(x_0) = \ln(1) + C = C\)</span> et <span
+class="math inline">\(g_{x_0}(x) = \ln(xx_0) =
+\ln(x)+\ln(x_0)\)</span>.</p></li>
+</ol>
+</div>
+<div class="wcor">
+<ol>
+<li><p><span class="math inline">\(\forall x \in \mathbb{R}^{+\star},
+\ln\left(\frac{1}{x}\right) = -\ln(x)\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall x,y \in \mathbb{R}^{+\star},
+\ln\left(\frac{x}{y}\right) = \ln(x)-\ln(y)\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall x \in \mathbb{R}^{+\star},
+\forall n \in \mathbb{Z}\)</span>, <span
+class="math inline">\(\ln(x^n)=n\ln(x)\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Pour <span class="math inline">\(x \in \mathbb{R}^{+\star},
+\ln\left(\frac{x}{x}\right) = \ln(1) = 0 =
+\ln(x)+\ln\left(\frac{1}{x}\right)\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(x,y \in \mathbb{R}^{+\star},
+\ln\left(\frac{x}{y}\right) = \ln(x)+\ln\left(\frac{1}{y}\right) =
+\ln(x)-\ln(y)\)</span>.</p></li>
+<li><p>Commençons par prouver le résultat par récurrence pour <span
+class="math inline">\(n \in \mathbb{N}, x \in
+\mathbb{R}^{+\star}\)</span>.</p>
+<ul>
+<li><p><strong>INITIALISATION :</strong> Pour <span
+class="math inline">\(n= 0\)</span>, <span
+class="math inline">\(\ln(x^0)= \ln(1) = (0\ln(x)\)</span>.</p></li>
+<li><p><strong>HÉRÉDITÉ :</strong> Soit <span class="math inline">\(n
+\in \mathbb{N}\)</span>, supposons <span
+class="math inline">\(\ln(x^n)=n\ln(x)\)</span>.</p>
+<p>On a alors <span class="math inline">\(\ln(x^{n+1})=\ln(xx^{n}) =
+\ln(x)+\ln(x^n) \underbrace{=}_{\text{par hypothèse de
+récurrence}}\ln(x)+n\ln(x) = (n+1)\ln(x)\)</span>.</p></li>
+<li><p><strong>CONCLUSION :</strong> <span class="math inline">\(\forall
+n \in \mathbb{N}, \ln(x^n)=n\ln(x)\)</span>.</p></li>
+</ul>
+<p>Pour <span class="math inline">\(n \in \mathbb{Z}\)</span> tel que
+<span class="math inline">\(n &lt; 0\)</span> alors <span
+class="math inline">\(-n \in \mathbb{N}\)</span>. D’après ce qui
+précède, on a donc <span
+class="math inline">\(\ln(x^{-n})=-n\ln(x)\)</span> donc <span
+class="math inline">\(\ln(x^n)=-\ln(x^{-n})=n\ln(x)\)</span>.</p></li>
+</ol>
+</div>
+<div class="wprop">
+<p><strong>(Limites de <span class="math inline">\(\ln\)</span> en <span
+class="math inline">\(0\)</span> et <span
+class="math inline">\(+\infty\)</span>)</strong></p>
+<ol>
+<li><p><span class="math inline">\(\ln(x) \underset{x\longrightarrow
++\infty}{\longrightarrow} +\infty\)</span>,</p></li>
+<li><p><span class="math inline">\(\ln(x) \underset{x\longrightarrow
+0^+}{\longrightarrow} -\infty\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<p>Comme nous le verrons dans un chapitre ultérieur, comme <span
+class="math inline">\(f\)</span> est strictement croissante sur <span
+class="math inline">\(\mathbb{R}^{+\star}\)</span>, elle admet des
+limites, finies ou non en <span class="math inline">\(0\)</span> et en
+<span class="math inline">\(+\infty\)</span>.</p>
+<ol>
+<li><p>Par l’absurde, si <span class="math inline">\(\ln\)</span> admet
+une limite finie <span class="math inline">\(\ell \in
+\mathbb{R}\)</span> en <span class="math inline">\(+\infty\)</span>
+alors comme <span class="math inline">\(\ln(2x) =
+\ln(2)+\ln(x)\)</span>, <span class="math inline">\(\ell = \ln(2)+\ell
+\iff \ell = 0\)</span>. Ce qui est absurde car <span
+class="math inline">\(\ell \geq \ln(2) &gt; 0\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(x \in
+\mathbb{R}^{+\star}\)</span>, <span
+class="math inline">\(\ln\left(\frac{1}{x}\right) = -\ln(x)\)</span>
+donc <span class="math inline">\(\lim_{x\longrightarrow 0^+} \ln(x) =
+-\lim_{x\longrightarrow +\infty} \ln(x) = -\infty\)</span>.</p></li>
+</ol>
+</div>
+<div class="wcor">
+<ul>
+<li><p><span class="math inline">\(\ln\)</span> est une bijection
+strictement croissante de <span
+class="math inline">\(\mathbb{R}^{+\star}\)</span> dans <span
+class="math inline">\(\mathbb{R}\)</span>,</p></li>
+<li><p>Il existe un unique <span class="math inline">\(x_0 \in
+\mathbb{R}^{+\star}\)</span> tel que <span
+class="math inline">\(\ln(x_0) = 1\)</span>, noté <span
+class="math inline">\(e\)</span>.</p></li>
+</ul>
+</div>
+<p><strong>Tableau de variation.</strong> </p>
+<div class="center">
+<p><img src="table_var_ln-1.png" alt="image" /></p>
+</div>
+<p><strong>Allure de la courbe.</strong> </p>
+<div class="center">
+<p><img src="ln.png" alt="image" /></p>
+</div>
+<p>On verra plus tard dans ce chapitre que par "croissances comparées",
+<span class="math inline">\(\frac{\ln x}{x} \underset{x \longrightarrow
++ \infty}{\longrightarrow} 0\)</span> et <span class="math inline">\(\ln
+x - 0x \underset{x \longrightarrow + \infty}{\longrightarrow} 0\)</span>
+donc <span class="math inline">\(\ln\)</span> n’admet pas d’asymptote en
+<span class="math inline">\(+\infty\)</span>. Sa croissance est trop
+lente.</p>
+<h3 data-number="3.3.2" id="fonction-exponentielle-ou-exp"><span
+class="header-section-number">3.3.2</span> Fonction exponentielle (ou
+<span class="math inline">\(\exp\)</span>)</h3>
+<div class="wdefi">
+<p><strong>(Fonction exponentielle)</strong> <span
+class="math inline">\(\ln\)</span> est une bijection de <span
+class="math inline">\(\mathbb{R}^{+\star}\)</span> dans <span
+class="math inline">\(\mathbb{R}\)</span>, la fonction réciproque de
+<span class="math inline">\(\ln\)</span> est appelée la fonction
+exponentielle, notée <span class="math inline">\(\exp\)</span>.</p>
+</div>
+<p>On a donc <span class="math inline">\(\exp : \mathbb{R}\to
+\mathbb{R}^{+\star}\)</span> et <span
+class="math inline">\(\left\{\begin{array}{ll}
+    \forall y \in \mathbb{R}, \ln(\exp y) &amp; = y \\
+    \forall x \in \mathbb{R}^{+\star}, \exp(\ln(x)) &amp; = x.
+\end{array}\right.\)</span>.</p>
+<p>De plus,</p>
+<p><span class="math display">\[\begin{aligned}
+    \ln 1 = 0 &amp; \iff e^0 = 1,
+    \ln e = 1 &amp; \iff \exp(1) = e.
+\end{aligned}\]</span></p>
+<div class="wprop">
+<p><strong>(Exponentielle de la somme)</strong> <span
+class="math display">\[\forall y,y&#39; \in \mathbb{R}, \exp(y+y&#39;) =
+(\exp y)(\exp y&#39;).\]</span></p>
+</div>
+<div class="wproof">
+<p>Par définition, <span class="math inline">\(\exp(y+y&#39;)\)</span>
+est l’unique réel <span class="math inline">\(t \in
+\mathbb{R}^{+\star}\)</span> tel que <span class="math inline">\(\ln t =
+y+y&#39;\)</span>.</p>
+<p>Or,</p>
+<p><span class="math display">\[\ln((\exp y)(\exp y&#39;)) = \ln(\exp
+y)+\ln(exp y&#39;) = y+y&#39;.\]</span></p>
+<p>Donc <span class="math inline">\(\exp(y+y&#39;) = (\exp y)(\exp
+y&#39;)\)</span>.</p>
+</div>
+<div class="wcor">
+<ol>
+<li><p><span class="math inline">\(\forall y \in \mathbb{R}, \exp(-y) =
+\frac{1}{\exp(y)}\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall x,y \in \mathbb{R}, \exp(x-y)
+= \frac{\exp(x)}{\exp(y)}\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall n \in \mathbb{Z}, \forall y
+\in \mathbb{R}, \left(\exp(y)\right)^n = \exp(ny)\)</span></p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Soit <span class="math inline">\(y \in \mathbb{R}\)</span>, <span
+class="math inline">\(\exp(y+(-y)) = \exp(y)\exp(-y) = \exp(0) = 1
+\iff  \exp(-y) = \frac{1}{\exp(y)}\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(x,y \in \mathbb{R}\)</span>,
+<span class="math inline">\(\exp(x-y) = \exp(x+(-y)) = \exp(x)\exp(-y) =
+\frac{\exp(x)}{\exp(y)}\)</span>.</p></li>
+<li><p>Commençons par prouver le résultat pour <span
+class="math inline">\(y \in \mathbb{R}, n \in \mathbb{N}\)</span> par
+récurrence.</p>
+<ul>
+<li><p><strong>INITIALISATION :</strong> Pour <span
+class="math inline">\(n= 0\)</span>, <span
+class="math inline">\((\exp(y))^0= 1 = \exp(0y)\)</span>.</p></li>
+<li><p><strong>HÉRÉDITÉ :</strong> Soit <span class="math inline">\(n
+\in \mathbb{N}\)</span>, supposons <span
+class="math inline">\(\left(\exp(y)\right)^n = \exp(ny)\)</span>.</p>
+<p>On a alors <span class="math inline">\(\exp((n+1)y) = \exp(ny+y) =
+\exp(ny)\exp(y) \underbrace{=}_{\text{par hypothèse de récurrence}}  =
+\left(\exp(y)\right)^n\exp(y) =
+\left(\exp(y)\right)^{n+1}\)</span>.</p></li>
+<li><p><strong>CONCLUSION :</strong> <span class="math inline">\(\forall
+n \in \mathbb{N}, \left(\exp(y)\right)^n = \exp(ny)\)</span>.</p></li>
+</ul>
+<p>Pour <span class="math inline">\(n \in \mathbb{Z}\)</span> tel que
+<span class="math inline">\(n &lt; 0\)</span> alors <span
+class="math inline">\(-n \in \mathbb{N}\)</span>. D’après ce qui
+précède, on a donc <span class="math inline">\(\left(\exp(y)\right)^{-n}
+= \exp(-ny)\)</span> donc <span
+class="math inline">\(\left(\exp(y)\right)^{-n} = \frac{1}{\exp(-ny)} =
+\exp(ny)\)</span>.</p></li>
+</ol>
+</div>
+<div class="wprop">
+<p><strong>(Dérivabilité de <span
+class="math inline">\(\exp\)</span>)</strong> <span
+class="math inline">\(\exp\)</span> est dérivable sur <span
+class="math inline">\(\mathbb{R}\)</span> et pour tout <span
+class="math inline">\(y\in \mathbb{R}\)</span>, <span
+class="math inline">\(\exp&#39;(y) = \exp(y) &gt; 0\)</span>. En
+particulier, <span class="math inline">\(\exp\)</span> est strictement
+croissante sur <span class="math inline">\(\mathbb{R}\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\ln\)</span> est dérivable sur <span
+class="math inline">\(\mathbb{R}^{+\star}\)</span>, avec une dérivée qui
+ne s’annule pas. Donc par le corrolaire <a
+href="#cor:derivee_reciproque" data-reference-type="ref"
+data-reference="cor:derivee_reciproque">[cor:derivee_reciproque]</a>,
+<span class="math inline">\(\exp\)</span> est dérivable sur <span
+class="math inline">\(\mathbb{R}\)</span> et <span
+class="math display">\[\forall y \in \mathbb{R}, \exp&#39;(y)=
+\frac{1}{\ln&#39;(\exp(y))} = \exp(y).\]</span></p>
+</div>
+<div class="wprop">
+<p><strong>(Limites de <span class="math inline">\(\exp\)</span> en
+<span class="math inline">\(\pm \infty\)</span>)</strong></p>
+<ol>
+<li><p><span class="math inline">\(\exp(y) \underset{y\longrightarrow
++\infty}{\longrightarrow} +\infty\)</span>,</p></li>
+<li><p><span class="math inline">\(\exp(y) \underset{y\longrightarrow
+-\infty}{\longrightarrow} -0^+\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<p>En tant que fonction croissante (prouvé dans un chapitre ultérieur),
+la fonction <span class="math inline">\(\exp\)</span> admet des limites
+(finies ou non) en <span class="math inline">\(\pm \infty\)</span>.</p>
+<p>De plus,</p>
+<p><span class="math display">\[\lim_{y \longrightarrow+\infty} \exp(y)
+= \lim_{x \longrightarrow+\infty} \exp(\ln(x)) =\lim_{x
+\longrightarrow+\infty}x = +\infty\]</span></p>
+<p>et</p>
+<p><span class="math display">\[\lim_{y \longrightarrow-\infty} \exp(y)
+= \lim_{x \longrightarrow0^+} \exp(\ln(x)) =\lim_{x \longrightarrow
+0^+}x = 0^+.\]</span></p>
+</div>
+<p><strong>Asymptote en <span
+class="math inline">\(+\infty\)</span>.</strong> </p>
+<p>Pour rappel, on prouvera plus tard par croissances comparées que
+<span class="math inline">\(\frac{\ln x}{x} \underset{x \longrightarrow
++ \infty}{\longrightarrow} 0\)</span>.</p>
+<p>Cela donne donc <span class="math display">\[\lim_{y\longrightarrow
++\infty} \frac{\exp(y)}{y} = \lim_{x\longrightarrow +\infty}
+\frac{\exp(\ln(x))}{\ln(x)} =  \lim_{x\longrightarrow
++\infty}  \frac{1}{\frac{\ln x}{x}} = +\infty.\]</span></p>
+<p>Donc <span class="math inline">\(\exp\)</span> n’admet pas
+d’asymptote quand <span class="math inline">\(x\)</span> tens vers <span
+class="math inline">\(+\infty\)</span>, sa croissance est trop
+rapide.</p>
+<p><strong>Représentation graphique.</strong> </p>
+<div class="center">
+<p><img src="exp.png" alt="image" /></p>
+</div>
+<div class="wrem">
+<p>Soit <span class="math inline">\(y\in \mathbb{R}, n \in \mathbb{Z},
+\exp(ny) = \left(\exp(y)\right)^n\)</span>.</p>
+<p>En particulier, pour <span class="math inline">\(y = 1, \exp(n)
+=e^n\)</span>. Par conséquent, pour <span class="math inline">\(x \in
+\mathbb{R}\)</span>, on <u>définit</u> <span class="math inline">\(e^x
+:= \exp(x)\)</span>.</p>
+</div>
+<h2 data-number="3.4"
+id="fonctions-hyperboliques-mathopmathrmchmathopmathrmshmathopmathrmth"><span
+class="header-section-number">3.4</span> Fonctions hyperboliques <span
+class="math inline">\(\mathop{\mathrm{ch}},\mathop{\mathrm{sh}},\mathop{\mathrm{th}}\)</span></h2>
+<h3 data-number="3.4.1"
+id="fonctions-cosinus-hyperbolique-mathopmathrmch-et-sinus-hyperbolique-mathopmathrmsh"><span
+class="header-section-number">3.4.1</span> Fonctions cosinus
+hyperbolique <span class="math inline">\(\mathop{\mathrm{ch}}\)</span>
+et sinus hyperbolique <span
+class="math inline">\(\mathop{\mathrm{sh}}\)</span></h3>
+<div class="wdefi">
+<p><strong>(Fonctions cosinus et sinus hyperboliques)</strong> Pour
+<span class="math inline">\(x\in \mathbb{R}\)</span>, on définit <span
+class="math display">\[\mathop{\mathrm{sh}}(x) =
+\frac{e^x-e^{-x}}{2}\]</span> appelée la fonction <u>sinus
+hyperbolique</u> et <span class="math display">\[\mathop{\mathrm{ch}}(x)
+= \frac{e^x+e^{-x}}{2}\]</span> appelée la fonction <u>cosinus
+hyperbolique</u>.</p>
+</div>
+<div class="wrem">
+<p><strong>(Rappel des formules d’Euler)</strong> Pour rappel, pour
+<span class="math inline">\(x \in \mathbb{R}\)</span>, <span
+class="math display">\[\begin{aligned}
+        \sin x &amp;= \frac{e^{ix}-e^{-ix}}{2i} \\
+        \cos x &amp; = \frac{e^{ix}+e^{-ix}}{2}.
+    \end{aligned}\]</span></p>
+</div>
+<div class="wprop">
+<p><strong>(Propriétés de <span
+class="math inline">\(\mathop{\mathrm{sh}}\)</span> et <span
+class="math inline">\(\mathop{\mathrm{ch}}\)</span>)</strong></p>
+<ol>
+<li><p><span class="math inline">\(\mathop{\mathrm{sh}}(0) = 0\)</span>
+et <span class="math inline">\(\mathop{\mathrm{ch}}(0) =
+1\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{sh}}\)</span> est
+impaire et <span class="math inline">\(\mathop{\mathrm{ch}}\)</span> est
+paire,</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{sh}}\)</span> et
+<span class="math inline">\(\mathop{\mathrm{ch}}\)</span> sont
+dérivables sur <span class="math inline">\(\mathbb{R}\)</span> avec pour
+<span class="math inline">\(x \in \mathbb{R}\)</span>, <span
+class="math display">\[\mathop{\mathrm{sh}}&#39;(x) =
+\mathop{\mathrm{ch}}(x), \quad \mathop{\mathrm{ch}}&#39;(x) =
+\mathop{\mathrm{sh}}(x),\]</span></p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{sh}}\)</span> est
+strictement croissante sur <span
+class="math inline">\(\mathbb{R}\)</span> et <span
+class="math inline">\(\mathop{\mathrm{ch}}\)</span> est strictement
+décroissante sur <span class="math inline">\(\mathbb{R}^{-}\)</span> et
+strictement croissante sur <span
+class="math inline">\(\mathbb{R}^{+}\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{sh}}(x)
+\underset{x\longrightarrow +\infty}{\longrightarrow} +\infty \text{ et
+}\mathop{\mathrm{sh}}(x) \underset{x\longrightarrow
+-\infty}{\longrightarrow} -\infty\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{ch}}(x)
+\underset{x\longrightarrow +\infty}{\longrightarrow} +\infty \text{ et
+}\mathop{\mathrm{ch}}(x) \underset{x\longrightarrow
+-\infty}{\longrightarrow} +\infty\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Pour <span class="math inline">\(x\in \mathbb{R}\)</span>, <span
+class="math inline">\(\mathop{\mathrm{sh}}(-x) =
+\frac{e^{-x}-e^{-(-x)}}{2} = \frac{e^{-x}-e^{x}}{2} =
+-\mathop{\mathrm{sh}}(x)\)</span> et <span
+class="math inline">\(\mathop{\mathrm{ch}}(-x) =
+\frac{e^{-x}+e^{-(-x)}}{2} = \frac{e^{-x}+e^{x}}{2} =
+\mathop{\mathrm{ch}}(x)\)</span>,</p></li>
+<li><p>Comme sommes de fonctions dérivables sur <span
+class="math inline">\(\mathbb{R}\)</span>, <span
+class="math inline">\(\mathop{\mathrm{sh}}\)</span> et <span
+class="math inline">\(\mathop{\mathrm{ch}}\)</span> sont dérivables sur
+<span class="math inline">\(\mathbb{R}\)</span> et <span
+class="math inline">\(\mathop{\mathrm{sh}}&#39;(x) =
+\frac{e^x-(-e^{-x})}{2} = \frac{e^{x}+e^{-x}}{2}
+=\mathop{\mathrm{ch}}(x)\)</span> tandis que <span
+class="math inline">\(\mathop{\mathrm{ch}}&#39;(x) =
+\frac{e^x+(-e^{-x})}{2} = \frac{e^{x}-e^{-x}}{2}
+=\mathop{\mathrm{sh}}(x)\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{sh}}&#39; =
+\mathop{\mathrm{ch}}\)</span> qui est une fonction strictement positive
+donc <span class="math inline">\(\mathop{\mathrm{sh}}\)</span> est
+strictement croissante sur <span
+class="math inline">\(\mathbb{R}\)</span>. En particulier, comme <span
+class="math inline">\(\mathop{\mathrm{sh}}(0) = 0\)</span>, <span
+class="math inline">\(\mathop{\mathrm{sh}}\)</span> est strictement
+positive sur <span class="math inline">\(\mathbb{R}^{+\star}\)</span> et
+strictement négative sur <span
+class="math inline">\(\mathbb{R}^{-\star}\)</span>. D’après ce qui
+précède, comme <span
+class="math inline">\(\mathop{\mathrm{ch}}&#39;=\mathop{\mathrm{sh}}\)</span>,
+<span class="math inline">\(\mathop{\mathrm{ch}}\)</span> est
+strictement décroissante sur <span
+class="math inline">\(\mathbb{R}^{-}\)</span> et strictement croissante
+sur <span class="math inline">\(\mathbb{R}^{+}\)</span>.</p></li>
+<li><p><span class="math inline">\(\lim_{x\rightarrow +\infty}
+\mathop{\mathrm{sh}}(x)= \frac{1}{2}\lim_{x\longrightarrow +\infty} e^x
+- \frac{1}{2}\lim_{x\longrightarrow +\infty} e^{—x} = +\infty-0 =
++\infty\)</span> et <span class="math inline">\(\lim_{x\longrightarrow
+-\infty} \mathop{\mathrm{sh}}(x)= \frac{1}{2}\lim_{x\longrightarrow
+-\infty} e^x - \frac{1}{2}\lim_{x\longrightarrow -\infty} e^{—x} =
+0-\infty = -\infty\)</span>.</p></li>
+<li><p><span class="math inline">\(\lim_{x\longrightarrow +\infty}
+\mathop{\mathrm{ch}}(x)= \frac{1}{2}\lim_{x\longrightarrow +\infty} e^x
++ \frac{1}{2}\lim_{x\longrightarrow +\infty} e^{—x} = +\infty+0 =
++\infty\)</span> et <span class="math inline">\(\lim_{x\longrightarrow
+-\infty} \mathop{\mathrm{ch}}(x)= \frac{1}{2}\lim_{x\longrightarrow
+-\infty} e^x + \frac{1}{2}\lim_{x\longrightarrow -\infty} e^{—x} =
+0+\infty = +\infty\)</span>.</p></li>
+</ol>
+</div>
+<div class="wprop">
+<p><span class="math display">\[\forall x \in \mathbb{R},
+\mathop{\mathrm{ch}}^2(x)-\mathop{\mathrm{sh}}^2(x) = 1.\]</span></p>
+</div>
+<div class="wproof">
+<p>Pour <span class="math inline">\(x\in \mathbb{R}\)</span>,</p>
+<p><span
+class="math display">\[\mathop{\mathrm{ch}}^2(x)-\mathop{\mathrm{sh}}^2(x)
+     =
+(\mathop{\mathrm{ch}}(x)+\mathop{\mathrm{sh}}(x))(\mathop{\mathrm{ch}}(x)-\mathop{\mathrm{sh}}(x))
+     = e^{x}e^{-x}= 1.\]</span></p>
+</div>
+<p><strong>Tableaux de variations.</strong> </p>
+<div class="center">
+<p><img src="table_var_sh-1.png" alt="image" /></p>
+</div>
+<div class="center">
+<p><img src="table_var_ch-1.png" alt="image" /></p>
+</div>
+<p><strong>Branches infinies.</strong> </p>
+<p>Comme, pour rappel, <span
+class="math inline">\(\frac{e^x}{x}\underset{x\longrightarrow
++\infty}{\longrightarrow} 0\)</span>,</p>
+<ul>
+<li><p><span class="math inline">\(\frac{\mathop{\mathrm{sh}}(x)}{x} =
+\frac{1}{2x}e^{x} -\frac{1}{2x}e^{-x} \underset{x\longrightarrow
++\infty}{\longrightarrow} 0-0 = 0\)</span> et <span
+class="math inline">\(\frac{\mathop{\mathrm{sh}}(x)}{x} =
+\frac{1}{2x}e^{x} -\frac{1}{2x}e^{-x} \underset{x\longrightarrow
+-\infty}{\longrightarrow} 0-0 = 0\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{sh}}\)</span> n’admet pas
+d’asymptotes en <span class="math inline">\(\pm
+\infty\)</span>.</p></li>
+<li><p><span class="math inline">\(\frac{\mathop{\mathrm{ch}}(x)}{x} =
+\frac{1}{2x}e^{x} +\frac{1}{2x}e^{-x} \underset{x\longrightarrow
++\infty}{\longrightarrow} 0+0 = 0\)</span> et <span
+class="math inline">\(\frac{\mathop{\mathrm{ch}}(x)}{x} =
+\frac{1}{2x}e^{x} +\frac{1}{2x}e^{-x} \underset{x\longrightarrow
++\infty}{\longrightarrow} 0+0 = 0\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{ch}}\)</span> n’admet pas
+d’asymptotes en <span class="math inline">\(\pm
+\infty\)</span>.</p></li>
+</ul>
+<p><strong>Allure des graphes.</strong> </p>
+<p>En introduisant <span class="math inline">\(f : x \in
+\mathbb{R}\mapsto \frac{e^x}{2}\)</span>, on a :</p>
+<ul>
+<li><p><span class="math inline">\(\forall x \in \mathbb{R},
+\mathop{\mathrm{sh}}x \leq f(x) \leq ch x\)</span>,</p></li>
+<li><p><span class="math inline">\(f(x)-\mathop{\mathrm{sh}}x
+\underset{x\longrightarrow +\infty}{\longrightarrow}
+0\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{ch}}x-f(x)
+\underset{x\longrightarrow +\infty}{\longrightarrow}
+0\)</span>.</p></li>
+</ul>
+<div class="center">
+<p><img src="sh_ch.png" alt="image" /></p>
+</div>
+<h3 data-number="3.4.2"
+id="fonction-tangente-hyperbolique-mathopmathrmth"><span
+class="header-section-number">3.4.2</span> Fonction tangente
+hyperbolique <span
+class="math inline">\(\mathop{\mathrm{th}}\)</span></h3>
+<div class="wdefi">
+<p><strong>(Fonction tangente hyperbolique <span
+class="math inline">\(\mathop{\mathrm{th}}\)</span>)</strong> Soit <span
+class="math inline">\(x\in \mathbb{R}\)</span>, <span
+class="math inline">\(\mathop{\mathrm{ch}}(x) \neq 0\)</span> donc on
+peut définir la fonction <span
+class="math display">\[\mathop{\mathrm{th}}(x) =
+\frac{\mathop{\mathrm{sh}}(x)}{\mathop{\mathrm{ch}}(x)}.\]</span> <span
+class="math inline">\(\mathop{\mathrm{th}}\)</span> est appelée la
+fonction tangente hyperbolique.</p>
+</div>
+<div class="wprop">
+<p><strong>(Propriétés de la fonction <span
+class="math inline">\(\mathop{\mathrm{th}}\)</span>)</strong></p>
+<ol>
+<li><p><span class="math inline">\(\mathop{\mathrm{th}}(0) =
+0\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{th}}\)</span> est
+impaire,</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{th}}\)</span> est
+dérivable sur <span class="math inline">\(\mathbb{R}\)</span> avec pour
+<span class="math inline">\(x \in \mathbb{R}\)</span>, <span
+class="math inline">\(\mathop{\mathrm{th}}(x) =
+1-\mathop{\mathrm{th}}^2(x) =
+\frac{1}{\mathop{\mathrm{ch}}^2(x)}\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{th}}\)</span> est
+strictement croissante sur <span
+class="math inline">\(\mathbb{R}\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{th}}(x)
+\underset{x\longrightarrow +\infty}{\longrightarrow} 1\text{ et
+}\mathop{\mathrm{th}}(x) \underset{x\longrightarrow
+-\infty}{\longrightarrow} -1\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Pour <span class="math inline">\(x\in \mathbb{R}\)</span>, <span
+class="math inline">\(\mathop{\mathrm{th}}(-x) =
+\frac{\mathop{\mathrm{sh}}(-x)}{\mathop{\mathrm{ch}}(-x)}=
+\frac{-\mathop{\mathrm{sh}}(x)}{\mathop{\mathrm{ch}}(x)} =
+-\mathop{\mathrm{th}}(x)\)</span>.</p></li>
+<li><p>Comme quotient de fonctions dérivables sur <span
+class="math inline">\(\mathbb{R}\)</span>, <span
+class="math inline">\(\mathop{\mathrm{th}}\)</span> est dérivable sur
+<span class="math inline">\(\mathbb{R}\)</span> et pour <span
+class="math inline">\(x\in \mathbb{R}\)</span>, <span
+class="math display">\[\begin{aligned}
+    \mathop{\mathrm{th}}&#39;(x)
+    &amp; =
+\frac{\mathop{\mathrm{sh}}&#39;(x)\mathop{\mathrm{ch}}(x)-\mathop{\mathrm{sh}}(x)\mathop{\mathrm{ch}}&#39;(x)}{\mathop{\mathrm{ch}}^2(x)}\\
+    &amp; =
+\frac{\mathop{\mathrm{ch}}^2(x)-\mathop{\mathrm{sh}}^2(x)}{\mathop{\mathrm{ch}}^2(x)}
+= \begin{cases}
+        &amp; = \frac{1}{\mathop{\mathrm{ch}}^2(x)} \\
+        &amp; =
+\frac{\mathop{\mathrm{ch}}^2(x)\left(1-\frac{\mathop{\mathrm{sh}}^2
+x}{\mathop{\mathrm{ch}}^2 x}\right)}{\mathop{\mathrm{ch}}^2(x)}
+=1-\mathop{\mathrm{th}}^2 x
+    \end{cases}.
+    \end{aligned}\]</span></p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{th}}&#39; =
+\frac{1}{\mathop{\mathrm{ch}}^2} &gt; 0\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(x \in \mathbb{R}\)</span>, <span
+class="math inline">\(\mathop{\mathrm{th}}(x) =
+\frac{e^x-e^{-x}}{e^{x}+e^{-x}} =
+\frac{e^x(1-e^{-2x})}{e^{x}(1+e^{-2x})} = \frac{e1-e^{-2x}}{1+e^{-2x}}
+\underset{x\longrightarrow +\infty}{\longrightarrow} 1\)</span>.</p>
+<p>Ensuite, par imparité, <span
+class="math inline">\(\mathop{\mathrm{th}}(x) \underset{x\longrightarrow
+-\infty}{\longrightarrow} -1\)</span>.</p></li>
+</ol>
+</div>
+<p><strong>Tableau de signe.</strong> </p>
+<div class="center">
+<p><img src="table_var_th-1.png" alt="image" /></p>
+</div>
+<p><strong>Allure du graphe.</strong> </p>
+<div class="center">
+<p><img src="th.png" alt="image" /></p>
+</div>
+<h2 data-number="3.5" id="fonctions-puissances"><span
+class="header-section-number">3.5</span> Fonctions puissances</h2>
+<p>Soit <span class="math inline">\(x\in \mathbb{R}, n \in
+\mathbb{N}\)</span>, on peut considérer <span class="math inline">\(x^n
+= \underbrace{x \times x \times \ldots \times x}_{n \text{
+fois}}\)</span>. On a alors pour <span class="math inline">\(x
+&gt;0\)</span>, <span class="math inline">\(x = e^{\ln(x)}\)</span> donc
+<span class="math inline">\(x^n = e^{n\ln(x)}\)</span>. On étend donc la
+définition de la puissance comme ci-dessous.</p>
+<div class="wdefi">
+<p><strong>(Fonctions puissances)</strong> Soit <span
+class="math inline">\(\alpha \in \mathbb{R}\)</span> et <span
+class="math inline">\(x \in \mathbb{R}^{+\star}\)</span>, on pose <span
+class="math inline">\(x^\alpha = e^{\alpha\ln(x)}\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Pour <span class="math inline">\(n \in \mathbb{N}^\star, x&gt;
+0\)</span>, on définit <span class="math inline">\(\sqrt[n]{x} =
+e^{\frac{1}{n}\ln(x)}\)</span> comme étant la racine <span
+class="math inline">\(n\)</span>-ième de <span
+class="math inline">\(x\)</span>, elle vérifie <span
+class="math inline">\((\sqrt[n]{x})^n =
+\left(e^{\frac{1}{n}\ln(x)}\right)^n = e^{\frac{n}{n}\ln(x)} =
+e^{\ln(x)} = x\)</span>.</p>
+</div>
+<p>Dans la suite, pour <span class="math inline">\(\alpha \in
+\mathbb{R}\)</span>, on considère <span class="math inline">\(f_{\alpha}
+: x \in \mathbb{R}^{+\star}\mapsto x^{\alpha}\)</span>.</p>
+<div class="wprop">
+<p><strong>(Dérivabilité de <span
+class="math inline">\(f_\alpha\)</span>)</strong> <span
+class="math inline">\(f_\alpha\)</span> est dérivable sur <span
+class="math inline">\(\mathbb{R}^{+\star}\)</span> et <span
+class="math display">\[\forall x &gt; 0, f_{\alpha}&#39;(x) = \alpha
+x^{\alpha-1}.\]</span></p>
+</div>
+<div class="wproof">
+<p>Comme compositions de fonctions dérivables, <span
+class="math inline">\(f\)</span> est dérivable sur <span
+class="math inline">\(\mathbb{R}^{+\star}\)</span> et <span
+class="math display">\[\forall x &gt; 0, f_{\alpha}&#39;(x) =
+\frac{\alpha}{x}e^{\alpha\ln(x)} = \alpha\frac{1}{e^{\ln
+x}}e^{\alpha\ln(x)} = \alpha e^{\alpha\ln(x)-\ln(x)} = \alpha
+e^{(\alpha-1)\ln(x)} = \alpha x^{\alpha-1}.\]</span></p>
+</div>
+<div class="wprop">
+<p><strong>(Variations de <span
+class="math inline">\(f_\alpha\)</span>)</strong></p>
+<ul>
+<li><p>Si <span class="math inline">\(\alpha = 0\)</span>, <span
+class="math inline">\(f_0\)</span> est constante sur <span
+class="math inline">\(\mathbb{R}^{+\star}\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\alpha &gt; 0\)</span>, <span
+class="math inline">\(f_\alpha\)</span> est strictement croissante sur
+<span class="math inline">\(\mathbb{R}^{+\star}\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\alpha &lt; 0\)</span>, <span
+class="math inline">\(f_\alpha\)</span> est strictement décroissante sur
+<span class="math inline">\(\mathbb{R}^{+\star}\)</span>.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Si <span class="math inline">\(\alpha = 0\)</span>, pour <span
+class="math inline">\(x\in \mathbb{R}^{+\star}\)</span>, <span
+class="math inline">\(f_0(x) = e^0 = 1\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\alpha &gt; 0\)</span>, pour <span
+class="math inline">\(x\in \mathbb{R}^{+\star}\)</span>, <span
+class="math inline">\(f_\alpha&#39;(x) = \alpha e^{(\alpha-1)\ln x} &gt;
+0\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\alpha &lt; 0\)</span>, pour <span
+class="math inline">\(x\in \mathbb{R}^{+\star}\)</span>, <span
+class="math inline">\(f_\alpha&#39;(x) = \alpha e^{(\alpha-1)\ln x} &lt;
+0\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><strong>(Limites en <span class="math inline">\(0\)</span> et <span
+class="math inline">\(+\infty\)</span>)</strong></p>
+<ol>
+<li><p>Si <span class="math inline">\(\alpha = 0\)</span>, <span
+class="math inline">\(f_0(x) \underset{x\longrightarrow
+0}{\longrightarrow} 1\)</span> et <span class="math inline">\(f_0(x)
+\underset{x\longrightarrow +\infty}{\longrightarrow}
+1\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\alpha &gt; 0\)</span>, <span
+class="math inline">\(f_\alpha(x) \underset{x\longrightarrow
+0}{\longrightarrow} 0\)</span> et <span
+class="math inline">\(f_\alpha(x) \underset{x\longrightarrow
++\infty}{\longrightarrow} +\infty\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\alpha &lt; 0\)</span>, <span
+class="math inline">\(f_\alpha(x) \underset{x\longrightarrow
+0}{\longrightarrow} +\infty\)</span> et <span
+class="math inline">\(f_\alpha(x) \underset{x\longrightarrow
++\infty}{\longrightarrow} 0\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Si <span class="math inline">\(\alpha = 0\)</span>, pour tout
+<span class="math inline">\(x\in \mathbb{R}^{+\star}\)</span>, <span
+class="math inline">\(f_0(x)=1\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\alpha &gt; 0\)</span>, pour tout
+<span class="math inline">\(x\in \mathbb{R}^{+\star}\)</span>, <span
+class="math inline">\(f_{\alpha}(x) = e^{\alpha \ln(x)}\)</span>. Or,
+<span class="math inline">\(\alpha\ln(x) \underset{x\longrightarrow
+0}{\longrightarrow} -\infty\)</span> et <span
+class="math inline">\(\alpha\ln(x) \underset{x\longrightarrow
++\infty}{\longrightarrow} +\infty\)</span>. Donc <span
+class="math inline">\(f_\alpha(x) \underset{x\longrightarrow
+0}{\longrightarrow} 0\)</span> et <span
+class="math inline">\(f_\alpha(x) \underset{x\longrightarrow
++\infty}{\longrightarrow} +\infty\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\alpha &lt; 0\)</span>, pour tout
+<span class="math inline">\(x\in \mathbb{R}^{+\star}\)</span>, <span
+class="math inline">\(f_{\alpha}(x) = e^{\alpha \ln(x)}\)</span>. Or,
+<span class="math inline">\(\alpha\ln(x) \underset{x\longrightarrow
+0}{\longrightarrow} +\infty\)</span> et <span
+class="math inline">\(\alpha\ln(x) \underset{x\longrightarrow
++\infty}{\longrightarrow} -\infty\)</span>. Donc <span
+class="math inline">\(f_\alpha(x) \underset{x\longrightarrow
+0}{\longrightarrow} +\infty\)</span> et <span
+class="math inline">\(f_\alpha(x) \underset{x\longrightarrow
++\infty}{\longrightarrow} 0\)</span>.</p></li>
+</ol>
+</div>
+<div class="wprop">
+<p>Si <span class="math inline">\(\alpha &gt; 0\)</span>, on peut
+étendre <span class="math inline">\(f_\alpha\)</span> en une fonction
+continue définie sur <span class="math inline">\(\mathbb{R}^{+}\)</span>
+que l’on note encore <span class="math inline">\(f_{\alpha}\)</span> en
+posant <span class="math inline">\(f_{\alpha}(0) = 0\)</span>.</p>
+<p>Pour <span class="math inline">\(\alpha \geq 1\)</span>, <span
+class="math inline">\(f_\alpha\)</span> devient même dérivable sur <span
+class="math inline">\(\mathbb{R}^{+}\)</span> avec <span
+class="math inline">\(\begin{cases}
+        f_{1}&#39;(0) &amp; = 1 \\
+        f_{\alpha}&#39;(0) &amp; = 0 \mbox{ si $\alpha &gt; 1$.} \\
+    \end{cases}\)</span></p>
+<p>Pour <span class="math inline">\(\alpha \in  ]0,1[\)</span>, <span
+class="math inline">\(f_\alpha\)</span> n’est pas dérivable en <span
+class="math inline">\(0\)</span>, elle admet une tangente verticale en
+<span class="math inline">\(0\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Nous prendrons l’habitude de le faire dans les chapitres ultérieurs
+mais comme pour <span class="math inline">\(\alpha &gt; 0\)</span>,
+<span class="math inline">\(f_\alpha(x) \underset{x\longrightarrow
+0}{\longrightarrow} 0\)</span>, poser <span
+class="math inline">\(f_\alpha(0) = 0\)</span> en fait une fonction
+continue.</p>
+<p>De plus, pour <span class="math inline">\(h &gt; 0\)</span>, <span
+class="math inline">\(\frac{f_\alpha(0+h)-f_\alpha(0)}{h} =
+\frac{e^{\alpha \ln(h)}}{e^{\ln(h)}} = e^{(\alpha-1)\ln h} =
+h^{\alpha-1}\)</span>.</p>
+<p>et par la propriété précédente,</p>
+<ul>
+<li><p>Pour <span class="math inline">\(\alpha -1 = 0 \iff \alpha =
+1\)</span>, <span class="math inline">\(h^{\alpha-1} \underset{h
+\longrightarrow 0}{\longrightarrow} 1\)</span>,</p></li>
+<li><p>Pour <span class="math inline">\(\alpha -1 &gt; 0 \iff \alpha
+&gt; 1\)</span>, <span class="math inline">\(h^{\alpha-1} \underset{h
+\longrightarrow 0}{\longrightarrow} 0\)</span>,</p></li>
+<li><p>Pour <span class="math inline">\(\alpha -1 &lt; 0 \iff \alpha
+&lt; 1\)</span>, <span class="math inline">\(h^{\alpha-1} \underset{h
+\longrightarrow 0}{\longrightarrow} +\infty\)</span>.</p></li>
+</ul>
+</div>
+<p><strong>Tableaux de signes.</strong> </p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: left;">Pour <span class="math inline">\(\alpha
+&gt; 0\)</span>,</td>
+<td style="text-align: left;">Pour <span class="math inline">\(\alpha
+&lt; 0\)</span>,</td>
+</tr>
+<tr>
+<td style="text-align: left;"><img src="table_puiss_1-1.png"
+alt="image" /></td>
+<td style="text-align: left;"><img src="table_puiss_2-1.png"
+alt="image" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Asymptotes.</strong> </p>
+<p>Pour <span class="math inline">\(x\in \mathbb{R}^{+\star}\)</span>,
+<span class="math inline">\(\alpha &gt; 0\)</span>,</p>
+<p><span class="math inline">\(\frac{f_\alpha(x)}{x} =
+x^{\alpha-1}\)</span></p>
+<p>Donc</p>
+<ol>
+<li><p>Pour <span class="math inline">\(\alpha = 1, x \in
+\mathbb{R}^{+\star}\)</span>, <span class="math inline">\(f_{1}(x) =
+x\)</span> et donc la courbe de <span class="math inline">\(f_1\)</span>
+admet pour asymptote la droite <span class="math inline">\(y=x\)</span>
+(la courbe elle-même).</p></li>
+<li><p>Pour <span class="math inline">\(0 &lt;\alpha &lt; 1\)</span>,
+<span class="math inline">\(\alpha-1 &lt; 0\)</span> et <span
+class="math inline">\(\frac{f_\alpha(x)}{x} \underset{x \longrightarrow
+0}{\longrightarrow} 0\)</span> donc la droite n’admet pas d’asymptote
+quand <span class="math inline">\(x\)</span> tend vers <span
+class="math inline">\(+\infty\)</span> : sa croissance est trop
+lente.</p></li>
+<li><p>Pour <span class="math inline">\(\alpha &gt; 1\)</span>, <span
+class="math inline">\(\alpha-1 &gt; 0\)</span> et <span
+class="math inline">\(\frac{f_\alpha(x)}{x} \underset{x \longrightarrow
+0}{\longrightarrow} +\infty\)</span> donc la droite n’admet pas
+d’asymptote quand <span class="math inline">\(x\)</span> tend vers <span
+class="math inline">\(+\infty\)</span> : : sa croissance est trop
+rapide.</p></li>
+</ol>
+<p><strong>Allure des courbes.</strong> </p>
+<div class="center">
+<p><img src="puissances.png" alt="image" /></p>
+</div>
+<p>
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+
+    <style>
+    .alphaSlider {
+    width: 600px;
+}
+
+.alpha-widget {
+
+    background: transparent !important;
+}
+    </style>
+
+    <div class="alpha-widget">
+
+    <p>
+        α :
+
+        <input
+            type="range"
+            class="alphaSlider"
+            min="-5"
+            max="5"
+            step="0.01"
+            value="1"
+        >
+
+        <input
+            type="number"
+            class="alphaInput"
+            min="-5"
+            max="5"
+            step="0.01"
+            value="1"
+        >
+    </p>
+
+    <div class="plot"></div>
+
+</div>
+
+    <script>
+    (function () {
+
+    const widget = document.querySelector(".alpha-widget");
+
+    if (!widget) return;
+
+    const slider = widget.querySelector(".alphaSlider");
+    const input  = widget.querySelector(".alphaInput");
+    const plot   = widget.querySelector(".plot");
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Fonction
+    ////////////////////////////////////////////////////////////////////////////
+
+    function f(x, a) {
+
+        return Math.pow(x, a);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Abscisses
+    ////////////////////////////////////////////////////////////////////////////
+
+    const xs = [];
+
+    for (let x = 0.001; x <= 3.5; x += 0.01) {
+        xs.push(x);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Graphe
+    ////////////////////////////////////////////////////////////////////////////
+
+    function updatePlot(alpha) {
+
+        alpha = parseFloat(alpha);
+
+        const ys = xs.map(x => f(x, alpha));
+
+        ////////////////////////////////////////////////////////////////////////////
+        // Couleur selon alpha
+        ////////////////////////////////////////////////////////////////////////////
+
+        let curveColor;
+
+        if (alpha > 1) {
+            curveColor = '#2ca02c';   // tab:green
+        }
+        else if (alpha < 0) {
+            curveColor = '#1f77b4';   // tab:blue
+        }
+        else if (alpha === 1) {
+            curveColor = '#ff7f0e';   // tab:orange
+        }
+        else if (alpha > 0 && alpha < 1) {
+            curveColor = '#9467bd';   // tab:purple
+        }
+        else if (alpha === 0) {
+            curveColor = '#d62728';   // tab:red
+        }
+
+        Plotly.react(
+
+            plot,
+
+            [
+                ////////////////////////////////////////////////////////////////////////////
+                // Courbe principale
+                ////////////////////////////////////////////////////////////////////////////
+
+                {
+                    x: xs,
+                    y: ys,
+
+                    mode: "lines",
+                    type: "scatter",
+
+                    line: {
+                        color: curveColor,
+                        width: 3
+                    },
+
+                    showlegend: false
+
+                    
+                },
+
+                ////////////////////////////////////////////////////////////////////////////
+                // Ligne horizontale pointillée rouge
+                ////////////////////////////////////////////////////////////////////////////
+
+                {
+                    x: [0, 1],
+                    y: [1, 1],
+
+                    mode: "lines",
+                    type: "scatter",
+
+                    line: {
+                        color: '#d62728',   // tab:red
+                        dash: 'dash',
+                        width: 2
+                    },
+
+                    showlegend: false
+                },
+
+                ////////////////////////////////////////////////////////////////////////////
+                // Ligne verticale pointillée rouge
+                ////////////////////////////////////////////////////////////////////////////
+
+                {
+                    x: [1, 1],
+                    y: [0, 1],
+
+                    mode: "lines",
+                    type: "scatter",
+
+                    line: {
+                        color: '#d62728',   // tab:red
+                        dash: 'dash',
+                        width: 2
+                    },
+
+                    showlegend: false
+                }
+            ],
+
+            {
+                paper_bgcolor: 'rgba(0,0,0,0)',
+            
+                plot_bgcolor: 'rgba(0,0,0,0)',
+            
+                title: {
+            
+                    text: `f(x)=x<sup>${alpha}</sup>`,
+            
+                    font: {
+                        size: 24
+                    },
+                    color: window.matchMedia('(prefers-color-scheme: dark)').matches
+                        ? '#ffe0b3'
+                        : '#2d1b12'
+                },
+            
+                width: 600,
+                height: 600,
+            
+                margin: {
+                    t: 60
+                },
+            
+                xaxis: {
+            
+                    range: [0, 3.5],
+            
+                    scaleanchor: "y",
+            
+                    scaleratio: 1,
+            
+                    color: '#2d1b12',
+            
+                    gridcolor: 'rgba(0,0,0,0.08)',
+            
+                    zerolinecolor: 'rgba(0,0,0,0.2)'
+                },
+            
+                yaxis: {
+            
+                    range: [0, 3.5],
+            
+                    color: '#2d1b12',
+            
+                    gridcolor: 'rgba(0,0,0,0.08)',
+            
+                    zerolinecolor: 'rgba(0,0,0,0.2)'
+                }
+            }
+        );
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Synchronisation
+    ////////////////////////////////////////////////////////////////////////////
+
+    function sync(alpha) {
+
+        slider.value = alpha;
+        input.value  = alpha;
+
+        updatePlot(alpha);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Events
+    ////////////////////////////////////////////////////////////////////////////
+
+    slider.addEventListener("input", () => {
+        sync(slider.value);
+    });
+
+    input.addEventListener("input", () => {
+        sync(input.value);
+    });
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Initialisation
+    ////////////////////////////////////////////////////////////////////////////
+
+    sync(1);
+
+})();
+    </script>
+    </p>
+<p><strong>Règles de calculs.</strong> </p>
+<div class="wprop">
+<p><strong>(Règles de calculs des puissances)</strong> Pour <span
+class="math inline">\(\alpha, \beta \in \mathbb{R}\)</span> et <span
+class="math inline">\(x,y \in \mathbb{R}^{+\star}\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(x^{\alpha+\beta} = x^\alpha
+x^\beta\)</span>,</p></li>
+<li><p><span class="math inline">\(\left(x^{\alpha}\right)^{\beta} =
+x^{\alpha \beta}\)</span>,</p></li>
+<li><p><span
+class="math inline">\(x^{-\alpha}=\frac{1}{x^\alpha}\)</span>,</p></li>
+<li><p><span class="math inline">\(\left(xy\right)^{\alpha} = x^{\alpha
+} y^{\alpha}\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<p>Pour <span class="math inline">\(\alpha, \beta \in
+\mathbb{R}\)</span> et <span class="math inline">\(x,y \in
+\mathbb{R}^{+\star}\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(x^{\alpha+\beta} =
+e^{(\alpha+\beta)\ln x} = e^{\alpha \ln x + \beta \ln x} = e^{\alpha \ln
+x}e^{\beta \ln x} = x^\alpha x^\beta\)</span>,</p></li>
+<li><p><span class="math inline">\(\left(x^{\alpha}\right)^{\beta} =
+\left(e^{\alpha \ln x}\right)^{\beta} = e^{\beta \alpha \ln x} =
+x^{\alpha \beta}\)</span>,</p></li>
+<li><p><span class="math inline">\(x^{-\alpha}=e^{-\alpha \ln
+x}=\frac{1}{e^{\alpha \ln x}} = \frac{1}{x^\alpha}\)</span>,</p></li>
+<li><p><span class="math inline">\(x^{\alpha } y^{\alpha} = e^{\alpha
+\ln x}e^{\alpha \ln y} = e^{\alpha (\ln x+\ln y)} = e^{\alpha \ln(xy)} =
+\left(xy\right)^{\alpha}\)</span>.</p></li>
+</ol>
+</div>
+<h2 data-number="3.6"
+id="croissances-comparées-des-fonctions-ln-exp-et-puissances"><span
+class="header-section-number">3.6</span> Croissances comparées des
+fonctions <span class="math inline">\(\ln\)</span>, <span
+class="math inline">\(\exp\)</span> et puissances</h2>
+<ul>
+<li><p>Le résultat fondamental est le suivant :</p>
+<div class="wprop">
+<p><span class="math display">\[\frac{\ln x}{x} \xrightarrow[x\to
++\infty]{} 0^+.\]</span></p>
+</div>
+<div class="wproof">
+<p>On a <span class="math display">\[\frac{\ln x}{x}
+= \frac{\ln\big((\sqrt{x})^2\big)}{\sqrt{x}\sqrt{x}}
+= \frac{2\ln(\sqrt{x})}{\sqrt{x}\sqrt{x}}
+= \frac{2}{\sqrt{x}} \cdot \frac{\ln(\sqrt{x})}{\sqrt{x}},\]</span>
+Etudions <span class="math inline">\(f : t &gt; 0\mapsto \frac{\ln
+t}{t}\)</span>. <span class="math inline">\(f\)</span> est dérivable sur
+<span class="math inline">\(\mathbb{R}^{+\star}\)</span> avec pour <span
+class="math inline">\(t\in \mathbb{R}^{+\star}\)</span>, <span
+class="math inline">\(f&#39;(t) = \frac{1-\ln t}{t^2}\)</span>. On en
+déduit le tableau de variations suivant</p>
+<div class="center">
+<p><img src="table_var_ln_sur_x-1.png" alt="image" /></p>
+</div>
+<p>On en déduit : <span class="math inline">\(\forall t\geq 1\)</span>,
+<span class="math inline">\(\displaystyle \frac{\ln t}{t} \leq
+\frac{1}{e}\)</span> ; donc pour <span class="math inline">\(x\ge
+1\)</span>, <span class="math display">\[0 \le \frac{\ln x}{x} \le
+\frac{1}{e}\frac{2}{\sqrt{x}},\]</span> d’où le résultat.</p>
+</div></li>
+<li><p>On en déduit :</p>
+<div class="wprop">
+<p><span class="math display">\[x\ln x \xrightarrow[x\to 0^+]{}
+0^{-}.\]</span></p>
+</div>
+<div class="wproof">
+<p>En écrivant pour <span class="math inline">\(x &gt;0\)</span>, <span
+class="math inline">\(x\ln x = -\frac{\ln(1/x)}{1/x}\)</span> et en
+tenant compte du fait que <span class="math inline">\(\frac{1}{x}
+\xrightarrow[x\to 0^+]{} +\infty.\)</span>, on a bien <span
+class="math inline">\(x\ln x \xrightarrow[x\to 0^+]{} 0\)</span>.</p>
+</div></li>
+</ul>
+<p>On a ensuite</p>
+<div class="wprop">
+<p><span class="math inline">\(\forall \alpha&gt; 0,
+\beta&gt;0\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(\frac{(\ln x)^\alpha}{x^\beta}
+\xrightarrow[x\to +\infty]{} 0^+.\)</span></p></li>
+<li><p><span class="math inline">\(x^\beta |\ln x|^\alpha
+\xrightarrow[x\to 0^+]{} 0^+.\)</span></p></li>
+<li><p><span class="math inline">\(\frac{e^{\alpha x}}{x^\beta}
+\xrightarrow[x\to +\infty]{} +\infty.\)</span></p></li>
+<li><p><span class="math inline">\(|x|^\beta e^{\alpha x}
+\xrightarrow[x\to -\infty]{} 0^+.\)</span></p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>Pour <span class="math inline">\(x &gt; 0\)</span>, <span
+class="math inline">\(\frac{(\ln x)^\alpha}{x^\beta}
+= \left(\frac{\ln x}{x^{\beta/\alpha}}\right)^\alpha\)</span> et <span
+class="math inline">\(\frac{\ln x}{x^{\beta/\alpha}}
+= \frac{\alpha}{\beta}
+\frac{\ln\left(x^{\beta/\alpha}\right)}{x^{\beta/\alpha}},\)</span> donc
+on a le résultat en utilisant <span
+class="math inline">\(x^\frac{\beta}{\alpha}\xrightarrow[x\to +\infty]{}
++\infty\)</span>, <span class="math inline">\(\frac{\ln t}{t}
+\xrightarrow[t\to +\infty]{} 0\)</span> et <span
+class="math inline">\(X^\alpha \xrightarrow[X\to +\infty]{}
+0\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(x&lt;1\)</span>, <span
+class="math inline">\(x^\beta |\ln x|^\alpha
+= \frac{(\ln(1/x))^\alpha}{(1/x)^\beta}.\)</span></p></li>
+<li><p>Pour <span class="math inline">\(x &gt; 0\)</span>, <span
+class="math inline">\(\frac{e^{\alpha x}}{x^\beta}
+= \frac{(e^x)^\alpha}{(\ln(e^x))^\beta}.\)</span> En posant <span
+class="math inline">\(t=e^x\)</span>, on obtient <span
+class="math inline">\(\frac{t^\alpha}{(\ln t)^\beta}
+\xrightarrow[t\to +\infty]{} +\infty.\)</span></p></li>
+<li><p>Pour <span class="math inline">\(x&lt;0\)</span>, <span
+class="math inline">\(|x|^\beta e^{\alpha x}
+= \frac{(-x)^\beta}{(e^{-x})^\alpha}.\)</span></p></li>
+</ol>
+</div>
+<p>et on en déduit</p>
+<div class="wcor">
+<p><span class="math inline">\(\forall \alpha &lt;0,
+\beta&lt;0\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(\frac{(\ln x)^\alpha}{x^\beta}
+\xrightarrow[x\to +\infty]{} +\infty.\)</span></p></li>
+<li><p><span class="math inline">\(x^\beta |\ln x|^\alpha
+\xrightarrow[x\to 0^+]{} +\infty.\)</span></p></li>
+<li><p><span class="math inline">\(\frac{e^{\alpha x}}{x^\beta}
+\xrightarrow[x\to +\infty]{} 0^+.\)</span></p></li>
+<li><p><span class="math inline">\(|x|^\beta e^{\alpha x}
+\xrightarrow[x\to -\infty]{} +\infty.\)</span></p></li>
+</ol>
+</div>
+<p>On peut retenir "face aux puissances de <span
+class="math inline">\(x\)</span>, les puissances de <span
+class="math inline">\(\ln\)</span> perdent et n’imposent pas leurs
+limites en <span class="math inline">\(+\infty\)</span> et <span
+class="math inline">\(0\)</span>" et "face aux puissances de <span
+class="math inline">\(x\)</span>, les puissances d’<span
+class="math inline">\(\exp\)</span> gagnent et imposent leurs limites en
+<span class="math inline">\(\pm\infty\)</span>."</p>
+<p><span class="math inline"><span class="icon-warning">⚠️</span></span> Et
+si on veut calculer la limite de <span
+class="math inline">\(\left(1+\frac{1}{x}\right)^x\)</span> en <span
+class="math inline">\(+\infty\)</span> ?</p>
+<p>Pour <span class="math inline">\(x &gt; 0\)</span>, <span
+class="math inline">\(\left(1+\frac{1}{x}\right)^x =
+e^{x\ln\left(1+\frac{1}{x}\right)}.\)</span></p>
+<p>En appliquant sans réfléchir la phrase "face aux puissances de <span
+class="math inline">\(x\)</span>, les puissances de <span
+class="math inline">\(\ln\)</span> perdent et n’imposent pas leurs
+limites en <span class="math inline">\(+\infty\)</span> et <span
+class="math inline">\(0\)</span>", on pourrait penser que comme <span
+class="math inline">\(\ln\left(1+\frac{1}{x}\right) \xrightarrow[x\to
++\infty]{} 0^+\)</span> et <span class="math inline">\(x
+\xrightarrow[x\to +\infty]{} +\infty\)</span> alors <span
+class="math inline">\(x\ln\left(1+\frac{1}{x}\right) \xrightarrow[x\to
++\infty]{} +\infty\)</span> donc <span
+class="math inline">\(\left(1+\frac{1}{x}\right)^x \xrightarrow[x\to
++\infty]{} +\infty\)</span> mais c’est faux. On ne rentre pas dans le
+cadre de la proposition précédente. On verra plus tard que <span
+class="math inline">\(\left(1+\frac{1}{x}\right)^x \xrightarrow[x\to
++\infty]{} e\)</span>.</p>
+</body>
+</html>
+
+<script>
+
+
+const toggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Appliquer le thème au chargement
+const currentTheme = localStorage.getItem('theme') || 'default';
+body.setAttribute('data-md-color-scheme', currentTheme);
+
+toggle.addEventListener('click', () => {
+    let scheme = body.getAttribute('data-md-color-scheme');
+    let newScheme = (scheme === 'default') ? 'slate' : 'default';
+    
+    body.setAttribute('data-md-color-scheme', newScheme);
+    localStorage.setItem('theme', newScheme);
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+let secCount = -1;
+let thmCount = -1;
+
+let labels = {};
+
+const noms = {
+'wthm':'Théorème',
+'wprop':'Proposition',
+'wdefi':'Définition',
+'wlem':'Lemme',
+'wcor':'Corollaire',
+'wappli':'Application',
+'wrem':'Remarque',
+'wrappel': 'Rappel',
+'wex':'Exemple',
+'wproof':'Preuve'
+};
+
+//////////////////////////////////////////////////////////////////////////////
+// Numérotation des environnements
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll(
+"h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex, .wrappel,.wproof"
+).forEach(el => {
+
+    if (
+        el.tagName.toLowerCase() === "h1"
+        && !el.closest("#TOC")
+    ) {
+
+        secCount++;
+        thmCount = 0;
+    }
+
+    else if (noms[Array.from(el.classList).find(c => noms[c])]) {
+
+        let type = Array.from(el.classList).find(c => noms[c]);
+
+        if (type !== 'wproof') {
+
+            thmCount++;
+
+            let num = secCount + "." + thmCount;
+
+            let id = el.querySelector("span[id]")
+                ? el.querySelector("span[id]").id
+                : null;
+
+            if(id) {
+                labels[id] = {
+                    num: num,
+                    type: type.substring(1)
+                };
+            }
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                let strong = p.querySelector("strong");
+
+                let title = (
+                    strong &&
+                    strong.innerText.includes("(")
+                )
+
+                ? ` <span class="env-title">${strong.outerHTML}</span>`
+                : "";
+
+                if (title) strong.remove();
+
+                p.innerHTML =
+                    `<strong class="env-header">${noms[type]} ${num}</strong>`
+                    + title
+                    + " — "
+                    + p.innerHTML;
+            }
+        }
+
+        else {
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                p.innerHTML =
+                    `<strong class="env-header">Preuve</strong> — `
+                    + p.innerHTML;
+            }
+        }
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Capture des équations MathJax
+//////////////////////////////////////////////////////////////////////////////
+
+setTimeout(() => {
+
+document.querySelectorAll("mjx-math[display='true']").forEach((el, index) => {
+
+    let num = el.querySelector(".mjx-eqn-number");
+
+    if (num) {
+
+        let val = num.innerText.replace(/[()]/g, '');
+
+        let id = el.id || "eq-" + index;
+
+        el.id = id;
+
+        labels[id] = {
+            num: val,
+            type: 'eq'
+        };
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Remplacement des références
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll("body *").forEach(el => {
+
+    if (
+        el.childNodes.length === 1 &&
+        el.childNodes[0].nodeType === Node.TEXT_NODE
+    ) {
+
+        el.innerHTML = el.innerHTML
+
+        .replace(/\\eqref\{(.*?)\}/g, (m, id) => {
+
+            return labels[id]
+                ? `<a href="#${id}">(${labels[id].num})</a>`
+                : m;
+        })
+
+        .replace(
+            /\[(prop|thm|def|cor|lem|appli|rem|rappel|ex):(.*?)\]/g,
+
+            (m, t, id) => {
+
+                let f = t + ":" + id;
+
+                return labels[f]
+                    ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>`
+                    : m;
+            }
+        );
+    }
+});
+
+}, 800);
+
+});
+
+</script>
+

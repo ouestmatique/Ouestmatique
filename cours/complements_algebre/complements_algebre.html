@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Compléments d’algèbre</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+
+<header class="site-header">
+
+<div class="site-header-left">
+<a href="/">
+<img src="/assets/logo.svg" class="site-logo" alt="Logo">
+</a>
+</div>
+
+<div class="site-header-right">
+   <button id="theme-toggle"
+style="
+margin-right: 15px;
+cursor: pointer;
+background: transparent;
+border: none;
+font-size: 1.1rem;
+color: var(--md-primary-bg-color);
+">
+🌙 / ☀️
+</button>
+    <a href="/" class="home-link">Retour à l’accueil</a>
+</div>
+
+</header>
+
+
+<header id="title-block-header">
+
+<h1 class="title">Compléments d’algèbre</h1>
+<p class="pdf-link">
+<a href="complements_algebre.pdf" target="_blank">[PDF]</a>
+</p>
+
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#lois-de-composition-interne-dans-un-ensemble"
+id="toc-lois-de-composition-interne-dans-un-ensemble"><span
+class="toc-section-number">1</span> Lois de composition interne dans un
+ensemble</a>
+<ul>
+<li><a href="#définition" id="toc-définition"><span
+class="toc-section-number">1.1</span> Définition</a></li>
+<li><a href="#commutativité" id="toc-commutativité"><span
+class="toc-section-number">1.2</span> Commutativité</a></li>
+<li><a href="#associativité" id="toc-associativité"><span
+class="toc-section-number">1.3</span> Associativité</a></li>
+<li><a href="#élément-neutre" id="toc-élément-neutre"><span
+class="toc-section-number">1.4</span> Élément neutre</a></li>
+<li><a href="#éléments-symétrisable"
+id="toc-éléments-symétrisable"><span
+class="toc-section-number">1.5</span> Éléments symétrisable</a></li>
+<li><a
+href="#distributivité-dune-loi-de-composition-interne-par-rapport-à-une-autre"
+id="toc-distributivité-dune-loi-de-composition-interne-par-rapport-à-une-autre"><span
+class="toc-section-number">1.6</span> Distributivité d’une loi de
+composition interne par rapport à une autre</a></li>
+<li><a href="#partie-stable-par-star-et-loi-induite-par-star"
+id="toc-partie-stable-par-star-et-loi-induite-par-star"><span
+class="toc-section-number">1.7</span> Partie stable par <span
+class="math inline">\(\star\)</span> et loi induite par <span
+class="math inline">\(\star\)</span></a></li>
+</ul></li>
+<li><a href="#la-structure-de-groupe"
+id="toc-la-structure-de-groupe"><span
+class="toc-section-number">2</span> La structure de groupe</a>
+<ul>
+<li><a href="#définition-1" id="toc-définition-1"><span
+class="toc-section-number">2.1</span> Définition</a></li>
+<li><a href="#sous-groupe" id="toc-sous-groupe"><span
+class="toc-section-number">2.2</span> Sous-groupe</a>
+<ul>
+<li><a href="#définition-2" id="toc-définition-2"><span
+class="toc-section-number">2.2.1</span> Définition</a></li>
+<li><a href="#intersection-ou-union-de-sous-groupes"
+id="toc-intersection-ou-union-de-sous-groupes"><span
+class="toc-section-number">2.2.2</span> Intersection ou union de
+sous-groupes</a></li>
+</ul></li>
+<li><a href="#morphisme-de-groupes" id="toc-morphisme-de-groupes"><span
+class="toc-section-number">2.3</span> Morphisme de groupes</a></li>
+</ul></li>
+<li><a href="#structure-danneau" id="toc-structure-danneau"><span
+class="toc-section-number">3</span> Structure d’anneau</a>
+<ul>
+<li><a href="#définition-3" id="toc-définition-3"><span
+class="toc-section-number">3.1</span> Définition</a></li>
+<li><a href="#sous-anneau" id="toc-sous-anneau"><span
+class="toc-section-number">3.2</span> Sous-anneau</a></li>
+</ul></li>
+<li><a href="#structure-de-corps" id="toc-structure-de-corps"><span
+class="toc-section-number">4</span> Structure de corps</a>
+<ul>
+<li><a href="#définition-4" id="toc-définition-4"><span
+class="toc-section-number">4.1</span> Définition</a></li>
+<li><a href="#sous-corps" id="toc-sous-corps"><span
+class="toc-section-number">4.2</span> Sous-corps</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1"
+id="lois-de-composition-interne-dans-un-ensemble"><span
+class="header-section-number">1</span> Lois de composition interne dans
+un ensemble</h1>
+<h2 data-number="1.1" id="définition"><span
+class="header-section-number">1.1</span> Définition</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un ensemble non vide. Une
+loi de composition interne dans <span class="math inline">\(E\)</span>
+(ou opération interne dans <span class="math inline">\(E\)</span>) est
+une application <span class="math inline">\(L\)</span> quelconque de
+<span class="math inline">\(E \times E\)</span> dans <span
+class="math inline">\(E\)</span> <span
+class="math inline">\(\begin{array}{lllll}
+L &amp; : &amp; E\times E &amp; \to &amp; E \\
+   &amp;   &amp; (x,y) &amp; \mapsto &amp; L((x,y))
+\end{array}\)</span>. <span class="math inline">\(L((x,y))\)</span> est
+noté <span class="math inline">\(x\star y\)</span> en général et est
+appelé le composé par <span class="math inline">\(L\)</span> (ou <span
+class="math inline">\(\star\)</span>) des éléments <span
+class="math inline">\(x\)</span> et <span
+class="math inline">\(y\)</span> (dans cet ordre).</p>
+</div>
+<div class="wrem">
+<p>En général, pour <span class="math inline">\(x,y \in E, x\star y \neq
+y \star x\)</span>.</p>
+</div>
+<div class="wexs">
+<ul>
+<li><p>Si <span class="math inline">\(E = \mathbb{R}\)</span>, <span
+class="math inline">\(\begin{array}{lllll}
+L_1 &amp; : &amp; E\times E &amp; \to &amp; E \\
+   &amp;   &amp; (x,y) &amp; \mapsto &amp; x+y
+\end{array}\)</span>,<span class="math inline">\(\begin{array}{lllll}
+L_2 &amp; : &amp; E\times E &amp; \to &amp; E \\
+   &amp;   &amp; (x,y) &amp; \mapsto &amp; x-y
+\end{array}\)</span> et <span class="math inline">\(\begin{array}{lllll}
+L_3 &amp; : &amp; E\times E &amp; \to &amp; E \\
+   &amp;   &amp; (x,y) &amp; \mapsto &amp; xy
+\end{array}\)</span> sont des lois de composition interne dans <span
+class="math inline">\(\mathbb{R}\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(E =
+\overrightarrow{\mathscr{P}}\)</span>, <span
+class="math inline">\(\begin{array}{lllll}
+L &amp; : &amp; E\times E &amp; \to &amp; E \\
+   &amp;   &amp; (\overrightarrow{u},\overrightarrow{v}) &amp; \mapsto
+&amp; \overrightarrow{u}+\overrightarrow{v}
+\end{array}\)</span> est une loi de composition interne dans <span
+class="math inline">\(\overrightarrow{\mathscr{P}}\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(E =
+\mathscr{F}(D,\mathbb{R})\)</span>, avec <span class="math inline">\(D
+\subset \mathbb{R}\)</span> non vide, <span
+class="math inline">\(\begin{array}{lllll}
+L_1 &amp; : &amp; E\times E &amp; \to &amp; E \\
+   &amp;   &amp; (f,g) &amp; \mapsto &amp; f+g
+\end{array}\)</span> et <span class="math inline">\(\begin{array}{lllll}
+L_2 &amp; : &amp; E\times E &amp; \to &amp; E \\
+   &amp;   &amp; (f,g) &amp; \mapsto &amp; fg
+\end{array}\)</span> sont des lois de composition interne dans <span
+class="math inline">\(\mathscr{F}(D,\mathbb{R})\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(E\)</span> un ensemble
+quelconque, <span class="math inline">\(\begin{array}{lllll}
+L_1 &amp; : &amp; \mathscr{P}(E)\times \mathscr{P}(E) &amp; \to &amp;
+\mathscr{P}(E) \\
+   &amp;   &amp; (A,B) &amp; \mapsto &amp; A \cup B
+\end{array}\)</span> et <span class="math inline">\(\begin{array}{lllll}
+L_2 &amp; : &amp; \mathscr{P}(E)\times \mathscr{P}(E) &amp; \to &amp;
+\mathscr{P}(E) \\
+   &amp;   &amp; (f,g) &amp; \mapsto &amp; A \cap B
+\end{array}\)</span> sont des lois de composition interne dans <span
+class="math inline">\(\mathscr{P}(E)\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(E\)</span> un ensemble non vide,
+<span class="math inline">\(\begin{array}{lllll}
+L_1 &amp; : &amp; \mathscr{F}(E,E)\times \mathscr{F}(E,E) &amp; \to
+&amp; \mathscr{F}(E,E) \\
+   &amp;   &amp; (f,g) &amp; \mapsto &amp; g\circ f
+\end{array}\)</span> et <span class="math inline">\(\begin{array}{lllll}
+L_2 &amp; : &amp; \mathscr{F}(E,E)\times \mathscr{F}(E,E) &amp; \to
+&amp; \mathscr{F}(E,E) \\
+   &amp;   &amp; (f,g) &amp; \mapsto &amp; f\circ g
+\end{array}\)</span> sont deux lois de composition interne différentes
+dans <span class="math inline">\(\mathscr{F}(E,E)\)</span> dès que <span
+class="math inline">\(\mathop{\mathrm{card}}E \geq 2\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="1.2" id="commutativité"><span
+class="header-section-number">1.2</span> Commutativité</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un ensemble non vide et
+<span class="math inline">\(\star\)</span> une loi de composition
+interne dans <span class="math inline">\(E\)</span>, on dit que <span
+class="math inline">\(\star\)</span> est <u>commutative</u> si <span
+class="math display">\[\forall x,y \in E, x\star y = y\star
+x.\]</span></p>
+</div>
+<div class="wexs">
+<ul>
+<li><p>Si <span class="math inline">\(E = \mathbb{R}\)</span>, <span
+class="math inline">\(+\)</span> et <span
+class="math inline">\(\times\)</span> sont commutatives mais pas <span
+class="math inline">\(-\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(E\)</span> un ensemble
+quelconque, <span class="math inline">\(\cap\)</span> et <span
+class="math inline">\(\cup\)</span> sont des lois commutatives dans
+<span class="math inline">\(\mathscr{P}(E)\)</span>.</p></li>
+<li><p><span class="math inline">\(\circ\)</span> n’est pas commutative
+dans <span
+class="math inline">\(\mathscr{F}(\mathbb{R},\mathbb{R})\)</span>. Par
+exemple, avec <span class="math inline">\(f : x \in \mathbb{R} \mapsto
+x+1 \in \mathbb{R}\)</span> et <span class="math inline">\(g : x \in
+\mathbb{R} \mapsto x^2 \in \mathbb{R}\)</span> alors <span
+class="math inline">\(f \circ g : x \in \mathbb{R} \mapsto x^2+1 \in
+\mathbb{R}\)</span> mais <span class="math inline">\(g \circ f : x \in
+\mathbb{R} \mapsto (x+1)^2 \in \mathbb{R}\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="1.3" id="associativité"><span
+class="header-section-number">1.3</span> Associativité</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un ensemble non vide et
+<span class="math inline">\(\star\)</span> une loi de composition
+interne dans <span class="math inline">\(E\)</span>, on dit que <span
+class="math inline">\(\star\)</span> est <u>associative</u> si <span
+class="math display">\[\forall x,y,z \in E, (x\star y)\star z = x\star(y
+\star z).\]</span></p>
+<p>On note alors <span class="math inline">\(x\star y \star z = (x\star
+y)\star z = x\star(y \star z)\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Soit <span class="math inline">\(E\)</span> un ensemble non vide et
+<span class="math inline">\(\star\)</span> une loi de composition
+interne associative dans <span class="math inline">\(E\)</span> alors
+pour <span class="math inline">\(n \in \mathbb{N}^{\star}\)</span>,
+<span class="math inline">\(x_1,\ldots,x_n \in E\)</span>, on note aussi
+<span class="math inline">\(x_1 \star \ldots \star x_n\)</span> la
+composition des <span class="math inline">\(n\)</span> éléments qui vaut
+la même chose, peu importe dans quel ordre sont faites les
+opérations.</p>
+</div>
+<div class="wexs">
+<ul>
+<li><p>Si <span class="math inline">\(E = \mathbb{R}\)</span>, <span
+class="math inline">\(+\)</span> et <span
+class="math inline">\(\times\)</span> sont associatives mais pas <span
+class="math inline">\(-\)</span> car en général, <span
+class="math inline">\(x-y-z \neq x-(y-z)\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(E\)</span> un ensemble
+quelconque, <span class="math inline">\(\cap\)</span> et <span
+class="math inline">\(\cup\)</span> sont des lois associatives dans
+<span class="math inline">\(\mathscr{P}(E)\)</span>.</p></li>
+<li><p><span class="math inline">\(\circ\)</span> est associative dans
+<span
+class="math inline">\(\mathscr{F}(\mathbb{R},\mathbb{R})\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="1.4" id="élément-neutre"><span
+class="header-section-number">1.4</span> Élément neutre</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un ensemble non vide et
+<span class="math inline">\(\star\)</span> une loi de composition
+interne dans <span class="math inline">\(E\)</span>, on dit que <span
+class="math inline">\(\star\)</span> est admet un <u>élément neutre
+<span class="math inline">\(e \in E\)</span></u> si <span
+class="math display">\[\forall x \in E, x\star e = e\star x=
+x.\]</span></p>
+</div>
+<div class="wrem">
+<p>Si <span class="math inline">\(\star\)</span> est commutative, il
+suffit de vérifier : <span class="math inline">\(\forall x \in E, x\star
+e=x\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(E\)</span> un ensemble non vide et
+<span class="math inline">\(\star\)</span> une loi de composition
+interne dans <span class="math inline">\(E\)</span> qui admet un élément
+neutre, alors cet élément neutre est unique.</p>
+</div>
+<div class="wproof">
+<p>Supposons <span class="math inline">\(e_1,e_2 \in E\)</span>,
+éléments neutres de <span class="math inline">\(\star\)</span>.</p>
+<p>Alors, pour <span class="math inline">\(e_1 \star e_2 = e_1 =
+e_2\)</span>.</p>
+</div>
+<div class="wexs">
+<ul>
+<li><p>Si <span class="math inline">\(E = \mathbb{R}\)</span>, <span
+class="math inline">\(0\)</span> est un élément neutre pour <span
+class="math inline">\(+\)</span> et <span
+class="math inline">\(1\)</span> est un élément neutre pour <span
+class="math inline">\(\times\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(E\)</span> un ensemble
+quelconque, <span class="math inline">\(E\)</span> est un élément neutre
+pour <span class="math inline">\(\cap\)</span> et <span
+class="math inline">\(\emptyset\)</span> est un élément neutre pour
+<span class="math inline">\(\cup\)</span> dans <span
+class="math inline">\(\mathscr{P}(E)\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{Id}}_{\mathbb{R}} : x
+\in \mathbb{R} \mapsto x \in \mathbb{R}\)</span> est un élément neutre
+pour <span class="math inline">\(\circ\)</span> dans <span
+class="math inline">\(\mathscr{F}(\mathbb{R},\mathbb{R})\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(E = \mathbb{R}\)</span>, <span
+class="math inline">\(-\)</span> n’admet pas d’élément neutre.</p>
+<div class="wproof">
+<p>Supposons par l’absurde que <span class="math inline">\(-\)</span>
+admet un élément neutre <span class="math inline">\(e \in
+\mathbb{R}\)</span>.</p>
+<p>Alors, <span class="math inline">\(0-e = 0\)</span> donc <span
+class="math inline">\(e =0\)</span>.</p>
+<p>Or, <span class="math inline">\(0-1 = -1 \neq 1-0 = 1\)</span>, ce
+qui est absurde.</p>
+</div></li>
+</ul>
+</div>
+<h2 data-number="1.5" id="éléments-symétrisable"><span
+class="header-section-number">1.5</span> Éléments symétrisable</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un ensemble non vide et
+<span class="math inline">\(\star\)</span> une loi de composition
+interne dans <span class="math inline">\(E\)</span> admettant un neutre
+<span class="math inline">\(e\)</span>.</p>
+<p>Soit <span class="math inline">\(x \in E\)</span>, <span
+class="math inline">\(x\)</span> est dit symétrisable s’il existe <span
+class="math inline">\(x&#39; \in E\)</span> tel que <span
+class="math inline">\(x\star x&#39; = x&#39;\star x = e\)</span>.</p>
+<p><span class="math inline">\(x&#39;\)</span> est alors appelé un
+symétrique de <span class="math inline">\(x\)</span> par <span
+class="math inline">\(\star\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Si <span class="math inline">\(\star\)</span> est commutative dans la
+définition précédente, il suffit de vérifier <span
+class="math inline">\(x \star x&#39; = e\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(E\)</span> un ensemble non vide et
+<span class="math inline">\(\star\)</span> une loi de composition
+interne <u>associative</u> dans <span class="math inline">\(E\)</span>
+admettant un neutre <span class="math inline">\(e\)</span>.</p>
+<p>Alors soit <span class="math inline">\(x \in E\)</span>, si <span
+class="math inline">\(x\)</span> est symétrisable, il admet un unique
+symétrique dans <span class="math inline">\(E\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Supposons que <span class="math inline">\(x&#39;,x&#39;&#39; \in
+E\)</span> vérifient <span class="math inline">\(x\star x&#39; =
+x&#39;\star x = e\)</span> et <span class="math inline">\(x\star
+x&#39;&#39; = x&#39;&#39;\star x = e\)</span>.</p>
+<p>On a alors <span class="math inline">\(x&#39;&#39; \star (x \star
+x&#39;) = x&#39;&#39; \star e = x&#39;&#39;\)</span> et d’autre part
+<span class="math inline">\(x&#39;&#39; \star (x \star x&#39;) =
+(x&#39;&#39; \star x) \star x&#39; = e \star x&#39; = x&#39;\)</span>
+donc <span class="math inline">\(x&#39;&#39;=x&#39;\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(E\)</span> un ensemble non vide et
+<span class="math inline">\(\star\)</span> une loi de composition
+interne associative dans <span class="math inline">\(E\)</span>
+admettant un neutre <span class="math inline">\(e\)</span>.</p>
+<p>Soient <span class="math inline">\(n \in \mathbb{N}^{\star}, \geq
+2\)</span>, <span class="math inline">\(x_1,\ldots,x_n\)</span>
+symétrisables alors <span class="math inline">\(x_1 \star\ldots\star
+x_n\)</span> est symétrisable de symétrique <span
+class="math inline">\(x_n&#39; \star \ldots \star x_1&#39;\)</span>.</p>
+</div>
+<div class="wproof">
+<p>La preuve formelle est à établir par récurrence mais on donne l’idée
+ci-dessous.</p>
+<p><span class="math display">\[\begin{aligned}
+        (x_1 \star\ldots\star x_n) \star (x_n&#39; \star \ldots \star
+x_1&#39;)
+        &amp; = x_1 \star\ldots\star x_{n-1} \star  (x_n \star x_n&#39;)
+\star x&#39;_{n-1} \star \ldots \star x_1&#39; \\
+        &amp; = x_1 \star\ldots\star x_{n-1} \star  e \star x&#39;_{n-1}
+\star \ldots \star x_1&#39; \\
+        &amp; = x_1 \star\ldots\star x_{n-1} \star x&#39;_{n-1} \star
+\ldots \star x_1&#39; \\
+        &amp; = x_1 \star\ldots\star e \star \ldots \star x_1&#39; \\
+        &amp; \ldots \\
+        &amp; = e.
+    \end{aligned}\]</span></p>
+</div>
+<div class="wexs">
+<ul>
+<li><p>Si <span class="math inline">\(E = \mathbb{R}\)</span>, et <span
+class="math inline">\(x \in \mathbb{R}\)</span>, <span
+class="math inline">\(-x\)</span> est le symétrique de <span
+class="math inline">\(x\)</span> pour <span
+class="math inline">\(+\)</span>. De plus, si <span
+class="math inline">\(x \neq 0\)</span>, <span
+class="math inline">\(\frac{1}{x}\)</span> est le symétrique de <span
+class="math inline">\(x\)</span> pour <span
+class="math inline">\(\times\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(E = \mathbb{Z}\)</span>, les seuls
+éléments symétrisables par <span class="math inline">\(\times\)</span>
+sont <span class="math inline">\(\pm 1\)</span>.</p></li>
+<li><p>Dans <span
+class="math inline">\(\mathscr{F}(\mathbb{R},\mathbb{R})\)</span>, les
+fonctions symétrisables par <span class="math inline">\(\circ\)</span>
+sont les bijections.</p></li>
+</ul>
+</div>
+<h2 data-number="1.6"
+id="distributivité-dune-loi-de-composition-interne-par-rapport-à-une-autre"><span
+class="header-section-number">1.6</span> Distributivité d’une loi de
+composition interne par rapport à une autre</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(\star,\odot\)</span> des lois de
+compositions internes dans un ensemble non vide <span
+class="math inline">\(E\)</span>. On dit que <span
+class="math inline">\(\odot\)</span> est <u>distributive</u> par rapport
+à <span class="math inline">\(\star\)</span> si</p>
+<p><span class="math display">\[\forall x,y,z \in E, x\odot(y\star z) =
+(x\odot y)\star(x\odot z) \text{ et }(y \star z)\odot x = (y\odot
+x)\star (z \odot x).\]</span></p>
+</div>
+<div class="wexs">
+<ul>
+<li><p>Dans <span class="math inline">\(E =\mathbb{R}\)</span>, <span
+class="math inline">\(\times\)</span> est distributive par rapport à
+<span class="math inline">\(+\)</span> car <span
+class="math display">\[\forall x,y,z \in E, x(y+ z) = xy+xz \text{ et
+}(y + z) x = y x+zx.\]</span> <span class="math inline">\(+\)</span>
+n’est pas distributive par rapport à <span
+class="math inline">\(\times\)</span> car on n’a pas en général pour
+<span class="math inline">\(x,y,z \in \mathbb{R}\)</span>, <span
+class="math display">\[x+(yz) = (x+y)(x+z)\]</span> Avec et <span
+class="math inline">\(x=1,y=0,z=2\)</span> par exemple on a <span
+class="math inline">\(x+(yz) = 1 \neq 2 =  (x+y)(x+z)\)</span>.</p></li>
+<li><p>Dans <span
+class="math inline">\(\mathscr{F}(\mathbb{R},\mathbb{R})\)</span>, <span
+class="math inline">\(\circ\)</span> n’est pas distributive par rapport
+à <span class="math inline">\(+\)</span>.</p>
+<p>Avec par exemple <span class="math inline">\(f : x \in \mathbb{R}
+\mapsto x^2 \in \mathbb{R}, g : x \in \mathbb{R} \mapsto x+1 \in
+\mathbb{R},h : x \in \mathbb{R} \mapsto x \in \mathbb{R}\)</span>, pour
+<span class="math inline">\(x\in \mathbb{R}\)</span>,</p>
+<p><span class="math inline">\((f\circ (g+h))(x) = (2x+1)^2 =
+4x^2+4x+1\)</span> et <span class="math inline">\((f\circ g)(x) +
+(f\circ h)(x) = (x+1)^2+x^2 = 2x^2+2x+1\)</span></p></li>
+<li><p>Soit <span class="math inline">\(E\)</span> un ensemble
+quelconque, dans <span class="math inline">\(\mathscr{P}(E)\)</span>,
+<span class="math inline">\(\cup\)</span> est distributive par rapport à
+<span class="math inline">\(\cap\)</span> et <span
+class="math inline">\(\cap\)</span> est distributive par rapport à <span
+class="math inline">\(\cup\)</span> car on a montré que pour <span
+class="math inline">\(A,B,C \in \mathscr{P}(E)\)</span>, <span
+class="math display">\[\begin{aligned}
+        A \cup(B\cap C) &amp; = (A\cup B) \cap (A\cup C) \\
+        \text{ et }A \cap(B\cup C) &amp; = (A\cap B) \cup (A\cap C).
+    \end{aligned}\]</span></p></li>
+</ul>
+</div>
+<h2 data-number="1.7"
+id="partie-stable-par-star-et-loi-induite-par-star"><span
+class="header-section-number">1.7</span> Partie stable par <span
+class="math inline">\(\star\)</span> et loi induite par <span
+class="math inline">\(\star\)</span></h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un ensemble non vide et
+<span class="math inline">\(\star\)</span> une loi de composition
+interne dans <span class="math inline">\(E\)</span>.</p>
+<p>Soit <span class="math inline">\(A \in \mathscr{P}(E)\)</span>, une
+partie non vide. On dit que <span class="math inline">\(A\)</span> est
+<u>stable</u> par <span class="math inline">\(\star\)</span> si <span
+class="math display">\[\forall x,y \in A, x\star y \in A.\]</span></p>
+<p>Si <span class="math inline">\(A\)</span> est stable par <span
+class="math inline">\(\star\)</span>, on peut considérer la loi de
+composition interne dans <span class="math inline">\(A\)</span> <span
+class="math display">\[\begin{array}{lllll}
+\star_A &amp; : &amp; A\times A &amp; \to &amp; A \\
+   &amp;   &amp; (x,y) &amp; \mapsto &amp; x\star y
+\end{array}\]</span> appelée la loi induite par <span
+class="math inline">\(\star\)</span> sur <span
+class="math inline">\(A\)</span>.</p>
+</div>
+<div class="wexs">
+<ul>
+<li><p>Si <span class="math inline">\(E = \mathbb{Z}\)</span> et <span
+class="math inline">\(A = \mathbb{N}\)</span>,</p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{N}\)</span> n’est pas stable
+par <span class="math inline">\(-\)</span> car pour <span
+class="math inline">\(x = 1,y=2 \in \mathbb{N}\)</span>, <span
+class="math inline">\(x-y=-1\notin \mathbb{N}\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathbb{N}\)</span> stable par <span
+class="math inline">\(+\)</span> car pour <span
+class="math inline">\(x,y \in \mathbb{N}, x+y\in
+\mathbb{N}\)</span>.</p></li>
+</ul></li>
+<li><p>Si <span class="math inline">\(E =
+\mathscr{F}(\mathbb{R},\mathbb{R})\)</span> et <span
+class="math inline">\(A = \mathscr{C}(\mathbb{R},\mathbb{R})\)</span>,
+<span class="math inline">\(A\)</span> est stable par <span
+class="math inline">\(+\)</span> et <span
+class="math inline">\(\circ\)</span>.</p></li>
+</ul>
+</div>
+<h1 data-number="2" id="la-structure-de-groupe"><span
+class="header-section-number">2</span> La structure de groupe</h1>
+<h2 data-number="2.1" id="définition-1"><span
+class="header-section-number">2.1</span> Définition</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(G\)</span> un ensemble non vide et
+<span class="math inline">\(\star\)</span> une loi de composition
+interne dans <span class="math inline">\(G\)</span>.</p>
+<p>La donnée de <span class="math inline">\(G\)</span> et de <span
+class="math inline">\(\star\)</span> définit un groupe, noté <span
+class="math inline">\((G,\star)\)</span> (ou <span
+class="math inline">\(G\)</span>) si</p>
+<ul>
+<li><p><span class="math inline">\(\star\)</span> est
+associative,</p></li>
+<li><p><span class="math inline">\(G\)</span> possède un élément neutre
+pour <span class="math inline">\(\star\)</span>, noté <span
+class="math inline">\(e_G\)</span>,</p></li>
+<li><p>Tout élément de <span class="math inline">\(G\)</span> est
+symétrisable pour <span class="math inline">\(\star\)</span>.</p></li>
+</ul>
+<p>Si de plus, <span class="math inline">\(\star\)</span> est
+commutative, on dit que <span class="math inline">\((G,\star)\)</span>
+est un groupe commutatif.</p>
+</div>
+<div class="wexs">
+<ul>
+<li><p>Soit E un ensemble non vide et <span class="math inline">\(G =
+\mathscr{B}(E,E)\)</span>. Alors <span
+class="math inline">\((G,\circ)\)</span> est un groupe (non
+commutatif).</p></li>
+<li><p><span
+class="math inline">\((\mathbb{Z},+),(\mathbb{Q},+),(\mathbb{R},+),(\mathbb{C},+)\)</span>
+sont des groupes commutatifs.</p></li>
+<li><p>Soit <span class="math inline">\(D\)</span> une partie de <span
+class="math inline">\(\mathbb{R}\)</span> non vide, <span
+class="math inline">\((\mathscr{F}(D,\mathbb{R}),+)\)</span> est un
+groupe commutatif.</p></li>
+<li><p><span
+class="math inline">\((\mathbb{Q}^\star,\times),\mathbb{Q}^{+\star},\times),(\mathbb{R}^{\star},\times),(\mathbb{R}^{+\star},\times),(\mathbb{C}^\star,\times)\)</span>
+sont des groupes commutatifs.</p></li>
+<li><p><span class="math inline">\((\mathbb{Z}^{\star},\times)\)</span>
+n’est pas un groupe.</p></li>
+</ul>
+</div>
+<h2 data-number="2.2" id="sous-groupe"><span
+class="header-section-number">2.2</span> Sous-groupe</h2>
+<h3 data-number="2.2.1" id="définition-2"><span
+class="header-section-number">2.2.1</span> Définition</h3>
+<div class="wdefi">
+<p>Soit <span class="math inline">\((G,\star)\)</span> un groupe et
+<span class="math inline">\(H \subset G\)</span>. <span
+class="math inline">\(H\)</span> est un sous-groupe de <span
+class="math inline">\(G\)</span> si</p>
+<ol>
+<li><p><span class="math inline">\(e_G \in H\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall x,y \in H, x \star y \in
+H\)</span> (<span class="math inline">\(H\)</span> est stable par <span
+class="math inline">\(\star\)</span>),</p></li>
+<li><p><span class="math inline">\(\forall x \in H, x&#39; \in
+H\)</span>.</p></li>
+</ol>
+</div>
+<div class="wrem">
+<p>Comme <span class="math inline">\(H\)</span> est stable par <span
+class="math inline">\(\star\)</span>, on peut considérer la loi induite
+<span class="math inline">\(\star_H\)</span> et alors <span
+class="math inline">\((H,\star_H)\)</span> est un groupe.</p>
+</div>
+<div class="wexs">
+<ul>
+<li><p>Soit <span class="math inline">\((G,\star)\)</span> un groupe,
+<span class="math inline">\(H = \left\{e_G\right\}\)</span> est un
+sous-groupe de <span class="math inline">\(G\)</span>.</p>
+<div class="wproof">
+<ol>
+<li><p><span class="math inline">\(e_G \in H\)</span>,</p></li>
+<li><p>Pour <span class="math inline">\(x,y \in H\)</span>, <span
+class="math inline">\(x = y =e_G\)</span> donc <span
+class="math inline">\(x\star y = e_G \in H\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(x\in H\)</span>, <span
+class="math inline">\(x=e_G\)</span> donc <span
+class="math inline">\(x&#39;=e_G \in H\)</span>.</p></li>
+</ol>
+</div></li>
+<li><p>Soit <span class="math inline">\((G,\star)\)</span> un groupe et
+<span class="math inline">\(a \in G\)</span> tel que <span
+class="math inline">\(a \neq e_G\)</span> alors <span
+class="math inline">\(H = \left\{a\right\}\)</span> n’est pas
+sous-groupe de <span class="math inline">\(G\)</span> (car <span
+class="math inline">\(e_G \notin H\)</span>).</p></li>
+<li><p>Soit <span class="math inline">\(n \in \mathbb{Z}\)</span>, <span
+class="math inline">\(n\mathbb{Z}= \left\{nk /k \in
+\mathbb{Z}\right\}\)</span> est un sous-groupe de <span
+class="math inline">\((\mathbb{Z},+)\)</span>.</p>
+<div class="wproof">
+<p>Soient <span class="math inline">\(x,y \in n\mathbb{Z}\)</span>, il
+existe <span class="math inline">\(k,\ell \in \mathbb{Z}\)</span> tels
+que <span class="math inline">\(x=nk\)</span> et <span
+class="math inline">\(y=n\ell\)</span>.</p>
+<ol>
+<li><p><span class="math inline">\(0 = n.0 \in H\)</span>,</p></li>
+<li><p><span class="math inline">\(x+y=nk+n\ell = n(k+\ell) \in
+n\mathbb{Z}\)</span>,</p></li>
+<li><p><span class="math inline">\(-x=-nk = n(-k) \in
+\mathbb{Z}\)</span>.</p></li>
+</ol>
+</div></li>
+<li><p><span class="math inline">\(\mathbb{N}\)</span> n’est pas un
+sous-groupe de <span class="math inline">\((\mathbb{Z},+)\)</span> car
+si <span class="math inline">\(x \in \mathbb{N}^{\star}, -x \notin
+\mathbb{N}^{\star}\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(\mathbb{U} = \left\{z \in
+\mathbb{C}/ |z|=1\right\}\)</span>, <span
+class="math inline">\(\mathbb{U}\)</span> est un sous-groupe de <span
+class="math inline">\((\mathbb{C}^\star,\times)\)</span>.</p>
+<div class="wproof">
+<ol>
+<li><p><span class="math inline">\(1 \in \mathbb{U}\)</span>,</p></li>
+<li><p>Soient <span class="math inline">\(z_1,z_2 \in
+\mathbb{U}\)</span>, <span class="math inline">\(|z_1z_2| = |z_1||z_2| =
+1\)</span> donc <span class="math inline">\(z_1z_2 \in
+\mathbb{U}\)</span>,</p></li>
+<li><p>Soit <span class="math inline">\(z_1 \in \mathbb{U}\)</span>,
+<span class="math inline">\(\left|\frac{1}{z_1}\right| = \frac{1}{|z_1|}
+= 1\)</span> donc <span class="math inline">\(\frac{1}{z_1} \in
+\mathbb{U}\)</span>.</p></li>
+</ol>
+</div></li>
+<li><p>Soit <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span>, <span class="math inline">\(\mathbb{U}_n =
+\left\{z \in \mathbb{C}/ z^n=1\right\}\)</span>, <span
+class="math inline">\(\mathbb{U}_n\)</span> est un sous-groupe de <span
+class="math inline">\((\mathbb{C}^\star,\times)\)</span>.</p>
+<div class="wproof">
+<ol>
+<li><p><span class="math inline">\(1 \in \mathbb{U}_n\)</span>,</p></li>
+<li><p>Soient <span class="math inline">\(z_1,z_2 \in
+\mathbb{U}_n\)</span>, <span class="math inline">\((z_1z_2)^n =
+z_1^nz_2^n = 1\)</span> donc <span class="math inline">\(z_1z_2 \in
+\mathbb{U}_n\)</span>,</p></li>
+<li><p>Soit <span class="math inline">\(z_1 \in \mathbb{U}_n\)</span>,
+<span class="math inline">\(\left(\frac{1}{z_1}\right)^n =
+\frac{1}{z_1^n} = 1\)</span> donc <span
+class="math inline">\(\frac{1}{z_1} \in \mathbb{U}_n\)</span>.</p></li>
+</ol>
+</div></li>
+</ul>
+</div>
+<h3 data-number="2.2.2" id="intersection-ou-union-de-sous-groupes"><span
+class="header-section-number">2.2.2</span> Intersection ou union de
+sous-groupes</h3>
+<div class="wprop">
+<p>Soit <span class="math inline">\((G,\star)\)</span> un groupe, <span
+class="math inline">\(H_1,H_2\)</span> sous-groupes de <span
+class="math inline">\((G,\star)\)</span>.</p>
+<p>Alors <span class="math inline">\(H_1 \cap H_2\)</span> est un
+sous-groupe de <span class="math inline">\((G,\star)\)</span>.</p>
+</div>
+<div class="wproof">
+<ol>
+<li><p><span class="math inline">\(H_1,H_2\)</span> sont des
+sous-groupes donc <span class="math inline">\(e_G \in H_1, e_G \in
+H_2\)</span> donc <span class="math inline">\(e_G \in H_1 \cap
+H_2\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(x,y \in H_1 \cap H_2\)</span>,
+<span class="math inline">\(x,y \in H_1\)</span> et <span
+class="math inline">\(H_1\)</span> est un sous-groupe donc <span
+class="math inline">\(x\star y \in H_1\)</span> et <span
+class="math inline">\(x,y \in H_2\)</span> et <span
+class="math inline">\(H_2\)</span> est un sous-groupe donc <span
+class="math inline">\(x\star y \in H_2\)</span>. On en déduit que <span
+class="math inline">\(x\star y \in H_1 \cap H_2\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(x \in H_1 \cap H_2\)</span>,
+<span class="math inline">\(x \in H_1\)</span> et <span
+class="math inline">\(H_1\)</span> est un sous-groupe donc <span
+class="math inline">\(x&#39; \in H_1\)</span> et <span
+class="math inline">\(x \in H_2\)</span> et <span
+class="math inline">\(H_2\)</span> est un sous-groupe donc <span
+class="math inline">\(x&#39; \in H_2\)</span>. On en déduit que <span
+class="math inline">\(x&#39; \in H_1 \cap H_2\)</span>.</p></li>
+</ol>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\((G,\star)\)</span> un groupe, <span
+class="math inline">\(H_1,H_2\)</span> sous-groupes de <span
+class="math inline">\((G,\star)\)</span>.</p>
+<p>Alors, en général, <span class="math inline">\(H_1 \cup H_2\)</span>
+n’est pas un sous-groupe de <span
+class="math inline">\((G,\star)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Il suffit de donner un contre-exemple. Avec <span
+class="math inline">\(G = \mathbb{Z}, \star = +, H_1 = 2\mathbb{Z}, H_2
+= 3\mathbb{Z}\)</span> alors <span class="math inline">\(2,3 \in H_1
+\cup H_2\)</span> mais <span class="math inline">\(2+3 =5 \notin H_1
+\cup H_2\)</span>.</p>
+</div>
+<h2 data-number="2.3" id="morphisme-de-groupes"><span
+class="header-section-number">2.3</span> Morphisme de groupes</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\((G,\star)\)</span> et <span
+class="math inline">\((G&#39;,\odot)\)</span> deux groupes et <span
+class="math inline">\(f \in \mathscr{F}(G,G&#39;)\)</span>.</p>
+<p><span class="math inline">\(f\)</span> est un morphisme de groupes de
+<span class="math inline">\(G\)</span> dans <span
+class="math inline">\(G&#39;\)</span> si <span
+class="math display">\[\forall x,y \in G, f(x\star y) = f(x) \odot
+f(y).\]</span></p>
+</div>
+<div class="wexs">
+<ul>
+<li><p>Avec <span class="math inline">\((G,\star) = (G&#39;,\odot)
+=(\mathbb{R},+)\)</span>. Soit <span class="math inline">\(a \in
+\mathbb{R}\)</span>, <span class="math inline">\(f_a : x \in \mathbb{R}
+\mapsto ax \in \mathbb{R}\)</span> est un morphisme de <span
+class="math inline">\((\mathbb{R},+)\)</span> dans <span
+class="math inline">\((\mathbb{R},+)\)</span>.</p>
+<p>En effet, pour tout <span class="math inline">\(x,y \in
+\mathbb{R}\)</span>, <span class="math display">\[f_a(x+y) = a(x+y) =
+ax+ay = f_a(x)+f_a(y).\]</span></p></li>
+<li><p>Avec <span class="math inline">\((G,\star)
+=(\mathbb{R}^{+\star},\times) \text{ et }(G&#39;,\odot)
+=(\mathbb{R},+)\)</span>, <span class="math inline">\(\ln\)</span> est
+un morphisme de <span class="math inline">\(G\)</span> dans <span
+class="math inline">\(G&#39;\)</span>.</p></li>
+<li><p>Avec <span class="math inline">\((G,\star) =(\mathbb{R},+) \text{
+et }(G&#39;,\odot) =(\mathbb{C}^\star,\times)\)</span>, <span
+class="math inline">\(f : t \in \mathbb{R} \mapsto e^{it} \in
+\mathbb{C}^\star\)</span> est un morphisme de <span
+class="math inline">\(G\)</span> dans <span
+class="math inline">\(G&#39;\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\((G,\star)\)</span> un groupe, en
+général, <span class="math inline">\(f : x \in G \mapsto x&#39; \in
+G\)</span> n’est pas un morphisme de <span
+class="math inline">\(G\)</span> dans <span
+class="math inline">\(G\)</span>. En revanche, c’en est bien un si <span
+class="math inline">\(G\)</span> est commutatif.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\((G,\star)\)</span> et <span
+class="math inline">\((G&#39;,\odot)\)</span> deux groupes et <span
+class="math inline">\(f \in \mathscr{F}(G,G&#39;)\)</span>, un morphisme
+de groupes de <span class="math inline">\(G\)</span> dans <span
+class="math inline">\(G&#39;\)</span>.</p>
+<p>Alors</p>
+<ul>
+<li><p><span class="math inline">\(f(e_G) =
+e_{G&#39;}\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall x \in G, f(x&#39;) =
+\left(f(x)\right)&#39;\)</span>.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Soit <span class="math inline">\(x_0 \in G\)</span>, <span
+class="math inline">\(x_0 = x_0 \star e_G\)</span> donc <span
+class="math inline">\(f(x_0) = f(x_0 \star e_G) = f(x_0) \odot
+f(e_G)\)</span>.</p>
+<p>On a donc aussi <span class="math inline">\(e_{G&#39;} =
+\left(f(x_0)\right)&#39; \odot f(x_0) = \left(f(x_0)\right)&#39; \odot
+f(x_0) \odot f(e_G) = f(e_G)\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(x \in G\)</span>,</p>
+<p><span class="math inline">\(e_G = x\star x&#39;\)</span> donc <span
+class="math inline">\(e_{G&#39;} = f(e_G) = f( x\star x&#39;) = f(x)
+\odot f(x&#39;)\)</span></p>
+<p>et <span class="math inline">\(e_G = x&#39;\star x\)</span> donc
+<span class="math inline">\(e_{G&#39;} = f(e_G) = f( x&#39;\star x) =
+f(x&#39;) \odot f(x)\)</span>.</p>
+<p>Donc <span class="math inline">\(f(x&#39;) =
+\left(f(x)\right)&#39;\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\((G,\star)\)</span> et <span
+class="math inline">\((G&#39;,\odot)\)</span> deux groupes et <span
+class="math inline">\(f \in \mathscr{F}(G,G&#39;)\)</span>, un morphisme
+de groupes de <span class="math inline">\(G\)</span> dans <span
+class="math inline">\(G&#39;\)</span>.</p>
+<p>Alors <span class="math inline">\(\mathop{\mathrm{Im}}f\)</span> est
+un sous-groupe de <span class="math inline">\(G&#39;\)</span>.</p>
+</div>
+<div class="wproof">
+<ol>
+<li><p><span class="math inline">\(e_{G&#39;} = f(e_G) \in
+\mathop{\mathrm{Im}}f\)</span>,</p></li>
+<li><p>Soient <span class="math inline">\(y_1,y_2 \in
+\mathop{\mathrm{Im}}f\)</span>, il existe <span
+class="math inline">\(x_1,x_2 \in G\)</span> tels que <span
+class="math inline">\(y_1 = f(x_1)\)</span> et <span
+class="math inline">\(y_2 = f(x_2)\)</span>.</p>
+<p>Donc <span class="math inline">\(y_1 \odot y_2 = f(x_1) \odot f(x_2)
+= f(\underbrace{x_1 \star x_2}_{\in G}) \in
+\mathop{\mathrm{Im}}f\)</span>.</p></li>
+</ol>
+</div>
+<div class="wdefi">
+<p>Soient <span class="math inline">\((G,\star)\)</span> et <span
+class="math inline">\((G&#39;,\odot)\)</span> deux groupes et <span
+class="math inline">\(f \in \mathscr{F}(G,G&#39;)\)</span>, un morphisme
+de groupes de <span class="math inline">\(G\)</span> dans <span
+class="math inline">\(G&#39;\)</span>.</p>
+<p>On définit le noyau de <span class="math inline">\(f\)</span>, noté
+<span class="math inline">\(\mathop{\mathrm{Ker}}f\)</span> par <span
+class="math display">\[\mathop{\mathrm{Ker}}f = \left\{x \in G / f(x) =
+e_{G&#39;}\right\}.\]</span></p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\((G,\star)\)</span> et <span
+class="math inline">\((G&#39;,\odot)\)</span> deux groupes et <span
+class="math inline">\(f \in \mathscr{F}(G,G&#39;)\)</span>, un morphisme
+de groupes de <span class="math inline">\(G\)</span> dans <span
+class="math inline">\(G&#39;\)</span>, alors <span
+class="math inline">\(\mathop{\mathrm{Ker}}f\)</span> est un sous-groupe
+de <span class="math inline">\(G\)</span>.</p>
+</div>
+<div class="wproof">
+<ol>
+<li><p><span class="math inline">\(e_G \in
+\mathop{\mathrm{Ker}}f\)</span>,</p></li>
+<li><p>Soient <span class="math inline">\(x_1,x_2 \in
+\mathop{\mathrm{Ker}}f\)</span>, <span class="math inline">\(f(x_1 \star
+x_2) = f(x_1) \odot f(x_2) = e_{G&#39;} \odot
+e_{G&#39;}=e_{G&#39;}\)</span> donc <span class="math inline">\(x_1
+\star x_2 \in \mathop{\mathrm{Ker}}f\)</span>,</p></li>
+<li><p>Soit <span class="math inline">\(x \in
+\mathop{\mathrm{Ker}}f\)</span>, <span class="math inline">\(f(x&#39;) =
+\left(f(x)\right)&#39; = \left(e_{G&#39;}\right)&#39; =
+e_{G&#39;}\)</span> donc <span class="math inline">\(x&#39; \in
+\mathop{\mathrm{Ker}}f\)</span>.</p></li>
+</ol>
+</div>
+<div class="wex">
+<p>Pour <span class="math inline">\(f : t \in \mathbb{R} \mapsto e^{it}
+\in \mathbb{C}^\star\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Ker}}f = \left\{2k\pi / k \in
+\mathbb{Z}\right\}\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\((G,\star)\)</span> et <span
+class="math inline">\((G&#39;,\odot)\)</span> deux groupes et <span
+class="math inline">\(f \in \mathscr{F}(G,G&#39;)\)</span>, un morphisme
+de groupes de <span class="math inline">\(G\)</span> dans <span
+class="math inline">\(G&#39;\)</span>.</p>
+<p>Alors <span class="math inline">\(f\)</span> injective <span
+class="math inline">\(\iff \mathop{\mathrm{Ker}}f =
+\left\{e_G\right\}\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(f\)</span> injective, <span
+class="math inline">\(e_G\)</span> est l’unique antécédent de <span
+class="math inline">\(e_{G&#39;}\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{Ker}}f =
+\left\{e_G\right\}\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Si <span
+class="math inline">\(\mathop{\mathrm{Ker}}f =
+\left\{e_G\right\}\)</span>, soient <span class="math inline">\(x_1,x_2
+\in G\)</span> alors <span class="math inline">\(f(x_1) = f(x_2)
+\Longrightarrow f(x_1) \odot \left(f(x_2)\right)&#39; = e_{G&#39;}
+\Longrightarrow f(x_1) \odot f(x_2&#39;) = e_{G&#39;} \Longrightarrow
+f(x_1 \star x_2&#39;) = e_{G&#39;} \Longrightarrow x_1 \star x_2&#39;
+\in \mathop{\mathrm{Ker}}f\)</span>.</p>
+<p>Donc <span class="math inline">\(x_1 \star x_2&#39; =e_G \iff x_1 =
+x_2\)</span>.</p></li>
+</ul>
+</div>
+<h1 data-number="3" id="structure-danneau"><span
+class="header-section-number">3</span> Structure d’anneau</h1>
+<h2 data-number="3.1" id="définition-3"><span
+class="header-section-number">3.1</span> Définition</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(A\)</span> un ensemble et <span
+class="math inline">\(+\)</span>,<span
+class="math inline">\(\times\)</span> des lois de composition interne
+dans <span class="math inline">\(A\)</span>, <span
+class="math inline">\((A,+,\times)\)</span> définit un anneau si</p>
+<ul>
+<li><p><span class="math inline">\((A,+)\)</span> est un groupe
+commutatif d’élément neutre <span
+class="math inline">\(0_{A}\)</span>,</p></li>
+<li><p><span class="math inline">\(\times\)</span> est
+associative,</p></li>
+<li><p><span class="math inline">\(A\)</span> possède un élément neutre
+pour <span class="math inline">\(\times\)</span> noté <span
+class="math inline">\(1_A\)</span>,</p></li>
+<li><p><span class="math inline">\(\times\)</span> est distributive par
+rapport à <span class="math inline">\(+\)</span>.</p></li>
+</ul>
+<p>Si <span class="math inline">\(\times\)</span> est commutative, on
+dit que <span class="math inline">\(A\)</span> est un anneau
+commutatif.</p>
+</div>
+<div class="wexs">
+<ul>
+<li><p><span
+class="math inline">\((\mathbb{Z},+,\times),(\mathbb{Q},+,\times),
+(\mathbb{R},+,\times), (\mathbb{C},+,\times)\)</span> sont des
+anneaux,</p></li>
+<li><p>Soit <span class="math inline">\(D \subset \mathbb{R}\)</span>
+non vide, <span
+class="math inline">\((\mathscr{F}(D,\mathbb{R}),+,\times)\)</span> est
+un anneau.</p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>Soit <span class="math inline">\(A\)</span> un anneau et <span
+class="math inline">\(a,b \in A\)</span>,</p>
+<ul>
+<li><p>On pose <span class="math inline">\(0a = 0_A\)</span> et pour
+<span class="math inline">\(p \in \mathbb{N}^{\star}\)</span>, on pose
+<span class="math inline">\(pa = \underbrace{a+a+\ldots+a}_{\text{$p$
+fois}}\)</span> et <span class="math inline">\((-p)a =
+\underbrace{-a-a+\ldots-a}_{\text{$p$ fois}}\)</span>.</p></li>
+<li><p>On pose <span class="math inline">\(a^0 = 1_A\)</span> et pour
+<span class="math inline">\(p \in \mathbb{N}^{\star}\)</span>, on pose
+<span class="math inline">\(a^p = \underbrace{a \times
+a\times\ldots\times a}_{\text{$p$ fois}}\)</span>.</p></li>
+<li><p>On pose <span class="math inline">\(ab = a\times
+b\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(A\)</span> un anneau et <span
+class="math inline">\(a,b \in A\)</span> qui commutent (<span
+class="math inline">\(ab = ba\)</span>).</p>
+<p>Alors, pour <span class="math inline">\(n \in \mathbb{N}\)</span>,
+<span class="math inline">\((a+b)^n = \sum_{k=0}^n \binom{n}{k} a^k
+b^{n-k}.\)</span></p>
+</div>
+<div class="wproof">
+<p>Prouvons ce résultat par récurrence sur <span
+class="math inline">\(n\)</span> pour <span class="math inline">\(a,b
+\in A\)</span> fixés tels que <span
+class="math inline">\(ab=ba\)</span>.</p>
+<p><strong>INITIALISATION :</strong> Si <span class="math inline">\(n =
+0, (a+b)^0 = 1 = \sum_{k=0}^0 \binom{0}{k}a^kb^{0-k} =
+\binom{0}{0}a^0b^{0}\)</span>.</p>
+<p><strong>HÉRÉDITÉ :</strong> Supposons que pour <span
+class="math inline">\(n \in \mathbb{N}^\star\)</span> fixé,<span
+class="math inline">\((a+b)^n = \displaystyle\sum_{k=0}^n
+\binom{n}{k}a^kb^{n-k}.\)</span></p>
+<p>On a alors <span class="math display">\[\begin{aligned}
+    (a+b)^{n+1}
+    &amp; = (a+b)^n(a+b) \\
+    &amp; = \left(\sum_{k=0}^n \binom{n}{k}a^kb^{n-k}\right)(a+b) \text{
+par hypothèse de récurrence}\\
+    &amp; = a\sum_{k=0}^n \binom{n}{k}a^kb^{n-k}+b\sum_{k=0}^n
+\binom{n}{k}a^kb^{n-k} \text{ car $ab=ba$}\\
+    &amp; = \underbrace{\sum_{k=0}^{n}\binom{n}{k}a^{k+1}b^{n-k}}_{=
+S_1} + \sum_{k=0}^{n}\binom{n}{k}a^{k}b^{n+1-k}\text{ car $ab=ba$}
+\end{aligned}\]</span> En utilisant le changement d’indice <span
+class="math inline">\(\ell = k+1\)</span>, <span
+class="math display">\[S_1 = \displaystyle\sum_{\ell =
+1}^{n+1}\binom{n}{\ell-1}a^\ell b^{n-(\ell-1)}=\sum_{\ell =
+1}^{n+1}\binom{n}{\ell-1}a^\ell b^{n+1-\ell}\]</span></p>
+<p>D’où : <span class="math display">\[\begin{aligned}
+    (a+b)^{n+1}
+    &amp; = \sum_{\ell = 1}^{n+1}\binom{n}{\ell-1}a^\ell b^{n+1-\ell} +
+\sum_{\ell=0}^{n}\binom{n}{\ell}a^{\ell}b^{n+1-\ell} \\
+    &amp; = \sum_{\ell = 1}^{n}\binom{n}{\ell-1}a^\ell b^{n+1-\ell} +
+\binom{n}{n}a^{n+1}b^0+ \binom{n}{0}a^0b^{n+1}+
+\sum_{\ell=1}^{n}\binom{n}{\ell}a^{\ell}b^{n+1-\ell} \\
+    &amp; = \underbrace{\binom{n}{n}}_{ =1= \binom{n+1}{n+1}}a^{n+1}b^0+
+\underbrace{\binom{n}{0}}_{=1=\binom{n+1}{0}}a^0b^{n+1}+\sum_{\ell=1}^{n}\underbrace{\left(\binom{n}{\ell-1}
++ \binom{n}{\ell}\right)}_{ = \binom{n+1}{\ell}}a^{\ell}b^{n+1-\ell} \\
+    &amp; = \sum_{\ell=0}^{n+1} \binom{n+1}{\ell}a^\ell b^{n+1-\ell}
+\end{aligned}\]</span> <strong>Conclusion :</strong> <span
+class="math inline">\(\forall n \in \mathbb{N}\)</span>, on a <span
+class="math inline">\((a+b)^n = \displaystyle\sum_{k=0}^n
+\binom{n}{k}a^kb^{n-k}\)</span>.</p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\((A,+,\times)\)</span> un anneau,
+<span class="math inline">\(A\)</span> est dit <u>intègre</u> si <span
+class="math display">\[a,b \in A \text{ et }a\times b = 0_A
+\Longrightarrow a=0_A \text{ ou }b = 0_A.\]</span></p>
+</div>
+<div class="wexs">
+<ul>
+<li><p><span
+class="math inline">\((\mathbb{Z},+,\times),(\mathbb{Q},+,\times),
+(\mathbb{R},+,\times), (\mathbb{C},+,\times)\)</span> sont des anneaux
+intègres,</p></li>
+<li><p><span
+class="math inline">\((\mathscr{F}(\mathbb{R},\mathbb{R}),+,\times)\)</span>
+n’est pas un anneau intègre. Par exemple, soit <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \begin{cases}
+            x &amp; \mbox{ si } x &gt; 0 \\
+            0 &amp; \mbox{ si } x \geq 0
+        \end{cases}
+\end{array}\)</span> <span class="math inline">\(\begin{array}{lllll}
+g &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \begin{cases}
+            0 &amp; \mbox{ si } x &gt; 0\\
+            x &amp; \mbox{ si } x \geq 0
+        \end{cases}
+\end{array}\)</span> alors <span class="math inline">\(f\)</span> et
+<span class="math inline">\(g\)</span> sont non nulles mais <span
+class="math inline">\(fg =
+0_{\mathscr{F}(\mathbb{R},\mathbb{R})}\)</span>.</p></li>
+</ul>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(A\)</span> un anneau, l’ensemble des
+inversibles de <span class="math inline">\(A\)</span> noté <span
+class="math inline">\(U(A)\)</span> est l’ensemble des inversibles de
+<span class="math inline">\(A\)</span> pour <span
+class="math inline">\(\times\)</span> ie <span
+class="math display">\[U(A) = \left\{a \in A / \exists b \in A /
+ba=ab=1_A\right\}.\]</span> Pour <span class="math inline">\(a \in
+A\)</span>, on note <span class="math inline">\(a^{-1}\)</span> son
+inverse.</p>
+</div>
+<div class="wexs">
+<ul>
+<li><p><span class="math inline">\(U(\mathbb{Z}) =
+\left\{-1,1\right\}\)</span>, <span class="math inline">\(U(\mathbb{Q})
+= \mathbb{Q}^\star\)</span>, <span class="math inline">\(U(\mathbb{R}) =
+\mathbb{R}^{\star}\)</span>,<span class="math inline">\(U(\mathbb{C}) =
+\mathbb{C}^\star\)</span>.</p></li>
+<li><p><span class="math inline">\(U(\mathscr{F}(\mathbb{R},\mathbb{R}))
+= \left\{f \in \mathscr{F}(\mathbb{R},\mathbb{R}) / \forall x \in
+\mathbb{R}, f(x) \neq 0\right\}\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="3.2" id="sous-anneau"><span
+class="header-section-number">3.2</span> Sous-anneau</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(A\)</span> un anneau et <span
+class="math inline">\(B \subset A\)</span>. <span
+class="math inline">\(B\)</span> est un sous-anneau de <span
+class="math inline">\(A\)</span> si</p>
+<ol>
+<li><p><span class="math inline">\(B\)</span> est un sous-groupe de
+<span class="math inline">\((A,+)\)</span>,</p></li>
+<li><p><span class="math inline">\(1_A \in B\)</span>,</p></li>
+<li><p><span class="math inline">\(B\)</span> est stable par <span
+class="math inline">\(\times\)</span>.</p></li>
+</ol>
+</div>
+<div class="wex">
+<p>Montrons que <span class="math inline">\(B = \left\{a+ib / a,b \in
+\mathbb{Z}\right\}\)</span> est un sous-anneau de <span
+class="math inline">\(\mathbb{C}\)</span>.</p>
+<ol>
+<li><p><span class="math inline">\(B\)</span> est un sous-groupe de
+<span class="math inline">\(\mathbb{C}\)</span> car</p>
+<ul>
+<li><p><span class="math inline">\(0 = 0+0i \in B\)</span>,</p></li>
+<li><p>Pour <span class="math inline">\(z,z&#39; \in B\)</span> tels que
+<span class="math inline">\(z=a+ib\)</span> et <span
+class="math inline">\(z&#39; = a&#39;+ib&#39;\)</span> avec <span
+class="math inline">\(a,a&#39;,b,b&#39; \in \mathbb{Z}\)</span>, <span
+class="math inline">\(z+z&#39; = \underbrace{a+a&#39;}_{\in \mathbb{Z}}
++ i\underbrace{b+b&#39;}_{\in \mathbb{Z}} \in B\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(z \in B\)</span> tels que <span
+class="math inline">\(z=a+ib\)</span> avec <span
+class="math inline">\(a,b, \in \mathbb{Z}\)</span>, <span
+class="math inline">\(-z = \underbrace{-a}_{\in \mathbb{Z}} +
+i\underbrace{(-b)}_{\in \mathbb{Z}} \in B\)</span>.</p></li>
+</ul></li>
+<li><p><span class="math inline">\(1 = 1+0i \in B\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(z,z&#39; \in B\)</span> tels que
+<span class="math inline">\(z=a+ib\)</span> et <span
+class="math inline">\(z&#39; = a&#39;+ib&#39;\)</span> avec <span
+class="math inline">\(a,a&#39;,b,b&#39; \in \mathbb{Z}\)</span>,</p>
+<p><span class="math inline">\(zz&#39; = (a+ib)(a&#39;+ib&#39;) =
+\underbrace{aa&#39;-bb&#39;}_{\in\mathbb{Z}}+i\underbrace{(ab+a&#39;b)}_{\in\mathbb{Z}}
+\in B\)</span>.</p></li>
+</ol>
+</div>
+<h1 data-number="4" id="structure-de-corps"><span
+class="header-section-number">4</span> Structure de corps</h1>
+<h2 data-number="4.1" id="définition-4"><span
+class="header-section-number">4.1</span> Définition</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\((A,+,\times)\)</span> un anneau,
+<span class="math inline">\(A\)</span> est un corps si</p>
+<ol>
+<li><p><span class="math inline">\(A\)</span> est commutatif,</p></li>
+<li><p><span class="math inline">\(A \neq
+\left\{0_{A}\right\}\)</span>,</p></li>
+<li><p>Tout élément de <span class="math inline">\(A\)</span>, <span
+class="math inline">\(\neq 0_{A}\)</span>, est inversible dans <span
+class="math inline">\(A\)</span>.</p></li>
+</ol>
+</div>
+<div class="wexs">
+<ul>
+<li><p><span class="math inline">\((\mathbb{Q},+,\times),
+(\mathbb{R},+,\times), (\mathbb{C},+,\times)\)</span> sont des corps
+mais pas <span
+class="math inline">\((\mathbb{Z},+,\times)\)</span>/</p></li>
+<li><p><span
+class="math inline">\((\mathscr{F}(\mathbb{R},\mathbb{R}),+,\times)\)</span>
+n’est pas un corps.</p></li>
+</ul>
+</div>
+<h2 data-number="4.2" id="sous-corps"><span
+class="header-section-number">4.2</span> Sous-corps</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(\mathbb{K}\)</span> un corps et
+<span class="math inline">\(\mathbb{L} \subset \mathbb{K}\)</span>,
+<span class="math inline">\(\mathbb{L}\)</span> est un sous-corps de
+<span class="math inline">\(\mathbb{K}\)</span> si</p>
+<ol>
+<li><p><span class="math inline">\(\mathbb{L}\)</span> est un
+sous-anneau de <span class="math inline">\(\mathbb{K}\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall x \in
+\mathbb{L}\)</span>,<span class="math inline">\(\neq
+0_{\mathbb{K}}\)</span>, <span class="math inline">\(x^{-1} \in
+\mathbb{K}\)</span>.</p></li>
+</ol>
+</div>
+<div class="wex">
+<p>Montrons que <span class="math inline">\(\mathbb{L} =
+\left\{a+b\sqrt{2} / a,b \in \mathbb{Q}\right\}\)</span> est un
+sous-corps de <span class="math inline">\(\mathbb{R}\)</span>.</p>
+<ol>
+<li><p><span class="math inline">\(\mathbb{L}\)</span> est un
+sous-anneau de <span class="math inline">\(\mathbb{R}\)</span> :</p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{L}\)</span> est un
+sous-groupe de <span class="math inline">\(\mathbb{R}\)</span> :</p>
+<ul>
+<li><p><span class="math inline">\(0 = 0+0\sqrt{2} \in
+\mathbb{L}\)</span>,</p></li>
+<li><p>Pour <span class="math inline">\(x,x&#39; \in \mathbb{L}\)</span>
+tels que <span class="math inline">\(x = a+b\sqrt{2}, x&#39;
+=a&#39;+b&#39;\sqrt{2}\)</span> avec <span
+class="math inline">\(a,a&#39;,b,b&#39; \in \mathbb{Q}\)</span>, <span
+class="math inline">\(x+x&#39; = \underbrace{a+a&#39;}_{\in
+\mathbb{Q}}+\underbrace{b+b&#39;}_{\in \mathbb{Q}}\sqrt{2} \in
+\mathbb{L}\)</span>,</p></li>
+<li><p>Pour <span class="math inline">\(x \in \mathbb{L}\)</span> tel
+que <span class="math inline">\(x = a+b\sqrt{2}\)</span> avec <span
+class="math inline">\(a,b \in \mathbb{Q}\)</span>, <span
+class="math inline">\(-x = \underbrace{-a}_{\in
+\mathbb{Q}}+\underbrace{-b}_{\in \mathbb{Q}}\sqrt{2} \in
+\mathbb{L}\)</span>.</p></li>
+</ul></li>
+<li><p><span class="math inline">\(1= 1+0\sqrt{2} \in
+\mathbb{L}\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(x,x&#39; \in \mathbb{L}\)</span>
+tels que <span class="math inline">\(x = a+b\sqrt{2}, x&#39;
+=a&#39;+b&#39;\sqrt{2}\)</span> avec <span
+class="math inline">\(a,a&#39;,b,b&#39; \in \mathbb{Q}\)</span>,</p>
+<p><span class="math inline">\(xx&#39; =
+(a+b\sqrt{2})(a&#39;+b&#39;\sqrt{2}) =
+\underbrace{aa&#39;+2bb&#39;}_{\in
+\mathbb{Q}}+\underbrace{ab&#39;+a&#39;b}_{\in \mathbb{Q}}\sqrt{2} \in
+\mathbb{L}.\)</span></p></li>
+</ul></li>
+<li><p>Pour <span class="math inline">\(x \in \mathbb{L}\)</span> tel
+que <span class="math inline">\(x = a+b\sqrt{2}\)</span> avec <span
+class="math inline">\(a,b \in \mathbb{Q}\)</span> tel que <span
+class="math inline">\(a+b\sqrt{2} \neq 0\)</span>. On a <span
+class="math inline">\(a-b\sqrt{2} \neq 0\)</span> car sinon on aurait
+<span class="math inline">\(\sqrt{2} \in \mathbb{Q}\)</span>. Donc en
+multipliant par la quantité conjuguée, <span
+class="math inline">\(\frac{1}{x} = \frac{1}{a+b\sqrt{2}} =
+\frac{a-b\sqrt{2}}{(a+b\sqrt{2})(a-b\sqrt{2})} =
+\frac{a-b\sqrt{2}}{a^2-2b^2} =\underbrace{ \frac{a}{a^2-2b^2}}_{\in
+\mathbb{Q}}+\underbrace{ \frac{-b}{a^2-2b^2}}_{\in \mathbb{Q}}\sqrt{2}
+\in \mathbb{L}.\)</span></p></li>
+</ol>
+</div>
+</body>
+</html>
+
+<script>
+
+
+const toggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Appliquer le thème au chargement
+const currentTheme = localStorage.getItem('theme') || 'default';
+body.setAttribute('data-md-color-scheme', currentTheme);
+
+toggle.addEventListener('click', () => {
+    let scheme = body.getAttribute('data-md-color-scheme');
+    let newScheme = (scheme === 'default') ? 'slate' : 'default';
+    
+    body.setAttribute('data-md-color-scheme', newScheme);
+    localStorage.setItem('theme', newScheme);
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+let secCount = -1;
+let thmCount = -1;
+
+let labels = {};
+
+const noms = {
+'wthm':'Théorème',
+'wprop':'Proposition',
+'wdefi':'Définition',
+'wlem':'Lemme',
+'wcor':'Corollaire',
+'wappli':'Application',
+'wrem':'Remarque',
+'wrappel': 'Rappel',
+'wex':'Exemple',
+'wproof':'Preuve'
+};
+
+//////////////////////////////////////////////////////////////////////////////
+// Numérotation des environnements
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll(
+"h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex, .wrappel,.wproof"
+).forEach(el => {
+
+    if (
+        el.tagName.toLowerCase() === "h1"
+        && !el.closest("#TOC")
+    ) {
+
+        secCount++;
+        thmCount = 0;
+    }
+
+    else if (noms[Array.from(el.classList).find(c => noms[c])]) {
+
+        let type = Array.from(el.classList).find(c => noms[c]);
+
+        if (type !== 'wproof') {
+
+            thmCount++;
+
+            let num = secCount + "." + thmCount;
+
+            let id = el.querySelector("span[id]")
+                ? el.querySelector("span[id]").id
+                : null;
+
+            if(id) {
+                labels[id] = {
+                    num: num,
+                    type: type.substring(1)
+                };
+            }
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                let strong = p.querySelector("strong");
+
+                let title = (
+                    strong &&
+                    strong.innerText.includes("(")
+                )
+
+                ? ` <span class="env-title">${strong.outerHTML}</span>`
+                : "";
+
+                if (title) strong.remove();
+
+                p.innerHTML =
+                    `<strong class="env-header">${noms[type]} ${num}</strong>`
+                    + title
+                    + " — "
+                    + p.innerHTML;
+            }
+        }
+
+        else {
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                p.innerHTML =
+                    `<strong class="env-header">Preuve</strong> — `
+                    + p.innerHTML;
+            }
+        }
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Capture des équations MathJax
+//////////////////////////////////////////////////////////////////////////////
+
+setTimeout(() => {
+
+document.querySelectorAll("mjx-math[display='true']").forEach((el, index) => {
+
+    let num = el.querySelector(".mjx-eqn-number");
+
+    if (num) {
+
+        let val = num.innerText.replace(/[()]/g, '');
+
+        let id = el.id || "eq-" + index;
+
+        el.id = id;
+
+        labels[id] = {
+            num: val,
+            type: 'eq'
+        };
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Remplacement des références
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll("body *").forEach(el => {
+
+    if (
+        el.childNodes.length === 1 &&
+        el.childNodes[0].nodeType === Node.TEXT_NODE
+    ) {
+
+        el.innerHTML = el.innerHTML
+
+        .replace(/\\eqref\{(.*?)\}/g, (m, id) => {
+
+            return labels[id]
+                ? `<a href="#${id}">(${labels[id].num})</a>`
+                : m;
+        })
+
+        .replace(
+            /\[(prop|thm|def|cor|lem|appli|rem|rappel|ex):(.*?)\]/g,
+
+            (m, t, id) => {
+
+                let f = t + ":" + id;
+
+                return labels[f]
+                    ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>`
+                    : m;
+            }
+        );
+    }
+});
+
+}, 800);
+
+});
+
+</script>
+

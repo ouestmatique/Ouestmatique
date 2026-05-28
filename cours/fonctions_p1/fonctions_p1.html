@@ -1,0 +1,3082 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Fonctions d’une variable réelle (Première partie) Continuité et limite</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+
+<header class="site-header">
+
+<div class="site-header-left">
+<a href="/">
+<img src="/assets/logo.svg" class="site-logo" alt="Logo">
+</a>
+</div>
+
+<div class="site-header-right">
+   <button id="theme-toggle"
+style="
+margin-right: 15px;
+cursor: pointer;
+background: transparent;
+border: none;
+font-size: 1.1rem;
+color: var(--md-primary-bg-color);
+">
+🌙 / ☀️
+</button>
+    <a href="/" class="home-link">Retour à l’accueil</a>
+</div>
+
+</header>
+
+
+<header id="title-block-header">
+
+<h1 class="title">Fonctions d’une variable réelle (Première
+partie)<br />
+Continuité et limite</h1>
+<p class="pdf-link">
+<a href="fonctions_p1.pdf" target="_blank">[PDF]</a>
+</p>
+
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#définitions-préliminaires"
+id="toc-définitions-préliminaires"><span
+class="toc-section-number">1</span> Définitions préliminaires</a></li>
+<li><a href="#continuité" id="toc-continuité"><span
+class="toc-section-number">2</span> Continuité</a>
+<ul>
+<li><a href="#définition" id="toc-définition"><span
+class="toc-section-number">2.1</span> Définition</a></li>
+<li><a href="#caractérisation-séquentielle-de-la-continuité"
+id="toc-caractérisation-séquentielle-de-la-continuité"><span
+class="toc-section-number">2.2</span> Caractérisation séquentielle de la
+continuité</a></li>
+<li><a href="#premières-propriétés" id="toc-premières-propriétés"><span
+class="toc-section-number">2.3</span> Premières propriétés</a></li>
+<li><a href="#opérations-sur-les-fonctions-continues"
+id="toc-opérations-sur-les-fonctions-continues"><span
+class="toc-section-number">2.4</span> Opérations sur les fonctions
+continues</a></li>
+<li><a href="#continuité-sur-un-intervalle"
+id="toc-continuité-sur-un-intervalle"><span
+class="toc-section-number">2.5</span> Continuité sur un
+intervalle</a></li>
+<li><a href="#fonction-lipschitzienne-sur-un-intervalle"
+id="toc-fonction-lipschitzienne-sur-un-intervalle"><span
+class="toc-section-number">2.6</span> Fonction lipschitzienne sur un
+intervalle</a></li>
+<li><a href="#théorème-des-valeurs-intermédiaires"
+id="toc-théorème-des-valeurs-intermédiaires"><span
+class="toc-section-number">2.7</span> Théorème des valeurs
+intermédiaires</a></li>
+<li><a href="#fonction-continue-sur-un-segment-ab"
+id="toc-fonction-continue-sur-un-segment-ab"><span
+class="toc-section-number">2.8</span> Fonction continue sur un segment
+<span class="math inline">\([a,b]\)</span></a></li>
+<li><a
+href="#réciproque-dune-fonction-de-i-dans-mathbbr-continue-sur-i-strictement-monotone-sur-i"
+id="toc-réciproque-dune-fonction-de-i-dans-mathbbr-continue-sur-i-strictement-monotone-sur-i"><span
+class="toc-section-number">2.9</span> Réciproque d’une fonction de <span
+class="math inline">\(I\)</span> dans <span
+class="math inline">\(\mathbb{R}\)</span> continue sur <span
+class="math inline">\(I\)</span>, strictement monotone sur <span
+class="math inline">\(I\)</span></a></li>
+</ul></li>
+<li><a href="#limite-en-un-point-x_0"
+id="toc-limite-en-un-point-x_0"><span
+class="toc-section-number">3</span> Limite en un point <span
+class="math inline">\(x_0\)</span></a>
+<ul>
+<li><a href="#définition-1" id="toc-définition-1"><span
+class="toc-section-number">3.1</span> Définition</a></li>
+<li><a href="#premières-propriétés-1"
+id="toc-premières-propriétés-1"><span
+class="toc-section-number">3.2</span> Premières propriétés</a></li>
+<li><a href="#caractérisation-séquentielle-de-lexistence-dune-limite"
+id="toc-caractérisation-séquentielle-de-lexistence-dune-limite"><span
+class="toc-section-number">3.3</span> Caractérisation séquentielle de
+l’existence d’une limite</a></li>
+<li><a href="#opérations-sur-les-limites"
+id="toc-opérations-sur-les-limites"><span
+class="toc-section-number">3.4</span> Opérations sur les
+limites</a></li>
+<li><a href="#passage-à-la-limite" id="toc-passage-à-la-limite"><span
+class="toc-section-number">3.5</span> Passage à la limite</a></li>
+<li><a href="#limite-par-encadrement"
+id="toc-limite-par-encadrement"><span
+class="toc-section-number">3.6</span> Limite par encadrement</a></li>
+<li><a href="#limite-dune-fonction-montone"
+id="toc-limite-dune-fonction-montone"><span
+class="toc-section-number">3.7</span> Limite d’une fonction
+montone</a></li>
+<li><a href="#extension-de-la-notion-de-limite"
+id="toc-extension-de-la-notion-de-limite"><span
+class="toc-section-number">3.8</span> Extension de la notion de
+limite</a>
+<ul>
+<li><a href="#limite-infinie-en-x_0-in-mathbbr"
+id="toc-limite-infinie-en-x_0-in-mathbbr"><span
+class="toc-section-number">3.8.1</span> Limite infinie en <span
+class="math inline">\(x_0 \in \mathbb{R}\)</span></a></li>
+<li><a href="#limite-en-pm-infty" id="toc-limite-en-pm-infty"><span
+class="toc-section-number">3.8.2</span> Limite en <span
+class="math inline">\(\pm \infty\)</span></a></li>
+<li><a href="#fonctions-monotones" id="toc-fonctions-monotones"><span
+class="toc-section-number">3.8.3</span> Fonctions monotones</a></li>
+<li><a href="#introduction-de-overlinemathbbr"
+id="toc-introduction-de-overlinemathbbr"><span
+class="toc-section-number">3.8.4</span> Introduction de <span
+class="math inline">\(\overline{\mathbb{R}}\)</span></a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="définitions-préliminaires"><span
+class="header-section-number">1</span> Définitions préliminaires</h1>
+<div class="wdefi">
+<p><strong>(Borne supérieure/inférieure)</strong> Soit <span
+class="math inline">\(f \in \mathscr{F}(D,\mathbb{R})\)</span> (<span
+class="math inline">\(D \subset \mathbb{R}\)</span>).</p>
+<ul>
+<li><p>Si <span class="math inline">\(f\)</span> est majorée, <span
+class="math inline">\(f(D)\)</span> est une partie majorée de <span
+class="math inline">\(\mathbb{R}\)</span>. <span
+class="math inline">\(f(D)\)</span> possède donc une borne supérieure
+que l’on note <span class="math inline">\(\sup_{x \in D} f(x)\)</span>
+et que l’on appelle la borne supérieure de <span
+class="math inline">\(f\)</span> sur <span
+class="math inline">\(D\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(f\)</span> est minorée, <span
+class="math inline">\(f(D)\)</span> est une partie minorée de <span
+class="math inline">\(\mathbb{R}\)</span>. <span
+class="math inline">\(f(D)\)</span> possède donc une borne supérieure
+que l’on note <span class="math inline">\(\inf_{x \in D} f(x)\)</span>
+et que l’on appelle la borne inférieure de <span
+class="math inline">\(f\)</span> sur <span
+class="math inline">\(D\)</span>.</p></li>
+</ul>
+</div>
+<div class="wdefi">
+<p><strong>(Extremum global)</strong> Soit <span class="math inline">\(f
+\in \mathscr{F}(D,\mathbb{R})\)</span> (<span class="math inline">\(D
+\subset \mathbb{R}\)</span>).</p>
+<ul>
+<li><p>Soit <span class="math inline">\(x_0 \in D\)</span> tel que <span
+class="math display">\[\forall x \in D, f(x) \leq f(x_0)\]</span> alors
+<span class="math inline">\(f\)</span> présente un <u>maximum global en
+<span class="math inline">\(x_0\)</span></u>.</p></li>
+<li></li>
+<li><p>Soit <span class="math inline">\(x_1 \in D\)</span> tel que <span
+class="math display">\[\forall x \in D, f(x) \geq f(x_1)\]</span> alors
+<span class="math inline">\(f\)</span> présente un <u>minimum global en
+<span class="math inline">\(x_1\)</span></u>.</p></li>
+<li><p>Si <span class="math inline">\(f\)</span> présente un maximum ou
+un minimum global en un point, on dit qu’elle présente un <u>extremum
+global</u> en ce point.</p></li>
+</ul>
+</div>
+<div class="wdefi">
+<p><strong>(Extremum local)</strong> Soit <span class="math inline">\(f
+\in \mathscr{F}(D,\mathbb{R})\)</span> (<span class="math inline">\(D
+\subset \mathbb{R}\)</span>).</p>
+<ul>
+<li><p>Soit <span class="math inline">\(x_0 \in D\)</span> tel qu’il
+existe <span class="math inline">\(r &gt; 0\)</span> tel que <span
+class="math display">\[\forall x \in D, |x-x_0| \leq r \Longrightarrow
+f(x) \leq f(x_0)\]</span> alors <span class="math inline">\(f\)</span>
+présente un <u>maximum local en <span
+class="math inline">\(x_0\)</span></u>.</p></li>
+<li></li>
+<li><p>Soit <span class="math inline">\(x_1 \in D\)</span> tel qu’il
+existe <span class="math inline">\(r &gt; 0\)</span> tel que <span
+class="math display">\[\forall x \in D, |x-x_1| \leq r
+\Longrightarrow  f(x) \geq f(x_1)\]</span> alors <span
+class="math inline">\(f\)</span> présente un <u>minimum local en <span
+class="math inline">\(x_1\)</span></u>.</p></li>
+<li><p>Si <span class="math inline">\(f\)</span> présente un maximum ou
+un minimum local en un point, on dit qu’elle présente un <u>extremum
+local</u> en ce point.</p></li>
+</ul>
+</div>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Sur le graphe ci-contre, on lit un maximum local en <span
+class="math inline">\(a\)</span>, un minimum local en <span
+class="math inline">\(b\)</span> et un maximum global en <span
+class="math inline">\(c\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="extrema.png" alt="image" /></p>
+</div>
+</div>
+<h1 data-number="2" id="continuité"><span
+class="header-section-number">2</span> Continuité</h1>
+<h2 data-number="2.1" id="définition"><span
+class="header-section-number">2.1</span> Définition</h2>
+<div class="wdefi">
+<p><strong>(Continuité)</strong> Soit <span class="math inline">\(f \in
+\mathscr{F}(I,\mathbb{R})\)</span> avec <span
+class="math inline">\(I\)</span> intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>. Soit <span
+class="math inline">\(x_0 \in I\)</span>, <span
+class="math inline">\(f\)</span> est continue en <span
+class="math inline">\(x_0\)</span> si <span
+class="math display">\[\forall \varepsilon &gt;0, \exists
+\eta_\varepsilon &gt;0/ \forall x\in I, |x-x_0| \leq \eta_\varepsilon
+\Longrightarrow \left|f(x)-f(x_0)\right| \leq \varepsilon.\]</span></p>
+</div>
+<div class="center">
+<p><img src="continuite.png" alt="image" /></p>
+</div>
+<div class="wrem">
+<p>De la même façon que pour les limites de suites, on peut faire la
+remarque suivante. Soit <span class="math inline">\(C &gt; 0\)</span>,
+<span class="math display">\[f \text{ continue en $x_0\in I$} \iff
+\forall \varepsilon &gt;0, \exists \eta_\varepsilon &gt;0/ \forall x\in
+I, |x-x_0| \leq \eta_\varepsilon \Longrightarrow
+\left|f(x)-f(x_0)\right| \leq C\varepsilon.\]</span></p>
+</div>
+<div class="wex">
+<p>Montrons que <span class="math inline">\(f : x \in
+\mathbb{R}^{+}\mapsto \sqrt{x}\)</span> est continue en tout point de
+<span class="math inline">\(\mathbb{R}^{+}\)</span>. Soit <span
+class="math inline">\(x_0 \in \mathbb{R}^{+}\)</span> et <span
+class="math inline">\(\varepsilon &gt; 0\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(x_0 = 0\)</span>, Alors avec <span
+class="math inline">\(\eta_\varepsilon = \varepsilon^2 &gt; 0\)</span>,
+<span class="math display">\[|x|=x \leq \eta_\varepsilon \Longrightarrow
+\sqrt{x} \leq \sqrt{\eta_\varepsilon} = \sqrt{\varepsilon^2} =
+\varepsilon \text{ car $\varepsilon \geq 0$}.\]</span></p></li>
+<li><p>Si <span class="math inline">\(x_0 &gt; 0\)</span>, pour <span
+class="math inline">\(x \in \mathbb{R}^{+}\)</span>, en multipliant par
+la quantité conjuguée, <span
+class="math display">\[|\sqrt{x}-\sqrt{x_0}| =
+\left|\frac{(\sqrt{x}-\sqrt{x_0})(\sqrt{x}+\sqrt{x_0})}{\sqrt{x}+\sqrt{x_0}}\right|
+= \left|\frac{x-x_0}{\sqrt{x}+\sqrt{x_0}}\right| \leq
+\frac{|x-x_0|}{\sqrt{x_0}}.\]</span></p>
+<p>Donc pour <span class="math inline">\(\eta_\varepsilon =
+\sqrt{x_0}\varepsilon\)</span>, <span class="math display">\[|x-x_0|
+\leq \eta_\varepsilon \Longrightarrow |\sqrt{x}-\sqrt{x_0}|\leq
+\frac{\eta_\varepsilon}{\sqrt{x_0}} = \varepsilon.\]</span></p></li>
+</ul>
+</div>
+<div class="wdefi">
+<p><strong>(Continuité à gauche/droite)</strong> Soit <span
+class="math inline">\(f \in \mathscr{F}(I,\mathbb{R})\)</span> avec
+<span class="math inline">\(I\)</span> intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>. Soit <span
+class="math inline">\(x_0 \in I\)</span>,</p>
+<ul>
+<li><p><span class="math inline">\(f\)</span> est continue à gauche en
+<span class="math inline">\(x_0\)</span> si <span
+class="math display">\[\forall \varepsilon &gt;0, \exists
+\eta_\varepsilon &gt;0/ \forall x\in I, |x-x_0| \leq \eta_\varepsilon
+\text{ et }x \leq x_0 \Longrightarrow \left|f(x)-f(x_0)\right| \leq
+\varepsilon.\]</span></p></li>
+<li><p><span class="math inline">\(f\)</span> est continue à droite en
+<span class="math inline">\(x_0\)</span> si <span
+class="math display">\[\forall \varepsilon &gt;0, \exists
+\eta_\varepsilon &gt;0/ \forall x\in I, |x-x_0| \leq \eta_\varepsilon
+\text{ et }x \geq x_0 \Longrightarrow \left|f(x)-f(x_0)\right| \leq
+\varepsilon.\]</span></p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{F}(I,\mathbb{R})\)</span> avec <span
+class="math inline">\(I\)</span> intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>. Soit <span
+class="math inline">\(x_0 \in I\)</span>, <span
+class="math display">\[\text{$f$ continue en $x_0$ } \iff \text{$f$
+continue à gauche et à droite en $x_0$ }\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>(<span class="math inline">\(\Longrightarrow\)</span>) Pour <span
+class="math inline">\(\varepsilon &gt;0\)</span>, il existe <span
+class="math inline">\(\eta_\varepsilon &gt;0\)</span> tel que pour tout
+<span class="math inline">\(x\in I\)</span>, <span
+class="math display">\[|x-x_0| \leq \eta_\varepsilon \Longrightarrow
+\left|f(x)-f(x_0)\right| \leq \varepsilon.\]</span> Donc a fortiori,
+pour tout <span class="math inline">\(x\in I\)</span>, <span
+class="math display">\[|x-x_0|  \leq \eta_\varepsilon \text{ et }x \leq
+x_0 \Longrightarrow \left|f(x)-f(x_0)\right| \leq \varepsilon\]</span>
+donc <span class="math inline">\(f\)</span> continue à gauche en <span
+class="math inline">\(x_0\)</span> et pour tout <span
+class="math inline">\(x\in I\)</span>, <span
+class="math display">\[|x-x_0|  \leq \eta_\varepsilon \text{ et }x \geq
+x_0 \Longrightarrow \left|f(x)-f(x_0)\right| \leq \varepsilon\]</span>
+donc <span class="math inline">\(f\)</span> continue à droite en <span
+class="math inline">\(x_0\)</span>.</p></li>
+<li><p>(<span class="math inline">\(\Longleftarrow\)</span>) Pour <span
+class="math inline">\(\varepsilon &gt;0\)</span>, il existe <span
+class="math inline">\(\eta_\varepsilon^- &gt;0\)</span> tel que pour
+tout <span class="math inline">\(x\in I\)</span>, <span
+class="math display">\[|x-x_0|  \leq \eta_\varepsilon^- \text{ et }x
+\leq x_0 \Longrightarrow \left|f(x)-f(x_0)\right| \leq
+\varepsilon\]</span> et il existe <span
+class="math inline">\(\eta_\varepsilon^+ &gt;0\)</span> tel que pour
+tout <span class="math inline">\(x\in I\)</span>, <span
+class="math display">\[|x-x_0|  \leq \eta_\varepsilon^+ \text{ et }x
+\geq x_0 \Longrightarrow \left|f(x)-f(x_0)\right| \leq
+\varepsilon\]</span> Donc, a fortiori, pour tout <span
+class="math inline">\(x\in I\)</span>, <span
+class="math display">\[|x-x_0| \leq
+\min(\eta_\varepsilon^-,\eta_\varepsilon^+) \Longrightarrow
+\left|f(x)-f(x_0)\right| \leq \varepsilon.\]</span> et <span
+class="math inline">\(f\)</span> est continue en <span
+class="math inline">\(x_0\)</span>.</p></li>
+</ul>
+</div>
+<div class="wex">
+<p><strong>(Un exemple de fonction à gauche en un point mais non
+continue en ce point)</strong></p>
+<div class="center">
+<p><img src="continuite_gauche.png" alt="image" /></p>
+</div>
+</div>
+<h2 data-number="2.2"
+id="caractérisation-séquentielle-de-la-continuité"><span
+class="header-section-number">2.2</span> Caractérisation séquentielle de
+la continuité</h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{F}(I,\mathbb{R})\)</span> et <span class="math inline">\(x_0\in
+I\)</span>.</p>
+<p>Alors, <span class="math inline">\(f\)</span> continue en <span
+class="math inline">\(x_0\)</span> si et seulement si pour toute suite
+<span class="math inline">\((u_n)\)</span> d’éléments de <span
+class="math inline">\(I\)</span> telle que <span
+class="math inline">\(u_n \longrightarrow x_0\)</span> alors <span
+class="math inline">\(f(u_n) \longrightarrow f(x_0)\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span></p>
+<p>Si <span class="math inline">\(f\)</span> est continue en <span
+class="math inline">\(0\)</span>, soit <span
+class="math inline">\(\varepsilon &gt;0\)</span>, il existe <span
+class="math inline">\(\eta_\varepsilon &gt;0\)</span> tel que pour tout
+<span class="math inline">\(x\in I\)</span>, <span
+class="math display">\[|x-x_0| \leq \eta_\varepsilon \Longrightarrow
+\left|f(x)-f(x_0)\right| \leq \varepsilon.\]</span></p>
+<p>De plus, soit <span class="math inline">\((u_n)\)</span> suite
+d’éléments de <span class="math inline">\(I\)</span> telle que <span
+class="math inline">\(u_n \longrightarrow x_0\)</span>, il existe <span
+class="math inline">\(N \geq 0\)</span> tel que pour tout <span
+class="math inline">\(n\geq N\)</span>, <span
+class="math display">\[|u_n - x_0| \leq \eta_{\varepsilon}.\]</span></p>
+<p>On en déduit donc que pour tout <span class="math inline">\(n\geq
+N\)</span>, <span class="math display">\[|u_n - x_0| \leq
+\eta_{\varepsilon} \Longrightarrow |f(u_n) - f(x_0)| \leq
+\varepsilon.\]</span></p>
+<p>Donc que la suite <span class="math inline">\((f(u_n))\)</span> tend
+vers <span class="math inline">\(f(x_0)\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Procédons
+par contraposée. Si <span class="math inline">\(f\)</span> n’est pas
+continue en <span class="math inline">\(x_0\)</span>, il existe <span
+class="math inline">\(\varepsilon_0 &gt; 0\)</span> tel que <span
+class="math display">\[\forall \eta &gt; 0, \exists x_\eta \in I /
+|x_\eta-x_0| \leq \eta \text{ et }|f(x_\eta)-f(x_0)| &gt;
+\varepsilon_0.\]</span></p>
+<p>Construisons alors une suite ainsi : pour <span
+class="math inline">\(\eta = \frac{1}{n}\)</span>, on définit <span
+class="math inline">\(u_n \in I\)</span> tel que <span
+class="math display">\[|u_n-x_0| \leq \frac{1}{n} \text{ et
+}|f\left(u_n\right)-f(x_0)| &gt; \varepsilon_0.\]</span></p>
+<p>On a alors <span class="math inline">\(u_n \longrightarrow
+x_0\)</span> et <span class="math inline">\(f(u_n) \not\longrightarrow
+f(x_0)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Soient <span class="math inline">\(a_0,\ldots,a_d \in
+\mathbb{R}\)</span>, montrer que <span class="math inline">\(f : x \in
+\mathbb{R}\mapsto \sum_{k=0}^d a_k x^k\)</span> est continue en tout
+point de <span class="math inline">\(\mathbb{R}\)</span>.</p>
+</div>
+<div class="corri*">
+<p>Soit <span class="math inline">\(x_0\in \mathbb{R}\)</span> et <span
+class="math inline">\((u_n)\)</span> suite de <span
+class="math inline">\(\mathbb{R}\)</span> telle que <span
+class="math inline">\(u_n \longrightarrow x_0\)</span>. Alors, par
+produits de limites, <span class="math display">\[\begin{aligned}
+                \forall k \in [\![ 0,d ]\!], &amp; u_n^k \longrightarrow
+x_0^k \\
+                \forall k \in [\![ 0,d ]\!], &amp; a_ku_n^k
+\longrightarrow a_kx_0^k \\
+            \end{aligned}\]</span> Donc par somme de limites, <span
+class="math display">\[f(u_n) = \sum_{k=0}^d a_k u_n^k \longrightarrow
+\sum_{k=0}^d a_k x_0^k = f(x_0).\]</span></p>
+<p>Donc <span class="math inline">\(f\)</span> est continue en tout
+point de <span class="math inline">\(\mathbb{R}\)</span>.</p>
+</div>
+</div>
+<div class="wex">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\(f : x \in [0,2] \mapsto
+\begin{cases}
+            1 &amp; \mbox{ si } x \in [0,1] \\
+            x-1 &amp; \mbox{ si } x \in ]1,2].
+        \end{cases}\)</span>, montrons que <span
+class="math inline">\(f\)</span> n’est pas continue en <span
+class="math inline">\(1\)</span>.</p>
+<p>On a <span class="math inline">\(f(1) = 1\)</span>. Pourtant en
+considérant <span class="math inline">\((u_n)\)</span> définie par <span
+class="math inline">\(u_n = 1+\frac{1}{n+1}\)</span> pour <span
+class="math inline">\(n \geq 0\)</span>, on a <span
+class="math inline">\(u_n \longrightarrow 1\)</span>et <span
+class="math inline">\(f(u_n) = 1+\frac{1}{n+1}-1 = \frac{1}{n+1}
+\longrightarrow 0\)</span>.</p>
+<p>Donc <span class="math inline">\(f\)</span> n’est pas continue en
+<span class="math inline">\(1\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="ex_nonc0.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<h2 data-number="2.3" id="premières-propriétés"><span
+class="header-section-number">2.3</span> Premières propriétés</h2>
+<p>Soit <span class="math inline">\(f \in
+\mathscr{F}(I,\mathbb{R})\)</span> avec <span
+class="math inline">\(I\)</span> intervalle de <span
+class="math inline">\(\mathbb{R}\)</span> et <span
+class="math inline">\(x_0 \in I\)</span>.</p>
+<div class="wprop">
+<p>Si <span class="math inline">\(f\)</span> est continue en <span
+class="math inline">\(x_0\)</span> alors <span
+class="math inline">\(f\)</span> est bornée "au voisinage de <span
+class="math inline">\(x_0\)</span>" ie <span
+class="math display">\[\exists r &gt; 0, M \geq 0 / \forall x \in I,
+|x-x_0| \leq r \Longrightarrow |f(x)| \leq M.\]</span></p>
+</div>
+<div class="wproof">
+<p>Avec <span class="math inline">\(\varepsilon=1\)</span>, il existe
+<span class="math inline">\(\eta &gt; 0\)</span> tel que pour tout <span
+class="math inline">\(x \in I\)</span>, <span
+class="math display">\[|x-x_0| \leq \eta \Longrightarrow |f(x)-f(x_0)|
+\leq 1.\]</span></p>
+<p>Donc, avec <span class="math inline">\(r = \eta\)</span> et <span
+class="math inline">\(M = 1+|f(x_0)|\)</span>, pour tout <span
+class="math inline">\(x\in I\)</span>, <span
+class="math display">\[|x-x_0| \leq \eta \Longrightarrow |f(x)-f(x_0)| =
+|f(x)-f(x_0)+f(x_0)| \leq |f(x)-f(x_0)|+ |f(x_0)| \leq 1+|f(x_0)| =
+M.\]</span></p>
+</div>
+<div class="wprop">
+<p>Si <span class="math inline">\(f\)</span> est continue en <span
+class="math inline">\(x_0\)</span> alors <span class="math inline">\(|f|
+: x \in I \mapsto |f(x)|\)</span> est continue en <span
+class="math inline">\(x_0\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\((u_n)\)</span> suite de <span
+class="math inline">\(I\)</span> telle que <span
+class="math inline">\(u_n \longrightarrow x_0\)</span> alors <span
+class="math inline">\(f(u_n) \longrightarrow f(x_0)\)</span> donc <span
+class="math inline">\(|f(u_n)| \longrightarrow |f(x_0)|\)</span>.</p>
+<p>On en déduit que <span class="math inline">\(|f|\)</span> est
+continue en <span class="math inline">\(x_0\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Si <span class="math inline">\(f\)</span> est continue en <span
+class="math inline">\(x_0\)</span> avec <span
+class="math inline">\(f(x_0) &gt; 0\)</span>,</p>
+<p>il existe <span class="math inline">\(\alpha &gt; 0\)</span> et <span
+class="math inline">\(r &gt; 0\)</span> tels que pour tout <span
+class="math inline">\(x \in I\)</span>,</p>
+<p><span class="math display">\[|x-x_0| \leq r \Longrightarrow f(x) &gt;
+\alpha.\]</span></p>
+</div>
+<div class="center">
+<p><img src="positif.png" alt="image" /></p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(\beta \in ]0,f(x_0)[\)</span>, comme
+<span class="math inline">\(f\)</span> est continue en <span
+class="math inline">\(x_0\)</span>, il existe <span
+class="math inline">\(\eta &gt; 0\)</span> tel que pour tout <span
+class="math inline">\(x \in I\)</span>, <span
+class="math display">\[|x-x_0| \leq \eta \Longrightarrow |f(x)-f(x_0)|
+\leq \beta.\]</span></p>
+<p>On a donc avec <span class="math inline">\(r = \eta\)</span>, pour
+tout <span class="math inline">\(x \in I\)</span>, <span
+class="math display">\[\begin{aligned}
+    |x-x_0| \leq r
+    &amp; \Longrightarrow |f(x)-f(x_0)| \leq \beta \\
+    &amp; \Longrightarrow f(x)-f(x_0) \geq - \beta \\
+    &amp; \Longrightarrow f(x) \geq \underbrace{f(x_0)-\beta}_{=\alpha}
+&gt; 0 \text{ car $\beta &lt; f(x_0)$}.
+    \end{aligned}\]</span></p>
+</div>
+<h2 data-number="2.4" id="opérations-sur-les-fonctions-continues"><span
+class="header-section-number">2.4</span> Opérations sur les fonctions
+continues</h2>
+<div class="wprop">
+<p>Soient <span class="math inline">\(f,g \in
+\mathscr{F}(I,\mathbb{R})\)</span> et <span class="math inline">\(x_0
+\in I\)</span> tel que <span class="math inline">\(f\)</span> et <span
+class="math inline">\(g\)</span> sont continues en <span
+class="math inline">\(x_0\)</span>. Alors,</p>
+<ol>
+<li><p><span class="math inline">\(f+g\)</span> est continue en <span
+class="math inline">\(x_0\)</span>,</p></li>
+<li><p>pour tout <span class="math inline">\(\alpha \in
+\mathbb{R}\)</span>, <span class="math inline">\(\alpha f\)</span> est
+continue en <span class="math inline">\(x_0\)</span>,</p></li>
+<li><p><span class="math inline">\(fg\)</span> est continue en <span
+class="math inline">\(x_0\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\((u_n)\)</span> suite de <span
+class="math inline">\(I\)</span> telle que <span
+class="math inline">\(u_n \longrightarrow x_0\)</span>.</p>
+<ol>
+<li><p><span class="math inline">\(f(u_n) \longrightarrow
+f(x_0)\)</span> et <span class="math inline">\(g(u_n) \longrightarrow
+g(x_0)\)</span> donc <span class="math inline">\((f+g)(u_n) =
+f(u_n)+g(u_n) \longrightarrow f(x_0)+g(x_0) =
+(f+g)(x_0)\)</span>.</p></li>
+<li><p><span class="math inline">\(f(u_n) \longrightarrow
+f(x_0)\)</span> donc <span class="math inline">\((\alpha f)(u_n) =
+\alpha f(u_n) \longrightarrow \alpha f(x_0) = (\alpha
+f)(x_0)\)</span>.</p></li>
+<li><p><span class="math inline">\(f(u_n) \longrightarrow
+f(x_0)\)</span> et <span class="math inline">\(g(u_n) \longrightarrow
+g(x_0)\)</span> donc <span class="math inline">\((fg)(u_n) =
+f(u_n)g(u_n) \longrightarrow f(x_0)g(x_0) = (fg)(x_0)\)</span>.</p></li>
+</ol>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(f \in
+\mathscr{F}(I,\mathbb{R})\)</span> et <span class="math inline">\(x_0
+\in I\)</span> tel que <span class="math inline">\(f\)</span> est
+continue en <span class="math inline">\(x_0\)</span> avec <span
+class="math inline">\(f(x_0) &gt; 0\)</span>.</p>
+<p>Pour rappel, il existe <span class="math inline">\(r&gt; 0, \alpha
+&gt; 0\)</span> tels que pour tout <span class="math inline">\(x\in
+I\)</span>, <span class="math display">\[|x-x_0| \leq r \Longrightarrow
+f(x_0) &gt; \alpha.\]</span></p>
+<p>Donc <span class="math inline">\(\frac{1}{f}\)</span> est définie "au
+voisinage de <span class="math inline">\(x_0\)</span>" et est continue
+en <span class="math inline">\(x_0\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\frac{1}{f}\)</span> est définie sur
+<span class="math inline">\(I \cap ]x_0-r,x_0+r[\)</span>. Soit <span
+class="math inline">\((u_n)\)</span> une suite de <span
+class="math inline">\(I \cap ]x_0-r,x_0+r[\)</span> telle que <span
+class="math inline">\(u_n \longrightarrow x_0\)</span>.</p>
+<p>Alors, pour tout <span class="math inline">\(n\geq 0, f(u_n) \geq
+\alpha &gt; 0\)</span> et <span class="math inline">\(f(u_n)
+\longrightarrow f(x_0)\)</span>.</p>
+<p>Donc <span class="math inline">\(\frac{1}{f(u_n)} \longrightarrow
+f(x_0)\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{F}(I,\mathbb{R})\)</span> et <span class="math inline">\(x_0
+\in I\)</span>. Soit <span class="math inline">\(g \in
+\mathscr{F}(J,\mathbb{R})\)</span> avec <span
+class="math inline">\(J\)</span> intervalle de <span
+class="math inline">\(\mathbb{R}\)</span> et tel que <span
+class="math inline">\(f(I) \subset J\)</span>.</p>
+<p>Si <span class="math inline">\(f\)</span> est continue en <span
+class="math inline">\(x_0\)</span> et <span
+class="math inline">\(g\)</span> continue en <span
+class="math inline">\(f(x_0)\)</span> alors <span
+class="math inline">\(g \circ f\)</span> est continue en <span
+class="math inline">\(x_0\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\((u_n)\)</span> suite de <span
+class="math inline">\(I\)</span> telle que <span
+class="math inline">\(u_n \longrightarrow x_0\)</span>.</p>
+<p>Alors <span class="math inline">\(f(u_n) \longrightarrow
+f(x_0)\)</span> car <span class="math inline">\(f\)</span> continue en
+<span class="math inline">\(x_0\)</span>.</p>
+<p>De plus, <span class="math inline">\((f(u_n))\)</span> est une suite
+de <span class="math inline">\(J\)</span> et comme <span
+class="math inline">\(g\)</span> est continue en <span
+class="math inline">\(f(x_0)\)</span>, on a <span
+class="math inline">\(g\circ f(u_n) = g(f(u_n)) \longrightarrow
+g(f(x_0)) = g\circ f(x_0)\)</span> donc <span
+class="math inline">\(g\circ f\)</span> continue en <span
+class="math inline">\(x_0\)</span>.</p>
+</div>
+<h2 data-number="2.5" id="continuité-sur-un-intervalle"><span
+class="header-section-number">2.5</span> Continuité sur un
+intervalle</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{F}(I,\mathbb{R})\)</span>. On dit que <span
+class="math inline">\(f\)</span> est continue sur <span
+class="math inline">\(I\)</span> si <span
+class="math inline">\(f\)</span> est continue en tout point <span
+class="math inline">\(x_0\)</span> de <span
+class="math inline">\(I\)</span>.</p>
+<p>On note <span
+class="math inline">\(\mathscr{C}(I,\mathbb{R})\)</span>, l’ensemble des
+fonctions de <span class="math inline">\(I\)</span> dans <span
+class="math inline">\(\mathbb{R}\)</span> continues sur <span
+class="math inline">\(I\)</span>.</p>
+</div>
+<p>Pour rappel,</p>
+<ul>
+<li><p>Si <span class="math inline">\(f,g \in \mathscr{C}(I,\mathbb{R}),
+\alpha \in \mathbb{R}\)</span> alors <span class="math inline">\(f+g,
+fg, \alpha f \in \mathscr{C}(I,\mathbb{R})\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(f \in
+\mathscr{C}(I,\mathbb{R})\)</span> avec <span
+class="math inline">\(\forall x \in I, f(x) \neq 0\)</span> alors <span
+class="math inline">\(\frac{1}{f} \in
+\mathscr{C}(I,\mathbb{R})\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(f \in \mathscr{C}(I,\mathbb{R})
+\text{ et }g \in \mathscr{C}(J,\mathbb{R})\)</span> avec <span
+class="math inline">\(f(I) \subset J\)</span> alors <span
+class="math inline">\(g \circ f \in
+\mathscr{C}(I,\mathbb{R})\)</span>.</p></li>
+</ul>
+<h2 data-number="2.6"
+id="fonction-lipschitzienne-sur-un-intervalle"><span
+class="header-section-number">2.6</span> Fonction lipschitzienne sur un
+intervalle</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{C}(I,\mathbb{R})\)</span>, <span
+class="math inline">\(f\)</span> est lipschitzienne sur <span
+class="math inline">\(I\)</span> s’il existe <span
+class="math inline">\(C \geq 0\)</span> tel que <span
+class="math display">\[\forall x,x&#39; \in I, |f(x)-f(x&#39;)| \leq
+C|x-x&#39;|.\]</span></p>
+<p>Dans ce cas, <span class="math inline">\(f\)</span> est dite <span
+class="math inline">\(C\)</span>-lipschitzienne sur <span
+class="math inline">\(I\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Si <span class="math inline">\(f\)</span> est lipschitzienne sur
+<span class="math inline">\(I\)</span>, <span class="math inline">\(f
+\in \mathscr{C}(I,\mathbb{R})\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(f\)</span> est lipschitzienne sur <span
+class="math inline">\(I\)</span> donc il existe <span
+class="math inline">\(C \geq 0\)</span> tel que <span
+class="math display">\[\forall x,x&#39; \in I, |f(x)-f(x&#39;)| \leq
+C|x-x&#39;|.\]</span> Soit <span class="math inline">\(x_0 \in
+I\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(C = 0\)</span>, <span
+class="math inline">\(\forall x \in I, |f(x)-f(x_0)| = 0 \iff f(x) =
+f(x_0)\)</span> donc <span class="math inline">\(f\)</span> est
+constante sur <span class="math inline">\(I\)</span> et donc
+continue.</p></li>
+<li><p>Si <span class="math inline">\(C &gt; 0\)</span>, soit <span
+class="math inline">\(\varepsilon &gt; 0\)</span>, on pose <span
+class="math inline">\(\eta = \frac{\varepsilon}{C}\)</span>. On a alors,
+pour tout <span class="math inline">\(x \in I\)</span>,</p>
+<p><span class="math display">\[|x-x_0| \leq \eta \Longrightarrow
+|f(x)-f(x_0)| \leq C|x-x_0| \leq C\eta = \varepsilon.\]</span></p>
+<p>Donc <span class="math inline">\(f\)</span> est continue en <span
+class="math inline">\(x_0\)</span>.</p></li>
+</ul>
+</div>
+<div class="wex">
+<ul>
+<li><p>Soit <span class="math inline">\(f : x \in \mathbb{R}\mapsto
+ax+b\)</span> avec <span class="math inline">\(a,b \in
+\mathbb{R}\)</span>. Alors, <span class="math display">\[\forall
+x,x&#39; \in \mathbb{R}, |f(x)-f(x&#39;)| = |a(x-x&#39;)| \leq
+|a||x-x&#39;|\]</span> donc <span class="math inline">\(f\)</span> est
+<span class="math inline">\(|a|\)</span>-lipschitzienne sur <span
+class="math inline">\(\mathbb{R}\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(a &gt; 0\)</span> et <span
+class="math inline">\(g : x \in [a,+\infty[ \mapsto \sqrt{x}\)</span>.
+Alors, en multipliant par la quantité conjuguée, <span
+class="math display">\[\forall x,x&#39; \in [a,+\infty[ ,
+|g(x)-g(x&#39;)| = |\sqrt{x}-\sqrt{x&#39;}| =
+\frac{|x-x&#39;|}{\sqrt{x}+\sqrt{x&#39;}} \leq
+\frac{1}{2\sqrt{a}}|x-x&#39;|\]</span> donc <span
+class="math inline">\(g\)</span> est <span
+class="math inline">\(\frac{1}{2\sqrt{a}}\)</span>-lipschitzienne sur
+<span class="math inline">\([a,+\infty[\)</span>.</p></li>
+<li><p>En revanche, montrons que <span class="math inline">\(h : x \in
+\mathbb{R}^{+}\mapsto \sqrt{x}\)</span> n’est pas lipschitzienne sur
+<span class="math inline">\(\mathbb{R}^{+}\)</span>.</p>
+<p>En effet, supposons par l’absurde qu’il existe <span
+class="math inline">\(C &gt; 0\)</span> (<span
+class="math inline">\(C\neq 0\)</span> car <span
+class="math inline">\(h\)</span> non constante) tel que <span
+class="math display">\[\forall x,x&#39; \in \mathbb{R}^{+},
+|h(x)-h(x&#39;)| = |\sqrt{x}-\sqrt{x&#39;}| \leq
+C|x-x&#39;|.\]</span></p>
+<p>Alors, en prenant <span class="math inline">\(x&#39; = 0\)</span>, on
+a <span class="math display">\[\forall x \in \mathbb{R}^{+\star},
+\sqrt{x} \leq C |x| \Longrightarrow  \frac{1}{C} \leq \sqrt{x}
+\Longrightarrow  \frac{1}{C^2} \leq x.\]</span></p>
+<p>Ce qui est absurde en prenant <span class="math inline">\(x =
+\frac{1}{2C^2}\)</span>.</p>
+<p>Donc <span class="math inline">\(h\)</span> n’est pas lipschitzienne
+sur <span class="math inline">\(\mathbb{R}^{+}\)</span> bien qu’elle y
+soit continue.</p></li>
+</ul>
+</div>
+<h2 data-number="2.7" id="théorème-des-valeurs-intermédiaires"><span
+class="header-section-number">2.7</span> Théorème des valeurs
+intermédiaires</h2>
+<div class="wprop">
+<p><strong>(Convexité des intervalles de <span
+class="math inline">\(\mathbb{R}\)</span> (admise))</strong> <span
+id="prop:intervalles_convexes" label="prop:intervalles_convexes"></span>
+Soit <span class="math inline">\(I \subset \mathbb{R}\)</span>, partie
+non vide de <span class="math inline">\(\mathbb{R}\)</span>. <span
+class="math display">\[I \text{intervalle de $\mathbb{R}$} \iff \forall
+a,b \in I \text{ tels que }a \leq b, [a,b] \subset I.\]</span></p>
+</div>
+<div class="wthm">
+<p><strong>(Théorème des valeurs intermédiaires)</strong> Soit <span
+class="math inline">\(f \in \mathscr{C}(I,\mathbb{R})\)</span> (), soit
+<span class="math inline">\(a,b \in I\)</span> tels que <span
+class="math inline">\(a \leq b\)</span>, On pose <span
+class="math inline">\(\alpha = f(a)\)</span> et <span
+class="math inline">\(\beta = f(b)\)</span> tels que <span
+class="math inline">\(\alpha \leq \beta\)</span> (ou <span
+class="math inline">\(\beta \leq \alpha\)</span>).</p>
+<p>Alors, soit <span class="math inline">\(\gamma \in [\alpha,
+\beta]\)</span> (ou <span class="math inline">\(\gamma \in
+[\beta,\alpha]\)</span>), il existe <span class="math inline">\(c \in
+[a,b]\)</span> tel que <span class="math inline">\(f(c) =
+\gamma\)</span>.</p>
+</div>
+<div class="center">
+<p><img src="TVI.png" alt="image" /></p>
+</div>
+<div class="wproof">
+<p>Nous allons faire une preuve "constructive", par dichotomie, en
+construisant deux suites adjacentes <span class="math inline">\((a_n),
+(b_n)\)</span> telles que <span class="math inline">\(a_n \leq
+b_n\)</span> pour tout <span class="math inline">\(n \geq 0\)</span>,
+<span class="math inline">\(a_n \longrightarrow c, b_n \longrightarrow
+c\)</span> et <span class="math inline">\(f(a_n)\longrightarrow \gamma,
+f(b_n) \longrightarrow \gamma\)</span>. On aura donc, par continuité de
+<span class="math inline">\(f\)</span>, <span class="math inline">\(f(c)
+= \gamma\)</span>.</p>
+<p>
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+
+    <style>
+    .nSlider {
+    width: 600px;
+}
+
+.alpha-widget {
+
+    background: transparent !important;
+}
+
+
+    </style>
+
+    <div class="dichotomie-widget">
+
+    <p>
+        n :
+
+        <input
+            type="range"
+            class="nSlider"
+            min="0"
+            max="12"
+            step="1"
+            value="0"
+        >
+
+        <input
+            type="number"
+            class="nInput"
+            min="0"
+            max="12"
+            step="1"
+            value="0"
+        >
+    </p>
+
+    <div class="plot"></div>
+
+</div>
+
+    <script>
+    (function () {
+
+    const widget = document.querySelector(".dichotomie-widget");
+
+    if (!widget) return;
+
+    const slider = widget.querySelector(".nSlider");
+    const input  = widget.querySelector(".nInput");
+    const plot   = widget.querySelector(".plot");
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Fonction
+    ////////////////////////////////////////////////////////////////////////////
+
+    function f(x) {
+        return Math.atan(x - 2) + 2;
+    }
+
+    const gamma = 2;
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Dichotomie
+    ////////////////////////////////////////////////////////////////////////////
+
+    function dichotomie(a0, b0, n) {
+
+        const a = [a0];
+        const b = [b0];
+
+        for (let k = 0; k < n; k++) {
+
+            const m = (a[k] + b[k]) / 2;
+
+            if (gamma <= f(m)) {
+                a.push(a[k]);
+                b.push(m);
+            }
+            else {
+                a.push(m);
+                b.push(b[k]);
+            }
+        }
+
+        return {a, b};
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Données courbe
+    ////////////////////////////////////////////////////////////////////////////
+
+    const xs = [];
+
+    for (let x = -1; x <= 5; x += 0.01) {
+        xs.push(x);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Graphe
+    ////////////////////////////////////////////////////////////////////////////
+
+    function updatePlot(n) {
+
+        n = parseInt(n);
+
+        const ys = xs.map(f);
+
+        const {a, b} = dichotomie(0.5, 4, n);
+
+        const ak = a[n];
+        const bk = b[n];
+        const mk = (ak + bk) / 2;
+
+        const fak = f(ak);
+        const fbk = f(bk);
+        const fmk = f(mk);
+
+        const traces = [];
+
+        ////////////////////////////////////////////////////////////////////////////
+        // Courbe principale
+        ////////////////////////////////////////////////////////////////////////////
+
+        traces.push({
+            x: xs,
+            y: ys,
+            mode: "lines",
+            type: "scatter",
+            line: {
+                color: "#1f77b4",
+                width: 4
+            },
+            showlegend: false
+        });
+
+        ////////////////////////////////////////////////////////////////////////////
+        // Axe horizontal
+        ////////////////////////////////////////////////////////////////////////////
+
+        traces.push({
+            x: [-1, 5],
+            y: [0, 0],
+            mode: "lines",
+            line: {
+                color: "black",
+                width: 3
+            },
+            showlegend: false
+        });
+
+        ////////////////////////////////////////////////////////////////////////////
+        // Axe vertical
+        ////////////////////////////////////////////////////////////////////////////
+
+        traces.push({
+            x: [0, 0],
+            y: [-0.5, 4],
+            mode: "lines",
+            line: {
+                color: "black",
+                width: 3
+            },
+            showlegend: false
+        });
+
+        ////////////////////////////////////////////////////////////////////////////
+        // Points précédents
+        ////////////////////////////////////////////////////////////////////////////
+
+        for (let k = 0; k < n; k++) {
+
+            traces.push({
+                x: [a[k]],
+                y: [0],
+                mode: "markers",
+                marker: {
+                    color: "purple",
+                    size: 10,
+                    symbol: "cross"
+                },
+                showlegend: false
+            });
+
+            traces.push({
+                x: [b[k]],
+                y: [0],
+                mode: "markers",
+                marker: {
+                    color: "green",
+                    size: 10,
+                    symbol: "cross"
+                },
+                showlegend: false
+            });
+        }
+
+        ////////////////////////////////////////////////////////////////////////////
+        // Points courants
+        ////////////////////////////////////////////////////////////////////////////
+
+        traces.push({
+            x: [ak],
+            y: [0],
+            mode: "markers+text",
+            text: [`a_${n}`],
+            textposition: "bottom center",
+            marker: {
+                color: "purple",
+                size: 12,
+                symbol: "cross"
+            },
+            showlegend: false
+        });
+
+        traces.push({
+            x: [bk],
+            y: [0],
+            mode: "markers+text",
+            text: [`b_${n}`],
+            textposition: "bottom center",
+            marker: {
+                color: "green",
+                size: 12,
+                symbol: "cross"
+            },
+            showlegend: false
+        });
+
+        traces.push({
+            x: [mk],
+            y: [0],
+            mode: "markers+text",
+            text: [`m_${n}`],
+            textposition: "bottom center",
+            marker: {
+                color: "orange",
+                size: 12,
+                symbol: "cross"
+            },
+            showlegend: false
+        });
+
+        ////////////////////////////////////////////////////////////////////////////
+        // Projections verticales
+        ////////////////////////////////////////////////////////////////////////////
+
+        function projection(x, y, color) {
+
+            traces.push({
+                x: [x, x],
+                y: [0, y],
+                mode: "lines",
+                line: {
+                    color: color,
+                    width: 3,
+                    dash: "dash"
+                },
+                showlegend: false
+            });
+        }
+
+        projection(ak, fak, "purple");
+        projection(bk, fbk, "green");
+        projection(mk, fmk, "orange");
+
+        ////////////////////////////////////////////////////////////////////////////
+        // Horizontales
+        ////////////////////////////////////////////////////////////////////////////
+
+        function horizontale(y, color) {
+
+            traces.push({
+                x: [0, 5],
+                y: [y, y],
+                mode: "lines",
+                line: {
+                    color: color,
+                    width: 2,
+                    dash: "dash"
+                },
+                showlegend: false
+            });
+        }
+
+        horizontale(fak, "purple");
+        horizontale(fbk, "green");
+        horizontale(fmk, "orange");
+        horizontale(gamma, "red");
+
+        traces.push({
+            x: [-0.15],
+            y: [gamma],
+            mode: "text",
+            text: ["ɣ"],
+            textfont: {
+                color: "red",
+                size: 22
+            },
+            showlegend: false
+        });
+
+        traces.push({
+            x: [-0.45],
+            y: [fmk],
+            mode: "text",
+            text: [`f(m_${n})`],
+            textfont: {
+                color: "orange",
+                size: 20
+            },
+            showlegend: false
+        });
+
+        ////////////////////////////////////////////////////////////////////////////
+        // Affichage
+        ////////////////////////////////////////////////////////////////////////////
+
+        Plotly.react(
+
+            plot,
+
+            traces,
+
+            {
+                paper_bgcolor: 'rgba(0,0,0,0)',
+            
+                plot_bgcolor: 'rgba(0,0,0,0)',
+            
+                title: {
+                    text: `n = ${n}`,
+                    font: {
+                        size: 24
+                    },
+                    color: window.matchMedia('(prefers-color-scheme: dark)').matches
+                        ? '#d6b07a'
+                        : '#2d1b12'
+                },
+            
+                width: 700,
+                height: 700,
+            
+                margin: {
+                    t: 60
+                },
+            
+                xaxis: {
+            
+                    range: [-1, 5],
+            
+                    scaleanchor: "y",
+            
+                    scaleratio: 1,
+            
+                    showgrid: false,
+            
+                    zeroline: false,
+            
+                    showticklabels: false,
+            
+                    ticks: "",
+            
+                    color: '#2d1b12'
+                },
+            
+                yaxis: {
+            
+                    range: [-0.5, 4],
+            
+                    showgrid: false,
+            
+                    zeroline: false,
+            
+                    showticklabels: false,
+            
+                    ticks: "",
+            
+                    color: '#2d1b12'
+                }
+            }
+        );
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Synchronisation
+    ////////////////////////////////////////////////////////////////////////////
+
+    function sync(n) {
+
+        slider.value = n;
+        input.value  = n;
+
+        updatePlot(n);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Events
+    ////////////////////////////////////////////////////////////////////////////
+
+    slider.addEventListener("input", () => {
+        sync(slider.value);
+    });
+
+    input.addEventListener("input", () => {
+        sync(input.value);
+    });
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Initialisation
+    ////////////////////////////////////////////////////////////////////////////
+
+    sync(0);
+
+})();
+    </script>
+    </p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><img src="dichotomie_0.png"
+alt="image" /></td>
+<td style="text-align: center;"><img src="dichotomie_1.png"
+alt="image" /></td>
+<td style="text-align: center;"><img src="dichotomie_2.png"
+alt="image" /></td>
+<td style="text-align: center;"><img src="dichotomie_3.png"
+alt="image" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Notons que <span class="math inline">\([a,b] \subset I\)</span> car
+<span class="math inline">\(I\)</span> est un intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>. On suppose dans la preuve,
+<span class="math inline">\(\alpha \leq \beta\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(\mathbf{(n=0)}.\)</span> On pose
+<span class="math inline">\(a_0 = a\)</span>, <span
+class="math inline">\(b_0 = b\)</span>. On a alors</p>
+<ol>
+<li><p><span class="math inline">\(\alpha = f(a_0) \leq \gamma \leq
+f(b_0) = \beta\)</span>,</p></li>
+<li><p><span class="math inline">\(b_0-a_0 = b-a \geq
+0\)</span>.</p></li>
+</ol></li>
+<li><p><span class="math inline">\(\mathbf{(n=1)}.\)</span> On pose
+<span class="math inline">\(m_0 = \frac{a_0+b_0}{2}\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(\gamma \leq f(m_0)\)</span>, on
+pose <span class="math inline">\(a_1 = a_0\)</span> et <span
+class="math inline">\(b_1 = m_0\)</span>. On a alors,</p>
+<ol>
+<li><p><span class="math inline">\(\alpha = f(a_1) \leq \gamma \leq
+f(b_1) = f(m_0)\)</span>,</p></li>
+<li><p><span class="math inline">\(b_1-a_1 = m_0-a = \frac{a+b}{2}-a
+=\frac{b-a}{2}\)</span>,</p></li>
+<li><p><span class="math inline">\(b_1 = m_0 \leq b_0\)</span> et <span
+class="math inline">\(a_1 = a \geq a_0\)</span>.</p></li>
+</ol></li>
+<li><p>Si <span class="math inline">\(\gamma &gt; f(m_0)\)</span>, on
+pose <span class="math inline">\(a_1 = m_0\)</span> et <span
+class="math inline">\(b_1 = b_0\)</span>. On a alors,</p>
+<ol>
+<li><p><span class="math inline">\(f(m_0)= f(a_1) \leq \gamma \leq
+f(b_1) = \beta\)</span>,</p></li>
+<li><p><span class="math inline">\(b_1-a_1 = b-m_0 = b-\frac{a+b}{2}
+=\frac{b-a}{2}\geq 0\)</span>,</p></li>
+<li><p><span class="math inline">\(b_1 = b \leq b_0\)</span> et <span
+class="math inline">\(a_1 = m_0 \geq a_0\)</span>.</p></li>
+</ol></li>
+</ul></li>
+<li><p><strong>(Hérédité)</strong>. Soit <span class="math inline">\(n
+\in \mathbb{N}^{\star}\)</span>, supposons <span
+class="math inline">\(a_0,\ldots,a_n\)</span> et <span
+class="math inline">\(b_0,\ldots,b_n\)</span> construits tels que</p>
+<ol>
+<li><p><span class="math inline">\(\forall n \in [\![ 0, n]\!]\)</span>,
+<span class="math inline">\(f(a_n) \leq \gamma \leq
+f(b_n)\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall n \in [\![ 0, n]\!]\)</span>,
+<span class="math inline">\(b_n-a_n =\frac{b-a}{2^n}\geq
+0\)</span>,</p></li>
+<li><p><span class="math inline">\(b_n \leq b_{n-1} \leq \ldots \leq b_1
+\leq b_0\)</span> et <span class="math inline">\(a_n \geq a_{n-1} \geq
+\ldots \geq a_1 \geq a_0\)</span>.</p></li>
+</ol>
+<p>Construisons <span class="math inline">\(a_{n+1}\)</span> et <span
+class="math inline">\(b_{n+1}\)</span>. On pose <span
+class="math inline">\(m_n = \frac{a_n+b_n}{2}\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(\gamma \leq f(m_n)\)</span>, on
+pose <span class="math inline">\(a_{n+1}= a_n\)</span> et <span
+class="math inline">\(b_{n+1}= m_n\)</span>. On a alors,</p>
+<ol>
+<li><p><span class="math inline">\(f(a_n) = f(a_{n+1}) \leq \gamma \leq
+f(b_{n+1}) = f(m_n)\)</span>,</p></li>
+<li><p><span class="math inline">\(b_{n+1}-a_{n+1} = m_{n}-a_n =
+\frac{a_n+b_n}{2}-a_n =\frac{b_n-a_n}{2} =
+\frac{b-a}{2^{n+1}}\)</span>,</p></li>
+<li><p><span class="math inline">\(b_{n+1} = m_n \leq b_n\)</span> et
+<span class="math inline">\(a_{n+1} = a_n \geq a_n\)</span>.</p></li>
+</ol></li>
+<li><p>Si <span class="math inline">\(\gamma &gt; f(m_n)\)</span>, on
+pose <span class="math inline">\(a_{n+1} = m_n\)</span> et <span
+class="math inline">\(b_{n+1} = b_n\)</span>. On a alors,</p>
+<ol>
+<li><p><span class="math inline">\(f(m_n)= f(a_{n+1}) \leq \gamma \leq
+f(b_{n+1}) = f(b_n)\)</span>,</p></li>
+<li><p><span class="math inline">\(b_{n+1}-a_{n+1} = b_n-m_{n} =
+b_n-\frac{a_n+b_n}{2} =\frac{b_n-a_n}{2} =
+\frac{b-a}{2^{n+1}}\)</span>,</p></li>
+<li><p><span class="math inline">\(b_{n+1} = b_n \leq b_n\)</span> et
+<span class="math inline">\(a_{n+1} = m_n \geq a_n\)</span>.</p></li>
+</ol></li>
+</ul></li>
+</ul>
+<p>On a donc construits par récurrence des suites <span
+class="math inline">\((a_n)\)</span> et <span
+class="math inline">\((b_n)\)</span> de <span
+class="math inline">\(I\)</span> telles que</p>
+<ol>
+<li><p><span class="math inline">\(\forall n \in N, f(a_n) \leq \gamma
+\leq f(b_n)\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall n \in \mathbb{N}\)</span>,
+<span class="math inline">\(b_n-a_n =\frac{b-a}{2^n}\geq
+0\)</span>,</p></li>
+<li><p><span class="math inline">\((b_n)\)</span> décroissante et <span
+class="math inline">\((a_n)\)</span> croissante.</p></li>
+</ol>
+<p>En particulier, on a</p>
+<ol>
+<li><p><span class="math inline">\(\forall n \in \mathbb{N}\)</span>,
+<span class="math inline">\(a_n \leq b_n\)</span>,</p></li>
+<li><p><span class="math inline">\(\forall n \in \mathbb{N}\)</span>,
+<span class="math inline">\(b_n-a_n =\frac{b-a}{2^n} \longrightarrow
+0\)</span>,</p></li>
+<li><p><span class="math inline">\((b_n)\)</span> décroissante et <span
+class="math inline">\((a_n)\)</span> croissante.</p></li>
+</ol>
+<p>Donc <span class="math inline">\((a_n)\)</span> et <span
+class="math inline">\((b_n)\)</span> sont des suites adjacentes et
+admettent une limite commune <span class="math inline">\(c \in
+\mathbb{R}\)</span>. De plus, par passage à la limite dans l’inégalité,
+<span class="math inline">\(a = a_0 \leq c \leq b = b_0\)</span> donc
+<span class="math inline">\(c \in [a,b]\)</span>.</p>
+<p>Comme <span class="math inline">\(f\)</span> est continue sur <span
+class="math inline">\(I\)</span>, on a <span
+class="math inline">\(f(a_n) \longrightarrow f(c)\)</span> et <span
+class="math inline">\(f(b_n) \longrightarrow f(c)\)</span> et on déduit
+de <span class="math display">\[\forall n \in N, f(a_n) \leq \gamma \leq
+f(b_n)\]</span> que <span class="math inline">\(f(c) =
+\gamma\)</span>.</p>
+</div>
+<div class="wcor">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{C}(I,\mathbb{R})\)</span> avec <span
+class="math inline">\(I\)</span> intervalle de <span
+class="math inline">\(\mathbb{R}\)</span> alors <span
+class="math inline">\(f(I)\)</span> est un intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>.</p>
+</div>
+<div class="wex">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Si <span class="math inline">\(f\)</span> n’est pas continue, en
+général <span class="math inline">\(f(I)\)</span> n’est pas un
+intervalle de <span class="math inline">\(\mathbb{R}\)</span>.</p>
+<p>Par exemple, avec <span class="math inline">\(f : x \in [0,2] \mapsto
+\begin{cases}
+            x &amp; \mbox{ si } x \in [0,1] \\
+            x+1 &amp; \mbox{ si } x \in ]1,2].
+        \end{cases}\)</span>, <span class="math inline">\(f([0,2]) =
+[0,1] \cup ]2,3]\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="ex_nonc02.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Soit <span class="math inline">\(f: [a,b] \to [a,b]\)</span>
+continue. Montrer que <span class="math inline">\(f\)</span> admet un
+point fixe sur <span class="math inline">\([a,b]\)</span> ie il existe
+<span class="math inline">\(x_0 \in [a,b]\)</span> tel que <span
+class="math inline">\(f(x_0)=x_0\)</span>.</p>
+</div>
+<div class="corri*">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Il faut bien lire l’énoncé et constater que <span
+class="math inline">\(f([a,b]) \subset [a,b]\)</span>.</p>
+<p>On remarque que pour <span class="math inline">\(x \in
+[a,b]\)</span>,</p>
+<p><span class="math inline">\(f(x) = x \iff f(x)-x = 0 \iff g(x) =
+0\)</span></p>
+<p><span class="math inline">\(\text{ avec }g : x \in [a,b] \mapsto
+f(x)-x\)</span>.</p>
+<p>De plus,</p>
+<ul>
+<li><p><span class="math inline">\(g\)</span> est continue sur <span
+class="math inline">\([a,b]\)</span>,</p></li>
+<li><p><span class="math inline">\(g(a) = f(a)-a \geq a-a =
+0\)</span>,</p></li>
+<li><p><span class="math inline">\(g(b) = f(b)-b \leq b-b =
+0\)</span>.</p></li>
+</ul>
+<p>Donc par théorème des valeurs intermédiaires, il existe <span
+class="math inline">\(x_0 \in [a,b]\)</span> tel que <span
+class="math inline">\(g(x_0) = 0 \iff f(x_0) = x_0\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="pointfixe.png" alt="image" /></p>
+</div>
+</div>
+</div>
+</div>
+<h2 data-number="2.8" id="fonction-continue-sur-un-segment-ab"><span
+class="header-section-number">2.8</span> Fonction continue sur un
+segment <span class="math inline">\([a,b]\)</span></h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f : [a,b] \to \mathbb{R}\)</span>,
+continue sur <span class="math inline">\([a,b]\)</span> (avec <span
+class="math inline">\(a \leq b\)</span>). Alors <span
+class="math inline">\(f\)</span> est bornée sur <span
+class="math inline">\([a,b]\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Par l’absurde, supposons que <span class="math inline">\(f\)</span>
+n’est pas bornée sur <span class="math inline">\([a,b]\)</span> et donc
+que <span class="math display">\[\forall M \in \mathbb{R}^+, \exists x_M
+\in [a,b] / |f(x_M)| &gt; M.\]</span></p>
+<p>Prenons <span class="math inline">\(M = n\)</span> et construisons
+<span class="math inline">\((u_n)\)</span> suite de <span
+class="math inline">\([a,b]\)</span> telle que <span
+class="math display">\[\forall n \geq 0, |f(x_n)| &gt; n.\]</span></p>
+<p>On a donc <span class="math inline">\(|f(u_n)| \longrightarrow +
+\infty\)</span>.</p>
+<p>Or, <span class="math inline">\((u_n)\)</span> est une suite de <span
+class="math inline">\([a,b]\)</span>, elle est donc bornée et par
+théorème de Bolzano-Weierstrass, il existe <span
+class="math inline">\(\varphi:\mathbb{N}\to \mathbb{N}\)</span> une
+extraction telle que <span
+class="math inline">\((u_{\varphi(n)})\)</span> converge vers un réel
+<span class="math inline">\(c \in \mathbb{R}\)</span>. De plus, <span
+class="math inline">\(|f(u_{\varphi(n)})| \longrightarrow +
+\infty\)</span> et comme <span class="math display">\[\forall n \in
+\mathbb{N}, a \leq u_{\varphi(n)}\leq b,\]</span> on a <span
+class="math inline">\(c \in [a,b]\)</span> et par continuité de <span
+class="math inline">\(f\)</span>, <span class="math inline">\(|f(u_n)|
+\longrightarrow |f(c)|\)</span>, ce qui est contradictoire.</p>
+<p>Donc <span class="math inline">\(f\)</span> est bornée sur <span
+class="math inline">\([a,b]\)</span>.</p>
+</div>
+<div class="wrem">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Si <span class="math inline">\(f\)</span> est non continue sur <span
+class="math inline">\([a,b]\)</span>, en général <span
+class="math inline">\(f\)</span> est non bornée sur <span
+class="math inline">\([a,b]\)</span> comme l’illustre par exemple <span
+class="math inline">\(f : x \in [0,1] \mapsto \begin{cases}
+        \frac{1}{x}&amp; \mbox{ si $x \in ]0,1]$} \\
+        0 &amp; \mbox{ si $x=0$}.
+    \end{cases}\)</span></p>
+</div>
+<div class="webimg">
+<p><img src="ex_nonc0nonbornee.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wrem">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Si <span class="math inline">\(f\)</span> est non continue sur <span
+class="math inline">\(]a,b]\)</span> , en général <span
+class="math inline">\(f\)</span> est non bornée sur <span
+class="math inline">\(]a,b]\)</span> comme l’illustre par exemple <span
+class="math inline">\(f : x \in ]0,1] \mapsto  \frac{1}{x}\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="ex_c0nonbornee.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f : [a,b] \to \mathbb{R}\)</span>
+continue.</p>
+<p>Alors, <span class="math inline">\(f\)</span> est bornée et <span
+class="math inline">\(M = \sup_{x \in [a,b]} f(x)\)</span> et <span
+class="math inline">\(m = \inf_{x \in [a,b]} f(x)\)</span> existe.</p>
+<p>De plus, <span class="math display">\[\begin{aligned}
+        \text{Il existe } x_0 \in [a,b] \text{ tel que }f(x_0) &amp; =
+M. \\
+        \text{Il existe } x_1 \in [a,b] \text{ tel que }f(x_1) &amp; =
+m.
+    \end{aligned}\]</span></p>
+<p>Donc, <span class="math inline">\(M = \max_{x \in [a,b]}
+f(x)\)</span> et <span class="math inline">\(m = \min_{x \in [a,b]}
+f(x)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Prouvons le résultat pour <span class="math inline">\(M = \sup_{x\in
+[a,b]} f(x)\)</span> et la preuve est identique pour la borne
+inférieure.</p>
+<p>Comme <span class="math inline">\(M = = \sup_{x\in [a,b]}
+f(x)\)</span>, par caractérisation de la borne supérieure, pour tout
+<span class="math inline">\(\varepsilon &gt; 0\)</span>, il existe <span
+class="math inline">\(x_\varepsilon \in [a,b]\)</span> tel que <span
+class="math inline">\(f(x_\varepsilon) &gt; M-\varepsilon\)</span>.</p>
+<p>Pour <span class="math inline">\(n\in \mathbb{N}^{\star}\)</span>,
+prenons <span class="math inline">\(\varepsilon = \frac{1}{n}\)</span>
+et <span class="math inline">\(u_n \in [a,b]\)</span> tel que <span
+class="math display">\[f(u_n) &gt; M-\frac{1}{n}.\]</span> Alors, comme
+<span class="math inline">\((u_n)\)</span> est une suite de <span
+class="math inline">\([a,b]\)</span>, donc bornée, par théorème de
+Bolzano-Weierstrass, il existe <span class="math inline">\(\varphi :
+\mathbb{N}\to \mathbb{N}\)</span> extraction telle que <span
+class="math inline">\((u_{\varphi(n)})\)</span> admet une limite <span
+class="math inline">\(\ell \in \mathbb{R}\)</span> et de plus <span
+class="math inline">\(\ell \in [a,b]\)</span>.</p>
+<p>On a donc <span class="math inline">\(f(u_{\varphi(n)})
+\longrightarrow f(\ell)\)</span> par continuité de <span
+class="math inline">\(f\)</span> et pour tout <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span>, <span
+class="math display">\[M-\frac{1}{n} &lt; f(u_n) \leq M.\]</span> Donc
+par passage à la limite, <span class="math inline">\(M =
+f(\ell)\)</span> avec <span class="math inline">\(\ell \in
+[a,b]\)</span>.</p>
+</div>
+<div class="wex">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Ceci est faux pour <span class="math inline">\(f\)</span> non
+continue comme l’illustre par exemple <span class="math inline">\(f : x
+\in [0,1] \mapsto \begin{cases}
+        x&amp; \mbox{ si $x \in ]0,1]$} \\
+        \frac{1}{2} &amp; \mbox{ si $x=0$}.
+    \end{cases}\)</span></p>
+</div>
+<div class="webimg">
+<p><img src="ex_nonc0nonborneatteinte.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wex">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Ceci est faux pour <span class="math inline">\(f\)</span> continue
+sur <span class="math inline">\([a,b[\)</span> comme l’illustre par
+exemple <span class="math inline">\(f : x \in [0,1[ \mapsto
+x\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="ex_c0nonborneatteinte.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wcor">
+<p>Soit <span class="math inline">\(f : [a,b] \to \mathbb{R}\)</span>
+continue, alors <span class="math inline">\(f([a,b])\)</span> est un
+segment. On a <span class="math inline">\(f([a,b]) = [m,M]\)</span> avec
+<span class="math inline">\(M = \sup_{x \in [a,b]} f(x)\)</span> et
+<span class="math inline">\(m = \inf_{x \in [a,b]} f(x)\)</span>.</p>
+</div>
+<div class="wex">
+<p><strong>(Exemple d’utilisation)</strong></p>
+<div class="exo*">
+<p>Soient <span class="math inline">\(f : [a,b] \to \mathbb{R}\)</span>,
+<span class="math inline">\(g : [a,b] \to \mathbb{R}\)</span> continues
+sur <span class="math inline">\([a,b]\)</span> telles que <span
+class="math display">\[\forall x \in [a,b], f(x) &lt; g(x).\]</span>
+Montrer qu’il existe <span class="math inline">\(\alpha &gt; 0\)</span>
+tel que <span class="math display">\[\forall x \in [a,b], g(x)-f(x) &gt;
+\alpha.\]</span></p>
+</div>
+<div class="corri*">
+<p>Soit <span class="math inline">\(h = g-f\)</span>, <span
+class="math inline">\(h\)</span> est continue sur <span
+class="math inline">\([a,b]\)</span> et atteint sa borne inférieure
+<span class="math inline">\(\alpha\)</span> en un point <span
+class="math inline">\(x_1 \in [a,b]\)</span>.</p>
+<p>De plus, <span class="math display">\[\forall x \in [a,b], h(x) &gt;
+0.\]</span></p>
+<p>Donc <span class="math inline">\(\alpha = h(x_1) &gt; 0\)</span>.</p>
+<p>D’où <span class="math display">\[\forall x \in [a,b], h(x) =
+g(x)-f(x)\geq \alpha &gt; 0.\]</span></p>
+</div>
+<div class="wrem">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Cela est faux pour <span class="math inline">\(f : [a,+\infty[\to
+\mathbb{R}\)</span>, <span class="math inline">\(g : [a,+\infty[\to
+\mathbb{R}\)</span> continues sur <span
+class="math inline">\([a,+\infty[\)</span> telles que <span
+class="math display">\[\forall x \in [a,+\infty[, f(x) &lt;
+g(x).\]</span></p>
+<p>comme l’illustrent <span class="math inline">\(f : x\in[1,+\infty[\to
+1\)</span> et <span class="math inline">\(g : x\in[1,+\infty[\to
+1+\frac{1}{x}\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="contrex_ex.png" alt="image" /></p>
+</div>
+</div>
+</div>
+</div>
+<h2 data-number="2.9"
+id="réciproque-dune-fonction-de-i-dans-mathbbr-continue-sur-i-strictement-monotone-sur-i"><span
+class="header-section-number">2.9</span> Réciproque d’une fonction de
+<span class="math inline">\(I\)</span> dans <span
+class="math inline">\(\mathbb{R}\)</span> continue sur <span
+class="math inline">\(I\)</span>, strictement monotone sur <span
+class="math inline">\(I\)</span></h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f : I \to \mathbb{R}\)</span>
+continue sur sur un intervalle <span class="math inline">\(I\)</span> de
+<span class="math inline">\(\mathbb{R}\)</span> et strictement monotone
+<span class="math inline">\(I\)</span>. Alors <span
+class="math inline">\(J = f(I)\)</span> est un intervalle. De plus, pour
+rappel, <span class="math inline">\(f\)</span> admet une fonction
+réciproque <span class="math inline">\(f^{-1} : J \to
+\mathbb{R}\)</span>.</p>
+<p>Alors, <span class="math inline">\(f^{-1}\)</span> est continue sur
+<span class="math inline">\(J\)</span>.</p>
+</div>
+<div class="wproof">
+<p>On prouve le résultat pour <span class="math inline">\(f\)</span>
+strictement croissante et la preuve s’adapte pour <span
+class="math inline">\(f\)</span> strictement décroissante. Soit <span
+class="math inline">\(y_0 \in J\)</span>, <span
+class="math inline">\(x_0 = f^{-1}(y_0) \in I\)</span> et <span
+class="math inline">\(\varepsilon &gt; 0\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(x_0\)</span> n’est pas une borne
+de <span class="math inline">\(I\)</span> alors <span
+class="math inline">\(y_0\)</span> n’est pas une borne de <span
+class="math inline">\(J\)</span> (par stricte croissance de <span
+class="math inline">\(f\)</span>).</p>
+<p>Le risque est que <span class="math inline">\(x_0-\varepsilon \notin
+I\)</span> pi <span class="math inline">\(x_0+\varepsilon \notin
+I\)</span>.</p>
+<p>Comme <span class="math inline">\(I\)</span> est un intervalle, on
+peut considérer <span class="math inline">\(\varepsilon&#39; &lt;
+\varepsilon\)</span> tel que <span class="math inline">\(x_- =
+x_0-\varepsilon&#39; \in I\)</span> et <span class="math inline">\(x_+ =
+x_0+\varepsilon&#39; \in I\)</span>.</p>
+<p>On note <span class="math inline">\(y_- = f(x_0-\varepsilon&#39;) \in
+J, y_+ = f(x_0+\varepsilon&#39;) \in J\)</span> et <span
+class="math inline">\(\eta = \min(y_0-y_-,y_+-y_0)\)</span>. Par stricte
+croissance de <span class="math inline">\(f\)</span>, <span
+class="math inline">\(\eta &gt; 0\)</span>.</p>
+<p>On a alors <span class="math inline">\(y_- = y_0+(y_--y_0) \leq
+y_0-\eta\)</span> et <span class="math inline">\(y_+ = y_0+(y_+-y_0)
+\geq y_0+\eta\)</span>.</p>
+<div class="center">
+<p><img src="rec_nonborne.png" alt="image" /></p>
+</div>
+<p>De plus, pour <span class="math inline">\(y \in J\)</span>, <span
+class="math display">\[\begin{aligned}
+         |y-y_0| \leq \eta
+        &amp; \iff -\eta \leq y-y_0 \leq \eta \\
+        &amp; \iff y_0-\eta \leq y \leq y_0+\eta \\
+        &amp; \Longrightarrow y_- \leq y_0-\eta \leq y \leq y_0+\eta
+\leq y_+  \\
+        &amp; \Longrightarrow f^{-1}(y_-) \leq f^{-1}(y) \leq
+f^{-1}(y_+) \text{ par croissance de $f^{-1}$} \\
+        &amp; \Longrightarrow   x_0-\varepsilon&#39; \leq f^{-1}(y) \leq
+x_0+\varepsilon&#39; \text{ par définition de $y_-,y_+$,}\\
+        &amp; \Longrightarrow   f^{-1}(y_0)-\varepsilon&#39; \leq
+f^{-1}(y) \leq f^{-1}(y_0)+\varepsilon&#39; \text{ par définition de
+$x_0$.}\\
+        &amp; \iff  |f^{-1}(y)-f^{-1}(y_0)| \leq\varepsilon&#39;
+        \end{aligned}\]</span></p>
+<p>En particulier, on a donc pour <span class="math inline">\(y \in
+J\)</span>, <span class="math display">\[|y-y_0| \leq \eta
+\Longrightarrow |f^{-1}(y)-f^{-1}(y_0)| \leq\varepsilon&#39;  \leq
+\varepsilon\]</span></p>
+<p>donc <span class="math inline">\(f^{-1}\)</span> est continue en
+<span class="math inline">\(y_0\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(x_0\)</span> est la borne gauche
+ie <span class="math inline">\(I=[x_0,?[\)</span> ou <span
+class="math inline">\(I=[x_0,?]\)</span>. Alors, par stricte croissance
+de <span class="math inline">\(f^{-1}\)</span>, <span
+class="math inline">\(y_0\)</span> est la borne gauche de <span
+class="math inline">\(J\)</span> donc <span
+class="math inline">\(J=[y_0,?[\)</span> ou <span
+class="math inline">\(J=[y_0,?]\)</span> (par stricte croissance de
+<span class="math inline">\(f\)</span>).</p>
+<p>Le risque est alors que <span class="math inline">\(x_0+\varepsilon
+\notin I\)</span> (on sait déjà que quoiqu’il arrive <span
+class="math inline">\(x_0-\varepsilon \notin I\)</span>).</p>
+<p>Comme <span class="math inline">\(I\)</span> est un intervalle, on
+peut considérer <span class="math inline">\(\varepsilon&#39; &lt;
+\varepsilon\)</span> tel que <span
+class="math inline">\(x_0+\varepsilon&#39; \in I\)</span>.</p>
+<p>On note <span class="math inline">\(y_+ = f(x_0+\varepsilon&#39;) \in
+J\)</span> et <span class="math inline">\(\eta = y_+-y_0\)</span>. Par
+stricte croissance de <span class="math inline">\(f\)</span>, <span
+class="math inline">\(\eta &gt; 0\)</span>.</p>
+<p>On a alors <span class="math inline">\(y_+ = y_0+(y_+-y_0) \geq
+y_0+\eta\)</span>.</p>
+<div class="center">
+<p><img src="rec_borne_gauche.png" alt="image" /></p>
+</div>
+<p>De plus, pour <span class="math inline">\(y \in J\)</span>, <span
+class="math display">\[\begin{aligned}
+         |y-y_0| \leq \eta
+        &amp; \iff 0 \leq y-y_0 \leq \eta \text{ car $J=[y_0,?[$ ou
+$J=[y_0,?]$}\\
+        &amp; \iff y_0 \leq y \leq y_0+\eta \\
+        &amp; \Longrightarrow y_0 \leq y \leq y_0+\eta \leq y_+  \\
+        &amp;\Longrightarrow f^{-1}(y_0) \leq f^{-1}(y) \leq f^{-1}(y_+)
+\text{ par croissance de $f^{-1}$,} \\
+        &amp; \Longrightarrow   x_0 \leq f^{-1}(y) \leq
+x_0+\varepsilon&#39; \text{ par définition de $y_+$,}\\
+        &amp; \Longrightarrow   f^{-1}(y_0) \leq f^{-1}(y) \leq
+f^{-1}(y_0)+\varepsilon&#39; \text{ par définition de $x_0$.}\\
+        &amp; \iff  |f^{-1}(y)-f^{-1}(y_0)| \leq\varepsilon&#39; \text{
+car $f^{-1}(y) \in I$ et $I=[f^{-1}(y_0),?[$ ou $I=[f^{-1}(y_0),?]$}\\
+        \end{aligned}\]</span></p>
+<p>En particulier, on a donc pour <span class="math inline">\(y \in
+J\)</span>, <span class="math display">\[|y-y_0| \leq \eta
+\Longrightarrow |f^{-1}(y)-f^{-1}(y_0)| \leq\varepsilon&#39;  \leq
+\varepsilon\]</span></p>
+<p>donc <span class="math inline">\(f^{-1}\)</span> est continue en
+<span class="math inline">\(y_0\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(x_0\)</span> est la borne droite
+de <span class="math inline">\(I\)</span>, la preuve est similaire à ce
+qui précède.</p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>Dans la preuve précédente, où a servi l’hypothèse "<span
+class="math inline">\(f\)</span> continue" ? En fait, cette hypothèse
+sert juste pour dire que <span class="math inline">\(J = f(I)\)</span>
+est un intervalle. Elle n’est pas nécessaire pour la continuité de <span
+class="math inline">\(f^{-1}\)</span>. En revanche, <span
+class="math inline">\(I\)</span> un intervalle est indispensable comme
+l’illustre l’exemple ci-dessous.</p>
+<div class="wex">
+<p>En considérant <span class="math inline">\(f : x \in ]-\infty,0[ \cup
+[1,+\infty[ \mapsto \begin{cases}
+        x \mbox{ si $x &lt; 0$}
+        x-1 \mbox{ si $x \geq 1$}
+    \end{cases}\)</span> strictement monotone et continue sur <span
+class="math inline">\(]-\infty,0[ \cup [1,+\infty[\)</span>, possède la
+réciproque <span class="math inline">\(f : x \in \mathbb{R}\mapsto
+\begin{cases}
+        y \mbox{ si $y \leq 0$}
+        y+1 \mbox{ si $y &gt; 0$}
+    \end{cases}\)</span> non continue sur <span
+class="math inline">\(\mathbb{R}\)</span>.</p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><img
+src="rec_stricte_croissante_nonc0.png" alt="image" /></td>
+<td style="text-align: center;"><img src="stricte_croissante_nonc0.png"
+alt="image" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="wrem">
+<p>Soit <span class="math inline">\(f : I \to \mathbb{R}\)</span>
+continue sur sur un intervalle <span class="math inline">\(I\)</span> de
+<span class="math inline">\(\mathbb{R}\)</span> et strictement
+croissante <span class="math inline">\(I\)</span>. <span
+class="math inline">\(J\)</span> est un intervalle et</p>
+<ul>
+<li><p>soit <span class="math inline">\(I = [a,b], [a,b[, ]a,b] \text{
+ou }]a,b[\)</span> avec <span class="math inline">\(a &lt; b \in
+\mathbb{R}\)</span></p>
+<p>et <span class="math inline">\(J = [f(a),f(b)], [f(a),f(b)[,
+]f(a),f(b)] \text{ ou }]f(a),f(b)[\)</span>,</p></li>
+<li><p>soit <span class="math inline">\(I = [a,+\infty[,]a,+\infty[,
+]-\infty,b] \text{ ou }]-\infty,b[\)</span> avec <span
+class="math inline">\(a, b \in \mathbb{R}\)</span></p>
+<p>et <span class="math inline">\(J =  [f(a),+\infty[,]f(a),+\infty[,
+]-\infty,f(b)] \text{ ou }]-\infty,f(b)[\)</span>.</p></li>
+</ul>
+</div>
+<div class="wex">
+<p>Soit <span class="math inline">\(n \in \mathbb{N}^{\star}\)</span> et
+<span class="math inline">\(f_n : x \in \mathbb{R}^{+}\mapsto x^n \in
+\mathbb{R}\)</span>.</p>
+<p><span class="math inline">\(f_n\)</span> est strictement croissante
+sur <span class="math inline">\(\mathbb{R}^{+}\)</span> avec <span
+class="math inline">\(f_n(0) =0\)</span>. De plus, <span
+class="math inline">\(f_n\)</span> est continue sur <span
+class="math inline">\(\mathbb{R}^p\)</span> et non majorée donc <span
+class="math inline">\(f(\mathbb{R}^p) = \mathbb{R}^p\)</span>.</p>
+<p><span class="math inline">\(f_n\)</span> est donc continue sur <span
+class="math inline">\(\mathbb{R}^{+}\)</span> et pour <span
+class="math inline">\(y\in \mathbb{R}^{+}, f_n^{-1}(y)\)</span> est
+l’unique réel <span class="math inline">\(x\)</span> positif tel que
+<span class="math inline">\(x^n = y\)</span>, noté <span
+class="math inline">\(\sqrt[n]{y}\)</span>.</p>
+</div>
+<h1 data-number="3" id="limite-en-un-point-x_0"><span
+class="header-section-number">3</span> Limite en un point <span
+class="math inline">\(x_0\)</span></h1>
+<p>Soit <span class="math inline">\(x_0 \in \mathbb{R}\)</span> et <span
+class="math inline">\(I\)</span> intervalle de <span
+class="math inline">\(\mathbb{R}\)</span> tel que <span
+class="math inline">\(x_0 \in I\)</span> et <span
+class="math inline">\(I \neq \{x_0\}\)</span>, <span
+class="math inline">\(D\)</span> désigne <span
+class="math inline">\(I\)</span> ou <span class="math inline">\(I
+\setminus \{x_0\}\)</span>.</p>
+<h2 data-number="3.1" id="définition-1"><span
+class="header-section-number">3.1</span> Définition</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(f: D \to \mathbb{R}\)</span> et
+<span class="math inline">\(\ell \in \mathbb{R}\)</span>, <span
+class="math inline">\(f\)</span> admet <span
+class="math inline">\(\ell\)</span> pour limite en <span
+class="math inline">\(x_0\)</span> ou tend vers <span
+class="math inline">\(\ell\)</span> en <span
+class="math inline">\(x_0\)</span> si <span
+class="math display">\[\forall \varepsilon &gt; 0, \exists
+\eta_\varepsilon / x\in D, |x-x_0| \leq \eta_\varepsilon \Longrightarrow
+|f(x)-\ell| \leq \varepsilon.\]</span></p>
+<p>Dans ce cas, on écrit <span class="math inline">\(f(x) \xrightarrow[x
+\to x_0]{} \ell\)</span>.</p>
+</div>
+<div class="center">
+<p><img src="limite_fonction.png" alt="image" /></p>
+</div>
+<div class="wrem">
+<p>Comme précédemment, pour <span class="math inline">\(C &gt;
+0\)</span>, la définition équivaut à <span
+class="math display">\[\forall \varepsilon &gt; 0, \exists
+\eta_\varepsilon / x\in D, |x-x_0| \leq \eta_\varepsilon \Longrightarrow
+|f(x)-\ell| \leq C\varepsilon.\]</span></p>
+</div>
+<div class="wprop">
+<p>Si <span class="math inline">\(f(x) \xrightarrow[x \to x_0]{} \ell
+\in \mathbb{R}\)</span>, <span class="math inline">\(\ell\)</span> est
+unique et est appelé <u>la limite</u> de <span
+class="math inline">\(f\)</span> en <span
+class="math inline">\(x_0\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Par l’absurde, supposons <span class="math inline">\(f(x)
+\xrightarrow[x \to x_0]{} \ell \in \mathbb{R}\)</span> et <span
+class="math inline">\(f(x) \xrightarrow[x \to x_0]{} \ell&#39; \in
+\mathbb{R}\)</span> avec <span class="math inline">\(\ell &lt;
+\ell&#39;\)</span>.</p>
+<p>Soit <span class="math inline">\(\varepsilon =
+\frac{\ell&#39;-\ell}{4} &gt; 0\)</span>, il existe <span
+class="math inline">\(\eta &gt; 0\)</span> tel que pour tout <span
+class="math inline">\(x\in D\)</span>, <span
+class="math display">\[|x-x_0| \leq \eta \Longrightarrow |f(x)-\ell|
+\leq \varepsilon \Longrightarrow f(x)-\ell \leq \varepsilon
+\Longrightarrow f(x) \leq \ell+\varepsilon =
+\frac{3\ell+\ell&#39;}{4},\]</span> il existe aussi <span
+class="math inline">\(\eta&#39; &gt; 0\)</span> tel que pour tout <span
+class="math inline">\(x\in D\)</span>, <span
+class="math display">\[|x-x_0| \leq \eta&#39; \Longrightarrow
+|f(x)-\ell&#39;| \leq \varepsilon \Longrightarrow f(x)-\ell&#39; \geq
+-\varepsilon \Longrightarrow f(x) \geq \ell&#39;-\varepsilon =
+\frac{\ell+3\ell&#39;}{4}.\]</span> On a donc, pour <span
+class="math inline">\(x \in D\)</span>, <span
+class="math display">\[|x-x_0| \leq \min(\eta,\eta&#39;) \Longrightarrow
+\frac{\ell+3\ell&#39;}{4}\leq f(x)
+\leq  \frac{3\ell+\ell&#39;}{4},\]</span> ce qui est absurde car <span
+class="math inline">\(\frac{\ell+3\ell&#39;}{4} =
+\frac{\ell+2\ell&#39;+\ell&#39;}{4} &gt; \frac{\ell+2\ell+\ell&#39;}{4}
+=  \frac{3\ell+\ell&#39;}{4}\)</span>. Donc <span
+class="math inline">\(\ell = \ell&#39;\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{F}(D,\mathbb{R})\)</span>, si <span class="math inline">\(D =
+I\)</span>, ie <span class="math inline">\(x_0 \in D\)</span>, alors</p>
+<p><span class="math display">\[\text{$f$ continue en $x_0$} \iff
+\text{$f(x) \xrightarrow[x \to x_0]{} f(x_0)$.}\]</span></p>
+</div>
+<div class="wproof">
+<p>Le côté droit et le côté gauche s’écrivent : il existe <span
+class="math inline">\(\eta_\varepsilon &gt; 0\)</span> tel que pour
+<span class="math inline">\(x \in I\)</span>, <span
+class="math display">\[|x-x_0| \leq \eta_\varepsilon \Longrightarrow
+|f(x)-f(x_0)| \leq \varepsilon.\]</span></p>
+</div>
+<div class="wprop">
+<p><span id="prop:continuite_lim" label="prop:continuite_lim"></span>
+Soit <span class="math inline">\(f \in
+\mathscr{F}(D,\mathbb{R})\)</span>, si <span class="math inline">\(D =
+I\)</span>, ie <span class="math inline">\(x_0 \in D\)</span>, alors
+s’il existe <span class="math inline">\(\ell \in \mathbb{R}\)</span> tel
+que <span class="math inline">\(f(x) \xrightarrow[x \to x_0]{}
+\ell\)</span>, <span class="math inline">\(\ell = f(x_0)\)</span> et
+<span class="math inline">\(f\)</span> est continue en <span
+class="math inline">\(x_0\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Par l’absurde, supposons <span class="math inline">\(\ell \neq
+f(x_0)\)</span>.</p>
+<p>On a alors <span class="math inline">\(\varepsilon =
+\frac{|f(x_0)-\ell|}{2} &gt; 0\)</span>.</p>
+<p>De plus, il existe <span class="math inline">\(\eta&gt; 0\)</span>
+tel que pour <span class="math inline">\(x \in I\)</span>, <span
+class="math display">\[|x-x_0| \leq \eta \Longrightarrow |f(x)-f(x_0)|
+\leq \varepsilon.\]</span> En prenant <span class="math inline">\(x =
+x_0\)</span>, on a donc <span class="math display">\[|f(x)-f(x_0)| \leq
+\varepsilon = \frac{|f(x_0)-\ell|}{2} \Longrightarrow
+\frac{|f(x_0)-\ell|}{2} \leq 0 \Longrightarrow |f(x)-f(x_0)|
+=0,\]</span> ce qui est absurde.</p>
+</div>
+<div class="wcor">
+<p>Si <span class="math inline">\(D = I \setminus \{x_0\}\)</span>, ie
+<span class="math inline">\(x_0 \notin D\)</span>, et il existe <span
+class="math inline">\(\ell \in \mathbb{R}\)</span> tel que <span
+class="math inline">\(f(x) \xrightarrow[x \to x_0]{} \ell\)</span> alors
+on peut poser <span class="math inline">\(\overline{f} : x \in D \mapsto
+\begin{cases}
+        f(x) &amp; \mbox{ si $x \in D$} \\
+        \ell &amp; \mbox{ si $x = x_0$}
+    \end{cases}\)</span> et <span
+class="math inline">\(\overline{f}\)</span> est continue en <span
+class="math inline">\(x_0\)</span>.</p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(f: D \to \mathbb{R}\)</span> avec
+<span class="math inline">\(I\)</span> intervalle ouvert de <span
+class="math inline">\(\mathbb{R}\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(f\)</span> admet <span
+class="math inline">\(\ell_g \in \mathbb{R}\)</span> pour limite à
+gauche en <span class="math inline">\(x_0\)</span> si <span
+class="math display">\[\forall \varepsilon &gt; 0, \exists
+\eta_\varepsilon / x\in D, x \leq x_0 |x-x_0| \leq \eta_\varepsilon
+\Longrightarrow |f(x)-\ell_g| \leq \varepsilon.\]</span></p>
+<p>Dans ce cas, on écrit <span class="math inline">\(f(x) \xrightarrow[x
+\to x_0^-]{} \ell\)</span>.</p></li>
+<li><p><span class="math inline">\(f\)</span> admet <span
+class="math inline">\(\ell_d \in \mathbb{R}\)</span> pour limite à
+droite en <span class="math inline">\(x_0\)</span> si <span
+class="math display">\[\forall \varepsilon &gt; 0, \exists
+\eta_\varepsilon / x\in D, x \geq x_0 |x-x_0| \leq \eta_\varepsilon
+\Longrightarrow |f(x)-\ell_d| \leq \varepsilon.\]</span></p>
+<p>Dans ce cas, on écrit <span class="math inline">\(f(x) \xrightarrow[x
+\to x_0^+]{} \ell\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{F}(D,\mathbb{R})\)</span>, si <span class="math inline">\(D =
+I\)</span>, ie <span class="math inline">\(x_0 \in D\)</span>, alors</p>
+<p><span class="math display">\[\text{$f$ continue en $x_0$} \iff
+\text{Il existe $\ell_g,\ell_d \in \mathbb{R}$ tels que $\begin{cases}
+    f(x) &amp; \xrightarrow[x \to x_0^-]{} \ell_g \\
+    f(x) &amp; \xrightarrow[x \to x_0^+]{} \ell_d
+    \end{cases}$ et $\ell_d=\ell_g$.}\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>(<span class="math inline">\(\Longrightarrow\)</span>) Soit <span
+class="math inline">\(\varepsilon &gt; 0\)</span>, il existe <span
+class="math inline">\(\eta&gt; 0\)</span> tel que pour tout <span
+class="math inline">\(x \in I\)</span>, <span
+class="math display">\[|x-x_0| \leq \eta \Longrightarrow |f(x)-f(x_0)|
+\leq \varepsilon.\]</span> Donc en particulier, pour tout <span
+class="math inline">\(x \in I\)</span>, <span
+class="math display">\[x\leq x_0,|x-x_0| \leq \eta \Longrightarrow
+|f(x)-f(x_0)| \leq \varepsilon.\]</span> donc <span
+class="math inline">\(f(x) \xrightarrow[x \to x_0^-]{} f(x_0)\)</span>
+et <span class="math display">\[x\geq x_0,|x-x_0| \leq \eta
+\Longrightarrow |f(x)-f(x_0)| \leq \varepsilon.\]</span> donc <span
+class="math inline">\(f(x) \xrightarrow[x \to x_0^+]{}
+f(x_0)\)</span>.</p></li>
+<li><p>(<span class="math inline">\(\Longleftarrow\)</span>) Notons
+<span class="math inline">\(\ell = \ell_g = \ell_d\)</span>. Soit <span
+class="math inline">\(\varepsilon &gt; 0\)</span>, il existe <span
+class="math inline">\(\eta^-&gt; 0\)</span> tel que pour tout <span
+class="math inline">\(x \in I\)</span>,</p>
+<p><span class="math display">\[x \leq x_0, |x-x_0| \leq
+\eta^-\Longrightarrow |f(x)-\ell| \leq \varepsilon\]</span></p>
+<p>et il existe <span class="math inline">\(\eta^+&gt; 0\)</span> tel
+que pour tout <span class="math inline">\(x \in I\)</span>,</p>
+<p><span class="math display">\[x \geq x_0,|x-x_0| \leq
+\eta^+\Longrightarrow |f(x)-\ell| \leq \varepsilon\]</span></p>
+<p>On a donc pour tout <span class="math inline">\(x \in I\)</span>,</p>
+<p><span class="math display">\[|x-x_0| \leq
+\min(\eta^-,\eta^+)\Longrightarrow |f(x)-\ell| \leq
+\varepsilon\]</span></p>
+<p>Donc <span class="math inline">\(f(x) \xrightarrow[x \to x_0]{}
+\ell\)</span> et d’après la proposition <a href="#prop:continuite_lim"
+data-reference-type="ref"
+data-reference="prop:continuite_lim">[prop:continuite_lim]</a>, <span
+class="math inline">\(f\)</span> est continue en <span
+class="math inline">\(x_0\)</span> avec <span class="math inline">\(\ell
+= f(x_0)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wex">
+<ul>
+<li><div class="exo*">
+<p>Soit <span class="math inline">\(f : x \in \mathbb{R}^{+\star}\mapsto
+\sqrt{x}\sin \left(\frac{1}{x}\right)\)</span>. Existence d’une limite
+de <span class="math inline">\(f\)</span> en <span
+class="math inline">\(0\)</span> ?</p>
+</div>
+<div class="corri*">
+<p>Montrons que cette limite est <span class="math inline">\(0\)</span>.
+Soit <span class="math inline">\(\varepsilon &gt; 0\)</span>, on cherche
+<span class="math inline">\(\eta &gt; 0\)</span> tel que pour <span
+class="math inline">\(x\in \mathbb{R}^{+\star}\)</span>, <span
+class="math display">\[|x| \leq \eta \Longrightarrow |f(x)| \leq
+\varepsilon.\]</span> Or, pour <span class="math inline">\(x \in
+\mathbb{R}^{+\star}\)</span>, <span
+class="math display">\[\left|f(x)\right| = \left|\sqrt{x}\sin
+\left(\frac{1}{x}\right)\right| \leq \sqrt{x}\]</span> Donc <span
+class="math inline">\(\eta = \varepsilon^2\)</span> convient (car <span
+class="math inline">\(\sqrt{\varepsilon^2} = \varepsilon
+&gt;0)\)</span>.</p>
+</div></li>
+<li><div class="exo*">
+<p>Soit <span class="math inline">\(f : x \in [0,1] \mapsto
+\begin{cases}
+                2-x &amp; \mbox{ si $x\in ]0,1]$} \\
+                0  &amp; \mbox{ si $x = 0$.}
+            \end{cases}\)</span>. Existence d’une limite de <span
+class="math inline">\(f\)</span> en <span
+class="math inline">\(0\)</span> ?</p>
+</div>
+<div class="corri*">
+
+</div></li>
+</ul>
+</div>
+<h2 data-number="3.2" id="premières-propriétés-1"><span
+class="header-section-number">3.2</span> Premières propriétés</h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{F}(D,\mathbb{R})\)</span> tel que <span
+class="math inline">\(f(x) \xrightarrow[x \to x_0]{} \ell \in
+\mathbb{R}\)</span> alors <span class="math inline">\(f\)</span> est
+bornée au voisinage de <span class="math inline">\(x_0\)</span> ie, pour
+rappel, il existe <span class="math inline">\(r &gt; 0, M \in
+\mathbb{R}^+\)</span> tel que <span class="math display">\[x \in D,
+|x-x_0| \leq r \Longrightarrow |f(x)| \leq M\]</span></p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(\varepsilon = 1 &gt; 0\)</span>, il
+existe <span class="math inline">\(\eta &gt; 0\)</span> tel que <span
+class="math display">\[x\in D, |x-x_0| \leq \eta \Longrightarrow
+|f(x)-\ell| \leq 1 \Longrightarrow |f(x)| = |f(x)-\ell+\ell| \leq
+1+|\ell|.\]</span></p>
+<p>Donc avec <span class="math inline">\(M = 1+|\ell| \in \mathbb{R}^+,
+r = \eta\)</span>, <span class="math display">\[x \in D, |x-x_0| \leq r
+\Longrightarrow |f(x)| \leq M\]</span></p>
+</div>
+<div class="wrem">
+<p>La réciproque est fausse. Si on considère <span
+class="math inline">\(f : x \in \mathbb{R}^{+\star}\mapsto
+\frac{x}{|x|}\)</span> alors <span class="math inline">\(f\)</span> est
+bornée sur <span class="math inline">\(\mathbb{R}\)</span> mais n’admet
+pas de limite en <span class="math inline">\(1\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{F}(D,\mathbb{R})\)</span> tel que <span
+class="math inline">\(f(x) \xrightarrow[x \to x_0]{} \ell &gt;
+0\)</span> alors il existe <span class="math inline">\(\alpha &gt; 0
+\text{ et }r&gt; 0\)</span> tels que <span class="math display">\[x \in
+D, |x-x_0| \leq r \Longrightarrow f(x) \geq \alpha &gt; 0.\]</span></p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(\varepsilon = \frac{\ell}{2} &gt;
+0\)</span>, il existe <span class="math inline">\(\eta &gt; 0\)</span>
+tel que <span class="math display">\[x\in D, |x-x_0| \leq \eta
+\Longrightarrow |f(x)-\ell| \leq \varepsilon \Longrightarrow f(x)-\ell
+\geq -\varepsilon \Longrightarrow f(x) \geq
+\ell-\varepsilon=\frac{\ell}{2} &gt; 0.\]</span></p>
+<p>Donc avec <span class="math inline">\(\alpha = \frac{\ell}{2} \in
+\mathbb{R}^+, r = \eta\)</span>, <span class="math display">\[x \in D,
+|x-x_0| \leq r \Longrightarrow  f(x) \geq \alpha &gt; 0.\]</span></p>
+</div>
+<h2 data-number="3.3"
+id="caractérisation-séquentielle-de-lexistence-dune-limite"><span
+class="header-section-number">3.3</span> Caractérisation séquentielle de
+l’existence d’une limite</h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{F}(D,\mathbb{R})\)</span>. Soit <span
+class="math inline">\(\ell \in \mathbb{R}\)</span>, <span
+class="math inline">\(f(x) \xrightarrow[x \to x_0]{} \ell \iff\)</span>
+Pour tout suite <span class="math inline">\((u_n)\)</span> d’éléments de
+<span class="math inline">\(D\)</span> telle que <span
+class="math inline">\(u_n \xrightarrow[n \to +\infty]{} \ell\)</span>,
+<span class="math inline">\(f(u_n) \xrightarrow[n \to +\infty]{}
+\ell\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>(<span class="math inline">\(\Longrightarrow\)</span>) Soit <span
+class="math inline">\((u_n)\)</span> d’éléments de <span
+class="math inline">\(D\)</span> telle que <span
+class="math inline">\(u_n \xrightarrow[n \to +\infty]{}
+\ell\)</span>.</p>
+<p>Soit <span class="math inline">\(\varepsilon &gt; 0\)</span>, il
+existe <span class="math inline">\(\eta &gt; 0\)</span> tel que pour
+<span class="math inline">\(x \in D\)</span>, <span
+class="math display">\[|x-x_0| \leq \eta \Longrightarrow |f(x)-\ell|
+\leq \varepsilon.\]</span></p>
+<p>Or, soit <span class="math inline">\((u_n)\)</span> d’éléments de
+<span class="math inline">\(D\)</span> telle que <span
+class="math inline">\(u_n \xrightarrow[n \to +\infty]{} \ell\)</span>,
+il existe <span class="math inline">\(N \in \mathbb{N}\)</span> tel que
+pour tout <span class="math inline">\(n \in \mathbb{N}\)</span>, <span
+class="math display">\[n\geq N \Longrightarrow |u_n-x_0| \leq
+\eta.\]</span></p>
+<p>Donc, <span class="math display">\[n\geq N \Longrightarrow |u_n-x_0|
+\leq \eta \Longrightarrow |f(u_n)-\ell| \leq \varepsilon.\]</span></p>
+<p>Donc <span class="math inline">\(f(u_n) \xrightarrow[n \to +\infty]{}
+\ell\)</span>.</p></li>
+<li><p>(<span class="math inline">\(\Longleftarrow\)</span>) Par
+contraposée, on veut montrer <span class="math inline">\(f(x)\)</span>
+ne tend pas vers <span class="math inline">\(\ell\)</span> quand <span
+class="math inline">\(x \longrightarrow x_0\)</span> <span
+class="math inline">\(\Longrightarrow\)</span> Il existe une suite <span
+class="math inline">\((u_n)\)</span> d’éléments de <span
+class="math inline">\(D\)</span> telle que <span
+class="math inline">\(u_n \xrightarrow[n \to +\infty]{} \ell\)</span>,
+<span class="math inline">\(f(u_n)\)</span> ne tend pas vers <span
+class="math inline">\(\ell\)</span> quand <span
+class="math inline">\(n\longrightarrow+\infty\)</span>.</p>
+<p>Or, si <span class="math inline">\(f(x)\)</span> ne tend pas vers
+<span class="math inline">\(\ell\)</span> quand <span
+class="math inline">\(x \longrightarrow x_0\)</span>, il existe <span
+class="math inline">\(\varepsilon_0\)</span> tel que pour tout <span
+class="math inline">\(\eta &gt; 0\)</span>, il existe <span
+class="math inline">\(x_\eta \in D\)</span> tel que <span
+class="math display">\[|x_\eta-x_0| \leq \eta \text{ et
+}|f(x_\eta)-\ell| &gt; \varepsilon_0\]</span> En prenant <span
+class="math inline">\(\eta = \frac{1}{n}\)</span> et <span
+class="math inline">\(u_n \in D\)</span> tel que <span
+class="math display">\[|u_n-x_0| \leq \frac{1}{n} \text{ et
+}|f(u_n)-\ell| &gt; \varepsilon_0.\]</span></p>
+<p>On a <span class="math inline">\((u_n)\)</span> suite de <span
+class="math inline">\(D\)</span> tel que <span class="math inline">\(u_n
+\xrightarrow[n \to +\infty]{} x_0\)</span> mais <span
+class="math inline">\(f(u_n)\)</span> ne tend pas vers <span
+class="math inline">\(\ell\)</span> quand <span
+class="math inline">\(n\longrightarrow+\infty\)</span>.</p></li>
+</ul>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Soit <span class="math inline">\(f : x \in
+\left]0,\frac{2}{\pi}\right[ \mapsto \sin
+\left(\frac{1}{x}\right)\)</span>. <span
+class="math inline">\(f\)</span> admet-elle une limite en <span
+class="math inline">\(0\)</span> ?</p>
+</div>
+<div class="corri*">
+<p>Soit <span class="math inline">\(x \in
+\left]0,\frac{2}{\pi}\right[\)</span>,</p>
+<ul>
+<li><p><span class="math display">\[\begin{aligned}
+                f(x) = 1
+                &amp; \iff \sin \left(\frac{1}{x}\right) = 1 \\
+                &amp; \iff \frac{1}{x} = \frac{\pi}{2} +2k\pi, k \in
+\mathbb{N}\\
+                &amp; \iff x = \frac{1}{\frac{\pi}{2} +2k\pi}, k \in
+\mathbb{N}\\
+                &amp; \iff x = \frac{2}{(4k+1)\pi}, k \in \mathbb{N}.
+            \end{aligned}\]</span></p>
+<p>Donc avec <span class="math inline">\(u_n = \frac{2}{(4n+1)\pi}
+\xrightarrow[n \to +\infty]{} 0\)</span>, <span
+class="math inline">\(f(u_n) = 1 \xrightarrow[n \to +\infty]{}
+1\)</span>.</p></li>
+<li><p><span class="math display">\[\begin{aligned}
+                f(x) = -1
+                &amp; \iff \sin \left(\frac{1}{x}\right) = -1 \\
+                &amp; \iff \frac{1}{x} = \frac{3\pi}{2} +2k\pi, k \in
+\mathbb{N}\\
+                &amp; \iff x = \frac{1}{\frac{3\pi}{2} +2k\pi}, k \in
+\mathbb{N}\\
+                &amp; \iff x = \frac{2}{(4k+3)\pi}, k \in \mathbb{N}.
+            \end{aligned}\]</span></p>
+<p>Donc avec <span class="math inline">\(v_n = \frac{2}{(4n+3)\pi}
+\xrightarrow[n \to +\infty]{} 0\)</span>, <span
+class="math inline">\(f(u_n) = -1 \xrightarrow[n \to +\infty]{}
+-1\)</span>.</p>
+<p>On en déduit que <span class="math inline">\(f\)</span> n’admet pas
+de limite en <span class="math inline">\(0\)</span>.</p></li>
+</ul>
+<p>Allure de la courbe de <span class="math inline">\(f\)</span> :</p>
+<div class="webtextfigure">
+<div class="webtext">
+<p><span class="math display">\[\begin{aligned}
+                f(x) = 0
+                &amp; \iff \sin \left(\frac{1}{x}\right) = 0 \\
+                &amp; \iff \frac{1}{x} = k\pi, k \in \mathbb{N}\\
+                &amp; \iff x = \frac{1}{k\pi}, k \in
+\mathbb{N}^{\star}\\
+                &amp; \iff x = \frac{2}{k\pi}, k \in \mathbb{N}^{\star}.
+            \end{aligned}\]</span></p>
+</div>
+<div class="webimg">
+<p><img src="sin1surx.png" alt="image" /></p>
+</div>
+</div>
+</div>
+</div>
+<div class="wex">
+<p><strong>(Application)</strong> Soit <span class="math inline">\(f : x
+\in \mathbb{R}^{\star}\mapsto \frac{\sin x}{x}\)</span>.</p>
+<p><span class="math inline">\(\sin\)</span> est dérivable en <span
+class="math inline">\(0\)</span> donc <span
+class="math inline">\(\frac{\sin x}{x} = \frac{\sin x - \sin
+0}{x}\xrightarrow[x \to 0]{} \sin&#39; 0 = \cos 0 = 1\)</span>.</p>
+<p>Donc <span class="math inline">\(f(x) \xrightarrow[x \to 0]{}
+1\)</span>.</p>
+<p>On en déduit qu’avec <span class="math inline">\((u_n)_{n\geq
+1}\)</span> définie par <span class="math inline">\(u_n =
+\frac{1}{n}\)</span> pour <span class="math inline">\(n \geq 1\)</span>,
+<span class="math inline">\(f(u_n) \xrightarrow[n \to +\infty]{}
+1\)</span> ou encore <span
+class="math inline">\(\frac{\sin\left(\frac{1}{n}\right)}{\frac{1}{n}}
+\underset{n\to +\infty}{\sim} 1 \iff \sin\left(\frac{1}{n}\right)
+\underset{n\to +\infty}{\sim} \frac{1}{n}\)</span>.</p>
+</div>
+<h2 data-number="3.4" id="opérations-sur-les-limites"><span
+class="header-section-number">3.4</span> Opérations sur les limites</h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{F}(D,\mathbb{R})\)</span> tel que <span
+class="math inline">\(f(x) \xrightarrow[x \to x_0]{} \ell \in
+\mathbb{R}\)</span> alors <span class="math display">\[|f(x)|
+\xrightarrow[x \to x_0]{} |\ell|\]</span></p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\((u_n)\)</span> suite de <span
+class="math inline">\(D\)</span> telle que <span
+class="math inline">\(u_n \xrightarrow[n \to +\infty]{} x_0\)</span>
+alors <span class="math inline">\(f(u_n) \xrightarrow[x \to x_0]{}
+\ell\)</span> donc <span class="math inline">\(|f(u_n)| \xrightarrow[n
+\to +\infty]{} |\ell|\)</span> donc <span class="math inline">\(|f(x)|
+\xrightarrow[x \to x_0]{} |\ell|\)</span>.</p>
+</div>
+<div class="wrem">
+<p>La réciproque est fausse. Si on considère <span
+class="math inline">\(f : x \in \mathbb{R}^{+\star}\mapsto
+\frac{x}{|x|}\)</span> alors <span class="math inline">\(f\)</span> n’a
+pas de limite en <span class="math inline">\(1\)</span> mais <span
+class="math inline">\(|f|\)</span>, oui.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{F}(D,\mathbb{R})\)</span> tel que <span
+class="math inline">\(|f(x)| \xrightarrow[x \to x_0]{} 0\)</span> alors
+<span class="math display">\[f(x) \xrightarrow[x \to x_0]{}
+0\]</span></p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\((u_n)\)</span> suite de <span
+class="math inline">\(D\)</span> telle que <span
+class="math inline">\(u_n \xrightarrow[n \to +\infty]{} x_0\)</span>
+alors <span class="math inline">\(|f(u_n)| \xrightarrow[x \to x_0]{}
+0\)</span> donc <span class="math inline">\(f(u_n) \xrightarrow[n \to
++\infty]{} 0\)</span> donc <span class="math inline">\(f(x)
+\xrightarrow[x \to x_0]{} 0\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(g \in
+\mathscr{F}(D,\mathbb{R})\)</span> bornée au voisinage de <span
+class="math inline">\(x_0\)</span> et <span class="math inline">\(f \in
+\mathscr{F}(D,\mathbb{R})\)</span> telle que <span
+class="math inline">\(f(x) \xrightarrow[x \to x_0]{} 0\)</span> alors
+<span class="math display">\[f(x)g(x) \xrightarrow[x \to x_0]{}
+0.\]</span></p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\((u_n)\)</span> suite de <span
+class="math inline">\(D\)</span> telle que <span
+class="math inline">\(u_n \xrightarrow[n \to +\infty]{}
+x_0\)</span>.</p>
+<p>Alors, <span class="math inline">\(f(u_n) \xrightarrow[n \to
++\infty]{} 0\)</span>. De plus, <span class="math inline">\(g\)</span>
+est bornée au voisinage de <span class="math inline">\(x_0\)</span> donc
+il existe <span class="math inline">\(r &gt; 0, M \in
+\mathbb{R}^{+}\)</span> tels que <span class="math display">\[x \in D,
+|x-x_0| \leq r \Longrightarrow |g(x)| \leq M.\]</span></p>
+<p>Or, comme <span class="math inline">\(u_n \xrightarrow[n \to
++\infty]{} x_0\)</span>, il existe <span class="math inline">\(N \in
+\mathbb{N}\)</span> tel que <span class="math display">\[n \geq N
+\Longrightarrow |u_n-x_0| \leq r.\]</span></p>
+<p>Donc</p>
+<p><span class="math display">\[n \geq N \Longrightarrow |u_n-x_0| \leq
+r \Longrightarrow |g(u_n)| \leq M.\]</span></p>
+<p>Donc, <span class="math inline">\((g(u_n))\)</span> est bornée et
+<span class="math inline">\(f(u_n) \xrightarrow[n \to +\infty]{}
+0\)</span> donc <span class="math inline">\(f(u_n)g(u_n) \xrightarrow[n
+\to +\infty]{} 0\)</span> donc <span class="math inline">\(f(x)g(x)
+\xrightarrow[x \to x_0]{} 0\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(\alpha \in \mathbb{R}\)</span> et
+<span class="math inline">\(f,g \in \mathscr{F}(D,\mathbb{R})\)</span>
+telles que <span class="math inline">\(f(x) \xrightarrow[x \to x_0]{}
+\ell \in \mathbb{R}\)</span> et <span class="math inline">\(g(x)
+\xrightarrow[x \to x_0]{} \ell&#39; \in \mathbb{R}\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(\alpha f(x) \xrightarrow[x \to x_0]{}
+\alpha \ell\)</span>,</p></li>
+<li><p><span class="math inline">\(f(x)+g(x) \xrightarrow[x \to x_0]{}
+\ell+\ell&#39;\)</span>,</p></li>
+<li><p><span class="math inline">\(f(x)g(x) \xrightarrow[x \to x_0]{}
+\ell\ell&#39;\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\((u_n)\)</span> suite de <span
+class="math inline">\(D\)</span> telle que <span
+class="math inline">\(u_n \xrightarrow[n \to +\infty]{} x_0\)</span>
+alors <span class="math inline">\(f(u_n) \xrightarrow[x \to x_0]{}
+\ell\)</span> et <span class="math inline">\(g(u_n) \xrightarrow[x \to
+x_0]{} \ell&#39;\)</span>. Donc</p>
+<ol>
+<li><p><span class="math inline">\(\alpha f(u_n) \xrightarrow[n \to
++\infty]{} \alpha \ell\)</span> donc <span class="math inline">\(\alpha
+f \xrightarrow[x \to x_0]{} \alpha \ell\)</span>,</p></li>
+<li><p><span class="math inline">\(f(u_n)+g(u_n) \xrightarrow[n \to
++\infty]{} \ell+\ell&#39;\)</span> donc <span
+class="math inline">\(f(x)+g(x) \xrightarrow[x \to x_0]{}
+\ell+\ell&#39;\)</span>,</p></li>
+<li><p><span class="math inline">\(f(u_n)g(u_n) \xrightarrow[n \to
++\infty]{} \ell\ell&#39;\)</span> donc <span
+class="math inline">\(f(x)g(x) \xrightarrow[x \to x_0]{}
+\ell\ell&#39;\)</span>.</p></li>
+</ol>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{F}(D,\mathbb{R})\)</span> tel que <span
+class="math inline">\(f(x) \xrightarrow[x \to x_0]{} \ell &gt;
+0\)</span>, pour rappel, il existe <span class="math inline">\(\alpha
+&gt; 0 \text{ et }r&gt; 0\)</span> tels que <span
+class="math display">\[x \in D, |x-x_0| \leq r \Longrightarrow f(x) \geq
+\alpha &gt; 0.\]</span></p>
+<p>Donc <span class="math inline">\(\frac{1}{f}\)</span> est définie sur
+<span class="math inline">\(D \cap [x_0-r,x_0+r]\)</span> et <span
+class="math display">\[\frac{1}{f(x)} \xrightarrow[x \to x_0]{}
+\frac{1}{\ell}.\]</span></p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\((u_n)\)</span> suite de <span
+class="math inline">\(D \cap [x_0-r,x_0+r]\)</span> telle que <span
+class="math inline">\(u_n \xrightarrow[n \to +\infty]{} x_0\)</span>
+alors <span class="math inline">\(f(u_n) \xrightarrow[x \to x_0]{}
+\ell\)</span> donc <span class="math inline">\(\frac{1}{f(u_n)}
+\xrightarrow[n \to +\infty]{} \frac{1}{\ell}\)</span> donc <span
+class="math inline">\(\frac{1}{f(x)} \xrightarrow[x \to x_0]{}
+\frac{1}{\ell}.\)</span></p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{F}(D,\mathbb{R})\)</span> tel que <span
+class="math inline">\(f(x) \xrightarrow[x \to x_0]{} y_0\)</span> et
+<span class="math inline">\(g \in \mathscr{F}(J,\mathbb{R})\)</span>,
+avec <span class="math inline">\(J\)</span> intervalle de <span
+class="math inline">\(\mathbb{R}\)</span> et tel que <span
+class="math inline">\(f(D) \subset J\)</span>. Alors <span
+class="math inline">\(y_0 \in J\)</span> ou est une extrémité de <span
+class="math inline">\(J\)</span>. De plus, si <span
+class="math inline">\(g(y) \xrightarrow[y \to y_0]{} \ell\)</span>,
+<span class="math display">\[(g\circ f)(x) \xrightarrow[x \to x_0]{}
+\ell.\]</span></p>
+</div>
+<div class="wproof">
+<p>Si on n’a ni <span class="math inline">\(y_0 \in J\)</span> ni <span
+class="math inline">\(y_0\)</span> est une extrémité de <span
+class="math inline">\(J\)</span>,</p>
+<p>il existe <span class="math inline">\(\alpha &gt; 0\)</span> tel que
+<span class="math inline">\([y_0-\alpha,y_0+\alpha] \cap J =
+\emptyset\)</span>.</p>
+<div class="center">
+<p><img src="liminJgrondf.png" alt="image" /></p>
+</div>
+<p>Or, <span class="math inline">\(f(x) \xrightarrow[x \to x_0]{}
+y_0\)</span> donc avec <span class="math inline">\(\varepsilon = \alpha
+&gt; 0\)</span>, il existe <span class="math inline">\(\eta &gt;
+0\)</span> tel que <span class="math display">\[x \in D, |x-x_0| \leq
+\eta \Longrightarrow |f(x)-y_0| \leq \alpha \Longrightarrow f(x) \in
+[y_0-\alpha, y_0+\alpha] \cap J,\]</span> ce qui est absurde.</p>
+<p>De plus, soit <span class="math inline">\((u_n)\)</span> suite de
+<span class="math inline">\(D\)</span> telle que <span
+class="math inline">\(u_n \xrightarrow[n \to +\infty]{} x_0\)</span>
+alors <span class="math inline">\((f(u_n))\)</span> est une suite de
+<span class="math inline">\(J\)</span> et <span
+class="math inline">\(f(u_n) \xrightarrow[n \to +\infty]{} y_0\)</span>
+donc <span class="math inline">\((g\circ f)(u_n) \xrightarrow[n \to
++\infty]{} \ell\)</span> et <span class="math inline">\((g\circ f)(x)
+\xrightarrow[x \to x_0]{} \ell\)</span>.</p>
+</div>
+<h2 data-number="3.5" id="passage-à-la-limite"><span
+class="header-section-number">3.5</span> Passage à la limite</h2>
+<div class="wprop">
+<p>Soient <span class="math inline">\(f,g \in
+\mathscr{F}(D,\mathbb{R})\)</span> telles que <span
+class="math inline">\(f(x) \xrightarrow[x \to x_0]{} \ell \in
+\mathbb{R}\)</span> et <span class="math inline">\(g(x) \xrightarrow[x
+\to x_0]{} \ell&#39; \in \mathbb{R}\)</span>. On suppose qu’il existe
+<span class="math inline">\(r &gt; 0\)</span> tel que <span
+class="math display">\[x \in D, |x-x_0| \leq r \Longrightarrow f(x) \leq
+g(x).\]</span> Alors <span class="math inline">\(\ell \leq
+\ell&#39;\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\((u_n)\)</span> suite de <span
+class="math inline">\(D\)</span> telle que <span
+class="math inline">\(u_n \xrightarrow[n \to +\infty]{}
+x_0\)</span>.</p>
+<p>On a alors <span class="math inline">\(f(u_n) \xrightarrow[x \to
+x_0]{} \ell\)</span> et <span class="math inline">\(g(u_n)
+\xrightarrow[x \to x_0]{} \ell&#39;\)</span>.</p>
+<p>De plus, comme <span class="math inline">\(u_n \xrightarrow[n \to
++\infty]{} x_0\)</span>, il existe <span class="math inline">\(N \in
+\mathbb{N}\)</span> tel que <span class="math display">\[n \geq N
+\Longrightarrow |u_n-x_0| \leq r.\]</span></p>
+<p>Donc</p>
+<p><span class="math display">\[n \geq N \Longrightarrow |u_n-x_0| \leq
+r \Longrightarrow f(u_n) \leq g(u_n).\]</span></p>
+<p>et par passage à la limite, <span class="math inline">\(\ell \leq
+\ell&#39;\)</span>.</p>
+</div>
+<h2 data-number="3.6" id="limite-par-encadrement"><span
+class="header-section-number">3.6</span> Limite par encadrement</h2>
+<div class="wprop">
+<p>Soient <span class="math inline">\(f,g,h \in
+\mathscr{F}(D,\mathbb{R})\)</span> telles que <span
+class="math inline">\(f(x) \xrightarrow[x \to x_0]{} \ell \in
+\mathbb{R}\)</span> et <span class="math inline">\(h(x) \xrightarrow[x
+\to x_0]{} \ell\)</span>. On suppose qu’il existe <span
+class="math inline">\(r &gt; 0\)</span> tel que <span
+class="math display">\[x \in D, |x-x_0| \leq r \Longrightarrow f(x) \leq
+g(x) \leq h(x).\]</span> Alors <span class="math inline">\(g(x)
+\xrightarrow[x \to x_0]{} \ell \in \mathbb{R}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\((u_n)\)</span> suite de <span
+class="math inline">\(D\)</span> telle que <span
+class="math inline">\(u_n \xrightarrow[n \to +\infty]{}
+x_0\)</span>.</p>
+<p>On a alors <span class="math inline">\(f(u_n) \xrightarrow[x \to
+x_0]{} \ell\)</span> et <span class="math inline">\(h(u_n)
+\xrightarrow[x \to x_0]{} \ell\)</span>.</p>
+<p>De plus, comme <span class="math inline">\(u_n \xrightarrow[n \to
++\infty]{} x_0\)</span>, il existe <span class="math inline">\(N \in
+\mathbb{N}\)</span> tel que <span class="math display">\[n \geq N
+\Longrightarrow |u_n-x_0| \leq r.\]</span></p>
+<p>Donc</p>
+<p><span class="math display">\[n \geq N \Longrightarrow |u_n-x_0| \leq
+r \Longrightarrow f(u_n) \leq g(u_n) \leq h(u_n).\]</span></p>
+<p>et par limite par théorème de limite par encadrement, <span
+class="math inline">\(g(u_n) \xrightarrow[n \to +\infty]{} \ell\)</span>
+donc <span class="math inline">\(g(x) \xrightarrow[x \to x_0]{}
+\ell\)</span>.</p>
+</div>
+<div class="wex">
+<div class="exo*">
+<p>Soit <span class="math inline">\(f : x \in \mathbb{R}^{+\star}\mapsto
+\begin{cases}
+        1+x\sin\left(\frac{1}{x}\right) &amp; \mbox{ si
+$\sin\left(\frac{1}{x}\right) \geq 0$} \\
+        1-2x &amp; \mbox{ si $\sin\left(\frac{1}{x}\right) &lt; 0$} \\
+    \end{cases}\)</span>. <span class="math inline">\(f\)</span>
+admet-elle une limite en <span class="math inline">\(0\)</span> ?</p>
+</div>
+<div class="corri*">
+<p>Pour <span class="math inline">\(x \in
+\mathbb{R}^{+\star}\)</span>,</p>
+<p>Si <span class="math inline">\(\sin\left(\frac{1}{x}\right) \geq
+0\)</span>, <span class="math display">\[0 \leq
+\sin\left(\frac{1}{x}\right) \leq 1 \Longrightarrow 1 \leq
+1+x\sin\left(\frac{1}{x}\right) \leq 1+x \Longrightarrow 1-2x \leq
+1+x\sin\left(\frac{1}{x}\right) \leq 1+x.\]</span></p>
+<p>On en déduit que pour <span class="math inline">\(x \in
+\mathbb{R}^{+\star}\)</span>, <span class="math inline">\(1-2x \leq f(x)
+\leq 1+x\)</span> et donc par encadrement, <span class="math inline">\(f
+\xrightarrow[x \to 0]{} 1\)</span>.</p>
+<div class="center">
+<p><img src="exencadrement.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<h2 data-number="3.7" id="limite-dune-fonction-montone"><span
+class="header-section-number">3.7</span> Limite d’une fonction
+montone</h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f : [a,b[ \to \mathbb{R}\)</span>
+croissante sur <span class="math inline">\([a,b[\)</span> et majorée sur
+<span class="math inline">\([a,b[\)</span>.</p>
+<p>Alors <span class="math inline">\(f(x) \xrightarrow[x \to b]{}
+\ell\)</span> avec <span class="math inline">\(\ell = \sup_{x\in [a,b[}
+f(x)\)</span>.</p>
+</div>
+<div class="wproof">
+<div class="webtextfigure">
+<div class="webtext">
+<p><span class="math inline">\(f\)</span> est majorée donc <span
+class="math inline">\(\ell\)</span> existe bien.</p>
+<p>De plus, soit <span class="math inline">\(\varepsilon &gt;
+0\)</span>, par caractérisation de la borne supérieure, il existe <span
+class="math inline">\(x_\varepsilon \in [a,b[\)</span> tel que <span
+class="math display">\[f(x_\varepsilon) &gt;
+\ell-\varepsilon.\]</span></p>
+<p>De plus, <span class="math inline">\(f\)</span> est croissante donc
+pour <span class="math inline">\(x \in [x_\varepsilon,b[\)</span>, <span
+class="math display">\[f(x) \geq f(x_\varepsilon) &gt;
+\ell-\varepsilon.\]</span></p>
+</div>
+<div class="webimg">
+<p><img src="demolimcroiss.png" alt="image" /></p>
+</div>
+</div>
+<p>On en déduit, en posant <span class="math inline">\(\eta =
+b-x_\varepsilon &gt; 0\)</span> que</p>
+<p><span class="math display">\[x \in [a,b[, |x-b| \leq \eta
+\Longrightarrow \ell-\varepsilon &lt;f(x) \leq \ell \leq
+\ell+\varepsilon \Longrightarrow |f(x)-\ell| \leq
+\varepsilon.\]</span></p>
+<p>Donc <span class="math inline">\(f(x) \xrightarrow[x \to b]{}
+\ell\)</span>.</p>
+</div>
+<p>On a aussi les propriétés suivantes, qui se prouvent de façon
+similaire.</p>
+<div class="wprop">
+<ol>
+<li><p>Soit <span class="math inline">\(f : [a,b[ \to
+\mathbb{R}\)</span> décroissante sur <span
+class="math inline">\([a,b[\)</span> et minorée sur <span
+class="math inline">\([a,b[\)</span>.</p>
+<p>Alors <span class="math inline">\(f(x) \xrightarrow[x \to b]{}
+\ell\)</span> avec <span class="math inline">\(\ell = \inf_{x\in [a,b[}
+f(x)\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(f : ]a,b] \to
+\mathbb{R}\)</span> croissante sur <span
+class="math inline">\(]a,b]\)</span> et minorée sur <span
+class="math inline">\(]a,b]\)</span>.</p>
+<p>Alors <span class="math inline">\(f(x) \xrightarrow[x \to a]{}
+\ell\)</span> avec <span class="math inline">\(\ell = \inf_{x\in ]a,b]}
+f(x)\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(f : ]a,b] \to
+\mathbb{R}\)</span> décroissante sur <span
+class="math inline">\(]a,b]\)</span> et majorée sur <span
+class="math inline">\(]a,b]\)</span>.</p>
+<p>Alors <span class="math inline">\(f(x) \xrightarrow[x \to a]{}
+\ell\)</span> avec <span class="math inline">\(\ell = \sup_{x\in ]a,b]}
+f(x)\)</span>.</p></li>
+</ol>
+</div>
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><span class="math inline">\(f: [a,b[\to
+\mathbb{R}\)</span> croissante</td>
+<td style="text-align: center;"><span class="math inline">\(f: [a,b[\to
+\mathbb{R}\)</span> décroissante</td>
+<td style="text-align: center;"><span class="math inline">\(f: ]a,b]\to
+\mathbb{R}\)</span> croissante</td>
+<td style="text-align: center;"><span class="math inline">\(f: ]a,b]\to
+\mathbb{R}\)</span> décroissante</td>
+</tr>
+<tr>
+<td style="text-align: center;"><img src="demolimcroiss.png"
+alt="image" /></td>
+<td style="text-align: center;"><img src="limdecroissb.png"
+alt="image" /></td>
+<td style="text-align: center;"><img src="limcroissa.png"
+alt="image" /></td>
+<td style="text-align: center;"><img src="limdecroissa.png"
+alt="image" /></td>
+</tr>
+</tbody>
+</table>
+<h2 data-number="3.8" id="extension-de-la-notion-de-limite"><span
+class="header-section-number">3.8</span> Extension de la notion de
+limite</h2>
+<h3 data-number="3.8.1" id="limite-infinie-en-x_0-in-mathbbr"><span
+class="header-section-number">3.8.1</span> Limite infinie en <span
+class="math inline">\(x_0 \in \mathbb{R}\)</span></h3>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(f : I \setminus \left\{x_0\right\}
+\to \mathbb{R}\)</span>.</p>
+<ul>
+<li><p>On dit que <span class="math inline">\(f\)</span> tend vers <span
+class="math inline">\(+\infty\)</span> en <span
+class="math inline">\(x_0\)</span> si <span
+class="math display">\[\forall A \in \mathbb{R}, \exists \eta_A / x\in I
+\setminus \left\{x_0\right\}, |x-x_0| \leq \eta_A \Longrightarrow f(x)
+\geq A.\]</span> Dans ce cas, on écrit <span class="math inline">\(f(x)
+\xrightarrow[x \to x_0]{} +\infty\)</span>.</p></li>
+<li><p>On dit que <span class="math inline">\(f\)</span> tend vers <span
+class="math inline">\(-\infty\)</span> en <span
+class="math inline">\(x_0\)</span> si <span
+class="math display">\[\forall A \in \mathbb{R}, \exists \eta_A / x\in I
+\setminus \left\{x_0\right\}, |x-x_0| \leq \eta_A \Longrightarrow f(x)
+\leq A.\]</span> Dans ce cas, on écrit <span class="math inline">\(f(x)
+\xrightarrow[x \to x_0]{} -\infty\)</span>.</p></li>
+</ul>
+</div>
+<h3 data-number="3.8.2" id="limite-en-pm-infty"><span
+class="header-section-number">3.8.2</span> Limite en <span
+class="math inline">\(\pm \infty\)</span></h3>
+<div class="wdefi">
+<p><strong>(Limite en <span
+class="math inline">\(+\infty\)</span>)</strong> Soit <span
+class="math inline">\(f : [a,+\infty[ \to \mathbb{R}\)</span> avec <span
+class="math inline">\(a\in \mathbb{R}\)</span>.</p>
+<ul>
+<li><p>On dit que <span class="math inline">\(f\)</span> tend vers <span
+class="math inline">\(\ell \in \mathbb{R}\)</span> en <span
+class="math inline">\(+\infty\)</span> si <span
+class="math display">\[\forall \varepsilon &gt; 0, \exists B_\varepsilon
+\in \mathbb{R}/ x \in [a,+\infty[, x \geq B_\varepsilon \Longrightarrow
+|f(x)-\ell| \leq \varepsilon.\]</span> Dans ce cas, on écrit <span
+class="math inline">\(f(x) \xrightarrow[x \to +\infty]{}
+\ell\)</span>.</p></li>
+<li><p>On dit que <span class="math inline">\(f\)</span> tend vers <span
+class="math inline">\(+\infty\)</span> en <span
+class="math inline">\(+\infty\)</span> si <span
+class="math display">\[\forall A \in \mathbb{R}, \exists B_A \in
+\mathbb{R}/ x \in [a,+\infty[, x \geq B_A \Longrightarrow f(x) \geq
+A.\]</span> Dans ce cas, on écrit <span class="math inline">\(f(x)
+\xrightarrow[x \to +\infty]{} +\infty\)</span>.</p></li>
+<li><p>On dit que <span class="math inline">\(f\)</span> tend vers <span
+class="math inline">\(-\infty\)</span> en <span
+class="math inline">\(+\infty\)</span> si <span
+class="math display">\[\forall A \in \mathbb{R}, \exists B_A \in
+\mathbb{R}/ x \in [a,+\infty[, x \geq B_A \Longrightarrow f(x) \leq
+A.\]</span> Dans ce cas, on écrit <span class="math inline">\(f(x)
+\xrightarrow[x \to +\infty]{} -\infty\)</span>.</p></li>
+</ul>
+</div>
+<div class="wdefi">
+<p><strong>(Limite en <span
+class="math inline">\(-\infty\)</span>)</strong> Soit <span
+class="math inline">\(f : -]\infty,b] \to \mathbb{R}\)</span> avec <span
+class="math inline">\(b\in \mathbb{R}\)</span>.</p>
+<ul>
+<li><p>On dit que <span class="math inline">\(f\)</span> tend vers <span
+class="math inline">\(\ell \in \mathbb{R}\)</span> en <span
+class="math inline">\(-\infty\)</span> si <span
+class="math display">\[\forall \varepsilon &gt; 0, \exists B_\varepsilon
+\in \mathbb{R}/ x \in -]\infty,b], x \leq B_\varepsilon \Longrightarrow
+|f(x)-\ell| \leq \varepsilon.\]</span> Dans ce cas, on écrit <span
+class="math inline">\(f(x) \xrightarrow[x \to -\infty]{}
+\ell\)</span>.</p></li>
+<li><p>On dit que <span class="math inline">\(f\)</span> tend vers <span
+class="math inline">\(+\infty\)</span> en <span
+class="math inline">\(-\infty\)</span> si <span
+class="math display">\[\forall A \in \mathbb{R}, \exists B_A \in
+\mathbb{R}/ x \in -]\infty,b], x \leq B_A \Longrightarrow f(x) \geq
+A.\]</span> Dans ce cas, on écrit <span class="math inline">\(f(x)
+\xrightarrow[x \to -\infty]{} +\infty\)</span>.</p></li>
+<li><p>On dit que <span class="math inline">\(f\)</span> tend vers <span
+class="math inline">\(-\infty\)</span> en <span
+class="math inline">\(-\infty\)</span> si <span
+class="math display">\[\forall A \in \mathbb{R}, \exists B_A \in
+\mathbb{R}/ x \in -]\infty,b], x \leq B_A \Longrightarrow f(x) \leq
+A.\]</span> Dans ce cas, on écrit <span class="math inline">\(f(x)
+\xrightarrow[x \to -\infty]{} -\infty\)</span>.</p></li>
+</ul>
+</div>
+<h3 data-number="3.8.3" id="fonctions-monotones"><span
+class="header-section-number">3.8.3</span> Fonctions monotones</h3>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f : [a,b[\to \mathbb{R}\)</span>
+croissante avec <span class="math inline">\(b \in \mathbb{R}\text{ ou }b
+= +\infty\)</span> alors</p>
+<ul>
+<li><p>Si <span class="math inline">\(f\)</span> est majorée alors <span
+class="math display">\[f(x) \xrightarrow[x \to b]{} \ell\]</span> avec
+<span class="math inline">\(\ell = \sup_{x\in
+[a,b[}f(x)\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(f\)</span> est non majorée alors
+<span class="math display">\[f(x) \xrightarrow[x \to b]{}
++\infty\]</span> avec <span class="math inline">\(\ell = \sup_{x\in
+[a,b[}f(x)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Le cas <span class="math inline">\(f\)</span> majorée est <span
+class="math inline">\(b\in \mathbb{R}\)</span> a été traité
+précédemment.</p></li>
+<li><p>Dans le cas <span class="math inline">\(f\)</span> majorée et
+<span class="math inline">\(b = +\infty\)</span>,</p>
+<p>Soit <span class="math inline">\(\varepsilon &gt; 0\)</span>, par
+caractérisation de la borne supérieure, il existe <span
+class="math inline">\(x_\varepsilon \in [a,+\infty[\)</span> tel que
+<span class="math display">\[f(x_\varepsilon) &gt;
+\ell-\varepsilon.\]</span></p>
+<p>De plus, <span class="math inline">\(f\)</span> est croissante donc
+pour <span class="math inline">\(x \geq x_\varepsilon\)</span>, <span
+class="math display">\[f(x) \geq f(x_\varepsilon) &gt;
+\ell-\varepsilon.\]</span></p>
+<p>On en déduit, en posant <span class="math inline">\(B_\varepsilon =
+x_\varepsilon\)</span> que</p>
+<p><span class="math display">\[x \in [a,+\infty[, x \geq B_\varepsilon
+\Longrightarrow \ell-\varepsilon &lt;f(x) \leq \ell \leq
+\ell+\varepsilon \Longrightarrow |f(x)-\ell| \leq
+\varepsilon.\]</span></p>
+<p>Donc <span class="math inline">\(f(x) \xrightarrow[x \to +\infty]{}
+\ell\)</span></p></li>
+<li><p>Dans le cas <span class="math inline">\(f\)</span> non majorée et
+<span class="math inline">\(b \in \mathbb{R}\)</span>,</p>
+<p>Soit <span class="math inline">\(A \in \mathbb{R}\)</span>, comme
+<span class="math inline">\(f\)</span> est non majorée, il existe <span
+class="math inline">\(x_A \in [a,b[\)</span> tel que <span
+class="math inline">\(f(x_A) \geq A\)</span>.</p>
+<p>De plus, comme <span class="math inline">\(f\)</span> est croissante,
+on a pour tout <span class="math inline">\(x \geq x_A\)</span>, <span
+class="math display">\[f(x) \geq f(x_A) \geq A.\]</span></p>
+<p>Donc avec <span class="math inline">\(\eta_A = b-x_A &gt;
+0\)</span>,</p>
+<p><span class="math display">\[x\in [a,b[, |x-b| \leq \eta_A
+\Longrightarrow f(x) \geq A.\]</span></p>
+<p>Donc <span class="math inline">\(f(x) \xrightarrow[x \to b]{}
++\infty\)</span>.</p></li>
+<li><p>Dans le cas <span class="math inline">\(f\)</span> non majorée et
+<span class="math inline">\(b =+\infty\)</span>,</p>
+<p>Soit <span class="math inline">\(A \in \mathbb{R}\)</span>, comme
+<span class="math inline">\(f\)</span> est non majorée, il existe <span
+class="math inline">\(x_A \in [a,+\infty[\)</span> tel que <span
+class="math inline">\(f(x_A) \geq A\)</span>.</p>
+<p>De plus, comme <span class="math inline">\(f\)</span> est croissante,
+on a pour tout <span class="math inline">\(x \geq x_A\)</span>, <span
+class="math display">\[f(x) \geq f(x_A) \geq A.\]</span></p>
+<p>Donc avec <span class="math inline">\(B_A = x_A\)</span>,</p>
+<p><span class="math display">\[x\in [a,+\infty[, x \geq B_A
+\Longrightarrow f(x) \geq A.\]</span></p>
+<p>Donc <span class="math inline">\(f(x) \xrightarrow[x \to +\infty]{}
++\infty\)</span>.</p></li>
+</ul>
+</div>
+<p>Comme dans ce qui précède, on a aussi la proposition suivante, qui se
+prouve de façon analogue.</p>
+<div class="wprop">
+<p>Avec <span class="math inline">\(b \in \mathbb{R}\text{ ou }b =
++\infty\)</span>.</p>
+<ol>
+<li><p>Soit <span class="math inline">\(f : [a,b[\to \mathbb{R}\)</span>
+décroissante et non minorée alors <span class="math display">\[f(x)
+\xrightarrow[x \to b]{} -\infty.\]</span></p></li>
+<li><p>Soit <span class="math inline">\(f : ]a,b]\to \mathbb{R}\)</span>
+croissante et non minorée alors <span class="math display">\[f(x)
+\xrightarrow[x \to a]{} -\infty.\]</span></p></li>
+<li><p>Soit <span class="math inline">\(f : ]a,b]\to \mathbb{R}\)</span>
+décroissante et non majorée alors <span class="math display">\[f(x)
+\xrightarrow[x \to a]{} +\infty.\]</span></p></li>
+</ol>
+</div>
+<h3 data-number="3.8.4" id="introduction-de-overlinemathbbr"><span
+class="header-section-number">3.8.4</span> Introduction de <span
+class="math inline">\(\overline{\mathbb{R}}\)</span></h3>
+<p>Pour unifier certains résultats vus pour les limites de suites ou
+fonctions, il est commode d’introduire un nouvel ensemble noté <span
+class="math inline">\(\overline{\mathbb{R}}\)</span> (lire "<span
+class="math inline">\(\mathbb{R}\)</span> barre"), parfois noté <span
+class="math inline">\([-\infty,+\infty]\)</span> ou <span
+class="math inline">\(\mathbb{R}\cup \{-\infty,+\infty\}\)</span>,
+obtenu en adjoignant à <span class="math inline">\(\mathbb{R}\)</span>
+deux nouveaux éléments notés <span
+class="math inline">\(+\infty\)</span> et <span
+class="math inline">\(-\infty\)</span>.</p>
+<p>En pensant aux résultats vus pour la somme ou le produit de deux
+suites convergeant dans <span class="math inline">\(\mathbb{R}\)</span>
+ou tendant vers <span class="math inline">\(+\infty\)</span> ou <span
+class="math inline">\(-\infty\)</span>, on est amené à étendre
+partiellement les opérations de <span
+class="math inline">\(\mathbb{R}\)</span> à <span
+class="math inline">\(\overline{\mathbb{R}}\)</span>.</p>
+<p><strong>Relation d’ordre dans <span
+class="math inline">\(\overline{\mathbb{R}.}\ \)</span></strong> On
+étend la relation d’ordre usuelle de <span
+class="math inline">\(\mathbb{R}\)</span> à <span
+class="math inline">\(\overline{\mathbb{R}}\)</span> en imposant : <span
+class="math display">\[\forall a \in \mathbb{R}, \qquad -\infty &lt; a
+&lt; +\infty.\]</span></p>
+<p><span class="math inline">\(-\infty\)</span> est donc le plus petit
+élément de <span class="math inline">\(\overline{\mathbb{R}}\)</span> et
+<span class="math inline">\(+\infty\)</span> le plus grand.</p>
+<p><strong>Addition dans <span
+class="math inline">\(\overline{\mathbb{R}.}\ \)</span></strong></p>
+<p>On pose pour <span class="math inline">\(a \in \mathbb{R}\)</span> ou
+<span class="math inline">\(a = +\infty\)</span>, <span
+class="math inline">\(a + (+\infty) = +\infty.\)</span></p>
+<p>On pose pour <span class="math inline">\(a \in \mathbb{R}\)</span> ou
+<span class="math inline">\(a = -\infty\)</span>, <span
+class="math inline">\(a + (-\infty) = -\infty.\)</span></p>
+<p>On ne définit pas la somme <span class="math inline">\((+\infty) +
+(-\infty)\)</span> (parce que c’est une forme indéterminée).</p>
+<p>Avec ces définitions, si <span class="math inline">\((u_n)\)</span>
+tend vers <span class="math inline">\(l\)</span> et si <span
+class="math inline">\((v_n)\)</span> tend vers <span
+class="math inline">\(l&#39;\)</span>, la suite <span
+class="math inline">\((u_n + v_n)\)</span> tend dans <span
+class="math inline">\(\overline{\mathbb{R}}\)</span> vers <span
+class="math inline">\(l + l&#39;\)</span> pourvu que la somme <span
+class="math inline">\(l + l&#39;\)</span> soit définie dans <span
+class="math inline">\(\overline{\mathbb{R}}\)</span>.</p>
+<p>De même pour les limites de fonctions.</p>
+<p><strong>Multiplication dans <span
+class="math inline">\(\overline{\mathbb{R}.}\ \)</span></strong></p>
+<p>On pose :</p>
+<p>pour <span class="math inline">\(a \in \mathbb{R}^{+*}\)</span> ou
+<span class="math inline">\(a = +\infty\)</span>, <span
+class="math inline">\(a \cdot (+\infty) = +\infty,
+\text{ et }
+a \cdot (-\infty) = -\infty,\)</span></p>
+<p>pour <span class="math inline">\(a \in \mathbb{R}^{-*}\)</span> ou
+<span class="math inline">\(a = -\infty\)</span>, <span
+class="math inline">\(a \cdot (+\infty) = -\infty,
+\text{ et }
+a \cdot (-\infty) = +\infty.\)</span></p>
+<p>On ne définit pas <span class="math inline">\(0 \cdot (+\infty)
+\text{ ni }  0 \cdot (-\infty)\)</span> (parce que ce sont des formes
+indéterminées).</p>
+<p><strong>Application aux limites.</strong> </p>
+<p>Avec ces définitions, si <span class="math inline">\((u_n)\)</span>
+tend vers <span class="math inline">\(\ell \in
+\overline{\mathbb{R}}\)</span> et si <span class="math inline">\((v_n)
+\in \overline{\mathbb{R}}\)</span> tend vers <span
+class="math inline">\(\ell&#39;\)</span>, la suite <span
+class="math inline">\((u_n v_n)\)</span> tend dans <span
+class="math inline">\(\overline{\mathbb{R}}\)</span> vers <span
+class="math inline">\(\ell\ell&#39;\)</span> <strong>pourvu que le
+produit <span class="math inline">\(\ell\ell&#39;\)</span> soit défini
+dans <span
+class="math inline">\(\overline{\mathbb{R}}\)</span>.</strong></p>
+<p>De même pour les limites de fonctions.</p>
+<p>On peut donc écrire les propositions suivantes.</p>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f : ]a,b[ \to \mathbb{R}\)</span>
+croissante telle que <span class="math inline">\(a,b \in
+\overline{\mathbb{R}}\)</span> et <span class="math inline">\(a &lt;
+b\)</span> alors <span class="math inline">\(f\)</span> admet une limite
+<span class="math inline">\(\ell_a\in\overline{\mathbb{R}}\)</span> en
+<span class="math inline">\(a\)</span> et une limite <span
+class="math inline">\(\ell_b\in\overline{\mathbb{R}}\)</span> en <span
+class="math inline">\(b\)</span>. De plus, <span
+class="math inline">\(\ell_a = \inf_{x\in ]a,b[} f(x) \in
+\overline{\mathbb{R}}\)</span> (éventuellement <span
+class="math inline">\(-\infty\)</span>) et <span
+class="math inline">\(\ell_b = \sup_{x\in ]a,b[} f(x) \in
+\overline{\mathbb{R}}\)</span> (éventuellement <span
+class="math inline">\(+\infty\)</span>).</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f : D \to \mathbb{R}, g : D \to
+\mathbb{R}\)</span> et <span class="math inline">\(x_0 \in
+\overline{\mathbb{R}}\)</span> tels que <span class="math inline">\(f(x)
+\xrightarrow[x \to x_0]{} \ell \in \overline{\mathbb{R}}\)</span> et
+<span class="math inline">\(g(x) \xrightarrow[x \to x_0]{} \ell&#39; \in
+\overline{\mathbb{R}}\)</span> alors</p>
+<ul>
+<li><p>Pour tout <span class="math inline">\(\alpha \in
+\mathbb{R}\)</span>, si le produit <span class="math inline">\(\alpha
+\ell\)</span> est défini dans <span
+class="math inline">\(\overline{\mathbb{R}}\)</span>, <span
+class="math inline">\(\alpha f(x) \xrightarrow[x \to x_0]{} \alpha
+\ell\)</span>.</p></li>
+<li><p>Si la somme <span class="math inline">\(\ell + \ell&#39;\)</span>
+est définie dans <span
+class="math inline">\(\overline{\mathbb{R}}\)</span>, <span
+class="math inline">\(f(x)+g(x) \xrightarrow[x \to x_0]{} \ell +
+\ell&#39;\)</span>.</p></li>
+<li><p>Si le produit <span class="math inline">\(\ell\ell&#39;\)</span>
+est défini dans <span
+class="math inline">\(\overline{\mathbb{R}}\)</span>, <span
+class="math inline">\(f(x)g(x) \xrightarrow[x \to x_0]{} \ell
+\ell&#39;\)</span>.</p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>En bref,</p>
+<ul>
+<li><p>On a les mêmes propriétés de limites que pour les suites, avec
+les mêmes formes indéterminées.</p></li>
+<li><p>Un résultat important est que tout fonction monotone admet une
+limite (finie ou non) en ses bornes.</p></li>
+</ul>
+</div>
+</body>
+</html>
+
+<script>
+
+
+const toggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Appliquer le thème au chargement
+const currentTheme = localStorage.getItem('theme') || 'default';
+body.setAttribute('data-md-color-scheme', currentTheme);
+
+toggle.addEventListener('click', () => {
+    let scheme = body.getAttribute('data-md-color-scheme');
+    let newScheme = (scheme === 'default') ? 'slate' : 'default';
+    
+    body.setAttribute('data-md-color-scheme', newScheme);
+    localStorage.setItem('theme', newScheme);
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+let secCount = -1;
+let thmCount = -1;
+
+let labels = {};
+
+const noms = {
+'wthm':'Théorème',
+'wprop':'Proposition',
+'wdefi':'Définition',
+'wlem':'Lemme',
+'wcor':'Corollaire',
+'wappli':'Application',
+'wrem':'Remarque',
+'wrappel': 'Rappel',
+'wex':'Exemple',
+'wproof':'Preuve'
+};
+
+//////////////////////////////////////////////////////////////////////////////
+// Numérotation des environnements
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll(
+"h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex, .wrappel,.wproof"
+).forEach(el => {
+
+    if (
+        el.tagName.toLowerCase() === "h1"
+        && !el.closest("#TOC")
+    ) {
+
+        secCount++;
+        thmCount = 0;
+    }
+
+    else if (noms[Array.from(el.classList).find(c => noms[c])]) {
+
+        let type = Array.from(el.classList).find(c => noms[c]);
+
+        if (type !== 'wproof') {
+
+            thmCount++;
+
+            let num = secCount + "." + thmCount;
+
+            let id = el.querySelector("span[id]")
+                ? el.querySelector("span[id]").id
+                : null;
+
+            if(id) {
+                labels[id] = {
+                    num: num,
+                    type: type.substring(1)
+                };
+            }
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                let strong = p.querySelector("strong");
+
+                let title = (
+                    strong &&
+                    strong.innerText.includes("(")
+                )
+
+                ? ` <span class="env-title">${strong.outerHTML}</span>`
+                : "";
+
+                if (title) strong.remove();
+
+                p.innerHTML =
+                    `<strong class="env-header">${noms[type]} ${num}</strong>`
+                    + title
+                    + " — "
+                    + p.innerHTML;
+            }
+        }
+
+        else {
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                p.innerHTML =
+                    `<strong class="env-header">Preuve</strong> — `
+                    + p.innerHTML;
+            }
+        }
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Capture des équations MathJax
+//////////////////////////////////////////////////////////////////////////////
+
+setTimeout(() => {
+
+document.querySelectorAll("mjx-math[display='true']").forEach((el, index) => {
+
+    let num = el.querySelector(".mjx-eqn-number");
+
+    if (num) {
+
+        let val = num.innerText.replace(/[()]/g, '');
+
+        let id = el.id || "eq-" + index;
+
+        el.id = id;
+
+        labels[id] = {
+            num: val,
+            type: 'eq'
+        };
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Remplacement des références
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll("body *").forEach(el => {
+
+    if (
+        el.childNodes.length === 1 &&
+        el.childNodes[0].nodeType === Node.TEXT_NODE
+    ) {
+
+        el.innerHTML = el.innerHTML
+
+        .replace(/\\eqref\{(.*?)\}/g, (m, id) => {
+
+            return labels[id]
+                ? `<a href="#${id}">(${labels[id].num})</a>`
+                : m;
+        })
+
+        .replace(
+            /\[(prop|thm|def|cor|lem|appli|rem|rappel|ex):(.*?)\]/g,
+
+            (m, t, id) => {
+
+                let f = t + ":" + id;
+
+                return labels[f]
+                    ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>`
+                    : m;
+            }
+        );
+    }
+});
+
+}, 800);
+
+});
+
+</script>
+
