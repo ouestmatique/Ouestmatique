@@ -1,0 +1,67 @@
+site_name: Ouestmatique
+
+theme:
+  name: material
+  language: fr
+
+  logo: assets/logo.svg
+  favicon: assets/logo.svg
+
+  font:
+    text: Inter
+    code: JetBrains Mono
+
+  palette:
+
+    - scheme: default
+      primary: custom
+      accent: custom
+
+      toggle:
+        icon: material/weather-night
+        name: Mode sombre
+
+    - scheme: slate
+      primary: custom
+      accent: custom
+
+      toggle:
+        icon: material/weather-sunny
+        name: Mode clair
+
+extra_css:
+  - stylesheets/extra.css
+
+hooks:
+  - hooks/widgets.py
+
+extra_javascript:
+  - https://cdn.plot.ly/plotly-latest.min.js
+  - widgets/fonctions_puissance/script.js
+
+
+nav:
+  - " ": index.md
+
+  - Cours MPSI:
+
+      - Préliminaires:
+          - Rappels de trigonométrie: cours/rappels_trigo/rappels_trigo.html
+          - Préliminaires: cours/preliminaires/preliminaires.html
+
+      - Analyse:
+          - Fonctions — Partie 1: cours/fonctions_p1/fonctions_p1.html
+          - Fonctions — Partie 2: cours/fonctions_p2/fonctions_p2.html
+          - Fonctions usuelles: cours/fonctions_usuelles/fonctions_usuelles.html
+          - Suites: cours/suites/suites.html
+          - EDO linéaires: cours/edo_lineaires/edo_lineaires.html
+
+      - Algèbre:
+          - Calculs algébriques: cours/calculs_algebriques/calculs_algebriques.html
+          - Complexes: cours/complexes/complexes.html
+          - Algèbre générale: cours/algebre_generale/algebre_generale.html
+          - Compléments d’algèbre: cours/complements_algebre/complements_algebre.html
+          - Espaces vectoriels — Partie 1: cours/espaces_vectoriels_P1/espaces_vectoriels_P1.html
+          - Arithmétique: cours/arithmetique/arithmetique.html
+
+
