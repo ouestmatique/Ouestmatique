@@ -183,16 +183,15 @@ de réels ou complexes et <span class="math inline">\((a_k)_{k \geq
 <p>Une telle somme est appelée une somme télescopique.</p>
 </div>
 <div class="wex">
-<div class="exo*">
+<p><strong>Exercice</strong> —</p>
 <p>Soit <span class="math inline">\((u_n)_{n\geq 1}\)</span> définie par
 <span class="math inline">\(\forall n \in \mathbb{N}^\star,
 u_n=\sum_{k=1}^n \frac{1}{k^2}\)</span>. Etudier la convergence de <span
 class="math inline">\((u_n)\)</span>.</p>
-</div>
-<div class="corri*">
-<p><strong><span class="math inline">\((u_n)\)</span> majorée ? ie
-existence de <span class="math inline">\(M \in \mathbb{R}\)</span> tel
-que <span class="math inline">\(\forall n \in \mathbb{N}^\star, u_n \leq
+<p><strong>Corrigé</strong> — <strong><span
+class="math inline">\((u_n)\)</span> majorée ? ie existence de <span
+class="math inline">\(M \in \mathbb{R}\)</span> tel que <span
+class="math inline">\(\forall n \in \mathbb{N}^\star, u_n \leq
 M\)</span> ?</strong></p>
 <p>Pour <span class="math inline">\(n \in \mathbb{N}, \geq 2, k \in
 \{2,\ldots,n\}\)</span>, <span class="math inline">\(k^2 = k\times k
@@ -211,7 +210,6 @@ M\)</span> ?</strong></p>
 <p>On en déduit que <span class="math inline">\((u_n)\)</span> est
 croissante et majorée donc convergente (Pour la culture, sa limite est
 <span class="math inline">\(\frac{\pi^2}{6}\)</span>).</p>
-</div>
 </div>
 <h2 data-number="1.2" id="sommes-géométriques"><span
 class="header-section-number">1.2</span> Sommes géométriques</h2>
@@ -562,14 +560,12 @@ u_{k,\ell}\right)}
 \end{aligned}\]</span></p>
 </div>
 <div class="wex">
-<div class="exo*">
-<p>Soient <span class="math inline">\(p,n \in
-\mathbb{N}^{\star}\)</span>, calculer <span class="math inline">\(S =
-\displaystyle\sum_{\ell = 0}^p\sum_{k=1}^n \left(\frac{1}{(k+1)^\ell} -
-\frac{1}{k^l}\right).\)</span></p>
-</div>
-<div class="corri*">
-<p><span class="math display">\[\begin{aligned}
+<p><strong>Exercice</strong> — Soient <span class="math inline">\(p,n
+\in \mathbb{N}^{\star}\)</span>, calculer <span class="math inline">\(S
+= \displaystyle\sum_{\ell = 0}^p\sum_{k=1}^n \left(\frac{1}{(k+1)^\ell}
+- \frac{1}{k^l}\right).\)</span></p>
+<p><strong>Corrigé</strong> — <span
+class="math display">\[\begin{aligned}
 S
 &amp;= \sum_{\ell=0}^p\sum_{k=1}^n
 \left(\frac{1}{(k+1)^\ell}-\frac{1}{k^\ell}\right) \\
@@ -580,7 +576,6 @@ S
 &amp;=
 \frac{n+1}{n}\left(1-\left(\frac{1}{n+1}\right)^{p+1}\right)-(p+1).
 \end{aligned}\]</span></p>
-</div>
 </div>
 <div class="wrem">
 <p>Dans le cas où <span class="math inline">\(u_{k,\ell} =
@@ -895,11 +890,11 @@ Pascal.</p>
 \displaystyle\sum_{pk0}^n \binom{n}{k} = 2^n\)</span> .</p>
 </div>
 <div class="wex">
-<div class="exo*">
-<p>Soit <span class="math inline">\(n \in \mathbb{N}^\star\)</span>, on
-considère les entiers <span class="math inline">\(\binom{n}{2k}\)</span>
-si <span class="math inline">\(2k \leq n\iff k \leq \frac{n}{2}\)</span>
-donc <span class="math inline">\(k \in
+<p><strong>Exercice</strong> — Soit <span class="math inline">\(n \in
+\mathbb{N}^\star\)</span>, on considère les entiers <span
+class="math inline">\(\binom{n}{2k}\)</span> si <span
+class="math inline">\(2k \leq n\iff k \leq \frac{n}{2}\)</span> donc
+<span class="math inline">\(k \in
 [\![0,\left\lfloor\frac{n}{2}\right\rfloor]\!]\)</span> et de même <span
 class="math inline">\(\binom{n}{2k+1}\)</span> pour <span
 class="math inline">\(k \in
@@ -908,9 +903,8 @@ class="math inline">\(k \in
 class="math inline">\(\displaystyle\sum_{k=0}^{\left\lfloor\frac{n}{2}\right\rfloor}\binom{n}{2k}\)</span>
 et <span
 class="math inline">\(\displaystyle\sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\binom{n}{2k+1}\)</span>.</p>
-</div>
-<div class="corri*">
-<p>Avec <span class="math inline">\(a=-1,b=1\)</span>, <span
+<p><strong>Corrigé</strong> — Avec <span
+class="math inline">\(a=-1,b=1\)</span>, <span
 class="math display">\[\begin{aligned}
     0
     &amp; = \sum_{p=0}^n\binom{n}{p}(-1)^p \\
@@ -933,7 +927,6 @@ Donc : <span class="math inline">\(\displaystyle
 \sum_{k=0}^{\left\lfloor\frac{n}{2}\right\rfloor}\binom{n}{2k}
 =  \sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\binom{n}{2k+1} =
 2^{n-1}\)</span></p>
-</div>
 </div>
 <h2 data-number="3.4"
 id="expression-des-coefficients-binomiaux-à-laide-de-factorielles"><span
@@ -1288,15 +1281,14 @@ class="math inline">\(a_2\)</span>.</p></li>
 </ul>
 </div>
 <div class="wex">
-<div class="exo*">
-<p>Résoudre <span class="math inline">\((S) \left\{
+<p><strong>Exercice</strong> — Résoudre <span class="math inline">\((S)
+\left\{
     \begin{array}{ll}
          2x+y &amp;= 1 \\
          -x+3y &amp;= 2
     \end{array}
 \right.\)</span>.</p>
-</div>
-<div class="corri*">
+<p><strong>Corrigé</strong> —</p>
 <ol>
 <li><p>D’abord, vérifions s’il a une unique solution : <span
 class="math display">\[\begin{vmatrix} 2 &amp; 1 \\ -1 &amp; 3
@@ -1306,7 +1298,6 @@ class="math display">\[\begin{vmatrix} 2 &amp; 1 \\ -1 &amp; 3
 \frac{1}{7}\text{ et }y_0 = \frac{\begin{vmatrix} 2 &amp; 1 \\ -1 &amp;
 2 \end{vmatrix}}{7} = \frac{5}{7}.\]</span></p></li>
 </ol>
-</div>
 </div>
 <p><strong>Méthode du pivot de Gauss.</strong> </p>
 <p>Reprenons l’exemple précédent, pour illustrer la méthode du pivot de
