@@ -32,11 +32,13 @@
 
 <header class="site-header">
 
-<div class="site-header-left">
-<a href="/">
-<img src="/assets/logo.svg" class="site-logo" alt="Logo">
-</a>
-</div>
+   <div class="site-header-left">
+      <a href="{{ config.site_url }}">
+        <img src="{{ base_url }}/assets/logo.svg"
+             class="site-logo"
+             alt="Logo">
+      </a>
+    </div>
 
 <div class="site-header-right">
    <button id="theme-toggle"
@@ -50,7 +52,9 @@ color: var(--md-primary-bg-color);
 ">
 🌙 / ☀️
 </button>
-    <a href="/" class="home-link">Retour à l’accueil</a>
+<a href="{{ base_url }}/" class="home-link">
+   Retour à l’accueil
+ </a>
 </div>
 
 </header>
