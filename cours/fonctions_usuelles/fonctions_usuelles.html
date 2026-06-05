@@ -3746,6 +3746,7 @@ const noms = {
 'wrem':'Remarque',
 'wrappel': 'Rappel',
 'wex':'Exemple',
+'wexs':'Exemples',
 'wproof':'Preuve'
 };
 
@@ -3754,7 +3755,7 @@ const noms = {
 //////////////////////////////////////////////////////////////////////////////
 
 document.querySelectorAll(
-"h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex, .wrappel,.wproof"
+"h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs, .wrappel,.wproof"
 ).forEach(el => {
 
     if (
@@ -3871,7 +3872,7 @@ document.querySelectorAll("body *").forEach(el => {
         })
 
         .replace(
-            /\[(prop|thm|def|cor|lem|appli|rem|rappel|ex):(.*?)\]/g,
+            /\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g,
 
             (m, t, id) => {
 

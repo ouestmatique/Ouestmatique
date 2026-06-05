@@ -47,7 +47,7 @@ h1.title, h1, h2, h3, h4 { color: var(--h-color) !important; }
 #TOC a { color: var(--link); font-weight: bold; text-decoration: none; }
 
 /* VOS BLOCS ORIGINAUX (Gardent vos couleurs de texte/bordures) */
-.wthm, .wdefi, .wprop, .wappli, .wcor, .wlem, .wrem,.wrappel, .wex { 
+.wthm, .wdefi, .wprop, .wappli, .wcor, .wlem, .wrem,.wrappel, .wex, .wexs { 
     border-radius: 6px; padding: 16px; margin: 20px 0; border-left: 6px solid; display: block; 
 }
 .wthm { background-color: rgba(130, 45, 65, 0.05); border-left-color: rgb(130, 45, 65); } 
@@ -62,11 +62,11 @@ h1.title, h1, h2, h3, h4 { color: var(--h-color) !important; }
 .wcor, .wlem { background-color: rgba(70, 95, 145, 0.05); border-left-color: rgb(70, 95, 145); } 
 .wcor .env-header, .wcor .env-title, .wlem .env-header, .wlem .env-title { color: rgb(70, 95, 145); }
 
-.wrem, .wex { background-color: rgba(110, 75, 40, 0.05); border-left-color: rgb(110, 75, 40); } 
-.wrem .env-header, .wrem .env-title, .wex .env-header, .wex .env-title { color: rgb(110, 75, 40); }
+.wrem, .wex, .wexs  { background-color: rgba(110, 75, 40, 0.05); border-left-color: rgb(110, 75, 40); } 
+.wrem .env-header, .wrem .env-title, .wex .env-header, .wex .env-title,.wexs .env-header, .wexs .env-title { color: rgb(110, 75, 40); }
 
-.wrappel, .wex { background-color: rgba(110, 75, 40, 0.05); border-left-color: rgb(110, 75, 40); } 
-.wrappel .env-header, .wrappel .env-title, .wex .env-header, .wex .env-title { color: rgb(110, 75, 40); }
+.wrappel, .wex, .wexs { background-color: rgba(110, 75, 40, 0.05); border-left-color: rgb(110, 75, 40); } 
+.wrappel .env-header, .wrappel .env-title, .wex .env-header, .wex .env-title,.wexs .env-header, .wexs .env-title  { color: rgb(110, 75, 40); }
 
 /* Liens et Header */
 a { color: var(--link) !important; }
@@ -79,6 +79,12 @@ a.ref-prop { color: rgb(55, 75, 120) !important; }
 a.ref-cor { color: rgb(70, 95, 145) !important; }
 
 a.ref-lem { color: rgb(70, 95, 145) !important; }
+
+a.ref-ex { color: rgb(110, 75, 40) !important; }
+
+a.ref-exs { color: rgb(110, 75, 40) !important; }
+
+a.ref-rem { color: rgb(110, 75, 40) !important; }
 .site-header { 
     position: sticky;
     top: 0;
