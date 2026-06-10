@@ -1,0 +1,2093 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Polynômes</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+
+<header class="site-header">
+
+   <div class="site-header-left">
+      <a href="../../index.html">
+        <img src="../../assets/logo.svg"
+             class="site-logo"
+             alt="Logo">
+      </a>
+    </div>
+
+<div class="site-header-right">
+   <button id="theme-toggle"
+style="
+margin-right: 15px;
+cursor: pointer;
+background: transparent;
+border: none;
+font-size: 1.1rem;
+color: var(--md-primary-bg-color);
+">
+🌙 / ☀️
+</button>
+
+<a href="../../index.html" class="home-link">
+   Retour à l’accueil
+ </a>
+</div>
+
+</header>
+
+
+<header id="title-block-header">
+
+<h1 class="title">Polynômes</h1>
+<p class="pdf-link">
+<a href="polynomes.pdf" target="_blank">[PDF]</a>
+</p>
+
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#préliminaires-sur-les-fonctions-polynomiales"
+id="toc-préliminaires-sur-les-fonctions-polynomiales"><span
+class="toc-section-number">1</span> Préliminaires sur les fonctions
+polynomiales</a>
+<ul>
+<li><a href="#définition" id="toc-définition"><span
+class="toc-section-number">1.1</span> Définition</a></li>
+<li><a href="#étude-de-lespace-vectoriel-mathscrp_mathbbk"
+id="toc-étude-de-lespace-vectoriel-mathscrp_mathbbk"><span
+class="toc-section-number">1.2</span> Étude de l’espace vectoriel <span
+class="math inline">\(\mathscr{P}_\mathbb{K}\)</span></a></li>
+<li><a href="#degré-dune-fonction-polynômiale-non-nulle"
+id="toc-degré-dune-fonction-polynômiale-non-nulle"><span
+class="toc-section-number">1.3</span> Degré d’une fonction polynômiale
+non nulle</a></li>
+</ul></li>
+<li><a href="#introduction-à-mathbbkx"
+id="toc-introduction-à-mathbbkx"><span
+class="toc-section-number">2</span> Introduction à <span
+class="math inline">\(\mathbb{K}[X]\)</span></a>
+<ul>
+<li><a href="#écriture-usuelle-dun-polynôme"
+id="toc-écriture-usuelle-dun-polynôme"><span
+class="toc-section-number">2.1</span> Écriture usuelle d’un
+polynôme</a></li>
+<li><a href="#propriétés-du-degré" id="toc-propriétés-du-degré"><span
+class="toc-section-number">2.2</span> Propriétés du degré</a></li>
+<li><a href="#diviseurs-dun-polynôme"
+id="toc-diviseurs-dun-polynôme"><span
+class="toc-section-number">2.3</span> Diviseurs d’un polynôme</a></li>
+<li><a href="#le-sous-espace-mathbbk_nx"
+id="toc-le-sous-espace-mathbbk_nx"><span
+class="toc-section-number">2.4</span> Le sous-espace <span
+class="math inline">\(\mathbb{K}_n[X]\)</span></a></li>
+</ul></li>
+<li><a href="#racines-dun-polynômes"
+id="toc-racines-dun-polynômes"><span class="toc-section-number">3</span>
+Racines d’un polynômes</a>
+<ul>
+<li><a href="#définition-1" id="toc-définition-1"><span
+class="toc-section-number">3.1</span> Définition</a></li>
+<li><a href="#caractérisation-de-la-notion-de-racine"
+id="toc-caractérisation-de-la-notion-de-racine"><span
+class="toc-section-number">3.2</span> Caractérisation de la notion de
+racine</a></li>
+<li><a href="#ensemble-des-racines-dun-polynôme-non-nul"
+id="toc-ensemble-des-racines-dun-polynôme-non-nul"><span
+class="toc-section-number">3.3</span> Ensemble des racines d’un polynôme
+non nul</a></li>
+<li><a href="#ordre-de-multiplicité-dune-racine-dun-polynôme"
+id="toc-ordre-de-multiplicité-dune-racine-dun-polynôme"><span
+class="toc-section-number">3.4</span> Ordre de multiplicité d’une racine
+d’un polynôme</a>
+<ul>
+<li><a href="#définition-2" id="toc-définition-2"><span
+class="toc-section-number">3.4.1</span> Définition</a></li>
+<li><a href="#cns-sur-lordre-de-multiplicité"
+id="toc-cns-sur-lordre-de-multiplicité"><span
+class="toc-section-number">3.4.2</span> CNS sur l’ordre de
+multiplicité</a></li>
+</ul></li>
+<li><a href="#polynôme-dérivé" id="toc-polynôme-dérivé"><span
+class="toc-section-number">3.5</span> Polynôme dérivé</a></li>
+<li><a href="#définition-3" id="toc-définition-3"><span
+class="toc-section-number">3.6</span> Définition</a>
+<ul>
+<li><a href="#propriétés" id="toc-propriétés"><span
+class="toc-section-number">3.6.1</span> Propriétés</a></li>
+<li><a href="#application" id="toc-application"><span
+class="toc-section-number">3.6.2</span> Application</a></li>
+<li><a href="#identité-de-taylor" id="toc-identité-de-taylor"><span
+class="toc-section-number">3.6.3</span> Identité de Taylor</a></li>
+</ul></li>
+<li><a
+href="#polynôme-scindé-dans-mathbbkx-et-relations-entre-coefficients-et-racines"
+id="toc-polynôme-scindé-dans-mathbbkx-et-relations-entre-coefficients-et-racines"><span
+class="toc-section-number">3.7</span> Polynôme scindé dans <span
+class="math inline">\(\mathbb{K}[X]\)</span> et relations entre
+coefficients et racines</a>
+<ul>
+<li><a href="#définition-4" id="toc-définition-4"><span
+class="toc-section-number">3.7.1</span> Définition</a></li>
+<li><a
+href="#relation-entre-coefficients-et-racines-dun-polynôme-scindé"
+id="toc-relation-entre-coefficients-et-racines-dun-polynôme-scindé"><span
+class="toc-section-number">3.7.2</span> Relation entre coefficients et
+racines d’un polynôme scindé</a></li>
+</ul></li>
+<li><a href="#polynôme-dinterpolation-de-lagrange"
+id="toc-polynôme-dinterpolation-de-lagrange"><span
+class="toc-section-number">3.8</span> Polynôme d’interpolation de
+Lagrange</a></li>
+</ul></li>
+<li><a href="#arithmétique-dans-mathbbkx"
+id="toc-arithmétique-dans-mathbbkx"><span
+class="toc-section-number">4</span> Arithmétique dans <span
+class="math inline">\(\mathbb{K}[X]\)</span></a>
+<ul>
+<li><a href="#division-euclidienne-dans-mathbbkx"
+id="toc-division-euclidienne-dans-mathbbkx"><span
+class="toc-section-number">4.1</span> Division euclidienne dans <span
+class="math inline">\(\mathbb{K}[X]\)</span></a></li>
+<li><a href="#pgcd-dans-mathbbkx" id="toc-pgcd-dans-mathbbkx"><span
+class="toc-section-number">4.2</span> Pgcd dans <span
+class="math inline">\(\mathbb{K}[X]\)</span></a>
+<ul>
+<li><a href="#définition-5" id="toc-définition-5"><span
+class="toc-section-number">4.2.1</span> Définition</a></li>
+<li><a href="#algorithme-deuclide" id="toc-algorithme-deuclide"><span
+class="toc-section-number">4.2.2</span> Algorithme d’Euclide</a></li>
+<li><a href="#égalité-de-bézout" id="toc-égalité-de-bézout"><span
+class="toc-section-number">4.2.3</span> Égalité de Bézout</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1"
+id="préliminaires-sur-les-fonctions-polynomiales"><span
+class="header-section-number">1</span> Préliminaires sur les fonctions
+polynomiales</h1>
+<h2 data-number="1.1" id="définition"><span
+class="header-section-number">1.1</span> Définition</h2>
+<p><span class="math inline">\(\mathbb{K}\)</span> désigne tout
+sous-corps de <span class="math inline">\(\mathbb{C}\)</span> (en
+général, <span class="math inline">\(\mathbb{K}= \mathbb{R}\)</span> ou
+<span class="math inline">\(\mathbb{K}= \mathbb{C}\)</span>).</p>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(P \in
+\mathscr{F}(\mathbb{K},\mathbb{K})\)</span>.</p>
+<p><span class="math inline">\(P\)</span> est une fonction polynômiale
+de <span class="math inline">\(\mathbb{K}\)</span> dans <span
+class="math inline">\(\mathbb{K}\)</span> s’il existe <span
+class="math inline">\(n \in \mathbb{N}\)</span> et <span
+class="math inline">\(a_0,\ldots,a_n \in \mathbb{K}\)</span> tels que
+<span class="math display">\[\forall x \in \mathbb{K}, P(x) =
+\sum_{k=0}^n a_k x^k.\]</span></p>
+<p>On désigne par <span
+class="math inline">\(\mathscr{P}_{\mathbb{K}}\)</span> l’ensemble des
+fonctions polynômiales de <span
+class="math inline">\(\mathbb{K}\)</span> dans <span
+class="math inline">\(\mathbb{K}\)</span>.</p>
+</div>
+<div class="wprop">
+<p><span class="math inline">\(\mathscr{P}_\mathbb{K}\)</span> est un
+sous-espace vectoriel et un sous-anneau de <span
+class="math inline">\(\mathscr{F}(\mathbb{K},\mathbb{K})\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\(\mathscr{P}_\mathbb{K}\)</span> est
+un sous-espace vectoriel de <span
+class="math inline">\(\mathscr{F}(\mathbb{K},\mathbb{K})\)</span>.</p>
+<ol>
+<li><p>Pour tout <span class="math inline">\(x\in \mathbb{K}\)</span>,
+<span class="math inline">\(0_{\mathscr{F}(\mathbb{K},\mathbb{K})}(x) =
+0x^0\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(P,Q \in
+\mathscr{P}_\mathbb{K}\)</span>, il existe <span class="math inline">\(n
+\in \mathbb{N}\)</span>, <span class="math inline">\(a_0,\ldots,a_n \in
+\mathbb{K}\)</span>, <span class="math inline">\(p \in
+\mathbb{N}\)</span> et <span class="math inline">\(b_0,\ldots,b_p \in
+\mathbb{K}\)</span> tels que pour tout <span class="math inline">\(x \in
+\mathbb{K}\)</span>, <span class="math inline">\(P(x) = \sum_{k=0}^n a_k
+x^k\)</span> et <span class="math inline">\(Q(x) = \sum_{k=0}^p b_k
+x^k\)</span>.</p>
+<p>Si <span class="math inline">\(p \geq n\)</span>, on a donc <span
+class="math inline">\((P+Q)(x) = \sum_{k=0}^n (a_k+b_k)x^k +
+\sum_{k=n+1}^p b_k x^k\)</span> et un résultat similaire pour <span
+class="math inline">\(p &lt; n\)</span>. Donc <span
+class="math inline">\(P+Q \in \mathscr{P}_\mathbb{K}\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(\alpha \in \mathbb{K}\)</span>
+et <span class="math inline">\(P \in \mathscr{P}_\mathbb{K}\)</span>, il
+existe <span class="math inline">\(n \in \mathbb{N}\)</span> et <span
+class="math inline">\(a_0,\ldots,a_n \in \mathbb{K}\)</span> tels que
+pour tout <span class="math inline">\(x \in \mathbb{K}\)</span>, <span
+class="math inline">\(P(x) = \sum_{k=0}^n a_k x^k\)</span>.</p>
+<p>On a donc <span class="math inline">\((\alpha P)(x) = \sum_{k=0}^n
+(\alpha a_k)x^k\)</span> et <span class="math inline">\(\alpha P \in
+\mathscr{P}_\mathbb{K}\)</span>.</p></li>
+</ol></li>
+<li><p><span class="math inline">\(\mathscr{P}_\mathbb{K}\)</span> est
+un sous-anneau de <span
+class="math inline">\(\mathscr{F}(\mathbb{K},\mathbb{K})\)</span>.</p>
+<ol>
+<li><p><span class="math inline">\(\mathscr{P}_\mathbb{K}\)</span> est
+un sous-groupe de <span
+class="math inline">\(\mathscr{F}(\mathbb{K},\mathbb{K})\)</span>.</p>
+<ul>
+<li><p>Pour tout <span class="math inline">\(x\in \mathbb{K}\)</span>,
+<span class="math inline">\(0_{\mathscr{F}(\mathbb{K},\mathbb{K})}(x) =
+0x^0\)</span>.</p></li>
+<li><p>Par ce qui précède, si <span class="math inline">\(P,Q \in
+\mathscr{P}_\mathbb{K}\)</span>, <span class="math inline">\(P+Q \in
+\mathscr{P}_\mathbb{K}\)</span>.</p></li>
+<li><p>Toujours par ce qui précède, si <span class="math inline">\(P\in
+\mathscr{P}_\mathbb{K}\)</span>, <span class="math inline">\(-P \in
+\mathscr{P}_\mathbb{K}\)</span>.</p></li>
+</ul></li>
+<li><p>Pour tout <span class="math inline">\(x\in \mathbb{K}\)</span>,
+<span class="math inline">\(1_{\mathscr{F}(\mathbb{K},\mathbb{K})}(x) =
+1x^0\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(P,Q \in
+\mathscr{P}_\mathbb{K}\)</span>, il existe <span class="math inline">\(n
+\in \mathbb{N}\)</span>, <span class="math inline">\(a_0,\ldots,a_n \in
+\mathbb{K}\)</span>, <span class="math inline">\(p \in
+\mathbb{N}\)</span> et <span class="math inline">\(b_0,\ldots,b_p \in
+\mathbb{K}\)</span> tels que pour tout <span class="math inline">\(x \in
+\mathbb{K}\)</span>, <span class="math inline">\(P(x) = \sum_{k=0}^n a_k
+x^k\)</span> et <span class="math inline">\(Q(x) = \sum_{\ell=0}^p
+b_\ell x^\ell\)</span>.</p>
+<p>On a alors <span class="math inline">\((PQ)(x) = \left(\sum_{k=0}^n
+a_k x^k\right)\left(\sum_{\ell=0}^p b_\ell x^\ell\right) =
+\sum_{k=0}^n\sum_{\ell=0}^p a_k b_\ell x^{k+\ell} = \sum_{m=0}^{n+p} c_m
+x^m\)</span> avec <span class="math inline">\(c_m = \sum_{\substack{0
+\leq k \leq n \\ 0 \leq \ell \leq p \\ k+\ell = m}} a_k
+b_\ell\)</span>.</p></li>
+</ol></li>
+</ul>
+</div>
+<h2 data-number="1.2"
+id="étude-de-lespace-vectoriel-mathscrp_mathbbk"><span
+class="header-section-number">1.2</span> Étude de l’espace vectoriel
+<span class="math inline">\(\mathscr{P}_\mathbb{K}\)</span></h2>
+<div class="wprop">
+<p>Pour <span class="math inline">\(k \in \mathbb{N}\)</span>, on
+définit <span class="math inline">\(\begin{array}{lllll}
+P_k &amp; : &amp; \mathbb{K} &amp; \to &amp; \mathbb{K} \\
+   &amp;   &amp; x &amp; \mapsto &amp; x^k
+\end{array}
+\in \mathscr{P}_\mathbb{K}\)</span>.</p>
+<p>Alors, pour tout <span class="math inline">\(n \in
+\mathbb{N}\)</span>, <span
+class="math inline">\((P_0,\ldots,P_n)\)</span> est une famille libre de
+<span class="math inline">\(\mathscr{P}_\mathbb{K}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Démontrons ce résultat par récurrence sur <span
+class="math inline">\(n\)</span>.</p>
+<ul>
+<li><p><strong>INITIALISATION :</strong> <span
+class="math inline">\((P_0)\)</span> est une famille libre de <span
+class="math inline">\(\mathscr{P}_\mathbb{K}\)</span> car <span
+class="math inline">\(P_0 \neq
+0_{\mathscr{P}_\mathbb{K}}\)</span>.</p></li>
+<li><p><strong>HÉRÉDITÉ :</strong> Soit <span class="math inline">\(n
+\in \mathbb{N}\)</span>, supposons que <span
+class="math inline">\((P_0,\ldots,P_n)\)</span> est libre. Pour montrer
+que <span class="math inline">\((P_0,\ldots,P_n,P_{n+1})\)</span> est
+libre, il suffit alors de montrer que <span
+class="math inline">\(P_{n+1} \notin
+\mathop{\mathrm{Vect}}(P_0,\ldots,P_n)\)</span>.</p>
+<p>Supposons par l’absurde qu’il existe <span
+class="math inline">\(\alpha_0,\ldots,\alpha_n \in \mathbb{K}\)</span>
+tels que <span class="math inline">\(P_{n+1} = \sum_{k=0}^n \alpha_k
+P_k\)</span>.</p>
+<p>On a alors pour tout <span class="math inline">\(x \in
+\mathbb{K}\)</span>, <span class="math inline">\(x^{n+1} = \sum_{k=0}^n
+\alpha_k x^k\)</span> donc <span class="math inline">\(2^{n+1}x^{n+1} =
+\sum_{k=0}^n \alpha_k 2^{n+1} x^k\)</span> mais aussi <span
+class="math inline">\((2x)^{n+1} = \sum_{k=0}^n \alpha_k (2x)^k
+=  \sum_{k=0}^n \alpha_k 2^kx^k\)</span>.</p>
+<p>On a alors <span class="math inline">\(0 = \sum_{k=0}^n
+\alpha_k(2^{n+1}-2^k)P_k(x)\)</span> et par hypothèse de récurrence,
+<span class="math inline">\(\alpha_0 = \ldots = \alpha_n = 0\)</span>,
+ce qui est absurde.</p></li>
+<li><p><strong>CONCLUSION :</strong> pour tout <span
+class="math inline">\(n \in \mathbb{N}\)</span>, <span
+class="math inline">\((P_0,\ldots,P_n)\)</span> est une famille libre de
+<span class="math inline">\(\mathscr{P}_\mathbb{K}\)</span>.</p></li>
+</ul>
+</div>
+<div class="wcor">
+<p><span class="math inline">\(\mathscr{P}_\mathbb{K}\)</span> est de
+dimension infinie.</p>
+</div>
+<div class="wproof">
+<p>Par l’absurde, si <span
+class="math inline">\(\mathscr{P}_\mathbb{K}\)</span> était de dimension
+finie <span class="math inline">\(n\)</span>, les familles libres
+seraient d’un cardinal <span class="math inline">\(\leq n\)</span>, ce
+qui contredit la proposition précédente.</p>
+</div>
+<h2 data-number="1.3"
+id="degré-dune-fonction-polynômiale-non-nulle"><span
+class="header-section-number">1.3</span> Degré d’une fonction
+polynômiale non nulle</h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\(P\in \mathscr{P}_\mathbb{K}\)</span>
+non nulle, il existe <span class="math inline">\(n \in
+\mathbb{N}\)</span> et <span class="math inline">\(a_0,\ldots,a_n \in
+\mathbb{K}\)</span> tels que pour tout <span class="math inline">\(x \in
+\mathbb{K}\)</span>, <span class="math inline">\(P(x) = \sum_{k=0}^n a_k
+x^k\)</span>.</p>
+<p>On suppose <span class="math inline">\(a_n \neq 0\)</span>. Alors
+<span class="math inline">\(n\)</span> et les <span
+class="math inline">\((a_k)_{0 \leq k \leq n}\)</span> sont uniques.</p>
+</div>
+<div class="wproof">
+<p>Supposons qu’il existe aussi <span class="math inline">\(p  \in
+\mathbb{N}\)</span> et <span class="math inline">\(b_0,\ldots,b_p \in
+\mathbb{K}\)</span> tels que pour tout <span class="math inline">\(x \in
+\mathbb{K}\)</span>, <span class="math inline">\(P(x) = \sum_{k=0}^n a_k
+x^k = \sum_{k=0}^p b_k x^k\)</span> avec <span class="math inline">\(b_p
+\neq 0\)</span>. Supposons aussi <span class="math inline">\(p &gt;
+n\)</span>.</p>
+<p>On a alors <span class="math inline">\(\sum_{k=0}^n (b_k-a_k)P_k(x) +
+\sum_{k=n+1}^p b_k P_k = 0_{\mathscr{P}_\mathbb{K}}\)</span> et comme la
+famille des <span class="math inline">\(P_k\)</span> est libre, <span
+class="math inline">\(b_p = 0\)</span>, ce qui est absurde. On a la même
+contradiction en supposant <span class="math inline">\(p &lt;
+n\)</span>.</p>
+<p>Donc <span class="math inline">\(p = n\)</span>. On a alors <span
+class="math inline">\(\sum_{k=0}^n (b_k-a_k)P_k(x) =
+0_{\mathscr{P}_\mathbb{K}}\)</span> donc <span class="math inline">\(a_k
+= b_k\)</span> pour tout <span class="math inline">\(0 \leq k \leq
+n\)</span>.</p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(P\in \mathscr{P}_\mathbb{K}\)</span>
+non nulle, il existe <span class="math inline">\(n \in
+\mathbb{N}\)</span> et <span class="math inline">\(a_0,\ldots,a_n \in
+\mathbb{K}\)</span> tels que pour tout <span class="math inline">\(x \in
+\mathbb{K}\)</span>, <span class="math inline">\(P(x) = \sum_{k=0}^n a_k
+x^k\)</span> tel que <span class="math inline">\(a_n \neq 0\)</span>
+avec <span class="math inline">\(n\)</span> unique. On définit <span
+class="math inline">\(n\)</span> comme étant le degré de <span
+class="math inline">\(P\)</span> noté <span class="math inline">\(\deg
+P\)</span>.</p>
+</div>
+<p>Soit <span class="math inline">\(P \in
+\mathscr{P}_\mathbb{K}\)</span>, tel que <span class="math inline">\(P =
+\sum_{k=0}^n a_k P_k\)</span>, les coefficients <span
+class="math inline">\(a_k\)</span> sont uniques. En particulier, on peut
+introduire <span class="math display">\[\begin{array}{lllll}
+\varphi &amp; : &amp; \mathscr{P}_\mathbb{K} &amp; \to &amp; \mathscr{S}
+\\
+   &amp;   &amp; P &amp; \mapsto &amp; (a_0,\ldots,a_n,0,0,\ldots)
+\end{array}\]</span> où <span class="math inline">\(\mathscr{S} =
+\left\{\text{suites de $\mathbb{K}$ stationnaires à $0$}\right\} =
+\left\{(u_k)_{k \in \mathbb{N}} / \exists N \in \mathbb{N}, \forall n
+\geq N, u_n = 0\right\}\)</span>. C’est alors une bijection.</p>
+<p>Dans la suite, nous introduirons les polynômes de manière plus
+formelle, en les associant aux suites stationnaires à zéro données par
+l’application <span class="math inline">\(\varphi\)</span>.</p>
+<p>L’unicité des coefficients montre qu’une fonction polynomiale est
+entièrement déterminée par ces derniers. Il devient alors naturel de
+considérer les polynômes comme des objets algébriques indépendants du
+point de vue fonctionnel.</p>
+<p>Bien que la distinction entre polynômes et fonctions polynomiales
+soit souvent invisible sur <span
+class="math inline">\(\mathbb{R}\)</span> ou <span
+class="math inline">\(\mathbb{C}\)</span>, elle jouera un rôle
+fondamental pour introduire des notions d’algèbre, et en particulier
+l’arithmétique des polynômes.</p>
+<h1 data-number="2" id="introduction-à-mathbbkx"><span
+class="header-section-number">2</span> Introduction à <span
+class="math inline">\(\mathbb{K}[X]\)</span></h1>
+<p>Dans toute cette partie, <span
+class="math inline">\(\mathbb{K}\)</span> désigne un corps.</p>
+<h2 data-number="2.1" id="écriture-usuelle-dun-polynôme"><span
+class="header-section-number">2.1</span> Écriture usuelle d’un
+polynôme</h2>
+<div class="wdefi">
+<p>On appelle polynôme à coefficients dans <span
+class="math inline">\(\mathbb{K}\)</span> toute suite <span
+class="math inline">\((a_k)_{k \in \mathbb{N}}\)</span> d’éléments de
+<span class="math inline">\(\mathbb{K}\)</span> stationnaire à zéro,
+c’est-à-dire telle qu’il existe <span class="math inline">\(N \in
+\mathbb{N}\)</span> vérifiant <span class="math display">\[\forall k
+\geq N,\quad a_k = 0.\]</span></p>
+<p>L’ensemble des polynômes à coefficients dans <span
+class="math inline">\(\mathbb{K}\)</span> est noté <span
+class="math inline">\(\mathbb{K}[X]\)</span>.</p>
+<p>Si <span class="math inline">\(P = (a_k)_{k\in\mathbb{N}} \in
+\mathbb{K}[X]\)</span>, on adopte l’écriture usuelle <span
+class="math display">\[P = \sum_{k=0}^{n} a_k X^k,\]</span> où <span
+class="math inline">\(n \in \mathbb{N}\)</span> est choisi de sorte que
+<span class="math display">\[\forall k &gt; n,\quad a_k =
+0.\]</span></p>
+<p>Si <span class="math inline">\(P \neq 0\)</span>, on définit le degré
+de <span class="math inline">\(P\)</span> par <span
+class="math display">\[\deg(P)=\max\{k\in\mathbb{N}\mid a_k \neq
+0\}.\]</span></p>
+<p>Par convention, on pose <span
+class="math display">\[\deg(0)=-\infty.\]</span></p>
+</div>
+<div class="wprop">
+<p>On étend alors la somme et le produit précédemment observés pour les
+fonctions polynomiales aux polynômes de <span
+class="math inline">\(\mathbb{K}[X]\)</span> de sorte que <span
+class="math inline">\(\mathbb{K}[X]\)</span> est un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et un
+anneau.</p>
+</div>
+<h2 data-number="2.2" id="propriétés-du-degré"><span
+class="header-section-number">2.2</span> Propriétés du degré</h2>
+<div class="wprop">
+<p>Soient <span class="math inline">\(P,Q \in \mathbb{K}[X]\)</span>,
+<span class="math inline">\(\deg(P+Q) \leq \max
+\left\{\deg(P),\deg(Q)\right\}\)</span> avec égalité si <span
+class="math inline">\(\deg(P) \neq \deg(Q)\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Si <span class="math inline">\(P\)</span> et <span
+class="math inline">\(Q\)</span> sont non nuls, il existe <span
+class="math inline">\(n \in \mathbb{N}\)</span>, <span
+class="math inline">\(a_0,\ldots,a_n \in \mathbb{K}\)</span> avec <span
+class="math inline">\(a_n \neq 0\)</span>, <span class="math inline">\(p
+\in \mathbb{N}\)</span> et <span class="math inline">\(b_0,\ldots,b_p
+\in \mathbb{K}\)</span> avec <span class="math inline">\(b_p \neq
+0\)</span> tels que <span class="math inline">\(P = \sum_{k=0}^n a_k
+X^k\)</span> et <span class="math inline">\(Q = \sum_{k=0}^p b_k
+X^k\)</span>.</p>
+<p>On a alors <span class="math inline">\(P+Q = \sum_{k=0}^n a_k X^k+
+\sum_{k=0}^p b_k X^k\)</span> et <span class="math inline">\(\deg(P+Q)
+\leq \max(n,p)\)</span>.</p>
+<p>Si, de plus, <span class="math inline">\(n &lt; p\)</span>, alors
+<span class="math inline">\(P+Q =  \sum_{k=0}^n (a_k+b_k) X^k+
+\sum_{k=n+1}^p b_k X^k\)</span> et <span class="math inline">\(\deg(P+Q)
+= p = \max(n,p)\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(P = 0\)</span>, <span
+class="math inline">\(P+Q = Q\)</span> et <span
+class="math inline">\(\deg(P+Q) = \max(\deg P, \deg Q) =
+\max(-\infty,\deg Q) = \deg Q\)</span>.</p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>Si <span class="math inline">\(\deg(P) = \deg(Q)\)</span>, on peut
+avoir <span class="math inline">\(\deg(P+Q) = \max(\deg P, \deg
+Q)\)</span> (avec <span class="math inline">\(P=Q=X^2 \in
+\mathbb{R}[X]\)</span>) ou <span class="math inline">\(\deg(P+Q) &lt;
+\max(\deg P, \deg Q)\)</span> (avec <span
+class="math inline">\(P=-X^2,Q=X^2  \in \mathbb{R}[X]\)</span>).</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(P,Q \in \mathbb{K}[X]\)</span>
+tels que <span class="math inline">\(P \neq 0\)</span> et <span
+class="math inline">\(Q \neq 0\)</span> alors <span
+class="math inline">\(PQ \neq 0\)</span>, <span
+class="math inline">\(\deg(PQ) = \deg(P)+\deg(Q)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Il existe <span class="math inline">\(n \in \mathbb{N}\)</span>,
+<span class="math inline">\(a_0,\ldots,a_n \in \mathbb{K}\)</span> avec
+<span class="math inline">\(a_n \neq 0\)</span>, <span
+class="math inline">\(p \in \mathbb{N}\)</span> et <span
+class="math inline">\(b_0,\ldots,b_p \in \mathbb{K}\)</span> avec <span
+class="math inline">\(b_p \neq 0\)</span> tels que <span
+class="math inline">\(P = \sum_{k=0}^n a_k X^k\)</span> et <span
+class="math inline">\(Q = \sum_{k=0}^p b_k X^k\)</span>.</p>
+<p>On a alors <span class="math inline">\(PQ = \sum_{m=0}^{n+p} c_m
+X^m\)</span> avec <span class="math inline">\(c_m = \sum_{\substack{0
+\leq k \leq n \\ 0 \leq \ell \leq p \\ k+\ell = m}} a_k
+b_\ell\)</span>.</p>
+<p>En particulier, <span class="math inline">\(c_{n+p} = a_nb_p \neq
+0\)</span> donc <span class="math inline">\(\deg(PQ) = n+p\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Par la proposition précédente, <span
+class="math inline">\(\mathbb{K}[X]\)</span> est un anneau intègre.</p>
+</div>
+<ul>
+<li><p>Si <span class="math inline">\(\deg P =n\)</span>, <span
+class="math inline">\(a_n\)</span> est appelé le coefficient dominant de
+<span class="math inline">\(P\)</span>;</p></li>
+<li><p>Si <span class="math inline">\(a_n = 1\)</span>, on dit que <span
+class="math inline">\(P\)</span> est unitaire.</p></li>
+</ul>
+<h2 data-number="2.3" id="diviseurs-dun-polynôme"><span
+class="header-section-number">2.3</span> Diviseurs d’un polynôme</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(A, B \in \mathbb{K}[X]\)</span>,
+on dit que <span class="math inline">\(B\)</span> divise <span
+class="math inline">\(A\)</span> (ou <span
+class="math inline">\(B\)</span> est un diviseur de <span
+class="math inline">\(A\)</span> ou <span
+class="math inline">\(A\)</span> est un multiple de <span
+class="math inline">\(B\)</span>) s’il existe <span
+class="math inline">\(C \in \mathbb{K}[X]\)</span> tel que <span
+class="math inline">\(A = BC\)</span>.</p>
+<p>On écrit alors <span class="math inline">\(B| A\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Si <span class="math inline">\(\deg(B) = 0\)</span>, <span
+class="math inline">\(B| A\)</span> pour tout <span
+class="math inline">\(A \in \mathbb{K}[X]\)</span> car alors <span
+class="math inline">\(B = \beta \in \mathbb{K}\)</span> et <span
+class="math inline">\(A = \beta\frac{1}{\beta}A\)</span>.</p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(A \in \mathbb{K}[X]\)</span>, un
+polynôme de la forme <span class="math inline">\(\alpha A\)</span> avec
+<span class="math inline">\(\alpha \in \mathbb{K}, \neq 0\)</span> est
+dit associé à <span class="math inline">\(A\)</span>. Un tel polynôme
+est un polynôme diviseur de <span class="math inline">\(A\)</span>.</p>
+</div>
+<div class="wprop">
+<p><span id="prop:associes" label="prop:associes"></span> Soient <span
+class="math inline">\(A,B \in \mathbb{K}[X]\)</span>,</p>
+<p><span class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span> associés <span
+class="math inline">\(\iff\)</span> <span
+class="math inline">\(A|B\)</span> et <span
+class="math inline">\(B|A\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>(<span class="math inline">\(\Longrightarrow\)</span>) S’il
+existe <span class="math inline">\(\alpha \in \mathbb{K}^\star\)</span>
+tel que <span class="math inline">\(B = \alpha A\)</span> alors <span
+class="math inline">\(A |B\)</span> et <span
+class="math inline">\(B|A\)</span> car <span class="math inline">\(A =
+\frac{1}{\alpha}B\)</span>.</p></li>
+<li><p>(<span class="math inline">\(\Longleftarrow\)</span>) Si <span
+class="math inline">\(A|B\)</span>, il existe <span
+class="math inline">\(Q \in \mathbb{K}[X]\)</span> tel que <span
+class="math inline">\(B = QA\)</span> et si <span
+class="math inline">\(B|A\)</span>, il existe <span
+class="math inline">\(R \in \mathbb{K}[X]\)</span> tel que <span
+class="math inline">\(A = BR\)</span>.</p>
+<p>On a donc <span class="math inline">\(B = QA = QBR \iff B(QR-1) =
+0\)</span> donc <span class="math inline">\(QR=1\)</span> car <span
+class="math inline">\(\mathbb{K}[X]\)</span> est intègre.</p>
+<p>De plus, <span class="math inline">\(\deg(QR) = \deg(Q) + \deg(R) =
+\deg(1) = 0\)</span> donc <span class="math inline">\(\deg(Q)=\deg(R) =
+1\)</span>.</p>
+<p>Il existe donc <span class="math inline">\(q \in
+\mathbb{K}^\star\)</span> tel que <span class="math inline">\(Q =
+q\)</span> et <span class="math inline">\(B = qA\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="2.4" id="le-sous-espace-mathbbk_nx"><span
+class="header-section-number">2.4</span> Le sous-espace <span
+class="math inline">\(\mathbb{K}_n[X]\)</span></h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(n \in \mathbb{N}\)</span>, on
+considère <span class="math inline">\(\left\{P \in \mathbb{K}[X] /
+\deg(P) \leq n\right\}\)</span>, que l’on note <span
+class="math inline">\(\mathbb{K}_n[X]\)</span>.</p>
+<p><span class="math inline">\(\mathbb{K}_n[X]\)</span> est un
+sous-espace vectoriel de <span
+class="math inline">\(\mathbb{K}[X]\)</span>.</p>
+</div>
+<div class="wproof">
+<ol>
+<li><p><span class="math inline">\(0_{\mathbb{K}[X]} \in
+\mathbb{K}_n[X]\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(P,Q \in
+\mathbb{K}_n[X]\)</span>, <span class="math inline">\(\deg(P+Q) \leq
+\max(\deg P, \deg Q) \leq n\)</span> donc <span
+class="math inline">\(P+Q \in \mathbb{K}_n[X]\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(\alpha \in \mathbb{K}\)</span>
+et <span class="math inline">\(P \in \mathbb{K}_n[X]\)</span>, si <span
+class="math inline">\(\alpha \neq 0\)</span>, <span
+class="math inline">\(\deg(\alpha P) = \deg(\alpha)+\deg(P) =
+\deg(P)\)</span> donc <span class="math inline">\(\alpha P \in
+\mathbb{K}_n[X]\)</span> et si <span class="math inline">\(\alpha
+=0\)</span>, <span class="math inline">\(\alpha P = 0 \in
+\mathbb{K}[X]\)</span>.</p></li>
+</ol>
+</div>
+<div class="wrem">
+<p>En revanche, <span class="math inline">\(\mathbb{K}_n[X]\)</span>
+n’est pas un sous-anneau de <span
+class="math inline">\(\mathbb{K}[X]\)</span>.</p>
+<p>Par exemple, <span class="math inline">\(X^2 \in
+\mathbb{R}_2[X]\)</span> mais <span class="math inline">\(X^2X^2 \notin
+\mathbb{R}_2[X]\)</span>.</p>
+</div>
+<div class="wprop">
+<p><span class="math inline">\(\mathbb{K}_n[X]\)</span> est de dimension
+<span class="math inline">\(n+1\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Comme montré précédemment, <span
+class="math inline">\((1,\ldots,X^n)\)</span> est une famille libre de
+<span class="math inline">\(\mathbb{K}[X]\)</span> donc de <span
+class="math inline">\(\mathbb{K}_n[X]\)</span>.</p>
+<p>De plus, elle est clairement génératrice de <span
+class="math inline">\(\mathbb{K}_n[X]\)</span> donc c’en est une base et
+<span class="math inline">\(\dim \mathbb{K}_n[X] = n+1\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\((Q_0,\ldots,Q_n) \in
+\mathbb{K}[X]^{n+1}\)</span> telle que <span class="math inline">\(\deg
+Q_k = k\)</span> pour tout <span class="math inline">\(0 \leq k \leq
+n\)</span> alors <span class="math inline">\((Q_0,\ldots,Q_n)\)</span>
+est une base de <span
+class="math inline">\(\mathbb{K}_n[X]\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Montrons par récurrence finie que pour tout <span
+class="math inline">\(0 \leq \ell \leq n\)</span>, <span
+class="math inline">\((Q_0,\ldots,Q_\ell)\)</span> est libre.</p>
+<ul>
+<li><p>Pour <span class="math inline">\(\ell = 0\)</span>, <span
+class="math inline">\(\deg(Q_0) = 0\)</span> donc <span
+class="math inline">\(Q_0 \neq 0_{\mathbb{K}[X]}\)</span> et <span
+class="math inline">\((Q_0)\)</span> est libre.</p></li>
+<li><p>Supposons pour <span class="math inline">\(\ell \in [\![ 0,n-1
+]\!]\)</span> que <span
+class="math inline">\((Q_0,\ldots,Q_\ell)\)</span> est libre.</p>
+<p>Pour tout <span class="math inline">\(P \in
+\mathop{\mathrm{Vect}}(Q_0,\ldots,Q_\ell)\)</span>, <span
+class="math inline">\(\deg(P) \leq \ell\)</span>. Or, <span
+class="math inline">\(\deg(Q_{\ell+1}) = \ell+1\)</span>.</p>
+<p>Donc <span class="math inline">\(Q_{\ell+1} \notin
+\mathop{\mathrm{Vect}}(Q_0,\ldots,Q_\ell)\)</span>. Donc <span
+class="math inline">\((Q_0,\ldots,Q_{\ell+1})\)</span> est
+libre.</p></li>
+<li><p>On en déduit que <span
+class="math inline">\((Q_0,\ldots,Q_n)\)</span> est une famille libre de
+<span class="math inline">\(\mathbb{K}_n[X]\)</span>.</p></li>
+</ul>
+<p>De plus, <span class="math inline">\(\dim \mathbb{K}_n[X] = n+1 =
+\mathop{\mathrm{card}}(Q_0,\ldots,Q_n)\)</span> donc <span
+class="math inline">\((Q_0,\ldots,Q_n)\)</span> est une base de <span
+class="math inline">\(\mathbb{K}_n[X]\)</span>.</p>
+</div>
+<h1 data-number="3" id="racines-dun-polynômes"><span
+class="header-section-number">3</span> Racines d’un polynômes</h1>
+<h2 data-number="3.1" id="définition-1"><span
+class="header-section-number">3.1</span> Définition</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(P \in \mathbb{K}[X]\)</span> tel que
+<span class="math inline">\(P = \sum_{k=0}^n a_k X^k\)</span> avec <span
+class="math inline">\(a_k \in \mathbb{K}\)</span> pour tout <span
+class="math inline">\(0\leq k \leq n\)</span>.</p>
+<p>Soit <span class="math inline">\(\alpha \in \mathbb{K}\)</span>,
+<span class="math inline">\(\alpha\)</span> est racine de <span
+class="math inline">\(P\)</span> si <span
+class="math inline">\(P(\alpha) = \sum_{k=0}^n a_k \alpha^k =
+0\)</span>.</p>
+</div>
+<p>Si <span class="math inline">\(\mathbb{K}\)</span> est un sous-corps
+de <span class="math inline">\(\mathbb{C}\)</span>, on peut considérer
+<span class="math inline">\(P \in \mathbb{K}[X]\)</span> comme un
+polynôme de <span class="math inline">\(\mathbb{C}[X]\)</span> (car
+<span class="math inline">\(\mathbb{K}\subset \mathbb{C}\)</span>). Il
+se peut alors que <span class="math inline">\(P\)</span> ait des racines
+dans <span class="math inline">\(\mathbb{C}\)</span> mais pas dans <span
+class="math inline">\(\mathbb{K}\)</span>.</p>
+<div class="wex">
+<p>Si <span class="math inline">\(\mathbb{K}= \mathbb{R}\)</span>, <span
+class="math inline">\(P=X^2+1\)</span> n’amdet pas de racines. Si <span
+class="math inline">\(\mathbb{K}= \mathbb{C}\)</span>, <span
+class="math inline">\(P\)</span> admet les deux racines <span
+class="math inline">\(\pm i\)</span>.</p>
+</div>
+<div class="wthm">
+<p><strong>(Théorème de d’Alembert-Gauss (admis))</strong> <span
+id="thm:Gauss" label="thm:Gauss"></span> Soit <span
+class="math inline">\(P \in \mathbb{C}[X]\)</span>, non constant alors
+<span class="math inline">\(P\)</span> possède une racine dans <span
+class="math inline">\(\mathbb{C}\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(P \in \mathbb{R}[X]\)</span> et
+<span class="math inline">\(\alpha\)</span> racine de <span
+class="math inline">\(P\)</span> dans <span
+class="math inline">\(\mathbb{C}\)</span> alors <span
+class="math inline">\(\overline{\alpha}\)</span> est aussi racine de
+<span class="math inline">\(P\)</span> dans <span
+class="math inline">\(\mathbb{C}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soient <span class="math inline">\(a_0,\ldots,a_n \in
+\mathbb{R}\)</span> tels que <span class="math inline">\(P =
+\sum_{k=0}^n a_k X^k\)</span> alors <span
+class="math inline">\(P(\overline{\alpha}) = \sum_{k=0}^n a_k
+\overline{\alpha}^k = \overline{\sum_{k=0}^n a_k\alpha^k} =
+\overline{P(\alpha)} = 0\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Le résultat est faux si <span class="math inline">\(P \in
+\mathbb{C}[X]\)</span>. Par exemple, <span
+class="math inline">\(i\)</span> est racine de <span
+class="math inline">\(X-i\)</span> mais pas <span
+class="math inline">\(\overline{i} = -i\)</span>.</p>
+</div>
+<h2 data-number="3.2" id="caractérisation-de-la-notion-de-racine"><span
+class="header-section-number">3.2</span> Caractérisation de la notion de
+racine</h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\(P \in \mathbb{K}[X]\)</span> et
+<span class="math inline">\(\alpha \in \mathbb{K}\)</span>.</p>
+<p><span class="math inline">\(\alpha\)</span> est une racine de <span
+class="math inline">\(P\)</span> <span
+class="math inline">\(\iff\)</span> <span
+class="math inline">\(X-\alpha\)</span> divise <span
+class="math inline">\(P\)</span> ie il existe <span
+class="math inline">\(Q \in \mathbb{K}[X]\)</span> tel que <span
+class="math inline">\(P = (X-\alpha)Q\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>(<span class="math inline">\(\Longleftarrow\)</span>) S’il existe
+<span class="math inline">\(Q \in \mathbb{K}[X]\)</span> tel que <span
+class="math inline">\(P = (X-\alpha)Q\)</span>, alors <span
+class="math inline">\(P(\alpha) = (\alpha-\alpha)Q(\alpha) =
+0\)</span>.</p></li>
+<li><p>(<span class="math inline">\(\Longrightarrow\)</span>) Ecrivons
+<span class="math inline">\(P = \sum_{k=0}^n a_kX^k\)</span> avec <span
+class="math inline">\(a_k \in \mathbb{K}\)</span> pour tout <span
+class="math inline">\(0\leq k \leq n\)</span>.</p>
+<p>On a <span class="math inline">\(P(\alpha) = 0\)</span> donc <span
+class="math inline">\(\sum_{k=0}^n a_k\alpha^k = 0\)</span>.</p>
+<p>On en déduit <span class="math inline">\(P = \sum_{k=0}^n a_k X^k
+-\sum_{k=0}^n a_k\alpha^k = \sum_{k=0}^n a_k(X^k-\alpha^k) =\sum_{k=1}^n
+a_k(X^k-\alpha^k)\)</span>.</p>
+<p>Or, <span class="math inline">\(X^k-\alpha^k =
+(X-\alpha)\sum_{\ell=0}^{k-1}X^\ell \alpha^{k-1-\ell}\)</span>.</p>
+<p>Donc <span class="math inline">\(P = \sum_{k=1}^n
+a_k(X-\alpha)\sum_{\ell=0}^{k-1}X^\ell \alpha^{k-1-\ell} =
+(X-\alpha)\sum_{k=1}^n a_k\sum_{\ell=0}^{k-1}X^\ell
+\alpha^{k-1-\ell}\)</span></p></li>
+</ul>
+</div>
+<h2 data-number="3.3"
+id="ensemble-des-racines-dun-polynôme-non-nul"><span
+class="header-section-number">3.3</span> Ensemble des racines d’un
+polynôme non nul</h2>
+<div class="wlem">
+<p><span id="lem:racines_distinctex_divise"
+label="lem:racines_distinctex_divise"></span> Soit <span
+class="math inline">\(P \in \mathbb{K}[X]\)</span> possédant <span
+class="math inline">\(r\geq 1\)</span> racines distinctes <span
+class="math inline">\(\alpha_1,\ldots,\alpha_r\)</span>.</p>
+<p>Alors <span class="math inline">\(P\)</span> est divisible par <span
+class="math inline">\((X-\alpha_1)(X-\alpha_2)\ldots(X-\alpha_r)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Procédons par récurrence sur <span
+class="math inline">\(r\)</span>.</p>
+<ul>
+<li><p><strong>INITIALISATION :</strong> Pour <span
+class="math inline">\(r=1\)</span>, cela a été montré dans la
+proposition précédente.</p></li>
+<li><p><strong>HÉRÉDITÉ :</strong> Supposons le résultat vrai pour <span
+class="math inline">\(r\geq 1\)</span> fixé. Soit <span
+class="math inline">\(P \in \mathbb{K}[X]\)</span> possédant <span
+class="math inline">\(r+1\)</span> racines distinctes <span
+class="math inline">\(\alpha_1,\ldots,\alpha_r,\alpha_{r+1}\)</span>.</p>
+<p>Alors, il possède les <span class="math inline">\(r\)</span> racines
+<span class="math inline">\(\alpha_1,\ldots,\alpha_r\)</span> donc par
+hypothèse de récurrence, il existe <span class="math inline">\(Q\in
+\mathbb{K}[X]\)</span> tel que <span class="math inline">\(P =
+(X-\alpha_1)(X-\alpha_2)\ldots(X-\alpha_r)Q\)</span>.</p>
+<p>De plus, <span class="math inline">\(P(\alpha_{r+1}) =
+\underbrace{(\alpha_{r+1}-\alpha_1)(\alpha_{r+1}-\alpha_2)\ldots(\alpha_{r+1}-\alpha_r)}_{\neq
+0\text{ car les racines sont distinctes}}Q(\alpha_{r+1}) =
+0\)</span>.</p>
+<p>Donc <span class="math inline">\(Q(\alpha_{r+1}) = 0\)</span> et par
+le cas <span class="math inline">\(r=1\)</span>, il existe <span
+class="math inline">\(Q_1\in \mathbb{K}[X]\)</span> tel que <span
+class="math inline">\(Q = (X-\alpha_{r+1})Q_1\)</span>.</p>
+<p>On a donc <span class="math inline">\(P =
+(X-\alpha_1)(X-\alpha_2)\ldots(X-\alpha_r)(X-\alpha_{r+1})Q_1\)</span>
+et <span
+class="math inline">\((X-\alpha_1)(X-\alpha_2)\ldots(X-\alpha_r)(X-\alpha_{r+1})\)</span>
+divise <span class="math inline">\(P\)</span>.</p></li>
+<li><p><strong>CONCLUSION :</strong> Soit <span class="math inline">\(P
+\in \mathbb{K}[X]\)</span> possédant <span class="math inline">\(r\geq
+1\)</span> racines distinctes <span
+class="math inline">\(\alpha_1,\ldots,\alpha_r\)</span> alors <span
+class="math inline">\(P\)</span> est divisible par <span
+class="math inline">\((X-\alpha_1)(X-\alpha_2)\ldots(X-\alpha_r)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(P \in \mathbb{K}[X]\)</span>, non
+nul et <span class="math inline">\(\mathscr{R}\)</span> l’ensemble de
+ses racines dans <span class="math inline">\(\mathbb{K}\)</span>.</p>
+<p>Alors, <span class="math inline">\(\mathscr{R}\)</span> est fini et
+<span class="math inline">\(\mathop{\mathrm{card}}\mathscr{R} \leq \deg
+P\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Si <span class="math inline">\(\alpha_1,\ldots,\alpha_r\)</span> sont
+des éléments de <span class="math inline">\(r\)</span>, par le lemme <a
+href="#lem:racines_distinctex_divise" data-reference-type="ref"
+data-reference="lem:racines_distinctex_divise">[lem:racines_distinctex_divise]</a>,
+il existe <span class="math inline">\(Q \in \mathbb{K}[X]\)</span> tel
+que <span class="math inline">\(P =
+(X-\alpha_1)(X-\alpha_2)\ldots(X-\alpha_r)Q\)</span>.</p>
+<p>On a donc <span class="math inline">\(\deg(P) = \deg(Q)+r\)</span> et
+comme <span class="math inline">\(P \neq 0\)</span>, <span
+class="math inline">\(Q \neq 0\)</span>, ce qui induit <span
+class="math inline">\(\deg(Q) \geq 0\)</span> et <span
+class="math inline">\(r \leq \deg P\)</span>.</p>
+<p><span class="math inline">\(\mathscr{R}\)</span> possède donc au plus
+<span class="math inline">\(r\)</span> éléments distincts.</p>
+</div>
+<h2 data-number="3.4"
+id="ordre-de-multiplicité-dune-racine-dun-polynôme"><span
+class="header-section-number">3.4</span> Ordre de multiplicité d’une
+racine d’un polynôme</h2>
+<h3 data-number="3.4.1" id="définition-2"><span
+class="header-section-number">3.4.1</span> Définition</h3>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(P \in \mathbb{K}[X]\)</span> non nul
+et <span class="math inline">\(\alpha\)</span> racine de <span
+class="math inline">\(P\)</span> dans <span
+class="math inline">\(\mathbb{K}\)</span>.</p>
+<p><span class="math inline">\(X-\alpha\)</span> divise <span
+class="math inline">\(P\)</span> et on considère donc l’ensemble non
+vide <span class="math inline">\(E = \left\{k \in \mathbb{N}^{\star}/
+(X-\alpha)^k \text{ divise } P\right\}\)</span>.</p>
+<p><span class="math inline">\(E\)</span> est un ensemble non vide et
+majoré (par <span class="math inline">\(\deg P\)</span>) de <span
+class="math inline">\(\mathbb{N}\)</span> et il admet donc un
+maximum.</p>
+<p>Par définition, <span class="math inline">\(\max E\)</span> est
+<u>l’ordre de multiplicité de <span
+class="math inline">\(\alpha\)</span></u> en tant que racine de <span
+class="math inline">\(P\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Soit <span class="math inline">\(P\)</span> non nul, <span
+class="math inline">\(\alpha\)</span> racine de <span
+class="math inline">\(P\)</span> et <span
+class="math inline">\(r\)</span> son ordre de multiplicité. Alors <span
+class="math inline">\((X-\alpha)^r\)</span> divise <span
+class="math inline">\(P\)</span> mais <span
+class="math inline">\((X-\alpha)^{r+1}\)</span> ne divise pas <span
+class="math inline">\(P\)</span>.</p>
+</div>
+<ul>
+<li><p>Si <span class="math inline">\(\alpha\)</span> n’est pas racine
+de <span class="math inline">\(P\)</span>, on dit que <span
+class="math inline">\(\alpha\)</span> est racine d’ordre <span
+class="math inline">\(0\)</span> de <span
+class="math inline">\(P\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\alpha\)</span> est racine d’ordre
+<span class="math inline">\(1\)</span> de <span
+class="math inline">\(P\)</span>, on dit que c’est une racine
+simple.</p></li>
+<li><p>Si <span class="math inline">\(\alpha\)</span> est racine d’ordre
+<span class="math inline">\(2\)</span> de <span
+class="math inline">\(P\)</span>, on dit que c’est une racine
+double.</p></li>
+</ul>
+<h3 data-number="3.4.2" id="cns-sur-lordre-de-multiplicité"><span
+class="header-section-number">3.4.2</span> CNS sur l’ordre de
+multiplicité</h3>
+<div class="wprop">
+<p>Soient <span class="math inline">\(P \in \mathbb{K}[X]\)</span> non
+nul, <span class="math inline">\(\alpha \in \mathbb{K}\)</span> et <span
+class="math inline">\(r \in \mathbb{N}\)</span>,</p>
+<p><span class="math inline">\(\alpha\)</span> est racine d’ordre <span
+class="math inline">\(r\)</span> de <span
+class="math inline">\(P\)</span> <span
+class="math inline">\(\iff\)</span> il existe <span
+class="math inline">\(Q \in \mathbb{K}[X]\)</span> tel que <span
+class="math inline">\(P = (X-\alpha)^r Q\)</span> et <span
+class="math inline">\(Q(\alpha) \neq 0\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Il existe
+<span class="math inline">\(Q \in \mathbb{K}[X]\)</span> tel que <span
+class="math inline">\(P = (X-\alpha)^rQ\)</span>.</p>
+<p>Par l’absurde, si <span class="math inline">\(Q(\alpha) = 0\)</span>
+alors <span class="math inline">\((X-\alpha)\)</span> divise <span
+class="math inline">\(Q\)</span>.</p>
+<p>Donc il existe <span class="math inline">\(Q_1\in
+\mathbb{K}[X]\)</span> tel que <span class="math inline">\(Q =
+(X-\alpha)Q_1\)</span> et alors <span class="math inline">\(P =
+(X-\alpha)^{r+1}Q_1\)</span>, ce qui est absurde par la définition de
+l’ordre de multiplicité.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> S’il existe
+<span class="math inline">\(Q \in \mathbb{K}[X]\)</span> tel que <span
+class="math inline">\(P = (X-\alpha)^r Q\)</span> et <span
+class="math inline">\(Q(\alpha) \neq 0\)</span> alors <span
+class="math inline">\(\alpha\)</span> est racine de <span
+class="math inline">\(P\)</span> d’ordre au moins <span
+class="math inline">\(r\)</span>.</p>
+<p>Pour conclure, montrons que <span
+class="math inline">\((X-\alpha)^{r+1}\)</span> ne divise pas <span
+class="math inline">\(P\)</span>.</p>
+<p>Par l’absurde, si c’était le cas, il existe <span
+class="math inline">\(R \in \mathbb{K}[X]\)</span> tel que <span
+class="math inline">\(P = (X-\alpha)^{r+1}R\)</span>.</p>
+<p>On aurait alors <span class="math inline">\((X-\alpha)^r Q =
+(X-\alpha)^{r+1}R\)</span> donc <span
+class="math inline">\((X-\alpha)^r(Q-(X-\alpha)R)=0\)</span>.</p>
+<p>Or, <span class="math inline">\((X-\alpha)^r \neq 0\)</span> et <span
+class="math inline">\(\mathbb{K}[X]\)</span> est intègre.</p>
+<p>Donc <span class="math inline">\(Q=(X-\alpha)R\)</span>, ce qui est
+absurde car <span class="math inline">\(Q(\alpha)\neq
+0\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="3.5" id="polynôme-dérivé"><span
+class="header-section-number">3.5</span> Polynôme dérivé</h2>
+<h2 data-number="3.6" id="définition-3"><span
+class="header-section-number">3.6</span> Définition</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(P \in \mathbb{K}[X]\)</span> tel que
+<span class="math inline">\(P = \sum_{k=0}^na_k X^k\)</span>.</p>
+<p>On définit le polynôme dérivé de <span
+class="math inline">\(P\)</span>, noté <span
+class="math inline">\(P&#39;\)</span> par <span
+class="math inline">\(P&#39; = \sum_{k=1}^n ka_k X^{k-1}\)</span>.</p>
+<p>On définit ensuite le polynôme dérivée d’ordre <span
+class="math inline">\(k \geq 0\)</span> de <span
+class="math inline">\(P\)</span> à l’aide de la relation de récurrence
+<span class="math inline">\(P^{k+1} =(P^{k})&#39;\)</span> avec pour
+convention <span class="math inline">\(P^{(0)} = P\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Si <span class="math inline">\(P \in \mathbb{R}_0[X]\)</span>, <span
+class="math inline">\(P&#39;=0\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Si <span class="math inline">\(\deg P = n\)</span>,</p>
+<ul>
+<li><p><span class="math inline">\(\deg P&#39; = n-1\)</span>,</p></li>
+<li><p><span class="math inline">\(\deg P&#39;&#39; =
+n-2\)</span>,</p></li>
+<li><p><span class="math inline">\(\vdots\)</span></p></li>
+<li><p><span class="math inline">\(\deg P^{(k)} = n-k\)</span> pour
+<span class="math inline">\(0 \leq k \leq n\)</span></p></li>
+<li><p><span class="math inline">\(\vdots\)</span></p></li>
+<li><p><span class="math inline">\(\deg P^{(n)} = 0\)</span>,</p></li>
+<li><p><span class="math inline">\(\deg P^{(k)} = 0\)</span> pour <span
+class="math inline">\(k \geq n+1\)</span>.</p></li>
+</ul>
+</div>
+<h3 data-number="3.6.1" id="propriétés"><span
+class="header-section-number">3.6.1</span> Propriétés</h3>
+<div class="wprop">
+<ol>
+<li><p><span class="math inline">\(P \in \mathbb{K}[X] \mapsto P&#39;\in
+\mathbb{K}[X]\)</span> est une application linéaire,</p></li>
+<li><p>Pour tout <span class="math inline">\(P,Q \in \mathbb{K}[X],
+(PQ)&#39; = P&#39;Q+PQ&#39;\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<p>Soient <span class="math inline">\(n \in \mathbb{N}\)</span>, <span
+class="math inline">\(a_0,\ldots,a_n \in \mathbb{K}\)</span>, <span
+class="math inline">\(p \in \mathbb{N}\)</span> et <span
+class="math inline">\(b_0,\ldots,b_p \in \mathbb{K}\)</span> tels que
+<span class="math inline">\(P = \sum_{k=0}^n a_k X^k\)</span> et <span
+class="math inline">\(Q = \sum_{k=0}^p b_k X^k\)</span>.</p>
+<ol>
+<li><p><span class="math inline">\((\alpha P)&#39; = \sum_{k=1}^{n}
+k(\alpha a_k)X^{k-1} = \alpha \sum_{k=1}^{n} k a_k X^k = \alpha
+P&#39;\)</span>. Si <span class="math inline">\(p \geq n\)</span>, <span
+class="math inline">\((P+Q)&#39; = \sum_{k=1}^n k(a_k+b_k)X^k +
+\sum_{k=n+1}^k kb_k X^k = \sum_{k=1}^p k b_k X^k + \sum_{k=1}^n k a_k
+X^k = Q&#39;+P&#39;\)</span>.</p></li>
+<li><p><span class="math inline">\(PQ = \sum_{k=0}^{n}\sum_{\ell=0}^p
+a_k b_\ell X^{k+\ell}\)</span>.</p>
+<p>Donc <span class="math inline">\((PQ)&#39; =
+\sum_{k=0}^{n}\sum_{\ell=0}^p(k+\ell) a_k b_\ell X^{k+\ell-1} =
+\sum_{k=0}^{n}\sum_{\ell=0}^pk a_k b_\ell X^{k+\ell-1}
++\sum_{k=0}^{n}\sum_{\ell=0}^p\ell a_k b_\ell X^{k+\ell-1} =
+\left(\sum_{k=0}^n ka_k X^{k-1}\right)\left(\sum_{\ell=0}^p b_\ell
+X^\ell\right)+\left(\sum_{k=0}^n a_k X^{k}\right)\left(\sum_{\ell=0}^p
+\ell b_\ell X^{\ell-1}\right) = P&#39;Q+PQ&#39;\)</span>.</p></li>
+</ol>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(P \in \mathbb{K}[X]\)</span> et
+<span class="math inline">\(r \in \mathbb{N}^{\star}\)</span>, <span
+class="math inline">\(\left(P^r\right)&#39; =
+rP^{r-1}P&#39;\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Procédons par récurrence sur <span
+class="math inline">\(r\)</span>.</p>
+<ul>
+<li><p><strong>INITIALISATION :</strong> Pour <span
+class="math inline">\(r=1\)</span>, le résultat est évident.</p></li>
+<li><p><strong>HÉRÉDITÉ :</strong> Supposons le résultat vrai pour <span
+class="math inline">\(r\geq 1\)</span> fixé.</p>
+<p>Alors, <span class="math inline">\(\left(P^{r+1}\right)&#39; =
+\left(PP^r\right)&#39; = P&#39;P^r +
+P\left(P^r\right)&#39;\)</span>.</p>
+<p>Donc, par hypothèse de récurrence, <span
+class="math inline">\(\left(P^{r+1}\right)&#39; = P&#39;P^r + rP^rP&#39;
+= (r+1)P&#39;P^r\)</span>.</p></li>
+<li><p><strong>CONCLUSION :</strong> Soit <span class="math inline">\(P
+\in \mathbb{K}[X]\)</span> et <span class="math inline">\(r \in
+\mathbb{N}^{\star}\)</span>, <span
+class="math inline">\(\left(P^r\right)&#39; =
+rP^{r-1}P&#39;\)</span>.</p></li>
+</ul>
+</div>
+<h3 data-number="3.6.2" id="application"><span
+class="header-section-number">3.6.2</span> Application</h3>
+<div class="wappli">
+<p><strong>(Recherche de l’ordre d’une racine d’un polynôme)</strong>
+Soit <span class="math inline">\(P \in \mathbb{K}[X]\)</span> non
+nul.</p>
+<p>Si <span class="math inline">\(\alpha\)</span> est racine de <span
+class="math inline">\(P\)</span> d’ordre <span
+class="math inline">\(r\)</span> alors <span
+class="math inline">\(\alpha\)</span> est racine de <span
+class="math inline">\(P&#39;\)</span> d’ordre <span
+class="math inline">\(r-1\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Il existe <span class="math inline">\(Q \in \mathbb{K}[X]\)</span>
+tel que <span class="math inline">\(Q(\alpha) \neq 0\)</span> et <span
+class="math inline">\(P = (X-\alpha)^rQ\)</span>.</p>
+<p>Donc <span class="math inline">\(P&#39; = r(X-\alpha)^{r-1}Q +
+(X-\alpha)^rQ&#39;= (X-\alpha)^{r-1}Q_1\)</span> avec <span
+class="math inline">\(Q_1 = rQ+(X-\alpha)Q&#39;\)</span>.</p>
+<p>De plus, <span class="math inline">\(Q_1(\alpha) = rQ(\alpha) \neq
+0\)</span>.</p>
+<p>Donc <span class="math inline">\(\alpha\)</span> est racine de <span
+class="math inline">\(P&#39;\)</span> d’ordre <span
+class="math inline">\(r-1\)</span>.</p>
+</div>
+<div class="wcor">
+<p>Soit <span class="math inline">\(P \in \mathbb{K}[X]\)</span> non
+nul, <span class="math inline">\(\alpha \in \mathbb{K}\)</span> et <span
+class="math inline">\(r \in \mathbb{N}^{\star}\)</span>.</p>
+<p><span class="math inline">\(\alpha\)</span> est racine de <span
+class="math inline">\(P\)</span> d’ordre <span
+class="math inline">\(r\)</span> <span
+class="math inline">\(\iff\)</span> <span
+class="math inline">\(P(\alpha) = P&#39;(\alpha) = \ldots =
+P^{(r-1)}(\alpha) = 0\)</span> et <span
+class="math inline">\(P^{(r)}(\alpha) \neq 0\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(\alpha\)</span> est racine de <span
+class="math inline">\(P\)</span> d’ordre <span
+class="math inline">\(r\)</span>,</p>
+<ul>
+<li><p><span class="math inline">\(\alpha\)</span> est racine de <span
+class="math inline">\(P&#39;\)</span> d’ordre <span
+class="math inline">\(r-1\)</span>,</p></li>
+<li><p><span class="math inline">\(\vdots\)</span></p></li>
+<li><p><span class="math inline">\(\alpha\)</span> est racine de <span
+class="math inline">\(P^{(r-1)}\)</span> d’ordre <span
+class="math inline">\(1\)</span>,</p></li>
+<li><p><span class="math inline">\(\alpha\)</span> est racine de <span
+class="math inline">\(P^{(r)}\)</span> d’ordre <span
+class="math inline">\(0\)</span> ie <span
+class="math inline">\(P^{(r)}(\alpha) \neq 0\)</span>.</p></li>
+</ul></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span></p>
+<ul>
+<li><p><span class="math inline">\(\alpha\)</span> racine de <span
+class="math inline">\(P^{(r-1)}\)</span> mais pas <span
+class="math inline">\(P^{(r)}\)</span> donc forcément <span
+class="math inline">\(\alpha\)</span> est racine d’ordre <span
+class="math inline">\(1\)</span> de <span
+class="math inline">\(P^{(r-1)}\)</span>.</p></li>
+<li><p><span class="math inline">\(\alpha\)</span> racine de <span
+class="math inline">\(P^{(r-2)}\)</span> et racine d’ordre <span
+class="math inline">\(1\)</span> de <span
+class="math inline">\(P^{(r-1)}\)</span> donc forcément <span
+class="math inline">\(\alpha\)</span> est racine d’ordre <span
+class="math inline">\(2\)</span> de <span
+class="math inline">\(P^{(r-2)}\)</span></p></li>
+<li><p><span class="math inline">\(\ddots\)</span></p></li>
+<li><p><span class="math inline">\(\alpha\)</span> racine de <span
+class="math inline">\(P\)</span> et racine d’ordre <span
+class="math inline">\(r-1\)</span> de <span
+class="math inline">\(P&#39;\)</span> donc forcément <span
+class="math inline">\(\alpha\)</span> est racine d’ordre <span
+class="math inline">\(r\)</span> de <span
+class="math inline">\(P\)</span>.</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="wex">
+<p><strong>Exercice</strong> — Soit <span class="math inline">\(P =
+X^4-X^3-3X^2+5X-2 \in \mathbb{R}[X]\)</span>. De quel ordre est la
+racine <span class="math inline">\(1\)</span> de <span
+class="math inline">\(P\)</span> ?</p>
+<p><strong>Corrigé</strong> —</p>
+<ul>
+<li><p><span class="math inline">\(P&#39; = 4X^3-3X^2-6X+5\)</span> et
+<span class="math inline">\(P&#39;(1) = 0\)</span>,</p></li>
+<li><p><span class="math inline">\(P&#39;&#39; = 12X^2-6X-6\)</span> et
+<span class="math inline">\(P&#39;&#39;(1) = 0\)</span>,</p></li>
+<li><p><span class="math inline">\(P^{(3)} = 24X-6\)</span> et <span
+class="math inline">\(P^{(3)}(1) = 18 \neq 0\)</span>.</p></li>
+</ul>
+<p>Donc <span class="math inline">\(1\)</span> est racine d’ordre <span
+class="math inline">\(3\)</span> de <span
+class="math inline">\(P\)</span>.</p>
+</div>
+<h3 data-number="3.6.3" id="identité-de-taylor"><span
+class="header-section-number">3.6.3</span> Identité de Taylor</h3>
+<div class="wprop">
+<p><strong>(Identité de Taylor en <span
+class="math inline">\(\alpha\)</span>)</strong> Soit <span
+class="math inline">\(n \in \mathbb{N}\)</span> et <span
+class="math inline">\(P \in \mathbb{K}_n[X]\)</span>,</p>
+<p><span class="math display">\[P = \sum_{k=0}^n
+\frac{P^{(k)}(\alpha)}{k!} (X-\alpha)^k.\]</span></p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(\alpha \in \mathbb{K}\)</span>, on
+considère les polynômes <span
+class="math inline">\((X-\alpha)^k\)</span> avec <span
+class="math inline">\(0 \leq k \leq n\)</span> tels que <span
+class="math inline">\(\deg\left((X-\alpha)^k\right) = k\)</span>.</p>
+<p>Alors, cette famille constitue une base de <span
+class="math inline">\(\mathbb{K}_n[X]\)</span> et il existe <span
+class="math inline">\(\lambda_1,\ldots,\lambda_n \in \mathbb{K}\)</span>
+tels que <span class="math inline">\(P = \sum_{k=1}^n
+\lambda_k(X-\alpha)^k\)</span>.</p>
+<p>On a alors pour <span class="math inline">\(1 \leq i \leq n\)</span>,
+<span class="math inline">\(P^{(i)} = \sum_{k=i}^n \lambda_k
+k(k-1)\ldots(k-i+1) (X-\alpha)^{k-i}\)</span>.</p>
+<p>En évaluant cette relation en <span
+class="math inline">\(\alpha\)</span>, <span
+class="math inline">\(\lambda_k k! = P^{(k)}(\alpha)\)</span>.</p>
+</div>
+<h2 data-number="3.7"
+id="polynôme-scindé-dans-mathbbkx-et-relations-entre-coefficients-et-racines"><span
+class="header-section-number">3.7</span> Polynôme scindé dans <span
+class="math inline">\(\mathbb{K}[X]\)</span> et relations entre
+coefficients et racines</h2>
+<h3 data-number="3.7.1" id="définition-4"><span
+class="header-section-number">3.7.1</span> Définition</h3>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(P \in \mathbb{K}[X]\)</span> de
+degré <span class="math inline">\(n \in \mathbb{N}^{\star}\)</span>.</p>
+<p>On dit que <span class="math inline">\(P\)</span> est scindé dans
+<span class="math inline">\(\mathbb{K}[X]\)</span> s’il existe <span
+class="math inline">\(\beta,\alpha_1,\ldots,\alpha_n \in
+\mathbb{K}\)</span> (non nécessairement distincts) tels que <span
+class="math inline">\(P = \beta\prod_{i=1}^n (X-\alpha_i)\)</span>.</p>
+</div>
+<div class="wex">
+<p><span class="math inline">\(P = 2(X-1)^2\)</span> ou <span
+class="math inline">\(P = 2(X-1)(X+1)\)</span>.</p>
+</div>
+<div class="wrem">
+<ul>
+<li><p><span class="math inline">\(\beta\)</span> est le coefficient
+dominant de <span class="math inline">\(P\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(P = \beta\prod_{i=1}^n
+(X-\alpha_i) \in \mathbb{K}[X]\)</span>, scindé. Soient <span
+class="math inline">\(\gamma_1,\ldots,\gamma_r \in \mathbb{K}\)</span>
+et <span class="math inline">\(r_1,\ldots,r_p \in
+\mathbb{N}^{\star}\)</span> tels que</p>
+<ul>
+<li><p><span class="math inline">\(\gamma_1\)</span> apparaît <span
+class="math inline">\(r_1\)</span> fois dans <span
+class="math inline">\(\alpha_1,\ldots,\alpha_n\)</span>,</p></li>
+<li><p><span class="math inline">\(\gamma_2\)</span> apparaît <span
+class="math inline">\(r_2\)</span> fois dans <span
+class="math inline">\(\alpha_1,\ldots,\alpha_n\)</span>,</p></li>
+<li><p><span class="math inline">\(\vdots\)</span>,</p></li>
+<li><p><span class="math inline">\(\gamma_p\)</span> apparaît <span
+class="math inline">\(r_p\)</span> fois dans <span
+class="math inline">\(\alpha_1,\ldots,\alpha_n\)</span>,</p></li>
+</ul>
+<p>Alors <span class="math inline">\(P =
+\beta\prod_{j=1}^p(X-\alpha_j)^{r_j}\)</span> et pour <span
+class="math inline">\(1 \leq j \leq p\)</span>, <span
+class="math inline">\(\gamma_j\)</span> est racine d’ordre <span
+class="math inline">\(r_j\)</span> de <span
+class="math inline">\(P\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(P\in \mathbb{C}[X]\)</span> de degré
+<span class="math inline">\(\geq 1\)</span>.</p>
+<p>Alors, <span class="math inline">\(P\)</span> est scindé dans <span
+class="math inline">\(\mathbb{C}[X]\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Démontrons ce résultat par récurrence sur <span
+class="math inline">\(n = \deg P\)</span>.</p>
+<ul>
+<li><p><strong>INITIALISATION:</strong> Pour <span
+class="math inline">\(n=1\)</span>, il existe <span
+class="math inline">\(a,b\in \mathbb{C}\)</span> tels que <span
+class="math inline">\(a \neq 0\)</span> et <span class="math inline">\(P
+= aX+b = a\left(X+\frac{b}{a}\right)\)</span>.</p></li>
+<li><p><strong>HÉRD́ITÉ:</strong> Soit <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span>. Supposons le résultat vrai pour tout
+polynôme de degré <span class="math inline">\(n\)</span>.</p>
+<p>Soit <span class="math inline">\(P \in \mathbb{C}[X]\)</span> de
+degré <span class="math inline">\(n+1\)</span>. Par le théorème de
+D’Alembert-Gauss (ici, le théorème <a href="#thm:Gauss"
+data-reference-type="ref" data-reference="thm:Gauss">[thm:Gauss]</a>),
+<span class="math inline">\(P\)</span> admet une racine dans <span
+class="math inline">\(\mathbb{C}\)</span>, que l’on note <span
+class="math inline">\(\alpha_{n+1} \in \mathbb{C}\)</span>.</p>
+<p>Il existe donc <span class="math inline">\(Q \in
+\mathbb{C}[X]\)</span> tel que <span class="math inline">\(P =
+(X-\alpha_{n+1})Q\)</span> et de plus, <span class="math inline">\(\deg
+Q = n\)</span>.</p>
+<p>En appliquant l’hypothèse de récurrence à <span
+class="math inline">\(Q\)</span>, il existe <span
+class="math inline">\(\beta,\alpha_1,\ldots,\alpha_n \in
+\mathbb{K}\)</span> tels que <span class="math inline">\(Q =
+\beta\prod_{i=1}^n (X-\alpha_i)\)</span>.</p>
+<p>Donc <span class="math inline">\(P = \beta\prod_{i=1}^{n+1}
+(X-\alpha_i)\)</span>.</p></li>
+<li><p><strong>CONCLUSION:</strong> Tout polynôme de <span
+class="math inline">\(\mathbb{C}[X]\)</span> de degré <span
+class="math inline">\(\geq 1\)</span> est scindé dans <span
+class="math inline">\(\mathbb{C}\)</span>.</p></li>
+</ul>
+</div>
+<div class="wex">
+<ul>
+<li><p>Pour <span class="math inline">\(\mathbb{K}= \mathbb{R}\)</span>,
+<span class="math inline">\(P = X^2+1\)</span> n’est pas scindé dans
+<span class="math inline">\(\mathbb{R}[X]\)</span> car il ne possède pas
+de racines dans <span
+class="math inline">\(\mathbb{R}\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span>, <span class="math inline">\(X^n-1 =
+\prod_{k=0}^{n-1}(X-\omega_k)\)</span> avec <span
+class="math inline">\(\omega_k = e^{\frac{2ik\pi}{n}}\)</span>.</p></li>
+</ul>
+</div>
+<h3 data-number="3.7.2"
+id="relation-entre-coefficients-et-racines-dun-polynôme-scindé"><span
+class="header-section-number">3.7.2</span> Relation entre coefficients
+et racines d’un polynôme scindé</h3>
+<p><strong>Polynômes scindés de degré 2.</strong> .</p>
+<p>Soit <span class="math inline">\(P \in \mathbb{K}[X]\)</span> tel que
+<span class="math inline">\(\deg P =2\)</span>.</p>
+<p>Alors, il existe <span class="math inline">\(a_2,a_1,a_0 \in
+\mathbb{K}\)</span> tels que <span class="math inline">\(a_2 \neq
+0\)</span> et <span class="math inline">\(P =
+a_2X^2+a_1X+a_0\)</span>.</p>
+<p>De plus, il existe <span class="math inline">\(\beta,
+\alpha_1,\alpha_2 \in \mathbb{K}\)</span> tels que <span
+class="math inline">\(P = \beta(X-\alpha_1)(X-\alpha_2)\)</span>.</p>
+<p>D’abord, <span class="math inline">\(\beta = a_2\)</span> par unicité
+du coefficient dominant.</p>
+<p>Ensuite, <span class="math inline">\(P = a_2 (X-\alpha_1)(X-\alpha_2)
+= a_2X^2 -a_2(\alpha_1+\alpha_2)X + a_2\alpha_1\alpha_2\)</span>.</p>
+<p>Donc, par unicité de l’écriture de <span
+class="math inline">\(P\)</span>,</p>
+<p><span class="math display">\[\left\{
+    \begin{array}{ll}
+        \alpha_1\alpha_2 &amp; = \frac{a_0}{a_2} \\
+        \alpha_1+\alpha_2 &amp; = -\frac{a_1}{a_2} \\
+    \end{array}
+    \right.\]</span></p>
+<p><strong>Polynômes scindés de degré 3.</strong> .</p>
+<p>Soit <span class="math inline">\(P \in \mathbb{K}[X]\)</span> tel que
+<span class="math inline">\(\deg P =3\)</span>.</p>
+<p>Alors, il existe <span class="math inline">\(a_3,a_2,a_1,a_0 \in
+\mathbb{K}\)</span> tels que <span class="math inline">\(a_3 \neq
+0\)</span> et <span class="math inline">\(P =
+a_3X^3+a_2X^2+a_1X+a_0\)</span>.</p>
+<p>De plus, il existe <span class="math inline">\(\beta,
+\alpha_1,\alpha_2,\alpha_3 \in \mathbb{K}\)</span> tels que <span
+class="math inline">\(P =
+\beta(X-\alpha_1)(X-\alpha_2)(X-\alpha_3)\)</span>.</p>
+<p>D’abord, <span class="math inline">\(\beta = a_3\)</span> par unicité
+du coefficient dominant.</p>
+<p>Ensuite, <span class="math inline">\(P = a_3
+(X-\alpha_1)(X-\alpha_2)(X-\alpha_3) = a_3X^3
+-a_3(\alpha_1+\alpha_2+\alpha_3)X^2
++a_3(\alpha_1\alpha_2+\alpha_1\alpha_3+\alpha_2\alpha_3)X-
+a_3\alpha_1\alpha_2\alpha_3\)</span>.</p>
+<p>Donc, par unicité de l’écriture de <span
+class="math inline">\(P\)</span>,</p>
+<p><span class="math display">\[\left\{
+    \begin{array}{ll}
+        \alpha_1\alpha_2\alpha_3 &amp; = -\frac{a_0}{a_3} \\
+        \alpha_1\alpha_2+\alpha_1\alpha_3+\alpha_2\alpha_3 &amp; =
+\frac{a_1}{a_3} \\
+        \alpha_1+\alpha_2+\alpha_3 &amp; = -\frac{a_2}{a_3}
+    \end{array}
+    \right.\]</span></p>
+<div class="wappli">
+<p><strong>Exercice</strong> — Soit <span class="math inline">\(P \in
+\mathbb{K}[X]\)</span> de degré <span class="math inline">\(3\)</span>
+tel que <span class="math inline">\(P = X^3+bX^2+cX+d\)</span> avec
+<span class="math inline">\(a,b,c \in \mathbb{K}\)</span>, scindé dans
+<span class="math inline">\(\mathbb{K}[X]\)</span> de racines <span
+class="math inline">\(\alpha, \beta, \gamma \in \mathbb{K}\)</span>.</p>
+<ol>
+<li><p>Calculer <span
+class="math inline">\(\alpha^2+\beta^2+\gamma^2\)</span>.</p></li>
+<li><p>On suppose de plus <span class="math inline">\(d \neq 0\)</span>.
+Calculer <span
+class="math inline">\(\frac{1}{\alpha}+\frac{1}{\beta}+\frac{1}{\gamma}\)</span>.</p></li>
+</ol>
+<p><strong>Corrigé</strong> —</p>
+<ol>
+<li><p><span class="math inline">\((\alpha+\beta+\gamma)^2 =
+\alpha^2+\beta^2+\gamma^2+2(\alpha\beta+\alpha\gamma+\beta\gamma)\)</span>.</p>
+<p>donc, par ce qui précède, <span
+class="math inline">\(\alpha^2+\beta^2+\gamma^2 =
+b^2-2c\)</span>.</p></li>
+<li><p><span
+class="math inline">\(\frac{1}{\alpha}+\frac{1}{\beta}+\frac{1}{\gamma}
+=
+\frac{\beta\gamma+\alpha\gamma+\alpha\beta}{\alpha\beta\gamma}\)</span>.</p>
+<p>Donc, par ce qui précède, <span
+class="math inline">\(\frac{1}{\alpha}+\frac{1}{\beta}+\frac{1}{\gamma}
+= -\frac{c}{d}\)</span></p></li>
+</ol>
+</div>
+<p><strong>Cas général.</strong> </p>
+<p>Soit <span class="math inline">\(P = a_nX^n+\ldots+a_1X+a_0\in
+\mathbb{K}[X]\)</span> de degré <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span> (ie <span class="math inline">\(a_n \neq
+0\)</span>) scindé de racines <span
+class="math inline">\(\alpha_1,\ldots,\alpha_n\)</span> ie tel que <span
+class="math inline">\(P = a_n \prod_{i=1}^n(X-\alpha_i)\)</span>.</p>
+<p>Pour <span class="math inline">\(k \in [\![ 1,n ]\!]\)</span>, on
+pose <span class="math inline">\(s_k(\alpha_1,\ldots,\alpha_n) = \sum_{1
+\leq i_1 &lt; i_2 &lt; \ldots &lt; i_k \leq n} \alpha_{i_1} \ldots
+\alpha_{i_k}\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(k = 1\)</span>, <span
+class="math inline">\(s_1(\alpha_1,\ldots,\alpha_n) = \sum_{i=1}^n
+\alpha_i\)</span>,</p></li>
+<li><p>si <span class="math inline">\(k = 2\)</span>, <span
+class="math inline">\(s_2(\alpha_1,\ldots,\alpha_n) =
+        \begin{array}{lllll}
+            \alpha_1 \alpha_2 &amp; + \alpha_1\alpha_3
+&amp;+\alpha_1\alpha_4 &amp; \ldots &amp; +\alpha_1 \alpha_n \\
+             &amp; + \alpha_2\alpha_3 &amp;+\alpha_2\alpha_4 &amp;
+\ldots &amp; +\alpha_2 \alpha_n \\
+              \ldots &amp;&amp;&amp;&amp; \\
+              &amp;  &amp;&amp;&amp;+\alpha_{n-1} \alpha_n \\
+        \end{array}\)</span>,</p></li>
+<li><p>si <span class="math inline">\(k = n\)</span>, <span
+class="math inline">\(s_n(\alpha_1,\ldots,\alpha_n) = \alpha_1 \alpha_2
+\ldots \alpha_n\)</span>.</p></li>
+</ul>
+<div class="wprop">
+<p>Pour tout <span class="math inline">\(1 \leq k \leq n\)</span>,</p>
+<p><span class="math display">\[s_k(\alpha_1,\ldots,\alpha_n) = (-1)^k
+\frac{a_{n-k}}{a_n}.\]</span></p>
+</div>
+<div class="wproof">
+<p>(ou plutôt ébauche de preuve).</p>
+<p>En développant, <span class="math inline">\(a_n
+\prod_{i=1}^n(X-\alpha_i)\)</span>, les monômes de puissance <span
+class="math inline">\(k\)</span> (ie les coefficients devant des <span
+class="math inline">\(X^k\)</span>) sont obtenus en rencontrant <span
+class="math inline">\(k\)</span> coefficients <span
+class="math inline">\(X\)</span> et <span
+class="math inline">\(n-k\)</span> racines donc de la forme <span
+class="math inline">\((-1)^{n-k}\alpha_{i_1}\ldots\alpha_{i_{n-k}}\)</span>.</p>
+<p>En sommant tous les monômes obtenus, <span
+class="math inline">\(s_{n-k}(\alpha_1,\ldots,\alpha_n) =
+(-1)^{n-k}\frac{a_k}{a_n}\)</span>.</p>
+</div>
+<h2 data-number="3.8" id="polynôme-dinterpolation-de-lagrange"><span
+class="header-section-number">3.8</span> Polynôme d’interpolation de
+Lagrange</h2>
+<div class="wprop">
+<p>Soient <span class="math inline">\(x_0,\ldots,x_n\)</span> <span
+class="math inline">\(n+1\)</span> éléments de <span
+class="math inline">\(\mathbb{K}\)</span> distincts et <span
+class="math inline">\(y_0,\ldots,y_n\)</span> <span
+class="math inline">\(n+1\)</span> éléments de <span
+class="math inline">\(\mathbb{K}\)</span>.</p>
+<p>Alors il existe <span class="math inline">\(P_n \in
+\mathbb{K}_n[X]\)</span> unique tel que pour tout <span
+class="math inline">\(0 \leq k \leq n\)</span>, <span
+class="math inline">\(P_n(x_k) = y_k\)</span>.</p>
+<p><span class="math inline">\(P_n\)</span> est appelé le polynôme
+d’interpolation de Lagrange relatif aux <span
+class="math inline">\(x_k\)</span> et aux <span
+class="math inline">\(y_k\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; \mathbb{K}_n[X] &amp; \to &amp; \mathbb{K}^{n+1}
+\\
+   &amp;   &amp; P &amp; \mapsto &amp; \left(P(x_0),\ldots,P(x_n)\right)
+\end{array}\)</span> est une fonction linéaire.</p>
+<p>De plus, <span class="math inline">\(\dim \mathbb{K}^{n+1} = \dim
+\mathbb{K}_n[X] = n+1\)</span>. Il suffit donc de montrer qu’elle est
+injective pour montrer qu’elle est bijective.</p>
+<p>Or, si <span class="math inline">\(P \in
+\mathop{\mathrm{Ker}}\varphi\)</span> alors <span
+class="math inline">\(P(x_0) = \ldots=P(x_n) = 0\)</span> et comme <span
+class="math inline">\(x_0,\ldots,x_n\)</span> sont distincts, <span
+class="math inline">\((X-x_0)\ldots(X-x_n)\)</span> divise <span
+class="math inline">\(P\)</span>.</p>
+<p>Comme <span
+class="math inline">\(\deg\left((X-x_0)\ldots(X-x_n)\right) =
+n+1\)</span> et <span class="math inline">\(\deg(P) \leq n\)</span>, la
+seule possibilité est <span class="math inline">\(P = 0\)</span>.</p>
+<p>Donc <span class="math inline">\(\mathop{\mathrm{Ker}}\varphi =
+\left\{0\right\}\)</span> et <span
+class="math inline">\(\varphi\)</span> est injective donc bijective.</p>
+</div>
+<p><strong>Expression des polynômes interpolateurs de
+Lagrange.</strong> </p>
+<div class="wlem">
+<p>Soit <span class="math inline">\(n \in \mathbb{N}^{\star}\)</span>,
+<span class="math inline">\(x_0,\ldots, x_n \in \mathbb{K}\)</span> et
+<span class="math inline">\(k \in [\![ 0,n]\!]\)</span>, le polynôme
+d’interpolation de Lagrange vérifiant <span
+class="math inline">\(L_k(x_\ell) = 0\)</span> pour <span
+class="math inline">\(k\neq \ell\)</span> et <span
+class="math inline">\(L_k(x_k) = 1\)</span> s’écrit <span
+class="math display">\[L_k = \prod_{\substack{0 \leq \ell \leq n \\ \ell
+\neq k}}\frac{X-x_\ell}{x_k-x_\ell}.\]</span></p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\((x_\ell)_{\ell \neq k}\)</span> sont
+<span class="math inline">\(n\)</span> racines de <span
+class="math inline">\(L_k\)</span> qui est de degré <span
+class="math inline">\(n\)</span> donc il existe <span
+class="math inline">\(\alpha_k\in \mathbb{K}\)</span> tel que <span
+class="math inline">\(L_k = \alpha_k \prod_{\substack{0 \leq \ell \leq n
+\\ \ell \neq k}}(X-x_\ell)\)</span>.</p>
+<p>De plus, <span class="math inline">\(L_k(x_k) = 1\)</span> donc <span
+class="math inline">\(\alpha_k = \frac{1}{\prod_{\substack{0 \leq \ell
+\leq n \\ \ell \neq k}}{x_k-x_\ell}}\)</span>.</p>
+<p>On en déduit donc <span class="math inline">\(L_k =\prod_{\substack{0
+\leq \ell \leq n \\ \ell \neq
+k}}\frac{X-x_\ell}{x_k-x_\ell}\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(P_n\)</span> le polynôme
+d’interpolation de Lagrange relatif aux <span
+class="math inline">\(x_k\)</span> et aux <span
+class="math inline">\(y_k\)</span>,</p>
+<p>alors</p>
+<p><span class="math display">\[P_n = \sum_{k=0}^n y_k L_k.\]</span></p>
+</div>
+<div class="wproof">
+<p>On a bien <span class="math inline">\(P_n(x_k) = y_k\)</span> et
+<span class="math inline">\(\deg(P_n) \leq n\)</span> avec une telle
+formule.</p>
+</div>
+<h1 data-number="4" id="arithmétique-dans-mathbbkx"><span
+class="header-section-number">4</span> Arithmétique dans <span
+class="math inline">\(\mathbb{K}[X]\)</span></h1>
+<h2 data-number="4.1" id="division-euclidienne-dans-mathbbkx"><span
+class="header-section-number">4.1</span> Division euclidienne dans <span
+class="math inline">\(\mathbb{K}[X]\)</span></h2>
+<div class="wthm">
+<p>Soient <span class="math inline">\(A,B \in \mathbb{K}[X]\)</span>
+tels que <span class="math inline">\(B \neq 0\)</span>.</p>
+<p>Alors, il existe <span class="math inline">\(Q,R \in
+\mathbb{K}[X]\)</span> uniques tels que <span class="math inline">\(A =
+BQ+R\)</span> et <span class="math inline">\(\deg R &lt; \deg
+B\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(Q\)</span> est appelé le
+<u>quotient</u> de la division euclidienne de <span
+class="math inline">\(A\)</span> par <span
+class="math inline">\(B\)</span>,</p></li>
+<li><p><span class="math inline">\(R\)</span> est appelé le <u>reste</u>
+de la division euclidienne de <span class="math inline">\(A\)</span> par
+<span class="math inline">\(B\)</span>,</p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>(Unicité de <span class="math inline">\(Q\)</span> et <span
+class="math inline">\(R\)</span>)</p>
+<p>Supposons qu’il existe <span class="math inline">\((Q_1,R_1)\)</span>
+et <span class="math inline">\((Q_2,R_2)\)</span> qui conviennent.</p>
+<p>On a alors <span class="math inline">\(A = BQ_1+R_1=BQ_2+R_2\)</span>
+donc <span class="math inline">\(R_2-R_1 = B(Q_1-Q_2)\)</span>.</p>
+<p>Comme <span class="math inline">\(\deg(R_2-R_1) &lt; \deg B\)</span>,
+on a forcément <span class="math inline">\(Q_1-Q_2 = 0\)</span> donc
+<span class="math inline">\(Q_1=Q_2\)</span> puis <span
+class="math inline">\(R_2-R_1 = 0\)</span> donc <span
+class="math inline">\(R_2=R_1\)</span>.</p></li>
+<li><p>(Existence de <span class="math inline">\(Q\)</span> et <span
+class="math inline">\(R\)</span>)</p>
+<ul>
+<li><p>Si <span class="math inline">\(\deg(A) &lt; \deg B\)</span>,
+<span class="math inline">\(Q = 0\)</span> et <span
+class="math inline">\(R=A\)</span> conviennent.</p></li>
+<li><p>Sinon, <span class="math inline">\(\deg A \geq \deg B\)</span>.
+On montre alors le résultat par récurrence sur <span
+class="math inline">\(n = \deg A\)</span>. Notons alors <span
+class="math inline">\(p = \deg(B)\)</span> et <span
+class="math inline">\(n = \deg A\)</span> tels que <span
+class="math inline">\(B = b_pX^p+\ldots+b_0\)</span> avec <span
+class="math inline">\(b_p \neq 0\)</span> et <span
+class="math inline">\(A = a_n X^n+\ldots+a_0\)</span> avec <span
+class="math inline">\(a_n \neq 0\)</span>.</p>
+<p>On écrit alors <span class="math display">\[\begin{aligned}
+        A
+        &amp; = a_n X^n+a_{n-1}X^{n-1}+\ldots+a_0 \\
+        &amp; = \frac{a_n}{b_p} X^{n-p} b_p X^p+a_{n-1}X^{n-1}
++\ldots+a_0 \\
+        &amp; = \frac{a_n}{b_p} X^{n-p}B-\frac{a_n}{b_p}
+X^{n-p}(B-b_pX^p) +a_{n-1}X^{n-1} +\ldots+a_0
+        \end{aligned}\]</span></p>
+<p>En posant <span class="math inline">\(Q_1 = \frac{a_n}{b_p}
+X^{n-p}\)</span> et <span class="math inline">\(A_1 = -\frac{a_n}{b_p}
+X^{n-p}(B-b_pX^p) +a_{n-1}X^{n-1} +\ldots+a_0\)</span>, on a alors <span
+class="math display">\[A = BQ_1+A_1,\]</span></p>
+<p>avec <span class="math inline">\(\deg(A_1) \leq n-1 &lt; \deg
+A\)</span>. En appliquant l’hypothèse de récurrence à <span
+class="math inline">\(A_1\)</span>, il existe <span
+class="math inline">\(\tilde{Q} \in \mathbb{K}[X]\)</span> et <span
+class="math inline">\(\tilde{R} \in \mathbb{K}[X]\)</span> tels que
+<span class="math inline">\(\deg(\tilde{R}) &lt; \deg(B)\)</span> et
+<span class="math display">\[A = BQ_1+B\tilde{Q}+\tilde{R} =
+B(Q_1+\tilde{Q})+\tilde{R}\]</span></p>
+<p>Donc <span class="math inline">\(Q = Q_1+\tilde{Q}\)</span> et <span
+class="math inline">\(R = \tilde{R}\)</span> conviennent.</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="wex">
+<p>Calculons la division euclidienne de <span class="math inline">\(A =
+X^5+4X^4+7X^3+5X^2-4\)</span> par <span class="math inline">\(B =
+X^2+2+3\)</span>.</p>
+<p><span class="math display">\[\renewcommand{\arraystretch}{1.2}
+    \renewcommand{\arraycolsep}{2pt}
+      \begin{array}{rrrrrr|rrr}
+    &amp; X^5&amp;+4X^4&amp;+7X^3&amp;+5X^2 &amp;   -4 &amp;X^2 &amp;+2X
+&amp; +3 \\
+    \cline{7-9}
+    -&amp;\text{\color{red}$X^5$}&amp;\text{\color{red}$+2X^4$}&amp;\text{\color{red}$+7X^3$}
+&amp;   &amp;  &amp;\text{\color{red}$X^3$}&amp;+\text{\color{blue}$2X^2$}
+&amp;\text{\color{purple}$-1$}\\
+    \cline{1-6}
+       &amp; &amp;2X^4&amp;+4X^3&amp; +5X^2&amp;    -4 &amp;&amp;&amp;\\
+        &amp;-&amp;\text{\color{blue}$2X^4$}&amp;\text{\color{blue}$+4X^3$}&amp;\text{\color{blue}$+6X^2$}  &amp;  &amp;   &amp;  \\
+        \cline{2-6}
+         &amp;&amp;&amp;&amp;-X^2  &amp;-4  &amp;   &amp;  \\
+         &amp;&amp;&amp;-&amp;\text{\color{purple}$-X^2$}  &amp;\text{\color{purple}$-2X-3$}  &amp;   &amp;  \\
+         \cline{4-6}
+         &amp;&amp;&amp;&amp;  &amp;2X-1  &amp;   &amp;  \\
+      \end{array}\]</span></p>
+<p>Donc <span class="math inline">\(A =
+(X^3+2X^2-1)B+(2X-1)\)</span>.</p>
+</div>
+<h2 data-number="4.2" id="pgcd-dans-mathbbkx"><span
+class="header-section-number">4.2</span> Pgcd dans <span
+class="math inline">\(\mathbb{K}[X]\)</span></h2>
+<h3 data-number="4.2.1" id="définition-5"><span
+class="header-section-number">4.2.1</span> Définition</h3>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(A,B \in \mathbb{K}[X]\)</span> tels
+que <span class="math inline">\(B \neq 0\)</span>.</p>
+<p>On pose <span class="math inline">\(\mathscr{D}(A,B) = \left\{\Delta
+\in \mathbb{K}[X] / \Delta| A \text{ et }\Delta|B\right\}\)</span>,
+l’ensemble des diviseurs communs de <span
+class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span>.</p>
+<p>Cet ensemble est non vide et <span
+class="math inline">\(\left\{\deg(\Delta) / \Delta \in
+\mathscr{D}(A,B)\right\}\)</span> est une partie non vide est majorée
+(par <span class="math inline">\(\deg B\)</span>) de <span
+class="math inline">\(\mathbb{N}\)</span>.</p>
+<p>Alors, un diviseur commun à <span class="math inline">\(A\)</span> et
+<span class="math inline">\(B\)</span> de degré maximal est un pgcd de
+<span class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Si <span class="math inline">\(D\)</span> est un pgcd de <span
+class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span> alors pour tout <span
+class="math inline">\(\alpha \in \mathbb{K}^\star\)</span>, <span
+class="math inline">\(\alpha D\)</span> est aussi un pgcd de <span
+class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span>.</p>
+</div>
+<h3 data-number="4.2.2" id="algorithme-deuclide"><span
+class="header-section-number">4.2.2</span> Algorithme d’Euclide</h3>
+<div class="wlem">
+<p>Soient <span class="math inline">\(A,B,C,D \in \mathbb{K}[X]\)</span>
+tels que <span class="math inline">\(A = BC+D\)</span> avec <span
+class="math inline">\(B \neq 0\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(D = 0\)</span>, <span
+class="math inline">\(A = BC\)</span> donc <span
+class="math inline">\(B\)</span> est un pgcd de <span
+class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(D \neq 0\)</span>, tout pgcd de
+<span class="math inline">\(B\)</span> et <span
+class="math inline">\(D\)</span> est un pgcd et <span
+class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span> car <span
+class="math inline">\(\mathscr{D}(A,B) =
+\mathscr{D}(B,D)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<p>Voir le cours d’arithmétique où une preuve similaire a été faite.</p>
+</div>
+<p><strong>Algorithme d’Euclide.</strong> </p>
+<p>On propose l’algorithme suivant, d’Euclide, qui se termine en un
+nombre fini d’étapes, et permet de calculer un pgcd de <span
+class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span>.</p>
+<ul>
+<li><p>On effectue le division euclidienne de <span
+class="math inline">\(A\)</span> par <span
+class="math inline">\(B\)</span> tel que <span class="math inline">\(A =
+BQ_0+R_0\)</span> avec <span class="math inline">\(\deg(R_0) &lt; \deg
+B\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(R_0 = 0\)</span>, un pgcd de <span
+class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span> est <span
+class="math inline">\(B\)</span>.</p></li>
+<li><p>Sinon, un pgcd de <span class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span> est un pgcd de <span
+class="math inline">\(B\)</span> et <span
+class="math inline">\(R_0\)</span> et on réitère.</p></li>
+</ul></li>
+</ul>
+<h3 data-number="4.2.3" id="égalité-de-bézout"><span
+class="header-section-number">4.2.3</span> Égalité de Bézout</h3>
+<div class="wprop">
+<p>Soient <span class="math inline">\(A,B \in \mathbb{K}[X]\)</span>
+tels que <span class="math inline">\(B \neq 0\)</span>. On utilise
+l’algorithme d’Euclide pour obtenir <span
+class="math inline">\(R_{n-1}\)</span> (dernier reste non nul), pgcd de
+<span class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span>.</p>
+<p>Alors, il existe <span class="math inline">\(U,V \in
+\mathbb{K}[X]\)</span> tels que <span class="math inline">\(R_{n-1} =
+AU+BV\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Voir le cours d’arithmétique où une preuve similaire a été faite.</p>
+<p>On peut montrer par récurrence finie que pour <span
+class="math inline">\(k \in [\![ 0,n-1]\!]\)</span>, il existe <span
+class="math inline">\(U_k,V_k \in \mathbb{K}[X]\)</span> tels que <span
+class="math inline">\(R_k = AU_k + BV_k\)</span>.</p>
+</div>
+<div class="wcor">
+<p>Si <span class="math inline">\(\Delta \in \mathscr{D}(A,B), \Delta |
+R_{n-1}\)</span>.</p>
+</div>
+<div class="wcor">
+<p>Soient <span class="math inline">\(D_1,D_2\)</span> deux pgcd de
+<span class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span> alors <span
+class="math inline">\(D_1\)</span> et <span
+class="math inline">\(D_2\)</span> sont associés.</p>
+</div>
+<div class="wproof">
+<p>Par le corollaire précédent, <span class="math inline">\(D_1 |
+R_{n-1}\)</span> et <span class="math inline">\(\deg(D_1) =
+\deg(R_{n-1})\)</span> (comme ce sont deux pgcd) donc ils sont associés
+tel qu’il existe <span class="math inline">\(\alpha_1 \in
+\mathbb{K}^\star\)</span> tel que <span class="math inline">\(R_{n-1} =
+\alpha_1 D_1\)</span>.</p>
+<p>De même, il existe <span class="math inline">\(\alpha_2 \in
+\mathbb{K}^\star\)</span> tel que <span class="math inline">\(R_{n-1} =
+\alpha_2 D_2\)</span>.</p>
+<p>On a donc <span class="math inline">\(D_2 =
+\frac{\alpha_1}{\alpha_2}D_1\)</span>.</p>
+</div>
+<div class="wcor">
+<p>Il existe un unique pgcd <u>unitaire</u> de <span
+class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span>, que l’on note <span
+class="math inline">\(A \wedge B\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(A,B \in \mathbb{K}[X]\)</span>
+tels que <span class="math inline">\(B \neq 0\)</span> et <span
+class="math inline">\(C \in \mathbb{K}[X]\)</span> unitaire.</p>
+<p>Alors, <span class="math inline">\(AC \wedge BC = C\left(A \wedge
+B\right)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Posons <span class="math inline">\(D = A \wedge B\)</span>.</p>
+<ul>
+<li><p>D’abord, <span class="math inline">\(CD | A\)</span> et <span
+class="math inline">\(CD | B\)</span> donc <span
+class="math inline">\(CD | AC \wedge BC\)</span>.</p></li>
+<li><p>Ensuite, si <span class="math inline">\(\Delta \in
+\mathscr{D}(AC,BC)\)</span>, montrons que <span
+class="math inline">\(\Delta | CD\)</span>.</p>
+<p>Par relation de Bézout, il existe <span class="math inline">\(U,V \in
+\mathbb{K}[X]\)</span> tels que <span class="math inline">\(D =
+AU+BV\)</span> donc <span class="math inline">\(CD = CAU+CBV\)</span> et
+<span class="math inline">\(\Delta |CD\)</span>.</p>
+<p>En particulier, <span class="math inline">\(AC \wedge BC \in
+\mathscr{D}(AC,BC)\)</span> donc <span class="math inline">\(AC \wedge
+BC | CD\)</span>.</p></li>
+</ul>
+<p>On en déduit par la proposition <a href="#prop:associes"
+data-reference-type="ref"
+data-reference="prop:associes">[prop:associes]</a> que <span
+class="math inline">\(CD\)</span> et <span class="math inline">\(AC
+\wedge BC\)</span> sont associés et comme ils sont unitaires, ils sont
+égaux.</p>
+</div>
+<div class="wex">
+<p><strong>Exercice</strong> — Calculer <span class="math inline">\(P
+\wedge Q\)</span> avec <span
+class="math inline">\(P=X^4+X^3-3X^2-4X-1\)</span> et <span
+class="math inline">\(Q=X^3+ X^2-X-1\)</span> et déterminer <span
+class="math inline">\(U,V \in \mathbb{R}[X]\)</span> tels que <span
+class="math inline">\(P \wedge Q = UP+VQ\)</span>.</p>
+<p><strong>Corrigé</strong> — On déroule l’algorithme d’Euclide.</p>
+<ol>
+<li><p><span class="math display">\[\renewcommand{\arraystretch}{1.2}
+    \renewcommand{\arraycolsep}{2pt}
+      \begin{array}{rrrrrr|rrrr}
+      &amp;X^4 &amp; +X^3 &amp; -3X^2 &amp; -4X &amp; -1   &amp; X^3
+&amp; + X^2 &amp; -X &amp; -1\\
+    \cline{7-10}
+    -&amp; X^4 &amp; +X^3 &amp; -X^2 &amp; -X &amp; &amp; X &amp; &amp;
+&amp; \\
+    \cline{1-6}
+    &amp;&amp; &amp; -2X^2 &amp; -3X &amp; -1 &amp; &amp; &amp; &amp;
+      \end{array}\]</span></p></li>
+<li><p><span class="math display">\[\renewcommand{\arraystretch}{1.2}
+    \renewcommand{\arraycolsep}{2pt}
+      \begin{array}{rrrrr|rrr}
+     &amp;X^3 &amp; +X^2 &amp; -X &amp; +1   &amp; -2X^2 &amp; -3X &amp;
+-1\\
+     \cline{6-8}
+     -&amp;X^3 &amp; +\tfrac{3}{2}X^2 &amp; +\tfrac{1}{2}X &amp;   &amp;
+-\tfrac{1}{2}X &amp; +\tfrac{1}{4} &amp; \\
+      \cline{1-5}
+       &amp;&amp; -\tfrac{1}{2}X^2 &amp; -\tfrac{3}{2}X &amp;
++1   &amp;  &amp;  &amp; \\
+       
+        &amp;-&amp; -\tfrac{1}{2}X^2 &amp; -\tfrac{3}{4}X &amp; -
+\tfrac{1}{4}   &amp;  &amp;  &amp; \\
+        \cline{2-5}
+        &amp;&amp;  &amp; -\tfrac{3}{4}X &amp; -
+\tfrac{3}{4}   &amp;  &amp;  &amp;
+      \end{array}\]</span></p></li>
+<li><p><span class="math display">\[\renewcommand{\arraystretch}{1.2}
+    \renewcommand{\arraycolsep}{2pt}
+      \begin{array}{rrrr|rr}
+        &amp;-2X^2 &amp; -3X &amp; -1 &amp;  -\tfrac{3}{4}X &amp; -
+\tfrac{3}{4} \\
+        \cline{5-6}
+        -&amp;-2X^3 &amp; -2X &amp; &amp; \tfrac{8}{3}X &amp; +
+\tfrac{4}{3} \\
+        \cline{1-4}
+         &amp;&amp; -X &amp; -1 &amp; &amp;  \\
+         &amp;-&amp; -X&amp; -1&amp; &amp; \\
+         \cline{2-4}
+         &amp;&amp; &amp; 0 &amp; &amp;
+      \end{array}\]</span></p></li>
+</ol>
+<p>Le dernier reste non nul est <span
+class="math inline">\(-\tfrac{3}{4}X -\tfrac{3}{4} =
+-\tfrac{3}{4}(X+1)\)</span> et donc <span class="math inline">\(P \wedge
+Q = X+1\)</span>.</p>
+<div class="wrem">
+<p>Une façon plus élégante et plus agréable de mener l’algorithme
+d’Euclide est de ne travailler qu’avec les restes unitaires.
+Précisément, pour deux polynômes <span
+class="math inline">\(R_1,R_2\)</span> on a, pour <span
+class="math inline">\(\alpha \in \mathbb{K}^\star\)</span>, <span
+class="math inline">\(R_1 \wedge R_2 = \alpha R_1 \wedge R_2\)</span>.
+On peut donc rendre unitaire les restes avant de les utiliser. Cela
+donne ici:</p>
+<ol>
+<li><p><span class="math display">\[\renewcommand{\arraystretch}{1.2}
+    \renewcommand{\arraycolsep}{2pt}
+      \begin{array}{rrrrrr|rrrr}
+      &amp;X^4 &amp; +X^3 &amp; -3X^2 &amp; -4X &amp; -1   &amp; X^3
+&amp; + X^2 &amp; -X &amp; -1\\
+    \cline{7-10}
+    -&amp; X^4 &amp; +X^3 &amp; -X^2 &amp; -X &amp; &amp; X &amp; &amp;
+&amp; \\
+    \cline{1-6}
+    &amp;&amp; &amp; -2X^2 &amp; -3X &amp; -1 &amp; &amp; &amp; &amp;
+      \end{array}\]</span></p></li>
+<li><p>On travaille plutôt avec <span
+class="math inline">\(X^2+\tfrac{3}{2}X+\tfrac{1}{2} =
+\tfrac{1}{-2}(-2X^2-3X-1)\)</span>. <span
+class="math display">\[\renewcommand{\arraystretch}{1.2}
+    \renewcommand{\arraycolsep}{2pt}
+      \begin{array}{rrrrr|rrr}
+     &amp;X^3 &amp; +X^2 &amp; -X &amp; +1   &amp; X^2 &amp;
++\tfrac{3}{2}X &amp; +\tfrac{1}{2}\\
+     \cline{6-8}
+     -&amp;X^3 &amp; +\tfrac{3}{2}X^2 &amp; +\tfrac{1}{2}X &amp;   &amp;
+X &amp; -\tfrac{1}{2} &amp; \\
+      \cline{1-5}
+       &amp;&amp; -\tfrac{1}{2}X^2 &amp; -\tfrac{3}{2}X &amp;
++1   &amp;  &amp;  &amp; \\
+       
+        &amp;-&amp; -\tfrac{1}{2}X^2 &amp; -\tfrac{3}{4}X &amp; -
+\tfrac{1}{4}   &amp;  &amp;  &amp; \\
+        \cline{2-5}
+        &amp;&amp;  &amp; -\tfrac{3}{4}X &amp; -
+\tfrac{3}{4}   &amp;  &amp;  &amp;
+      \end{array}\]</span></p></li>
+<li><p>On travaille plutôt avec <span class="math inline">\(X+1 =
+-\tfrac{4}{3}\left(-\tfrac{3}{4}X -\tfrac{3}{4}\right)\)</span>. <span
+class="math display">\[\renewcommand{\arraystretch}{1.2}
+    \renewcommand{\arraycolsep}{2pt}
+      \begin{array}{rrrr|rr}
+        &amp;-2X^2 &amp; -3X &amp; -1 &amp;  X &amp; +1 \\
+        \cline{5-6}
+        -&amp;-2X^3 &amp; -2X &amp; &amp; -2X &amp; - 1 \\
+        \cline{1-4}
+         &amp;&amp; -X &amp; -1 &amp; &amp;  \\
+         &amp;-&amp; -X&amp; -1&amp; &amp; \\
+         \cline{2-4}
+         &amp;&amp; &amp; 0 &amp; &amp;
+      \end{array}\]</span></p></li>
+</ol>
+</div>
+<p>Pour déterminer la relation de Bézout, on déroule l’algorithme
+d’Euclide à l’envers. Pour rappel, on a</p>
+<ol>
+<li><p><span class="math inline">\(P = XQ +
+(-2X^2-3X-1)\)</span></p></li>
+<li><p><span class="math inline">\(Q =
+(-\tfrac{1}{2}X+\tfrac{1}{4})(-2X^2-3X-1)+\left(-\tfrac{3}{4}(X+1)\right)\)</span>.</p></li>
+</ol>
+<p>Donc, <span class="math display">\[\begin{aligned}
+X+1
+&amp; = -\tfrac{4}{3}Q +
+\tfrac{4}{3}(-\tfrac{1}{2}X+\tfrac{1}{4})(-2X^2-3X-1) \\   
+&amp; = -\tfrac{4}{3}Q + \tfrac{4}{3}(-\tfrac{1}{2}X+\tfrac{1}{4})(P-XQ)
+\\
+&amp; = -\tfrac{4}{3}Q + (-\tfrac{2}{3}X+\tfrac{1}{3})(P-XQ) \\
+&amp; =
+\left(-\tfrac{4}{3}-X(-\tfrac{2}{3}X+\tfrac{1}{3})\right)Q  +(-\tfrac{2}{3}X+\tfrac{1}{3})P
+\\
+&amp; =
+\left(-\tfrac{4}{3}-\tfrac{1}{3}X+\tfrac{2}{3}X^2\right)Q+(-\tfrac{2}{3}X+\tfrac{1}{3})P
+\end{aligned}\]</span></p>
+</div>
+</body>
+</html>
+
+<script>
+
+
+const toggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Appliquer le thème au chargement
+const currentTheme = localStorage.getItem('theme') || 'default';
+body.setAttribute('data-md-color-scheme', currentTheme);
+
+toggle.addEventListener('click', () => {
+    let scheme = body.getAttribute('data-md-color-scheme');
+    let newScheme = (scheme === 'default') ? 'slate' : 'default';
+    
+    body.setAttribute('data-md-color-scheme', newScheme);
+    localStorage.setItem('theme', newScheme);
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+
+let secCount = -1;
+let thmCount = -1;
+
+let labels = {};
+
+const noms = {
+'wthm':'Théorème',
+'wprop':'Proposition',
+'wdefi':'Définition',
+'wlem':'Lemme',
+'wcor':'Corollaire',
+'wappli':'Application',
+'wrem':'Remarque',
+'wrappel': 'Rappel',
+'wex':'Exemple',
+'wexs':'Exemples',
+'wproof':'Preuve'
+};
+
+//////////////////////////////////////////////////////////////////////////////
+// Numérotation des environnements
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll(
+"h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs, .wrappel,.wproof"
+).forEach(el => {
+
+    if (
+        el.tagName.toLowerCase() === "h1"
+        && !el.closest("#TOC")
+    ) {
+
+        secCount++;
+        thmCount = 0;
+    }
+
+    else if (noms[Array.from(el.classList).find(c => noms[c])]) {
+
+        let type = Array.from(el.classList).find(c => noms[c]);
+
+        if (type !== 'wproof') {
+
+            thmCount++;
+
+            let num = secCount + "." + thmCount;
+
+            let id = el.querySelector("span[id]")
+                ? el.querySelector("span[id]").id
+                : null;
+
+            if(id) {
+                labels[id] = {
+                    num: num,
+                    type: type.substring(1)
+                };
+            }
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                let strong = p.querySelector("strong");
+
+                let title = (
+                    strong &&
+                    strong.innerText.includes("(")
+                )
+
+                ? ` <span class="env-title">${strong.outerHTML}</span>`
+                : "";
+
+                if (title) strong.remove();
+
+                p.innerHTML =
+                    `<strong class="env-header">${noms[type]} ${num}</strong>`
+                    + title
+                    + " — "
+                    + p.innerHTML;
+            }
+        }
+
+        else {
+
+            let p = el.querySelector("p");
+
+            if (p) {
+
+                p.innerHTML =
+                    `<strong class="env-header">Preuve</strong> — `
+                    + p.innerHTML;
+            }
+        }
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Capture des équations MathJax
+//////////////////////////////////////////////////////////////////////////////
+
+setTimeout(() => {
+
+document.querySelectorAll("mjx-math[display='true']").forEach((el, index) => {
+
+    let num = el.querySelector(".mjx-eqn-number");
+
+    if (num) {
+
+        let val = num.innerText.replace(/[()]/g, '');
+
+        let id = el.id || "eq-" + index;
+
+        el.id = id;
+
+        labels[id] = {
+            num: val,
+            type: 'eq'
+        };
+    }
+});
+
+//////////////////////////////////////////////////////////////////////////////
+// Remplacement des références
+//////////////////////////////////////////////////////////////////////////////
+
+document.querySelectorAll("body *").forEach(el => {
+
+    if (
+        el.childNodes.length === 1 &&
+        el.childNodes[0].nodeType === Node.TEXT_NODE
+    ) {
+
+        el.innerHTML = el.innerHTML
+
+        .replace(/\\eqref\{(.*?)\}/g, (m, id) => {
+
+            return labels[id]
+                ? `<a href="#${id}">(${labels[id].num})</a>`
+                : m;
+        })
+
+        .replace(
+            /\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g,
+
+            (m, t, id) => {
+
+                let f = t + ":" + id;
+
+                return labels[f]
+                    ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>`
+                    : m;
+            }
+        );
+    }
+});
+
+}, 800);
+
+});
+
+</script>
+
