@@ -107,6 +107,18 @@ a.ref-rem { color: rgb(110, 75, 40) !important; }
     background: var(--surface); color: var(--link); 
 }
 
+/* --- PREUVES --- */
+.wproof { 
+    border-left: 2px solid rgb(55, 75, 120); 
+    padding-left: 15px; 
+    margin: 20px 0; 
+    display: block;
+}
+
+.wproof .env-header { 
+    color: rgb(55, 75, 120); 
+}
+
 /* Images */
 img {
     max-width: 100%;

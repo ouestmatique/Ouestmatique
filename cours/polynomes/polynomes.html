@@ -28,6 +28,19 @@
 </head>
 <body>
 
+<style>
+  /* Correctif MathJax : fusion des bordures pour les divisions de polynômes (array + cline) */
+  mjx-container mjx-mtable {
+    border-collapse: collapse !important;
+  }
+  mjx-container mjx-mtd {
+    padding-top: 0.25em !important;
+    padding-bottom: 0.25em !important;
+  }
+
+  
+</style>
+
 <header class="site-header">
 
    <div class="site-header-left">
@@ -1589,22 +1602,20 @@ class="math inline">\(R = \tilde{R}\)</span> conviennent.</p></li>
 <p>Calculons la division euclidienne de <span class="math inline">\(A =
 X^5+4X^4+7X^3+5X^2-4\)</span> par <span class="math inline">\(B =
 X^2+2+3\)</span>.</p>
-<p><span class="math display">\[\renewcommand{\arraystretch}{1.2}
-    \renewcommand{\arraycolsep}{2pt}
-      \begin{array}{rrrrrr|rrr}
+<p><span class="math display">\[\begin{array}{rrrrrr|rrr}
     &amp; X^5&amp;+4X^4&amp;+7X^3&amp;+5X^2 &amp;   -4 &amp;X^2 &amp;+2X
 &amp; +3 \\
-    \cline{7-9}
+    \text{CLINEX7X9X}
     -&amp;\text{\color{red}$X^5$}&amp;\text{\color{red}$+2X^4$}&amp;\text{\color{red}$+7X^3$}
 &amp;   &amp;  &amp;\text{\color{red}$X^3$}&amp;+\text{\color{blue}$2X^2$}
 &amp;\text{\color{purple}$-1$}\\
-    \cline{1-6}
+    \text{CLINEX1X6X}
        &amp; &amp;2X^4&amp;+4X^3&amp; +5X^2&amp;    -4 &amp;&amp;&amp;\\
         &amp;-&amp;\text{\color{blue}$2X^4$}&amp;\text{\color{blue}$+4X^3$}&amp;\text{\color{blue}$+6X^2$}  &amp;  &amp;   &amp;  \\
-        \cline{2-6}
+        \text{CLINEX2X6X}
          &amp;&amp;&amp;&amp;-X^2  &amp;-4  &amp;   &amp;  \\
          &amp;&amp;&amp;-&amp;\text{\color{purple}$-X^2$}  &amp;\text{\color{purple}$-2X-3$}  &amp;   &amp;  \\
-         \cline{4-6}
+         \text{CLINEX4X6X}
          &amp;&amp;&amp;&amp;  &amp;2X-1  &amp;   &amp;  \\
       \end{array}\]</span></p>
 <p>Donc <span class="math inline">\(A =
@@ -1778,47 +1789,41 @@ class="math inline">\(U,V \in \mathbb{R}[X]\)</span> tels que <span
 class="math inline">\(P \wedge Q = UP+VQ\)</span>.</p>
 <p><strong>Corrigé</strong> — On déroule l’algorithme d’Euclide.</p>
 <ol>
-<li><p><span class="math display">\[\renewcommand{\arraystretch}{1.2}
-    \renewcommand{\arraycolsep}{2pt}
-      \begin{array}{rrrrrr|rrrr}
+<li><p><span class="math display">\[\begin{array}{rrrrrr|rrrr}
       &amp;X^4 &amp; +X^3 &amp; -3X^2 &amp; -4X &amp; -1   &amp; X^3
 &amp; + X^2 &amp; -X &amp; -1\\
-    \cline{7-10}
+    \text{CLINEX7X10X}
     -&amp; X^4 &amp; +X^3 &amp; -X^2 &amp; -X &amp; &amp; X &amp; &amp;
 &amp; \\
-    \cline{1-6}
+    \text{CLINEX1X6X}
     &amp;&amp; &amp; -2X^2 &amp; -3X &amp; -1 &amp; &amp; &amp; &amp;
       \end{array}\]</span></p></li>
-<li><p><span class="math display">\[\renewcommand{\arraystretch}{1.2}
-    \renewcommand{\arraycolsep}{2pt}
-      \begin{array}{rrrrr|rrr}
+<li><p><span class="math display">\[\begin{array}{rrrrr|rrr}
      &amp;X^3 &amp; +X^2 &amp; -X &amp; +1   &amp; -2X^2 &amp; -3X &amp;
 -1\\
-     \cline{6-8}
+     \text{CLINEX6X8X}
      -&amp;X^3 &amp; +\tfrac{3}{2}X^2 &amp; +\tfrac{1}{2}X &amp;   &amp;
 -\tfrac{1}{2}X &amp; +\tfrac{1}{4} &amp; \\
-      \cline{1-5}
+      \text{CLINEX1X5X}
        &amp;&amp; -\tfrac{1}{2}X^2 &amp; -\tfrac{3}{2}X &amp;
 +1   &amp;  &amp;  &amp; \\
        
         &amp;-&amp; -\tfrac{1}{2}X^2 &amp; -\tfrac{3}{4}X &amp; -
 \tfrac{1}{4}   &amp;  &amp;  &amp; \\
-        \cline{2-5}
+        \text{CLINEX2X5X}
         &amp;&amp;  &amp; -\tfrac{3}{4}X &amp; -
 \tfrac{3}{4}   &amp;  &amp;  &amp;
       \end{array}\]</span></p></li>
-<li><p><span class="math display">\[\renewcommand{\arraystretch}{1.2}
-    \renewcommand{\arraycolsep}{2pt}
-      \begin{array}{rrrr|rr}
+<li><p><span class="math display">\[\begin{array}{rrrr|rr}
         &amp;-2X^2 &amp; -3X &amp; -1 &amp;  -\tfrac{3}{4}X &amp; -
 \tfrac{3}{4} \\
-        \cline{5-6}
+        \text{CLINEX5X6X}
         -&amp;-2X^3 &amp; -2X &amp; &amp; \tfrac{8}{3}X &amp; +
 \tfrac{4}{3} \\
-        \cline{1-4}
+        \text{CLINEX1X4X}
          &amp;&amp; -X &amp; -1 &amp; &amp;  \\
          &amp;-&amp; -X&amp; -1&amp; &amp; \\
-         \cline{2-4}
+         \text{CLINEX2X4X}
          &amp;&amp; &amp; 0 &amp; &amp;
       \end{array}\]</span></p></li>
 </ol>
@@ -1836,50 +1841,44 @@ class="math inline">\(R_1 \wedge R_2 = \alpha R_1 \wedge R_2\)</span>.
 On peut donc rendre unitaire les restes avant de les utiliser. Cela
 donne ici:</p>
 <ol>
-<li><p><span class="math display">\[\renewcommand{\arraystretch}{1.2}
-    \renewcommand{\arraycolsep}{2pt}
-      \begin{array}{rrrrrr|rrrr}
+<li><p><span class="math display">\[\begin{array}{rrrrrr|rrrr}
       &amp;X^4 &amp; +X^3 &amp; -3X^2 &amp; -4X &amp; -1   &amp; X^3
 &amp; + X^2 &amp; -X &amp; -1\\
-    \cline{7-10}
+    \text{CLINEX7X10X}
     -&amp; X^4 &amp; +X^3 &amp; -X^2 &amp; -X &amp; &amp; X &amp; &amp;
 &amp; \\
-    \cline{1-6}
+    \text{CLINEX1X6X}
     &amp;&amp; &amp; -2X^2 &amp; -3X &amp; -1 &amp; &amp; &amp; &amp;
       \end{array}\]</span></p></li>
 <li><p>On travaille plutôt avec <span
 class="math inline">\(X^2+\tfrac{3}{2}X+\tfrac{1}{2} =
 \tfrac{1}{-2}(-2X^2-3X-1)\)</span>. <span
-class="math display">\[\renewcommand{\arraystretch}{1.2}
-    \renewcommand{\arraycolsep}{2pt}
-      \begin{array}{rrrrr|rrr}
+class="math display">\[\begin{array}{rrrrr|rrr}
      &amp;X^3 &amp; +X^2 &amp; -X &amp; +1   &amp; X^2 &amp;
 +\tfrac{3}{2}X &amp; +\tfrac{1}{2}\\
-     \cline{6-8}
+     \text{CLINEX6X8X}
      -&amp;X^3 &amp; +\tfrac{3}{2}X^2 &amp; +\tfrac{1}{2}X &amp;   &amp;
 X &amp; -\tfrac{1}{2} &amp; \\
-      \cline{1-5}
+      \text{CLINEX1X5X}
        &amp;&amp; -\tfrac{1}{2}X^2 &amp; -\tfrac{3}{2}X &amp;
 +1   &amp;  &amp;  &amp; \\
        
         &amp;-&amp; -\tfrac{1}{2}X^2 &amp; -\tfrac{3}{4}X &amp; -
 \tfrac{1}{4}   &amp;  &amp;  &amp; \\
-        \cline{2-5}
+        \text{CLINEX2X5X}
         &amp;&amp;  &amp; -\tfrac{3}{4}X &amp; -
 \tfrac{3}{4}   &amp;  &amp;  &amp;
       \end{array}\]</span></p></li>
 <li><p>On travaille plutôt avec <span class="math inline">\(X+1 =
 -\tfrac{4}{3}\left(-\tfrac{3}{4}X -\tfrac{3}{4}\right)\)</span>. <span
-class="math display">\[\renewcommand{\arraystretch}{1.2}
-    \renewcommand{\arraycolsep}{2pt}
-      \begin{array}{rrrr|rr}
+class="math display">\[\begin{array}{rrrr|rr}
         &amp;-2X^2 &amp; -3X &amp; -1 &amp;  X &amp; +1 \\
-        \cline{5-6}
+        \text{CLINEX5X6X}
         -&amp;-2X^3 &amp; -2X &amp; &amp; -2X &amp; - 1 \\
-        \cline{1-4}
+        \text{CLINEX1X4X}
          &amp;&amp; -X &amp; -1 &amp; &amp;  \\
          &amp;-&amp; -X&amp; -1&amp; &amp; \\
-         \cline{2-4}
+         \text{CLINEX2X4X}
          &amp;&amp; &amp; 0 &amp; &amp;
       \end{array}\]</span></p></li>
 </ol>
@@ -1911,7 +1910,6 @@ X+1
 
 <script>
 
-
 const toggle = document.getElementById('theme-toggle');
 const body = document.body;
 
@@ -1927,167 +1925,123 @@ toggle.addEventListener('click', () => {
     localStorage.setItem('theme', newScheme);
 });
 
-
 document.addEventListener("DOMContentLoaded", function() {
 
-let secCount = -1;
-let thmCount = -1;
+    let secCount = -1;
+    let thmCount = -1;
+    let labels = {};
 
-let labels = {};
+    const noms = {
+        'wthm':'Théorème', 'wprop':'Proposition', 'wdefi':'Définition',
+        'wlem':'Lemme', 'wcor':'Corollaire', 'wappli':'Application',
+        'wrem':'Remarque', 'wrappel': 'Rappel', 'wex':'Exemple',
+        'wexs':'Exemples', 'wproof':'Preuve'
+    };
 
-const noms = {
-'wthm':'Théorème',
-'wprop':'Proposition',
-'wdefi':'Définition',
-'wlem':'Lemme',
-'wcor':'Corollaire',
-'wappli':'Application',
-'wrem':'Remarque',
-'wrappel': 'Rappel',
-'wex':'Exemple',
-'wexs':'Exemples',
-'wproof':'Preuve'
-};
-
-//////////////////////////////////////////////////////////////////////////////
-// Numérotation des environnements
-//////////////////////////////////////////////////////////////////////////////
-
-document.querySelectorAll(
-"h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs, .wrappel,.wproof"
-).forEach(el => {
-
-    if (
-        el.tagName.toLowerCase() === "h1"
-        && !el.closest("#TOC")
-    ) {
-
-        secCount++;
-        thmCount = 0;
-    }
-
-    else if (noms[Array.from(el.classList).find(c => noms[c])]) {
-
-        let type = Array.from(el.classList).find(c => noms[c]);
-
-        if (type !== 'wproof') {
-
-            thmCount++;
-
-            let num = secCount + "." + thmCount;
-
-            let id = el.querySelector("span[id]")
-                ? el.querySelector("span[id]").id
-                : null;
-
-            if(id) {
-                labels[id] = {
-                    num: num,
-                    type: type.substring(1)
-                };
-            }
-
-            let p = el.querySelector("p");
-
-            if (p) {
-
-                let strong = p.querySelector("strong");
-
-                let title = (
-                    strong &&
-                    strong.innerText.includes("(")
-                )
-
-                ? ` <span class="env-title">${strong.outerHTML}</span>`
-                : "";
-
-                if (title) strong.remove();
-
-                p.innerHTML =
-                    `<strong class="env-header">${noms[type]} ${num}</strong>`
-                    + title
-                    + " — "
-                    + p.innerHTML;
+    // Numérotation des environnements
+    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs, .wrappel,.wproof").forEach(el => {
+        if (el.tagName.toLowerCase() === "h1" && !el.closest("#TOC")) {
+            secCount++;
+            thmCount = 0;
+        } else if (noms[Array.from(el.classList).find(c => noms[c])]) {
+            let type = Array.from(el.classList).find(c => noms[c]);
+            if (type !== 'wproof') {
+                thmCount++;
+                let num = secCount + "." + thmCount;
+                let id = el.querySelector("span[id]") ? el.querySelector("span[id]").id : null;
+                if(id) labels[id] = { num: num, type: type.substring(1) };
+                
+                let p = el.querySelector("p");
+                if (p) {
+                    let strong = p.querySelector("strong");
+                    let title = (strong && strong.innerText.includes("(")) ? ` <span class="env-title">${strong.outerHTML}</span>` : "";
+                    if (title) strong.remove();
+                    p.innerHTML = `<strong class="env-header">${noms[type]} ${num}</strong>` + title + " — " + p.innerHTML;
+                }
+            } else {
+                let p = el.querySelector("p");
+                if (p) p.innerHTML = `<strong class="env-header">Preuve</strong> — ` + p.innerHTML;
             }
         }
+    });
 
-        else {
-
-            let p = el.querySelector("p");
-
-            if (p) {
-
-                p.innerHTML =
-                    `<strong class="env-header">Preuve</strong> — `
-                    + p.innerHTML;
+    // Fonction lancée une fois MathJax terminé
+    function executerApresMathJax() {
+        
+        // 1. Capture des équations
+        document.querySelectorAll("mjx-math[display='true']").forEach((el, index) => {
+            let num = el.querySelector(".mjx-eqn-number");
+            if (num) {
+                let val = num.innerText.replace(/[()]/g, '');
+                let id = el.id || "eq-" + index;
+                el.id = id;
+                labels[id] = { num: val, type: 'eq' };
             }
+        });
+
+        // 2. TRACÉ DES LIGNES PARTIELLES
+        document.querySelectorAll("mjx-mtext").forEach(el => {
+            let text = el.textContent;
+            
+            // DÉCODAGE MAGIQUE : si MathJax cache le texte dans les classes CSS
+            if (!text || text.trim() === "") {
+                text = Array.from(el.children).map(c => {
+                    let cls = Array.from(c.classList).find(className => className.startsWith('mjx-c'));
+                    return cls ? String.fromCharCode(parseInt(cls.replace('mjx-c', ''), 16)) : '';
+                }).join('');
+            }
+
+            if (text.includes("CLINEX")) {
+                let regex = /CLINEX(\d+)X(\d+)X/g;
+                let match;
+                let row = el.closest("mjx-mtr");
+                let prevRow = row ? row.previousElementSibling : null;
+
+                while ((match = regex.exec(text)) !== null) {
+                    let start = parseInt(match[1]);
+                    let end = parseInt(match[2]);
+
+                    if (prevRow) {
+                        let cells = prevRow.querySelectorAll("mjx-mtd");
+                        for (let i = start - 1; i < end; i++) {
+                            if (cells[i]) {
+                                cells[i].style.borderBottom = "max(1px, 0.08em) solid currentColor";
+                                cells[i].style.paddingBottom = "0.2em";
+                            }
+                        }
+                    }
+                }
+                // On fait disparaître le marqueur texte
+                el.style.display = "none";
+            }
+        });
+
+        // 3. Remplacement des références
+        document.querySelectorAll("body *").forEach(el => {
+            if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
+                el.innerHTML = el.innerHTML
+                .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m)
+                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => {
+                    let f = t + ":" + id;
+                    return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
+                });
+            }
+        });
+    }
+
+    // Attente robuste de MathJax
+    function waitForMathJax() {
+        if (window.MathJax && window.MathJax.startup && window.MathJax.startup.promise) {
+            window.MathJax.startup.promise.then(() => {
+                setTimeout(executerApresMathJax, 50); 
+            }).catch(err => console.log('Erreur MathJax', err));
+        } else {
+            setTimeout(waitForMathJax, 100);
         }
     }
-});
 
-//////////////////////////////////////////////////////////////////////////////
-// Capture des équations MathJax
-//////////////////////////////////////////////////////////////////////////////
-
-setTimeout(() => {
-
-document.querySelectorAll("mjx-math[display='true']").forEach((el, index) => {
-
-    let num = el.querySelector(".mjx-eqn-number");
-
-    if (num) {
-
-        let val = num.innerText.replace(/[()]/g, '');
-
-        let id = el.id || "eq-" + index;
-
-        el.id = id;
-
-        labels[id] = {
-            num: val,
-            type: 'eq'
-        };
-    }
-});
-
-//////////////////////////////////////////////////////////////////////////////
-// Remplacement des références
-//////////////////////////////////////////////////////////////////////////////
-
-document.querySelectorAll("body *").forEach(el => {
-
-    if (
-        el.childNodes.length === 1 &&
-        el.childNodes[0].nodeType === Node.TEXT_NODE
-    ) {
-
-        el.innerHTML = el.innerHTML
-
-        .replace(/\\eqref\{(.*?)\}/g, (m, id) => {
-
-            return labels[id]
-                ? `<a href="#${id}">(${labels[id].num})</a>`
-                : m;
-        })
-
-        .replace(
-            /\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g,
-
-            (m, t, id) => {
-
-                let f = t + ":" + id;
-
-                return labels[f]
-                    ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>`
-                    : m;
-            }
-        );
-    }
-});
-
-}, 800);
+    waitForMathJax();
 
 });
-
 </script>
 
