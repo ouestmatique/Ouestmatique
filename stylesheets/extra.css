@@ -380,15 +380,7 @@ body,
    SOMMAIRES
 ========================================================= */
 
-.course-preview {
-
-  margin-top: -0.45rem;
-  margin-bottom: 0.8rem;
-
-  padding-left: 1.15rem;
-
-  font-size: 0.7rem;
-  line-height: 1.45;
-
-  color: #87512a;
+.course-toc {
+  font-size: 0.85rem;
+  color: #7f4c27;
 }
