@@ -382,17 +382,13 @@ body,
 
 .course-preview {
 
-  margin-top: 0.05rem;
+  margin-top: -0.45rem;
   margin-bottom: 0.8rem;
 
-  margin-left: 0;
+  padding-left: 1.15rem;
 
-  font-size: 0.85rem;
+  font-size: 0.7rem;
   line-height: 1.45;
 
-  color: color-mix(
-    in srgb,
-    var(--link-color) 85%,
-    var(--md-default-bg-color)
-  );
+  color: #87512a;
 }
