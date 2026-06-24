@@ -380,11 +380,14 @@ body,
   margin-bottom: 0.8rem;
 }
 
+.cours-card a {
+  display: inline-block;
+}
+
 .resume {
   display: none;
   font-size: 0.85em;
-  color: rgba(120,120,120,0.8);
-  margin-top: 0.2rem;
+  color: var(--md-default-fg-color--lighter);
   margin-left: 1rem;
 }
 
