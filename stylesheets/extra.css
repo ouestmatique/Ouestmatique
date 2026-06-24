@@ -377,19 +377,24 @@ body,
 }
 
 .cours-card {
-  padding: 1rem;
-  border-radius: 0.8rem;
-  border: 1px solid var(--md-default-fg-color--lightest);
-  transition: all .2s ease;
   margin-bottom: 1rem;
 }
 
-.cours-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,.12);
+.cours-preview {
+  font-size: 0.85em;
+  color: rgba(120,120,120,0.8);
+  margin-top: 0.2rem;
+
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+
+  transition:
+      opacity 0.3s ease,
+      max-height 0.3s ease;
 }
 
-.cours-card .resume {
-  color: var(--md-default-fg-color--light);
-  font-size: .85rem;
+.cours-card:hover .cours-preview {
+  opacity: 1;
+  max-height: 100px;
 }
