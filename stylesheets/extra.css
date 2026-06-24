@@ -376,21 +376,20 @@ body,
     color 0.2s ease;
 }
 
-.cours-card {
+.course-preview {
+
+  margin-top: 0.15rem;
   margin-bottom: 0.8rem;
-}
 
-.cours-card a {
-  display: inline-block;
-}
+  font-size: 0.85rem;
 
-.resume {
-  display: none;
-  font-size: 0.85em;
-  color: var(--md-default-fg-color--lighter);
-  margin-left: 1rem;
-}
+  color: color-mix(
+    in srgb,
+    var(--link-color) 65%,
+    var(--md-default-bg-color)
+  );
 
-.cours-card:hover .resume {
-  display: block;
+  letter-spacing: 0.01em;
+
+  opacity: 0.9;
 }
