@@ -195,6 +195,32 @@ class="toc-section-number">4.2.2</span> Algorithme d’Euclide</a></li>
 <li><a href="#égalité-de-bézout" id="toc-égalité-de-bézout"><span
 class="toc-section-number">4.2.3</span> Égalité de Bézout</a></li>
 </ul></li>
+<li><a href="#polynômes-premiers-entre-eux"
+id="toc-polynômes-premiers-entre-eux"><span
+class="toc-section-number">4.3</span> Polynômes premiers entre
+eux</a></li>
+<li><a href="#ppcm-dans-mathbbkx" id="toc-ppcm-dans-mathbbkx"><span
+class="toc-section-number">4.4</span> PPCM dans <span
+class="math inline">\(\mathbb{K}[X]\)</span></a></li>
+<li><a href="#polynômes-irréductibles-dans-mathbbkx"
+id="toc-polynômes-irréductibles-dans-mathbbkx"><span
+class="toc-section-number">4.5</span> Polynômes irréductibles dans <span
+class="math inline">\(\mathbb{K}[X]\)</span></a>
+<ul>
+<li><a href="#définition-6" id="toc-définition-6"><span
+class="toc-section-number">4.5.1</span> Définition</a></li>
+<li><a href="#propriétés-1" id="toc-propriétés-1"><span
+class="toc-section-number">4.5.2</span> Propriétés</a></li>
+<li><a href="#décomposition-en-polynômes-irréductibles"
+id="toc-décomposition-en-polynômes-irréductibles"><span
+class="toc-section-number">4.5.3</span> Décomposition en polynômes
+irréductibles</a></li>
+<li><a href="#polynômes-irréductibles-de-mathbbcx-et-mathbbrx"
+id="toc-polynômes-irréductibles-de-mathbbcx-et-mathbbrx"><span
+class="toc-section-number">4.5.4</span> Polynômes irréductibles de <span
+class="math inline">\(\mathbb{C}[X]\)</span> et <span
+class="math inline">\(\mathbb{R}[X]\)</span></a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -740,8 +766,10 @@ class="math inline">\(P \in \mathbb{C}[X]\)</span>, non constant alors
 class="math inline">\(\mathbb{C}\)</span>.</p>
 </div>
 <div class="wprop">
-<p>Soit <span class="math inline">\(P \in \mathbb{R}[X]\)</span> et
-<span class="math inline">\(\alpha\)</span> racine de <span
+<p><span id="prop:polynome_reel_racine_conjuguees"
+label="prop:polynome_reel_racine_conjuguees"></span> Soit <span
+class="math inline">\(P \in \mathbb{R}[X]\)</span> et <span
+class="math inline">\(\alpha\)</span> racine de <span
 class="math inline">\(P\)</span> dans <span
 class="math inline">\(\mathbb{C}\)</span> alors <span
 class="math inline">\(\overline{\alpha}\)</span> est aussi racine de
@@ -1702,8 +1730,9 @@ class="math inline">\(R_0\)</span> et on réitère.</p></li>
 <h3 data-number="4.2.3" id="égalité-de-bézout"><span
 class="header-section-number">4.2.3</span> Égalité de Bézout</h3>
 <div class="wprop">
-<p>Soient <span class="math inline">\(A,B \in \mathbb{K}[X]\)</span>
-tels que <span class="math inline">\(B \neq 0\)</span>. On utilise
+<p><span id="prop:egalite_bezout" label="prop:egalite_bezout"></span>
+Soient <span class="math inline">\(A,B \in \mathbb{K}[X]\)</span> tels
+que <span class="math inline">\(B \neq 0\)</span>. On utilise
 l’algorithme d’Euclide pour obtenir <span
 class="math inline">\(R_{n-1}\)</span> (dernier reste non nul), pgcd de
 <span class="math inline">\(A\)</span> et <span
@@ -1750,8 +1779,9 @@ class="math inline">\(B\)</span>, que l’on note <span
 class="math inline">\(A \wedge B\)</span>.</p>
 </div>
 <div class="wprop">
-<p>Soient <span class="math inline">\(A,B \in \mathbb{K}[X]\)</span>
-tels que <span class="math inline">\(B \neq 0\)</span> et <span
+<p><span id="prop:mult_unitaire" label="prop:mult_unitaire"></span>
+Soient <span class="math inline">\(A,B \in \mathbb{K}[X]\)</span> tels
+que <span class="math inline">\(B \neq 0\)</span> et <span
 class="math inline">\(C \in \mathbb{K}[X]\)</span> unitaire.</p>
 <p>Alors, <span class="math inline">\(AC \wedge BC = C\left(A \wedge
 B\right)\)</span>.</p>
@@ -1904,6 +1934,759 @@ X+1
 &amp; =
 \left(-\tfrac{4}{3}-\tfrac{1}{3}X+\tfrac{2}{3}X^2\right)Q+(-\tfrac{2}{3}X+\tfrac{1}{3})P
 \end{aligned}\]</span></p>
+</div>
+<h2 data-number="4.3" id="polynômes-premiers-entre-eux"><span
+class="header-section-number">4.3</span> Polynômes premiers entre
+eux</h2>
+<p>De façon similaire à l’arithmétique dans <span
+class="math inline">\(\mathbb{Z}\)</span>, les polynômes premiers entre
+eux bénificient d’un certain nombre de propriétés.</p>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(A,B \in \mathbb{K}[X]\)</span>
+tels que <span class="math inline">\(B \neq 0\)</span>.</p>
+<p>Alors, <span class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span> sont dits premiers entre eux si <span
+class="math inline">\(A \wedge B = 1\)</span>, c’est-à-dire, les seuls
+diviseurs communs de <span class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span> sont les polynômes constants non
+nuls.</p>
+</div>
+<div class="wthm">
+<p><strong>(Théorème de Bézout)</strong> Soient <span
+class="math inline">\(A,B \in \mathbb{K}[X]\)</span> tels que <span
+class="math inline">\(B \neq 0\)</span>.</p>
+<p><span class="math inline">\(A \wedge B = 1\)</span> <span
+class="math inline">\(\iff\)</span> <span class="math inline">\(\exists
+U,V \in \mathbb{K}[X]\)</span> tels que <span
+class="math inline">\(AU+BV = 1\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(A \wedge B = 1\)</span>, d’après l’égalité de
+Bézout (proposition <a href="#prop:egalite_bezout"
+data-reference-type="ref"
+data-reference="prop:egalite_bezout">[prop:egalite_bezout]</a>), il
+existe <span class="math inline">\(U,V \in \mathbb{K}[X]\)</span> tels
+que <span class="math inline">\(AU+BV = 1\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> S’il existe
+<span class="math inline">\(U,V \in \mathbb{K}[X]\)</span> tels que
+<span class="math inline">\(AU+BV = 1\)</span>, soit <span
+class="math inline">\(\Delta \in \mathscr{D}(A,B)\)</span>,</p>
+<p><span class="math inline">\(\Delta |A\)</span> et <span
+class="math inline">\(\Delta |B\)</span> donc <span
+class="math inline">\(\Delta |1 = AU+BV\)</span>.</p>
+<p>On en déduit que <span class="math inline">\(\Delta\)</span> est
+constant non nul (on a aussi <span
+class="math inline">\(1|\Delta\)</span> et par la proposition <a
+href="#prop:associes" data-reference-type="ref"
+data-reference="prop:associes">[prop:associes]</a>, <span
+class="math inline">\(\Delta\)</span> est associé à <span
+class="math inline">\(1\)</span>).</p>
+<p>On a donc <span class="math inline">\(A \wedge B =
+1\)</span>.</p></li>
+</ul>
+</div>
+<div class="wthm">
+<p><strong>(Théorème de Gauss)</strong> Soient <span
+class="math inline">\(A,B \in \mathbb{K}[X]\)</span> tels que <span
+class="math inline">\(B \neq 0\)</span> et <span class="math inline">\(A
+\wedge B = 1\)</span>.</p>
+<p>Soit <span class="math inline">\(C \in \mathbb{K}[X]\)</span> tel que
+<span class="math inline">\(A|BC\)</span> alors <span
+class="math inline">\(A|C\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Par théorème de Bézout, il existe <span class="math inline">\(U,V \in
+\mathbb{K}[X]\)</span> tels que <span class="math inline">\(AU+BV =
+1\)</span>.</p>
+<p>Donc <span class="math inline">\(C = ACU+BCV\)</span> et <span
+class="math inline">\(A|ACU\)</span>, <span
+class="math inline">\(A|BCV\)</span> donc <span
+class="math inline">\(A|C\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(A,B \in \mathbb{K}[X]\)</span>
+tels que <span class="math inline">\(B \neq 0\)</span> et <span
+class="math inline">\(A \wedge B = 1\)</span>.</p>
+<p>Soit <span class="math inline">\(C \in \mathbb{K}[X]\)</span> tel que
+<span class="math inline">\(A|C\)</span> et <span
+class="math inline">\(B|C\)</span> alors <span
+class="math inline">\(AB|C\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Par théorème de Bézout, il existe <span class="math inline">\(U,V \in
+\mathbb{K}[X]\)</span> tels que <span class="math inline">\(AU+BV =
+1\)</span>.</p>
+<p>Donc <span class="math inline">\(C = ACU+BCV\)</span>.</p>
+<p>Or, <span class="math inline">\(A|C\)</span> et il existe <span
+class="math inline">\(C_1 \in \mathbb{K}[X]\)</span> tel que <span
+class="math inline">\(C = AC_1\)</span> et <span
+class="math inline">\(B|C\)</span> donc il existe <span
+class="math inline">\(C_2 \in \mathbb{K}[X]\)</span> tel que <span
+class="math inline">\(C = BC_2\)</span>.</p>
+<p>On en déduit <span class="math inline">\(C = ABC_2U+ABC_1V\)</span>
+donc <span class="math inline">\(AB|C\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(A,B,C \in \mathbb{K}[X]\)</span>
+tels que <span class="math inline">\(C \neq 0\)</span>, <span
+class="math inline">\(A \wedge C = 1\)</span> et <span
+class="math inline">\(B \wedge C = 1\)</span>.</p>
+<p>Alors, <span class="math inline">\(AB \wedge C = 1\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(\Delta \in
+\mathscr{D}(AB,C)\)</span> tel que <span class="math inline">\(\Delta
+|AB\)</span> et <span class="math inline">\(\Delta |C\)</span>.</p>
+<p>Alors, soit <span class="math inline">\(D = \Delta \wedge A\)</span>,
+<span class="math inline">\(D|A\)</span> et <span
+class="math inline">\(D|\Delta\)</span> donc <span
+class="math inline">\(D|C\)</span>. Ce qui donne <span
+class="math inline">\(D = 1\)</span> car <span class="math inline">\(A
+\wedge C = 1\)</span>.</p>
+<p>On en déduit alors que <span class="math inline">\(\Delta |
+B\)</span> par théorème de Gauss.</p>
+<p>Donc <span class="math inline">\(\Delta | B\)</span> et <span
+class="math inline">\(\Delta |C\)</span> et <span
+class="math inline">\(\Delta\)</span> est constant non nul.</p>
+<p>On en déduit alors <span class="math inline">\(C \wedge AB =
+1\)</span>.</p>
+</div>
+<div class="wprop">
+<p><span id="prop:pgcd_et_premiers"
+label="prop:pgcd_et_premiers"></span> Soient <span
+class="math inline">\(A,B \in \mathbb{K}[X]\)</span>. Soit <span
+class="math inline">\(\Delta \in \mathscr{D}(A,B)\)</span> unitaire, il
+existe <span class="math inline">\(A_1, B_1 \in \mathbb{K}[X]\)</span>
+tels que <span class="math inline">\(A = \Delta A_1\)</span> et <span
+class="math inline">\(B = \Delta B_1\)</span>.</p>
+<p>Alors, <span class="math display">\[\Delta = A \wedge B \iff A_1
+\wedge B_1 = 1.\]</span></p>
+</div>
+<div class="wproof">
+<p>Par la proposition <a href="#prop:mult_unitaire"
+data-reference-type="ref"
+data-reference="prop:mult_unitaire">[prop:mult_unitaire]</a>, <span
+class="math inline">\(A \wedge B = \Delta A_1 \wedge \Delta B_1 = \Delta
+A_1 \wedge B_1\)</span>.</p>
+<p>Donc</p>
+<p><span class="math display">\[\Delta = A \wedge B
+    \iff \Delta = \Delta A_1 \wedge B_1
+    \iff \Delta(1-A_1 \wedge B_1) = 0
+    \iff A_1 \wedge B_1 = 1\]</span></p>
+<p>par intégrité de <span
+class="math inline">\(\mathbb{K}[X]\)</span>.</p>
+</div>
+<h2 data-number="4.4" id="ppcm-dans-mathbbkx"><span
+class="header-section-number">4.4</span> PPCM dans <span
+class="math inline">\(\mathbb{K}[X]\)</span></h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(A,B \in \mathbb{K}[X]\)</span>
+tels que <span class="math inline">\(A \neq 0\)</span> et <span
+class="math inline">\(B \neq 0\)</span>.</p>
+<p>On note <span class="math inline">\(\mathscr{M}\left(A,B\right) =
+\left\{M \in \mathbb{K}[X] / A|M, B |M \text{ et }M \neq
+0\right\}\)</span> l’ensemble des multiples communs non nuls de <span
+class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span> dans <span
+class="math inline">\(\mathbb{K}[X]\)</span>.</p>
+<p>Alors, <span class="math inline">\(\mathscr{M}\left(A,B\right) \neq
+\emptyset\)</span> car <span class="math inline">\(AB \neq 0\)</span> et
+un élément de degré minimal est un ppcm de <span
+class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Si <span class="math inline">\(M\)</span> est un ppcm de <span
+class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span> alors <span
+class="math inline">\(\alpha M\)</span>, avec <span
+class="math inline">\(\alpha \in \mathbb{K}^\star\)</span>, est aussi un
+ppcm de <span class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span>.</p>
+</div>
+<p><strong>Lien entre pgcd et ppcm.</strong> </p>
+<p>Soient <span class="math inline">\(A,B \in \mathbb{K}[X]\)</span>
+tels que <span class="math inline">\(A \neq 0\)</span> et <span
+class="math inline">\(B \neq 0\)</span>, décrivons <span
+class="math inline">\(\mathscr{M}\left(A,B\right)\)</span> à l’aide de
+la proposition <a href="#prop:pgcd_et_premiers"
+data-reference-type="ref"
+data-reference="prop:pgcd_et_premiers">[prop:pgcd_et_premiers]</a>.</p>
+<p>Soit <span class="math inline">\(M\in
+\mathscr{M}\left(A,B\right)\)</span>, <span
+class="math inline">\(A|M\)</span> et <span
+class="math inline">\(B|M\)</span> donc il existe <span
+class="math inline">\(Q_1,Q_2 \in \mathbb{K}[X]\)</span> tels que <span
+class="math inline">\(M = AQ_1 = BQ_2\)</span>.</p>
+<p>Aussi, en notant <span class="math inline">\(D = A \wedge B\)</span>,
+<span class="math inline">\(D|M\)</span> donc il existe <span
+class="math inline">\(M_1 \in \mathbb{K}[X]\)</span> tel que <span
+class="math inline">\(M = DM_1\)</span>.</p>
+<p>De plus, il existe <span class="math inline">\(A_1,B_1 \in
+\mathbb{K}[X]\)</span> tels que <span class="math inline">\(A_1 \wedge
+B_1 = 1\)</span>, <span class="math inline">\(A = DA_1\)</span> et <span
+class="math inline">\(B = DB_1\)</span>.</p>
+<p>On a alors <span class="math inline">\(M = DA_1Q_1 = DB_1Q_2=
+DM_1\)</span>.</p>
+<p>Donc <span class="math inline">\(D(M_1-A_1Q_1) = 0 =
+D(M_1-B_1Q_2)\)</span> et comme <span
+class="math inline">\(\mathbb{K}[X]\)</span> est intègre, <span
+class="math inline">\(M_1 = A_1Q_1=B_1Q_2\)</span>, ce qui donne <span
+class="math inline">\(A_1|M_1\)</span> et <span
+class="math inline">\(B_1|M_1\)</span>.</p>
+<p>Or, <span class="math inline">\(A_1 \wedge B_1 = 1\)</span> donc
+<span class="math inline">\(A_1B_1 |M_1\)</span> et il existe <span
+class="math inline">\(Q \in \mathbb{K}[X]\)</span> tel que <span
+class="math inline">\(M_1 = A_1B_1Q\)</span> et <span
+class="math inline">\(M = DA_1B_1Q\)</span>.</p>
+<p>Réciproquement, s’il existe <span class="math inline">\(Q \in
+\mathbb{K}[X]\)</span> tel que <span class="math inline">\(M =
+DA_1B_1Q\)</span> alors <span class="math inline">\(M \in
+\mathscr{M}\left(A,B\right)\)</span> car <span class="math inline">\(M =
+AB_1Q = BA_1Q\)</span>.</p>
+<p>On en déduit finalement <span
+class="math inline">\(\mathscr{M}\left(A,B\right) = \left\{DA_1B_1Q / Q
+\in \mathbb{K}[X]\right\}\)</span>.</p>
+<p>Un ppcm est de degré minimal donc est associé à <span
+class="math inline">\(DA_1B_1\)</span> (car alors <span
+class="math inline">\(\deg(Q) = 0\)</span>).</p>
+<p>On en déduit :</p>
+<ol>
+<li><p>Tous les ppcm sont associés entre eux,</p></li>
+<li><p>il en existe donc un unique unitaire, que l’on note <span
+class="math inline">\(A \vee B\)</span>,</p></li>
+<li><p><span class="math inline">\(A \wedge BA \vee M\)</span> est
+associé à <span class="math inline">\(AB\)</span> car <span
+class="math inline">\(D A \vee B\)</span>est associé à <span
+class="math inline">\(DA_1DB_1 = \alpha AB\)</span>.</p></li>
+</ol>
+<h2 data-number="4.5" id="polynômes-irréductibles-dans-mathbbkx"><span
+class="header-section-number">4.5</span> Polynômes irréductibles dans
+<span class="math inline">\(\mathbb{K}[X]\)</span></h2>
+<h3 data-number="4.5.1" id="définition-6"><span
+class="header-section-number">4.5.1</span> Définition</h3>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(P \in \mathbb{K}[X]\)</span>, <span
+class="math inline">\(P\)</span> est irréductible dans <span
+class="math inline">\(\mathbb{K}[X]\)</span> si</p>
+<ul>
+<li><p><span class="math inline">\(P\)</span> n’est pas
+constant,</p></li>
+<li><p><span class="math inline">\(P\)</span> ne possède comme diviseur
+dans <span class="math inline">\(\mathbb{K}[X]\)</span> que les
+polynômes constants non nuls et polynômes qui lui sont
+associés.</p></li>
+</ul>
+<p>Sinon, on dit que <span class="math inline">\(P\)</span> est
+réductible dans <span class="math inline">\(\mathbb{K}[X]\)</span>.</p>
+</div>
+<div class="wrem">
+<p>On retrouve la définition d’un nombre premier <span
+class="math inline">\(p\)</span> dans <span
+class="math inline">\(\mathbb{N}\)</span>. Celui-ci n’admet comme
+diviseurs positifs que <span class="math inline">\(1\)</span> et <span
+class="math inline">\(p\)</span> mais sans restriction de signe, il
+faudrait ajouter <span class="math inline">\(-1\)</span> (équivalent aux
+polynômes constants) et <span class="math inline">\(-p\)</span>
+("associé à <span class="math inline">\(p\)</span>").</p>
+</div>
+<div class="wex">
+<p><span id="ex:deg1irreductible"
+label="ex:deg1irreductible"></span></p>
+<ul>
+<li><p>Soit <span class="math inline">\(a \in \mathbb{K}\)</span>, <span
+class="math inline">\(X+a\)</span> est irréductible dans <span
+class="math inline">\(\mathbb{K}[X]\)</span>.</p>
+<p>En effet, soit <span class="math inline">\(\Delta\)</span> tel que
+<span class="math inline">\(\Delta | X+a\)</span> alors <span
+class="math inline">\(\deg(\Delta) \leq \deg(X+A) = 1\)</span> et <span
+class="math inline">\(\Delta \neq 0\)</span>. Donc</p>
+<ul>
+<li><p>soit <span class="math inline">\(\deg(\Delta) = 0\)</span> et
+<span class="math inline">\(\Delta\)</span> est constant,</p></li>
+<li><p>soit <span class="math inline">\(\deg(\Delta) = 1\)</span> et
+donc <span class="math inline">\(\Delta\)</span> est associé à <span
+class="math inline">\(X+a\)</span>.</p></li>
+</ul></li>
+<li><p>Dans <span class="math inline">\(\mathbb{R}[X]\)</span>, <span
+class="math inline">\(X^2+1\)</span> est irréductible.</p>
+<p>En effet, soit <span class="math inline">\(\Delta\)</span> tel que
+<span class="math inline">\(\Delta | X^2+1\)</span> alors <span
+class="math inline">\(\deg(\Delta) \geq 2\)</span> et <span
+class="math inline">\(\Delta \neq 0\)</span>.</p>
+<p>Comme précédemment, si <span class="math inline">\(\deg(\Delta) = 0
+\text{ ou }2\)</span>, <span class="math inline">\(\Delta\)</span> est
+constant ou associé à <span class="math inline">\(X^2+1\)</span>.</p>
+<p>Par l’absurde, si on avait <span class="math inline">\(\deg(\Delta) =
+1\)</span>, alors <span class="math inline">\(X^2+1\)</span> aurait une
+racine dans <span class="math inline">\(\mathbb{R}\)</span>, ce qui est
+absurde.</p></li>
+<li><p>Dans <span class="math inline">\(\mathbb{C}[X]\)</span>, <span
+class="math inline">\(X^2+1\)</span> n’est pas irréductible dans car
+<span class="math inline">\(X^2+1 = (X-i)(X+i)\)</span>.</p></li>
+<li><p><span class="math inline">\(X^4+1\)</span> n’est pas irréductible
+dans <span class="math inline">\(\mathbb{R}[X]\)</span> car <span
+class="math inline">\(X^4+1 = X^4+2X^2+1-2X^2 = (X^2+1)^2-(\sqrt{2}X)^2
+= (X^2+\sqrt{2}X+1)(X^2-\sqrt{2}X+1)\)</span>.</p>
+<p>Notons que cela donne un exemple de polynôme réductible qui n’admet
+pas de racine.</p></li>
+<li><p>Si <span class="math inline">\(P\)</span> est irréductible dans
+<span class="math inline">\(\mathbb{K}[X]\)</span> alors pour tout <span
+class="math inline">\(\alpha \in \mathbb{K}^\star\)</span>, <span
+class="math inline">\(P\)</span> est irréductible dans <span
+class="math inline">\(\mathbb{K}[X]\)</span> (ces deux polynômes
+admettent les mêmes diviseurs).</p></li>
+</ul>
+</div>
+<h3 data-number="4.5.2" id="propriétés-1"><span
+class="header-section-number">4.5.2</span> Propriétés</h3>
+<div class="wprop">
+<p>Soit <span class="math inline">\(P \in \mathbb{K}[X]\)</span>
+irréductible dans <span
+class="math inline">\(\mathbb{K}[X]\)</span>.</p>
+<p>Soit <span class="math inline">\(A \in \mathbb{K}[X]\)</span> tel que
+<span class="math inline">\(P \centernot{|} A\)</span>.</p>
+<p>Alors, <span class="math inline">\(P \wedge A = 1\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\mathscr{D}\left(P,A\right) \subset
+\mathscr{D}(P)\)</span>.</p>
+<p>Or, les polynômes associés à <span class="math inline">\(P\)</span>
+ne sont pas dans <span
+class="math inline">\(\mathscr{D}\left(P,A\right)\)</span>, car <span
+class="math inline">\(P \centernot{|} A\)</span>.</p>
+<p>Donc <span class="math inline">\(\mathscr{D}\left(P,A\right) =
+\mathbb{R}_0[X] \setminus \left(0\right)\)</span> et <span
+class="math inline">\(P \wedge A = 1\)</span>.</p>
+</div>
+<div class="wprop">
+<p><span id="prop:irred_divise_produit"
+label="prop:irred_divise_produit"></span> Soit <span
+class="math inline">\(P \in \mathbb{K}[X]\)</span> irréductible dans
+<span class="math inline">\(\mathbb{K}[X]\)</span>.</p>
+<p>Soient <span class="math inline">\(r \in \mathbb{N}, \geq 2\)</span>
+et <span class="math inline">\(A_1,\ldots,A_r \in \mathbb{K}[X]\)</span>
+tels que <span class="math inline">\(P|A_1A_2\ldots A_r\)</span>.</p>
+<p>Alors il existe <span class="math inline">\(1 \leq i \leq r\)</span>
+tel que <span class="math inline">\(P|A_i\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Montrons ce résultat par récurrence sur <span
+class="math inline">\(r\)</span>.</p>
+<ul>
+<li><p><strong>INITIALISATION.</strong> Pour <span
+class="math inline">\(r=2\)</span>, si <span
+class="math inline">\(P|A_1A_2\)</span>,</p>
+<ol>
+<li><p>Soit <span class="math inline">\(P|A_1\)</span>,</p></li>
+<li><p>soit <span class="math inline">\(P\centernot{|}A_1\)</span> donc
+par la propriété précédente, <span class="math inline">\(P \wedge
+A_1\)</span> et par théorème de Gauss, <span
+class="math inline">\(P|A_2\)</span>.</p></li>
+</ol></li>
+<li><p><strong>HÉRÉDITÉ.</strong> Supposons le résultat vrai pour <span
+class="math inline">\(r\in \mathbb{N}, \geq 2\)</span> fixé.</p>
+<p><span class="math inline">\(A_1,\ldots,A_r,A_{r+1} \in
+\mathbb{K}[X]\)</span> tels que <span
+class="math inline">\(P|A_1A_2\ldots A_rA_{r+1}\)</span>.</p>
+<ol>
+<li><p>Soit <span class="math inline">\(P|A_{r+1}\)</span>,</p></li>
+<li><p>soit <span class="math inline">\(P\centernot{|}A_{r+1}\)</span>
+donc par la propriété précédente, <span class="math inline">\(P \wedge
+A_{r+1}\)</span> et par théorème de Gauss, <span
+class="math inline">\(P|A_1A_2\ldots A_r\)</span>. Puis, par l’hypothèse
+de récurrence, il existe <span class="math inline">\(1 \leq i \leq
+r\)</span> tel que <span class="math inline">\(P|A_i\)</span>.</p></li>
+</ol></li>
+<li><p><strong>CONCLUSION.</strong> Soit <span class="math inline">\(P
+\in \mathbb{K}[X]\)</span> irréductible dans <span
+class="math inline">\(\mathbb{K}[X]\)</span>, <span
+class="math inline">\(r \in \mathbb{N}, \geq 2\)</span> et <span
+class="math inline">\(A_1,\ldots,A_r \in \mathbb{K}[X]\)</span> tels que
+<span class="math inline">\(P|A_1A_2\ldots A_r\)</span> alors il existe
+<span class="math inline">\(1 \leq i \leq r\)</span> tel que <span
+class="math inline">\(P|A_i\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><span id="prop:existence_diviseur_irred"
+label="prop:existence_diviseur_irred"></span> Soit <span
+class="math inline">\(P \in \mathbb{K}[X]\)</span> de degré <span
+class="math inline">\(\geq 1\)</span>. Alors, il existe un diviseur
+<span class="math inline">\(D\)</span> de <span
+class="math inline">\(P\)</span>, irréductible dans <span
+class="math inline">\(\mathbb{K}[X]\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Notons <span class="math inline">\(\mathscr{D} = \left\{\Delta \in
+\mathbb{K}[X] / \Delta | P \text{ et }\deg(\Delta) \geq
+1\right\}\)</span>. <span class="math inline">\(\mathscr{D} \neq
+\emptyset\)</span> car <span class="math inline">\(P \in
+\mathscr{D}\)</span>.</p>
+<p>On considère alors <span class="math inline">\(D\)</span> de degré
+minimal. On a alors <span class="math inline">\(\deg(D) \geq 1\)</span>,
+montrons qu’il est irréductible dans <span
+class="math inline">\(\mathbb{K}[X]\)</span>.</p>
+<p>Soit <span class="math inline">\(\Delta_1 \in \mathbb{K}[X]\)</span>
+tel que <span class="math inline">\(\Delta_1 | D\)</span> alors</p>
+<ul>
+<li><p>Soit <span class="math inline">\(\deg(\Delta_1) =
+0\)</span>,</p></li>
+<li><p>soit <span class="math inline">\(\deg(\Delta_1) \geq 1\)</span>
+et alors par transitivité, <span class="math inline">\(\Delta_1 \in
+\mathscr{D}\)</span>.</p>
+<p>De plus, <span class="math inline">\(\deg(\Delta_1) \leq
+\deg(D)\)</span> et <span class="math inline">\(D\)</span> de degré
+minimal donc <span class="math inline">\(\deg(\Delta_1) =
+\deg(D)\)</span> et <span class="math inline">\(\Delta_1\)</span> est
+associé à <span class="math inline">\(D\)</span>.</p></li>
+</ul>
+<p>On en déduit que <span class="math inline">\(D\)</span> est bien
+irréductible dans <span
+class="math inline">\(\mathbb{K}[X]\)</span>.</p>
+</div>
+<h3 data-number="4.5.3"
+id="décomposition-en-polynômes-irréductibles"><span
+class="header-section-number">4.5.3</span> Décomposition en polynômes
+irréductibles</h3>
+<div class="wthm">
+<p>Soit <span class="math inline">\(P \in \mathbb{K}[X]\)</span> tel que
+<span class="math inline">\(\deg(P) \geq 1\)</span>.</p>
+<p>Alos, il existe</p>
+<ul>
+<li><p><span class="math inline">\(r \in
+\mathbb{N}^{\star}\)</span>,</p></li>
+<li><p><span class="math inline">\(P_1,\ldots,P_r\)</span> polynômes
+irréductibles de <span class="math inline">\(\mathbb{K}[X]\)</span>,
+unitaires, tous distincts,</p></li>
+<li><p><span class="math inline">\(k_1,\ldots,k_r \in
+\mathbb{N}^{\star}\)</span>,</p></li>
+<li><p><span class="math inline">\(\beta \in
+\mathbb{K}^\star\)</span></p></li>
+</ul>
+<p>tels que <span class="math inline">\(P = \beta P_1^{k_1} \ldots
+P_r^{k_r}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Montrons ce résultat par récurrence sur <span class="math inline">\(n
+= \deg (P) \in \mathbb{N}^{\star}\)</span>.</p>
+<ul>
+<li><p><strong>Initialisation.</strong> Si <span class="math inline">\(n
+= 1\)</span>, il existe <span class="math inline">\(a_1,a_0 \in
+\mathbb{K}\)</span> tels que <span class="math inline">\(a_1 \neq
+0\)</span> et <span class="math inline">\(P = a_1X+a_0\)</span>.</p>
+<p>Alors, <span class="math inline">\(P =
+a_1\left(X+\frac{a_0}{a_1}\right)\)</span> et donc</p>
+<ul>
+<li><p><span class="math inline">\(r=1\)</span>,</p></li>
+<li><p><span class="math inline">\(P_1 = X+\frac{a_0}{a_1}\)</span> est
+irréductible dans <span class="math inline">\(\mathbb{K}[X]\)</span>
+(voir l’exemple <a href="#ex:deg1irreductible" data-reference-type="ref"
+data-reference="ex:deg1irreductible">[ex:deg1irreductible]</a>),</p></li>
+<li><p><span class="math inline">\(k_1 = 1\)</span>,</p></li>
+<li><p><span class="math inline">\(\beta = a_1\)</span>.</p></li>
+</ul></li>
+<li><p><strong>Hérédité.</strong> Soit <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span>, supposons le résultat vrai pour tout
+polynôme de degré <span class="math inline">\(\leq n\)</span>.</p>
+<p>On considère alors <span class="math inline">\(P \in
+\mathbb{K}[X]\)</span> de degré <span
+class="math inline">\(n+1\)</span>.</p>
+<ul>
+<li><p>Soit <span class="math inline">\(P\)</span> est irréductible dans
+<span class="math inline">\(\mathbb{K}[X]\)</span>, on note <span
+class="math inline">\(a_{n+1} \in \mathbb{K}^\star\)</span> son
+coefficient dominant tel que <span class="math inline">\(P = a_{n+1}
+\frac{1}{a_{n+1}}P\)</span> et</p>
+<ul>
+<li><p><span class="math inline">\(r=1\)</span>,</p></li>
+<li><p><span class="math inline">\(P_1 = \frac{1}{a_{n+1}}P\)</span> est
+irréductible dans <span class="math inline">\(\mathbb{K}[X]\)</span>
+(associé à <span class="math inline">\(P\)</span> qui est
+irréductible),</p></li>
+<li><p><span class="math inline">\(k_1 = 1\)</span>,</p></li>
+<li><p><span class="math inline">\(\beta = a_{n+1}\)</span>.</p></li>
+</ul></li>
+<li><p>Soit <span class="math inline">\(P\)</span> est réductible dans
+<span class="math inline">\(\mathbb{K}[X]\)</span> et alors par la
+proposition <a href="#prop:existence_diviseur_irred"
+data-reference-type="ref"
+data-reference="prop:existence_diviseur_irred">[prop:existence_diviseur_irred]</a>,
+il existe <span class="math inline">\(D \in \mathbb{K}[X]\)</span>
+irréductible tel que <span class="math inline">\(D|P\)</span>. Il existe
+donc <span class="math inline">\(\tilde{P} \in \mathbb{K}[X]\)</span>
+tel que <span class="math inline">\(P = \tilde{P}D\)</span>. De plus,
+comme <span class="math inline">\(P\)</span> n’est pas associé à <span
+class="math inline">\(D\)</span> (<span class="math inline">\(P\)</span>
+n’est pas irréductible), <span class="math inline">\(\deg(\tilde{P})
+&lt; \deg(P)\)</span>.</p>
+<p>On peut donc appliquer l’hypothèse de récurrence à <span
+class="math inline">\(\tilde{P}\)</span> tel qu’il existe</p>
+<ul>
+<li><p><span class="math inline">\(\tilde r \in
+\mathbb{N}\)</span>,</p></li>
+<li><p><span class="math inline">\(\tilde P_1,\ldots,\tilde P_r\)</span>
+polynômes irréductibles de <span
+class="math inline">\(\mathbb{K}[X]\)</span>, unitaires, tous
+distincts,</p></li>
+<li><p><span class="math inline">\(\tilde k_1,\ldots,\tilde k_r \in
+\mathbb{N}^{\star}\)</span>,</p></li>
+<li><p><span class="math inline">\(\tilde \beta \in
+\mathbb{K}^\star\)</span></p></li>
+</ul>
+<p>tels que <span class="math inline">\(\tilde P = \tilde \beta \tilde
+P_1^{\tilde k_1} \ldots \tilde P_r^{\tilde k_r}\)</span>. On a alors
+<span class="math inline">\(P = D\tilde{P} = \tilde \beta \tilde
+P_1^{\tilde k_1} \ldots \tilde P_r^{\tilde k_r} D\)</span> et en notant
+<span class="math inline">\(\alpha \in \mathbb{K}^\star\)</span> le
+coefficient dominant de <span class="math inline">\(D\)</span>, <span
+class="math inline">\(P = \alpha\tilde \beta \tilde P_1^{\tilde k_1}
+\ldots \tilde P_r^{\tilde k_r} \frac{1}{\alpha }D\)</span>. On obtient
+donc bien une décomposition de <span class="math inline">\(P\)</span> en
+irréductibles.</p></li>
+</ul></li>
+<li><p><strong>Conclusion.</strong> Tout polynôme <span
+class="math inline">\(P \in \mathbb{K}[X]\)</span> de degré <span
+class="math inline">\(\geq 1\)</span> admet une décomposition en
+irréductibles.</p></li>
+</ul>
+</div>
+<div class="wrem">
+<p><span class="math inline">\(\beta\)</span> est le coefficient
+dominant de <span class="math inline">\(P\)</span> car <span
+class="math inline">\(P_1^{k_1} \ldots P_r^{k_r}\)</span> est
+unitaire.</p>
+</div>
+<div class="wprop">
+<p><strong>(Unicité de la décomposition en irréductibles (à l’ordre
+près))</strong> Soit <span class="math inline">\(P \in
+\mathbb{K}[X]\)</span> de degré <span class="math inline">\(\geq
+1\)</span> tel qu’il existe</p>
+<ul>
+<li><p><span class="math inline">\(r,s \in
+\mathbb{N}^{\star}\)</span>,</p></li>
+<li><p><span class="math inline">\(P_1,\ldots,P_r\)</span> polynômes
+irréductibles de <span class="math inline">\(\mathbb{K}[X]\)</span>,
+unitaires, tous distincts,</p></li>
+<li><p><span class="math inline">\(Q_1,\ldots,Q_s\)</span> polynômes
+irréductibles de <span class="math inline">\(\mathbb{K}[X]\)</span>,
+unitaires, tous distincts,</p></li>
+<li><p><span class="math inline">\(k_1,\ldots,k_r \in
+\mathbb{N}^{\star}\)</span>,<span
+class="math inline">\(\ell_1,\ldots,\ell_s \in
+\mathbb{N}^{\star}\)</span></p></li>
+<li><p><span class="math inline">\(\beta, \gamma \in
+\mathbb{K}^\star\)</span></p></li>
+</ul>
+<p>tels que <span class="math display">\[P = \beta P_1^{k_1} \ldots
+P_r^{k_r} = \gamma Q_1^{\ell_1} \ldots Q_s^{\ell_s}.\]</span> Alors,</p>
+<ul>
+<li><p><span class="math inline">\(r=s\)</span>,</p></li>
+<li><p>A l’ordre près des facteurs, pour tout <span
+class="math inline">\(1 \leq i \leq r, Q_i = P_i\)</span> et <span
+class="math inline">\(k_i = \ell_i\)</span>,</p></li>
+<li><p><span class="math inline">\(\beta = \gamma\)</span>.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<p>D’abord, <span class="math inline">\(\beta = \gamma\)</span> car ils
+sont égaux au coefficient dominant de <span
+class="math inline">\(P\)</span>.</p>
+<p>Ensuite, <span class="math inline">\(P_1 |P =  \gamma Q_1^{\ell_1}
+\ldots Q_s^{\ell_s}\)</span> donc par la proposition <a
+href="#prop:irred_divise_produit" data-reference-type="ref"
+data-reference="prop:irred_divise_produit">[prop:irred_divise_produit]</a>,
+il existe <span class="math inline">\(1 \leq j \leq s\)</span> tel que
+<span class="math inline">\(P_1|Q_j\)</span>. Quitte à changer l’ordre
+des <span class="math inline">\(Q_i\)</span>, supposons <span
+class="math inline">\(j=1\)</span>. On a alors <span
+class="math inline">\(P_1 = Q_1\)</span> car ils sont alors associés et
+unitaires.</p>
+<p>Ainsi, en traitant chaque polynômes, on obtient <span
+class="math inline">\(r=s\)</span> et <span class="math inline">\(P_i =
+Q_i\)</span> pour tout <span class="math inline">\(1 \leq i \leq
+r\)</span>.</p>
+<p>De plus, <span class="math inline">\(k_i = \max\left\{k \in
+\mathbb{N}^{\star}/ P_i^k |P\right\}\)</span> donc <span
+class="math inline">\(k_i = \ell_i\)</span> pour tout <span
+class="math inline">\(1 \leq i \leq r\)</span> (voir preuve de la
+décomposition en nombres premiers en arithmétique pour plus de
+détails).</p>
+</div>
+<h3 data-number="4.5.4"
+id="polynômes-irréductibles-de-mathbbcx-et-mathbbrx"><span
+class="header-section-number">4.5.4</span> Polynômes irréductibles de
+<span class="math inline">\(\mathbb{C}[X]\)</span> et <span
+class="math inline">\(\mathbb{R}[X]\)</span></h3>
+<div class="wprop">
+<p>Les polynômes irréductibles de <span
+class="math inline">\(\mathbb{C}[X]\)</span> sont les polynômes de degré
+<span class="math inline">\(1\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>D’abord, par l’exemple <a href="#ex:deg1irreductible"
+data-reference-type="ref"
+data-reference="ex:deg1irreductible">[ex:deg1irreductible]</a>, les
+polynômes de degré <span class="math inline">\(1\)</span> sont
+irréductibles dans <span
+class="math inline">\(\mathbb{C}[X]\)</span>.</p></li>
+<li><p>Aussi, soit <span class="math inline">\(P \in
+\mathbb{C}[X]\)</span> de degré <span class="math inline">\(\geq
+2\)</span>, par le théorème de d’Alembert-Gauss, <span
+class="math inline">\(P\)</span> admet une racine <span
+class="math inline">\(z \in \mathbb{C}\)</span> et donc <span
+class="math inline">\(X-z |P\)</span> avec <span
+class="math inline">\(1= \deg(X-z) &lt; \deg(P)\)</span>. On en déduit
+alors que <span class="math inline">\(P\)</span> est réductible dans
+<span class="math inline">\(\mathbb{C}[X]\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Les polynômes irréductibles de <span
+class="math inline">\(\mathbb{R}[X]\)</span> sont les polynômes de degré
+<span class="math inline">\(1\)</span> et les polynômes de degré <span
+class="math inline">\(2\)</span> sans racines réelles.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>D’abord, par l’exemple <a href="#ex:deg1irreductible"
+data-reference-type="ref"
+data-reference="ex:deg1irreductible">[ex:deg1irreductible]</a>, les
+polynômes de degré <span class="math inline">\(1\)</span> sont
+irréductibles dans <span
+class="math inline">\(\mathbb{C}[X]\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(P \in \mathbb{R}[X]\)</span> de
+degré <span class="math inline">\(2\)</span> réductible, alors il existe
+<span class="math inline">\(Q \in \mathbb{R}[X]\)</span> tel que <span
+class="math inline">\(1 \leq Q &lt; \deg(P) = 2\)</span> ie <span
+class="math inline">\(\deg(Q) = 1\)</span> et <span
+class="math inline">\(Q|P\)</span>. Donc <span
+class="math inline">\(P\)</span> admet une racine dans <span
+class="math inline">\(\mathbb{R}\)</span>.</p></li>
+</ul>
+<p>On en déduit que les polynômes de degré <span
+class="math inline">\(1\)</span> et les polynômes de degré <span
+class="math inline">\(2\)</span> sans racines réelles sont irréductibles
+dans <span class="math inline">\(\mathbb{R}[X]\)</span>. Montrons que
+les autres polynômes sont réductibles dans <span
+class="math inline">\(\mathbb{R}[X]\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(\deg(P) = 2\)</span> et <span
+class="math inline">\(P\)</span> admet une racine <span
+class="math inline">\(x\)</span> réelle alors <span
+class="math inline">\(X-x |P\)</span> et <span class="math inline">\(1 =
+\deg(X-x) &lt; \deg(P)\)</span> donc <span
+class="math inline">\(P\)</span> est réductible dans <span
+class="math inline">\(\mathbb{R}[X]\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\deg(P) \geq 3\)</span>, on peut
+considérer <span class="math inline">\(P\)</span> comme un polynôme de
+<span class="math inline">\(\mathbb{C}[X]\)</span> et il admet donc une
+racine complexe <span class="math inline">\(z \in \mathbb{C}\)</span>
+par théorème de d’Alembert Gauss.</p>
+<ul>
+<li><p>Soit <span class="math inline">\(z \in \mathbb{R}\)</span> et
+alors <span class="math inline">\(X-z |P\)</span> (dans <span
+class="math inline">\(\mathbb{R}[X]\)</span>) donc <span
+class="math inline">\(P\)</span> est réductible,</p></li>
+<li><p>soit <span class="math inline">\(z \notin \mathbb{R}\)</span>
+donc <span class="math inline">\(X-z\)</span> divise <span
+class="math inline">\(P\)</span> <u> dans <span
+class="math inline">\(\mathbb{C}[X]\)</span></u> et <span
+class="math inline">\(z \neq \overline{z}\)</span>.</p>
+<p>Or, par la proposition <a
+href="#prop:polynome_reel_racine_conjuguees" data-reference-type="ref"
+data-reference="prop:polynome_reel_racine_conjuguees">[prop:polynome_reel_racine_conjuguees]</a>,
+<span class="math inline">\(\overline{z}\)</span> est aussi racine de
+<span class="math inline">\(P\)</span> dans <span
+class="math inline">\(\mathbb{R}[X]\)</span> donc <span
+class="math inline">\(X-\overline{z}\)</span> divise <span
+class="math inline">\(P\)</span> <u> dans <span
+class="math inline">\(\mathbb{C}[X]\)</span></u>.</p>
+<p>Comme <span class="math inline">\(X-\overline{z}\neq X-z\)</span>,
+<span class="math inline">\(X-z \wedge X-\overline{z} = 1\)</span> et
+<span class="math inline">\((X-z)(X-\overline{z})\)</span> divise <span
+class="math inline">\(P\)</span> dans <span
+class="math inline">\(\mathbb{C}[X]\)</span> ie il existe <span
+class="math inline">\(Q \in \mathbb{C}[X]\)</span> tel que <span
+class="math inline">\(P = Q(X-z)(X-\overline{z}) =
+Q(X^2-2\mathop{\mathrm{Re}}(z)X+|z|^2)\)</span>.</p>
+<p>Or, <span class="math inline">\(X^2-2\mathop{\mathrm{Re}}(z)X+|z|^2
+\in \mathbb{R}[X]\)</span> donc <span class="math inline">\(Q \in
+\mathbb{R}[X]\)</span>.</p>
+<p>En effet, <span
+class="math inline">\(Q(X^2-2\mathop{\mathrm{Re}}(z)X+|z|^2) = P =
+\overline{P} =
+\overline{Q}(X^2-2\mathop{\mathrm{Re}}(z)X+|z|^2)\)</span> et par
+intégrité de <span class="math inline">\(\mathbb{R}[X]\)</span>, <span
+class="math inline">\((Q-\overline{Q})(X^2-2\mathop{\mathrm{Re}}(z)X+|z|^2)\)</span>
+donne <span class="math inline">\(Q = \overline{Q}\)</span>.</p>
+<p>On a donc <span
+class="math inline">\(X^2-2\mathop{\mathrm{Re}}(z)X+|z|^2\)</span>
+divise <span class="math inline">\(P\)</span> <u> dans <span
+class="math inline">\(\mathbb{R}[X]\)</span></u>.</p>
+<p>De plus, <span class="math inline">\(1 \leq
+\deg(X^2-2\mathop{\mathrm{Re}}(z)X+|z|^2) &lt; \deg(P)\)</span> donc
+<span class="math inline">\(P\)</span> est réducible dans <span
+class="math inline">\(\mathbb{R}[X]\)</span>.</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="wappli">
+<p>Soit <span class="math inline">\(P \in \mathbb{R}[X]\)</span>, de
+degré impair alors <span class="math inline">\(P\)</span> admet une
+racine dans <span class="math inline">\(\mathbb{R}\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><strong>Méthode 1 (utilisant ce qui précède) :</strong> Il
+existe</p>
+<ul>
+<li><p><span class="math inline">\(r \in
+\mathbb{N}^{\star}\)</span>,</p></li>
+<li><p><span class="math inline">\(P_1,\ldots,P_r\)</span> polynômes
+irréductibles de <span class="math inline">\(\mathbb{R}[X]\)</span>,
+unitaires, tous distincts,</p></li>
+<li><p><span class="math inline">\(k_1,\ldots,k_r \in
+\mathbb{N}^{\star}\)</span>,</p></li>
+<li><p><span class="math inline">\(\beta \in
+\mathbb{R}^{\star}\)</span></p></li>
+</ul>
+<p>tels que <span class="math inline">\(P = \beta \prod_{i=1}^r
+P_i^{k_i}\)</span>.</p>
+<p>Or, les <span class="math inline">\(P_i\)</span> sont des polynômes
+de degré <span class="math inline">\(1\)</span> ou <span
+class="math inline">\(2\)</span> et comme <span
+class="math inline">\(\deg(P)\)</span> est impair, il en existe au moins
+un de degré <span class="math inline">\(1\)</span> et donc <span
+class="math inline">\(P\)</span> a une racine dans <span
+class="math inline">\(\mathbb{R}\)</span>.</p></li>
+<li><p><strong>Méthode 2 :</strong> Considérons la fonction polynômiale
+<span class="math inline">\(\tilde P\)</span> associé à <span
+class="math inline">\(P\)</span>. Notons <span
+class="math inline">\(\deg(P) = 2n+1\)</span> et <span
+class="math inline">\(a_{n+1} \neq 0\)</span> son coefficient
+dominant.</p>
+<p>On a <span class="math inline">\(P(x) \underset{x\to \pm
+\infty}{\sim} a_n x^{2n+1}\)</span> donc</p>
+<ul>
+<li><p>soit <span class="math inline">\(a_{2n+1} &gt; 0\)</span> donc
+<span class="math inline">\(P(x) \underset{x \rightarrow
++\infty}{\longrightarrow} +\infty\)</span> et <span
+class="math inline">\(P(x) \underset{x \rightarrow
+-\infty}{\longrightarrow} -\infty\)</span>,</p></li>
+<li><p>soit <span class="math inline">\(a_{2n+1} &lt; 0\)</span> donc
+<span class="math inline">\(P(x) \underset{x \rightarrow
++\infty}{\longrightarrow} -\infty\)</span> et <span
+class="math inline">\(P(x) \underset{x \rightarrow
+-\infty}{\longrightarrow} +\infty\)</span>.</p></li>
+</ul>
+<p>On a donc, par théorème des valeurs intermédiaires, l’existence d’un
+réel <span class="math inline">\(x \in \mathbb{R}\)</span> tel que <span
+class="math inline">\(P(x) = 0\)</span>.</p></li>
+</ul>
 </div>
 </body>
 </html>
