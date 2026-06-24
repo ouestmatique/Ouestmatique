@@ -377,24 +377,17 @@ body,
 }
 
 .cours-card {
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
 }
 
-.cours-preview {
+.resume {
+  display: none;
   font-size: 0.85em;
   color: rgba(120,120,120,0.8);
   margin-top: 0.2rem;
-
-  opacity: 0;
-  max-height: 0;
-  overflow: hidden;
-
-  transition:
-      opacity 0.3s ease,
-      max-height 0.3s ease;
+  margin-left: 1rem;
 }
 
-.cours-card:hover .cours-preview {
-  opacity: 1;
-  max-height: 100px;
+.cours-card:hover .resume {
+  display: block;
 }
