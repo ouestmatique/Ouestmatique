@@ -1,0 +1,2275 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Espaces vectoriels (2^{\text{i\`eme}} partie)</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+
+<style>
+  /* Correctif MathJax : fusion des bordures pour les divisions de polynômes (array + cline) */
+  mjx-container mjx-mtable {
+    border-collapse: collapse !important;
+  }
+  mjx-container mjx-mtd {
+    padding-top: 0.25em !important;
+    padding-bottom: 0.25em !important;
+  }
+
+  
+</style>
+
+<header class="site-header">
+
+   <div class="site-header-left">
+      <a href="../../index.html">
+        <img src="../../assets/logo.svg"
+             class="site-logo"
+             alt="Logo">
+      </a>
+    </div>
+
+<div class="site-header-right">
+   <button id="theme-toggle"
+style="
+margin-right: 15px;
+cursor: pointer;
+background: transparent;
+border: none;
+font-size: 1.1rem;
+color: var(--md-primary-bg-color);
+">
+🌙 / ☀️
+</button>
+
+<a href="../../index.html" class="home-link">
+   Retour à l’accueil
+ </a>
+</div>
+
+</header>
+
+
+<header id="title-block-header">
+
+<h1 class="title">Espaces vectoriels (<span
+class="math inline">\(2^{\text{i\`eme}}\)</span> partie)</h1>
+<p class="pdf-link">
+<a href="espaces_vectoriels_P2.pdf" target="_blank">[PDF]</a>
+</p>
+
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#espace-vectoriel-de-dimension-finie"
+id="toc-espace-vectoriel-de-dimension-finie"><span
+class="toc-section-number">1</span> Espace vectoriel de dimension
+finie</a>
+<ul>
+<li><a href="#famille-génératrice-dun-espace-vectoriel"
+id="toc-famille-génératrice-dun-espace-vectoriel"><span
+class="toc-section-number">1.1</span> Famille génératrice d’un espace
+vectoriel</a></li>
+<li><a href="#base-dun-espace-vectoriel-de-dimension-finie"
+id="toc-base-dun-espace-vectoriel-de-dimension-finie"><span
+class="toc-section-number">1.2</span> Base d’un espace vectoriel de
+dimension finie</a></li>
+<li><a href="#détermination-de-f-in-mathscrlef-à-laide-dune-base"
+id="toc-détermination-de-f-in-mathscrlef-à-laide-dune-base"><span
+class="toc-section-number">1.3</span> Détermination de <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span> à l’aide d’une
+base</a></li>
+<li><a
+href="#existence-dune-base-de-eneq-left0_eright-de-dimension-finie"
+id="toc-existence-dune-base-de-eneq-left0_eright-de-dimension-finie"><span
+class="toc-section-number">1.4</span> Existence d’une base de <span
+class="math inline">\(E\neq \left\{0_E\right\}\)</span> de dimension
+finie</a></li>
+<li><a href="#invariance-du-cardinal-dune-base-de-e"
+id="toc-invariance-du-cardinal-dune-base-de-e"><span
+class="toc-section-number">1.5</span> Invariance du cardinal d’une base
+de <span class="math inline">\(E\)</span></a></li>
+<li><a href="#sous-espace-dun-espace-vectoriel-de-dimension-finie"
+id="toc-sous-espace-dun-espace-vectoriel-de-dimension-finie"><span
+class="toc-section-number">1.6</span> Sous-espace d’un espace vectoriel
+de dimension finie</a></li>
+<li><a
+href="#applications-linéaire-entre-deux-espaces-de-dimension-finie"
+id="toc-applications-linéaire-entre-deux-espaces-de-dimension-finie"><span
+class="toc-section-number">1.7</span> Applications linéaire entre deux
+espaces de dimension finie</a>
+<ul>
+<li><a href="#rang-de-f-in-mathscrlef"
+id="toc-rang-de-f-in-mathscrlef"><span
+class="toc-section-number">1.7.1</span> Rang de <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span></a></li>
+<li><a href="#espaces-vectoriels-de-dimension-finie-isomorphes"
+id="toc-espaces-vectoriels-de-dimension-finie-isomorphes"><span
+class="toc-section-number">1.7.2</span> Espaces vectoriels de dimension
+finie isomorphes</a></li>
+<li><a href="#théorème-du-rang" id="toc-théorème-du-rang"><span
+class="toc-section-number">1.7.3</span> Théorème du rang</a></li>
+</ul></li>
+<li><a href="#exemples-despaces-vectoriels-de-dimension-finie"
+id="toc-exemples-despaces-vectoriels-de-dimension-finie"><span
+class="toc-section-number">1.8</span> Exemples d’espaces vectoriels de
+dimension finie</a>
+<ul>
+<li><a href="#espace-vectoriel-produit"
+id="toc-espace-vectoriel-produit"><span
+class="toc-section-number">1.8.1</span> Espace vectoriel
+produit</a></li>
+<li><a href="#espace-vectoriel-mathscrlef"
+id="toc-espace-vectoriel-mathscrlef"><span
+class="toc-section-number">1.8.2</span> Espace vectoriel <span
+class="math inline">\(\mathscr{L}(E,F)\)</span></a></li>
+<li><a
+href="#espaces-des-suites-complexes-admettant-une-relation-de-récurrence-dordre-2"
+id="toc-espaces-des-suites-complexes-admettant-une-relation-de-récurrence-dordre-2"><span
+class="toc-section-number">1.8.3</span> Espaces des suites complexes
+admettant une relation de récurrence d’ordre 2</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#forme-linéaire-sur-un-espace-vectoriel"
+id="toc-forme-linéaire-sur-un-espace-vectoriel"><span
+class="toc-section-number">2</span> Forme linéaire sur un espace
+vectoriel</a>
+<ul>
+<li><a href="#forme-linéaire-sur-un-sous-espace-vectoriel"
+id="toc-forme-linéaire-sur-un-sous-espace-vectoriel"><span
+class="toc-section-number">2.1</span> Forme linéaire sur un sous-espace
+vectoriel</a></li>
+<li><a href="#noyau-dune-forme-linéaire-non-nulle"
+id="toc-noyau-dune-forme-linéaire-non-nulle"><span
+class="toc-section-number">2.2</span> Noyau d’une forme linéaire non
+nulle</a></li>
+<li><a href="#équations-cartésiennes-dun-hyperplan-dans-une-base"
+id="toc-équations-cartésiennes-dun-hyperplan-dans-une-base"><span
+class="toc-section-number">2.3</span> Équations cartésiennes d’un
+hyperplan dans une base</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="espace-vectoriel-de-dimension-finie"><span
+class="header-section-number">1</span> Espace vectoriel de dimension
+finie</h1>
+<h2 data-number="1.1"
+id="famille-génératrice-dun-espace-vectoriel"><span
+class="header-section-number">1.1</span> Famille génératrice d’un espace
+vectoriel</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un espace vectoriel sur
+<span class="math inline">\(\mathbb{K}\)</span> et <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span>.</p>
+<p><span class="math inline">\((v_1,\ldots,v_n)\)</span> est une famille
+génératrice de <span class="math inline">\(E\)</span> si <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_n) =
+E\)</span></p>
+<p>ie pour tout <span class="math inline">\(v \in E\)</span>, il existe
+<span class="math inline">\(\alpha_1,\ldots,\alpha_n \in
+\mathbb{K}\)</span> tels que <span class="math inline">\(v =
+\sum_{k=1}^n \alpha_k v_k\)</span>.</p>
+</div>
+<div class="wex">
+<ul>
+<li><p>Avec <span class="math inline">\(E = \mathbb{R}^3\)</span>, <span
+class="math inline">\(v_1 = (1,0,1), v_2 = (0,0,-1)\)</span> et <span
+class="math inline">\(v_3 = (2,0,1)\)</span>, <span
+class="math inline">\((v_1,v_2,v_3)\)</span> n’est pas génératrice de
+<span class="math inline">\(E\)</span>.</p>
+<p>En effet, si <span class="math inline">\(v \in
+\mathop{\mathrm{Vect}}(v_1,v_2,v_3)\)</span>, <span
+class="math inline">\(v \in \left\{(x,0,z) / x,z \in \mathbb{R}\right\}
+\centernot{=} E\)</span>.</p></li>
+<li><p>Avec <span class="math inline">\(E = \mathbb{R}^2\)</span>, <span
+class="math inline">\(v_1 = (1,0),\)</span> et <span
+class="math inline">\(v_2 = (0,-1)\)</span>, <span
+class="math inline">\((v_1,v_2)\)</span> est génératrice de <span
+class="math inline">\(E\)</span>.</p>
+<p>En effet, si <span class="math inline">\(v = (x,y) \in E\)</span>,
+<span class="math inline">\(v = xv_1-yv_2\)</span> donc <span
+class="math inline">\(E =
+\mathop{\mathrm{Vect}}(v_1,v_2)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><span id="prop:image_gene_donne_gene_im"
+label="prop:image_gene_donne_gene_im"></span> Soient <span
+class="math inline">\(E\)</span>, <span class="math inline">\(F\)</span>
+deux espaces vectoriels sur <span
+class="math inline">\(\mathbb{K}\)</span>, <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> une famille
+génératrice de <span class="math inline">\(E\)</span> et <span
+class="math inline">\(f \in \mathcal{L}(E,F)\)</span>.</p>
+<p>Alors, <span class="math inline">\((f(v_1),\ldots,f(v_n))\)</span>
+est une famille génératrice de <span
+class="math inline">\(\mathop{\mathrm{Im}}f\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(y \in
+\mathop{\mathrm{Im}}f\)</span>, il existe <span class="math inline">\(x
+\in E\)</span> tel que <span class="math inline">\(y =
+f(x)\)</span>.</p>
+<p>De plus, <span class="math inline">\((v_1,\ldots,v_n)\)</span> est
+une famille génératrice de <span class="math inline">\(E\)</span> donc
+il existe <span class="math inline">\(\alpha_1,\ldots,\alpha_n \in
+\mathbb{K}\)</span> tels que <span class="math inline">\(x =
+\sum_{k=1}^n \alpha_k v_k\)</span>.</p>
+<p>On a alors <span class="math inline">\(y = f(x) = \sum_{k=1}^n
+\alpha_k f(v_k)\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{Im}}f \subset
+\mathop{\mathrm{Vect}}(f(v_),\ldots,f(v_n))\)</span>.</p>
+<p>Comme on a clairement aussi <span
+class="math inline">\(\mathop{\mathrm{Im}}f \supset
+\mathop{\mathrm{Vect}}(f(v_1),\ldots,f(v_n))\)</span>, <span
+class="math inline">\((f(v_1),\ldots,f(v_n))\)</span> est une famille
+génératrice de <span
+class="math inline">\(\mathop{\mathrm{Im}}f\)</span>.</p>
+</div>
+<div class="wcor">
+<p><span id="cor:surjective_generatrice"
+label="cor:surjective_generatrice"></span> Dans la proposition
+précédente, si de plus <span class="math inline">\(f\)</span> est
+surjective, <span class="math inline">\((f(v_1),\ldots,f(v_n))\)</span>
+est une famille génératrice de <span
+class="math inline">\(F\)</span>.</p>
+<p>Autrement dit, une application linéaire surjective envoie une famille
+génératrice sur une famille génératrice.</p>
+</div>
+<div class="wrem">
+<p>Pour rappel, une application linéaire injective envoie une famille
+libre sur une famille libre.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E\)</span>, <span
+class="math inline">\(F\)</span> deux espaces vectoriels sur <span
+class="math inline">\(\mathbb{K}\)</span>, <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> une famille
+génératrice de <span class="math inline">\(E\)</span> et <span
+class="math inline">\(f,g \in \mathcal{L}(E,F)\)</span>.</p>
+<p>Si pour tout <span class="math inline">\(1 \leq k \leq n, f(v_k) =
+g(v_k)\)</span> alors <span class="math inline">\(f=g\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(v \in E\)</span>, il existe <span
+class="math inline">\(\alpha_1,\ldots,\alpha_n \in \mathbb{K}\)</span>
+tels que <span class="math inline">\(v = \sum_{k=1}^n \alpha_k
+v_k\)</span>.</p>
+<p>Donc <span class="math inline">\(f(v) =  \sum_{k=1}^n \alpha_k
+\underbrace{f(v_k)}_{ = g(v_k)} = \sum_{k=1}^n \alpha_k g(v_k) =
+g(v)\)</span>.</p>
+<p>Donc <span class="math inline">\(f=g\)</span>.</p>
+</div>
+<div class="wdefi">
+<p><span class="math inline">\(E\)</span> est de dit de dimension finie
+s’il existe <span class="math inline">\((v_1,\ldots,v_n) \in
+E^n\)</span> telle que <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> est une famille
+génératrice de <span class="math inline">\(E\)</span>.</p>
+</div>
+<div class="wex">
+<ul>
+<li><p><span class="math inline">\(\mathbb{R}^2\)</span> est de
+dimension finie car <span
+class="math inline">\(\left((1,0),(0,-1)\right)\)</span> génère <span
+class="math inline">\(\mathbb{R}^2\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span>, <span
+class="math inline">\(\mathbb{K}^n\)</span> est de dimension finie car
+il est généré par <span class="math inline">\(\left(v_k\right)_{1 \leq k
+\leq n}\)</span> avec pour <span class="math inline">\(1 \leq k \leq
+n\)</span>, <span class="math inline">\(v_k =
+(0,\ldots,0,\underbrace{1}_{k\text{-ième}},0,\ldots,0)\)</span>.</p>
+<p>En effet, si <span class="math inline">\(v = (x_k)_{1 \leq k \leq n}
+\in \mathbb{K}^n\)</span>, <span class="math inline">\(v = \sum_{k=1}^n
+x_k v_k\)</span>.</p></li>
+<li><p><strong>Exercice</strong> — Montrer que <span
+class="math inline">\(E = \left\{f \in
+\mathscr{F}(\mathbb{R},\mathbb{R}) / \exists \alpha_f \in
+\mathbb{R}\text{ tel que }\forall x \geq \alpha, f(x) =
+0\right\}\)</span> est un espace vectoriel et qu’il n’est pas de
+dimension finie.</p>
+<p><strong>Corrigé</strong> — Pour montrer que <span
+class="math inline">\(E\)</span> est un espace vectoriel, montrons que
+c’est un sous-espace vectoriel de <span
+class="math inline">\(\mathscr{F}(\mathbb{R},\mathbb{R})\)</span>.</p>
+<ul>
+<li><p><span
+class="math inline">\(0_{\mathscr{F}(\mathbb{R},\mathbb{R})} \in
+E\)</span>,</p></li>
+<li><p>Soient <span class="math inline">\(f,g \in E\)</span> et <span
+class="math inline">\(\lambda \in \mathbb{R}\)</span>.</p>
+<p>Il existe <span class="math inline">\(\alpha_f, \alpha_g \in
+\mathbb{R}\)</span> tels que <span
+class="math inline">\(\left\{\begin{array}{ll}
+            \forall x \geq \alpha_f, &amp; f(x) = 0 \\
+            \forall x \geq \alpha_g, &amp;g(x) = 0
+        \end{array}\right.\)</span></p>
+<p>On a donc pour tout <span class="math inline">\(x \geq
+\max(\alpha_f,\alpha_g)\)</span>, <span class="math inline">\((f+\lambda
+g)(x) = 0\)</span>.</p>
+<p>On en déduit que <span class="math inline">\(f+\lambda g \in
+E\)</span>.</p></li>
+</ul>
+<p>Finalement, <span class="math inline">\(E\)</span> est bien un espace
+vectoriel.</p>
+<p>Montrons que <span class="math inline">\(E\)</span> n’est pas de
+dimension finie en raisonnant par l’absurde. Supposons qu’il existe
+<span class="math inline">\((f_1,\ldots,f_n) \in E^n\)</span> famille
+génératrice de <span class="math inline">\(E\)</span>.</p>
+<p>Alors, soit <span class="math inline">\(f \in E\)</span>, il existe
+<span class="math inline">\(\lambda_1,\ldots,\lambda_n \in
+\mathbb{R}\)</span> tels que <span class="math inline">\(f =
+\sum_{k=1}^n \lambda_k f_k\)</span>.</p>
+<p>En particulier, en notant <span class="math inline">\(A =
+\max(\alpha_1,\ldots,\alpha_n)\)</span> on a pour tout <span
+class="math inline">\(x \geq A, f(x) = 0\)</span>.</p>
+<p>Ceci est absurde car <span class="math inline">\(\begin{array}{lllll}
+g &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \left\{\begin{array}{ll}
+            1 &amp; \mbox{ si $x &lt; A+1$} \\
+            0 &amp; \mbox{ sinon.}
+        \end{array}\right.
+\end{array}
+\in E\)</span> mais ne vérifie pas <span class="math inline">\(g(x) =
+0\)</span> pour <span class="math inline">\(x \geq A\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="1.2"
+id="base-dun-espace-vectoriel-de-dimension-finie"><span
+class="header-section-number">1.2</span> Base d’un espace vectoriel de
+dimension finie</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un espace vectoriel sur
+<span class="math inline">\(\mathbb{K}\)</span> et <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> une famille génératrice
+de <span class="math inline">\(E\)</span>.</p>
+<p>On dit que <span class="math inline">\((v_1,\ldots,v_n)\)</span> est
+une base de <span class="math inline">\(E\)</span> si pour tout <span
+class="math inline">\(v \in E\)</span>, il existe <span
+class="math inline">\(\alpha_1,\ldots,\alpha_n \in \mathbb{K}\)</span>
+<u>uniques</u> tels que <span class="math inline">\(v = \sum_{k=1}^n
+\alpha_k v_k\)</span>.</p>
+<p>Dans ce cas, <span
+class="math inline">\((\alpha_1,\ldots,\alpha_n)\)</span> sont les
+composantes de <span class="math inline">\(v\)</span> sur la base <span
+class="math inline">\((v_1,\ldots,v_n)\)</span>.</p>
+</div>
+<div class="wex">
+<p><span id="ex:base_canonique" label="ex:base_canonique"></span></p>
+<ul>
+<li><p>Avec <span class="math inline">\(E = \mathbb{R}^2\)</span>, <span
+class="math inline">\(v_1 = (1,0)\)</span>, <span
+class="math inline">\(v_2 = (0,2)\)</span> et <span
+class="math inline">\(v_3 = (1,1)\)</span>.</p>
+<p><span class="math inline">\((v_1,v_2,v_3)\)</span> est une famille
+génératrice de <span class="math inline">\(E\)</span> car pour tout
+<span class="math inline">\((x,y) \in \mathbb{R}^2\)</span>n <span
+class="math inline">\((x,y) = xv_1+\frac{y}{2} v_2 \in
+\mathop{\mathrm{Vect}}(v_1,v_2,v_3)\)</span>.</p>
+<p>En revanche, ce n’est pas une base de <span
+class="math inline">\(E\)</span> car par exemple, <span
+class="math inline">\(v_3 = 0v_1+0v_2+1v_3 =
+1v_1+\frac{1}{2}v_2+0v_3\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span>, <span
+class="math inline">\(E=\mathbb{K}^n\)</span> et <span
+class="math inline">\(\left(v_k\right)_{1 \leq k \leq n}\)</span> avec
+pour <span class="math inline">\(1 \leq k \leq n\)</span>, <span
+class="math inline">\(v_k =
+(0,\ldots,0,\underbrace{1}_{k\text{-ième}},0,\ldots,0)\)</span>, <span
+class="math inline">\(\left(v_k\right)_{1 \leq k \leq n}\)</span> est
+une base de <span class="math inline">\(E\)</span>. Elle est appelée la
+<u>base canonique de <span
+class="math inline">\(\mathbb{K}^n\)</span></u>.</p>
+<p>En effet, soient <span class="math inline">\(x =
+\left(x_k\right)_{1\leq k \leq n} \in E\)</span> et <span
+class="math inline">\(\alpha_1,\ldots,\alpha_n \in \mathbb{K}\)</span>
+tels que <span class="math inline">\(x = \sum_{k=1}^n \alpha_k v_k =
+\left(\alpha_k\right)_{1 \leq k \leq n}\)</span> alors nécessairement,
+<span class="math inline">\(\alpha_k = x_k\)</span> d’où leur
+unicité.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\((v_1,\ldots,v_n)\in E^n\)</span>,</p>
+<p><span class="math display">\[(v_1,\ldots,v_n) \text{ est une base de
+$E$} \iff (v_1,\ldots,v_n) \text{ est une famille libre et génératrice
+de $E$}.\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> est une base de <span
+class="math inline">\(E\)</span>, elle est génératrice par
+définition.</p>
+<p>De plus, <span class="math inline">\(0_E = \sum_{k=1}^n 0
+v_k\)</span> est l’unique décomposition de <span
+class="math inline">\(0_E\)</span> dans cette base.</p>
+<p>Donc s’il existe <span class="math inline">\(\alpha_1,\ldots,\alpha_n
+\in \mathbb{K}\)</span> tels que <span
+class="math inline">\(\sum_{k=1}^n \alpha_k v_k = 0_E\)</span>,
+nécessairement, <span class="math inline">\(\alpha_k = 0\)</span> pour
+tout <span class="math inline">\(1 \leq k \leq n\)</span>. Cela donne
+que <span class="math inline">\((v_1,\ldots,v_n)\)</span> est une
+famille libre de <span class="math inline">\(E\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Soit <span
+class="math inline">\(v \in E\)</span>, comme <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> est génératrice de <span
+class="math inline">\(E\)</span>, il existe <span
+class="math inline">\(\alpha_1,\ldots,\alpha_n \in \mathbb{K}\)</span>
+tels que <span class="math inline">\(v = \sum_{k=1}^n \alpha_k
+v_k\)</span>.</p>
+<p>De plus, si l’on suppose qu’il existe une autre décomposition de
+<span class="math inline">\(v\)</span> dans la famille <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> telle que <span
+class="math inline">\(v = \sum_{k=1}^n \beta_k v_k\)</span> avec <span
+class="math inline">\(\beta_1,\ldots,\beta_n \in \mathbb{K}\)</span>
+alors <span class="math inline">\(0_E = v-v = \sum_{k=1}^n
+(\alpha_k-\beta_k)v_k\)</span>.</p>
+<p>De la liberté de <span
+class="math inline">\((v_1,\ldots,v_n)\)</span>, on tire <span
+class="math inline">\(\alpha_k - \beta_k = 0 \iff \alpha_k =
+\beta_k\)</span> pour tout <span class="math inline">\(1\leq k \leq
+n\)</span>.</p>
+<p>On en déduit donc que cette décomposition est unique et que <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> est une base de <span
+class="math inline">\(E\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="1.3"
+id="détermination-de-f-in-mathscrlef-à-laide-dune-base"><span
+class="header-section-number">1.3</span> Détermination de <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span> à l’aide d’une
+base</h2>
+<div class="wprop">
+<p><span id="prop:inj_surj_bij_libre_gene_base"
+label="prop:inj_surj_bij_libre_gene_base"></span> Soient <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\((e_1,\ldots,e_n)\)</span> une base de <span
+class="math inline">\(E\)</span>. Soient <span
+class="math inline">\(F\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\((v_1,\ldots,v_n) \in F^n\)</span>.</p>
+<p>Alors, il existe <span class="math inline">\(f \in
+\mathscr{L}(E,F)\)</span> unique telle que pour tout <span
+class="math inline">\(1 \leq k \leq n\)</span>, <span
+class="math inline">\(f(e_k) = v_k\)</span>.</p>
+<p>De plus, <span class="math display">\[\begin{aligned}
+        f \text{ injective } &amp; \iff (v_1,\ldots,v_n) \text{ libre
+dans $F$} \\
+        f \text{ surjective } &amp;\iff (v_1,\ldots,v_n) \text{
+génératrice de $F$} \\
+        f \text{ bijective } &amp;\iff (v_1,\ldots,v_n) \text{ base de
+$F$}
+    \end{aligned}\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Procédons par analyse-synthèse pour l’existence et l’unicité de
+<span class="math inline">\(f\)</span>.</p>
+<ul>
+<li><p><strong>Analyse.</strong> Si <span class="math inline">\(f(e_k) =
+v_k\)</span> pour tout <span class="math inline">\(1 \leq k \leq
+n\)</span>. Soit <span class="math inline">\(v \in E\)</span>, comme
+<span class="math inline">\((e_1,\ldots,e_n)\)</span> est une base de
+<span class="math inline">\(E\)</span>, il existe <span
+class="math inline">\(\alpha_1,\dots,\alpha_n\)</span> uniques tels que
+<span class="math inline">\(v = \sum_{k=1}^n \alpha_k e_k\)</span>. On a
+donc, par linéarité de <span class="math inline">\(f\)</span>, <span
+class="math inline">\(f(v) = \sum_{k=1}^n \alpha_k f(e_k) = \sum_{k=1}^n
+v_k\)</span>.</p>
+<p><span class="math inline">\(f\)</span> s’écrit donc <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; E &amp; \to &amp; F \\
+   &amp;   &amp; v &amp; \mapsto &amp; \sum_{k=1}^n \alpha_k v_k \text{
+où $v = \sum_{k=1}^n \alpha_k e_k$}
+\end{array}\)</span>.</p></li>
+<li><p><strong>Synthèse.</strong> Vérifions si <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; E &amp; \to &amp; F \\
+   &amp;   &amp; v &amp; \mapsto &amp; \sum_{k=1}^n \alpha_k v_k \text{
+où $v = \sum_{k=1}^n \alpha_k e_k$}
+\end{array}\)</span> définit bien une fonction linéaire de <span
+class="math inline">\(E\)</span> dans <span
+class="math inline">\(F\)</span>.</p>
+<p>Soient <span class="math inline">\(v,w \in E\)</span> et <span
+class="math inline">\(\lambda\in \mathbb{R}\)</span> tels que <span
+class="math inline">\(v = \sum_{k=1}^n \alpha_k e_k\)</span> et <span
+class="math inline">\(w =  \sum_{k=1}^n \beta_k e_k\)</span> avec <span
+class="math inline">\(\alpha_1,\ldots,\alpha_n,\beta_1,\ldots,\beta_n
+\in \mathbb{K}\)</span>.</p>
+<p>Alors <span class="math inline">\(v+\lambda w = \sum_{k=1}^n
+(\alpha_k+\lambda\beta_k) e_k\)</span> et</p>
+<p><span class="math inline">\(f(v+\lambda w) = \sum_{k=1}^n
+(\alpha_k+\lambda\beta_k) v_k = \sum_{k=1}^n \alpha_k v_k +
+\lambda\sum_{k=1}^n \beta_k v_k = f(v)+\lambda f(w)\)</span> donc <span
+class="math inline">\(f\)</span> est bien linéaire.</p></li>
+</ul></li>
+<li><p>Montrons <span class="math inline">\(f \text{ injective } \iff
+(v_1,\ldots,v_n) \text{ libre dans $F$}\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Soient
+<span class="math inline">\(\alpha_1,\ldots,\alpha_n \in
+\mathbb{K}\)</span> tels que <span class="math inline">\(\sum_{k=1}^n
+v_k = 0_E\)</span>.</p>
+<p>Alors, <span class="math inline">\(\sum_{k=1}^n v_k =
+f\left(\sum_{k=1}^n e_k\right) = 0_E\)</span> donc <span
+class="math inline">\(\sum_{k=1}^n e_k \in \mathop{\mathrm{Ker}}f =
+\left(0_E\right)\)</span> (car <span class="math inline">\(f\)</span>
+est injective).</p>
+<p>Or, <span class="math inline">\((e_1,\ldots,e_n)\)</span> est une
+base donc est libre et donc <span class="math inline">\(\alpha_1 =
+\ldots = \alpha_n = 0\)</span> et <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> est libre dans <span
+class="math inline">\(F\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Si <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> est libre,</p>
+<p>soit <span class="math inline">\(v \in \mathop{\mathrm{Ker}}f \subset
+E\)</span> tel que <span class="math inline">\(v = \sum_{k=1}^n \alpha_k
+e_k\)</span> avec <span class="math inline">\(\alpha_1,\ldots,\alpha_n
+\in \mathbb{K}\)</span>.</p>
+<p>Alors, <span class="math inline">\(0_E = f(v) = \sum_{k=1}^n \alpha_k
+v_k\)</span> et par liberté de <span
+class="math inline">\((v_1,\ldots,v_n)\)</span>, <span
+class="math inline">\(\alpha_1 = \ldots = \alpha_n = 0\)</span> donc
+<span class="math inline">\(v = 0_E\)</span> et <span
+class="math inline">\(\mathop{\mathrm{Ker}}f =
+\left\{0_E\right\}\)</span>.</p></li>
+</ul></li>
+<li><p>Montrons <span class="math inline">\(f \text{ surjective } \iff
+(v_1,\ldots,v_n) \text{ génératrice de $F$}\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Ceci a été
+montré avec le corollaire <a href="#cor:surjective_generatrice"
+data-reference-type="ref"
+data-reference="cor:surjective_generatrice">[cor:surjective_generatrice]</a>
+comme <span class="math inline">\((e_1,\ldots,e_n)\)</span> est
+génératrice et <span class="math inline">\((v_1,\ldots,v_n) =
+(f(e_1),\ldots,f(e_n))\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Si <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> est génératrice de <span
+class="math inline">\(F\)</span> alors soit <span
+class="math inline">\(y \in F\)</span>, il existe <span
+class="math inline">\(\alpha_1,\ldots,\alpha_n \in \mathbb{K}\)</span>
+tels que <span class="math inline">\(y = \sum_{k=1}^n \alpha_k
+v_k\)</span>.</p>
+<p>On a donc <span class="math inline">\(y = f\left( \sum_{k=1}^n
+\alpha_k e_k\right)\)</span>, ce qui donne <span
+class="math inline">\(\mathop{\mathrm{Im}}f = F\)</span> ou <span
+class="math inline">\(f\)</span> surjective.</p></li>
+</ul></li>
+<li><p>Montrons <span class="math inline">\(f \text{ bijective } \iff
+(v_1,\ldots,v_n) \text{ base de $F$}\)</span>. <span
+class="math display">\[\begin{aligned}
+        f \text{ est bijective }
+        &amp; \iff f \text{ est injective et surjective } \\
+        &amp; \iff (v_1,\ldots,v_n) \text{ est libre et génératrice dans
+$F$ (par ce qui précède)} \\
+        &amp; \iff  (v_1,\ldots,v_n)\text{ est une base de $F$.}
+    \end{aligned}\]</span></p></li>
+</ul>
+</div>
+<div class="wex">
+<p>Pour <span class="math inline">\(E = F = \mathbb{R}^3\)</span> et
+<span class="math inline">\((e_1,e_2,e_3) \in \mathbb{R}^3\)</span> et
+<span class="math inline">\(v_1 = (1,0,-1), v_2=(0,1,2), v_3 =
+(1,1,1)\)</span>.</p>
+<p>On peut considérer <span class="math inline">\(f \in
+\mathscr{L}(E)\)</span> tel que pour tout <span class="math inline">\(1
+\leq k \leq 3\)</span>, <span class="math inline">\(f(e_k) =
+v_k\)</span>.</p>
+<p>On a alors pour tout <span class="math inline">\((x,y,z) \in
+\mathbb{R}^3\)</span>, <span class="math inline">\(f((x,y,z)) = xf(e_1)
++ yf(e_2) + zf(e_3) = (x+z,y+z,-x+2y+z)\)</span>.</p>
+<p>De plus, <span class="math inline">\(f\)</span> est non injectif car
+<span class="math inline">\(v_3 = v_1+v_2\)</span>. On verra plus tard
+dans le cours que l’on peut en déduire directement que <span
+class="math inline">\(f\)</span> est non surjectif.</p>
+</div>
+<h2 data-number="1.4"
+id="existence-dune-base-de-eneq-left0_eright-de-dimension-finie"><span
+class="header-section-number">1.4</span> Existence d’une base de <span
+class="math inline">\(E\neq \left\{0_E\right\}\)</span> de dimension
+finie</h2>
+<div class="wthm">
+<p><strong>(Théorème de la base extraite)</strong> Soit <span
+class="math inline">\(E \neq \left\{0_E\right\}\)</span> un espace de
+dimension finie et <span class="math inline">\((v_1,\ldots,v_n)\)</span>
+une famille génératrice de <span class="math inline">\(E\)</span>.</p>
+<p>Alors, il existe <span class="math inline">\(k_1,\ldots,k_r \in [\![
+1,n]\!]\)</span> tels que <span
+class="math inline">\((v_{k_1},\ldots,v_{k_r})\)</span>.</p>
+</div>
+<div class="wproof">
+<p>On propose un algorithme pour construire une base issue de de la
+famille <span class="math inline">\((v_1,\ldots,v_n)\)</span>.</p>
+<ol>
+<li><p>Comme <span class="math inline">\(E \neq
+\left\{0_E\right\}\)</span>, il existe <span class="math inline">\(k_1
+\in [\![ 1,n ]\!]\)</span> tel que <span class="math inline">\(v_{k_1}
+\neq \left\{0_E\right\}\)</span>. Donc <span
+class="math inline">\((v_{k_1})\)</span> est libre dans <span
+class="math inline">\(E\)</span>.</p></li>
+<li><p>Supposons que l’on ait construit <span
+class="math inline">\((v_{k_1},\ldots,v_{k_r})\)</span> une famille
+libre de <span class="math inline">\(E\)</span> avec <span
+class="math inline">\(k_1,\ldots,k_r \in [\![ 1,n ]\!]\)</span>.</p>
+<ul>
+<li><p>Soit <span
+class="math inline">\((v_{k_1},\ldots,v_{k_r})\)</span> est une base de
+<span class="math inline">\(E\)</span> et alors c’est terminé.</p></li>
+<li><p>Soit <span
+class="math inline">\((v_{k_1},\ldots,v_{k_r})\)</span> n’est pas une
+base de <span class="math inline">\(E\)</span>. Dans ce cas, comme elle
+est libre, elle n’est pas génératrice de <span
+class="math inline">\(E\)</span>. En particulier, il existe donc <span
+class="math inline">\(k_{r+1} \in [\![ 1,n]\!]\)</span> tel que <span
+class="math inline">\(v_{k_{r+1}} \notin
+\mathop{\mathrm{Vect}}(v_{k_1},\ldots,v_{k_{r}})\)</span>.</p>
+<p>En effet, sinon aurait <span class="math inline">\(v_k \in
+\mathop{\mathrm{Vect}}(v_{k_1},\ldots,v_{k_{r}})\)</span> pour tout
+<span class="math inline">\(1 \leq k \leq n\)</span> donc <span
+class="math inline">\(E = \mathop{\mathrm{Vect}}(v_{1},\ldots,v_{n})
+\subset \mathop{\mathrm{Vect}}(v_{k_1},\ldots,v_{k_{r}})\)</span> et
+<span class="math inline">\((v_{k_1},\ldots,v_{k_r})\)</span> serait
+génératrice de <span class="math inline">\(E\)</span> en plus d’être
+libre et serait une base de <span class="math inline">\(E\)</span>, ce
+qui contredit <span class="math inline">\(\mathscr{P}(r-1)\)</span>.</p>
+<p>Comme, <span class="math inline">\(v_{k_{r+1}} \notin
+\mathop{\mathrm{Vect}}(v_{k_1},\ldots,v_{k_{r}})\)</span>, <span
+class="math inline">\((v_{k_1},\ldots,v_{k_r},v_{k_{r+1}})\)</span> est
+une famille libre de <span class="math inline">\(E\)</span>.</p></li>
+</ul></li>
+<li><p>On réitère ensuite le processus.</p></li>
+</ol>
+<p>Cet algorithme se termine en un nombre fini d’étapes comme <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> est finie. Donc au bout
+d’un certain nombre d’étapes, on obtient une base de <span
+class="math inline">\(E\)</span>, extraite de <span
+class="math inline">\((v_1,\ldots,v_n)\)</span>.</p>
+</div>
+<div class="wex">
+<p>Reprenons l’exemple <a href="#ex:base_canonique"
+data-reference-type="ref"
+data-reference="ex:base_canonique">[ex:base_canonique]</a>.</p>
+<p>Avec <span class="math inline">\(E = \mathbb{R}^2\)</span>, <span
+class="math inline">\(v_1 = (1,0)\)</span>, <span
+class="math inline">\(v_2 = (0,2)\)</span> et <span
+class="math inline">\(v_3 = (1,1)\)</span>.</p>
+<p><span class="math inline">\((v_1,v_2,v_3)\)</span> est une famille
+génératrice de <span class="math inline">\(E\)</span> mais n’est pas une
+base de <span class="math inline">\(E\)</span>.</p>
+<p>En revanche, <span class="math inline">\((v_1,v_2)\)</span> est une
+base de <span class="math inline">\(\mathbb{R}^2\)</span>.</p>
+</div>
+<div class="wcor">
+<p>Tout espace <span class="math inline">\(E \neq
+\left\{0_E\right\}\)</span> de dimension finie admet une base.</p>
+</div>
+<div class="wproof">
+<p>On considère une famille génératrice de <span
+class="math inline">\(E\)</span> et on en extrait une base par le
+théorème de la base extraite.</p>
+</div>
+<div class="wthm">
+<p><strong>(Théorème de la base incomplète)</strong> Soit <span
+class="math inline">\(E \neq \left\{0_E\right\}\)</span> un espace de
+dimension finie et <span class="math inline">\((v_1,\ldots,v_n)\)</span>
+une famille génératrice de <span class="math inline">\(E\)</span>.</p>
+<p>Soit <span class="math inline">\((u_1,\ldots,u_r)\)</span> une
+famille libre de <span class="math inline">\(E\)</span>, non
+génératrice.</p>
+<p>Alors, il existe <span class="math inline">\(k_1, \ldots, k_p \in
+[\![ 1,n ]\!]\)</span> tels que <span
+class="math inline">\((u_1,\ldots,u_r,v_{k_1},\ldots,v_{k_r})\)</span>
+est une base de <span class="math inline">\(E\)</span>.</p>
+</div>
+<div class="wproof">
+<p>On considère <span
+class="math inline">\((u_1,\ldots,u_r,v_1,\ldots,v_n)\)</span> qui est
+génératrice de <span class="math inline">\(E\)</span> et on applique la
+preuve du théorème de la base incomplète pour construire une base de
+<span class="math inline">\(E\)</span>, en commençant par extraire la
+famille libre <span class="math inline">\((u_1,\ldots,u_r)\)</span>.</p>
+</div>
+<h2 data-number="1.5" id="invariance-du-cardinal-dune-base-de-e"><span
+class="header-section-number">1.5</span> Invariance du cardinal d’une
+base de <span class="math inline">\(E\)</span></h2>
+<div class="wlem">
+<p><span id="lem:lemme_famille_liée"
+label="lem:lemme_famille_liée"></span> Soient <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel, <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> et <span
+class="math inline">\((u_1,\ldots,u_{n+1}) \in E^{n+1}\)</span> tel que
+pour tout <span class="math inline">\(k \in [\![ 1,n+1 ]\!], u_k \in
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_n)\)</span>.</p>
+<p>Alors, <span class="math inline">\((u_1,\ldots,u_{n+1})\)</span> est
+une famille liée.</p>
+</div>
+<div class="wproof">
+<p>Prouvons ce résultat par récurrence sur <span
+class="math inline">\(n\)</span>.</p>
+<ul>
+<li><p><strong>Initialisation.</strong> Si <span
+class="math inline">\(n=1\)</span> et <span
+class="math inline">\((u_1,u_2) \in E^n\)</span>. Alors, si <span
+class="math inline">\(u_1,u_2 \in \mathop{\mathrm{Vect}}(v_1)\)</span>,
+il existe <span class="math inline">\(\lambda_1, \lambda_2 \in
+\mathbb{K}\)</span> tels que <span class="math inline">\(u_1 = \lambda_1
+v_1\)</span> et <span class="math inline">\(u_2 = \lambda_2
+v_1\)</span>.</p>
+<p>Si <span class="math inline">\(\lambda_1 = 0, u_1 = 0_E\)</span> donc
+la famille est liée et si <span class="math inline">\(\lambda_1 \neq
+0\)</span>, <span class="math inline">\(u_2 =
+\frac{\lambda_2}{\lambda_1} u_1\)</span> et la famille est aussi
+liée.</p></li>
+<li><p><strong>Hérédité.</strong> Soit <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span> fixé. Supposons le résultat vrai au rang
+<span class="math inline">\(n\)</span>. Soient <span
+class="math inline">\((v_1,\ldots,v_{n+1}) \in E^{n+1}\)</span> et <span
+class="math inline">\((u_1,\ldots,u_{n+2}) \in E^{n+2}\)</span> tel que
+pour tout <span class="math inline">\(k \in [\![ 1,n+2 ]\!], u_k \in
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_{n+1})\)</span>.</p>
+<p>Alors, pour tout <span class="math inline">\(k \in [\![ 1,n+2
+]\!]\)</span>, il existe <span class="math inline">\(u&#39;_k \in
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_n)\)</span> et <span
+class="math inline">\(\alpha_k \in \mathbb{K}\)</span> tels que <span
+class="math inline">\(u_k = u&#39;_k + \alpha_K v_{n+1}\)</span>.</p>
+<ul>
+<li><p><strong>Premier cas.</strong> Si pour tout <span
+class="math inline">\(k \in [\![ 1,n+2 ]\!]\)</span>, <span
+class="math inline">\(\alpha_k = 0\)</span> alors pour tout <span
+class="math inline">\(k \in [\![ 1,n+2 ]\!]\)</span>, <span
+class="math inline">\(u_k \in
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_n)\)</span>.</p>
+<p>Donc par hypothèse de récurrence, <span
+class="math inline">\((u_1,\ldots,u_{n+1})\)</span> est liée et donc
+<span class="math inline">\((u_1,\ldots,u_{n+2})\)</span> est liée
+(<em>Toute sur-famille d’une famille liée est liée</em>).</p></li>
+<li><p><strong>Second cas.</strong> Il existe <span
+class="math inline">\(k  \in [\![ 1,n+2 ]\!]\)</span> tel que <span
+class="math inline">\(\alpha_k \neq 0\)</span>. Quitte à réordonner les
+termes, supposons <span class="math inline">\(\alpha_{n+2} \neq
+0\)</span>.</p>
+<p>On considère alors <span
+class="math inline">\(\left(u&#39;&#39;_k\right)_{1 \leq k \leq
+n+1}\)</span> tel que pour tout <span class="math inline">\(k \in [\![
+1,n+1]\!]\)</span>, <span class="math inline">\(u&#39;&#39;_k = u_k -
+\frac{\alpha_k}{\alpha_{n+2}}u_{n+2} = u&#39;_k+\alpha_k v_{n+1} -
+\frac{\alpha_k}{\alpha_{n+2}}(u&#39;_{n+2}+\alpha_{n+2} v_{n+1}) =
+u&#39;_k - \frac{\alpha_k}{\alpha_{n+2}}u&#39;_{n+2} \in
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_n)\)</span>.</p>
+<p>On a donc pour tout <span class="math inline">\(k \in [\![ 1,n+1]\!],
+u&#39;&#39;_k \in \mathop{\mathrm{Vect}}(v_1,\ldots,v_n)\)</span> et par
+hypothèse de récurrence, <span
+class="math inline">\(\left(u&#39;&#39;_k\right)_{1 \leq k \leq
+n+1}\)</span> est liée. Montrons que cela implique que <span
+class="math inline">\((u_1,\ldots,u_{n+2})\)</span> est liée.</p>
+<p>En effet, il existe <span
+class="math inline">\(\beta_1,\ldots,\beta_{n+1} \in \mathbb{K}\)</span>
+tels que <span class="math inline">\(\sum_{k=1}^{n+1} \beta_k
+u&#39;&#39;_k = 0_E\)</span> et <span
+class="math inline">\(\beta_1,\ldots,\beta_{n+1}\)</span> non tous
+nuls.</p>
+<p>Donc <span class="math inline">\(\sum_{k=1}^{n+1} \beta_k\left(u_k -
+\frac{\alpha_k}{\alpha_{n+2}}u_{n+2}\right) = \sum_{k=1}^{n+1} \beta_k
+u_k + \left(-\sum_{k=1}^{n+1}
+\beta_k\frac{\alpha_k}{\alpha_{n+2}}\right)u_{n+2} = 0_E\)</span>.</p>
+<p>Comme les <span class="math inline">\(\beta_k\)</span> sont non tous
+nuls, cela implique que la famille <span
+class="math inline">\((u_1,\ldots,u_{n+2})\)</span> est effectivement
+liée.</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="wcor">
+<p><span id="cor:gene_libre_cardi" label="cor:gene_libre_cardi"></span>
+Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel, <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> famille
+génératrice de <span class="math inline">\(E\)</span> et <span
+class="math inline">\((u_1,\ldots,u_p)\)</span> libre de <span
+class="math inline">\(E\)</span>.</p>
+<p>Aors, <span class="math inline">\(p \leq n\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Par l’absurde, si <span class="math inline">\(p &gt; n\)</span>, ie
+<span class="math inline">\(p \geq n+1\)</span>.</p>
+<p>Alors, <span class="math inline">\((u_1,\ldots,u_{n+1}) \in
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_n)\)</span> et par le lemme <a
+href="#lem:lemme_famille_liée" data-reference-type="ref"
+data-reference="lem:lemme_famille_liée">[lem:lemme_famille_liée]</a>,
+<span class="math inline">\((u_1,\ldots,u_{n+1})\)</span> est liée.</p>
+<p>Cela implique donc que <span
+class="math inline">\((u_1,\ldots,u_{n+1},\ldots,u_p)\)</span> est liée
+(<em>Toute sur-famille d’une famille liée est liée</em>), ce qui est
+absurde.</p>
+</div>
+<div class="wcor">
+<p><strong>(Invariance du cardinal d’une base)</strong> Soient <span
+class="math inline">\((e_1,\ldots,e_n)\)</span> et <span
+class="math inline">\((e&#39;_1,\ldots,e&#39;_p)\)</span> deux bases
+d’un <span class="math inline">\(\mathbb{K}\)</span>-espace vectoriel
+<span class="math inline">\(E\)</span>.</p>
+<p>Alors, <span class="math inline">\(p=n\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Comme <span class="math inline">\((e_1,\ldots,e_n)\)</span> est
+génératrice (car base) et <span
+class="math inline">\((e&#39;_1,\ldots,e&#39;_p)\)</span> est libre (car
+base), par le corollaire <a href="#cor:gene_libre_cardi"
+data-reference-type="ref"
+data-reference="cor:gene_libre_cardi">[cor:gene_libre_cardi]</a>, <span
+class="math inline">\(p \leq n\)</span>.</p></li>
+<li><p>Comme <span class="math inline">\((e_1,\ldots,e_n)\)</span> est
+libre (car base) et <span
+class="math inline">\((e&#39;_1,\ldots,e&#39;_p)\)</span> est
+génératrice (car base), par le corollaire <a
+href="#cor:gene_libre_cardi" data-reference-type="ref"
+data-reference="cor:gene_libre_cardi">[cor:gene_libre_cardi]</a>, <span
+class="math inline">\(p \geq n\)</span>.</p></li>
+</ul>
+<p>Donc <span class="math inline">\(p=n\)</span>.</p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+finie, <span class="math inline">\(\neq \left\{0_E\right\}\)</span>.</p>
+<p>La dimension de <span class="math inline">\(E\)</span> est le
+cardinal d’une base quelconque de <span
+class="math inline">\(E\)</span>, notée <span class="math inline">\(\dim
+E\)</span> ou <span class="math inline">\(\dim_{\mathbb{K}}
+E\)</span>.</p>
+<p>Si <span class="math inline">\(E = \left\{0_E\right\}\)</span>, on
+pose <span class="math inline">\(\dim E =0\)</span>.</p>
+</div>
+<div class="wex">
+<ul>
+<li><p><span class="math inline">\(\dim \mathbb{K}^n = n\)</span>, qui
+est le cardinal de la base canonique.</p></li>
+<li><p><span class="math inline">\(\vec{\mathscr{P}}\)</span>,
+l’ensemble des vecteurs du plan est de dimension 2. En effet, pour deux
+vecteurs <span class="math inline">\(\vec{i}\)</span>, <span
+class="math inline">\(\vec{j}\)</span> non colinéaires, <span
+class="math inline">\((\vec{i},\vec{j})\)</span> est une base de <span
+class="math inline">\(\vec{\mathscr{P}}\)</span>.</p></li>
+<li><p><span class="math inline">\(\vec{\mathscr{E}}\)</span>,
+l’ensemble des vecteurs de l’espace est de dimension 3. En effet, pour
+trois vecteurs <span class="math inline">\(\vec{i}\)</span>, <span
+class="math inline">\(\vec{j},\vec{j}\)</span> tels que <span
+class="math inline">\(\vec{i},\vec{j}\)</span> non colinéaires et <span
+class="math inline">\(\vec{k} \notin \Vec(\vec{i},\vec{j})\)</span>,
+<span class="math inline">\((\vec{i},\vec{j},\vec{k})\)</span> est une
+base de <span class="math inline">\(\vec{\mathscr{E}}\)</span>.</p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>On observera cela de façon marginale dans l’exercice mais la
+dimension d’un espace vectoriel dépend de <span
+class="math inline">\(\mathbb{K}\)</span> (d’où la notation <span
+class="math inline">\(\dim_\mathbb{K}E\)</span>).</p>
+<p>En effet, par exemple, si l’on considère <span
+class="math inline">\(\mathbb{C}= \mathbb{C}^1\)</span>, c’est un <span
+class="math inline">\(\mathbb{C}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(1\)</span>.</p>
+<p>En revanche, <span class="math inline">\(\mathbb{C}\)</span> est un
+<span class="math inline">\(\mathbb{R}\)</span>-espace vectoriel qui
+admet pour base <span class="math inline">\((1,i)\)</span> et est donc
+de dimension 2.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(E\)</span> un espace vectoriel de
+dimension finie <span class="math inline">\(n \geq 1\)</span>. Soit
+<span class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span>, de
+cardinal <span class="math inline">\(n\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\((v_1,\ldots,v_n)\)</span> est
+libre, c’est une base de <span
+class="math inline">\(E\)</span>,</p></li>
+<li><p>Si <span class="math inline">\((v_1,\ldots,v_n)\)</span> est
+génératrice, c’est une base de <span
+class="math inline">\(E\)</span>.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Par l’absurde, si <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> est libre et n’est pas
+génératrice,</p>
+<p>par le théorème de la base incomplète, il existe <span
+class="math inline">\(u_1,\ldots,u_p \in E\)</span> tel que <span
+class="math inline">\(p \geq 1\)</span> et <span
+class="math inline">\((v_1,\ldots,v_n,u_1,\ldots,u_p)\)</span> est une
+base de <span class="math inline">\(E\)</span>.</p>
+<p>Cela contredit <span class="math inline">\(\dim E = n &lt;
+n+p\)</span>.</p>
+<p>Donc <span class="math inline">\((v_1,\ldots,v_n)\)</span> est une
+base de <span class="math inline">\(E\)</span>.</p></li>
+<li><p>Par l’absurde, si <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> est génératrice et n’est
+pas libre,</p>
+<p>par le théorème de la base extraite, il existe <span
+class="math inline">\(k_1,\ldots, k_p \in E\)</span> tel que <span
+class="math inline">\(1 \leq p &lt; n\)</span> et <span
+class="math inline">\((v_{k_1},\ldots,v_{k_p})\)</span> est une base de
+<span class="math inline">\(E\)</span>.</p>
+<p>Cela contredit <span class="math inline">\(\dim E = n &gt;
+p\)</span>.</p>
+<p>Donc <span class="math inline">\((v_1,\ldots,v_n)\)</span> est une
+base de <span class="math inline">\(E\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><span id="prop:card_dim_gene" label="prop:card_dim_gene"></span> Soit
+<span class="math inline">\(E\)</span> un espace vectoriel de dimension
+finie <span class="math inline">\(n \geq 1\)</span>. Soit <span
+class="math inline">\((v_1,\ldots,v_p) \in E^p\)</span> de cardinal
+<span class="math inline">\(p\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(p &gt; n\)</span>, <span
+class="math inline">\((v_1,\ldots,v_p)\)</span> est liée,</p></li>
+<li><p>Si <span class="math inline">\(p &lt; n\)</span>, <span
+class="math inline">\((v_1,\ldots,v_p)\)</span> n’est pas génératrice de
+<span class="math inline">\(E\)</span>.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Par le théorème de la base incomplète, on peut compléter une une
+famille libre en une base. Une famille libre est donc de cardinal
+inférieur à la dimension de <span
+class="math inline">\(E\)</span>.</p></li>
+<li><p>Par le théorème de la base extraite, on peut extraire une base
+d’une famille génératrice. Une famille génératrice est donc de cardinal
+supérieur à la dimension de <span
+class="math inline">\(E\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="1.6"
+id="sous-espace-dun-espace-vectoriel-de-dimension-finie"><span
+class="header-section-number">1.6</span> Sous-espace d’un espace
+vectoriel de dimension finie</h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\(E\)</span> un espace vectoriel de
+dimension finie et <span class="math inline">\(F\)</span> un sous-espace
+vectoriel de <span class="math inline">\(E\)</span>.</p>
+<p>Alors, <span class="math inline">\(F\)</span> est de dimension finie
+et <span class="math inline">\(\dim F \leq \dim E\)</span>.</p>
+<p>De plus, <span class="math inline">\(\dim F = \dim E \iff F=
+E\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Si <span class="math inline">\(F = \left\{0_E\right\}\)</span>,
+<span class="math inline">\(F\)</span> est de dimension finie et <span
+class="math inline">\(\dim F = 0 \leq \dim E\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(F \neq
+\left\{0_E\right\}\)</span>, soit <span
+class="math inline">\((v_1,\ldots,v_q) \in F^q\)</span> une famile libre
+de <span class="math inline">\(F\)</span> alors c’est une famille libre
+de <span class="math inline">\(E\)</span> donc <span
+class="math inline">\(q \leq \dim E\)</span>.</p>
+<p>On considère alors <span
+class="math inline">\((v_1,\ldots,v_p)\)</span> une famille libre de
+<span class="math inline">\(F\)</span> de cardinal maximal. Montrons que
+c’est une base de <span class="math inline">\(F\)</span>.</p>
+<p>Soit <span class="math inline">\(v \in F\)</span>, <span
+class="math inline">\((v_1,\ldots,v_p,v)\)</span> est liée (car <span
+class="math inline">\((v_1,\ldots,v_p)\)</span> est de cardinal
+maximal).</p>
+<p>Donc <span class="math inline">\(v \in
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_p)\)</span> et finalement, <span
+class="math inline">\(F =
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_p)\)</span>.</p>
+<p>D’où <span class="math inline">\((v_1,\ldots,v_p)\)</span> est une
+base de <span class="math inline">\(F\)</span> et <span
+class="math inline">\(\dim F = p \leq \dim E\)</span>.</p></li>
+</ul>
+<p>De plus, Si <span class="math inline">\(\dim F = \dim E = n\)</span>,
+<span class="math inline">\((v_1,\ldots,v_n)\)</span> est une famille
+libre de <span class="math inline">\(F\)</span>, donc de <span
+class="math inline">\(E\)</span>, de cardinal <span
+class="math inline">\(n\)</span> et c’est donc une base de <span
+class="math inline">\(E\)</span>. On a donc bien <span
+class="math inline">\(F = \mathop{\mathrm{Vect}}(v_1,\ldots,v_n) =
+E\)</span>.</p>
+</div>
+<div class="wprop">
+<p><span id="prop:supplementaire_bases"
+label="prop:supplementaire_bases"></span> Soit <span
+class="math inline">\(E\)</span> un espace vectoriel de dimension finie
+et <span class="math inline">\(F,G\)</span> deux sous-espaces vectoriels
+de <span class="math inline">\(E\)</span> avec <span
+class="math inline">\(F \neq \left\{0_E\right\}\)</span> et <span
+class="math inline">\(G \neq \left\{0_E\right\}\)</span>.</p>
+<p>Soient <span class="math inline">\((e_1,\ldots,e_p)\)</span> base de
+<span class="math inline">\(F\)</span> et <span
+class="math inline">\((e&#39;_1,\ldots,e&#39;_q)\)</span> base de <span
+class="math inline">\(G\)</span> telles que <span
+class="math inline">\(p = \dim F\)</span> et <span
+class="math inline">\(q = \dim G\)</span>.</p>
+<p>Alors, <span class="math display">\[E = F \oplus G \iff
+(e_1,\ldots,e_p,e&#39;_1,\ldots,e&#39;_q) \text{ est une base de
+$E$}.\]</span></p>
+</div>
+<div class="wproof">
+<p><span class="math display">\[\begin{aligned}
+    E = F \oplus G
+     \iff &amp; \text{ Pour tout $v \in E$, il existe $v_1 \in F$ et
+$v_2 \in G$ tous deux uniques tels que $v=v_1+v_2$.} \\
+    \iff &amp; \text{ Pour tout $v \in E$, il existe
+$\alpha_1,\ldots,\alpha_p \in \mathbb{K}$ et $\beta_1,\ldots,\beta_q$
+tous uniques} \\
+    &amp; \text{ tels que $v=\sum_{k=1}^p \alpha_k e_k + \sum_{\ell=1}^q
+\beta_k e&#39;_k$.} \\
+     \iff &amp; (e_1,\ldots,e_p,e&#39;_1,\ldots,e&#39;_q) \text{ est une
+base de $E$}
+    \end{aligned}\]</span></p>
+</div>
+<div class="wappli">
+<p>Soit <span class="math inline">\(E\)</span> un espace vectoriel de
+dimension finie et <span class="math inline">\(F,G\)</span> deux
+sous-espaces vectoriels de <span class="math inline">\(E\)</span> tels
+que <span class="math inline">\(E = F\oplus G\)</span>.</p>
+<p>Alors, <span class="math inline">\(\dim E = \dim F + \dim
+G\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Si <span class="math inline">\(F = \left\{0_E\right\}\)</span>,
+<span class="math inline">\(G = E\)</span> donc <span
+class="math inline">\(\dim F + \dim G = \dim E\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(G = \left\{0_E\right\}\)</span>,
+<span class="math inline">\(F = E\)</span> donc <span
+class="math inline">\(\dim F + \dim G = \dim E\)</span>.</p></li>
+<li><p>Sinon, <span class="math inline">\(F \neq
+\left\{0_E\right\}\)</span> et <span class="math inline">\(G \neq
+\left\{0_E\right\}\)</span> et en reprenant les notations de la
+proposition précédente, comme <span
+class="math inline">\((e_1,\ldots,e_p,e&#39;_1,\ldots,e&#39;_q) \text{
+est une base de $E$}\)</span>, <span class="math inline">\(\dim E = p+q
+= \dim F+\dim G\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><span id="prop:existence_suppl" label="prop:existence_suppl"></span>
+Soit <span class="math inline">\(E\)</span> un espace vectoriel de
+dimension finie et <span class="math inline">\(F\)</span> un sous-espace
+vectoriel de <span class="math inline">\(E\)</span>.</p>
+<p>Alors, il existe <span class="math inline">\(G\)</span> un
+sous-espace vectoriel de <span class="math inline">\(E\)</span> tel que
+<span class="math inline">\(E = F\oplus G\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Si <span class="math inline">\(F = \left\{0_E\right\}\)</span>,
+<span class="math inline">\(G = E\)</span> convient.</p></li>
+<li><p>Si <span class="math inline">\(F = E\)</span>, <span
+class="math inline">\(G = \left\{0_E\right\}\)</span> convient.</p></li>
+<li><p>Sinon, <span class="math inline">\(F\)</span> est de dimension
+finie et on considère <span
+class="math inline">\((e_1,\ldots,e_p)\)</span> une base de <span
+class="math inline">\(F\)</span> (avec <span class="math inline">\(p
+\geq 1\)</span>).</p>
+<p><span class="math inline">\((e_1,\ldots,e_p)\)</span> est une famille
+libre de <span class="math inline">\(E\)</span> donc par le théorème de
+la base incomplète, il existe <span
+class="math inline">\(e&#39;_1,\ldots,e&#39;_q \in E\)</span> tels que
+<span class="math inline">\((e_1,\ldots,e_p,e&#39;_1,\ldots,e&#39;_q)
+\text{ est une base de $E$}\)</span>.</p>
+<p>Alors, par la proposition <a href="#prop:supplementaire_bases"
+data-reference-type="ref"
+data-reference="prop:supplementaire_bases">[prop:supplementaire_bases]</a>,
+<span class="math inline">\(G =
+\mathop{\mathrm{Vect}}(e&#39;_1,\ldots,e&#39;_q)\)</span>
+convient.</p></li>
+</ul>
+</div>
+<h2 data-number="1.7"
+id="applications-linéaire-entre-deux-espaces-de-dimension-finie"><span
+class="header-section-number">1.7</span> Applications linéaire entre
+deux espaces de dimension finie</h2>
+<h3 data-number="1.7.1" id="rang-de-f-in-mathscrlef"><span
+class="header-section-number">1.7.1</span> Rang de <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span></h3>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(E,F\)</span> deux espaces
+vectoriels de dimension finie et <span class="math inline">\(f \in
+\mathscr{L}(E,F)\)</span>.</p>
+<p><span class="math inline">\(\mathop{\mathrm{Im}}f \subset F\)</span>
+est un espace de dimension finie. <span class="math inline">\(\dim
+\mathop{\mathrm{Im}}f\)</span> est appelé le rang de <span
+class="math inline">\(f\)</span>, noté <span
+class="math inline">\(\mathop{\mathrm{rg}}f\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E,F\)</span> deux espaces
+vectoriels de dimension finie et <span class="math inline">\(f \in
+\mathscr{L}(E,F)\)</span>.</p>
+<p>En notant <span class="math inline">\(p = \dim E\)</span> et <span
+class="math inline">\(n = \dim F\)</span>, on a <span
+class="math inline">\(\mathop{\mathrm{rg}}f \leq p\)</span> et <span
+class="math inline">\(\mathop{\mathrm{rg}}f \leq n\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>D’abord, <span
+class="math inline">\(\mathop{\mathrm{Im}}f\)</span> est un sous-espace
+vectoriel de <span class="math inline">\(F\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{rg}}F = \dim \mathop{\mathrm{Im}}f
+\leq n\)</span>.</p></li>
+<li><p>Ensuite, soit <span
+class="math inline">\((e_1,\ldots,e_p)\)</span> une base de <span
+class="math inline">\(E\)</span>, c’est une famille génératrice de <span
+class="math inline">\(E\)</span> donc par la proposition <a
+href="#prop:image_gene_donne_gene_im" data-reference-type="ref"
+data-reference="prop:image_gene_donne_gene_im">[prop:image_gene_donne_gene_im]</a>,
+<span class="math inline">\((f(e_1),\ldots,f(e_p))\)</span>.</p>
+<p>Par la proposition <a href="#prop:card_dim_gene"
+data-reference-type="ref"
+data-reference="prop:card_dim_gene">[prop:card_dim_gene]</a>, <span
+class="math inline">\(\dim \mathop{\mathrm{Im}}f \leq
+p\)</span>.</p></li>
+</ul>
+</div>
+<h3 data-number="1.7.2"
+id="espaces-vectoriels-de-dimension-finie-isomorphes"><span
+class="header-section-number">1.7.2</span> Espaces vectoriels de
+dimension finie isomorphes</h3>
+<div class="wrappel">
+<p>Deux espaces vectoriels <span class="math inline">\(E\)</span> et
+<span class="math inline">\(F\)</span> sont dits isomorphes s’il existe
+<span class="math inline">\(f \in \mathscr{L}(E,F)\)</span> bijective.
+On note alors <span class="math inline">\(E \simeq F\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E,F\)</span> deux sous-espaces
+vectoriels de dimension finie, alors <span class="math display">\[E
+\simeq F \iff \dim E = \dim F.\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(\dim E = \dim F\)</span>, soit <span
+class="math inline">\((e_1,\ldots,e_n)\)</span> une base de <span
+class="math inline">\(E\)</span>, par la proposition <a
+href="#prop:inj_surj_bij_libre_gene_base" data-reference-type="ref"
+data-reference="prop:inj_surj_bij_libre_gene_base">[prop:inj_surj_bij_libre_gene_base]</a>,
+<span class="math inline">\((f(e_1),\ldots,f(e_n))\)</span> est une base
+de <span class="math inline">\(F\)</span>.</p>
+<p>Donc <span class="math inline">\(\dim F = n = \dim
+E\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span></p>
+<ul>
+<li><p>Si <span class="math inline">\(E = \left\{0_E\right\}\)</span>
+alors <span class="math inline">\(F = \left\{0_F\right\}\)</span> donc
+la bijection <span class="math inline">\(0_E \in E \mapsto 0_F \in
+F\)</span> convient.</p></li>
+<li><p>Si <span class="math inline">\(E \neq
+\left\{0_E\right\}\)</span>, on considère <span
+class="math inline">\((e_1,\ldots,e_n)\)</span> une base de <span
+class="math inline">\(E\)</span> et <span
+class="math inline">\((e&#39;_1,\ldots,e&#39;_n)\)</span> une base de
+<span class="math inline">\(F\)</span>.</p>
+<p>Par la proposition <a href="#prop:inj_surj_bij_libre_gene_base"
+data-reference-type="ref"
+data-reference="prop:inj_surj_bij_libre_gene_base">[prop:inj_surj_bij_libre_gene_base]</a>,
+on peut alors considérer <span class="math inline">\(f \in
+\mathscr{L}(E,F)\)</span> tel que pour tout <span
+class="math inline">\(0 \leq k \leq n\)</span>, <span
+class="math inline">\(f(e_k) = e&#39;_k\)</span> et c’est une
+bijection.</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="wrem">
+<p>On a donc pour tout <span class="math inline">\(E\)</span> <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n\)</span>, <span class="math inline">\(E
+\simeq \mathbb{K}^n\)</span>.</p>
+</div>
+<h3 data-number="1.7.3" id="théorème-du-rang"><span
+class="header-section-number">1.7.3</span> Théorème du rang</h3>
+<div class="wlem">
+<p><span id="lem:theoreme_du_rang" label="lem:theoreme_du_rang"></span>
+Soient <span class="math inline">\(E,F\)</span> deux <span
+class="math inline">\(\mathbb{K}\)</span>-espaces vectoriels et <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span>.</p>
+<p>Soit <span class="math inline">\(E&#39;\)</span> un sous-espace
+vectoriel de <span class="math inline">\(E\)</span> tel que <span
+class="math inline">\(E = E&#39;\oplus
+\mathop{\mathrm{Ker}}f\)</span>.</p>
+<p>Alors, <span class="math inline">\(E&#39; \simeq
+\mathop{\mathrm{Im}}f\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Montrons que <span class="math inline">\(\begin{array}{lllll}
+g &amp; : &amp; E&#39; &amp; \to &amp; \mathop{\mathrm{Im}}f \\
+   &amp;   &amp; x &amp; \mapsto &amp; f(x)
+\end{array}\)</span> est une bijection de <span
+class="math inline">\(E&#39;\)</span> dans <span
+class="math inline">\(\mathop{\mathrm{Im}}f\)</span>.</p>
+<ul>
+<li><p>D’abord, <span class="math inline">\(g\)</span> est injective. En
+effet, soit <span class="math inline">\(v \in E&#39;\)</span>,</p>
+<p><span class="math inline">\(g(v) = 0_E \iff v \in
+\mathop{\mathrm{Ker}}f \iff v \in \mathop{\mathrm{Ker}}f \cap E&#39; =
+\left\{0_E\right\}\)</span> car <span
+class="math inline">\(E&#39;\)</span> et <span
+class="math inline">\(\mathop{\mathrm{Ker}}f\)</span> sont en somme
+directe.</p></li>
+<li><p>Ensuite, <span class="math inline">\(g\)</span> est injective. En
+effet, soit <span class="math inline">\(y \in
+\mathop{\mathrm{Im}}f\)</span>, il existe <span class="math inline">\(x
+\in E\)</span> tel que <span class="math inline">\(f(x) =
+y\)</span>.</p>
+<p>Or, <span class="math inline">\(E = E&#39;\oplus
+\mathop{\mathrm{Ker}}f\)</span> donc il existe <span
+class="math inline">\(x_1 \in E&#39;, x_2 \in
+\mathop{\mathrm{Ker}}f\)</span> tels que <span class="math inline">\(x =
+x_1+x_2\)</span>.</p>
+<p>On a donc <span class="math inline">\(y = f(x_1) + f(x_2) =
+f(x_1)+0_E = g(x_1)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wthm">
+<p><strong>(Théorème du rang)</strong> Soient <span
+class="math inline">\(E,F\)</span> deux espaces vectoriels de dimension
+finies et <span class="math inline">\(f \in \mathscr{L}(E,F)\)</span>.
+Alors, <span class="math display">\[\dim E = \dim \mathop{\mathrm{Ker}}f
++ \mathop{\mathrm{rg}}f.\]</span></p>
+</div>
+<div class="wproof">
+<p>Comme <span class="math inline">\(E\)</span> est de dimension finie,
+par la proposition <a href="#prop:existence_suppl"
+data-reference-type="ref"
+data-reference="prop:existence_suppl">[prop:existence_suppl]</a>, il
+existe <span class="math inline">\(E&#39;\)</span> sous-espace vectoriel
+de <span class="math inline">\(E\)</span> tel que <span
+class="math inline">\(E = E&#39;\oplus
+\mathop{\mathrm{Ker}}f\)</span>.</p>
+<p>Donc <span class="math inline">\(E = \dim E&#39;+\dim
+\mathop{\mathrm{Ker}}f\)</span>.</p>
+<p>Or, par le lemme <a href="#lem:theoreme_du_rang"
+data-reference-type="ref"
+data-reference="lem:theoreme_du_rang">[lem:theoreme_du_rang]</a>, <span
+class="math inline">\(E&#39; \simeq \mathop{\mathrm{Im}}f\)</span>. Donc
+<span class="math inline">\(\dim E&#39; = \dim
+\mathop{\mathrm{Im}}f\)</span> et finalement, <span
+class="math inline">\(\dim E = \dim \mathop{\mathrm{Ker}}f +
+\mathop{\mathrm{rg}}f.\)</span></p>
+</div>
+<div class="wappli">
+<p>Soit <span class="math inline">\(f \in \mathscr{L}(E,F)\)</span> avec
+<span class="math inline">\(E,F\)</span> de dimension finie et <span
+class="math inline">\(\dim E = \dim F\)</span>.</p>
+<p>Alors, <span class="math display">\[f \text{ surjective} \iff f
+\text{ bijective} \iff f \text{ injective}\]</span></p>
+</div>
+<div class="wproof">
+<p>Montrons <span class="math inline">\(f \text{ surjective} \iff f
+\text{ bijective}\)</span> puis <span class="math inline">\(f \text{
+injective} \iff f \text{ bijective}\)</span>.</p>
+<ul>
+<li><p>D’abord, <span class="math inline">\(f \text{ surjective} \iff f
+\text{ bijective}\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Ce sens est
+clair.</p></li>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(f\)</span> est surjective, <span
+class="math inline">\(\mathop{\mathrm{Im}}f = F\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{rg}}f = \dim F = \dim
+E\)</span>.</p>
+<p>On a donc par théorème du rang, <span class="math inline">\(\dim
+\mathop{\mathrm{Ker}}f = \dim E-\dim E = 0\)</span> donc <span
+class="math inline">\(f\)</span> est injective et <span
+class="math inline">\(f\)</span> bijective.</p></li>
+</ul></li>
+<li><p>Ensuite, <span class="math inline">\(f \text{ injective} \iff f
+\text{ bijective}\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Ce sens est
+clair.</p></li>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(f\)</span> est injective, <span
+class="math inline">\(\mathop{\mathrm{Ker}}f =
+\left\{0_E\right\}\)</span> donc <span class="math inline">\(\dim
+\mathop{\mathrm{Ker}}f = 0\)</span>.</p>
+<p>On a donc par théorème du rang, <span
+class="math inline">\(\mathop{\mathrm{rg}}f= \dim E-\dim 0 = \dim
+F\)</span> et comme de plus <span
+class="math inline">\(\mathop{\mathrm{Im}}f \subset F\)</span>, on a
+<span class="math inline">\(f\)</span> surjective et <span
+class="math inline">\(f\)</span> bijective.</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="wex">
+<p><strong>Exercice</strong> — Soient <span
+class="math inline">\(\alpha,\beta, \gamma \in \mathbb{R}\)</span>.
+Montrer qu’il existe <span class="math inline">\(a,b,c \in
+\mathbb{R}\)</span> uniques tels que <span class="math inline">\(f : x
+\in \mathbb{R}\mapsto ax^2+bx+c\)</span> vérifient <span
+class="math inline">\(f(0) = \alpha, f(1) = \beta\)</span> et <span
+class="math inline">\(f(2) = \gamma\)</span>.</p>
+<p><strong>Corrigé</strong> — Pour faire le lien avec ce qui précède, on
+commence par introduire <span class="math inline">\(E = \left\{f \in
+\mathscr{F}(\mathbb{R},\mathbb{R}) / \exists (a,b,c) \in \mathbb{R}^3, f
+: x \in \mathbb{R}\mapsto ax^2+bx+c\right\}\)</span>.</p>
+<p><span class="math inline">\(E\)</span> est un espace vectoriel qui
+admet pour base <span class="math inline">\((p_0,p_1,p_2)\)</span> où
+<span class="math inline">\(p_i : x \in \mathbb{R}\mapsto x^i\)</span>
+et il est donc de dimension 3.</p>
+<p>De plus, <span class="math inline">\(\begin{array}{lllll}
+F &amp; : &amp; E &amp; \to &amp; \mathbb{R}^3 \\
+   &amp;   &amp; f &amp; \mapsto &amp; (f(0),f(1),f(2))
+\end{array}\)</span> est linéaire.</p>
+<p>Montrons qu’elle est injective et alors elle sera bijective (car
+<span class="math inline">\(\dim E = \dim \mathbb{R}^3\)</span>) et
+l’exercice sera résolu.</p>
+<p>Soit <span class="math inline">\(f \in E\)</span> tel que <span
+class="math inline">\(F(f) = 0_{\mathbb{R}^3}\)</span>, alors <span
+class="math inline">\(f(0) = f(1) = f(2) = 0\)</span>.</p>
+<p>Or, il existe <span class="math inline">\(a,b,c \in
+\mathbb{R}\)</span> tels que <span class="math inline">\(f : x \in
+\mathbb{R}\mapsto ax^2+bx+c\)</span>.</p>
+<ul>
+<li><p>On ne peut avoir <span class="math inline">\(a \neq 0\)</span>
+car un trinôme du second degré admet au plus deux racines distinctes.
+Donc <span class="math inline">\(a = 0\)</span>.</p></li>
+<li><p>On ne peut avoir <span class="math inline">\(b \neq 0\)</span>
+car une fonction affine admet au plus une racine. Donc <span
+class="math inline">\(b = 0\)</span>.</p></li>
+<li><p>On a donc finalement <span class="math inline">\(c = 0\)</span>
+donc <span class="math inline">\(f = 0_E\)</span>.</p></li>
+</ul>
+<p>On a donc bien <span class="math inline">\(F\)</span> injective donc
+<span class="math inline">\(f\)</span> bijective.</p>
+</div>
+<h2 data-number="1.8"
+id="exemples-despaces-vectoriels-de-dimension-finie"><span
+class="header-section-number">1.8</span> Exemples d’espaces vectoriels
+de dimension finie</h2>
+<h3 data-number="1.8.1" id="espace-vectoriel-produit"><span
+class="header-section-number">1.8.1</span> Espace vectoriel produit</h3>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E,F\)</span> deux espaces de
+dimension finie.</p>
+<p>Alors, <span class="math inline">\(E \times F\)</span> est de
+dimension finie et <span class="math inline">\(\dim E \times F = \dim
+E+\dim F\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Si <span class="math inline">\(E = \left\{0_E\right\}\)</span>,
+<span class="math inline">\(E\times F = \left\{(0_E,v)/v \in
+F\right\}\)</span> donc <span class="math inline">\(E\times F \simeq
+F\)</span> en introduisant la bijection <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; F &amp; \to &amp; E\times F \\
+   &amp;   &amp; v &amp; \mapsto &amp; (0_E,v)
+\end{array}\)</span>.</p>
+<p>On a donc <span class="math inline">\(E\times F\)</span> de dimension
+<span class="math inline">\(\dim F = \dim E + \dim F\)</span>.</p></li>
+<li><p>De même, si <span class="math inline">\(F =
+\left\{0_F\right\}\)</span>, <span class="math inline">\(E\times F
+\simeq E\)</span> et <span class="math inline">\(\dim E\times F= \dim E
+= \dim E+\dim F\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(E \neq \left\{0_E\right\}\)</span>
+et <span class="math inline">\(F \neq \left\{0_F\right\}\)</span>.</p>
+<p>Soit <span class="math inline">\((e_1,\ldots,e_p)\)</span> une base
+de <span class="math inline">\(E\)</span> et <span
+class="math inline">\((f_1,\ldots,f_n)\)</span> une base de <span
+class="math inline">\(F\)</span>.</p>
+<p>Montrons que <span class="math inline">\(\mathscr{B} =
+\left\{(e_1,0_F),\ldots,(e_p,0_F),(0_E,f_1),\ldots,(0_E,f_n)\right\}\)</span>
+est une base de <span class="math inline">\(E\times F\)</span>.</p>
+<ul>
+<li><p>D’abord, cette famille est libre. En effet, soient <span
+class="math inline">\(\alpha_1,\ldots,\alpha_p,\beta_1,\ldots,\beta_n
+\in \mathbb{K}\)</span> tels que <span
+class="math inline">\(\sum_{k=1}^p{\alpha_k}(e_k,0_F) + \sum_{\ell=1}^n
+\beta_\ell(0_E,f_\ell) = (0_E,0_F)\)</span> alors</p>
+<p><span class="math inline">\(\left(\sum_{k=1}^p{\alpha_k}e_k,
+\sum_{\ell=1}^n{\beta_\ell} f_\ell\right) = (0_E,0_F)\)</span> donc
+<span class="math inline">\(\left\{\begin{array}{ll}
+            \sum_{k=1}^p{\alpha_k}e_k &amp; = 0_E \\
+             \sum_{\ell=1}^n{\beta_\ell} f_\ell &amp; = 0_F
+        \end{array}\right.\)</span>.</p>
+<p>Or, <span class="math inline">\((e_1,\ldots,e_p)\)</span> et <span
+class="math inline">\((f_1,\ldots,f_n)\)</span> sont libres donc <span
+class="math inline">\(\alpha_1 = \ldots = \alpha_p = \beta_1 =
+\ldots=\beta_n = 0\)</span>.</p>
+<p>On en déduit donc que <span
+class="math inline">\(\mathscr{B}\)</span> est libre.</p></li>
+<li><p>Ensuite, cette famille est génératrice.</p>
+<p>En effet, soit <span class="math inline">\(w \in E \times F\)</span>,
+il existe <span class="math inline">\(u\in E\)</span> et <span
+class="math inline">\(v \in F\)</span> tels que <span
+class="math inline">\(w = (u,v)\)</span>.</p>
+<p>Or, <span class="math inline">\(u \in E\)</span> et <span
+class="math inline">\((e_1,\ldots,e_p)\)</span> est une base de <span
+class="math inline">\(E\)</span> donc il existe <span
+class="math inline">\(\alpha_1,\ldots,\alpha_p \in \mathbb{K}\)</span>
+tels que <span class="math inline">\(u = \sum_{k=1}^p \alpha_k
+e_k\)</span>.</p>
+<p>Aussi, <span class="math inline">\(v \in F\)</span> et <span
+class="math inline">\((f_1,\ldots,f_n)\)</span> est une base de <span
+class="math inline">\(F\)</span> donc il existe <span
+class="math inline">\(\beta_1,\ldots,\beta_n \in \mathbb{K}\)</span>
+tels que <span class="math inline">\(v= \sum_{\ell=1}^n \beta_\ell
+f_\ell\)</span>.</p>
+<p>On a donc <span class="math inline">\(w= (u,v) =
+\sum_{k=1}^p{\alpha_k}(e_k,0_F) + \sum_{\ell=1}^n
+\beta_\ell(0_E,f_\ell)\)</span> et <span
+class="math inline">\(\mathscr{B}\)</span> est génératrice de <span
+class="math inline">\(E\times F\)</span>.</p></li>
+</ul>
+<p>Finalement, <span class="math inline">\(E\times F\)</span> est de
+dimension <span class="math inline">\(\mathop{\mathrm{card}}\mathscr{B}
+= p+n = \dim E + \dim F\)</span>.</p></li>
+</ul>
+</div>
+<div class="wcor">
+<p><strong>(Généralisation)</strong> Soient <span
+class="math inline">\(E_1,\ldots,E_r\)</span> des espaces de dimension
+finie alors <span class="math inline">\(E_1\times\ldots\times
+E_r\)</span> est de dimension finie avec <span
+class="math inline">\(\dim E_1\times\ldots\times E_r = \sum_{i=1}^r \dim
+E_i\)</span>.</p>
+<p>En particulier, <span class="math inline">\(\dim E_1^r = r\dim
+E_1\)</span>.</p>
+</div>
+<div class="wappli">
+<p><strong>(Formule de Grassmann)</strong> Soit <span
+class="math inline">\(E\)</span> un espace vectoriel de dimension finie
+et <span class="math inline">\(F,G\)</span> deux sous-espaces vectoriels
+de <span class="math inline">\(E\)</span>.</p>
+<p>Alors, <span class="math inline">\(\dim (F+G) = \dim F +\dim G - \dim
+F \cap G\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Introduisons <span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; F\times G &amp; \to &amp; F+G \\
+   &amp;   &amp; (u,v) &amp; \mapsto &amp; u+v
+\end{array}\)</span>. <span class="math inline">\(f\)</span> est
+clairement linéaire.</p>
+<p>De plus, <span class="math inline">\(\mathop{\mathrm{Im}}f =
+F+G\)</span>, par définition de <span
+class="math inline">\(F+G\)</span>.</p>
+<p>Enfin, <span class="math inline">\(w=(u,v) \in \mathop{\mathrm{Ker}}f
+\iff u+v = 0_E \iff u = -v \iff w = (u,-u) \text{ avec }u \in F \cap
+G\)</span>.</p>
+<p>On a donc clairement <span class="math inline">\(F\cap G \simeq
+\mathop{\mathrm{Ker}}f\)</span> via la bijection <span
+class="math inline">\(\begin{array}{lllll}
+g &amp; : &amp; F\cap G &amp; \to &amp; \mathop{\mathrm{Ker}}f \\
+   &amp;   &amp; u &amp; \mapsto &amp; (u,-u)
+\end{array}\)</span>.</p>
+<p>Finalement, en appliquant le théorème du rang,</p>
+<p><span class="math display">\[\dim F \times G = \dim (F+G) + \dim
+F\cap G \iff   \dim (F+G) = \dim F +\dim G - \dim F \cap G.\]</span></p>
+</div>
+<div class="wcor">
+<p>Soit <span class="math inline">\(E\)</span> un espace vectoriel de
+dimension finie et <span class="math inline">\(F,G\)</span> deux
+sous-espaces vectoriels de <span class="math inline">\(E\)</span>.</p>
+<p>Alors, <span class="math inline">\(E = F \oplus G \iff F\cap G =
+\left\{0_E\right\} \text{ et }\dim E = \dim F+\dim G\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> a déjà été
+démontré avant.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> D’abord, si
+<span class="math inline">\(\mathscr{F}\cap G =
+\left\{0_E\right\}\)</span>, <span class="math inline">\(F+G\)</span>
+est directe.</p>
+<p>Ensuite, <span class="math inline">\(F+G \subset E\)</span> et par la
+formule de Grassmann, <span class="math inline">\(\dim (F+G) = \dim F
++\dim G - \dim F \cap G = \dim F+\dim G = \dim E\)</span>.</p>
+<p>Donc <span class="math inline">\(F+G = E\)</span>.</p></li>
+</ul>
+</div>
+<h3 data-number="1.8.2" id="espace-vectoriel-mathscrlef"><span
+class="header-section-number">1.8.2</span> Espace vectoriel <span
+class="math inline">\(\mathscr{L}(E,F)\)</span></h3>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E,F\)</span> deux espaces
+vectoriels de dimension finie.</p>
+<p>Alors, <span class="math inline">\(\mathscr{L}(E,F)\)</span> est de
+dimension finie avec <span class="math inline">\(\dim \mathscr{L}(E,F) =
+(\dim E) \times (\dim F)\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Si <span class="math inline">\(E = \left\{0_E\right\}\)</span>,
+<span class="math inline">\(\mathscr{L}(E,F) =
+\{0_{\mathscr{L}(E,F)}\}\)</span> donc <span class="math inline">\(\dim
+\mathscr{L}(E,F) = 0 = (\dim E) \times (\dim F)\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(E \neq
+\left\{0_E\right\}\)</span>, soit <span
+class="math inline">\((e_1,\ldots,e_p)\)</span> une base de <span
+class="math inline">\(E\)</span>, montrons que l’application linéaire
+<span class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; \mathscr{L}(E,F) &amp; \to &amp; F^p \\
+   &amp;   &amp; f &amp; \mapsto &amp; (f(e_1),\ldots,f(e_p))
+\end{array}\)</span> est une bijection.</p>
+<ul>
+<li><p><span class="math inline">\(\varphi\)</span> est une
+injection.</p>
+<p>En effet, si <span class="math inline">\(f \in
+\mathop{\mathrm{Ker}}\varphi\)</span> alors on a clairement <span
+class="math inline">\(f = 0_{\mathscr{L}(E,F)}\)</span>.</p></li>
+<li><p><span class="math inline">\(\varphi\)</span> est une surjection
+par la proposition <a href="#prop:inj_surj_bij_libre_gene_base"
+data-reference-type="ref"
+data-reference="prop:inj_surj_bij_libre_gene_base">[prop:inj_surj_bij_libre_gene_base]</a>.</p></li>
+</ul>
+<p>Donc <span class="math inline">\(\varphi\)</span> est une bijection
+linéaire et <span class="math inline">\(\dim \mathscr{L}(E,F) = \dim F^p
+= p\dim F =  (\dim E) \times (\dim F)\)</span>.</p></li>
+</ul>
+</div>
+<h3 data-number="1.8.3"
+id="espaces-des-suites-complexes-admettant-une-relation-de-récurrence-dordre-2"><span
+class="header-section-number">1.8.3</span> Espaces des suites complexes
+admettant une relation de récurrence d’ordre 2</h3>
+<p>Soient <span class="math inline">\(a \in \mathbb{C}^\star\)</span> et
+<span class="math inline">\(b,c \in \mathbb{C}\)</span>, on considère
+<span class="math display">\[E_{\mathbb{N},2} = \left\{(u_n) \in
+\mathscr{F}(\mathbb{N},\mathbb{C}) / \forall n \in \mathbb{N},
+au_{n+2}+bu_{n+1}+cu_n = 0\right\}.\]</span></p>
+<div class="wprop">
+<p><span class="math inline">\(E_{\mathbb{N},2}\)</span> est un espace
+vectoriel de dimension 2.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>D’abord, montrons que <span
+class="math inline">\(E_{\mathbb{N},2}\)</span> est un sous-espace
+vectoriel de <span
+class="math inline">\(\mathscr{F}(\mathbb{N},\mathbb{C})\)</span>.</p>
+<ol>
+<li><p><span
+class="math inline">\(0_{\mathscr{F}(\mathbb{N},\mathbb{C})} \in
+E_{\mathbb{N},2}\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\((u_n), (v_n) \in
+E_{\mathbb{N},2}\)</span> et <span class="math inline">\(\lambda \in
+\mathbb{C}\)</span> alors pour tout <span class="math inline">\(n \in
+\mathbb{N}\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+                &amp; a(u_{n+2}+\lambda v_{n+2}) + b(u_{n+1}+\lambda
+v_{n+1})+c(u_{n}+\lambda v_{n}) \\
+                 &amp; =  (au_{n+2}+bu_{n+1}+cu_n) +
+\lambda(av_{n+2}+bv_{n+1}+c v_n)\\
+                 &amp; = 0
+            \end{aligned}\]</span></p>
+<p>Donc <span class="math inline">\((u_n+\lambda v_n) \in
+E_{\mathbb{N},2}\)</span>.</p></li>
+</ol></li>
+<li><p>Ensuite, montrons qu’il est de dimension <span
+class="math inline">\(2\)</span>. Pour cela, on introduit le lemme
+suivant :</p>
+<div class="wlem">
+<p><span id="lem:egalite_EN_2" label="lem:egalite_EN_2"></span> Soient
+<span class="math inline">\((u_n)_{n \geq 0}, (v_n)_{n \geq 0 }\in
+E_{\mathbb{N},2}\)</span>.</p>
+<p>Alors, si <span class="math inline">\(u_0 = v_0\)</span> et <span
+class="math inline">\(u_1 = v_1\)</span>, on a pour tout <span
+class="math inline">\(n \geq 0\)</span>, <span class="math inline">\(u_n
+= v_n\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Montrons par récurrence sur <span class="math inline">\(n \geq
+0\)</span>: <span class="math display">\[\text{$\mathscr{P}(n): u_n =
+v_n \text{ et }u_{n+1} = v_{n+1}.$}\]</span></p>
+<ul>
+<li><p><strong>Initialisation.</strong> Si <span class="math inline">\(n
+= 0\)</span> le résultat est supposé vrai avec <span
+class="math inline">\(u_0 = v_0\)</span> et <span
+class="math inline">\(u_1 = v_1\)</span>.</p></li>
+<li><p><strong>Hérédité.</strong> Soit <span class="math inline">\(n \in
+\mathbb{N}\)</span> tel que <span
+class="math inline">\(\mathscr{P}(n)\)</span> est vraie.</p>
+<p>Alors, <span class="math display">\[\begin{aligned}
+        u_{n+2}
+        &amp; = -\frac{b}{a}u_{n+1} - \frac{c}{a} u_n \\
+        &amp; = -\frac{b}{a}v_{n+1} - \frac{c}{a} v_n \text{ par
+$\mathscr{P}(n)$} \\
+        &amp; = v_{n+2}
+        \end{aligned}\]</span></p>
+<p>Donc <span class="math inline">\(u_{n+1} = v_{n+1}\)</span> et <span
+class="math inline">\(u_{n+2} = v_{n+2}\)</span> et <span
+class="math inline">\(\mathscr{P}(n+1)\)</span> est vraie.</p></li>
+</ul>
+</div>
+<p>On introduit ensuite <span
+class="math display">\[\begin{array}{lllll}
+f &amp; : &amp; \mathbb{C}^2 &amp; \to &amp; E_{\mathbb{N},2} \\
+   &amp;   &amp; (\alpha,\beta)) &amp; \mapsto &amp; (u_n) \in
+\mathscr{F}(\mathbb{N},\mathbb{C}) / \left\{\begin{array}{ll}
+            u_0 &amp; = \alpha \\
+            u_1&amp; = \beta \\
+            \forall n \geq 0, u_{n+2} &amp; =
+-\frac{b}{a}u_{n+1}-\frac{c}{a}u_n.
+        \end{array}\right.
+\end{array}\]</span> et on va montrer que c’est une bijection
+linéaire.</p>
+<ol>
+<li><p><span class="math inline">\(f\)</span> est linéaire. En effet, si
+<span class="math inline">\(\lambda \in \mathbb{C}\)</span>, <span
+class="math inline">\((\alpha_1,\beta_1), (\alpha_2,\beta_2) \in
+\mathbb{C}^2\)</span>, <span class="math inline">\(u_n^1 =
+f((\alpha_1,\beta_1))\)</span> et <span
+class="math inline">\(u_n^2=f((\alpha_2,\beta_2))\)</span>.</p>
+<p>Alors <span class="math inline">\((u_n^1+\lambda u_n^2)_{n \geq 0}
+\in E_{\mathbb{N},2}\)</span> de premiers termes <span
+class="math inline">\(\alpha_1 +\lambda \alpha_2\)</span> et <span
+class="math inline">\(\beta_1+\lambda \beta_2\)</span>.</p>
+<p>On déduit alors du lemme <a href="#lem:egalite_EN_2"
+data-reference-type="ref"
+data-reference="lem:egalite_EN_2">[lem:egalite_EN_2]</a> que <span
+class="math inline">\(f((\alpha_1,\beta_1)+\lambda (\alpha_2,\beta_2)) =
+f((\alpha_1,\beta_1))+\lambda f((\alpha_2,\beta_2))\)</span>.</p></li>
+<li><p><span class="math inline">\(f\)</span> est injective car par le
+lemme <a href="#lem:egalite_EN_2" data-reference-type="ref"
+data-reference="lem:egalite_EN_2">[lem:egalite_EN_2]</a>, <span
+class="math inline">\(f(0,0) =
+0_{\mathscr{F}(\mathbb{N},\mathbb{C})}\)</span>.</p></li>
+<li><p>Enfin, <span class="math inline">\(\mathop{\mathrm{Im}}f =
+E_{\mathbb{N},2}\)</span> car <span
+class="math inline">\(\mathop{\mathrm{Im}}f \subset
+E_{\mathbb{N},2}\)</span> et que <span
+class="math inline">\(u_0,u_1\)</span> déterminent une suite de <span
+class="math inline">\(E_{\mathbb{N},2}\)</span> (par le lemme <a
+href="#lem:egalite_EN_2" data-reference-type="ref"
+data-reference="lem:egalite_EN_2">[lem:egalite_EN_2]</a>).</p></li>
+</ol>
+<p><span class="math inline">\(f\)</span> étant une bijection linéaire,
+on en déduit <span class="math inline">\(\dim E_{\mathbb{N},2} = \dim
+\mathbb{C}^2 = 2\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>On considère l’équation caractéristique <span
+class="math inline">\((e): az^2+bz+c = 0\)</span> associée à <span
+class="math inline">\(E_{\mathbb{N},2}\)</span>.</p>
+<ol>
+<li><p>Si <span class="math inline">\((e)\)</span> admet deux racines
+(complexes) distinctes <span class="math inline">\(q_1,q_2 \in
+\mathbb{C}\)</span> alors <span class="math inline">\(\left((q_1^n)_{n
+\geq 0}, (q_2^n)_{n \geq 0}\right)\)</span> est une base de <span
+class="math inline">\(E_{\mathbb{N},2}\)</span>.</p></li>
+<li><p>Si <span class="math inline">\((e)\)</span> admet une unique
+racine <span class="math inline">\(q_0 \in \mathbb{C}^\star\)</span>
+alors <span class="math inline">\(\left((q_0^n)_{n \geq 0}, (nq_0^n)_{n
+\geq 0}\right)\)</span> est une base de <span
+class="math inline">\(E_{\mathbb{N},2}\)</span>.</p></li>
+<li><p>Si <span class="math inline">\((e)\)</span> admet pour unique
+racine <span class="math inline">\(q_0 = 0\)</span> alors <span
+class="math inline">\(b=c=0\)</span> et <span
+class="math inline">\(E_{\mathbb{N},2} = \left\{(u_n)_{n \geq 0} /
+\forall n \geq 2, u_n = 0\right\}\)</span></p></li>
+</ol>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Si <span class="math inline">\(q_1 \neq q_2\)</span>,</p>
+<p>De plus, soit <span class="math inline">\(i \in
+\left\{1,2\right\}\)</span>, <span class="math inline">\(aq_i^2+bq_i+c =
+0\)</span> donc pour tout <span class="math inline">\(n \geq 0\)</span>,
+<span class="math inline">\(aq_i^{n+2}+bq_i^{n+1}+cq_i^n =
+\left(aq_i^2+bq_i+c\right)q_i^n = 0\)</span> donc <span
+class="math inline">\((q_i^n)_{n \geq 0} \in
+E_{\mathbb{N},2}\)</span></p>
+<p>De plus, <span class="math inline">\(\left((q_1^n)_{n \geq
+0},(q_2^n)_{n \geq 0}\right)\)</span> est libre.</p>
+<p>En effet, d’abord, <span class="math inline">\((q_1^n)_{n \geq 0}
+\neq 0_{\mathscr{F}(\mathbb{N},\mathbb{C})}\)</span> car <span
+class="math inline">\(q_1^0 = 1 \neq 0\)</span>.</p>
+<p>Ensuite, par l’absurde, s’il existe <span
+class="math inline">\(\alpha \in \mathbb{C}\)</span> tel que <span
+class="math inline">\(\forall n \geq 0, q_2^n = \alpha q_1^n\)</span>
+alors en <span class="math inline">\(n=0\)</span>, on a <span
+class="math inline">\(\alpha = 1\)</span> et en <span
+class="math inline">\(n = 2\)</span>, on a <span
+class="math inline">\(q_2\alpha = q_1\)</span> donc <span
+class="math inline">\(\alpha=0\)</span> car <span
+class="math inline">\(q_1 \neq q_2\)</span>, ce qui est absurde.</p>
+<p>Donc <span class="math inline">\(\left((q_1^n)_{n \geq 0},(q_2^n)_{n
+\geq 0}\right)\)</span> forme bien une base de <span
+class="math inline">\(E_{\mathbb{N},2}\)</span>.</p></li>
+<li><p>Comme dans ce qui précède, <span class="math inline">\((q_0^n)_{n
+\geq 0} \in E_{\mathbb{N},2}\)</span>.</p>
+<p>Précisons enfin que dans le cas où <span
+class="math inline">\((e)\)</span> admet une unique racine, elle
+s’exprime <span class="math inline">\(q_0 = -\frac{b}{2a}\)</span>.</p>
+<p>On a donc pour tout <span class="math inline">\(n\geq 0\)</span>,
+<span class="math display">\[\begin{aligned}
+            a(n+2)q_0^{n+2} + b(n+1)q_0^{n+1}+cnq_0^{n}
+            &amp; = nq_0^n(aq_0^2+bq_0+c) + q_0^{n+1}(2aq_0+b) \\
+            &amp; = 0
+        \end{aligned}\]</span></p>
+<p>et <span class="math inline">\((nq_0^n)_{n \geq 0} \in
+E_{\mathbb{N},2}\)</span>.</p>
+<p>Enfin, <span class="math inline">\(\left((q_0^n)_{n \geq
+0},(nq_0^n)_{n \geq 0}\right)\)</span> est libre.</p>
+<p>En effet, d’abord, <span class="math inline">\((q_0^n)_{n \geq 0}
+\neq 0_{\mathscr{F}(\mathbb{N},\mathbb{C})}\)</span> car <span
+class="math inline">\(q_0^0 = 1 \neq 0\)</span>.</p>
+<p>Ensuite, par l’absurde, s’il existe <span
+class="math inline">\(\alpha \in \mathbb{C}\)</span> tel que <span
+class="math inline">\(\forall n \geq 0, nq_0^n = \alpha q_0^n\)</span>
+alors en <span class="math inline">\(n=0\)</span>, on a <span
+class="math inline">\(\alpha = 0\)</span>, ce qui est absurde car <span
+class="math inline">\((nq_0^n)_{n \geq 0} \neq
+0_{\mathscr{F}(\mathbb{N},\mathbb{C})}\)</span> car <span
+class="math inline">\(1q_0^1 = q_0 \neq 0\)</span> (cela ne
+fonctionnerait pas avec <span class="math inline">\(q_0 =
+0\)</span>).</p>
+<p>Donc <span class="math inline">\(\left((q_0^n)_{n \geq 0},(nq_0^n)_{n
+\geq 0}\right)\)</span> forme bien une base de <span
+class="math inline">\(E_{\mathbb{N},2}\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(q_0 = -\frac{b}{2a} = 0\)</span>
+est l’unique racine de <span class="math inline">\((e)\)</span> alors
+<span class="math inline">\(b = 0\)</span> et puis <span
+class="math inline">\(c=0\)</span> (pour que <span
+class="math inline">\((e)\)</span> admette <span
+class="math inline">\(0\)</span> comme racine).</p>
+<p>On a donc <span class="math inline">\(E_{\mathbb{N},2} = \left\{(u_n)
+\in \mathscr{F}(\mathbb{N},\mathbb{C}) / \forall n \geq 0, u_{n+2} =
+0\right\} = \left\{(u_n)_{n \geq 0} / \forall n \geq 2, u_n =
+0\right\}\)</span>.</p></li>
+</ul>
+</div>
+<div class="wex">
+<p><strong>(Suite de Fibonacci)</strong></p>
+<p><strong>Exercice</strong> — Déterminer en fonction de <span
+class="math inline">\(n\)</span> la suite <span
+class="math inline">\((F_n)_{n\geq 0}\)</span> définie par <span
+class="math inline">\(\left\{\begin{array}{ll}
+            F_0 &amp; =0 \\
+            F_1 &amp; = 1 \\
+            \forall n \geq 0, F_{n+2} = F_{n+1}+F_{n}.
+        \end{array}\right.\)</span></p>
+<p><strong>Corrigé</strong> — <span class="math inline">\((F_n)\)</span>
+est une suite récurrente d’ordre <span class="math inline">\(2\)</span>
+avec <span class="math inline">\(a=1\)</span>, <span
+class="math inline">\(b=c=-1\)</span>.</p>
+<p>On étudie donc <span class="math inline">\((e): z^2-z-1 = 0\)</span>.
+Le discriminant vaut <span class="math inline">\(\Delta = 1-4(1)(-1) =
+5\)</span> et <span class="math inline">\((e)\)</span> admet deux
+racines distinctes qui sont <span class="math inline">\(\frac{1\pm
+\sqrt{5}}{2}\)</span>.</p>
+<p>Par ce qui précède, il existe donc <span
+class="math inline">\(\alpha_1,\alpha_2 \in \mathbb{C}\)</span> tels que
+pour tout <span class="math inline">\(n \in \mathbb{N}, F_n =
+\alpha_1\left(\frac{1+\sqrt{5}}{2}\right)^n +
+\alpha_2\left(\frac{1-\sqrt{5}}{2}\right)^n\)</span>.</p>
+<p>De plus, <span class="math inline">\(\left\{\begin{array}{lll}
+            F_0 &amp; =0 &amp;= \alpha_1+\alpha_2 \\
+            F_1 &amp; = 1 &amp; =
+\alpha_1\left(\frac{1+\sqrt{5}}{2}\right) +
+\alpha_2\left(\frac{1-\sqrt{5}}{2}\right)
+        \end{array}\right.\)</span> donc <span
+class="math inline">\(\left\{\begin{array}{ll}
+            \alpha_1 &amp; = -\alpha_2 \\
+            \alpha_1\left(\frac{1+\sqrt{5}}{2}-\frac{1-\sqrt{5}}{2}\right)
+&amp;= 1 \Longrightarrow \alpha_1 = \frac{1}{\sqrt{5}}.
+        \end{array}\right.\)</span>.</p>
+<p>Finalement, pour tout <span class="math inline">\(n \geq 0\)</span>,
+<span class="math inline">\(F_n =
+\frac{1}{\sqrt{5}}\left(\left(\frac{1+\sqrt{5}}{2}\right)^n-\left(\frac{1-\sqrt{5}}{2}\right)^n\right)\)</span>.</p>
+</div>
+<h1 data-number="2" id="forme-linéaire-sur-un-espace-vectoriel"><span
+class="header-section-number">2</span> Forme linéaire sur un espace
+vectoriel</h1>
+<h2 data-number="2.1"
+id="forme-linéaire-sur-un-sous-espace-vectoriel"><span
+class="header-section-number">2.1</span> Forme linéaire sur un
+sous-espace vectoriel</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel. Une forme
+linéaire sur <span class="math inline">\(E\)</span> est une application
+linéaire de <span class="math inline">\(E\)</span> dans <span
+class="math inline">\(\mathbb{K}\)</span>.</p>
+<p>L’ensemble des formes linéaires sur <span
+class="math inline">\(E\)</span> <span
+class="math inline">\(\mathscr{L}(E,\mathbb{K})\)</span> est noté <span
+class="math inline">\(E^\star\)</span>.</p>
+</div>
+<div class="wex">
+<ul>
+<li><p>Pour <span class="math inline">\(E = \mathbb{R}^3\)</span>, <span
+class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; E &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; (x,y,z) &amp; \mapsto &amp; x+2y-z
+\end{array}
+\in E^\star\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(E =
+\mathscr{F}(\mathbb{R},\mathbb{R})\)</span>, <span
+class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; E &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; f &amp; \mapsto &amp; f(0)
+\end{array}
+\in E^\star\)</span>.</p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>Si <span class="math inline">\(E\)</span> est de dimension finie,
+<span class="math inline">\(E^\star\)</span> est de dimension finie avec
+<span class="math inline">\(\dim E^\star = \dim E\)</span>.</p>
+</div>
+<div class="wex">
+<p><span id="ex:forme_lin_composante"
+label="ex:forme_lin_composante"></span> Soient <span
+class="math inline">\(E\)</span> un espace vectoriel sur <span
+class="math inline">\(\mathbb{K}\)</span> de dimension <span
+class="math inline">\(n \geq 1\)</span> et <span
+class="math inline">\((e_1,\ldots,e_n)\)</span> une base de <span
+class="math inline">\(E\)</span>.</p>
+<p>Alors, <span class="math inline">\(\begin{array}{lllll}
+e_i^\star &amp; : &amp; E &amp; \to &amp; \mathbb{K} \\
+   &amp;   &amp; v &amp; \mapsto &amp; \alpha_i \text{ avec $v =
+\sum_{k=1}^n \underbrace{\alpha_k}_{\in \mathbb{K}} e_k$}
+\end{array}
+\in E^\star\)</span>.</p>
+<p>En effet, d’abord <span class="math inline">\(e_i^\star\)</span> est
+bien définie car tout vecteur <span class="math inline">\(v \in
+E\)</span> se décompose de façon unique dans <span
+class="math inline">\((e_1,\ldots,e_n)\)</span>.</p>
+<p>Ensuite, soient <span class="math inline">\(u,v \in E\)</span> et
+<span class="math inline">\(\lambda \in \mathbb{K}\)</span> tels que
+<span class="math inline">\(u = \sum_{k=1}^n \underbrace{\alpha_k}_{\in
+\mathbb{K}} e_k\)</span> et <span class="math inline">\(v = \sum_{k=1}^n
+\underbrace{\beta_k}_{\in \mathbb{K}} e_k\)</span> alors <span
+class="math inline">\(u+\lambda v = \sum_{k=1}^n (\alpha_k+\lambda
+\beta_k)e_k\)</span> et <span class="math inline">\(e_i^\star(u+\lambda
+v) = \alpha_k + \lambda \beta_k = e^\star_i(u) + \lambda
+e_i^\star(v)\)</span>.</p>
+</div>
+<h2 data-number="2.2" id="noyau-dune-forme-linéaire-non-nulle"><span
+class="header-section-number">2.2</span> Noyau d’une forme linéaire non
+nulle</h2>
+<div class="wprop">
+<p><span id="prop:forme_lin_surjective"
+label="prop:forme_lin_surjective"></span> Soit <span
+class="math inline">\(E\)</span> un espace vectoriel de dimension finie
+avec <span class="math inline">\(\dim E = n \geq 1\)</span>.</p>
+<p>Soit <span class="math inline">\(\varphi \in E^\star\)</span> non
+nulle alors <span class="math inline">\(\varphi\)</span> est
+surjective.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\mathop{\mathrm{Im}}\varphi \subset
+\mathbb{K}\)</span> est un espace vectoriel <span
+class="math inline">\(\neq \left\{0\right\}\)</span>.</p>
+<p>Donc <span class="math inline">\(\dim \mathop{\mathrm{Im}}\varphi
+\geq 1\)</span> et comme <span class="math inline">\(\dim \mathbb{K}=
+1\)</span>, <span class="math inline">\(\mathop{\mathrm{Im}}\varphi =
+\mathbb{K}\)</span>.</p>
+</div>
+<div class="wcor">
+<p>Soit <span class="math inline">\(E\)</span> un espace vectoriel de
+dimension finie avec <span class="math inline">\(\dim E = n \geq
+1\)</span>.</p>
+<p>Soit <span class="math inline">\(\varphi \in E^\star\)</span> non
+nulle alors <span class="math inline">\(\dim
+\mathop{\mathrm{Ker}}\varphi = n-1\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Par théorème du rang, <span class="math inline">\(\dim
+\mathop{\mathrm{Ker}}\varphi = \dim E - \dim \mathop{\mathrm{Im}}\varphi
+= n-1\)</span> car <span
+class="math inline">\(\mathop{\mathrm{Im}}\varphi = \mathbb{K}\)</span>
+par la proposition <a href="#prop:forme_lin_surjective"
+data-reference-type="ref"
+data-reference="prop:forme_lin_surjective">[prop:forme_lin_surjective]</a>.</p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(F\)</span> un sous-espace vectoriel
+d’un espace vectoriel <span class="math inline">\(E\)</span> de
+dimension <span class="math inline">\(n \geq 1\)</span>.</p>
+<p><span class="math inline">\(F\)</span> est un hyperplan de <span
+class="math inline">\(F\)</span> si <span class="math inline">\(\dim F =
+n-1\)</span>.</p>
+</div>
+<div class="wrem">
+<ul>
+<li><p>Si <span class="math inline">\(\dim E = 1\)</span>, <span
+class="math inline">\(H = \left\{0_E\right\}\)</span>,</p></li>
+<li><p>Si <span class="math inline">\(\dim E = 2\)</span>, <span
+class="math inline">\(H\)</span> est une droite de <span
+class="math inline">\(E\)</span>,</p></li>
+<li><p>Si <span class="math inline">\(\dim E = 3\)</span>, <span
+class="math inline">\(H\)</span> est un plan de <span
+class="math inline">\(E\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(\varphi \in E^\star\)</span>,
+non nulle, alors <span
+class="math inline">\(\mathop{\mathrm{Ker}}\varphi\)</span> est un
+hyperplan de <span class="math inline">\(E\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="2.3"
+id="équations-cartésiennes-dun-hyperplan-dans-une-base"><span
+class="header-section-number">2.3</span> Équations cartésiennes d’un
+hyperplan dans une base</h2>
+<div class="wprop">
+<p><span id="prop:existence_forme_lin_hyper"
+label="prop:existence_forme_lin_hyper"></span> Soit <span
+class="math inline">\(H\)</span> un hyperplan d’un espace vectoriel
+<span class="math inline">\(E\)</span> de dimension <span
+class="math inline">\(n \geq 1\)</span>.</p>
+<p>Alors, il existe <span class="math inline">\(\varphi_0 \in
+E^\star\)</span> non nulle telle que <span class="math inline">\(H =
+\mathop{\mathrm{Ker}}\varphi_0\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Par la proposition <a href="#prop:existence_suppl"
+data-reference-type="ref"
+data-reference="prop:existence_suppl">[prop:existence_suppl]</a>, il
+existe <span class="math inline">\(D\)</span> sous-espace vectoriel de
+<span class="math inline">\(E\)</span> tel que <span
+class="math inline">\(E = H\oplus D\)</span>.</p>
+<p>De plus, <span class="math inline">\(\dim D = \dim E - \dim H =
+n-(n-1) = 1\)</span>.</p>
+<p>Alors, considérons <span class="math inline">\((v_0)\)</span> une
+base de <span class="math inline">\(D\)</span>. Par l’exemple <a
+href="#ex:forme_lin_composante" data-reference-type="ref"
+data-reference="ex:forme_lin_composante">[ex:forme_lin_composante]</a>,
+<span class="math inline">\(v_0^\star \in E^\star\)</span> est une forme
+linéaire de <span class="math inline">\(E\)</span> non nulle (car <span
+class="math inline">\(v_0^\star(v_0) = 1\)</span>).</p>
+<p>De plus, <span class="math inline">\(H =
+\mathop{\mathrm{Ker}}v_0^\star\)</span>.</p>
+<p>En effet, pour tout <span class="math inline">\(v \in E\)</span>, il
+existe <span class="math inline">\(u \in H\)</span> unique et <span
+class="math inline">\(\alpha_{v} \in \mathbb{K}\)</span> unique tel que
+<span class="math inline">\(v = u+\alpha_v v_0\)</span>.</p>
+<p>De plus, <span class="math inline">\(v \in H \iff \alpha_v = 0 \iff
+v_0^\star(v) = \alpha_v = 0\)</span>.</p>
+</div>
+<div class="wprop">
+<p><span id="prop:unicite_forme_line_hyper"
+label="prop:unicite_forme_line_hyper"></span> Soit <span
+class="math inline">\(H\)</span> un hyperplan d’un espace vectoriel
+<span class="math inline">\(E\)</span> de dimension <span
+class="math inline">\(n \geq 1\)</span>.</p>
+<p>Soit <span class="math inline">\(\varphi, \psi \in E^\star\)</span>
+non nulles telles que <span class="math inline">\(H =
+\mathop{\mathrm{Ker}}\varphi = \mathop{\mathrm{Ker}}\psi\)</span>.</p>
+<p>Alors, il existe <span class="math inline">\(\lambda \in
+\mathbb{K}^\star\)</span> tel que <span class="math inline">\(\psi =
+\lambda \varphi\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Comme dans la preuve précédente, il existe <span
+class="math inline">\(v_0 \in E\)</span> tel que <span
+class="math inline">\(v_0 \neq 0_E\)</span> et <span
+class="math inline">\(E = H \oplus
+\mathop{\mathrm{Vect}}(v_0)\)</span>.</p>
+<p>Donc pour tout <span class="math inline">\(v \in E\)</span>, il
+existe <span class="math inline">\(u \in H\)</span> unique et <span
+class="math inline">\(\alpha_{v} \in \mathbb{K}\)</span> unique tel que
+<span class="math inline">\(v = u+\alpha_v v_0\)</span>.</p>
+<p>On a alors <span class="math inline">\(\varphi(v) = \alpha_v
+\varphi(v_0)\)</span> car <span class="math inline">\(u \in H =
+\mathop{\mathrm{Ker}}\varphi\)</span> et de même <span
+class="math inline">\(\psi(v) = \alpha_v \psi(v_0)\)</span>.</p>
+<p>Enfin, <span class="math inline">\(\varphi(v_0) \neq 0\)</span> car
+<span class="math inline">\(\varphi \neq 0_{E^\star}\)</span> et de même
+<span class="math inline">\(\psi(v_0) \neq 0\)</span>.</p>
+<p>On a donc pour tout <span class="math inline">\(v \in E\)</span>,
+<span class="math inline">\(\psi(v) = \frac{\psi(v_0)}{\varphi(v_0)}
+\alpha_v \varphi(v_0) = \frac{\psi(v_0)}{\varphi(v_0)}
+\varphi(v)\)</span> donc <span class="math inline">\(\psi = \lambda
+\varphi\)</span> avec <span class="math inline">\(\lambda =
+\frac{\psi(v_0)}{\varphi(v_0)} \neq 0\)</span>.</p>
+</div>
+<div class="wcor">
+<p>Soient <span class="math inline">\(H\)</span> un hyperplan d’un
+espace vectoriel <span class="math inline">\(E\)</span> de dimension
+<span class="math inline">\(n \geq 1\)</span> et <span
+class="math inline">\(\mathscr{B}=(e_1,\ldots,e_n)\)</span> une base de
+<span class="math inline">\(E\)</span>.</p>
+<p>Alors, il existe <span class="math inline">\(a_1,\ldots,a_n \in
+\mathbb{K}\)</span> non tous nuls tels que pour tout <span
+class="math inline">\(v \in E\)</span> tel que <span
+class="math inline">\(v = \sum_{k=1}^n x_k e_k\)</span>,</p>
+<p><span class="math display">\[v \in H \iff \sum_{k=1}^n a_k x_k =
+0.\]</span></p>
+<p>Ceci est appelé une équation cartésienne de <span
+class="math inline">\(H\)</span> dans le base <span
+class="math inline">\(\mathscr{B}\)</span>.</p>
+<p>De plus, s’il existe <span class="math inline">\(b_1,\ldots,b_n \in
+\mathbb{K}\)</span> non tous nuls tels que pour tout <span
+class="math inline">\(v \in E\)</span> tel que <span
+class="math inline">\(v = \sum_{k=1}^n x_k e_k\)</span>,</p>
+<p><span class="math display">\[v \in H \iff \sum_{k=1}^n b_k x_k =
+0.\]</span> alors il existe <span class="math inline">\(\lambda \in
+\mathbb{K}^\star\)</span> tel que pour tout <span
+class="math inline">\(1 \leq k \leq n, b_k = \lambda a_k\)</span>.
+Autrement dit, il y a unicité de l’équation cartésienne d’un hyperplan à
+multiplication par un scalaire près.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Par la proposition <a href="#prop:existence_forme_lin_hyper"
+data-reference-type="ref"
+data-reference="prop:existence_forme_lin_hyper">[prop:existence_forme_lin_hyper]</a>,
+il existe <span class="math inline">\(\varphi \in E^\star\)</span> non
+nulle telle que <span class="math inline">\(H =
+\mathop{\mathrm{Ker}}\varphi\)</span>.</p>
+<p>Or, pour tout <span class="math inline">\(v \in E\)</span> tel que
+<span class="math inline">\(v = \sum_{k=1}^n x_k e_k\)</span>, <span
+class="math inline">\(\varphi(v) = \sum_{k=1}^n x_k
+\varphi(e_k)\)</span>.</p>
+<p>On a donc, en notant <span class="math inline">\(a_k =
+\varphi(e_k)\)</span> pour <span class="math inline">\(1 \leq k \leq
+n\)</span>,</p>
+<p><span class="math display">\[v \in H \iff \varphi(v) = 0 \iff
+\sum_{k=1}^n x_k a_k = 0.\]</span></p>
+<p>Les <span class="math inline">\(a_k\)</span> sont non tous nuls car
+<span class="math inline">\(\varphi \neq 0_{E^\star}\)</span>.</p></li>
+<li><p>Supposons l’existence des <span
+class="math inline">\(b_k\)</span>. Alors, en notant <span
+class="math inline">\(\psi : \sum_{k=1}^n x_k e_k\in E \mapsto
+\sum_{k=1}^n b_k x_k\)</span>, <span class="math inline">\(H =
+\mathop{\mathrm{Ker}}\psi\)</span>.</p>
+<p>Donc par la proposition <a href="#prop:unicite_forme_line_hyper"
+data-reference-type="ref"
+data-reference="prop:unicite_forme_line_hyper">[prop:unicite_forme_line_hyper]</a>,
+il existe <span class="math inline">\(\lambda \in
+\mathbb{K}^\star\)</span> tel que <span class="math inline">\(\psi =
+\lambda \varphi\)</span>.</p>
+<p>De plus, <span class="math inline">\(b_k = \psi(e_k)\)</span> pour
+tout <span class="math inline">\(1 \leq k \leq n\)</span>.</p>
+<p>Donc <span class="math inline">\(b_k = \psi(e_k) = \lambda
+\varphi(e_k) = \lambda a_k\)</span> pour tout <span
+class="math inline">\(1 \leq k \leq n\)</span>.</p></li>
+</ul>
+</div>
+<div class="wex">
+<p>Pour <span class="math inline">\(E = \mathbb{R}^3\)</span>, <span
+class="math inline">\(\mathscr{B}\)</span> la base canonique de <span
+class="math inline">\(\mathbb{R}^3\)</span> et <span
+class="math inline">\(H\)</span> l’hyperplan d’équation <span
+class="math inline">\(x+2y-z = 0\)</span> dans <span
+class="math inline">\(\mathscr{B}\)</span>, déterminer une base de <span
+class="math inline">\(F\)</span>.</p>
+<p>Pour <span class="math inline">\(\begin{pmatrix}
+        x \\y \\ z
+    \end{pmatrix} \in H\)</span>, <span
+class="math inline">\(\begin{pmatrix}
+        x \\y \\ z
+    \end{pmatrix} = \begin{pmatrix}
+        x \\y \\ x+2y
+    \end{pmatrix} = x\begin{pmatrix}
+        1 \\0\\ 1
+    \end{pmatrix}+ y \begin{pmatrix}
+        0 \\ 1 \\ 2
+    \end{pmatrix}\)</span>. De plus, <span
+class="math inline">\(\left(\begin{pmatrix}
+        1 \\0\\ 1
+    \end{pmatrix}, \begin{pmatrix}
+        0 \\ 1 \\ 2
+    \end{pmatrix}\right)\)</span> est libre car les deux vecteurs sont
+non colinéaires.</p>
+<p>On en déduit donc que c’est bien une base de <span
+class="math inline">\(H\)</span>.</p>
+</div>
+<div class="wex">
+<p>Si <span class="math inline">\(E = \mathbb{R}^2\)</span>, <span
+class="math inline">\(v_0 = (x_0,y_0)\)</span> avec <span
+class="math inline">\(x_0 \neq 0\)</span> et <span
+class="math inline">\(D = \mathop{\mathrm{Vect}}(v_0)\)</span>.</p>
+<p>Alors, <span class="math inline">\(D\)</span> est un hyperplan de
+<span class="math inline">\(E\)</span> et</p>
+<p><span class="math display">\[\begin{aligned}
+        v=(x,y) \in D
+        &amp; \iff \exists \alpha \in \mathbb{R}/ (x,y) = \alpha v_0 \\
+        &amp; \iff \left\{ \begin{array}{ll}
+            x &amp;= \alpha x_0 \\
+            y &amp; = \alpha y_0
+        \end{array}\right. \\
+        &amp; \iff y = \frac{x}{x_0}y_0 \\
+        &amp; \iff yx_0 - xy_0 = 0.
+    \end{aligned}\]</span></p>
+<p>Donc <span class="math inline">\(D =
+\mathop{\mathrm{Ker}}\varphi\)</span> avec <span
+class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; \mathbb{R}^2 &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; (x,y) &amp; \mapsto &amp; x_0y-xy_0
+\end{array}\)</span></p>
+</div>
+</body>
+</html>
+
+<script>
+
+const toggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Appliquer le thème au chargement
+const currentTheme = localStorage.getItem('theme') || 'default';
+body.setAttribute('data-md-color-scheme', currentTheme);
+
+toggle.addEventListener('click', () => {
+    let scheme = body.getAttribute('data-md-color-scheme');
+    let newScheme = (scheme === 'default') ? 'slate' : 'default';
+    
+    body.setAttribute('data-md-color-scheme', newScheme);
+    localStorage.setItem('theme', newScheme);
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    let secCount = -1;
+    let thmCount = -1;
+    let labels = {};
+
+    const noms = {
+        'wthm':'Théorème', 'wprop':'Proposition', 'wdefi':'Définition',
+        'wlem':'Lemme', 'wcor':'Corollaire', 'wappli':'Application',
+        'wrem':'Remarque', 'wrappel': 'Rappel', 'wex':'Exemple',
+        'wexs':'Exemples', 'wproof':'Preuve'
+    };
+
+    // Numérotation des environnements
+    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs, .wrappel,.wproof").forEach(el => {
+        if (el.tagName.toLowerCase() === "h1" && !el.closest("#TOC")) {
+            secCount++;
+            thmCount = 0;
+        } else if (noms[Array.from(el.classList).find(c => noms[c])]) {
+            let type = Array.from(el.classList).find(c => noms[c]);
+            if (type !== 'wproof') {
+                thmCount++;
+                let num = secCount + "." + thmCount;
+                let id = el.querySelector("span[id]") ? el.querySelector("span[id]").id : null;
+                if(id) labels[id] = { num: num, type: type.substring(1) };
+                
+                let p = el.querySelector("p");
+                if (p) {
+                    let strong = p.querySelector("strong");
+                    let title = (strong && strong.innerText.includes("(")) ? ` <span class="env-title">${strong.outerHTML}</span>` : "";
+                    if (title) strong.remove();
+                    p.innerHTML = `<strong class="env-header">${noms[type]} ${num}</strong>` + title + " — " + p.innerHTML;
+                }
+            } else {
+                let p = el.querySelector("p");
+                if (p) p.innerHTML = `<strong class="env-header">Preuve</strong> — ` + p.innerHTML;
+            }
+        }
+    });
+
+    // Fonction lancée une fois MathJax terminé
+    function executerApresMathJax() {
+        
+        // 1. Capture des équations
+        document.querySelectorAll("mjx-math[display='true']").forEach((el, index) => {
+            let num = el.querySelector(".mjx-eqn-number");
+            if (num) {
+                let val = num.innerText.replace(/[()]/g, '');
+                let id = el.id || "eq-" + index;
+                el.id = id;
+                labels[id] = { num: val, type: 'eq' };
+            }
+        });
+
+        // 2. TRACÉ DES LIGNES PARTIELLES
+        document.querySelectorAll("mjx-mtext").forEach(el => {
+            let text = el.textContent;
+            
+            // DÉCODAGE MAGIQUE : si MathJax cache le texte dans les classes CSS
+            if (!text || text.trim() === "") {
+                text = Array.from(el.children).map(c => {
+                    let cls = Array.from(c.classList).find(className => className.startsWith('mjx-c'));
+                    return cls ? String.fromCharCode(parseInt(cls.replace('mjx-c', ''), 16)) : '';
+                }).join('');
+            }
+
+            if (text.includes("CLINEX")) {
+                let regex = /CLINEX(\d+)X(\d+)X/g;
+                let match;
+                let row = el.closest("mjx-mtr");
+                let prevRow = row ? row.previousElementSibling : null;
+
+                while ((match = regex.exec(text)) !== null) {
+                    let start = parseInt(match[1]);
+                    let end = parseInt(match[2]);
+
+                    if (prevRow) {
+                        let cells = prevRow.querySelectorAll("mjx-mtd");
+                        for (let i = start - 1; i < end; i++) {
+                            if (cells[i]) {
+                                cells[i].style.borderBottom = "max(1px, 0.08em) solid currentColor";
+                                cells[i].style.paddingBottom = "0.2em";
+                            }
+                        }
+                    }
+                }
+                // On fait disparaître le marqueur texte
+                el.style.display = "none";
+            }
+        });
+
+        // 3. Remplacement des références
+        document.querySelectorAll("body *").forEach(el => {
+            if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
+                el.innerHTML = el.innerHTML
+                .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m)
+                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => {
+                    let f = t + ":" + id;
+                    return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
+                });
+            }
+        });
+    }
+
+    // Attente robuste de MathJax
+    function waitForMathJax() {
+        if (window.MathJax && window.MathJax.startup && window.MathJax.startup.promise) {
+            window.MathJax.startup.promise.then(() => {
+                setTimeout(executerApresMathJax, 50); 
+            }).catch(err => console.log('Erreur MathJax', err));
+        } else {
+            setTimeout(waitForMathJax, 100);
+        }
+    }
+
+    waitForMathJax();
+
+});
+</script>
+
