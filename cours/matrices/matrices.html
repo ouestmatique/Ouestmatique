@@ -1,0 +1,3979 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Les matrices</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+
+
+<style>
+  /* Correctif MathJax : fusion des bordures pour les divisions de polynômes (array + cline) */
+  mjx-container mjx-mtable {
+    border-collapse: collapse !important;
+  }
+  mjx-container mjx-mtd {
+    padding-top: 0.25em !important;
+    padding-bottom: 0.25em !important;
+  }
+
+  body[data-md-color-scheme="slate"] svg {
+    filter: invert(1) hue-rotate(180deg);
+  }
+  body[data-md-color-scheme="slate"] .site-logo {
+    filter: none;
+  }
+  
+</style>
+
+<header class="site-header">
+
+   <div class="site-header-left">
+      <a href="../../index.html">
+        <img src="../../assets/logo.svg"
+             class="site-logo"
+             alt="Logo">
+      </a>
+    </div>
+
+<div class="site-header-right">
+   <button id="theme-toggle"
+style="
+margin-right: 15px;
+cursor: pointer;
+background: transparent;
+border: none;
+font-size: 1.1rem;
+color: var(--md-primary-bg-color);
+">
+🌙 / ☀️
+</button>
+
+<a href="../../index.html" class="home-link">
+   Retour à l’accueil
+ </a>
+</div>
+
+</header>
+
+
+<header id="title-block-header">
+
+<h1 class="title">Les matrices</h1>
+<p class="pdf-link">
+<a href="matrices.pdf" target="_blank">[PDF]</a>
+</p>
+
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#introduction" id="toc-introduction"><span
+class="toc-section-number">1</span> Introduction</a></li>
+<li><a href="#généralités-sur-les-matrices"
+id="toc-généralités-sur-les-matrices"><span
+class="toc-section-number">2</span> Généralités sur les matrices</a>
+<ul>
+<li><a href="#définition" id="toc-définition"><span
+class="toc-section-number">2.1</span> Définition</a></li>
+<li><a
+href="#matrice-de-f-in-mathscrlef-relativement-à-une-base-de-e-et-une-base-de-f"
+id="toc-matrice-de-f-in-mathscrlef-relativement-à-une-base-de-e-et-une-base-de-f"><span
+class="toc-section-number">2.2</span> Matrice de <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span> relativement à une
+base de <span class="math inline">\(E\)</span> et une base de <span
+class="math inline">\(F\)</span></a></li>
+</ul></li>
+<li><a href="#opérations-dans-mathscrm_npmathbbk"
+id="toc-opérations-dans-mathscrm_npmathbbk"><span
+class="toc-section-number">3</span> Opérations dans <span
+class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span></a>
+<ul>
+<li><a href="#addition-dans-mathscrm_npmathbbk"
+id="toc-addition-dans-mathscrm_npmathbbk"><span
+class="toc-section-number">3.1</span> Addition dans <span
+class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span></a></li>
+<li><a href="#loi-de-composition-externe-dans-mathscrm_npmathbbk"
+id="toc-loi-de-composition-externe-dans-mathscrm_npmathbbk"><span
+class="toc-section-number">3.2</span> Loi de composition externe dans
+<span
+class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span></a></li>
+<li><a href="#base-de-mathscrm_npmathbbk"
+id="toc-base-de-mathscrm_npmathbbk"><span
+class="toc-section-number">3.3</span> Base de <span
+class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span></a></li>
+</ul></li>
+<li><a href="#produit-matriciel" id="toc-produit-matriciel"><span
+class="toc-section-number">4</span> Produit matriciel</a>
+<ul>
+<li><a href="#définition-1" id="toc-définition-1"><span
+class="toc-section-number">4.1</span> Définition</a></li>
+<li><a href="#propriétés" id="toc-propriétés"><span
+class="toc-section-number">4.2</span> Propriétés</a></li>
+<li><a href="#matrice-colonne-associée-à-limage-dun-vecteur"
+id="toc-matrice-colonne-associée-à-limage-dun-vecteur"><span
+class="toc-section-number">4.3</span> Matrice colonne associée à l’image
+d’un vecteur</a></li>
+</ul></li>
+<li><a href="#lanneau-non-commutatif-et-non-intègre-mathscrm_nmathbbk"
+id="toc-lanneau-non-commutatif-et-non-intègre-mathscrm_nmathbbk"><span
+class="toc-section-number">5</span> L’anneau non commutatif et non
+intègre <span
+class="math inline">\(\mathscr{M}_{n}(\mathbb{K})\)</span></a>
+<ul>
+<li><a href="#introduction-1" id="toc-introduction-1"><span
+class="toc-section-number">5.1</span> Introduction</a></li>
+<li><a href="#les-éléments-inversibles-de-mathscrm_nmathbbk"
+id="toc-les-éléments-inversibles-de-mathscrm_nmathbbk"><span
+class="toc-section-number">5.2</span> Les éléments inversibles de <span
+class="math inline">\(\mathscr{M}_{n}(\mathbb{K})\)</span></a></li>
+</ul></li>
+<li><a href="#changement-de-bases" id="toc-changement-de-bases"><span
+class="toc-section-number">6</span> Changement de bases</a>
+<ul>
+<li><a href="#matrice-de-passage-entre-deux-bases"
+id="toc-matrice-de-passage-entre-deux-bases"><span
+class="toc-section-number">6.1</span> Matrice de passage entre deux
+bases</a></li>
+<li><a href="#influence-dun-changement-de-bases"
+id="toc-influence-dun-changement-de-bases"><span
+class="toc-section-number">6.2</span> Influence d’un changement de
+bases</a>
+<ul>
+<li><a href="#sur-la-matrice-colonne-associée-à-un-vecteur"
+id="toc-sur-la-matrice-colonne-associée-à-un-vecteur"><span
+class="toc-section-number">6.2.1</span> Sur la matrice colonne associée
+à un vecteur</a></li>
+<li><a href="#sur-la-matrice-de-f-in-mathscrlef"
+id="toc-sur-la-matrice-de-f-in-mathscrlef"><span
+class="toc-section-number">6.2.2</span> Sur la matrice de <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span></a></li>
+</ul></li>
+<li><a href="#matrices-équivalentes-et-matrices-semblables"
+id="toc-matrices-équivalentes-et-matrices-semblables"><span
+class="toc-section-number">6.3</span> Matrices équivalentes et matrices
+semblables</a>
+<ul>
+<li><a href="#matrices-équivalentes"
+id="toc-matrices-équivalentes"><span
+class="toc-section-number">6.3.1</span> Matrices équivalentes</a></li>
+<li><a href="#matrices-semblables" id="toc-matrices-semblables"><span
+class="toc-section-number">6.3.2</span> Matrices semblables</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#rang-dune-matrice" id="toc-rang-dune-matrice"><span
+class="toc-section-number">7</span> Rang d’une matrice</a>
+<ul>
+<li><a href="#rang-dune-famille-de-vecteurs"
+id="toc-rang-dune-famille-de-vecteurs"><span
+class="toc-section-number">7.1</span> Rang d’une famille de
+vecteurs</a></li>
+<li><a href="#rang-dune-matrice-1" id="toc-rang-dune-matrice-1"><span
+class="toc-section-number">7.2</span> Rang d’une matrice</a></li>
+<li><a href="#lien-entre-les-notions-de-rang"
+id="toc-lien-entre-les-notions-de-rang"><span
+class="toc-section-number">7.3</span> Lien entre les notions de rang</a>
+<ul>
+<li><a
+href="#lien-entre-la-notion-de-rang-dune-famille-de-vecteurs-et-dune-matrice"
+id="toc-lien-entre-la-notion-de-rang-dune-famille-de-vecteurs-et-dune-matrice"><span
+class="toc-section-number">7.3.1</span> Lien entre la notion de rang
+d’une famille de vecteurs et d’une matrice</a></li>
+<li><a
+href="#lien-entre-la-notion-du-rang-de-fin-mathscrlef-et-dune-matrice"
+id="toc-lien-entre-la-notion-du-rang-de-fin-mathscrlef-et-dune-matrice"><span
+class="toc-section-number">7.3.2</span> Lien entre la notion du rang de
+<span class="math inline">\(f\in \mathscr{L}(E,F)\)</span> et d’une
+matrice</a></li>
+</ul></li>
+<li><a
+href="#caractérisation-des-éléments-de-gl_nmathbbk-à-laide-du-rang"
+id="toc-caractérisation-des-éléments-de-gl_nmathbbk-à-laide-du-rang"><span
+class="toc-section-number">7.4</span> Caractérisation des éléments de
+<span class="math inline">\(GL_n(\mathbb{K})\)</span> à l’aide du
+rang</a></li>
+<li><a href="#caractérisation-des-matrices-de-rang-r"
+id="toc-caractérisation-des-matrices-de-rang-r"><span
+class="toc-section-number">7.5</span> Caractérisation des matrices de
+rang <span class="math inline">\(r\)</span></a></li>
+<li><a href="#transposition-dans-mathscrm_npmathbbk"
+id="toc-transposition-dans-mathscrm_npmathbbk"><span
+class="toc-section-number">7.6</span> Transposition dans <span
+class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span></a>
+<ul>
+<li><a href="#définition-2" id="toc-définition-2"><span
+class="toc-section-number">7.6.1</span> Définition</a></li>
+<li><a href="#propriétés-1" id="toc-propriétés-1"><span
+class="toc-section-number">7.6.2</span> Propriétés</a></li>
+</ul></li>
+<li><a
+href="#opérations-élémentaires-sur-les-lignes-ou-colonnes-dune-matrice"
+id="toc-opérations-élémentaires-sur-les-lignes-ou-colonnes-dune-matrice"><span
+class="toc-section-number">7.7</span> Opérations élémentaires sur les
+lignes ou colonnes d’une matrice</a>
+<ul>
+<li><a href="#définition-3" id="toc-définition-3"><span
+class="toc-section-number">7.7.1</span> Définition</a></li>
+<li><a href="#application-au-calcul-du-rang-dune-matrice"
+id="toc-application-au-calcul-du-rang-dune-matrice"><span
+class="toc-section-number">7.7.2</span> Application au calcul du rang
+d’une matrice</a></li>
+<li><a href="#application-au-calcul-de-a-1-pour-ain-gl_nmathbbk"
+id="toc-application-au-calcul-de-a-1-pour-ain-gl_nmathbbk"><span
+class="toc-section-number">7.7.3</span> Application au calcul de <span
+class="math inline">\(A^{-1}\)</span> pour <span
+class="math inline">\(A\in GL_n(\mathbb{K})\)</span></a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="introduction"><span
+class="header-section-number">1</span> Introduction</h1>
+<ul>
+<li><p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(3\)</span> et <span
+class="math inline">\(F\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(2\)</span>.</p>
+<p>On considère <span class="math inline">\(f \in
+\mathscr{L}(E,F)\)</span> ainsi que <span
+class="math inline">\(\mathscr{B} = (e_1,e_2,e_3)\)</span> une base de
+<span class="math inline">\(E\)</span> et <span
+class="math inline">\(\mathscr{C} = (e&#39;_1,e&#39;_2)\)</span> une
+base de <span class="math inline">\(F\)</span>.</p>
+<p>On a <span class="math inline">\(f(e_1), f(e_2), f(e_3) \in
+F\)</span> donc il existe <span
+class="math inline">\(a_1,a_2,a_3,b_1,b_2,b_3 \in \mathbb{K}\)</span>
+tels que <span class="math inline">\(\left\{\begin{array}{ll}
+    f(e_1) &amp; = a_1 e&#39;_1 + b_1 e&#39;_2 \\
+    f(e_2) &amp; = a_2 e&#39;_1 + b_2 e&#39;_2 \\
+    f(e_3) &amp;= a_3 e&#39;_1+b_3 e&#39;_2
+\end{array}\right..\)</span></p>
+<p>On peut alors associer à <span class="math inline">\(f\)</span> et à
+<span class="math inline">\(\mathscr{B}, \mathscr{C}\)</span> le tableau
+<span class="math inline">\(\begin{pmatrix}
+    a_1 &amp; a_2 &amp; a_3 \\
+    b_1 &amp; b_2 &amp; b_3
+\end{pmatrix}\)</span>.</p>
+<p>A noter que ce tableau caractérise <span
+class="math inline">\(f\)</span> car <span
+class="math inline">\(f\)</span> est caractériser par la donnée de <span
+class="math inline">\(f(e_1), f(e_2), f(e_3)\)</span>.</p></li>
+<li><p>Plus généralement, soient <span class="math inline">\(E\)</span>
+un <span class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de
+dimension <span class="math inline">\(p \geq 1\)</span> et <span
+class="math inline">\(F\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geq 1\)</span>.</p>
+<p>On considère <span class="math inline">\(f \in
+\mathscr{L}(E,F)\)</span> ainsi que <span
+class="math inline">\(\mathscr{B} = (e_j)_{1 \leq j \leq p}\)</span> une
+base de <span class="math inline">\(E\)</span> et <span
+class="math inline">\(\mathscr{C} = (e&#39;_i)_{1 \leq i \leq
+n}\)</span> une base de <span class="math inline">\(F\)</span>.</p>
+<p>Soit <span class="math inline">\(j \in [\![ 1,p ]\!]\)</span>, <span
+class="math inline">\(f(e_j) \in F\)</span> donc il existe <span
+class="math inline">\(a_{1j},\ldots, a_{nj} \in \mathbb{K}\)</span> tels
+que <span class="math inline">\(f(e_j) = \sum_{i=1}^n
+a_{ij}e&#39;_i\)</span>.</p>
+<p>On peut alors associer à <span class="math inline">\(f\)</span> et à
+<span class="math inline">\(\mathscr{B}, \mathscr{C}\)</span> le
+tableau</p>
+<div class="center">
+<pre><code>\begin{tikzpicture}
+\matrix (M) [
+    matrix of math nodes,
+    left delimiter={(},
+    right delimiter={)},
+    row sep=6mm,
+    column sep=10mm
+]{
+a_{11} &amp; \cdots &amp; a_{1j}&amp; \cdots &amp; a_{1p} \\
+a_{21} &amp; \cdots &amp; a_{2j} &amp; \cdots &amp; a_{2p} \\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
+a_{n1} &amp; \cdots &amp; a_{nj}&amp; \cdots &amp; a_{np} \\
+};
+
+\draw[&lt;-&gt;] ($(M-1-1.west)+(-1.2,0.4)$) -- node[left] {$n$} ($(M-4-1.west)+(-1.2,-0.4)$);
+
+\draw[&lt;-&gt;] ($(M-4-1.south)+(0,-0.8)$) -- node[below] {$p$} ($(M-4-4.south)+(2,-0.8)$);
+
+\draw[-&gt;] ($(M-1-3.north)+(0,1)$) -- node[pos=0.1,above]{$j$} (M-1-3.north);
+\end{tikzpicture}</code></pre>
+</div>
+<p>que l’on appelera la matrice de <span
+class="math inline">\(f\)</span> relativement aux bases <span
+class="math inline">\(\mathscr{B}\)</span> et <span
+class="math inline">\(\mathscr{C}\)</span>.</p></li>
+</ul>
+<h1 data-number="2" id="généralités-sur-les-matrices"><span
+class="header-section-number">2</span> Généralités sur les matrices</h1>
+<h2 data-number="2.1" id="définition"><span
+class="header-section-number">2.1</span> Définition</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(n,p \in
+\mathbb{N}^{\star}\)</span> et <span
+class="math inline">\(\mathbb{K}\)</span> un sous-corps de <span
+class="math inline">\(\mathbb{C}\)</span>.</p>
+<p>Une matrice à <span class="math inline">\(n\)</span> lignes et <span
+class="math inline">\(p\)</span> colonnes à coefficients dans <span
+class="math inline">\(\mathscr{L}\)</span> est une famille d’éléments de
+<span class="math inline">\(\mathbb{K}\)</span> indexée par <span
+class="math inline">\([\![ 1,n]\!] \times [\![ 1,p ]\!]\)</span>.</p>
+<p><span class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span>
+désigne l’ensemble des matrices à <span class="math inline">\(n\)</span>
+lignes et <span class="math inline">\(p\)</span> colonnes à coefficients
+dans <span class="math inline">\(\mathbb{K}\)</span>.</p>
+</div>
+<p>Soit <span class="math inline">\(A \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span>, on dit que <span
+class="math inline">\(A\)</span> est de type <span
+class="math inline">\((n,p)\)</span> et on écrit <span
+class="math inline">\(A = (a_{ij})_{\substack{1 \leq i \leq n \\ 1 \leq
+j \leq p}}\)</span> ou <span class="math inline">\(A =
+(a_{ij})\)</span>.</p>
+<p><span class="math inline">\(a_{ij}\)</span> est alors le coefficient
+de position <span class="math inline">\((i,j)\)</span> à la <span
+class="math inline">\(i\)</span>-ième ligne et <span
+class="math inline">\(j\)</span>-ième colonne. On représente alors <span
+class="math inline">\(A\)</span> comme ci-dessous</p>
+<div class="center">
+<pre><code>\begin{tikzpicture}
+\matrix (M) [
+    matrix of math nodes,
+    left delimiter={(},
+    right delimiter={)},
+    row sep=6mm,
+    column sep=10mm
+]{
+a_{11} &amp; \cdots &amp; a_{1j}&amp; \cdots &amp; a_{1p} \\
+a_{21} &amp; \cdots &amp; a_{2j} &amp; \cdots &amp; a_{2p} \\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
+a_{n1} &amp; \cdots &amp; a_{nj}&amp; \cdots &amp; a_{np} \\
+};
+
+\draw[&lt;-&gt;] ($(M-1-1.west)+(-1.2,0.4)$) -- node[left] {$n$} ($(M-4-1.west)+(-1.2,-0.4)$);
+
+\draw[&lt;-&gt;] ($(M-4-1.south)+(0,-0.8)$) -- node[below] {$p$} ($(M-4-4.south)+(2,-0.8)$);
+
+\draw[-&gt;] ($(M-1-3.north)+(0,1)$) -- node[pos=0.1,above]{$j$} (M-1-3.north);
+\end{tikzpicture}</code></pre>
+</div>
+<p><strong>Matrice carrée..</strong> </p>
+<p>Si <span class="math inline">\(p= n\)</span>, on note <span
+class="math inline">\(\mathscr{M}_n(\mathbb{K})\)</span> au lieu de
+<span class="math inline">\(\mathscr{M}_{n,n}(\mathbb{K})\)</span> et on
+dit que <span class="math inline">\(A\in
+\mathscr{M}_n(\mathbb{K})\)</span> est une matrice carrée d’ordre <span
+class="math inline">\(n\)</span></p>
+<p><strong>Matrice diagonale.</strong> </p>
+<p>Soit <span class="math inline">\(A = (a_{ij}) \in
+\mathscr{M}_n(\mathbb{K})\)</span>, les coefficients <span
+class="math inline">\(a_{i,i}\)</span> pour <span
+class="math inline">\(1 \leq i \leq n\)</span> sont appelés les
+coefficients diagonaux de <span class="math inline">\(A\)</span>.</p>
+<p><span class="math inline">\(A\)</span> est dite diagonale si <span
+class="math display">\[\begin{array}{ll}
+    \forall i \in [\![1,n]\!],&amp; \\
+    \forall j \in [\![1,n]\!],&amp; \\
+\end{array} i\neq j \Longrightarrow a_{ij} = 0.\]</span></p>
+<p>On a alors <span class="math inline">\(A = \begin{pmatrix}
+    a_{11} &amp; 0 &amp; 0&amp; \ldots &amp; 0 \\
+    0 &amp; a_{22} &amp; 0 &amp; \ldots &amp; 0 \\
+    0 &amp; 0 &amp; \ddots &amp; \ddots &amp; \vdots \\
+    \vdots &amp; \ddots &amp; \ddots &amp; \ddots &amp; 0 \\
+    0 &amp; 0 &amp; \ldots &amp; 0 &amp; a_{n,n} \\
+\end{pmatrix}\)</span> que l’on peut noter aussi <span
+class="math inline">\(A = \begin{pmatrix}
+    a_{11} &amp;  &amp; &amp;  &amp;  \\
+     &amp; \ddots &amp;  &amp; (0) &amp;  \\
+     &amp;  &amp; \ddots &amp;  &amp;  \\
+     &amp; (0) &amp;  &amp; \ddots &amp;  \\
+     &amp; &amp;  &amp;  &amp; a_{n,n} \\
+\end{pmatrix}.\)</span></p>
+<p><strong>Matrice triangulaire.</strong> </p>
+<p>Soit <span class="math inline">\(A = (a_{ij}) \in
+\mathscr{M}_n(\mathbb{K})\)</span>, <span
+class="math inline">\(A\)</span> est dite triangulaire supérieure si
+<span class="math display">\[\begin{array}{ll}
+    \forall i \in [\![1,n]\!],&amp; \\
+    \forall j \in [\![1,n]\!],&amp; \\
+\end{array} i &gt; j \Longrightarrow a_{ij} = 0.\]</span></p>
+<p>On a alors <span class="math inline">\(A = \begin{pmatrix}
+    a_{11} &amp; a_{12} &amp; \ldots &amp; \ldots &amp; a_{1n} \\
+    0 &amp; a_{22} &amp; \ddots &amp; \ddots &amp; a_{2n} \\
+    0 &amp; 0 &amp; \ddots &amp; \ddots &amp; \vdots \\
+    \vdots &amp; \ddots &amp; \ddots &amp; \ddots &amp; a_{n-1,n} \\
+    0 &amp; 0 &amp; \ldots &amp; 0 &amp; a_{n,n} \\
+\end{pmatrix}\)</span> que l’on peut noter aussi <span
+class="math inline">\(A = \begin{pmatrix}
+    a_{11} &amp; a_{12} &amp; \ldots &amp; \ldots &amp; a_{1n} \\
+     &amp; a_{22} &amp; \ddots &amp; \ddots &amp; a_{2n} \\
+     &amp;  &amp; \ddots &amp; \ddots &amp; \vdots \\
+     &amp; (0) &amp;  &amp; \ddots &amp; a_{n-1,n} \\
+     &amp; &amp;  &amp;  &amp; a_{n,n} \\
+\end{pmatrix}.\)</span></p>
+<p>De même, on peut dit que <span class="math inline">\(A\)</span> est
+triangulaire inférieure si <span
+class="math display">\[\begin{array}{ll}
+    \forall i \in [\![1,n]\!],&amp; \\
+    \forall j \in [\![1,n]\!],&amp; \\
+\end{array} i &lt; j \Longrightarrow a_{ij} = 0.\]</span> et alors <span
+class="math inline">\(A =
+\begin{pmatrix}
+a_{11} &amp;  &amp;  &amp;  &amp; \\
+a_{21} &amp; a_{22} &amp;  &amp; (0) &amp; \\
+\vdots &amp; \ddots &amp; \ddots &amp;  &amp; \\
+\vdots &amp;  &amp; \ddots &amp; \ddots &amp; \\
+a_{n1} &amp; a_{n2} &amp; \ldots &amp; a_{n,n-1} &amp; a_{nn}
+\end{pmatrix}.\)</span></p>
+<p><strong>Matrice colonne/ligne.</strong> </p>
+<p>Soit <span class="math inline">\(A \in
+\mathscr{M}_{n,1}(\mathbb{K})\)</span>, alors <span
+class="math inline">\(A\)</span> est dire "matrice colonne" et <span
+class="math inline">\(A = \begin{pmatrix}
+    a_{1} \\
+    \vdots \\
+    a_n
+\end{pmatrix}\)</span>.</p>
+<p>De même, <span class="math inline">\(A \in
+\mathscr{M}_{1,n}(\mathbb{K})\)</span>, alors <span
+class="math inline">\(A\)</span> est dire "matrice ligne" et <span
+class="math inline">\(A = \begin{pmatrix}
+    a_{1} &amp;
+    \ldots &amp;
+    a_n
+\end{pmatrix}\)</span>.</p>
+<h2 data-number="2.2"
+id="matrice-de-f-in-mathscrlef-relativement-à-une-base-de-e-et-une-base-de-f"><span
+class="header-section-number">2.2</span> Matrice de <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span> relativement à une
+base de <span class="math inline">\(E\)</span> et une base de <span
+class="math inline">\(F\)</span></h2>
+<div class="wdefi">
+<p><span id="def:def_matrices" label="def:def_matrices"></span> Soient
+<span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(p \geq 1\)</span> et <span
+class="math inline">\(F\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geq 1\)</span>. On considère <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span>, <span> <span
+class="math inline">\(\mathscr{B} = (e_1,\ldots,e_p)\)</span></span> une
+base de <span class="math inline">\(E\)</span> et <span><span
+class="math inline">\(\mathscr{C} = (e&#39;_1,\ldots,e&#39;_n)\)</span>
+</span> une base de <span class="math inline">\(F\)</span>.</p>
+<p>Soit <span class="math inline">\(1 \leq j \leq p\)</span>, <span
+class="math inline">\(f({\color{CornflowerBlue} e_j}) \in F\)</span> et
+<span><span class="math inline">\(\mathscr{C} =
+(e&#39;_1,\ldots,e&#39;_n)\)</span> </span> est une base de <span
+class="math inline">\(F\)</span>. Donc il existe <span
+class="math inline">\((a_{ij})_{1 \leq i \leq n}\)</span> tels que pour
+<span class="math inline">\(1 \leq j \leq n\)</span>, <span
+class="math inline">\(f({\color{CornflowerBlue} e_j}) = a_{1j}
+{\color{Orchid}e&#39;_1} + a_{2j}{\color{Orchid}e&#39;_2}  + \ldots +
+a_{nj}{\color{Orchid}e&#39;_n}  = \sum_{i=1}^n
+a_{ij}{\color{Orchid}e&#39;_i}\)</span>.</p>
+<p>On définit alors la matrice <span
+class="math inline">\(\mathscr{M}_{{\color{CornflowerBlue}\mathscr{B}},{\color{Orchid}\mathscr{C}}}(f)\)</span>
+comme étant la matrice aux coefficients <span
+class="math inline">\(a_{ij}\)</span> ie</p>
+<p><span
+class="math display">\[\mathscr{M}_{{\color{CornflowerBlue}\mathscr{B}},{\color{Orchid}\mathscr{C}}}(f)
+= \begin{pmatrix}
+a_{11} &amp; a_{12} &amp; \ldots a_{1p} \\
+a_{21} &amp; a_{22} &amp; \ldots a_{2p} \\
+\vdots &amp; \vdots &amp; \vdots \\
+a_{n1} &amp;  a_{n2} &amp; \ldots a_{np}
+\end{pmatrix}.\]</span> On l’appelle la matrice de <span
+class="math inline">\(f\)</span> relativement à <span
+class="math inline">\(\mathscr{B}\)</span> et <span
+class="math inline">\(\mathscr{C}\)</span> et on la note <span
+class="math inline">\(\mathscr{M}_{\mathscr{B},\mathscr{C}}(f)\)</span>.</p>
+<p>Si <span class="math inline">\(E = F\)</span> et <span
+class="math inline">\(\mathscr{B}= \mathscr{C}\)</span>, on note <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}}(f)\)</span> au lieu de
+<span
+class="math inline">\(\mathscr{M}_{\mathscr{B},\mathscr{B}}(f)\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Chaque colonne <span class="math inline">\(j\)</span> décrit les
+coordonnées de <span class="math inline">\(f({\color{CornflowerBlue}
+e_j})\)</span> dans la base <span><span
+class="math inline">\(\mathscr{C} = (e&#39;_1,\ldots,e&#39;_n)\)</span>
+</span>.</p>
+<p>Il est possible de se représenter les choses ainsi :</p>
+<p><span
+class="math display">\[\mathscr{M}_{{\color{CornflowerBlue}\mathscr{B}},{\color{Orchid}\mathscr{C}}}(f)
+=
+\begin{array}{cc}
+  \begin{matrix}
+    f({\color{CornflowerBlue} e_1}) &amp; f({\color{CornflowerBlue}
+e_2}) &amp; \ldots &amp; f({\color{CornflowerBlue} e_p})
+  \end{matrix} &amp; \\
+  \begin{pmatrix}
+    a_{11} &amp; a_{12} &amp; \ldots &amp; a_{1p} \\
+    a_{21} &amp; a_{22} &amp; \ldots &amp; a_{2p} \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
+    a_{n1} &amp; a_{n2} &amp; \ldots &amp; a_{np}
+  \end{pmatrix} &amp;
+  \begin{matrix}
+    {\color{Orchid}e&#39;_1} \\
+    {\color{Orchid}e&#39;_2} \\
+    \vdots \\
+    {\color{Orchid}e&#39;_n}
+  \end{matrix}
+\end{array}\]</span> Ainsi, si je veux lire la coordonnée de <span><span
+class="math inline">\(f(e_2)\)</span></span>, en le vecteur <span> <span
+class="math inline">\(e&#39;_n\)</span></span>, j’entrecroise la colonne
+et la ligne correspondante comme ci-dessous.</p>
+<p><span class="math display">\[\begin{array}{cc}
+  \begin{matrix}
+    f({\color{CornflowerBlue} e_1}) &amp; f({\color{red} e_2}) &amp;
+\ldots &amp; f({\color{CornflowerBlue} e_p})
+  \end{matrix} &amp; \\
+  \begin{pmatrix}
+    a_{11} &amp; a_{12} &amp; \ldots &amp; a_{1p} \\
+    a_{21} &amp; a_{22} &amp; \ldots &amp; a_{2p} \\
+    \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    a_{n1} &amp;  {\color{red}\enclose{roundedbox}{a_{n2}}} &amp; \ldots
+&amp; a_{np}
+  \end{pmatrix} &amp;
+  \begin{matrix}
+    {\color{Orchid}e&#39;_1} \\
+    {\color{Orchid}e&#39;_2} \\
+    \vdots \\
+    {\color{red}e&#39;_n}
+  \end{matrix}
+\end{array}\]</span></p>
+</div>
+<div class="wex">
+<ul>
+<li><p>Prenons <span class="math inline">\(E = F =
+\mathbb{K}_3[X]\)</span>, <span class="math inline">\(\mathscr{B}=
+\mathscr{C}= \left(1,X,X^2,X^3\right)\)</span> et <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; P &amp; \mapsto &amp; P-2P&#39;
+\end{array}\)</span>. On a <span
+class="math display">\[\begin{array}{lllllll}
+            f(1) &amp; = 1 &amp; = &amp; 1\times 1 + &amp;0\times X +
+&amp; 0 \times X^2 + &amp;0\times X^3 \\
+            f(X) &amp; = X-2 &amp; = &amp; (-2)\times 1 + &amp;1\times X
++ &amp; 0 \times X^2 + &amp;0\times X^3 \\
+            f(X^2) &amp; = X^2-4X &amp; = &amp; 0\times 1 +
+&amp;(-4)\times X + &amp; 1 \times X^2 + &amp;0\times X^3 \\
+            f(X^3) &amp; = X^3-6X^2 &amp; = &amp; 0\times 1 +
+&amp;0\times X + &amp; (-6) \times X^2 + &amp;1\times X^3 \\
+        \end{array}\]</span></p>
+<p>Donc <span class="math inline">\(\mathscr{M}_{\mathscr{B}}(f) =
+\begin{pmatrix}
+            1 &amp; -2 &amp; 0 &amp; 0 \\
+            0 &amp; 1 &amp; -4 &amp; 0 \\
+            0 &amp; 0 &amp; 1 &amp; -6 \\
+            0 &amp; 0 &amp; 0 &amp; 1
+        \end{pmatrix}\)</span> (et est triangulaire
+supérieure).</p></li>
+<li><p>Prenons <span class="math inline">\(E = F =
+\mathbb{R}^3\)</span>, et <span class="math inline">\(\mathscr{B}=
+(e_1,e_2,e_3)\)</span> la base canonique de <span
+class="math inline">\(\mathbb{R}^3\)</span>.</p>
+<p>On considère <span class="math inline">\(f \in
+\mathscr{L}(E)\)</span> telle que <span
+class="math inline">\(\begin{array}{ll}
+        f(e_1) &amp; = (1,0,-1) \\
+        f(e_2) &amp; = (0,2,1) \\
+        f(e_3) &amp; = (3,0,2) \\
+    \end{array}\)</span>.</p>
+<p>On considère aussi <span class="math inline">\(\mathscr{B}&#39; =
+(e&#39;_1, e&#39;_2,e&#39;_3)\)</span> telle que <span
+class="math inline">\(\begin{array}{lll}
+        e&#39;_1 &amp; = e_1 &amp; = (1,0,0) \\
+        e&#39;_2 &amp; = 2e_2 &amp; = (0,2,0) \\
+        e&#39;_3 &amp; = e_1+e_3 &amp; = (1,0,1) \\
+    \end{array}\)</span>.</p>
+<p>Montrons que <span class="math inline">\(\mathscr{B}&#39;\)</span>
+est une base de <span class="math inline">\(\mathbb{R}^3\)</span>,
+calculons <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}}(f)\)</span>, <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}&#39;,\mathscr{B}}(f)\)</span>,
+<span class="math inline">\(\mathscr{M}_{\mathscr{B}&#39;}(f)\)</span>
+et <span
+class="math inline">\(\mathscr{M}_{\mathscr{B},\mathscr{B}&#39;}(f)\)</span>.</p>
+<ol>
+<li><p>Comme cette famille est de cardinal <span class="math inline">\(3
+= \dim \mathbb{R}^3\)</span>, il suffit de montrer qu’elle est
+libre.</p>
+<p>Soient <span class="math inline">\(a,b,c \in \mathbb{R}\)</span> tels
+que <span class="math inline">\(ae&#39;_1+be&#39;_2+ce&#39;_3 =
+(a+c,2b,c) = (0,0,0)\)</span> alors <span class="math inline">\(a=b=c=
+0\)</span>. Donc elle est effectivement libre dans <span
+class="math inline">\(\mathbb{R}^3\)</span>.</p></li>
+<li><p><span class="math inline">\(\begin{array}{ll}
+        f(e_1) &amp; = (1,0,-1) = e_1-e_3\\
+        f(e_2) &amp; = (0,2,1)  = 2e_2+e_3\\
+        f(e_3) &amp; = (3,0,2)  = 3e_1+2e_3\\
+    \end{array}\)</span></p>
+<p>donc <span class="math inline">\(\mathscr{M}_{\mathscr{B}}(f) =
+\begin{pmatrix}
+        1 &amp; 0 &amp; 3 \\
+        0 &amp; 2 &amp; 0 \\
+        -1 &amp; 1 &amp; 2
+    \end{pmatrix}\)</span>.</p></li>
+<li><p><span class="math inline">\(\begin{array}{ll}
+        f(e&#39;_1) &amp; =  f(e_1) = (1,0,-1) = e_1-e_3\\
+        f(e&#39;_2) &amp; = 2 f(e_2) =(0,4,2)  = 4e_2+2e_3\\
+        f(e&#39;_3) &amp; = f(e_1)+f(e_3)=(4,0,1)  = 4e_1+e_3\\
+    \end{array}\)</span></p>
+<p>donc <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}&#39;,\mathscr{B}}(f) =
+\begin{pmatrix}
+        1 &amp; 0 &amp; 4 \\
+        0 &amp; 4 &amp; 0 \\
+        -1 &amp; 2 &amp; 1
+    \end{pmatrix}\)</span>.</p></li>
+<li><p><span class="math inline">\(\begin{array}{ll}
+        f(e&#39;_1) &amp;   = e_1-e_3 = 2e_1-(e_1+e_3) =
+2e&#39;_1-e&#39;_3\\
+        f(e&#39;_2) &amp; = 4e_2+2e_3 = 2e&#39;_2 + 2(e_3+e_1)-2e_1 =
+-2e&#39;_1+2e&#39;_2+2e&#39;_3\\
+        f(e&#39;_3) &amp; = 4e_1+e_3 = 3e_1+(e_1+e_3) =
+3e&#39;_1+e&#39;_3\\
+    \end{array}\)</span></p>
+<p>donc <span class="math inline">\(\mathscr{M}_{\mathscr{B}&#39;}(f) =
+\begin{pmatrix}
+        2 &amp; -2 &amp; 3 \\
+        0 &amp; 2 &amp; 0 \\
+        -1 &amp; 2 &amp; 1
+    \end{pmatrix}\)</span>.</p></li>
+<li><p><span class="math inline">\(\begin{array}{ll}
+        f(e_1) &amp;  = e_1-e_3 = 2e_1-(e_1+e_3) = 2e&#39;_1-e&#39;_3\\
+        f(e_2) &amp;   = 2e_2+e_3 = e&#39;_2+(e_3+e_1)-e_1 =
+-e&#39;_1+e&#39;_2+e&#39;_3\\
+        f(e_3) &amp;  = 3e_1+2e_3 = e_1+2(e_1+e_3) =
+e&#39;_1+2e&#39;_3\\
+    \end{array}\)</span></p>
+<p>donc <span
+class="math inline">\(\mathscr{M}_{\mathscr{B},\mathscr{B}&#39;}(f) =
+\begin{pmatrix}
+        2 &amp; -1 &amp; 1 \\
+        0 &amp; 1&amp; 0 \\
+        -1 &amp; 1 &amp; 2
+    \end{pmatrix}\)</span>.</p></li>
+</ol></li>
+</ul>
+</div>
+<p>En reprenant les notations de la définition <a
+href="#def:def_matrices" data-reference-type="ref"
+data-reference="def:def_matrices">[def:def_matrices]</a>, soit <span
+class="math inline">\(A \in \mathscr{M}_{n,p}(\mathbb{K})\)</span> il
+existe <span class="math inline">\(f \in \mathscr{L}(E,F)\)</span>
+unique tel que <span
+class="math inline">\(\mathscr{M}_{[}(\mathscr{B})\mathscr{C}]{f} =
+A\)</span>.</p>
+<p>En effet, avec <span class="math inline">\(A = (a_{ij})\)</span>,</p>
+<p><span class="math display">\[A =
+\mathscr{M}_{\mathscr{B},\mathscr{C}}(f) \iff \forall j \in [\![ 1,p
+]\!], f(e_j) = \sum_{i=1}^n a_{ij}e&#39;_i\]</span></p>
+<p>et un endomorphisme est déterminé par son image d’une base.</p>
+<p>Autrement dit, <span class="math inline">\(\begin{array}{lllll}
+\varphi_{\mathscr{B},\mathscr{C}} &amp; : &amp; \mathscr{L}(E,F) &amp;
+\to &amp; \mathscr{M}_{n,p}(\mathbb{K}) \\
+   &amp;   &amp; f &amp; \mapsto &amp;
+\mathscr{M}_{\mathscr{B},\mathscr{C}}(f)
+\end{array}\)</span> est bijective.</p>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(A \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span>, on considère <span
+class="math inline">\(\mathscr{B}_p\)</span> et <span
+class="math inline">\(\mathscr{B}_n\)</span> les bases canoniques de
+<span class="math inline">\(\mathbb{K}^p\)</span> et <span
+class="math inline">\(\mathbb{K}^n\)</span>.</p>
+<p>L’unique <span class="math inline">\(f \in
+\mathscr{L}(\mathbb{K}^n,\mathbb{K}^p)\)</span> tel que <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}_p,\mathscr{B}_n}(f) =
+A\)</span> est appelée l’application linéaire canoniquement associée à
+<span class="math inline">\(A\)</span>.</p>
+</div>
+<h1 data-number="3" id="opérations-dans-mathscrm_npmathbbk"><span
+class="header-section-number">3</span> Opérations dans <span
+class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span></h1>
+<h2 data-number="3.1" id="addition-dans-mathscrm_npmathbbk"><span
+class="header-section-number">3.1</span> Addition dans <span
+class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span></h2>
+<p>Soient <span class="math inline">\(A \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span> et <span class="math inline">\(B
+\in \mathscr{M}_{n,p}(\mathbb{K})\)</span>. Soient</p>
+<ul>
+<li><p><span class="math inline">\(f\in
+\mathscr{L}(\mathbb{K}^p,\mathbb{K}^n)\)</span> canoniquement associée à
+<span class="math inline">\(A\)</span>,</p></li>
+<li><p><span class="math inline">\(g\in
+\mathscr{L}(\mathbb{K}^p,\mathbb{K}^n)\)</span> canoniquement associée à
+<span class="math inline">\(B\)</span>,</p></li>
+<li><p>ainsi que <span class="math inline">\(\mathscr{B}_n\)</span> et
+<span class="math inline">\(\mathscr{B}_p\)</span> les bases canoniques
+de <span class="math inline">\(\mathbb{K}^n\)</span> et <span
+class="math inline">\(\mathbb{K}^p\)</span>.</p></li>
+</ul>
+<p>On définit <span class="math inline">\(A+B\)</span> comme</p>
+<p><span class="math display">\[A+B=
+\mathscr{M}_{\mathscr{B}_p,\mathscr{B}_n}(f+g)\]</span> la matrice
+canoniquement associée à <span class="math inline">\(f+g \in
+\mathscr{L}(\mathbb{K}^p,\mathbb{K}^m)\)</span>.</p>
+<p>En notant <span class="math inline">\(A = (a_{ij}), B = (b_{ij}),
+\mathscr{B}_p = \left(e_1,\ldots,e_p\right)\)</span> et <span
+class="math inline">\(\mathscr{B}_n =
+\left(e&#39;_1,\ldots,e&#39;_n\right)\)</span> alors pour <span
+class="math inline">\(j \in [\![ 1,p ]\!]\)</span>,</p>
+<p><span class="math display">\[\begin{array}{ll}
+    f(e_j) &amp; = \sum_{i=1}^n a_{ij}e&#39;_i \\
+    g(e_j) &amp; = \sum_{i=1}^n b_{ij}e&#39;_i \\
+\end{array} \Longrightarrow (f+g)(e_j) = \sum_{i=1}^n
+(a_{ij}+b_{ij})e&#39;_i.\]</span></p>
+<p>Donc <span class="math display">\[A+B=
+\mathscr{M}_{\mathscr{B}_p,\mathscr{B}_n}(f+g) =
+(a_{ij}+b_{ij}).\]</span></p>
+<div class="wrem">
+<p>Sommer deux matrices de même type revient donc seulement à sommer
+chacun de leur coefficients.</p>
+<p>Par exemple, <span class="math inline">\(\begin{pmatrix}
+        1 &amp; 2 &amp; 3 \\
+        4 &amp; 5 &amp; 6
+    \end{pmatrix} + \begin{pmatrix}
+        1 &amp; 1 &amp; 1 \\
+        1 &amp; 1 &amp; 1
+    \end{pmatrix} = \begin{pmatrix}
+        2 &amp; 3 &amp; 4 \\
+        5 &amp; 6 &amp; 7
+    \end{pmatrix}\)</span></p>
+</div>
+<div class="wprop">
+<p><span id="prop:mat_groupe_addition"
+label="prop:mat_groupe_addition"></span> <span
+class="math inline">\((\mathscr{M}_{n,p}(\mathbb{K}),+)\)</span> est un
+groupe commutatif.</p>
+<p><span
+class="math inline">\(0_{\mathscr{M}_{n,p}(\mathbb{K})}\)</span> est la
+matrice dont tous les coefficients sont nuls.</p>
+</div>
+<div class="wrem">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(p \geq 1\)</span> et <span
+class="math inline">\(F\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geq 1\)</span>. On considère <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span> ainsi que <span
+class="math inline">\(\mathscr{B}\)</span> une base de <span
+class="math inline">\(E\)</span> et <span
+class="math inline">\(\mathscr{C}\)</span> une base de <span
+class="math inline">\(F\)</span>.</p>
+<p>Alors, <span class="math inline">\(\begin{array}{lllll}
+\varphi_{\mathscr{B},\mathscr{C}} &amp; : &amp; \mathscr{L}(E,F) &amp;
+\to &amp; \mathscr{M}_{n,p}(\mathbb{K}) \\
+   &amp;   &amp; f &amp; \mapsto &amp;
+\mathscr{M}_{\mathscr{B},\mathscr{C}}(f)
+\end{array}\)</span> est un morphisme de groupe.</p>
+</div>
+<h2 data-number="3.2"
+id="loi-de-composition-externe-dans-mathscrm_npmathbbk"><span
+class="header-section-number">3.2</span> Loi de composition externe dans
+<span class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span></h2>
+<p>Soient <span class="math inline">\(A \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span> et <span
+class="math inline">\(\alpha \in \mathbb{K}\)</span>. Soient</p>
+<ul>
+<li><p><span class="math inline">\(f\in
+\mathscr{L}(\mathbb{K}^p,\mathbb{K}^n)\)</span> canoniquement associée à
+<span class="math inline">\(A\)</span>,</p></li>
+<li><p>ainsi que <span class="math inline">\(\mathscr{B}_n\)</span> et
+<span class="math inline">\(\mathscr{B}_p\)</span> les bases canoniques
+de <span class="math inline">\(\mathbb{K}^n\)</span> et <span
+class="math inline">\(\mathbb{K}^p\)</span>.</p></li>
+</ul>
+<p>On définit <span class="math inline">\(\alpha A\)</span> comme</p>
+<p><span class="math display">\[\alpha A=
+\mathscr{M}_{\mathscr{B}_p,\mathscr{B}_n}(\alpha f)\]</span></p>
+<p>la matrice canoniquement associée à <span
+class="math inline">\(\alpha f  \in
+\mathscr{L}(\mathbb{K}^p,\mathbb{K}^n)\)</span>.</p>
+<p>En notant <span class="math inline">\(A = (a_{ij}), \mathscr{B}_p =
+\left(e_1,\ldots,e_p\right)\)</span> et <span
+class="math inline">\(\mathscr{B}_n =
+\left(e&#39;_1,\ldots,e&#39;_n\right)\)</span> alors pour <span
+class="math inline">\(j \in [\![ 1,p ]\!]\)</span>,</p>
+<p><span class="math display">\[f(e_j)= \sum_{i=1}^n
+a_{ij}e&#39;_i  \Longrightarrow (\alpha f)(e_j) = \sum_{i=1}^n (\alpha
+a_{ij})e&#39;_i.\]</span></p>
+<p>Donc <span class="math display">\[\alpha A=
+\mathscr{M}_{\mathscr{B}_p,\mathscr{B}_n}(\alpha f) = (\alpha
+a_{ij}).\]</span></p>
+<div class="wrem">
+<p>Multiplier une matrice par scalaire revient à multiplier chacun de
+ses coefficients par ce scalaire.</p>
+<p>Par exemple, <span class="math inline">\(2\begin{pmatrix}
+        1 &amp; 2 &amp; 3 \\
+        4 &amp; 5 &amp; 6
+    \end{pmatrix}
+     = \begin{pmatrix}
+        2 &amp; 4 &amp; 6 \\
+        8 &amp; 10 &amp; 12
+    \end{pmatrix}\)</span></p>
+</div>
+<div class="wprop">
+<p><span class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span>
+est un <span class="math inline">\(\mathbb{K}\)</span>-espace
+vectoriel.</p>
+</div>
+<div class="wrem">
+<p><span id="rem:isom_mat_endos" label="rem:isom_mat_endos"></span>
+Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(p \geq 1\)</span> et <span
+class="math inline">\(F\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geq 1\)</span>. On considère <span
+class="math inline">\(\mathscr{B}\)</span> une base de <span
+class="math inline">\(E\)</span> et <span
+class="math inline">\(\mathscr{C}\)</span> une base de <span
+class="math inline">\(F\)</span>.</p>
+<p>Alors, <span class="math inline">\(\begin{array}{lllll}
+\varphi_{\mathscr{B},\mathscr{C}} &amp; : &amp; \mathscr{L}(E,F) &amp;
+\to &amp; \mathscr{M}_{n,p}(\mathbb{K}) \\
+   &amp;   &amp; f &amp; \mapsto &amp;
+\mathscr{M}_{\mathscr{B},\mathscr{C}}(f)
+\end{array}\)</span> est une application linéaire bijective donc un
+isomorphisme entre <span class="math inline">\(\mathscr{L}(E,F)\)</span>
+et <span
+class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span>.</p>
+</div>
+<h2 data-number="3.3" id="base-de-mathscrm_npmathbbk"><span
+class="header-section-number">3.3</span> Base de <span
+class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span></h2>
+<p>Par l’isomorphisme de la remarque <a href="#rem:isom_mat_endos"
+data-reference-type="ref"
+data-reference="rem:isom_mat_endos">[rem:isom_mat_endos]</a>, <span
+class="math inline">\(\dim \mathscr{M}_{n,p}(\mathbb{K}) =
+np\)</span>.</p>
+<div class="wprop">
+<p>Soient <span class="math inline">\(i \in [\![ 1,p ]\!], j \in [\![
+1,n ]\!]\)</span>, on définit <span class="math inline">\(E_{ij} \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span> telle que</p>
+<pre><code>\begin{tikzpicture}
+\matrix (M) [
+    matrix of math nodes,
+    left delimiter={(},
+    right delimiter={)},
+    row sep=6mm,
+    column sep=8mm
+]{
+0 &amp; \cdots &amp; 0 &amp; \cdots &amp; 0 \\
+\vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; \cdots &amp; 1 &amp; \cdots &amp; 0 \\
+\vdots &amp; \ddots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; \cdots &amp; 0 &amp; \cdots &amp; 0 \\
+};
+
+\node at ($(M.west)+(-2.2,0)$) {$E_{ij} =$};
+
+\draw[-&gt;] ($(M-3-1.west)+(-1.5,0)$) -- node[above] {$i$} (M-3-1.west);
+
+\draw[-&gt;] ($(M-1-3.north)+(0,1)$) -- node[left] {$j$} (M-1-3.north);
+
+\draw[&lt;-&gt;] ($(M.north east)+(0.4,0)$) -- node[right] {$n$} ($(M.south east)+(0.4,0)$);
+
+\draw[&lt;-&gt;] ($(M.south west)+(0,-0.4)$) -- node[below] {$p$} ($(M.south east)+(0,-0.4)$);
+
+\end{tikzpicture}</code></pre>
+<p>Alors <span class="math inline">\(\mathscr{F}=
+\left(E_{11},\ldots,E_{1p},
+E_{21},\ldots,E_{2p},\ldots,E_{n1},\ldots,E_{np}\right)\)</span> est une
+base de <span
+class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Montrons que <span class="math inline">\(\mathscr{F}\)</span> est
+libre et génératrice.</p>
+<ul>
+<li><p><span class="math inline">\(\mathscr{F}\)</span> est une famille
+génératrice de <span
+class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span>.</p>
+<p>En effet, soi <span class="math inline">\(A = (a_{ij}) \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span> alors <span
+class="math inline">\(A = \sum_{\substack{1 \leq i \leq p \\ 1 \leq j
+\leq n}} a_{ij}E_{ij}\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathscr{F}\)</span> est une famille
+libre de <span
+class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span>.</p>
+<p>En effet, soient <span
+class="math inline">\(\left(\alpha_{ij}\right)_{\substack{1 \leq i \leq
+p \\ 1 \leq j \leq n}} \in \mathbb{K}^{np}\)</span>.</p>
+<p>Alors, <span class="math inline">\(\sum_{\substack{1 \leq i \leq p \\
+1 \leq j \leq n}} \alpha_{ij}E_{ij} =   \begin{pmatrix}
+    \alpha_{11} &amp; \alpha_{12} &amp; \ldots &amp; \alpha_{1p} \\
+    \alpha_{21} &amp; \alpha_{22} &amp; \ldots &amp; \alpha_{2p} \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
+    \alpha_{n1} &amp; \alpha_{n2} &amp; \ldots &amp; \alpha_{np}
+  \end{pmatrix}\)</span></p>
+<p>donc <span class="math inline">\(\sum_{\substack{1 \leq i \leq p \\ 1
+\leq j \leq n}} \alpha_{ij}E_{ij} = 0_{\mathscr{M}_{n,p}(\mathbb{K})}
+\Longrightarrow \forall ij, \alpha_{ij} = 0\)</span>.</p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>A l’aide de l’isomorphisme de la remarque <a
+href="#rem:isom_mat_endos" data-reference-type="ref"
+data-reference="rem:isom_mat_endos">[rem:isom_mat_endos]</a>, on peut
+affirmer que <span
+class="math inline">\(\left(f_{ij}\right)_{\substack{1 \leq i \leq p \\
+1 \leq j \leq n}} =
+\left(\varphi_{\mathscr{B},\mathscr{C}}^{-1}\left(E_{ij}\right)\right)_{\substack{1
+\leq i \leq p \\ 1 \leq j \leq n}}\)</span> est une base de <span
+class="math inline">\(\mathscr{L}(E,F)\)</span> où <span
+class="math inline">\(f_{ij} \in \mathscr{L}(E,F)\)</span> est telle que
+<span class="math inline">\(f_{ij}(e_j) = e&#39;_i\)</span> et <span
+class="math inline">\(f_{ij}(e_k) = 0_F\)</span> pour <span
+class="math inline">\(k \neq j\)</span>.</p>
+</div>
+<h1 data-number="4" id="produit-matriciel"><span
+class="header-section-number">4</span> Produit matriciel</h1>
+<h2 data-number="4.1" id="définition-1"><span
+class="header-section-number">4.1</span> Définition</h2>
+<ul>
+<li><p>Soient <span class="math inline">\(A \in
+\mathscr{M}_{m,n}(\mathbb{K}),B\in
+\mathscr{M}_{q,p}(\mathbb{K})\)</span>. Soient <span
+class="math inline">\(f\in
+\mathscr{L}(\mathbb{K}^n,\mathbb{K}^m)\)</span> canoniquement associée à
+<span class="math inline">\(A\)</span> et <span
+class="math inline">\(g\in
+\mathscr{L}(\mathbb{K}^p,\mathbb{K}^q)\)</span> canoniquement associée à
+<span class="math inline">\(B\)</span>.</p>
+<p>On aimerait définir le produit <span
+class="math inline">\(AB\)</span> à l’aide du "produit" <span
+class="math inline">\(f \circ g\)</span>. Cela ajoute donc des
+contraintes sur la dimension des matrices, pour pouvoir composer <span
+class="math inline">\(f\in
+\mathscr{L}(\mathbb{K}^n,\mathbb{K}^m)\)</span> par <span
+class="math inline">\(g\in
+\mathscr{L}(\mathbb{K}^p,\mathbb{K}^q)\)</span>, on doit avoir <span
+class="math inline">\(\mathbb{K}^p \overset{g}{\longrightarrow}
+\mathbb{K}^q \overset{f}{\longrightarrow} \mathbb{K}^m\)</span> donc
+<span class="math inline">\(\mathbb{K}^q = \mathbb{K}^n\)</span> et
+<span class="math inline">\(q=n\)</span>.</p></li>
+<li><p>Ainsi, soient <span class="math inline">\(A \in
+\mathscr{M}_{m,\underline{n}}(\mathbb{K}),B\in
+\mathscr{M}_{\underline{n},p}(\mathbb{K})\)</span>. Soient</p>
+<ul>
+<li><p><span class="math inline">\(f\in
+\mathscr{L}(\mathbb{K}^n,\mathbb{K}^m)\)</span> canoniquement associée à
+<span class="math inline">\(A\)</span>,</p></li>
+<li><p><span class="math inline">\(g\in
+\mathscr{L}(\mathbb{K}^p,\mathbb{K}^n)\)</span> canoniquement associée à
+<span class="math inline">\(B\)</span>,</p></li>
+<li><p>ainsi que <span class="math inline">\(\mathscr{B}_m = =
+(e&#39;&#39;_1,\ldots,e&#39;&#39;_m),\mathscr{B}_n   =
+(e&#39;_1,\ldots,e&#39;_n)\)</span> et <span
+class="math inline">\(\mathscr{B}_p = (e_1,\ldots,e_p)\)</span> les
+bases canoniques de <span class="math inline">\(\mathbb{K}^m,
+\mathbb{K}^n\)</span> et <span
+class="math inline">\(\mathbb{K}^p\)</span>.</p></li>
+</ul>
+<p>On définit la matrice <span class="math inline">\(A\times B =
+AB\)</span> comme <span class="math display">\[AB =
+\mathscr{M}_{\mathscr{B}_m,\mathscr{B}_p}(f\circ g)\]</span> la matrice
+canoniquement associée à <span class="math inline">\(f\circ g \in
+\mathscr{L}(\mathbb{K}^p,\mathbb{K}^m)\)</span>.</p>
+<p>Alors, <span class="math inline">\(\begin{array}{ll}
+    \text{Pour $j \in [\![ 1,p ]\!]$}, &amp; g(e_j) = \sum_{k=1}^n
+b_{kj}e&#39;_k \\
+    \text{Pour $k \in [\![ 1,n ]\!]$}, &amp; f(e_k) = \sum_{i=1}^m
+a_{ik}e&#39;&#39;_i \\
+\end{array}\)</span> implique que pour <span class="math inline">\(j \in
+[\![ 1,p ]\!]\)</span>,</p>
+<p><span class="math inline">\(\left(f\circ g\right)\left(e_j\right) =
+f\left(g(e_j)\right) = f\left(\sum_{k=1}^n b_{kj}e&#39;_k\right) =
+\sum_{k=1}^n b_{kj}f\left(e&#39;_k\right) = \sum_{k=1}^n
+b_{kj}\sum_{i=1}^m a_{ik}e&#39;&#39;_i = \sum_{i=1}^m \left(\sum_{k=1}^n
+b_{kj} a_{ik}\right)e&#39;&#39;_i.\)</span></p>
+<p>On a donc <span class="math inline">\(AB = \left(\sum_{k=1}^n b_{kj}
+a_{ik}\right)_{\substack{ 1 \leq i \leq m\\ 1 \leq j \leq
+p}}\)</span>.</p></li>
+</ul>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(A \in
+\mathscr{M}_{m,\underline{n}}(\mathbb{K}),B\in
+\mathscr{M}_{\underline{n},p}(\mathbb{K})\)</span>, on définit leur
+produit <span class="math inline">\(AB \in
+\mathscr{M}_{m,p}(\mathbb{K})\)</span> tel que</p>
+<p><span class="math display">\[AB = \left(\sum_{k=1}^n b_{kj}
+a_{ik}\right)_{\substack{ 1 \leq i \leq m\\ 1 \leq j \leq
+p}}.\]</span></p>
+</div>
+<div class="wprop">
+<p><span id="prop:Chasles_matrices_applis"
+label="prop:Chasles_matrices_applis"></span> Soient <span
+class="math inline">\(A \in
+\mathscr{M}_{m,\underline{n}}(\mathbb{K}),B\in
+\mathscr{M}_{\underline{n},p}(\mathbb{K})\)</span>, <span
+class="math inline">\(E,F,G\)</span> trois <span
+class="math inline">\(\mathbb{K}\)</span>-espaces vectoriels de bases
+<span class="math inline">\(\mathscr{B}, \mathscr{C},
+\mathscr{D}\)</span>.</p>
+<p>Soient <span class="math inline">\(f \in \mathscr{L}(F,G)\)</span> et
+<span class="math inline">\(g\in \mathscr{L}(E,F)\)</span> alors <span
+class="math display">\[\mathscr{M}_{\mathscr{B},\mathscr{D}}(f \circ g)
+= \mathscr{M}_{\mathscr{C},\mathscr{D}}(f
+)\mathscr{M}_{\mathscr{B},\mathscr{C}}(g).\]</span></p>
+</div>
+<div class="wproof">
+<p>Cela correspond aux calculs effectués en introduction.</p>
+</div>
+<p><strong>Le produit matriciel en pratique.</strong> </p>
+<p>En pratique, on dit que le produit de deux matrices se fait "ligne
+par colonne". En effet, soient <span class="math inline">\(A \in
+\mathscr{M}_{m,n}(\mathbb{K})\)</span> et <span class="math inline">\(B
+\in \mathscr{M}_{n,p}(\mathbb{K})\)</span>, le coefficient <span
+class="math inline">\((i,j)\)</span> vaut <span
+class="math display">\[c_{ij} = a_{i1}b_{1j} +
+\ldots+a_{ik}b_{kj}+\ldots+a_{in}b_{nj}\]</span> donc en faisant le
+"produit de la <span class="math inline">\(i\)</span>-ème ligne de <span
+class="math inline">\(A\)</span> par la <span
+class="math inline">\(j\)</span>-ième colonne de <span
+class="math inline">\(B\)</span>", comme illustré ci-dessous : <span
+class="math display">\[\begin{pmatrix}
+    &amp; &amp; &amp; &amp; \\
+    &amp; &amp; &amp; &amp; \\
+    &amp; &amp; &amp; &amp; \\
+    a_{i1} &amp; \ldots &amp; a_{ik} &amp; \ldots &amp; a_{im} \\
+    &amp; &amp; &amp; &amp; \\
+    &amp; &amp; &amp; &amp; \\
+\end{pmatrix}
+\begin{pmatrix}
+    &amp; &amp; &amp; b_{1j} &amp; &amp; \\
+    &amp; &amp; &amp; \vdots &amp; &amp; \\
+    &amp; &amp; &amp; b_{kj} &amp; &amp; \\
+    &amp; &amp; &amp; \vdots &amp; &amp; \\
+    &amp; &amp; &amp; b_{nj} &amp; &amp;
+\end{pmatrix}.\]</span></p>
+<p>On comprend alors aussi pourquoi la matrice <span
+class="math inline">\(A\)</span> doit avoir autant de lignes que de
+colonnes de la matrice <span class="math inline">\(B\)</span> pour
+pouvoir considérer <span class="math inline">\(AB\)</span>.</p>
+<p>Voyons sur un exemple pratique : considérons <span
+class="math inline">\(A = \begin{pmatrix}
+    1 &amp; -1 &amp; 2 \\
+    0 &amp; 1 &amp; 3
+\end{pmatrix}\)</span> et <span class="math inline">\(B =
+\begin{pmatrix}
+    1 &amp; 0 &amp; 2 \\
+    -1 &amp; 1 &amp; 0 \\
+    0 &amp; 1 &amp; 1
+\end{pmatrix}\)</span>. On peut considérer <span
+class="math inline">\(AB \in \mathscr{M}_{2,3}(\mathbb{R})\)</span> car
+<span class="math inline">\(A \in \mathscr{M}_{2,3}(\mathbb{R})\)</span>
+et <span class="math inline">\(B \in
+\mathscr{M}_{3,3}(\mathbb{R})\)</span>. Le coefficient <span
+class="math inline">\((1,2)\)</span> de ce produit vaut alors <span
+class="math inline">\(1 \times 0 + (-1)\times 1+2\times 1 = 1\)</span>.
+On peut alors aussi calculer chaque coefficient tel que <span
+class="math inline">\(AB = \begin{pmatrix}
+    2 &amp; 1 &amp; 4 \\
+    -1 &amp; 4 &amp; 3
+\end{pmatrix}\)</span>.</p>
+<div class="wrem">
+<p>En général, le produit <span class="math inline">\(AA\)</span>
+n’existe pas, à moins que <span class="math inline">\(A\)</span> soient
+carrée. On peut aussi avoir le produit <span
+class="math inline">\(AB\)</span> qui existe mais pas le produit <span
+class="math inline">\(BA\)</span>.</p>
+</div>
+<div class="wex">
+<p>Soient <span class="math inline">\(A = \begin{pmatrix}
+        a_1 \\ a_2 \\ \vdots \\ a_n
+    \end{pmatrix} \in \mathscr{M}_{n,1}(\mathbb{K})\)</span> et <span
+class="math inline">\(B = \begin{pmatrix}
+        b_1 &amp; b_2 &amp; \ldots &amp; b_n
+    \end{pmatrix} \in \mathscr{M}_{n,1}(\mathbb{K})\)</span>.</p>
+<p>Alors, <span class="math inline">\(AB\)</span> existe et <span
+class="math inline">\(AB = \begin{pmatrix}
+        a_{1}b_{1} &amp; a_{1}b_{2} &amp; \ldots &amp; a_{1}b_n \\
+        a_{2}b_{1} &amp; a_{2}b_{2} &amp; \ldots &amp; a_{2}b_n \\
+        \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+        a_{n}b_{1} &amp; a_{n}b_{2} &amp; \ldots &amp; a_{n}b_n \\
+    \end{pmatrix} \in \mathscr{M}_{n}(\mathbb{K})\)</span> et aussi
+<span class="math inline">\(BA\)</span> existe avec <span
+class="math inline">\(BA = \begin{pmatrix}
+        a_1b_1+a_2b_2+\ldots+a_nb_n
+    \end{pmatrix} \in \mathscr{M}_{1}(\mathbb{K})\)</span>.</p>
+</div>
+<h2 data-number="4.2" id="propriétés"><span
+class="header-section-number">4.2</span> Propriétés</h2>
+<div class="wprop">
+<p><span id="prop:associativite_produit_mat"
+label="prop:associativite_produit_mat"></span> Soient <span
+class="math inline">\(A \in \mathscr{M}_{m,n}(\mathbb{K}), B\in
+\mathscr{M}_{n,p}(\mathbb{K}), C \in
+\mathscr{M}_{p,q}(\mathbb{K})\)</span> alors</p>
+<p>on peut considérer <span class="math inline">\(AB \in
+\mathscr{M}_{m,p}(\mathbb{K})\)</span> et <span class="math inline">\(BC
+\in \mathscr{M}_{n,q}(\mathbb{K})\)</span></p>
+<p>puis <span class="math inline">\((AB)C \in
+\mathscr{M}_{m,q}(\mathbb{K})\)</span> et <span
+class="math inline">\(A(BC) \in
+\mathscr{M}_{m,q}(\mathbb{K})\)</span>.</p>
+<p>Alors, on a <span class="math display">\[(AB)C = A(BC).\]</span></p>
+</div>
+<div class="wproof">
+<p>Soient</p>
+<ul>
+<li><p><span class="math inline">\(f\in
+\mathscr{L}(\mathbb{K}^n,\mathbb{K}^m)\)</span> canoniquement associée à
+<span class="math inline">\(A\)</span>,</p></li>
+<li><p><span class="math inline">\(g\in
+\mathscr{L}(\mathbb{K}^p,\mathbb{K}^n)\)</span> canoniquement associée à
+<span class="math inline">\(B\)</span>,</p></li>
+<li><p><span class="math inline">\(h\in
+\mathscr{L}(\mathbb{K}^q,\mathbb{K}^p)\)</span> canoniquement associée à
+<span class="math inline">\(C\)</span>,</p></li>
+<li><p>ainsi que <span class="math inline">\(\mathscr{B}_n\)</span>,
+<span class="math inline">\(\mathscr{B}_m\)</span>, <span
+class="math inline">\(\mathscr{B}_p\)</span> et <span
+class="math inline">\(\mathscr{B}_q\)</span> les bases canoniques de
+<span class="math inline">\(\mathbb{K}^n, \mathbb{K}^m,
+\mathbb{K}^p\)</span> et <span
+class="math inline">\(\mathbb{K}^q\)</span>.</p></li>
+</ul>
+<p>Alors, <span class="math inline">\(A =
+\mathscr{M}_{\mathscr{B}_n,\mathscr{B}_m}(f), B =
+\mathscr{M}_{\mathscr{B}_p,\mathscr{B}_n}(g)\)</span> et <span
+class="math inline">\(C =
+\mathscr{M}_{\mathscr{B}_q,\mathscr{B}_p}(h)\)</span>.</p>
+<p>Donc <span class="math inline">\(AB =
+\mathscr{M}_{\mathscr{B}_n,\mathscr{B}_m}(f)\mathscr{M}_{\mathscr{B}_p,\mathscr{B}_n}(g)
+= \mathscr{M}_{\mathscr{B}_p,\mathscr{B}_m}(f \circ g)\)</span></p>
+<p>et <span class="math inline">\(BC
+=\mathscr{M}_{\mathscr{B}_p,\mathscr{B}_n}(g)\mathscr{M}_{\mathscr{B}_q,\mathscr{B}_p}(h)=
+\mathscr{M}_{\mathscr{B}_q,\mathscr{B}_n}(g \circ h)\)</span>.</p>
+<p>On a alors <span class="math display">\[\begin{aligned}
+        (AB)C
+        &amp; = \mathscr{M}_{\mathscr{B}_p,\mathscr{B}_m}(f \circ g)
+\mathscr{M}_{\mathscr{B}_q,\mathscr{B}_p}(h) \\
+        &amp; =  \mathscr{M}_{\mathscr{B}_q,\mathscr{B}_m}((f \circ g)
+\circ h) \\
+        &amp; =  \mathscr{M}_{\mathscr{B}_q,\mathscr{B}_m}(f \circ (g
+\circ h)) \\
+        &amp;
+=  \mathscr{M}_{\mathscr{B}_n,\mathscr{B}_m}(f)\mathscr{M}_{\mathscr{B}_q,\mathscr{B}_n}(g
+\circ h)
+        &amp; = A(BC)
+    \end{aligned}\]</span></p>
+</div>
+<div class="wrem">
+<p>Ceci est une forme d’associativité mais qui ne correspond pas tout à
+fait à la définition des cours précédents comme la multiplication
+matricielle n’est pas une loi de composition interne.</p>
+</div>
+<div class="wprop">
+<p><span id="prop:distributivite_produit_mat"
+label="prop:distributivite_produit_mat"></span></p>
+<ul>
+<li><p>Soient <span class="math inline">\(A \in
+\mathscr{M}_{m,n}(\mathbb{K}), B\in \mathscr{M}_{m,n}(\mathbb{K}), C \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span> alors</p>
+<p><span class="math display">\[(A+B)C = AC+BC.\]</span></p></li>
+<li><p>Soient <span class="math inline">\(A \in
+\mathscr{M}_{m,n}(\mathbb{K}), B\in \mathscr{M}_{n,p}(\mathbb{K}), C \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span> alors</p>
+<p><span class="math display">\[A(B+C) = AB+AC.\]</span></p></li>
+</ul>
+</div>
+<div class="wproof">
+<p>Montrons le premier résultat et le second se montre de le même
+façon.</p>
+<p>Soient</p>
+<ul>
+<li><p><span class="math inline">\(f\in
+\mathscr{L}(\mathbb{K}^n,\mathbb{K}^m)\)</span> canoniquement associée à
+<span class="math inline">\(A\)</span>,</p></li>
+<li><p><span class="math inline">\(g\in
+\mathscr{L}(\mathbb{K}^n,\mathbb{K}^m)\)</span> canoniquement associée à
+<span class="math inline">\(B\)</span>,</p></li>
+<li><p><span class="math inline">\(h\in
+\mathscr{L}(\mathbb{K}^p,\mathbb{K}^n)\)</span> canoniquement associée à
+<span class="math inline">\(C\)</span>,</p></li>
+<li><p>ainsi que <span class="math inline">\(\mathscr{B}_n\)</span>,
+<span class="math inline">\(\mathscr{B}_m\)</span> et <span
+class="math inline">\(\mathscr{B}_p\)</span> les bases canoniques de
+<span class="math inline">\(\mathbb{K}^n, \mathbb{K}^m\)</span> et <span
+class="math inline">\(\mathbb{K}^p\)</span>.</p></li>
+</ul>
+<p>Alors, <span class="math display">\[\begin{aligned}
+        (A+B)C
+        &amp; =
+\left(\mathscr{M}_{\mathscr{B}_n,\mathscr{B}_m}(f)+\mathscr{M}_{\mathscr{B}_n,\mathscr{B}_m}(g)\right)\mathscr{M}_{\mathscr{B}_p,\mathscr{B}_n}(h)
+\\
+        &amp; =
+\mathscr{M}_{\mathscr{B}_n,\mathscr{B}_m}(f+g)\mathscr{M}_{\mathscr{B}_p,\mathscr{B}_n}(h)
+\\
+        &amp; = \mathscr{M}_{\mathscr{B}_p,\mathscr{B}_m}((f+g)\circ h)
+\\
+        &amp; = \mathscr{M}_{\mathscr{B}_p,\mathscr{B}_m}(f\circ h+
+g\circ h) \\
+        &amp; = \mathscr{M}_{\mathscr{B}_p,\mathscr{B}_m}(f\circ
+h)+\mathscr{M}_{\mathscr{B}_p,\mathscr{B}_m}(g\circ h) \\
+        &amp; =
+\mathscr{M}_{\mathscr{B}_n,\mathscr{B}_m}(f)\mathscr{M}_{\mathscr{B}_p,\mathscr{B}_n}(h)
++
+\mathscr{M}_{\mathscr{B}_n,\mathscr{B}_m}(g)\mathscr{M}_{\mathscr{B}_p,\mathscr{B}_n}(h)
+\\
+        &amp; = AC+BC.
+    \end{aligned}\]</span></p>
+</div>
+<div class="wrem">
+<p>De la même façon, on a une forme de distributivité de <span
+class="math inline">\(\times\)</span> par rapport à <span
+class="math inline">\(+\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(A \in
+\mathscr{M}_{m,n}(\mathbb{K}), B\in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span> et <span
+class="math inline">\(\alpha \in \mathbb{K}\)</span> alors on a <span
+class="math display">\[(\alpha A)B = A(\alpha B) = \alpha
+(AB).\]</span></p>
+</div>
+<div class="wproof">
+<p>Soient</p>
+<ul>
+<li><p><span class="math inline">\(f\in
+\mathscr{L}(\mathbb{K}^n,\mathbb{K}^m)\)</span> canoniquement associée à
+<span class="math inline">\(A\)</span>,</p></li>
+<li><p><span class="math inline">\(g\in
+\mathscr{L}(\mathbb{K}^p,\mathbb{K}^n)\)</span> canoniquement associée à
+<span class="math inline">\(B\)</span>,</p></li>
+<li><p>ainsi que <span class="math inline">\(\mathscr{B}_n\)</span>,
+<span class="math inline">\(\mathscr{B}_m\)</span> et <span
+class="math inline">\(\mathscr{B}_p\)</span> les bases canoniques de
+<span class="math inline">\(\mathbb{K}^n, \mathbb{K}^m\)</span> et <span
+class="math inline">\(\mathbb{K}^p\)</span>.</p></li>
+</ul>
+<p>Alors,</p>
+<p><span class="math display">\[\begin{aligned}
+        (\alpha A)B
+        &amp; = \left(\alpha
+\mathscr{M}_{\mathscr{B}_n,\mathscr{B}_m}(f)\right)\mathscr{M}_{\mathscr{B}_p,\mathscr{B}_n}(g)
+\\
+        &amp; =  \mathscr{M}_{\mathscr{B}_n,\mathscr{B}_m}(\alpha
+f)\mathscr{M}_{\mathscr{B}_p,\mathscr{B}_n}(g) \\
+        &amp; = \mathscr{M}_{\mathscr{B}_p,\mathscr{B}_m}((\alpha f)
+\circ g) \\
+        &amp; = \mathscr{M}_{\mathscr{B}_p,\mathscr{B}_m}(f\circ (\alpha
+g))  \\
+        &amp; =
+\mathscr{M}_{\mathscr{B}_n,\mathscr{B}_m}(f)\mathscr{M}_{\mathscr{B}_p,\mathscr{B}_n}(
+\alpha g) \\
+        &amp; = A(\alpha B)
+    \end{aligned}\]</span></p>
+<p>et</p>
+<p><span class="math display">\[\begin{aligned}
+        (\alpha A)B
+        &amp; = \left(\alpha
+\mathscr{M}_{\mathscr{B}_n,\mathscr{B}_m}(f)\right)\mathscr{M}_{\mathscr{B}_p,\mathscr{B}_n}(g)
+\\
+        &amp; =  \mathscr{M}_{\mathscr{B}_n,\mathscr{B}_m}(\alpha
+f)\mathscr{M}_{\mathscr{B}_p,\mathscr{B}_n}(g) \\
+        &amp; = \mathscr{M}_{\mathscr{B}_p,\mathscr{B}_m}((\alpha f)
+\circ g) \\
+        &amp; = \mathscr{M}_{\mathscr{B}_p,\mathscr{B}_m}(\alpha (f\circ
+g))  \\
+        &amp; = \alpha \mathscr{M}_{\mathscr{B}_p,\mathscr{B}_m}( f
+\circ g)  \\
+        &amp; = \alpha AB.
+    \end{aligned}\]</span></p>
+</div>
+<h2 data-number="4.3"
+id="matrice-colonne-associée-à-limage-dun-vecteur"><span
+class="header-section-number">4.3</span> Matrice colonne associée à
+l’image d’un vecteur</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(p \geq 1\)</span> et <span
+class="math inline">\(\mathscr{B}= (e_1,\ldots,e_p)\)</span> une base de
+<span class="math inline">\(E\)</span>.</p>
+<p>Soit <span class="math inline">\(v \in E\)</span> tel que <span
+class="math inline">\(v = \sum_{j=1}^p x_j e_j\)</span>, on considère
+<span class="math inline">\(X_{\mathscr{B}} = \begin{pmatrix}
+    x_1 \\
+    x_2 \\
+    \vdots \\
+    x_p
+\end{pmatrix} \in \mathscr{M}_{p,1}(\mathbb{K})\)</span> qui est appelée
+<u>la matrice colonne associée à <span class="math inline">\(v\)</span>
+dans <span class="math inline">\(\mathscr{B}\)</span>.</u></p>
+</div>
+<div class="wprop">
+<p>Soient</p>
+<ul>
+<li><p><span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(p \geq 1\)</span> et <span
+class="math inline">\(\mathscr{B}\)</span> une base de <span
+class="math inline">\(E\)</span>,</p></li>
+<li><p><span class="math inline">\(F\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geq 1\)</span> et <span
+class="math inline">\(\mathscr{C}\)</span> une base de <span
+class="math inline">\(F\)</span>,</p></li>
+<li><p><span class="math inline">\(f \in \mathscr{L}(E,F)\)</span> et
+<span class="math inline">\(A = \mathscr{M}_{\mathscr{B},\mathscr{C}}(f)
+\in \mathscr{M}_{n,p}(\mathbb{K})\)</span>,</p></li>
+<li><p><span class="math inline">\(v \in E\)</span> et <span
+class="math inline">\(X_{\mathscr{B}} \in
+\mathscr{M}_{p,1}(\mathbb{K})\)</span> la matrice colonne associée à
+<span class="math inline">\(v\)</span> dans <span
+class="math inline">\(\mathscr{B}\)</span>,</p></li>
+<li><p><span class="math inline">\(Y_{\mathscr{C}} \in
+\mathscr{M}_{n,1}(\mathbb{K})\)</span> la matrice colonne associée à
+<span class="math inline">\(f(v)\)</span> dans <span
+class="math inline">\(\mathscr{C}\)</span>.</p></li>
+</ul>
+<p>Alors <span class="math display">\[Y_{\mathscr{C}} =
+AX_{\mathscr{B}}.\]</span></p>
+</div>
+<div class="wproof">
+<p>Notons tout d’abord que le produit matriciel <span
+class="math inline">\(AX_{\mathscr{B}}\)</span> est bien défini et qu’on
+a bien <span class="math inline">\(AX_{\mathscr{B}} \in
+\mathscr{M}_{n,1}(\mathbb{K})\)</span>.</p>
+<p>On note <span class="math inline">\(\mathscr{B}=
+(e_1,\ldots,e_p)\)</span> et <span class="math inline">\(\mathscr{C}=
+(e&#39;_1,\ldots,e&#39;_n)\)</span>. Par définition de <span
+class="math inline">\(X_\mathscr{B}\)</span> et <span
+class="math inline">\(Y_\mathscr{C}\)</span>, on a <span
+class="math inline">\(v = \sum_{j=1}^p x_j e_j\)</span> et <span
+class="math inline">\(f(v) = \sum_{i=1}^n y_i e&#39;_i\)</span>.</p>
+<p>Or, par définition de <span class="math inline">\(A\)</span>, on a
+pour <span class="math inline">\(j \in [\![ 1,p]\!]\)</span>, <span
+class="math inline">\(f(e_j) = \sum_{i=1}^n a_{ij}e&#39;_i\)</span>.</p>
+<p>On a donc <span class="math display">\[f(v) = \sum_{j=1}^p x_j f(e_j)
+= \sum_{j=1}^p x_j\left(\sum_{i=1}^n a_{ij}e&#39;_i\right) =
+\sum_{i=1}^n\left(\sum_{j=1}^p x_ja_{ij}\right)e&#39;_i.\]</span></p>
+<p>On a donc <span class="math inline">\(y_i = \sum_{j=1}^p
+x_ja_{ij}\)</span>, qui est bien la <span
+class="math inline">\(i\)</span>-ème composante de la colonne <span
+class="math inline">\(AX_\mathscr{B}\)</span>.</p>
+</div>
+<div class="wex">
+<p><strong>(Exemple d’application)</strong></p>
+<p><strong>Exercice</strong> — Soit <span class="math inline">\(f \in
+\mathscr{L}(\mathbb{R}^3,\mathbb{R}^2)\)</span>, avec <span
+class="math inline">\(\mathscr{B}_3,\mathscr{B}_2\)</span> bases
+canoniques de <span class="math inline">\(\mathbb{R}^3\)</span> et <span
+class="math inline">\(\mathbb{R}^2\)</span>.</p>
+<p>On suppose <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}_3,\mathscr{B}_2}(f) =
+\begin{pmatrix}
+        2 &amp; 1 &amp; 1 \\
+        1 &amp; 0 &amp; -1
+    \end{pmatrix}\)</span>.</p>
+<p>Déterminer <span
+class="math inline">\(\mathop{\mathrm{Ker}}f\)</span>.</p>
+<p><strong>Corrigé</strong> — Soit <span class="math inline">\(v =
+(x,y,z) \in \mathbb{R}^3\)</span>.</p>
+<p><span class="math display">\[\begin{aligned}
+        v \in \mathop{\mathrm{Ker}}f
+        &amp; \iff f(v) = 0_{\mathbb{R}^2} \\
+        &amp; \iff AX = \begin{pmatrix}
+            0 \\0
+        \end{pmatrix} \text{ avec $X = \begin{pmatrix}
+            x \\y \\z
+        \end{pmatrix}$, la matrice colonne associée à $v$ dans
+$\mathscr{B}_3$} \\
+        &amp; \iff \begin{pmatrix}
+            2x+y+z \\
+            x-z
+        \end{pmatrix} = \begin{pmatrix}
+            0 \\ 0
+        \end{pmatrix} \\
+        &amp; \iff \left\{
+        \begin{array}{ll}
+            2x+y+z &amp; = 0 \\
+            x-z &amp; = 0
+        \end{array}
+        \right. \\
+        &amp; \iff \left\{
+        \begin{array}{ll}
+            y &amp; = -3z \\
+            x &amp; = z
+        \end{array}
+        \right. \\
+        &amp; \iff v = (x,y,z) = (z,-3z,z) = z.(1,-3,1).
+    \end{aligned}\]</span></p>
+<p>Donc <span class="math inline">\(\mathop{\mathrm{Ker}}f =
+\mathop{\mathrm{Vect}}((1,-3,1)).\)</span></p>
+</div>
+<p>Pour cette raison, on confond parfois <span
+class="math inline">\(\mathbb{K}^n\)</span> et <span
+class="math inline">\(\mathscr{M}_{n,1}(\mathbb{K})\)</span>, quitte à
+écrire les éléments de <span class="math inline">\(\mathbb{K}^n\)</span>
+en colonnes.</p>
+<p>L’endomorphisme canoniquement associé à une matrice <span
+class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span> devient
+alors <span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{K}^p &amp; \to &amp; \mathbb{K}^n \\
+   &amp;   &amp; x &amp; \mapsto &amp; Ax
+\end{array}\)</span>.</p>
+<h1 data-number="5"
+id="lanneau-non-commutatif-et-non-intègre-mathscrm_nmathbbk"><span
+class="header-section-number">5</span> L’anneau non commutatif et non
+intègre <span
+class="math inline">\(\mathscr{M}_{n}(\mathbb{K})\)</span></h1>
+<h2 data-number="5.1" id="introduction-1"><span
+class="header-section-number">5.1</span> Introduction</h2>
+<p><span class="math inline">\(\begin{array}{lllll}
+\times  &amp; : &amp; \mathscr{M}_{n}(\mathbb{K})\times
+\mathscr{M}_{n}(\mathbb{K})  &amp; \to &amp; \mathscr{M}_{n}(\mathbb{K})
+\\
+   &amp;   &amp; (A,B) &amp; \mapsto &amp; AB
+\end{array}\)</span> est désormais une <u> loi de composition
+interne.</u></p>
+<p>De plus,</p>
+<ul>
+<li><p>Par la proposition <a href="#prop:mat_groupe_addition"
+data-reference-type="ref"
+data-reference="prop:mat_groupe_addition">[prop:mat_groupe_addition]</a>,
+<span class="math inline">\((\mathscr{M}_{n}(\mathbb{K}),+)\)</span> est
+un groupe commutatif.</p></li>
+<li><p>par la proposition <a href="#prop:distributivite_produit_mat"
+data-reference-type="ref"
+data-reference="prop:distributivite_produit_mat">[prop:distributivite_produit_mat]</a>,
+<span class="math inline">\(\times\)</span> est distributive par rapport
+à <span class="math inline">\(+\)</span>.</p></li>
+<li><p>par la proposition <a href="#prop:associativite_produit_mat"
+data-reference-type="ref"
+data-reference="prop:associativite_produit_mat">[prop:associativite_produit_mat]</a>,
+<span class="math inline">\(\times\)</span> est associative.</p></li>
+</ul>
+<p>Enfin, recherchons un neutre pour <span
+class="math inline">\(\times\)</span>.</p>
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geq 1\)</span> ainsi que <span
+class="math inline">\(\mathscr{B}\)</span> une base de <span
+class="math inline">\(E\)</span>, considérons <span
+class="math inline">\(\begin{array}{lllll}
+\varphi_{\mathscr{B}} &amp; : &amp; (\mathscr{L}(E),+\circ) &amp; \to
+&amp; (\mathscr{M}_{n}(\mathbb{K}),+,\times) \\
+   &amp;   &amp; f &amp; \mapsto &amp; \mathscr{M}_{\mathscr{B}}(f)
+\end{array}\)</span>. De plus, <span
+class="math inline">\(\mathop{\mathrm{Id}}_E\)</span> est le neutre pour
+<span class="math inline">\(\mathscr{L}(E)\)</span> pour <span
+class="math inline">\(\circ\)</span>. Un bon candidat pour être le
+neutre de <span
+class="math inline">\(\mathscr{M}_{n}(\mathbb{K})\)</span> est donc
+<span
+class="math inline">\(\varphi_\mathscr{B}(\mathop{\mathrm{Id}}_E)\)</span>.</p>
+<p>Or, pout tout <span class="math inline">\(1 \leq j \leq n\)</span>,
+<span class="math inline">\(\mathop{\mathrm{Id}}_E(e_j) = e_j = 1e_j +
+\sum_{i \neq j} 0e_j\)</span> et on a donc <span
+class="math inline">\(\varphi_\mathscr{B}(\mathop{\mathrm{Id}}_E) =
+\begin{pmatrix}
+    1 &amp; 0 &amp; 0 &amp; \ldots &amp; 0 \\
+    0 &amp; 1 &amp; 0 &amp; \ldots &amp; 0 \\
+    \vdots &amp; \ddots &amp; \ddots &amp; \ddots &amp; \vdots \\
+    \vdots &amp; \vdots &amp; \ddots &amp; \ddots &amp; 0\\
+    0 &amp; \ldots &amp; \ldots &amp; 0 &amp; 1
+\end{pmatrix}\)</span>.</p>
+<div class="wdefi">
+<p><span class="math inline">\(I_n = \begin{pmatrix}
+    1 &amp; 0 &amp; 0 &amp; \ldots &amp; 0 \\
+    0 &amp; 1 &amp; 0 &amp; \ldots &amp; 0 \\
+    \vdots &amp; \ddots &amp; \ddots &amp; \ddots &amp; \vdots \\
+    \vdots &amp; \vdots &amp; \ddots &amp; \ddots &amp; 0\\
+    0 &amp; \ldots &amp; \ldots &amp; 0 &amp; 1
+\end{pmatrix}\)</span> est appelée la matrice identité de <span
+class="math inline">\(\mathscr{M}_{n}(\mathbb{K})\)</span> et est le
+neutre pour <span class="math inline">\(\times\)</span> dans <span
+class="math inline">\(\mathscr{M}_{n}(\mathbb{K})\)</span>.</p>
+</div>
+<div class="wprop">
+<p><span
+class="math inline">\((\mathscr{M}_{n}(\mathbb{K}),+,\times)\)</span>
+est un anneau.</p>
+</div>
+<div class="wprop">
+<p>Dès <span class="math inline">\(n \geq 2\)</span>, <span
+class="math inline">\((\mathscr{M}_{n}(\mathbb{K}),+,\times)\)</span>
+est un anneau non commutatif et non intégre.</p>
+</div>
+<div class="wproof">
+<p>Montrons cela pour <span class="math inline">\(n=2\)</span> et la
+preuve peut s’étendre pour <span class="math inline">\(n &gt;
+2\)</span>.</p>
+<p>Pour <span class="math inline">\(A = \begin{pmatrix}
+        1 &amp; 0 \\
+        0 &amp; 0
+    \end{pmatrix}\)</span> et <span class="math inline">\(B =
+\begin{pmatrix}
+        0 &amp; 0 \\
+        1 &amp; 0
+    \end{pmatrix}\)</span> alors <span class="math inline">\(AB =
+\begin{pmatrix}
+        0 &amp; 0 \\
+        0 &amp; 0
+    \end{pmatrix}\)</span> et <span class="math inline">\(BA
+\begin{pmatrix}
+        0 &amp; 0 \\
+        1 &amp; 0
+    \end{pmatrix}\)</span>.</p>
+<p>On a donc <span class="math inline">\(AB \neq BA\)</span> et <span
+class="math inline">\(AB = 0_{\mathscr{M}_{2}(\mathbb{K})}\)</span> bien
+que <span class="math inline">\(A \neq
+0_{\mathscr{M}_{2}(\mathbb{K})}\)</span> et <span
+class="math inline">\(B \neq
+0_{\mathscr{M}_{2}(\mathbb{K})}\)</span></p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(A, B \in
+\mathscr{M}_{n}(\mathbb{K})\)</span> tels que <span
+class="math inline">\(AB = BA\)</span>.</p>
+<p>Alors, pour tout <span class="math inline">\(p \in \mathbb{N},
+(A+B)^p = \sum_{k=0}^p \binom{k}{p} A^kB^{p-k}\)</span>.</p>
+<p>avec <span class="math inline">\(M^0 = I_n\)</span> pour tout <span
+class="math inline">\(M \in \mathscr{M}_{n}(\mathbb{K})\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Ceci a été démontré pour les anneaux en général dans un cours
+précédent.</p>
+</div>
+<h2 data-number="5.2"
+id="les-éléments-inversibles-de-mathscrm_nmathbbk"><span
+class="header-section-number">5.2</span> Les éléments inversibles de
+<span class="math inline">\(\mathscr{M}_{n}(\mathbb{K})\)</span></h2>
+<div class="wrappel">
+<p>Soit <span class="math inline">\(A \in
+\mathscr{M}_{n}(\mathbb{K})\)</span>, <span
+class="math inline">\(A\)</span> est dite inversible dans <span
+class="math inline">\(\mathscr{M}_{n}(\mathbb{K})\)</span> s’il existe
+<span class="math inline">\(B \in \mathscr{M}_{n}(\mathbb{K})\)</span>
+telle que <span class="math inline">\(AB = BA = I_n\)</span>.</p>
+</div>
+<div class="wdefi">
+<p>On note <span class="math inline">\(GL_n(\mathbb{K})\)</span>
+l’ensemble des inversibles dans <span
+class="math inline">\(\mathscr{M}_{n}(\mathbb{K})\)</span>, que l’on
+appelle (spoiler alert) le groupe linéaire.</p>
+</div>
+<div class="wprop">
+<p><span id="prop:inverse_matrice_bijection"
+label="prop:inverse_matrice_bijection"></span> Soient <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geq 1\)</span> ainsi que <span
+class="math inline">\(\mathscr{B}\)</span> une base de <span
+class="math inline">\(E\)</span>.</p>
+<p>Soient <span class="math inline">\(A \in
+\mathscr{M}_{n}(\mathbb{K})\)</span> et <span class="math inline">\(f
+\in \mathscr{L}(E)\)</span> alors <span class="math display">\[A \in
+GL_n(\mathbb{K}) \iff f \in GL(E).\]</span></p>
+<p>De plus, dans ce cas, l’unique matrice <span class="math inline">\(B
+\in \mathscr{M}_{n}(\mathbb{K})\)</span> telle que <span
+class="math inline">\(AB=BA = I_n\)</span> est notée <span
+class="math inline">\(A^{-1}\)</span> et on a</p>
+<p><span class="math display">\[A^{-1} =
+\mathscr{M}_{\mathscr{B}}(f^{-1}).\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(A \in GL_n(\mathbb{K})\)</span>, il existe <span
+class="math inline">\(B \in \mathscr{M}_{n}(\mathbb{K})\)</span> telle
+que <span class="math inline">\(AB=BA = I_n\)</span>.</p>
+<p>Alors, soit <span class="math inline">\(g \in \mathscr{L}(E)\)</span>
+telle que <span class="math inline">\(B =
+\mathscr{M}_{\mathscr{B}}(g)\)</span> alors</p>
+<p><span class="math inline">\(BA =
+\mathscr{M}_{\mathscr{B}}(g)\mathscr{M}_{\mathscr{B}}(f) =
+\mathscr{M}_{\mathscr{B}}(g \circ f) = I_n
+=  \mathscr{M}_{\mathscr{B}}(\mathop{\mathrm{Id}}_E)\)</span></p>
+<p>donc <span class="math inline">\(g \circ f =
+\mathop{\mathrm{Id}}_E\)</span> et <span class="math inline">\(g =
+f^{-1}\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Si <span
+class="math inline">\(f \in GL(E)\)</span>,</p>
+<p>en notant <span class="math inline">\(B =
+\mathscr{M}_{\mathscr{B}}(f^{-1})\)</span>, on a alors</p>
+<p><span class="math display">\[\begin{aligned}
+            AB &amp; =
+\mathscr{M}_{\mathscr{B}}(f)\mathscr{M}_{\mathscr{B}}(f^{-1}) =
+\mathscr{M}_{\mathscr{B}}(f \circ f^{-1}) =
+\mathscr{M}_{\mathscr{B}}(\mathop{\mathrm{Id}}_E) = I_n \\
+            \text{ et }BA &amp; =
+\mathscr{M}_{\mathscr{B}}(f^{-1})\mathscr{M}_{\mathscr{B}}(f) =
+\mathscr{M}_{\mathscr{B}}(f^{-1} \circ f) =
+\mathscr{M}_{\mathscr{B}}(\mathop{\mathrm{Id}}_E) = I_n \\
+        \end{aligned}\]</span></p>
+<p>donc <span class="math inline">\(A \in GL_n(\mathbb{K})\)</span> et
+<span class="math inline">\(A^{—1} =
+\mathscr{M}_{\mathscr{B}}(f^{-1})\)</span></p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><span id="prop:gln_Stable_par_fois"
+label="prop:gln_Stable_par_fois"></span> Soient <span
+class="math inline">\(A,B \in GL_n(\mathbb{K})\)</span>.</p>
+<p>Alors <span class="math inline">\(AB \in GL_n(\mathbb{K})\)</span> et
+<span class="math inline">\(\left(AB\right)^{-1} =
+B^{-1}A^{-1}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>On remarque que par associativité,</p>
+<p><span class="math display">\[AB B^{-1}A^{-1} =
+A\left(BB^{-1}\right)A^{-1} = AI_nA^{-1} = AA^{-1} = I_n\]</span> et
+<span class="math display">\[B^{-1}A^{-1}AB =
+B^{-1}\left(A^{-1}A\right)B = B^{-1}I_nB = B^{-1}B = I_n.\]</span></p>
+</div>
+<div class="wprop">
+<p><span class="math inline">\((GL_n(\mathbb{K}),\times)\)</span> est un
+groupe.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\(\times\)</span> est
+associative,</p></li>
+<li><p><span class="math inline">\(I_n\)</span> est le neutre pour <span
+class="math inline">\(\times\)</span>,</p></li>
+<li><p>Par la proposition <a href="#prop:gln_Stable_par_fois"
+data-reference-type="ref"
+data-reference="prop:gln_Stable_par_fois">[prop:gln_Stable_par_fois]</a>,
+<span class="math inline">\(GL_n(\mathbb{K})\)</span> est stable par
+<span class="math inline">\(\times\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(A \in
+\mathscr{M}_{n}(\mathbb{K})\)</span> telle que qu’il existe <span
+class="math inline">\(B \in \mathscr{M}_{n}(\mathbb{K})\)</span> telle
+que <span class="math inline">\(BA = I_n\)</span>.</p>
+<p>Alors, <span class="math inline">\(A \in GL_n(\mathbb{K})\)</span> et
+<span class="math inline">\(A^{-1} = B\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geq 1\)</span> ainsi que <span
+class="math inline">\(\mathscr{B}\)</span> une base de <span
+class="math inline">\(E\)</span>.</p>
+<p>Soient <span class="math inline">\(f,g \in \mathscr{L}(E)\)</span>
+telles que <span class="math inline">\(A =
+\mathscr{M}_{\mathscr{B}}(f)\)</span> et <span class="math inline">\(B =
+\mathscr{M}_{\mathscr{B}}(g)\)</span>.</p>
+<p><span class="math inline">\(BA = I_n\)</span> donne <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}}(g \circ f) =
+\mathscr{M}_{\mathscr{B}}(\mathop{\mathrm{Id}}_E)\)</span> donc <span
+class="math inline">\(g \circ f = \mathop{\mathrm{Id}}_E\)</span>.</p>
+<p>Or, on sait que cela implique donc <span class="math inline">\(g =
+f^{-1}\)</span> (car <span class="math inline">\(E\)</span> est de
+dimension finie, comme conséquence du théorème du rang).</p>
+<p>On a donc aussi <span class="math inline">\(AB =
+\mathscr{M}_{\mathscr{B}}( f \circ f^{-1}) =
+\mathscr{M}_{\mathscr{B}}(\mathop{\mathrm{Id}}_E) = I_n\)</span> donc
+<span class="math inline">\(B = A^{-1}\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Cela fonctionne aussi s’il existe <span class="math inline">\(B \in
+\mathscr{M}_{n}(\mathbb{K})\)</span> telle que <span
+class="math inline">\(AB = I_n\)</span>.</p>
+</div>
+<div class="wex">
+<p><strong>Exercice</strong> — Soient <span class="math inline">\(\alpha
+\in \mathbb{R}\)</span> et <span class="math inline">\(A_\alpha =
+\begin{pmatrix}
+            1 &amp; -1 &amp; 1 \\
+            0 &amp; \alpha &amp; 2 \\
+            0 &amp; 0 &amp; 3
+        \end{pmatrix}\)</span>.</p>
+<ol>
+<li><p>Déterminer les <span class="math inline">\(\alpha \in
+\mathbb{R}\)</span> tels que <span class="math inline">\(A \in
+GL_3(\mathbb{R})\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\alpha = 2\)</span>, déterminer
+<span class="math inline">\(A^{-1}\)</span>.</p></li>
+</ol>
+<p><strong>Corrigé</strong> —</p>
+<ol>
+<li><p>Soit <span class="math inline">\(f_\alpha \in
+\mathscr{L}(\mathbb{R}^3)\)</span> canoniquement associée à <span
+class="math inline">\(A_\alpha\)</span>,</p>
+<p><span class="math display">\[A_\alpha \in GL_3(\mathbb{R}) \iff
+f_\alpha \text{ bijective } \iff f_\alpha \text{
+injective}.\]</span></p>
+<p>Or, soit <span class="math inline">\((x,y,z) \in
+\mathbb{R}^3\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+            (x,y,z) \in Ker f_\alpha
+            &amp; \iff A\begin{pmatrix}
+                x \\y \\ z
+            \end{pmatrix} = \begin{pmatrix}
+                0 \\ 0 \\ 0
+            \end{pmatrix} \\
+            &amp; \iff \left\{
+            \begin{array}{ll}
+                x -y+z &amp; =0 \\
+                \alpha y+2z &amp; = 0 \\
+                3z &amp;=0
+            \end{array}
+            \right. \\
+            &amp; \iff \left\{
+            \begin{array}{ll}
+                x &amp; =y \\
+                \alpha y &amp; = 0 \\
+                z &amp;=0
+            \end{array}
+            \right.
+        \end{aligned}\]</span></p>
+<p>On a donc deux cas,</p>
+<ul>
+<li><p>Si <span class="math inline">\(\alpha \neq 0\)</span>, le système
+admet pour unique solution <span class="math inline">\((0,0,0)\)</span>
+donc <span class="math inline">\(\mathop{\mathrm{Ker}}f_\alpha =
+\left\{0_{\mathbb{R}^3}\right\}\)</span> et <span
+class="math inline">\(A_\alpha \in GL_3(\mathbb{R})\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\alpha = 0\)</span>, le système
+devient <span class="math inline">\(\left\{
+            \begin{array}{ll}
+                x &amp; =y \\
+                z &amp;=0
+            \end{array}
+            \right.\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{Ker}}f_\alpha =
+\mathop{\mathrm{Vect}}\begin{pmatrix}
+                1 \\ 1
+            \end{pmatrix}\)</span> et <span class="math inline">\(A_0
+\notin GL_3(\mathbb{R})\)</span>.</p></li>
+</ul></li>
+<li><p>Rechercher <span class="math inline">\(A^{-1}_2\)</span> revient
+à rechercher <span class="math inline">\(f_2^{-1}\)</span>.</p>
+<p>On cherche donc <span class="math inline">\(f_2 \in
+\mathscr{L}(\mathbb{R}^3)\)</span> tel que <span
+class="math inline">\(f_2^{-1}\circ f_2 =
+\mathop{\mathrm{Id}}_{\mathbb{R}^3}\)</span>.</p>
+<p>Aussi, un endomorphisme est uniquement déterminé par son image d’une
+base. En notant <span class="math inline">\((e_1,e_2,e_3)\)</span> la
+base canonique de <span class="math inline">\(\mathbb{R}^3\)</span>, on
+cherche donc <span class="math inline">\(f_2^{-1}\)</span> telle que
+<span class="math display">\[\begin{aligned}
+            &amp;\left\{
+            \begin{array}{ll}
+                f_2^{-1} \circ f_2 (e_1) &amp; =
+\mathop{\mathrm{Id}}_{\mathbb{R}^3}(e_1) = e_1 \\
+                f_2^{-1} \circ f_2 (e_2) &amp;  =
+\mathop{\mathrm{Id}}_{\mathbb{R}^3}(e_2) = e_2 \\
+                f_2^{-1} \circ f_2 (e_3) &amp;  =
+\mathop{\mathrm{Id}}_{\mathbb{R}^3}(e_3) = e_3 \\
+            \end{array}
+            \right. \\
+            &amp; \iff \left\{
+            \begin{array}{ll}
+                f_2^{-1}(e_1) &amp;  = e_1 \\
+                f_2^{-1}(-e_1+2e_2) &amp;  = e_2 \\
+                f_2^{-1}(e_1+2e_2+3e_3) &amp; = e_3 \\
+            \end{array}
+            \right. \\
+            &amp; \iff \left\{
+            \begin{array}{ll}
+                f_2^{-1}(e_1) &amp;  = e_1 \\
+                -f_2^{-1}(e_1)+2f_2^{-1}(e_2) &amp;  = e_2 \\
+                f_2^{-1}(e_1)+2f_2^{-1}(e_2)+3f_2^{-1}(e_3) &amp; = e_3
+\\
+            \end{array}
+            \right. \\
+            &amp; \iff \left\{
+            \begin{array}{ll}
+                f_2^{-1}(e_1) &amp;  = e_1 \\
+                f_2^{-1}(e_2) &amp;  = \tfrac{1}{2}e_1+\tfrac{1}{2}e_2
+\\
+                3f_2^{-1}(e_3) &amp; = e_3-f_2^{-1}(e_1)-2f_2^{-1}(e_2)
+= e_3 - 2e_1-e_2 \\
+            \end{array}
+            \right. \\
+            &amp; \iff \left\{
+            \begin{array}{ll}
+                f_2^{-1}(e_1) &amp;  = e_1 \\
+                f_2^{-1}(e_2) &amp;  = \tfrac{1}{2}e_1+\tfrac{1}{2}e_2
+\\
+                f_2^{-1}(e_3) &amp; =-\tfrac{2}{3}e_1
+-\tfrac{1}{3}e_2+\tfrac{1}{3}e_3 \\
+            \end{array}
+            \right. \\
+        \end{aligned}\]</span></p>
+<p>Donc <span class="math inline">\(A_{2}^{-1} = \begin{pmatrix}
+            1 &amp; \tfrac{1}{2} &amp; -\tfrac{2}{3} \\
+            0 &amp; \tfrac{1}{2} &amp; -\tfrac{1}{3} \\
+            0 &amp; 0 &amp; \tfrac{1}{3}
+        \end{pmatrix}.\)</span></p></li>
+</ol>
+</div>
+<h1 data-number="6" id="changement-de-bases"><span
+class="header-section-number">6</span> Changement de bases</h1>
+<h2 data-number="6.1" id="matrice-de-passage-entre-deux-bases"><span
+class="header-section-number">6.1</span> Matrice de passage entre deux
+bases</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geq 1\)</span> et <span
+class="math inline">\(\mathscr{B}= (e_1,\ldots,e_n)\)</span>, <span
+class="math inline">\(\mathscr{B}&#39; =
+(e&#39;_1,\ldots,e&#39;_n)\)</span> deux bases de <span
+class="math inline">\(E\)</span>.</p>
+<p>Soit <span class="math inline">\(j \in [\![ 1,n ]\!]\)</span>, il
+existe <span class="math inline">\(p_{1j},\ldots,p_{nj} \in
+\mathbb{K}\)</span> tels que <span class="math inline">\(e&#39;_j =
+\sum_{i=1}^n p_{ij} e_i\)</span>.</p>
+<p>La matrice <span class="math inline">\(\left(p_{ij}\right)_{1 \leq
+i,j \leq n} \in \mathscr{M}_{n}(\mathbb{K})\)</span> est appelée la
+matrice de passage de <span class="math inline">\(\mathscr{B}\)</span> à
+<span class="math inline">\(\mathscr{B}&#39;\)</span>, notée <span
+class="math inline">\(P_{\mathscr{B},\mathscr{B}&#39;}\)</span>.</p>
+</div>
+<p>On peut donc se dessiner une matrice de passage ci-dessous. <span
+class="math display">\[P_{{\color{CornflowerBlue}\mathscr{B}},{\color{OliveGreen}\mathscr{B&#39;}}}
+=
+\begin{array}{cc}
+  \begin{matrix}
+    {\color{OliveGreen}e&#39;_1} &amp;
+    {\color{OliveGreen}e&#39;_2} &amp;
+    \ldots &amp;
+    {\color{OliveGreen}e&#39;_n}
+  \end{matrix}
+  &amp; \\[2mm]
+  \begin{pmatrix}
+    p_{11} &amp; p_{12} &amp; \ldots &amp; p_{1n} \\
+    p_{21} &amp; p_{22} &amp; \ldots &amp; p_{2n} \\
+    \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    p_{n1} &amp; p_{n2} &amp; \ldots &amp; p_{nn}
+  \end{pmatrix}
+  &amp;
+  \begin{matrix}
+    {\color{CornflowerBlue}e_1} \\
+    {\color{CornflowerBlue}e_2} \\
+    \vdots \\
+    {\color{CornflowerBlue}e_n}
+  \end{matrix}
+\end{array}\]</span></p>
+<div class="wex">
+<p>Pour <span class="math inline">\(E = \mathbb{R}^3\)</span>, <span
+class="math inline">\(\mathscr{B}\)</span> la base canonique et <span
+class="math inline">\(\mathscr{B}&#39; =
+(e&#39;_1,e&#39;_2,e&#39;_3)\)</span> avec <span
+class="math inline">\(\left\{\begin{array}{ll}
+        e&#39;_1 &amp;= (1,1,-1) \\
+        e&#39;_2 &amp;=(0,2,1) \\
+        e&#39;_3 &amp; = (0,0,3)
+    \end{array}\right.\)</span>, on a</p>
+<p><span class="math display">\[P_{\mathscr{B},\mathscr{B}&#39;} =
+\begin{pmatrix}
+        1 &amp; 0 &amp; 0 \\
+        1 &amp; 2 &amp; 0 \\
+        -1 &amp; 1 &amp; 3
+    \end{pmatrix}.\]</span></p>
+</div>
+<div class="wrem">
+<p>Il faut se méfier des confusions de convention par rapport à la
+matrice d’une application relativement à deux bases. Pour rappel on a
+plutôt</p>
+<p><span
+class="math display">\[\mathscr{M}_{{\color{CornflowerBlue}\mathscr{B}},{\color{Orchid}\mathscr{C}}}(f)
+=
+\begin{array}{cc}
+  \begin{matrix}
+    f({\color{CornflowerBlue} e_1}) &amp; f({\color{CornflowerBlue}
+e_2}) &amp; \ldots &amp; f({\color{CornflowerBlue} e_p})
+  \end{matrix} &amp; \\
+  \begin{pmatrix}
+    a_{11} &amp; a_{12} &amp; \ldots &amp; a_{1p} \\
+    a_{21} &amp; a_{22} &amp; \ldots &amp; a_{2p} \\
+    \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
+    a_{n1} &amp; a_{n2} &amp; \ldots &amp; a_{np}
+  \end{pmatrix} &amp;
+  \begin{matrix}
+    {\color{Orchid}e&#39;_1} \\
+    {\color{Orchid}e&#39;_2} \\
+    \vdots \\
+    {\color{Orchid}e&#39;_n}
+  \end{matrix}.
+\end{array}\]</span> Cette "inversion de convention" est concrétisée par
+la proposition <a href="#prop:matrice_passage_comme_matrice_id"
+data-reference-type="ref"
+data-reference="prop:matrice_passage_comme_matrice_id">[prop:matrice_passage_comme_matrice_id]</a>
+ci-dessous.</p>
+</div>
+<div class="wprop">
+<p><span id="prop:matrice_passage_comme_matrice_id"
+label="prop:matrice_passage_comme_matrice_id"></span> Soit <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geq 1\)</span> et <span
+class="math inline">\(\mathscr{B}= (e_1,\ldots,e_n)\)</span>, <span
+class="math inline">\(\mathscr{B}&#39; =
+(e&#39;_1,\ldots,e&#39;_n)\)</span> deux bases de <span
+class="math inline">\(E\)</span>. Alors,</p>
+<p><span class="math display">\[P_{\mathscr{B},\mathscr{B}&#39;} =
+\mathscr{M}_{\mathscr{B}&#39;,\mathscr{B}}(\mathop{\mathrm{Id}}_E).\]</span></p>
+</div>
+<div class="wproof">
+<p>La <span class="math inline">\(j\)</span>-ième colonne de <span
+class="math inline">\(P_{\mathscr{B},\mathscr{B}&#39;}\)</span>
+correspond aux coordonnées de <span
+class="math inline">\(e&#39;_j\)</span> dans la base <span
+class="math inline">\((e_i)_{1 \leq i \leq n}\)</span>.</p>
+<p><span
+class="math display">\[P_{{\color{CornflowerBlue}\mathscr{B}},{\color{OliveGreen}\mathscr{B&#39;}}}
+=
+\begin{array}{cc}
+  \begin{matrix}
+    {\color{OliveGreen}e&#39;_1} &amp;
+    {\color{OliveGreen}e&#39;_2} &amp;
+    \ldots &amp;
+    {\color{OliveGreen}e&#39;_n}
+  \end{matrix}
+  &amp; \\[2mm]
+  \begin{pmatrix}
+    \ldots &amp; \ldots &amp; \ldots &amp;\ldots \\
+    \vdots &amp; \ddots &amp; \ldots &amp; \vdots \\
+    \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    \vdots &amp; \ldots&amp; \ldots &amp; \ddots
+  \end{pmatrix}
+  &amp;
+  \begin{matrix}
+    {\color{CornflowerBlue}e_1} \\
+    {\color{CornflowerBlue}e_2} \\
+    \vdots \\
+    {\color{CornflowerBlue}e_n}
+  \end{matrix}
+\end{array}\]</span></p>
+<p>La <span class="math inline">\(j\)</span>-ième colonne de <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}&#39;,\mathscr{B}}(\mathop{\mathrm{Id}}_E)\)</span>
+correspond aux coordonnées de <span
+class="math inline">\(\mathop{\mathrm{Id}}(e&#39;_j)=e&#39;_j\)</span>
+dans la base <span class="math inline">\((e_i)_{1 \leq i \leq
+n}\)</span>.</p>
+<p><span
+class="math display">\[\mathscr{M}_{\color{OliveGreen}\mathscr{B&#39;},\color{CornflowerBlue}\mathscr{B}}(\mathop{\mathrm{Id}}_E)
+=
+\begin{array}{cc}
+  \begin{matrix}
+    {\color{OliveGreen}\mathop{\mathrm{Id}}_E(e&#39;_1)} &amp;
+    {\color{OliveGreen}\mathop{\mathrm{Id}}_E(e&#39;_2)} &amp;
+    \ldots &amp;
+    {\color{OliveGreen}\mathop{\mathrm{Id}}_E(e&#39;_n)} \\
+    = &amp; =&amp; \ldots &amp; = \\
+     {\color{OliveGreen}e&#39;_1} &amp;
+    {\color{OliveGreen}e&#39;_2} &amp;
+    \ldots &amp;
+    {\color{OliveGreen}e&#39;_n}
+  \end{matrix}
+  &amp; \\[2mm]
+  \begin{pmatrix}
+    \ldots &amp; \ldots &amp; \ldots &amp;\ldots \\
+    \vdots &amp; \ddots &amp; \ldots &amp; \vdots \\
+    \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    \vdots &amp; \ldots&amp; \ldots &amp; \ddots
+  \end{pmatrix}
+  &amp;
+  \begin{matrix}
+    {\color{CornflowerBlue}e_1} \\
+    {\color{CornflowerBlue}e_2} \\
+    \vdots \\
+    {\color{CornflowerBlue}e_n}
+  \end{matrix}
+\end{array}\]</span></p>
+<p>On a donc <span
+class="math inline">\(P_{\mathscr{B},\mathscr{B}&#39;} =
+\mathscr{M}_{\mathscr{B}&#39;,\mathscr{B}}(\mathop{\mathrm{Id}}_E)\)</span>.</p>
+</div>
+<div class="wcor">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geq 1\)</span> et <span
+class="math inline">\(\mathscr{B}\)</span>, <span
+class="math inline">\(\mathscr{B}&#39;\)</span> deux bases de <span
+class="math inline">\(E\)</span>. Alors,</p>
+<p><span class="math inline">\(P_{\mathscr{B},\mathscr{B}&#39;} \in
+GL_n(\mathbb{K})\)</span> et <span
+class="math inline">\(P_{\mathscr{B},\mathscr{B}&#39;}^{-1} =
+P_{\mathscr{B}&#39;,\mathscr{B}}\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(P_{\mathscr{B},\mathscr{B}&#39;} =
+\mathscr{M}_{\mathscr{B}&#39;,\mathscr{B}}(\mathop{\mathrm{Id}}_E)\)</span>
+avec <span class="math inline">\(\mathop{\mathrm{Id}}_E \in
+GL(E)\)</span> donc <span
+class="math inline">\(P_{\mathscr{B},\mathscr{B}&#39;} \in
+GL_n(\mathbb{K})\)</span>.</p>
+<p>Précisons que la proposition <a
+href="#prop:inverse_matrice_bijection" data-reference-type="ref"
+data-reference="prop:inverse_matrice_bijection">[prop:inverse_matrice_bijection]</a>
+ne s’applique pas car on a a priori <span
+class="math inline">\(\mathscr{B}\neq \mathscr{B}&#39;\)</span>.</p>
+<p>Néanmoins, en considérant <span
+class="math inline">\(\underset{\mathscr{B}}{E}
+\overset{\mathop{\mathrm{Id}}_E}{\longrightarrow}  \underset{\mathscr{B}}{E}
+= \underset{\mathscr{B}}{E}
+\overset{\mathop{\mathrm{Id}}_E}{\longrightarrow}
+\underset{\mathscr{B}&#39;}{E}
+\overset{\mathop{\mathrm{Id}}_E}{\longrightarrow}  \underset{\mathscr{B}}{E}\)</span>
+en appliquant la proposition <a href="#prop:Chasles_matrices_applis"
+data-reference-type="ref"
+data-reference="prop:Chasles_matrices_applis">[prop:Chasles_matrices_applis]</a>,
+on a</p>
+<p><span class="math display">\[I_n =
+\mathscr{M}_{\mathscr{B},\mathscr{B}}(\mathbb{K})(\mathop{\mathrm{Id}}_E)
+=
+\mathscr{M}_{\mathscr{B}&#39;,\mathscr{B}}(\mathbb{K})(\mathop{\mathrm{Id}}_E)\mathscr{M}_{\mathscr{B},\mathscr{B}&#39;}(\mathbb{K})(\mathop{\mathrm{Id}}_E)
+=
+P_{\mathscr{B},\mathscr{B}&#39;}P_{\mathscr{B}&#39;,\mathscr{B}}.\]</span></p>
+<p>Donc <span class="math inline">\(P_{\mathscr{B},\mathscr{B}&#39;} \in
+GL_n(\mathbb{K})\)</span> et <span
+class="math inline">\(P_{\mathscr{B},\mathscr{B}&#39;}^{-1} =
+P_{\mathscr{B}&#39;,\mathscr{B}}\)</span>.</p>
+</div>
+<h2 data-number="6.2" id="influence-dun-changement-de-bases"><span
+class="header-section-number">6.2</span> Influence d’un changement de
+bases</h2>
+<h3 data-number="6.2.1"
+id="sur-la-matrice-colonne-associée-à-un-vecteur"><span
+class="header-section-number">6.2.1</span> Sur la matrice colonne
+associée à un vecteur</h3>
+<div class="wprop">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geq 1\)</span> et <span
+class="math inline">\(\mathscr{B}= (e_1,\ldots,e_n)\)</span>, <span
+class="math inline">\(\mathscr{B}&#39; =
+(e&#39;_1,\ldots,e&#39;_n)\)</span> deux bases de <span
+class="math inline">\(E\)</span>.</p>
+<p>Soit <span class="math inline">\(v \in E\)</span> et</p>
+<ul>
+<li><p><span class="math inline">\(X_\mathscr{B}\)</span> la matrice
+colonne associée à <span class="math inline">\(v\)</span> dans <span
+class="math inline">\(\mathscr{B}\)</span>,</p></li>
+<li><p><span class="math inline">\(X_{\mathscr{B}&#39;}\)</span> la
+matrice colonne associée à <span class="math inline">\(v\)</span> dans
+<span class="math inline">\(\mathscr{B}&#39;\)</span>.</p></li>
+</ul>
+<p>Avec <span class="math inline">\(P =
+P_{\mathscr{B},\mathscr{B}&#39;}\)</span>, on a <span
+class="math inline">\(X_{\mathscr{B}&#39;} =
+P^{-1}X_\mathscr{B}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(1 \leq j \leq n\)</span>, <span
+class="math inline">\(e&#39;_j = \sum_{i=1}^n p_{ij}e_i\)</span>.</p>
+<p>De plus, en notant <span class="math inline">\(X_\mathscr{B}=
+\left(x_i\right)_{1\leq i \leq n}\)</span> et <span
+class="math inline">\(X_{\mathscr{B}&#39;} =
+\left(x&#39;_i\right)_{1\leq i \leq n}\)</span>,</p>
+<p><span class="math display">\[v = \sum_{j=1}^n x&#39;_j e&#39;_j =
+\sum_{j=1}^n x&#39;_j \sum_{i=1}^n p_{ij}e_i = \sum_{i=1}^n
+\left(\sum_{j=1}^n p_{ij} x&#39;_j \right)e_i = \sum_{i=1}^n x_i
+e_i.\]</span></p>
+<p>On a donc pour <span class="math inline">\(1 \leq i \leq n\)</span>,
+<span class="math inline">\(x_i = \sum_{j=1}^n p_{ij} x&#39;_j =
+\left(PX_{\mathscr{B}&#39;}\right)_i\)</span> donc <span
+class="math inline">\(X = PX&#39; \iff X&#39; = P^{-1}X\)</span>.</p>
+<div class="wrem">
+<p>On aurait pu directement dire <span class="math inline">\(P^{-1} =
+\mathscr{M}_{\mathscr{B},\mathscr{B}&#39;}(\mathop{\mathrm{Id}}_E)\)</span>.</p>
+</div>
+</div>
+<h3 data-number="6.2.2" id="sur-la-matrice-de-f-in-mathscrlef"><span
+class="header-section-number">6.2.2</span> Sur la matrice de <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span></h3>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(p \geq 1\)</span> et <span
+class="math inline">\(F\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geq 1\)</span>.</p>
+<p>On considère <span class="math inline">\(f \in
+\mathscr{L}(E,F)\)</span>, <span
+class="math inline">\(\mathscr{B},\mathscr{B}&#39;\)</span> deux bases
+de <span class="math inline">\(E\)</span> et <span
+class="math inline">\(\mathscr{C},\mathscr{C}&#39;\)</span> deux bases
+de <span class="math inline">\(F\)</span>.</p>
+<p>On considère aussi <span class="math inline">\(A =
+\mathscr{M}_{\mathscr{B},\mathscr{C}}(f), A&#39; =
+\mathscr{M}_{\mathscr{B}&#39;,\mathscr{C}&#39;}(f), P =
+P_{\mathscr{B},\mathscr{B}&#39;}\)</span> et <span
+class="math inline">\(Q = P_{\mathscr{C},\mathscr{C}&#39;}\)</span>.
+Alors, on a <span class="math display">\[A&#39; = Q^{-1}AP.\]</span></p>
+</div>
+<div class="wproof">
+<p>En considérant <span
+class="math inline">\(\underset{\mathscr{B}&#39;}{E}\overset{f}{\longrightarrow}  \underset{\mathscr{C}&#39;}{F}
+= \underset{\mathscr{B}&#39;}{E}
+\overset{\mathop{\mathrm{Id}}_E}{\longrightarrow}
+\underset{\mathscr{B}}{E}\overset{f}{\longrightarrow}  \underset{\mathscr{C}}{F}
+\overset{\mathop{\mathrm{Id}}_F}{\longrightarrow}  \underset{\mathscr{C}&#39;}{F}\)</span>
+et en appliquant la proposition <a href="#prop:Chasles_matrices_applis"
+data-reference-type="ref"
+data-reference="prop:Chasles_matrices_applis">[prop:Chasles_matrices_applis]</a>,
+on a</p>
+<p><span class="math display">\[A&#39;
+=  \mathscr{M}_{\mathscr{B}&#39;,\mathscr{C}&#39;}(f)
+     =  \mathscr{M}_{\mathscr{B}&#39;,\mathscr{C}&#39;}(\mathop{\mathrm{Id}}_F
+\circ f \circ \mathop{\mathrm{Id}}_E)
+    =
+\underbrace{\mathscr{M}_{\mathscr{C},\mathscr{C}&#39;}(\mathop{\mathrm{Id}}_F)}_{=P_{\mathscr{C}&#39;,\mathscr{C}}
+=
+Q^{-1}}  \mathscr{M}_{\mathscr{B},\mathscr{C}}(f)  \underbrace{\mathscr{M}_{\mathscr{B},\mathscr{B}&#39;}(
+\mathop{\mathrm{Id}}_E)}_{=P}
+    = Q^{-1}AP\]</span></p>
+</div>
+<div class="wrem">
+<p>En particulier, si dans la proposition précédente on a <span
+class="math inline">\(\mathscr{B}= \mathscr{C}\)</span> et <span
+class="math inline">\(\mathscr{B}&#39; = \mathscr{C}&#39;\)</span>, on a
+<span class="math inline">\(Q = P\)</span> et avec <span
+class="math inline">\(A = \mathscr{M}_{\mathscr{B}}(f)\)</span> et <span
+class="math inline">\(A&#39; =
+\mathscr{M}_{\mathscr{B}&#39;}(f)\)</span>, <span
+class="math display">\[A&#39; = P^{-1}AP.\]</span></p>
+</div>
+<div class="wappli">
+<p>Soit <span class="math inline">\(A \in
+\mathscr{M}_{n}(\mathbb{K})\)</span> et <span class="math inline">\(f
+\in \mathscr{L}(\mathbb{K}^n)\)</span> canoniquement associé à <span
+class="math inline">\(A\)</span>.</p>
+<p>On suppose qu’il existe <span class="math inline">\(\mathscr{B}&#39;
+= (e&#39;_1,\ldots,e&#39;_n)\)</span> base de <span
+class="math inline">\(\mathbb{K}^n\)</span> et <span
+class="math inline">\(\lambda_1,\ldots, \lambda_n \in
+\mathbb{K}\)</span> tels que pour tout <span class="math inline">\(1
+\leq j \leq n\)</span>, <span class="math inline">\(f(e&#39;_j) =
+\lambda_j e&#39;_j\)</span>.</p>
+<p>Il devient alors particulièrement aisé de calculer <span
+class="math inline">\(A^p\)</span> pour <span class="math inline">\(p
+\in \mathbb{N}\)</span>.</p>
+<p>En effet, en notant <span
+class="math inline">\(\mathscr{B}_n\)</span> la base canonique de <span
+class="math inline">\(\mathscr{B}_n\)</span> et <span
+class="math inline">\(P = P_{\mathscr{B}&#39;,\mathscr{B}_n}\)</span>
+alors <span class="math inline">\(A = PDP^{-1}\)</span> avec <span
+class="math inline">\(D = \begin{pmatrix}
+    \lambda_{1} &amp;  &amp; &amp;  &amp;  \\
+     &amp; \ddots &amp;  &amp; (0) &amp;  \\
+     &amp;  &amp; \ddots &amp;  &amp;  \\
+     &amp; (0) &amp;  &amp; \ddots &amp;  \\
+     &amp; &amp;  &amp;  &amp; \lambda_{n} \\
+\end{pmatrix} = \mathscr{M}_{\mathscr{B}&#39;}(f)\)</span>.</p>
+<p>Ensuite, on remarque <span class="math inline">\(A^2 = AA = PDP^{-1}
+PDP^{-1} = PD^2P^{-1}\)</span> et on peut montrer par récurrence sur
+<span class="math inline">\(p\)</span> que pour tout <span
+class="math inline">\(p \in \mathbb{N}\)</span>, <span
+class="math inline">\(A^p = PD^pP^{-1}\)</span>.</p>
+<p>Il reste à remarquer que l’on a aussi pour tout <span
+class="math inline">\(1 \leq j \leq n\)</span>, <span
+class="math inline">\(f^2(e&#39;_j) = f\left(\lambda_j e&#39;_j\right) =
+\lambda_j f(e&#39;_j) = \lambda_j^2 e&#39;_j\)</span> et on peut montrer
+par récurrence sur <span class="math inline">\(p \in \mathbb{N}\)</span>
+que <span class="math inline">\(f^p(e&#39;_j) = \lambda_j^p
+e&#39;_j\)</span>.</p>
+<p>On a donc <span class="math inline">\(D^p =
+\mathscr{M}_{\mathscr{B}&#39;}(f^p) = \begin{pmatrix}
+    \lambda_{1}^p &amp;  &amp; &amp;  &amp;  \\
+     &amp; \ddots &amp;  &amp; (0) &amp;  \\
+     &amp;  &amp; \ddots &amp;  &amp;  \\
+     &amp; (0) &amp;  &amp; \ddots &amp;  \\
+     &amp; &amp;  &amp;  &amp; \lambda_{n}^p \\
+\end{pmatrix}\)</span></p>
+<p>et <span class="math inline">\(A = P\begin{pmatrix}
+    \lambda_{1}^p &amp;  &amp; &amp;  &amp;  \\
+     &amp; \ddots &amp;  &amp; (0) &amp;  \\
+     &amp;  &amp; \ddots &amp;  &amp;  \\
+     &amp; (0) &amp;  &amp; \ddots &amp;  \\
+     &amp; &amp;  &amp;  &amp; \lambda_{n}^p \\
+\end{pmatrix}P^{-1}\)</span>.</p>
+</div>
+<h2 data-number="6.3"
+id="matrices-équivalentes-et-matrices-semblables"><span
+class="header-section-number">6.3</span> Matrices équivalentes et
+matrices semblables</h2>
+<h3 data-number="6.3.1" id="matrices-équivalentes"><span
+class="header-section-number">6.3.1</span> Matrices équivalentes</h3>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(A \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span> et <span class="math inline">\(B
+\in \mathscr{M}_{n,p}(\mathbb{K})\)</span>, on dit que <span
+class="math inline">\(B\)</span> est équivalente à <span
+class="math inline">\(A\)</span> s’il existe <span
+class="math inline">\(P \in GL_p(\mathbb{K})\)</span> et <span
+class="math inline">\(Q \in GL_n(\mathbb{K})\)</span> telles que <span
+class="math inline">\(B = Q^{-1}AP\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Notons <span class="math inline">\(\mathscr{R}\)</span> la relation
+binaire dans <span
+class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span> définie
+par</p>
+<p><span class="math display">\[A\mathscr{R}B \iff \text{ $B$ est
+équivalente à $A$.}\]</span></p>
+<p>Alors, <span class="math inline">\(\mathscr{R}\)</span> est une
+relation d’équivalence dans <span
+class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\(\mathscr{R}\)</span> est
+réflexive.</p>
+<p>En effet, pour tout <span class="math inline">\(A \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span>, <span class="math inline">\(A =
+I_n AI_p\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathscr{R}\)</span> est
+symétrique.</p>
+<p>En effet, soient <span class="math inline">\(A \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span> et <span class="math inline">\(B
+\in \mathscr{M}_{n,p}(\mathbb{K})\)</span> telles que <span
+class="math inline">\(A\mathscr{R}B\)</span> alors il existe <span
+class="math inline">\(P \in GL_p(\mathbb{K})\)</span> et <span
+class="math inline">\(Q \in GL_n(\mathbb{K})\)</span> telles que <span
+class="math inline">\(B = Q^{-1}AP\)</span>.</p>
+<p>On a alors <span class="math inline">\(A = QBP^{-1} =
+\left(Q^{-1}\right)^{-1}BP^{-1}\)</span> avec <span
+class="math inline">\(Q^{-1} \in GL_n(\mathbb{K})\)</span> et <span
+class="math inline">\(P^{-1} \in GL_p(\mathbb{K})\)</span> donc <span
+class="math inline">\(B\mathscr{R}A\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathscr{R}\)</span> est
+transitive.</p>
+<p>En effet, soient <span class="math inline">\(A,B,C \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span> telles que <span
+class="math inline">\(A\mathscr{R}B\)</span> <span
+class="math inline">\(B\mathscr{R}C\)</span>.</p>
+<p>Alors, il existe <span class="math inline">\(Q_1,Q_2 \in
+GL_n(\mathbb{K})\)</span> et <span class="math inline">\(P_1,P_2 \in
+GL_p(\mathbb{K})\)</span> telles que <span class="math inline">\(B =
+Q_1^{-1}AP_1\)</span> et <span class="math inline">\(C =
+Q_2^{-1}BP_2\)</span>.</p>
+<p>On a donc <span class="math inline">\(C = Q_2^{-1}Q_1^{-1}AP_1P_2 =
+\left(Q_1Q_2\right)^{-1}AP_1P_2\)</span> avec <span
+class="math inline">\(Q_1Q_2 \in GL_n(\mathbb{K})\)</span> et <span
+class="math inline">\(P_1P_2 \in GL_p(\mathbb{K})\)</span> donc <span
+class="math inline">\(A\mathscr{R}C\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(A \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span> et <span class="math inline">\(B
+\in \mathscr{M}_{n,p}(\mathbb{K})\)</span>,</p>
+<p><span class="math inline">\(E,F\)</span> deux <span
+class="math inline">\(\mathbb{K}\)</span>-espaces vectoriels avec <span
+class="math inline">\(E\)</span> de dimension <span
+class="math inline">\(p\)</span> et <span
+class="math inline">\(F\)</span> de dimension <span
+class="math inline">\(n\)</span></p>
+<p>et <span class="math inline">\(\mathscr{B}\)</span> base de <span
+class="math inline">\(E\)</span> et <span
+class="math inline">\(\mathscr{C}\)</span> base de <span
+class="math inline">\(F\)</span>. Alors, <span
+class="math display">\[\text{$A$ est équivalente à $B$} \iff
+\begin{array}{l}
+        \text{il existe $f \in \mathscr{L}(E,F)$, $\mathscr{B}&#39;$
+base de $E$ et $\mathscr{C}&#39;$ base de $F$ } \\ \text{ telles que $A
+= \mathscr{M}_{\mathscr{B},\mathscr{C}}(f)$ et $B =
+\mathscr{M}_{\mathscr{B}&#39;,\mathscr{C}&#39;}(f)$.}
+    \end{array}\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Soit <span
+class="math inline">\(P = P_{\mathscr{B},\mathscr{B}&#39;} \in
+GL_p(\mathbb{K})\)</span> et <span class="math inline">\(Q =
+P_{\mathscr{C},\mathscr{C}&#39;} \in GL_n(\mathbb{K})\)</span> alors
+<span class="math inline">\(B =
+\mathscr{M}_{\mathscr{B}&#39;,\mathscr{C}&#39;}(f) = Q^{-1}
+\mathscr{M}_{\mathscr{B},\mathscr{C}}(f) P = Q^{-1}AP\)</span> donc
+<span class="math inline">\(A\)</span> est équivalente à <span
+class="math inline">\(B\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Il existe
+<span class="math inline">\(P\in GL_p(\mathbb{K})\)</span> et <span
+class="math inline">\(Q \in GL_n(\mathbb{K})\)</span> telles que <span
+class="math inline">\(B = Q^{-1}AP\)</span>.</p>
+<p>De plus, comme <span class="math inline">\(\begin{array}{lllll}
+\varphi_{\mathscr{B},\mathscr{C}} &amp; : &amp; \mathscr{L}(E,F) &amp;
+\to &amp; \mathscr{M}_{n,p}(\mathbb{K}) \\
+   &amp;   &amp; f &amp; \mapsto &amp;
+\mathscr{M}_{\mathscr{B},\mathscr{C}}(f)
+\end{array}\)</span> est une bijection, il existe <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span> tel que <span
+class="math inline">\(A =
+\mathscr{M}_{\mathscr{B},\mathscr{C}}(f)\)</span>.</p>
+<p>La question reste donc de savoir s’il existe <span
+class="math inline">\(\mathscr{B}&#39;\)</span> base de <span
+class="math inline">\(E\)</span> et <span
+class="math inline">\(\mathscr{C}&#39;\)</span> base de <span
+class="math inline">\(F\)</span> telles que <span
+class="math inline">\(P = P_{\mathscr{B},\mathscr{B}&#39;}\)</span> et
+<span class="math inline">\(Q =
+P_{\mathscr{C},\mathscr{C}&#39;}\)</span>.</p>
+<p>Comme <span class="math inline">\(\begin{array}{lllll}
+\varphi_{\mathscr{B}} &amp; : &amp; \mathscr{L}(E) &amp; \to &amp;
+\mathscr{M}_{n}(\mathbb{K}) \\
+   &amp;   &amp; f &amp; \mapsto &amp; \mathscr{M}_{\mathscr{B}}(f)
+\end{array}\)</span> est bjective, il existe <span
+class="math inline">\(\psi \in \mathscr{L}(E)\)</span> tel que <span
+class="math inline">\(P = \mathscr{M}_{\mathscr{B}}(\psi)\)</span>.</p>
+<p>Or, <span class="math inline">\(P \in GL_p(\mathbb{K})\)</span> donc
+<span class="math inline">\(\psi \in GL(E)\)</span>.</p>
+<p>En notant <span class="math inline">\(\mathscr{B}=
+(e_1,\ldots,e_n)\)</span>, on introduit <span
+class="math inline">\(\mathscr{B}&#39; =
+(\psi(e_1),\ldots,\psi(e_1))\)</span> qui est une bien une base de <span
+class="math inline">\(E\)</span> car <span
+class="math inline">\(\psi\)</span> est bijective. On a alors</p>
+<p><span class="math display">\[P =
+\mathscr{M}_{\color{OliveGreen}\mathscr{B&#39;},\color{CornflowerBlue}\mathscr{B}}(\psi)
+=
+\begin{array}{cc}
+  \begin{matrix}
+    {\color{OliveGreen}\psi(e_1)} &amp;
+    {\color{OliveGreen}\psi(e_2)} &amp;
+    \ldots &amp;
+    {\color{OliveGreen}\psi(e_n)} \\
+    = &amp; =&amp; \ldots &amp; = \\
+     {\color{OliveGreen}e&#39;_1} &amp;
+    {\color{OliveGreen}e&#39;_2} &amp;
+    \ldots &amp;
+    {\color{OliveGreen}e&#39;_n}
+  \end{matrix}
+  &amp; \\[2mm]
+  \begin{pmatrix}
+    \ldots &amp; \ldots &amp; \ldots &amp;\ldots \\
+    \vdots &amp; \ddots &amp; \ldots &amp; \vdots \\
+    \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    \vdots &amp; \ldots&amp; \ldots &amp; \ddots
+  \end{pmatrix}
+  &amp;
+  \begin{matrix}
+    {\color{CornflowerBlue}e_1} \\
+    {\color{CornflowerBlue}e_2} \\
+    \vdots \\
+    {\color{CornflowerBlue}e_n}
+  \end{matrix}
+\end{array} =
+P_{\color{CornflowerBlue}\mathscr{B},\color{OliveGreen}\mathscr{B&#39;},}\]</span></p>
+<p>De même, il existe <span
+class="math inline">\(\mathscr{C}&#39;\)</span> base de <span
+class="math inline">\(F\)</span> tel que <span class="math inline">\(Q =
+P_{\mathscr{C},\mathscr{C}&#39;}\)</span>.</p>
+<p>On a alors <span class="math inline">\(B = Q^{-1}AP =
+P_{\mathscr{C},\mathscr{C}&#39;}^{-1}
+\mathscr{M}_{\mathscr{B},\mathbb{C}}(f) P_{\mathscr{B},\mathscr{B}&#39;}
+= \mathscr{M}_{\mathscr{B}&#39;,\mathscr{C}&#39;}(f)\)</span>.</p></li>
+</ul>
+</div>
+<h3 data-number="6.3.2" id="matrices-semblables"><span
+class="header-section-number">6.3.2</span> Matrices semblables</h3>
+<p>De façon analogue, on définit deux matrices semblables. On en donne
+les propriétés sans démonstrations, qui sont analogues aux
+précédentes.</p>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(A \in
+\mathscr{M}_{n}(\mathbb{K})\)</span> et <span class="math inline">\(B
+\in \mathscr{M}_{n}(\mathbb{K})\)</span>, on dit que <span
+class="math inline">\(B\)</span> est semblable à <span
+class="math inline">\(A\)</span> s’il existe <span
+class="math inline">\(P \in GL_p(\mathbb{K})\)</span> telle que <span
+class="math inline">\(B = P^{-1}AP\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Notons <span class="math inline">\(\mathscr{R}\)</span> la relation
+binaire dans <span
+class="math inline">\(\mathscr{M}_{n}(\mathbb{K})\)</span> définie
+par</p>
+<p><span class="math display">\[A\mathscr{R}B \iff \text{ $B$ est
+semblable à $A$.}\]</span></p>
+<p>Alors, <span class="math inline">\(\mathscr{R}\)</span> est une
+relation d’équivalence dans <span
+class="math inline">\(\mathscr{M}_{n}(\mathbb{K})\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(A \in
+\mathscr{M}_{n}(\mathbb{K})\)</span> et <span class="math inline">\(B
+\in \mathscr{M}_{n}(\mathbb{K})\)</span>,</p>
+<p><span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel avec <span
+class="math inline">\(E\)</span> de dimension <span
+class="math inline">\(n\)</span> et <span
+class="math inline">\(\mathscr{B}\)</span> base de <span
+class="math inline">\(E\)</span>. Alors, <span
+class="math display">\[\text{$A$ est semblable à $B$} \iff
+\begin{array}{l}
+        \text{il existe $f \in \mathscr{L}(E)$ et $\mathscr{B}&#39;$
+base de $E$ } \\ \text{ telle que $A = \mathscr{M}_{\mathscr{B}}(f)$ et
+$B = \mathscr{M}_{\mathscr{B}&#39;}(f)$.}
+    \end{array}\]</span></p>
+</div>
+<h1 data-number="7" id="rang-dune-matrice"><span
+class="header-section-number">7</span> Rang d’une matrice</h1>
+<h2 data-number="7.1" id="rang-dune-famille-de-vecteurs"><span
+class="header-section-number">7.1</span> Rang d’une famille de
+vecteurs</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geq 1\)</span> et <span
+class="math inline">\((v_1,\ldots,v_p)\)</span> une famille de <span
+class="math inline">\(E\)</span>.</p>
+<p>Le rang de <span class="math inline">\((v_1,\ldots,v_p)\)</span> est
+la dimension de <span class="math inline">\(F =
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_p)\)</span>, noté <span
+class="math inline">\(\mathop{\mathrm{rg}}(v_1,\ldots,v_p)\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geq 1\)</span> et <span
+class="math inline">\((v_1,\ldots,v_p)\)</span> une famille de <span
+class="math inline">\(E\)</span> et <span class="math inline">\(F =
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_p)\)</span>.</p>
+<p>On a <span class="math inline">\(\mathop{\mathrm{rg}}(v_1,\ldots,v_p)
+\leq n\)</span> et <span
+class="math inline">\(\mathop{\mathrm{rg}}(v_1,\ldots,v_p) \leq
+p\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(F\)</span> est un sous-espace vectoriel
+de <span class="math inline">\(E\)</span> donc <span
+class="math inline">\(\dim F \leq n\)</span>.</p>
+<p>De plus, <span class="math inline">\((v_1,\ldots,v_p)\)</span> est
+une famille génératrice de <span class="math inline">\(F\)</span> donc
+par le théorème de la base extraite, <span class="math inline">\(\dim F
+\leq p\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geq 1\)</span> et <span
+class="math inline">\((v_1,\ldots,v_p)\)</span> une famille de <span
+class="math inline">\(E\)</span> et <span class="math inline">\(F =
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_p)\)</span>.</p>
+<p>On a</p>
+<p><span class="math display">\[\mathop{\mathrm{rg}}(v_1,\ldots,v_p) =p
+\iff \text{$(v_1,\ldots,v_p)$ est libre.}\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Si <span
+class="math inline">\((v_1,\ldots,v_p)\)</span> est libre, c’est une
+famille libre et génératrice de <span class="math inline">\(F\)</span>
+donc une base de <span class="math inline">\(F\)</span> et <span
+class="math inline">\(\dim F = p =\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(\dim F = p\)</span>, comme <span
+class="math inline">\((v_1,\ldots,v_p)\)</span> génère <span
+class="math inline">\(F\)</span> et est de cardinal <span
+class="math inline">\(p = \dim F\)</span>, c’en est une base et donc
+<span class="math inline">\((v_1,\ldots,v_p)\)</span> est
+libre.</p></li>
+</ul>
+</div>
+<h2 data-number="7.2" id="rang-dune-matrice-1"><span
+class="header-section-number">7.2</span> Rang d’une matrice</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(A = (a_{ij}) \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span>,</p>
+<p>on considère ses colonnes <span class="math inline">\(C_j =
+\begin{pmatrix}
+        a_{1j} \\
+        a_{2j} \\
+        \vdots \\
+        a_{nj}
+    \end{pmatrix} \in \mathscr{M}_{n,1}(\mathbb{K})\)</span> pour <span
+class="math inline">\(1 \leq j \leq p\)</span>.</p>
+<p>Alors, le rang de <span class="math inline">\(A\)</span>, noté <span
+class="math inline">\(\mathop{\mathrm{rg}}A\)</span> est <span
+class="math inline">\(\mathop{\mathrm{rg}}(C_1,\ldots,C_p)\)</span> où
+<span class="math inline">\((C_1,\ldots,C_p)\)</span> est considérée
+comme une famille de l’espace vectoriel <span
+class="math inline">\(\mathscr{M}_{n,1}(\mathbb{K})\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(A \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span>, <span
+class="math inline">\(\mathop{\mathrm{rg}}A \leq p\)</span> et <span
+class="math inline">\(\mathop{\mathrm{rg}}A \leq n\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Cela vient des propriétés précédentes et du fait que <span
+class="math inline">\(\dim \mathscr{M}_{n,1}(\mathbb{K}) = n\times 1 =
+n\)</span>.</p>
+</div>
+<div class="wex">
+<p><span id="ex:rang_matrice_triangulaire"
+label="ex:rang_matrice_triangulaire"></span></p>
+<ul>
+<li><p>Déterminons <span
+class="math inline">\(\mathop{\mathrm{rg}}A\)</span> avec <span
+class="math inline">\(A = \begin{pmatrix}
+        1 &amp; 3 &amp; 2 \\
+        0 &amp; -1 &amp; -1 \\
+        -1 &amp; 0 &amp; 1
+    \end{pmatrix}\)</span>.</p>
+<p>En notant <span class="math inline">\(C_1,C_2,C_3\)</span> les
+colonnes de <span class="math inline">\(A\)</span>, <span
+class="math inline">\(C_3 = C_2-C_1\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{Vect}}(C_1,C_2,C_3) =
+\mathop{\mathrm{Vect}}(C_1,C_2)\)</span>.</p>
+<p>De plus, <span class="math inline">\(C_1\)</span> et <span
+class="math inline">\(C_2\)</span> sont non colinéaires donc cette
+famille est libre et <span
+class="math inline">\(\mathop{\mathrm{rg}}(C_1,C_2) = \dim
+\mathop{\mathrm{Vect}}(C_1,C_2) = 2\)</span>.</p>
+<p>On a donc <span class="math inline">\(\mathop{\mathrm{rg}}A =
+2\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(A = (a_{ij}) \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span> tel que <span
+class="math inline">\(p \geq n\)</span> et <span
+class="math display">\[A = \begin{pmatrix}
+    a_{11} &amp; a_{12} &amp; \ldots &amp; \ldots &amp; a_{1n}
+    &amp; a_{1 n+1} &amp; \ldots &amp; a_{1p} \\
+     &amp; a_{22} &amp; \ddots &amp; \ddots &amp; a_{2n}
+     &amp; \vdots &amp; \vdots &amp; \vdots \\
+     &amp;  &amp; \ddots &amp; \ddots &amp; \vdots  
+     &amp; \vdots &amp; \vdots &amp; \vdots \\
+     &amp; (0) &amp;  &amp; \ddots &amp; \vdots
+      &amp; \vdots &amp; \vdots &amp; \vdots \\
+     &amp; &amp;  &amp;  &amp; a_{nn}  &amp; a_{n n+1} &amp; \ldots
+&amp; a_{np} \\
+\end{pmatrix}\]</span> avec <span class="math inline">\(a_{ii} \neq
+0\)</span> pour tout <span class="math inline">\(i \in [\![ 1,n
+]\!]\)</span>.</p>
+<p>Alors <span class="math inline">\(\mathop{\mathrm{rg}}(A) =
+n\)</span>.</p>
+<div class="wproof">
+<p><span class="math inline">\(\mathop{\mathrm{rg}}(A) =
+\mathop{\mathrm{rg}}(C_1,\ldots,C_n,C_{n+1},\ldots,C_p)\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(C_1 \neq
+0_{\mathscr{M}_{n,1}(\mathbb{K})}\)</span> car <span
+class="math inline">\(a_{11} \neq 0\)</span> donc <span
+class="math inline">\((C_1)\)</span> est libre.</p></li>
+<li><p>On a clairement <span class="math inline">\(C_2\)</span> non
+colinéaire à <span class="math inline">\(C_1\)</span> car <span
+class="math inline">\(a_{22} \neq 0\)</span> donc <span
+class="math inline">\((C_1,C_2)\)</span> est libre.</p></li>
+<li><p>On a clairement <span class="math inline">\(C_3 \notin
+\mathop{\mathrm{Vect}}(C_1,C_2)\)</span> car <span
+class="math inline">\(a_{33} \neq 0\)</span> donc <span
+class="math inline">\((C_1,C_2,C_3)\)</span> est libre.</p></li>
+<li><p>Ainsi, de proche en proche, on arrive à <span
+class="math inline">\((C_1,\ldots,C_n)\)</span> libre donc <span
+class="math inline">\(n \leq \mathop{\mathrm{rg}}(A)\)</span>.</p></li>
+</ul>
+<p>Or, <span class="math inline">\(\mathop{\mathrm{rg}}(A) \leq
+n\)</span> donc <span class="math inline">\(\mathop{\mathrm{rg}}(A) =
+n\)</span>.</p>
+</div></li>
+</ul>
+</div>
+<h2 data-number="7.3" id="lien-entre-les-notions-de-rang"><span
+class="header-section-number">7.3</span> Lien entre les notions de
+rang</h2>
+<h3 data-number="7.3.1"
+id="lien-entre-la-notion-de-rang-dune-famille-de-vecteurs-et-dune-matrice"><span
+class="header-section-number">7.3.1</span> Lien entre la notion de rang
+d’une famille de vecteurs et d’une matrice</h3>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(F\)</span> un espace vectoriel de
+dimension finie <span class="math inline">\(n \geq 1\)</span>, <span
+class="math inline">\(\mathscr{C}= (e&#39;_1,\ldots,e&#39;_n)\)</span>
+une base de <span class="math inline">\(F\)</span> et <span
+class="math inline">\((v_1,\ldots,v_p) \in F^p\)</span>.</p>
+<p>Soit <span class="math inline">\(j \in [\![ 1, p ]\!]\)</span>, il
+existe <span class="math inline">\(a_{1j},\ldots,a_{nj} \in
+\mathbb{K}\)</span> tels que <span class="math inline">\(v_j =
+\sum_{i=1}^n a_{ij} e&#39;_i\)</span>.</p>
+<p>Alors, <span class="math inline">\(A = (a_{ij}) \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span> est appelée la matrice associée à
+<span class="math inline">\((v_1,\ldots,v_p)\)</span> dans <span
+class="math inline">\(\mathbb{C}\)</span>.</p>
+</div>
+<p>Sur le modèle d’une matrice de passage, on décompose chaque vecteur
+sur les colonnes de la matrice.</p>
+<p><span class="math display">\[\begin{array}{cc}
+  \begin{matrix}
+    {v_1} &amp;
+    {v_2} &amp;
+    \ldots
+    &amp;
+    \ldots
+    &amp;
+    \ldots &amp;
+    {v_p} \\
+  \end{matrix}
+  &amp; \\[2mm]
+  \begin{pmatrix}
+    \ldots &amp; \ldots &amp; \ldots &amp; \ldots &amp; \ldots
+&amp;\ldots \\
+    \vdots &amp; \ddots &amp; \ldots &amp; \ldots &amp; \ldots &amp;
+\vdots \\
+    \vdots &amp; \vdots  &amp; \ldots &amp; \ldots &amp;\ddots &amp;
+\vdots \\
+    \vdots &amp; \ldots&amp; \ldots &amp; \ldots &amp; \ldots &amp;
+\ddots
+  \end{pmatrix}
+  &amp;
+  \begin{matrix}
+    {e&#39;_1} \\
+    {e&#39;_2} \\
+    \vdots \\
+    {e&#39;_n}
+  \end{matrix}
+\end{array}\]</span></p>
+<p>Cependant, contrairement à une matrice de passage, cette matrice
+n’est en général pas inversible ni même carrée.</p>
+<div class="wprop">
+<p>Soit <span class="math inline">\(F\)</span> un espace vectoriel de
+dimension finie <span class="math inline">\(n \geq 1\)</span>, <span
+class="math inline">\(\mathscr{C}= (e&#39;_1,\ldots,e&#39;_n)\)</span>
+une base de <span class="math inline">\(F\)</span> et <span
+class="math inline">\((v_1,\ldots,v_p) \in F^p\)</span>.</p>
+<p>Soit <span class="math inline">\(A = (a_{ij}) \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span> la matrice associée à <span
+class="math inline">\((v_1,\ldots,v_p)\)</span> dans <span
+class="math inline">\(\mathscr{C}\)</span>.</p>
+<p>Alors,</p>
+<p><span class="math display">\[\mathop{\mathrm{rg}}(A) =
+\mathop{\mathrm{rg}}(v_1,\ldots,v_p).\]</span></p>
+</div>
+<div class="wproof">
+<p>Pour rappel, <span class="math inline">\(\mathop{\mathrm{rg}}(A) =
+\mathop{\mathrm{rg}}(C_1,\ldots,C_n)\)</span> où les <span
+class="math inline">\(C_j \in \mathscr{M}_{n,1}(\mathbb{K})\)</span>
+sont les colonnes de <span class="math inline">\(A\)</span>.</p>
+<p>Soit <span class="math inline">\(j \in [\![ 1,n]\!]\)</span>, on pose
+<span class="math inline">\(E_j =
+        \begin{pmatrix}
+            0 \\
+            \vdots \\
+            1 \\
+            0 \\
+            \vdots \\
+            0
+        \end{pmatrix}\)</span> de sorte que la <span
+class="math inline">\(j\)</span>-ième coordonnée vaille <span
+class="math inline">\(1\)</span>. On a alors <span
+class="math inline">\((E_1,\ldots,E_n)\)</span> qui est une base de
+<span class="math inline">\(\mathscr{M}_{n,1}(\mathbb{K})\)</span> et
+<span class="math inline">\(C_j = \sum_{i=1}^p a_{ij}E_i\)</span> pour
+<span class="math inline">\(1 \leq j \leq n\)</span>.</p>
+<p>On introduit alors <span class="math inline">\(\varphi \in
+\mathscr{L}(\mathscr{M}_{n,1}(\mathbb{K}),F)\)</span> définie par <span
+class="math inline">\(\varphi(E_i) = e&#39;_i\)</span> pour tout <span
+class="math inline">\(1 \leq i \leq n\)</span>.</p>
+<p>Comme <span class="math inline">\(\varphi\)</span> transforme une
+base en une base, elle est bijective.</p>
+<p>De plus, pour tout <span class="math inline">\(1 \leq j \leq
+p\)</span>, <span class="math inline">\(\varphi(C_j) = \varphi
+\left(\sum_{i=1}^n a_{ij}E_i\right) = \sum_{i=1}^n a_{ij}\varphi(E_i) =
+\sum_{i=1}^n a_{ij}e&#39;_i = v_j\)</span>.</p>
+<p>On a donc <span class="math display">\[\begin{aligned}
+            \mathop{\mathrm{rg}}(A)
+            &amp; = \mathop{\mathrm{rg}}(C_1,\ldots,C_p) \\
+            &amp; = \dim\mathop{\mathrm{Vect}}(C_1,\ldots,C_p) \\
+            &amp; = \dim
+\mathop{\mathrm{Vect}}(\varphi(C_1),\ldots,\varphi(C_p)) \text{ car
+$\varphi$ est bijective} \\
+            &amp; = \dim \mathop{\mathrm{Vect}}(v_1,\ldots,v_p) \\
+            &amp; = \mathop{\mathrm{rg}}(v_1,\ldots,v_p).
+    \end{aligned}\]</span></p>
+</div>
+<h3 data-number="7.3.2"
+id="lien-entre-la-notion-du-rang-de-fin-mathscrlef-et-dune-matrice"><span
+class="header-section-number">7.3.2</span> Lien entre la notion du rang
+de <span class="math inline">\(f\in \mathscr{L}(E,F)\)</span> et d’une
+matrice</h3>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(p \geq 1\)</span> et <span
+class="math inline">\(F\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geq 1\)</span>. On considère <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span> ainsi que <span
+class="math inline">\(\mathscr{B}\)</span> une base de <span
+class="math inline">\(E\)</span> et <span
+class="math inline">\(\mathscr{C}\)</span> une base de <span
+class="math inline">\(F\)</span>.</p>
+<p>Alors, avec <span class="math inline">\(A =
+\mathscr{M}_{\mathscr{B},\mathscr{C}}(f)\)</span>,</p>
+<p><span class="math display">\[\mathop{\mathrm{rg}}f =
+\mathop{\mathrm{rg}}A.\]</span></p>
+</div>
+<div class="wproof">
+<p>En notant <span class="math inline">\(\mathscr{B}=
+(e_1,\ldots,e_p)\)</span>, <span
+class="math inline">\(\mathop{\mathrm{rg}}f = \dim \mathop{\mathrm{Im}}f
+= \dim \mathop{\mathrm{Vect}}(f(e_1),\ldots,f(e_p))\)</span>.</p>
+<p>Or, <span class="math inline">\(A\)</span> est la matrice associée à
+<span class="math inline">\(\left(f(e_1),\ldots,f(e_p)\right)\)</span>
+dans la base <span class="math inline">\(\mathscr{C}\)</span>.</p>
+<p>Donc <span class="math inline">\(\mathop{\mathrm{rg}}(A) =
+\mathop{\mathrm{rg}}\left(f(e_1),\ldots,f(e_p)\right) =
+\mathop{\mathrm{rg}}f\)</span>.</p>
+</div>
+<h2 data-number="7.4"
+id="caractérisation-des-éléments-de-gl_nmathbbk-à-laide-du-rang"><span
+class="header-section-number">7.4</span> Caractérisation des éléments de
+<span class="math inline">\(GL_n(\mathbb{K})\)</span> à l’aide du
+rang</h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\(A \in
+\mathscr{M}_{n}(\mathbb{K})\)</span> alors</p>
+<p><span class="math display">\[A \in GL_n(\mathbb{K}) \iff
+\mathop{\mathrm{rg}}A = n.\]</span></p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{L}(\mathbb{K}^n)\)</span> canoniquement associée à <span
+class="math inline">\(A\)</span>, <span
+class="math display">\[\begin{aligned}
+        A \in GL_n(\mathbb{K})
+        &amp; \iff f \text{ bijective} \\
+        &amp; \iff f \text{ surjective} \\
+        &amp; \iff \mathop{\mathrm{rg}}A = \mathop{\mathrm{rg}}f = n.
+    \end{aligned}\]</span></p>
+</div>
+<h2 data-number="7.5" id="caractérisation-des-matrices-de-rang-r"><span
+class="header-section-number">7.5</span> Caractérisation des matrices de
+rang <span class="math inline">\(r\)</span></h2>
+<div class="wprop">
+<p><span id="prop:rang_J_n_p_r" label="prop:rang_J_n_p_r"></span> Soient
+<span class="math inline">\(n,p \in \mathbb{N}^{\star}\)</span> et <span
+class="math inline">\(r \in \mathbb{N}\)</span> tel que <span
+class="math inline">\(r \leq n\)</span> et <span class="math inline">\(r
+\leq p\)</span>.</p>
+<p>Alors, en posant</p>
+<pre><code>\begin{tikzpicture}
+\matrix (J) [
+    matrix of math nodes,
+    nodes in empty cells,
+    nodes={
+        minimum width=6mm,
+        minimum height=5mm,
+        anchor=center
+    },
+    row sep=0mm,
+    column sep=0mm,
+    left delimiter={(},
+    right delimiter={)},
+]{
+1 &amp;  &amp; (0) &amp;   &amp;  &amp;  &amp; \\
+ &amp; 1 &amp;  &amp;   &amp;  &amp;(0)  &amp; \\
+ (0) &amp;   &amp; \ddots  &amp;   &amp;  &amp;  &amp; \\
+ &amp;  &amp;  &amp;  1 &amp;  &amp;  &amp; \\
+ &amp;  &amp;  &amp;   &amp;  &amp;  &amp; \\
+ &amp;  &amp;(0)  &amp;   &amp;  &amp;(0)  &amp; \\
+ &amp;  &amp;  &amp;   &amp;  &amp;  &amp; \\
+};
+
+\draw[densely dashed]
+($(J-4-1.south west)+(-0.2,-0.05)$)
+--
+($(J-4-7.south east)+(0.2,-0.05)$);
+
+\draw[densely dashed]
+($(J-1-4.north east)+(0.2,-0.05)$)
+--
+($(J-7-4.south east)+(0.2,-0.05)$);
+
+\node[left=10mm of J] {$J_{n,p,r}=$};
+
+\draw[&lt;-&gt;]
+($(J-1-7.east)+(1.2,0.4)$)
+--
+node[right] {$n$}
+($(J-7-7.east)+(1.2,-0.4)$);
+
+\draw[&lt;-&gt;]
+($(J-7-1.south)+(0,-0.8)$)
+--
+node[below] {$p$}
+($(J-7-7.south)+(0,-0.8)$);
+
+\draw[&lt;-&gt;]
+($(J-1-1.west)+(-1.1,0.15)$)
+--
+node[left] {$r$}
+($(J-4-1.west)+(-1.1,-0.15)$);
+
+\draw[&lt;-&gt;]
+($(J-1-1.north)+(-0.15,0.55)$)
+--
+node[above] {$r$}
+($(J-1-4.north)+(0.15,0.55)$);
+
+\end{tikzpicture}</code></pre>
+<p>on a <span class="math display">\[\mathop{\mathrm{rg}}J_{p,n,r} =
+r.\]</span></p>
+</div>
+<div class="wproof">
+<p>En notant <span class="math inline">\((C_j)_{1 \leq j \leq
+p}\)</span>,</p>
+<p>on a <span class="math inline">\(\mathop{\mathrm{rg}}J_{n,p,r} = \dim
+\mathop{\mathrm{Vect}}(C_1,\ldots,C_r,\ldots,C_p) = \dim
+\mathop{\mathrm{Vect}}(C_1,\ldots,C_r) = r\)</span>.</p>
+</div>
+<div class="wex">
+<p><span class="math inline">\(J_{n,p,0} =
+0_{\mathscr{M}_{n,p}(\mathbb{K})}\)</span> et <span
+class="math inline">\(J_{n,n,n} = I_n\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(A \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span>. <span
+class="math display">\[\mathop{\mathrm{rg}}(A) = r \iff A \text{ est
+équivalente à la matrice $J_{n,p,r}$ donnée dans la
+proposition~\ref{prop:rang_J_n_p_r}.}\]</span></p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{L}(\mathbb{K}^p,\mathbb{K}^n)\)</span> canoniquement associée à
+<span class="math inline">\(A\)</span>. Si <span class="math inline">\(r
+= 0\)</span>, le résultat est évident et on considère donc dans la suite
+<span class="math inline">\(r \in \mathbb{N}^{\star}\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Supposons
+que <span class="math inline">\(A\)</span> soit équivalente à <span
+class="math inline">\(J_{n,p,r}\)</span>.</p>
+<p>Alors, il existe <span
+class="math inline">\(\mathscr{B}&#39;\)</span> base de <span
+class="math inline">\(\mathbb{K}^p\)</span> et <span
+class="math inline">\(\mathscr{C}&#39;\)</span> base de <span
+class="math inline">\(\mathbb{K}^n\)</span> telles que <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}&#39;,\mathscr{C}&#39;}(f)
+= J_{n,p,r}\)</span>.</p>
+<p>On a donc <span class="math inline">\(\mathop{\mathrm{rg}}A =
+\mathop{\mathrm{rg}}f =
+\mathop{\mathrm{rg}}\mathscr{M}_{\mathscr{B}&#39;,\mathscr{C}&#39;}(f) =
+\mathop{\mathrm{rg}}J_{n,p,r} = r\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> On cherche
+<span class="math inline">\(\mathscr{B}&#39;\)</span> base de <span
+class="math inline">\(\mathbb{K}^p\)</span> et <span
+class="math inline">\(\mathscr{C}&#39;\)</span> base de <span
+class="math inline">\(\mathbb{K}^n\)</span> telles que <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}&#39;,\mathscr{C}&#39;}(f)
+= J_{n,p,r}\)</span>.</p>
+<p><strong>Construction de <span
+class="math inline">\(\mathscr{B}&#39;\)</span>.</strong> Par théorème
+du rang, <span class="math inline">\(\dim \mathop{\mathrm{Ker}}f =
+p-\mathop{\mathrm{rg}}f = p-r\)</span>. Il existe donc <span
+class="math inline">\(F\)</span> un sous-espace vectoriel de <span
+class="math inline">\(\mathbb{K}^p\)</span>, de dimension <span
+class="math inline">\(r\)</span> tel que <span
+class="math inline">\(\mathbb{K}^p = \mathop{\mathrm{Ker}}f \oplus
+F\)</span>.</p>
+<p>De plus, soit <span
+class="math inline">\((e&#39;_1,\ldots,e&#39;_r)\)</span> base de <span
+class="math inline">\(F\)</span> et <span
+class="math inline">\((e&#39;_{r+1},\ldots,e&#39;_p)\)</span> base de
+<span class="math inline">\(\mathop{\mathrm{Ker}}f\)</span>, <span
+class="math inline">\(\mathscr{B}&#39; =
+(e&#39;_1,\ldots,e&#39;_r,e&#39;_{r+1},\ldots,e&#39;_p)\)</span> est une
+base de <span class="math inline">\(\mathbb{K}^p\)</span>.</p>
+<p><strong>Construction de <span
+class="math inline">\(\mathscr{C}&#39;\)</span>.</strong> Ensuite,
+remarquons que <span class="math inline">\(f_{|F} : v \in F \mapsto f(v)
+\in \mathbb{K}^n\)</span> est injective.</p>
+<p>En effet, <span class="math inline">\(\mathop{\mathrm{Ker}}f_{|F} =
+\mathop{\mathrm{Ker}}f \cap F =
+\left\{0_{\mathbb{K}^p}\right\}\)</span>.</p>
+<p>On a donc <span
+class="math inline">\((f(e&#39;_1),\ldots,f(e&#39;_r)) =
+(f_F(e&#39;_1),\ldots,f_F(e&#39;_r))\)</span> qui est libre comme image
+d’une famille libre par une fonction injective.</p>
+<p>Par le théorème de la base incomplète, on peut compléter <span
+class="math inline">\((f(e&#39;_1),\ldots,f(e&#39;_r))\)</span> en</p>
+<p><span
+class="math inline">\((f(e&#39;_1),\ldots,f(e&#39;_r),v_{r+1},\ldots,v_n)\)</span>
+base de <span class="math inline">\(\mathbb{K}^n\)</span> avec <span
+class="math inline">\(v_{r+1},\ldots,v_n \in \mathbb{K}^n\)</span>. On
+considère alors <span class="math inline">\(\mathscr{C}&#39; =
+(f(e&#39;_1),\ldots,f(e&#39;_r),v_{r+1},\ldots,v_n)\)</span>.</p>
+<p><strong>Vérification.</strong></p>
+<p>Pour <span class="math inline">\(1 \leq j \leq r\)</span>, <span
+class="math inline">\(f(e&#39;_j) = f(e&#39;_j)\)</span>, <span
+class="math inline">\(j\)</span>-ième élément de <span
+class="math inline">\(\mathscr{C}&#39;\)</span>.</p>
+<p>Pour <span class="math inline">\(r+1 \leq j \leq p\)</span>, <span
+class="math inline">\(f(e&#39;_j) = 0_{\mathbb{K}^n}\)</span>.</p>
+<p>On a donc bien <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}&#39;,\mathscr{C}&#39;}(f)
+= J_{n,p,r}\)</span>. Donc <span class="math inline">\(A\)</span> est
+équivalente à <span class="math inline">\(J_{n,p,r}\)</span>.</p></li>
+</ul>
+</div>
+<div class="wcor">
+<p>Soient <span class="math inline">\(A,B \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span>,</p>
+<p><span class="math display">\[\mathop{\mathrm{rg}}A =
+\mathop{\mathrm{rg}}B \iff A \text{ et }B \text{ sont
+équivalentes.}\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> En notant
+<span class="math inline">\(r = \mathop{\mathrm{rg}}A =
+\mathop{\mathrm{rg}}B\)</span>, <span class="math inline">\(A\)</span>
+et <span class="math inline">\(B\)</span> sont équivalentes à <span
+class="math inline">\(J_{n,p,r}\)</span> et comme "être équivalente à"
+est une relation d’équivalence, <span class="math inline">\(A\)</span>
+et <span class="math inline">\(B\)</span> sont équivalentes.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> En notant
+<span class="math inline">\(r = \mathop{\mathrm{rg}}A\)</span>, <span
+class="math inline">\(A\)</span> est équivalente à <span
+class="math inline">\(J_{n,p,r}\)</span> et et comme "être équivalente
+à" est une relation d’équivalence, <span
+class="math inline">\(J_{n,p,r}\)</span> et <span
+class="math inline">\(B\)</span> sont équivalentes donc <span
+class="math inline">\(\mathop{\mathrm{rg}}B = r\)</span>.</p></li>
+</ul>
+</div>
+<p>On a donc déterminer les classes d’équivalence dans <span
+class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span> de la
+relation binaire "être équivalente à" qui sont les <span
+class="math inline">\(\mathrm{Cl}\left(J_{n,p,r}\right)\)</span> pour
+<span class="math inline">\(0 \leq r \leq \min(n,p)\)</span> avec <span
+class="math inline">\(\mathrm{Cl}(r) = \left\{A \in
+\mathscr{M}_{n,p}(\mathbb{K})/\mathop{\mathrm{rg}}A =
+r\right\}\)</span>.</p>
+<p>Les classes d’équivalence dans <span
+class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span> de la
+relation binaire "être semblable à" sont bien plus difficiles à écrire,
+cela constitue une partie du cours de deuxième année.</p>
+<h2 data-number="7.6" id="transposition-dans-mathscrm_npmathbbk"><span
+class="header-section-number">7.6</span> Transposition dans <span
+class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span></h2>
+<h3 data-number="7.6.1" id="définition-2"><span
+class="header-section-number">7.6.1</span> Définition</h3>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(A = (a_{i,j}) \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span>,</p>
+<p>la transpoée de <span class="math inline">\(A\)</span> est la matrice
+de <span class="math inline">\(\mathscr{M}_{p,n}(\mathbb{K})\)</span>,
+notée <span class="math inline">\(^tA\)</span> (ou <span
+class="math inline">\(A^T\)</span>) définie par <span
+class="math inline">\(^tA = (b_{k\ell})\)</span> avec <span
+class="math inline">\(b_{k\ell} = a_{\ell k}\)</span> pour tout <span
+class="math inline">\(\leq k \leq p\)</span> et <span
+class="math inline">\(1 \leq \ell \leq n\)</span>.</p>
+</div>
+<p>Autrement dit, pour</p>
+<div class="center">
+<pre><code>\begin{tikzpicture}
+\matrix (M) [
+    matrix of math nodes,
+    left delimiter={(},
+    right delimiter={)},
+    row sep=6mm,
+    column sep=10mm
+]{
+a_{11} &amp; \cdots &amp; a_{1j}&amp; \cdots &amp; a_{1p} \\
+a_{21} &amp; \cdots &amp; a_{2j} &amp; \cdots &amp; a_{2p} \\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
+a_{n1} &amp; \cdots &amp; a_{nj}&amp; \cdots &amp; a_{np} \\
+};
+
+\node[left=21mm of M] {$A=$};
+
+\draw[&lt;-&gt;] ($(M-1-1.west)+(-1.2,0.4)$) -- node[left] {$n$} ($(M-4-1.west)+(-1.2,-0.4)$);
+
+\draw[&lt;-&gt;] ($(M-4-1.south)+(0,-0.8)$) -- node[below] {$p$} ($(M-4-4.south)+(2,-0.8)$);
+
+\draw[-&gt;] ($(M-1-3.north)+(0,1)$) -- node[pos=0.1,above]{$j$} (M-1-3.north);
+\end{tikzpicture}</code></pre>
+</div>
+<p>on a</p>
+<div class="center">
+<pre><code>\begin{tikzpicture}
+\matrix (M) [
+    matrix of math nodes,
+    left delimiter={(},
+    right delimiter={)},
+    row sep=6mm,
+    column sep=10mm
+]{
+a_{11} &amp; a_{21} &amp; \cdots &amp; a_{n1} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{1j} &amp; a_{2j} &amp; \cdots &amp; a_{nj} \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+a_{1p} &amp; a_{2p} &amp; \cdots &amp; a_{np} \\
+};
+
+\node[left=24mm of M] {${}^tA=$};
+
+\draw[&lt;-&gt;] ($(M-1-1.west)+(-1.2,0.4)$) --
+    node[left] {$p$}
+    ($(M-5-1.west)+(-1.2,-0.4)$);
+
+\draw[&lt;-&gt;] ($(M-5-1.south)+(0,-0.8)$) --
+    node[below] {$n$}
+    ($(M-5-4.south)+(1.2,-0.8)$);
+
+\draw[-&gt;] ($(M-3-4.east)+(1.0,0)$) --
+    node[pos=0.1,right] {$j$}
+    (M-3-4.east);
+\end{tikzpicture}</code></pre>
+</div>
+<div class="wex">
+<p>Pour <span class="math inline">\(A = \begin{pmatrix}
+        1 &amp; 2 &amp; 3 \\
+        4 &amp; 5 &amp; 6
+    \end{pmatrix} \in \mathscr{M}_{2,3}(\mathbb{R})\)</span>, <span
+class="math inline">\(^tA = \begin{pmatrix}
+        1 &amp; 4 \\
+        2 &amp; 5 \\
+        3 &amp; 6
+    \end{pmatrix} \in \mathscr{M}_{3,2}(\mathbb{R})\)</span>.</p>
+</div>
+<h3 data-number="7.6.2" id="propriétés-1"><span
+class="header-section-number">7.6.2</span> Propriétés</h3>
+<div class="wprop">
+<p>Pour tout <span class="math inline">\(A,B \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span> et <span
+class="math inline">\(\alpha \in \mathbb{K}\)</span>,</p>
+<p><span class="math inline">\(^t(A+B) = {}^tA+^tB\)</span> et <span
+class="math inline">\(^t(\alpha A) = \alpha^tA\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Autrement dit, <span class="math inline">\(A \in
+\mathscr{M}_{n,p}(\mathbb{K}) \mapsto ^tA \in
+\mathscr{M}_{p,n}(\mathbb{K})\)</span> est linéaire.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(A \in
+\mathscr{M}_{m,n}(\mathbb{K})\)</span> et <span class="math inline">\(B
+\in \mathscr{M}_{n,p}(\mathbb{K})\)</span> alors <span
+class="math inline">\(AB \in \mathscr{M}_{m,p}(\mathbb{K})\)</span> et
+<span class="math inline">\(^t(AB) = {}^tB^tA\)</span>.</p>
+</div>
+<div class="wproof">
+<p>En notant <span class="math inline">\(A = (a_{ij})\)</span> et <span
+class="math inline">\(B = (b_{ij})\)</span>, on a <span
+class="math inline">\(AB = (c_{ij})\)</span> avec pour <span
+class="math inline">\(1 \leq i \leq m\)</span> et <span
+class="math inline">\(1 \leq j \leq p\)</span>, <span
+class="math inline">\(c_{ij} = \sum_{k=1}^n a_{ik} b_{kj}\)</span>.</p>
+<p>On a alors <span class="math inline">\(^t(AB) = (d_{ij}) \in
+\mathscr{M}_{p,m}(\mathbb{K})\)</span> avec pour <span
+class="math inline">\(1 \leq i \leq p\)</span> et <span
+class="math inline">\(1 \leq j \leq m\)</span>, <span
+class="math inline">\(d_{ij} = \sum_{k=1}^n a_{jk} b_{ki}\)</span>.</p>
+<p>Or, <span class="math inline">\(\underbrace{^tB}_{\in
+\mathscr{M}_{p,n}(\mathbb{K})}\underbrace{^tA}_{\in
+\mathscr{M}_{n,m}(\mathbb{K})} = (e_{ij})\in
+\mathscr{M}_{p,m}(\mathbb{K})\)</span> avec pour pour tout <span
+class="math inline">\(1 \leq i \leq p\)</span> et <span
+class="math inline">\(1 \leq j \leq m\)</span>,</p>
+<p><span class="math display">\[e_{ij} = \sum_{k=1}^n
+\underbrace{b_{ki}}_{\text{coefficient $(i,k)$ de
+${}^tB$}}\quad\underbrace{a_{jk}}_{\text{coefficient $(k,j)$ de
+${}^tA$}} = d_{ij}.\]</span></p>
+<p>On a donc bien <span class="math inline">\(^t(AB) =
+{}^tB^tA\)</span>.</p>
+</div>
+<div class="wcor">
+<p>Soit <span class="math inline">\(A \in GL_n(\mathbb{K})\)</span>
+alors <span class="math inline">\({}^tA \in GL_n(\mathbb{K})\)</span> et
+<span class="math inline">\(\left({}^tA\right)^{-1} =
+{}^t\left(A^{-1}\right)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>On a <span class="math inline">\(AA^{-1} = I_n\)</span> donc <span
+class="math inline">\(^t\left(AA^{-1}\right) =
+{}^t\left(A^{-1}\right)^tA = {}^tI_n = I_n\)</span>.</p>
+<p>Donc <span class="math inline">\(^tA \in GL_n(\mathbb{K})\)</span>
+avec <span class="math inline">\(\left({}^tA\right)^{-1} =
+{}^t\left(A^{-1}\right)\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(A \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span> alors <span
+class="math inline">\(\mathop{\mathrm{rg}}(^tA) =
+\mathop{\mathrm{rg}}(A)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Notons <span class="math inline">\(r = \mathop{\mathrm{rg}}A \in
+\mathbb{N}\)</span>.</p>
+<p>Par ce qui précède, on sait que <span
+class="math inline">\(A\)</span> est équivalente à <span
+class="math inline">\(J_{n,p,r}\)</span> (donnée dans la proposition <a
+href="#prop:rang_J_n_p_r" data-reference-type="ref"
+data-reference="prop:rang_J_n_p_r">[prop:rang_J_n_p_r]</a>) donc il
+existe <span class="math inline">\(P \in GL_n(\mathbb{K})\)</span> et
+<span class="math inline">\(Q\in GL_p(\mathbb{K})\)</span> telles que
+<span class="math display">\[A = Q^{-1}J_{n,p,r}P.\]</span></p>
+<p>On a alors <span class="math display">\[^tA =
+{}^tP\left(^tJ_{n,p,r}\right){}^t Q^{-1}
+=  \left({}^tP^{-1}\right)^{-1}\left(^tJ_{n,p,r}\right)\left({}^t
+Q^{-1}\right)\]</span></p>
+<p>Donc <span class="math inline">\({}^t A\)</span> est équivalente à
+<span class="math inline">\(^tJ_{n,p,r}\)</span>.</p>
+<p>Or, <span
+class="math inline">\(\mathop{\mathrm{rg}}\left(^tJ_{n,p,r}\right) =
+\mathop{\mathrm{rg}}(J_{n,p,r}) = r\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{rg}}({}^tA) = r\)</span>.</p>
+<div class="wrem">
+<p>On aurait aussi pu remarquer <span class="math inline">\(^tJ_{n,p,r}
+= J_{p,n,r}\)</span>.</p>
+</div>
+</div>
+<div class="wcor">
+<p>Soit <span class="math inline">\(A = (a_{ij}) \in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span>.</p>
+<p>Pour <span class="math inline">\(1 \leq i \leq n\)</span>, on note
+<span class="math inline">\(L_i = \begin{pmatrix}
+        a_{i1} &amp; a_{i2} &amp; \ldots &amp; a_{ip}
+    \end{pmatrix} \in \mathscr{M}_{1,p}(\mathbb{K})\)</span> la <span
+class="math inline">\(i\)</span>-ième ligne de <span
+class="math inline">\(A\)</span>.</p>
+<p>On a alors <span class="math inline">\(\mathop{\mathrm{rg}}(A) =
+\mathop{\mathrm{rg}}(L_1,\ldots,L_n)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>La fonction <span class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; \mathscr{M}_{1,p}(\mathbb{K}) &amp; \to &amp;
+\mathscr{M}_{p,1}(\mathbb{K}) \\
+   &amp;   &amp; \begin{pmatrix}
+        x_1 &amp; \ldots &amp; x_p
+    \end{pmatrix} &amp; \mapsto &amp; \begin{pmatrix}
+        x_1 \\ \vdots \\ x_p
+    \end{pmatrix}
+\end{array}\)</span> est clairement linéaire et bijective.</p>
+<p>On a donc <span
+class="math display">\[\mathop{\mathrm{rg}}(L_1,\ldots,L_n) =
+\mathop{\mathrm{rg}}(\underbrace{\varphi(L_1),\ldots,\varphi(L_n)}_{\text{colonnes
+de ${}^tA$}}) = \mathop{\mathrm{rg}}{}^tA =
+\mathop{\mathrm{rg}}A.\]</span></p>
+</div>
+<h2 data-number="7.7"
+id="opérations-élémentaires-sur-les-lignes-ou-colonnes-dune-matrice"><span
+class="header-section-number">7.7</span> Opérations élémentaires sur les
+lignes ou colonnes d’une matrice</h2>
+<h3 data-number="7.7.1" id="définition-3"><span
+class="header-section-number">7.7.1</span> Définition</h3>
+<div class="wlem">
+<p><span
+id="lem:operations_vecteurs_qui_conservent_le_rang_dune_famille"
+label="lem:operations_vecteurs_qui_conservent_le_rang_dune_famille"></span>
+Soit <span class="math inline">\(E\)</span> un espace vectoriel de
+dimension finie et <span class="math inline">\((v_1,\ldots,v_p) \in
+E^p\)</span>.</p>
+<p>Alors, soient <span class="math inline">\(i,k \in [\![ 1,p
+]\!]\)</span>, le rang de la famille est inchangé</p>
+<ol>
+<li><p>si on échange deux vecteurs <span
+class="math inline">\(v_i\)</span> et <span
+class="math inline">\(v_k\)</span></p>
+<p>ie <span
+class="math inline">\(\mathop{\mathrm{rg}}(v_1,\ldots,v_i,\ldots,v_k,\ldots,v_p)
+=
+\mathop{\mathrm{rg}}(v_1,\ldots,v_k,\ldots,v_i,\ldots,v_p)\)</span>,</p></li>
+<li><p>si on remplace <span class="math inline">\(v_i\)</span> par le
+vecteur <span class="math inline">\(\alpha v_i\)</span> avec <span
+class="math inline">\(\alpha \in \mathbb{K}^\star\)</span></p>
+<p>ie <span
+class="math inline">\(\mathop{\mathrm{rg}}(v_1,\ldots,v_i,\ldots,v_p) =
+\mathop{\mathrm{rg}}(v_1,\ldots,\alpha
+v_i,\ldots,v_p)\)</span>,</p></li>
+<li><p>si on remplace <span class="math inline">\(v_i\)</span> par <span
+class="math inline">\(v_i+\alpha v_k\)</span> avec <span
+class="math inline">\(k \neq i\)</span> et <span
+class="math inline">\(\alpha \in \mathbb{K}\)</span></p>
+<p>ie <span
+class="math inline">\(\mathop{\mathrm{rg}}(v_1,\ldots,v_i,\ldots,v_p) =
+\mathop{\mathrm{rg}}(v_1,\ldots, v_i+\alpha
+v_k,\ldots,v_p)\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p>On a clairement <span
+class="math inline">\(\mathop{\mathrm{Vect}}(v_1,\ldots,v_i,\ldots,v_k,\ldots,v_p)
+= \mathop{\mathrm{Vect}}(v_1,\ldots,v_k,\ldots,v_i,\ldots,v_p)\)</span>
+donc <span
+class="math inline">\(\dim\mathop{\mathrm{Vect}}(v_1,\ldots,v_i,\ldots,v_k,\ldots,v_p)
+=
+\dim\mathop{\mathrm{Vect}}(v_1,\ldots,v_k,\ldots,v_i,\ldots,v_p)\)</span>
+et finalement,</p>
+<p><span
+class="math display">\[\mathop{\mathrm{rg}}(v_1,\ldots,v_i,\ldots,v_k,\ldots,v_p)
+=
+\mathop{\mathrm{rg}}(v_1,\ldots,v_k,\ldots,v_i,\ldots,v_p).\]</span></p></li>
+<li><p>Notons <span class="math inline">\(F =
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_i,\ldots,v_p)\)</span> et <span
+class="math inline">\(G = (v_1,\ldots,\alpha v_i,\ldots,v_p)\)</span> et
+montrons <span class="math inline">\(F=G\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(F \subset G\)</span></p>
+<p>On a clairement <span class="math inline">\(v_j \in G\)</span> pour
+tout <span class="math inline">\(j \neq i\)</span> et on a <span
+class="math inline">\(v_i = \frac{1}{\alpha} (\alpha v_i) \in
+G\)</span>.</p></li>
+<li><p><span class="math inline">\(G \subset F\)</span></p>
+<p>On a clairement <span class="math inline">\(v_j \in F\)</span> pour
+tout <span class="math inline">\(j \neq i\)</span> et on a <span
+class="math inline">\(\alpha v_i =\alpha. v_i \in F\)</span>.</p></li>
+</ul>
+<p>Finalement, on a donc <span class="math inline">\(F=G\)</span> donc
+<span class="math inline">\(\dim F = \dim G\)</span> donc</p>
+<p><span
+class="math display">\[\mathop{\mathrm{rg}}(v_1,\ldots,v_i,\ldots,v_p) =
+\mathop{\mathrm{rg}}(v_1,\ldots,\alpha
+v_i,\ldots,v_p).\]</span></p></li>
+<li><p>Notons <span class="math inline">\(F =
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_i,\ldots,v_p)\)</span> et <span
+class="math inline">\(H = (v_1,\ldots, v_i+\alpha
+v_k,\ldots,v_p)\)</span> et montrons <span
+class="math inline">\(F=H\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(F \subset H\)</span></p>
+<p>On a clairement <span class="math inline">\(v_j \in H\)</span> pour
+tout <span class="math inline">\(j \neq i\)</span> et on a <span
+class="math inline">\(v_i = v_i +\alpha v_k - \alpha v_k \in
+H\)</span>.</p></li>
+<li><p><span class="math inline">\(H \subset F\)</span></p>
+<p>On a clairement <span class="math inline">\(v_j \in F\)</span> pour
+tout <span class="math inline">\(j \neq i\)</span> et on a <span
+class="math inline">\(v_i +\alpha v_k = v_i+\alpha. v_k \in
+F\)</span>.</p></li>
+</ul>
+<p>Finalement, on a donc <span class="math inline">\(F=H\)</span> donc
+<span class="math inline">\(\dim F = \dim H\)</span> donc</p>
+<p><span
+class="math display">\[\mathop{\mathrm{rg}}(v_1,\ldots,v_i,\ldots,v_p) =
+\mathop{\mathrm{rg}}(v_1,\ldots, v_i+\alpha
+v_k,\ldots,v_p).\]</span></p></li>
+</ol>
+</div>
+<div class="wdefi">
+<p>Une <em>opération élémentaire sur les lignes</em> d’une matrice de
+<span class="math inline">\(M_{n,p}(\mathbb{K})\)</span> est une
+application <span class="math inline">\(T :
+M_{n,p}(\mathbb{K})\rightarrow M_{n,p}(\mathbb{K})\)</span> telle que
+:</p>
+<ol>
+<li><p><span class="math inline">\(\forall A\in
+M_{n,p}(\mathbb{K})\)</span>, <span class="math inline">\(T(A)\)</span>
+se déduit de <span class="math inline">\(A\)</span> en permutant les
+lignes d’indice <span class="math inline">\(i\)</span> et <span
+class="math inline">\(k\)</span> (<span class="math inline">\(i\)</span>
+et <span class="math inline">\(k\)</span> donnés, indépendants de <span
+class="math inline">\(A\)</span>),</p></li>
+<li><p><span class="math inline">\(\forall A\in
+M_{n,p}(\mathbb{K})\)</span>, <span class="math inline">\(T(A)\)</span>
+se déduit de <span class="math inline">\(A\)</span> en multipliant la
+ligne <span class="math inline">\(i\)</span> par un scalaire <span
+class="math inline">\(\alpha\neq0\)</span> (<span
+class="math inline">\(i\)</span> et <span
+class="math inline">\(\alpha\)</span> donnés),</p></li>
+<li><p><span class="math inline">\(\forall A\in
+M_{n,p}(\mathbb{K})\)</span>, <span class="math inline">\(T(A)\)</span>
+se déduit de <span class="math inline">\(A\)</span> en ajoutant à la
+ligne <span class="math inline">\(i\)</span> le produit de la ligne
+<span class="math inline">\(k\)</span> par <span
+class="math inline">\(\alpha\)</span> (<span
+class="math inline">\(i,k,\alpha\)</span> donnés avec <span
+class="math inline">\(k\neq i\)</span>).</p></li>
+</ol>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(T\)</span> une opération sur les
+lignes d’une matrice de <span
+class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span> alors <span
+class="math display">\[\forall A\in M_{n,p}(\mathbb{K}),\qquad
+\mathop{\mathrm{rg}}(T(A))=\mathop{\mathrm{rg}}(A)\]</span></p>
+</div>
+<div class="wproof">
+<p>Le rang d’une matrice est le rang de ses lignes.</p>
+<p>Donc par application du lemme <a
+href="#lem:operations_vecteurs_qui_conservent_le_rang_dune_famille"
+data-reference-type="ref"
+data-reference="lem:operations_vecteurs_qui_conservent_le_rang_dune_famille">[lem:operations_vecteurs_qui_conservent_le_rang_dune_famille]</a>,
+les opérations élémentaires conservent le rang.</p>
+</div>
+<p>On définit de même les opérations élémentaires sur les colonnes (en
+remplaçant ligne par colonne).</p>
+<h3 data-number="7.7.2"
+id="application-au-calcul-du-rang-dune-matrice"><span
+class="header-section-number">7.7.2</span> Application au calcul du rang
+d’une matrice</h3>
+<p>On utilise le fait que si <span class="math inline">\(A\)</span> est
+de la forme</p>
+<p><span class="math display">\[A=
+\begin{pmatrix}
+a_{11} &amp; a_{12} &amp; \cdots &amp; \cdots &amp; \cdots &amp;
+a_{1p}\\
+0      &amp; a_{22} &amp; \cdots &amp; \cdots &amp; \cdots &amp;
+a_{2p}\\
+\vdots &amp; \vdots &amp; \ddots &amp;        &amp;        &amp;
+\vdots\\
+0      &amp; 0      &amp; \cdots &amp; a_{nn} &amp; \cdots &amp; a_{np}
+\end{pmatrix},\]</span></p>
+<p>avec pour tout <span
+class="math inline">\(i\in[\![racket1,n]\!]racket, a_{ii}\neq0,\)</span>
+alors <span class="math inline">\(\mathop{\mathrm{rg}}(A) =
+n\)</span></p>
+<p>ou de la forme <span class="math display">\[A=
+\begin{pmatrix}
+a_{11} &amp; \cdots &amp; a_{1p}\\
+0      &amp; a_{22} &amp; \cdots &amp; a_{2p}\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+0      &amp; 0      &amp; \cdots &amp; a_{pp}\\
+0      &amp; \cdots &amp; \cdots &amp; 0\\
+\vdots &amp;        &amp;        &amp; \vdots\\
+0      &amp; \cdots &amp; \cdots &amp; 0
+\end{pmatrix},\]</span> avec pour tout <span
+class="math inline">\(i\in[\![racket1,p]\!]racket, a_{ii}\neq0,\)</span>
+alors <span class="math inline">\(\mathop{\mathrm{rg}}(A) = p\)</span>
+(voir l’exemple <a href="#ex:rang_matrice_triangulaire"
+data-reference-type="ref"
+data-reference="ex:rang_matrice_triangulaire">[ex:rang_matrice_triangulaire]</a>).
+On dit que ces matrices sont <em>échelonnées</em>.</p>
+<p>Voyons concrètement sur des exemples comment utiliser les opérations
+élémentaires pour déterminer le rang d’une matrice.</p>
+<div class="wex">
+<p>Calculons <span class="math inline">\(\mathop{\mathrm{rg}}A\)</span>
+avec <span class="math display">\[A=
+\begin{pmatrix}
+1 &amp; 2 &amp; 0 &amp; 1\\
+-1 &amp; 1 &amp; 3 &amp; 1\\
+0 &amp; 3 &amp; 3 &amp; 2\\
+2 &amp; 1 &amp; -3 &amp; 0\\
+-1 &amp; 4 &amp; 6 &amp; 4
+\end{pmatrix}.\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+    \mathop{\mathrm{rg}}(A)
+    &amp; \overset{\substack{L_2 \leftarrow L_2+L_1 \\ L_4 \leftarrow
+L_4-2L_1 \\ L_5 \leftarrow L_5+L_1  }}{=}
+\mathop{\mathrm{rg}}\begin{pmatrix}
+1 &amp; 2 &amp; 0 &amp; 1\\
+0 &amp; 3 &amp; 3 &amp; 2\\
+0 &amp; 3 &amp; 3 &amp; 2\\
+0 &amp; -3 &amp; -3 &amp; -2\\
+0 &amp; 6 &amp; 6 &amp; 5
+\end{pmatrix} \\
+&amp; \overset{\substack{L_3 \leftarrow L_3-L_2 \\ L_4 \leftarrow
+L_4+L_2 \\ L_5 \leftarrow L_5+-2L_2}}{=}
+\mathop{\mathrm{rg}}\begin{pmatrix}
+1 &amp; 2 &amp; 0 &amp; 1\\
+0 &amp; 3 &amp; 3 &amp; 2\\
+0 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{pmatrix} \\
+&amp; \overset{L_5 \leftrightarrow L_3}{=}
+\mathop{\mathrm{rg}}\begin{pmatrix}
+1 &amp; 2 &amp; 0 &amp; 1\\
+0 &amp; 3 &amp; 3 &amp; 2\\
+0 &amp; 0 &amp; 0 &amp; 1\\
+0 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 0
+\end{pmatrix}
+\end{aligned}\]</span></p>
+<p>Donc <span class="math inline">\(\mathop{\mathrm{rg}}A =
+3\)</span>.</p>
+</div>
+<div class="wex">
+<p><strong>Exercice</strong> — Soit <span class="math inline">\(\alpha
+\in \mathbb{K}\)</span> et <span class="math inline">\(A =
+\begin{pmatrix}
+        0 &amp; 3 &amp; \alpha &amp; 0 \\
+        -1 &amp; 2 &amp; \alpha-1 &amp; 1 \\
+        1 &amp; 2 &amp; \alpha+1 &amp; -1 \\
+        3 &amp; 0 &amp; 4 &amp; -1
+    \end{pmatrix}\)</span>.</p>
+<p>Déterminer le rang de <span class="math inline">\(A\)</span> en
+fonction de <span class="math inline">\(\alpha\)</span>.</p>
+<p><strong>Corrigé</strong> — Comme le rang de <span
+class="math inline">\(A\)</span> est égal au rang de ses lignes, on peut
+tout aussi faire des opérations sur les lignes.</p>
+<p>Par exemple, en appliquant des opérations sur les colonnes de type
+(iii),</p>
+<p><span class="math display">\[\mathop{\mathrm{rg}}A
+\overset{\substack{L_2 \leftarrow L_2+L_4\\ L_3 \leftarrow
+L_3-L_4}}{=}  \mathop{\mathrm{rg}}\begin{pmatrix}
+        0 &amp; 3 &amp; \alpha &amp; 0 \\
+        2 &amp; 2 &amp; \alpha+3 &amp; 0 \\
+        -2 &amp; 2 &amp; \alpha-3 &amp; 0 \\
+        3 &amp; 0 &amp; 4 &amp; -1
+    \end{pmatrix}.\]</span></p>
+<p>Alors, la quatrième ligne est clairement indépendante des autres.</p>
+<p>On a donc <span class="math display">\[\mathop{\mathrm{rg}}A =  1+
+\mathop{\mathrm{rg}}\begin{pmatrix}
+        0 &amp; 3 &amp; \alpha &amp; 0 \\
+        2 &amp; 2 &amp; \alpha+3 &amp; 0 \\
+        -2 &amp; 2 &amp; \alpha-3 &amp; 0 \\
+    \end{pmatrix} = 1+\mathop{\mathrm{rg}}\begin{pmatrix}
+        0 &amp; 3 &amp; \alpha  \\
+        2 &amp; 2 &amp; \alpha+3  \\
+        -2 &amp; 2 &amp; \alpha-3 \\
+    \end{pmatrix}.\]</span></p>
+<p>Ensuite, on continue,</p>
+<p><span class="math display">\[\mathop{\mathrm{rg}}A  =
+1+\mathop{\mathrm{rg}}\begin{pmatrix}
+        0 &amp; 3 &amp; \alpha  \\
+        2 &amp; 2 &amp; \alpha+3  \\
+        -2 &amp; 2 &amp; \alpha-3 \\
+    \end{pmatrix} \overset{L_2\leftarrow
+L_2+L_3}{=}1+\mathop{\mathrm{rg}}\begin{pmatrix}
+        0 &amp; 3 &amp; \alpha  \\
+        0 &amp; 4 &amp; 2\alpha  \\
+        -2 &amp; 2 &amp; \alpha-3 \\
+    \end{pmatrix}.\]</span></p>
+<p>et comme précédemment, <span
+class="math inline">\(\mathop{\mathrm{rg}}A =
+1+1+\mathop{\mathrm{rg}}\begin{pmatrix}
+         3 &amp; \alpha  \\
+        4 &amp; 2\alpha  \\
+    \end{pmatrix} = 2+\mathop{\mathrm{rg}}\begin{pmatrix}
+         3 &amp; \alpha  \\
+        4 &amp; 2\alpha  \\
+    \end{pmatrix}.\)</span></p>
+<p>Enfin, <span class="math inline">\(\mathop{\mathrm{rg}}A =
+\overset{L_2 \leftarrow L_2-2L_1}{=}
+2+\mathop{\mathrm{rg}}\begin{pmatrix}
+         3 &amp; \alpha  \\
+        -2 &amp; 0  \\
+    \end{pmatrix}.\)</span></p>
+<p>Or, <span class="math inline">\(\mathop{\mathrm{rg}}\begin{pmatrix}
+         3 &amp; \alpha  \\
+        -2 &amp; 0  \\
+    \end{pmatrix} = \left\{\begin{array}{ll}
+        2 &amp; \mbox{ si $\alpha \neq 0$} \\
+        1 &amp; \mbox{sinon.}
+    \end{array}\right.\)</span></p>
+<p>Donc <span class="math display">\[\mathop{\mathrm{rg}}A =
+\left\{\begin{array}{ll}
+        4 &amp; \mbox{ si $\alpha \neq 0$} \\
+        3 &amp; \mbox{sinon.}
+    \end{array}\right.\]</span></p>
+</div>
+<div class="wex">
+<p><strong>Exercice</strong> — Soient <span class="math inline">\(a,b,c
+\in \mathbb{K}\)</span> et <span class="math inline">\(A =
+\begin{pmatrix}
+        1 &amp; 1 &amp; 1 \\
+        a+b &amp; a+c &amp; b+c \\
+        ab &amp; ac &amp; bc
+    \end{pmatrix}\)</span>.</p>
+<p>Déterminer les valeurs de <span class="math inline">\(a,b,c\)</span>
+pour lesquelles <span class="math inline">\(A \in
+GL_3(\mathbb{K})\)</span>.</p>
+<p><strong>Corrigé</strong> — Rappelons que <span
+class="math inline">\(A \in GL_3(\mathbb{K}) \iff rg(A) =
+3\)</span>.</p>
+<p>Or, en notant <span class="math inline">\(C_1,C_2,C_3\)</span> les
+colonnes de <span class="math inline">\(A\)</span>, <span
+class="math inline">\(\mathop{\mathrm{rg}}A =
+\mathop{\mathrm{rg}}(C_1,C_2,C_3)\)</span>.</p>
+<p>En appliquant des opérations sur les colonnes de type (iii),</p>
+<p><span
+class="math display">\[\mathop{\mathrm{rg}}(A)\overset{\substack{C_2
+\leftarrow C_2-C_1 \\ C_3 \leftarrow C_3-C_1}}{=}
+\mathop{\mathrm{rg}}\begin{pmatrix}
+        1 &amp; 0 &amp; 0 \\
+        a+b &amp; c-b &amp; c-a \\
+        ab &amp; a(c-b) &amp; b(c-a)
+    \end{pmatrix}\]</span></p>
+<p>Alors, déjà</p>
+<ul>
+<li><p>Si <span class="math inline">\(c-a = 0 \iff c=a\)</span>,</p>
+<p><span class="math display">\[\mathop{\mathrm{rg}}(A) =
+\mathop{\mathrm{rg}}\begin{pmatrix}
+        1 &amp; 0 &amp; 0 \\
+        a+b &amp; c-b &amp; 0 \\
+        ab &amp; a(c-b) &amp; 0
+    \end{pmatrix} =  \mathop{\mathrm{rg}}\begin{pmatrix}
+        1 &amp; 0  \\
+        a+b &amp; c-b  \\
+        ab &amp; a(c-b)
+    \end{pmatrix}\]</span></p>
+<p>donc <span class="math inline">\(\mathop{\mathrm{rg}}(A) \leq
+2\)</span> et <span class="math inline">\(A \notin
+GL_3(\mathbb{K})\)</span>.</p></li>
+<li><p>De même, si <span class="math inline">\(c-b = 0 \iff
+c=b\)</span>, <span class="math inline">\(\mathop{\mathrm{rg}}(A) \leq
+2\)</span> et <span class="math inline">\(A \notin
+GL_3(\mathbb{K})\)</span>.</p></li>
+<li><p>Maintenant, si <span class="math inline">\(c\neq a\)</span> et
+<span class="math inline">\(b \neq c\)</span>, En appliquant des
+opérations sur les colonnes de type (iii),</p>
+<p><span class="math display">\[\mathop{\mathrm{rg}}(A)=
+\mathop{\mathrm{rg}}\begin{pmatrix}
+        1 &amp; 0 &amp; 0 \\
+        a+b &amp; c-b &amp; c-a \\
+        ab &amp; a(c-b) &amp; b(c-a)
+    \end{pmatrix} \overset{\substack{C_2 \leftarrow \frac{1}{c-b}C_2 \\
+C_2 \leftarrow \frac{1}{c-a}C_3}}{=}\mathop{\mathrm{rg}}\begin{pmatrix}
+        1 &amp; 0 &amp; 0 \\
+        a+b &amp; 1 &amp; 1 \\
+        ab &amp; a &amp; b
+    \end{pmatrix}\]</span></p>
+<p>Ensuite, en appliquant des opérations sur les colonnes de type
+(ii),</p>
+<p><span class="math display">\[\mathop{\mathrm{rg}}(A) =
+\mathop{\mathrm{rg}}\begin{pmatrix}
+        1 &amp; 0 &amp; 0 \\
+        a+b &amp; 1 &amp; 1 \\
+        ab &amp; a &amp; b
+    \end{pmatrix} \overset{C_3 \leftarrow C_3-C_2}{=}
+\mathop{\mathrm{rg}}\begin{pmatrix}
+        1 &amp; 0 &amp; 0 \\
+        a+b &amp; 1 &amp; 0 \\
+        ab &amp; a &amp; b-a
+    \end{pmatrix}\]</span></p>
+<p>On a alors deux cas,</p>
+<ul>
+<li><p>si <span class="math inline">\(a=b\)</span> alors <span
+class="math inline">\(\mathop{\mathrm{rg}}\begin{pmatrix}
+        1 &amp; 0 &amp; 0 \\
+        a+b &amp; 1 &amp; 0 \\
+        ab &amp; a &amp; 0
+    \end{pmatrix}  = \mathop{\mathrm{rg}}\begin{pmatrix}
+        1 &amp; 0  \\
+        a+b &amp; 1 \\
+        ab &amp; a  
+    \end{pmatrix} \leq 2\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(a \neq b\)</span>, <span
+class="math inline">\(\mathop{\mathrm{rg}}\begin{pmatrix}
+        1 &amp; 0 &amp; 0 \\
+        a+b &amp; 1 &amp; 0 \\
+        ab &amp; a &amp; b-a
+    \end{pmatrix} = 3\)</span> car les trois colonnes sont
+libres.</p></li>
+</ul></li>
+</ul>
+<p>Finalement,</p>
+<p><span class="math display">\[A \in GL_3(\mathbb{K}) \iff
+\mathop{\mathrm{rg}}(A) = 3 \iff a \neq b, a \neq c \text{ et }b \neq c
+\iff a,b,c \text{ sont distincts.}\]</span></p>
+</div>
+<h3 data-number="7.7.3"
+id="application-au-calcul-de-a-1-pour-ain-gl_nmathbbk"><span
+class="header-section-number">7.7.3</span> Application au calcul de
+<span class="math inline">\(A^{-1}\)</span> pour <span
+class="math inline">\(A\in GL_n(\mathbb{K})\)</span></h3>
+<div class="wprop">
+<p>Si <span class="math inline">\(T\)</span> est une opération
+élémentaire sur les lignes, il existe <span class="math inline">\(P\in
+GL_n(\mathbb{K})\)</span> telle que <span class="math display">\[\forall
+A\in M_{n,p}(\mathbb{K}),
+T(A)=PA.\]</span></p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(A\in M_{n,p}(\mathbb{K})\)</span> et
+<span class="math inline">\(f\in\mathscr{L}(K^p,K^n)\)</span>
+canoniquement associée à <span class="math inline">\(A\)</span> tel que
+<span
+class="math inline">\(M_{\mathscr{B}_p,\mathscr{B}_n}(f)=A.\)</span> où
+<span class="math inline">\(\mathscr{B}_p\)</span> et <span
+class="math inline">\(\mathscr{B}_n\)</span> sont les bases canoniques
+de <span class="math inline">\(\mathbb{K}^p\)</span> et <span
+class="math inline">\(\mathbb{K}^n\)</span>.</p>
+<p>Pour <span class="math inline">\(T\)</span> donnée, on montre qu’il
+existe <span class="math inline">\(\varphi\in GL(K^n)\)</span> tel que
+<span
+class="math display">\[T(A)=M_{\mathscr{B}_p,\mathscr{B}_n}(\varphi\circ
+f)\]</span></p>
+<p>(avec <span class="math inline">\(\varphi\)</span> indépendante de
+<span class="math inline">\(A\)</span>). Soit <span
+class="math inline">\(\mathscr{B}_n=(e_1,\ldots,e_n).\)</span></p>
+<ul>
+<li><p>Pour <span class="math inline">\(T\)</span> du type (i), on prend
+<span class="math inline">\(\varphi\)</span> définie par</p>
+<p><span class="math display">\[\varphi(e_i)=e_k,\qquad
+\varphi(e_k)=e_i,\qquad
+\forall\,l\neq i,\;l\neq k,\;
+\varphi(e_l)=e_l.\]</span></p></li>
+<li><p>Pour <span class="math inline">\(T\)</span> du type (ii), on
+prend <span class="math inline">\(\varphi\)</span> définie par</p>
+<p><span class="math display">\[\varphi(e_i)=\alpha e_i,\qquad
+\forall\,l\neq i,\;
+\varphi(e_l)=e_l.\]</span></p></li>
+<li><p>Pour <span class="math inline">\(T\)</span> du type (iii), on
+prend <span class="math inline">\(\varphi\)</span> définie par</p>
+<p><span class="math display">\[\varphi(e_k)=e_k+\alpha e_i,\qquad
+\forall\,l\neq k,\;
+\varphi(e_l)=e_l.\]</span></p></li>
+</ul>
+<p>En prenant <span
+class="math inline">\(P=M_{\mathscr{B}_n}(\varphi),\)</span> on obtient
+<span class="math display">\[T(A)=PA.\]</span></p>
+</div>
+<p>Soit <span class="math inline">\(A=(a_{ij}) \in
+\mathscr{M}_{n}(\mathbb{K}),\)</span> on cherche une suite d’opérations
+élémentaires sur les lignes <span
+class="math inline">\(T_1,T_2,\ldots,T_q \in GL_n(\mathbb{K})\)</span>
+telle que <span class="math display">\[T_q\circ T_{q-1}\circ\cdots\circ
+T_1(A)=I_n.\]</span></p>
+<p>On remarque que si une telle suite existe, on a <span
+class="math inline">\(\mathop{\mathrm{rg}}(A)=\mathop{\mathrm{rg}}(I_n)\)</span>
+(car <span class="math inline">\(A\)</span> a même rang que <span
+class="math inline">\(T_q\circ\cdots\circ T_1(A)\)</span>) donc <span
+class="math inline">\(\mathop{\mathrm{rg}}(A)=n\)</span> et <span
+class="math inline">\(A\in GL_n(\mathbb{K}).\)</span> Il est donc
+inutile de montrer d’abord que <span class="math inline">\(A\)</span>
+est inversible.</p>
+<p>Supposons que l’on ait une telle suite : pour chaque <span
+class="math inline">\(T_i\)</span>, il existe <span
+class="math inline">\(P_i\in GL_n(\mathbb{K})\)</span> telle que <span
+class="math display">\[\forall M\in M_n(\mathbb{K}),\qquad
+T_i(M)=P_iM.\]</span> Donc <span class="math inline">\(I_n
+=
+P_qP_{q-1}\cdots P_1A
+=
+QA,\)</span> et <span class="math inline">\(A^{-1}=Q.\)</span></p>
+<p>On remarque alors que <span
+class="math inline">\(Q=QI_n=T_q\circ\cdots\circ T_1(I_n).\)</span></p>
+<p>Donc <span class="math inline">\(A^{-1}\)</span> s’obtient à partir
+de <span class="math inline">\(I_n\)</span> en utilisant la même suite
+d’opérations élémentaires sur les lignes que celle utilisée pour
+transformer <span class="math inline">\(A\)</span> en <span
+class="math inline">\(I_n\)</span> (ce qui dispense complètement, en
+pratique, d’expliciter les matrices <span
+class="math inline">\(P_i\)</span>).</p>
+<p><span class="math inline"><span class="icon-warning">⚠️</span></span>
+Pour ce calcul d’inverse, on ne fait que des opérations sur les
+<strong>lignes</strong>.</p>
+<p>Rien de tel que des exemples pratiques pour comprendre
+l’algorithme.</p>
+<div class="wex">
+<p>Soit <span class="math inline">\(A=
+\begin{pmatrix}
+1 &amp; 1 &amp; -1\\
+2 &amp; 0 &amp; 3\\
+1 &amp; -1 &amp; 0
+\end{pmatrix}\)</span>, calculons <span
+class="math inline">\(A^{-1}\)</span>.</p>
+<p>Comme discuté avant, on va effectuer des opérations sur les lignes de
+<span class="math inline">\(A\)</span> pour la transformer en <span
+class="math inline">\(I_3\)</span> et <span
+class="math inline">\(A^{-1}\)</span> s’obtient en effectuant les mêmes
+opérations sur <span class="math inline">\(I_3\)</span>.</p>
+<p>En pratique, on va donc travailler avec la matrice <span
+class="math inline">\(M\in M_{3,6}(\mathbb{R})\)</span> égale à</p>
+<p><span class="math display">\[\left(
+\begin{array}{ccc|ccc}
+1&amp;1&amp;-1&amp;1&amp;0&amp;0\\
+2&amp;0&amp;3&amp;0&amp;1&amp;0\\
+1&amp;-1&amp;0&amp;0&amp;0&amp;1
+\end{array}
+\right)\]</span></p>
+<p>et on fait agir ainsi en même temps les opérations élémentaires sur
+les lignes sur <span class="math inline">\(A\)</span> et <span
+class="math inline">\(I_3\)</span>.</p>
+<p>Alors <span class="math inline">\(A\)</span> se transforme en <span
+class="math inline">\(I_3\)</span> et <span
+class="math inline">\(I_3\)</span> en <span
+class="math inline">\(A^{-1}\)</span>. C’est parti !</p>
+<p><span class="math display">\[\begin{aligned}
+\left(
+\begin{array}{ccc|ccc}
+1&amp;1&amp;-1&amp;1&amp;0&amp;0\\
+2&amp;0&amp;3&amp;0&amp;1&amp;0\\
+1&amp;-1&amp;0&amp;0&amp;0&amp;1
+\end{array}
+\right)
+\overset{\substack{L_2 \leftarrow L_2-2L_1 \\ L_3 \leftarrow
+L_3-L_1}}{\longrightarrow} &amp;
+\left(
+\begin{array}{ccc|ccc}
+1&amp;1&amp;-1&amp;1&amp;0&amp;0\\
+0&amp;-2&amp;5&amp;-2&amp;1&amp;0\\
+0&amp;-2&amp;1&amp;-1&amp;0&amp;1
+\end{array}
+\right) \\
+\overset{\substack{L_3 \leftarrow L_3-L_2}}{\longrightarrow} &amp;
+\left(
+\begin{array}{ccc|ccc}
+1&amp;1&amp;-1&amp;1&amp;0&amp;0\\
+0&amp;-2&amp;5&amp;-2&amp;1&amp;0\\
+0&amp;0&amp;-4&amp;1&amp;-1&amp;1
+\end{array}
+\right) \\
+\overset{\substack{L_3 \leftarrow-\tfrac{1}{4}L_3}}{\longrightarrow}
+&amp;
+\left(
+\begin{array}{ccc|ccc}
+1&amp;1&amp;-1&amp;1&amp;0&amp;0\\
+0&amp;-2&amp;5&amp;-2&amp;1&amp;0\\
+0&amp;0&amp;1&amp;-\tfrac{1}{4}&amp;\tfrac{1}{4}&amp;-\tfrac{1}{4}
+\end{array}
+\right) \\
+\overset{\substack{L_1\leftarrow L_1+L_3 \\ L_2 \leftarrow L_2-5L_3
+}}{\longrightarrow} &amp;
+\left(
+\begin{array}{ccc|ccc}
+1&amp;1&amp;0&amp;\tfrac{3}{4}&amp;\tfrac{1}{4}&amp;-\tfrac{1}{4}\\
+0&amp;-2&amp;0&amp;-\tfrac{3}{4}&amp;-\tfrac{1}{4}&amp; \tfrac{5}{4}\\
+0&amp;0&amp;1&amp;-\tfrac{1}{4}&amp;\tfrac{1}{4}&amp;-\tfrac{1}{4}
+\end{array}
+\right) \\
+\overset{\substack{L_2 \leftarrow -\tfrac{1}{2}
+L_2}}{\longrightarrow} &amp;
+\left(
+\begin{array}{ccc|ccc}
+1&amp;1&amp;0&amp;\tfrac{3}{4}&amp;\tfrac{1}{4}&amp;-\tfrac{1}{4}\\
+0&amp;1&amp;0&amp;\tfrac{3}{8}&amp;\tfrac{1}{8}&amp; -\tfrac{5}{8}\\
+0&amp;0&amp;1&amp;-\tfrac{1}{4}&amp;\tfrac{1}{4}&amp;-\tfrac{1}{4}
+\end{array}
+\right) \\
+\overset{\substack{L_1 \leftarrow L_1-L_2}}{\longrightarrow} &amp;
+\left(
+\begin{array}{ccc|ccc}
+1&amp;0&amp;0&amp;\tfrac{3}{8}&amp;\tfrac{1}{8}&amp;\tfrac{3}{8}\\
+0&amp;1&amp;0&amp;\tfrac{3}{8}&amp;\tfrac{1}{8}&amp; -\tfrac{5}{8}\\
+0&amp;0&amp;1&amp;-\tfrac{1}{4}&amp;\tfrac{1}{4}&amp;-\tfrac{1}{4}
+\end{array}
+\right) \\
+\end{aligned}\]</span></p>
+<p>Donc <span class="math display">\[A^{-1} = \begin{pmatrix}
+    \tfrac{3}{8}&amp;\tfrac{1}{8}&amp;\tfrac{3}{8}\\
+    \tfrac{3}{8}&amp;\tfrac{1}{8}&amp; -\tfrac{5}{8}\\
+    -\tfrac{1}{4}&amp;\tfrac{1}{4}&amp;-\tfrac{1}{4}
+\end{pmatrix} =
+\frac18
+\begin{pmatrix}
+3&amp;1&amp;3\\
+3&amp;1&amp;-5\\
+-2&amp;2&amp;-2
+\end{pmatrix}.\]</span></p>
+<p>On procède toujours de cette façon en descendant puis remontant les
+lignes pour faire apparaître l’identité. Cette algorithme est appelé le
+pivot de Gauss.</p>
+</div>
+<div class="wex">
+<p>Essayons de calculer <span class="math inline">\(A^{-1}\)</span> avec
+<span class="math inline">\(A = \begin{pmatrix}
+1 &amp; 2 &amp; 3 \\
+2 &amp; 1 &amp; 4 \\
+3 &amp; 3 &amp; 7
+\end{pmatrix}\)</span>. On applique l’algorithme avec <span
+class="math display">\[\begin{aligned}
+\left(
+\begin{array}{ccc|ccc}
+1 &amp; 2 &amp; 3 &amp;1&amp;0&amp;0\\
+2 &amp; 1 &amp; 4 &amp;0&amp;1&amp;0\\
+3 &amp; 3 &amp; 7&amp;0&amp;0&amp;1
+\end{array}
+\right)
+\overset{\substack{L_2 \leftarrow L_2-2L_1 \\ L_3 \leftarrow
+L_3-3L_1}}{\longrightarrow} &amp;
+\left(
+\begin{array}{ccc|ccc}
+1 &amp; 2 &amp; 3 &amp;1&amp;0&amp;0\\
+0 &amp; -3 &amp; -2 &amp;-2&amp;1&amp;0\\
+0 &amp; -3 &amp; -2&amp;-3&amp;0&amp;1
+\end{array}
+\right) \\
+\overset{\substack{L_3 \leftarrow L_3-L_2}}{\longrightarrow} &amp;
+\left(
+\begin{array}{ccc|ccc}
+1 &amp; 2 &amp; 3 &amp;1&amp;0&amp;0\\
+0 &amp; -3 &amp; -2 &amp;-2&amp;1&amp;0\\
+0 &amp; 0 &amp; 0&amp;-1&amp;-1&amp;1
+\end{array}
+\right)
+\end{aligned}\]</span></p>
+<p>et on ne pourra plus avancer pour obtenir <span
+class="math inline">\(I_3\)</span> ! En fait <span
+class="math inline">\(A \notin GL_3(\mathbb{K})\)</span> car <span
+class="math inline">\(L_3 = L_2+L_1\)</span>. D’après les opérations
+effectuées, on peut même dire <span
+class="math inline">\(\mathop{\mathrm{rg}}(A) = 2\)</span>.</p>
+</div>
+</body>
+</html>
+
+<script>
+
+const toggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Appliquer le thème au chargement
+const currentTheme = localStorage.getItem('theme') || 'default';
+body.setAttribute('data-md-color-scheme', currentTheme);
+
+toggle.addEventListener('click', () => {
+    let scheme = body.getAttribute('data-md-color-scheme');
+    let newScheme = (scheme === 'default') ? 'slate' : 'default';
+    
+    body.setAttribute('data-md-color-scheme', newScheme);
+    localStorage.setItem('theme', newScheme);
+});
+
+// 4. CONVERSION TIKZ POUR TIKZJAX
+    document.querySelectorAll('pre').forEach(pre => {
+        let code = pre.querySelector('code');
+        if (code && code.textContent.includes('\\begin{tikzpicture}')) {
+            let script = document.createElement('script');
+            script.type = 'text/tikz';
+            // On force le chargement des librairies nécessaires pour vos matrices
+            script.innerHTML = '\\usetikzlibrary{matrix, calc}\n' + code.textContent;
+            pre.replaceWith(script);
+        }
+    });
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    let secCount = -1;
+    let thmCount = -1;
+    let labels = {};
+
+    const noms = {
+        'wthm':'Théorème', 'wprop':'Proposition', 'wdefi':'Définition',
+        'wlem':'Lemme', 'wcor':'Corollaire', 'wappli':'Application',
+        'wrem':'Remarque', 'wrappel': 'Rappel', 'wex':'Exemple',
+        'wexs':'Exemples', 'wproof':'Preuve'
+    };
+
+    // Numérotation des environnements
+    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs, .wrappel,.wproof").forEach(el => {
+        if (el.tagName.toLowerCase() === "h1" && !el.closest("#TOC")) {
+            secCount++;
+            thmCount = 0;
+        } else if (noms[Array.from(el.classList).find(c => noms[c])]) {
+            let type = Array.from(el.classList).find(c => noms[c]);
+            if (type !== 'wproof') {
+                thmCount++;
+                let num = secCount + "." + thmCount;
+                let id = el.querySelector("span[id]") ? el.querySelector("span[id]").id : null;
+                if(id) labels[id] = { num: num, type: type.substring(1) };
+                
+                let p = el.querySelector("p");
+                if (p) {
+                    let strong = p.querySelector("strong");
+                    let title = (strong && strong.innerText.includes("(")) ? ` <span class="env-title">${strong.outerHTML}</span>` : "";
+                    if (title) strong.remove();
+                    p.innerHTML = `<strong class="env-header">${noms[type]} ${num}</strong>` + title + " — " + p.innerHTML;
+                }
+            } else {
+                let p = el.querySelector("p");
+                if (p) p.innerHTML = `<strong class="env-header">Preuve</strong> — ` + p.innerHTML;
+            }
+        }
+    });
+
+    // Fonction lancée une fois MathJax terminé
+    function executerApresMathJax() {
+        
+        // 1. Capture des équations
+        document.querySelectorAll("mjx-math[display='true']").forEach((el, index) => {
+            let num = el.querySelector(".mjx-eqn-number");
+            if (num) {
+                let val = num.innerText.replace(/[()]/g, '');
+                let id = el.id || "eq-" + index;
+                el.id = id;
+                labels[id] = { num: val, type: 'eq' };
+            }
+        });
+
+        // 2. TRACÉ DES LIGNES PARTIELLES
+        document.querySelectorAll("mjx-mtext").forEach(el => {
+            let text = el.textContent;
+            
+            // DÉCODAGE MAGIQUE : si MathJax cache le texte dans les classes CSS
+            if (!text || text.trim() === "") {
+                text = Array.from(el.children).map(c => {
+                    let cls = Array.from(c.classList).find(className => className.startsWith('mjx-c'));
+                    return cls ? String.fromCharCode(parseInt(cls.replace('mjx-c', ''), 16)) : '';
+                }).join('');
+            }
+
+            if (text.includes("CLINEX")) {
+                let regex = /CLINEX(\d+)X(\d+)X/g;
+                let match;
+                let row = el.closest("mjx-mtr");
+                let prevRow = row ? row.previousElementSibling : null;
+
+                while ((match = regex.exec(text)) !== null) {
+                    let start = parseInt(match[1]);
+                    let end = parseInt(match[2]);
+
+                    if (prevRow) {
+                        let cells = prevRow.querySelectorAll("mjx-mtd");
+                        for (let i = start - 1; i < end; i++) {
+                            if (cells[i]) {
+                                cells[i].style.borderBottom = "max(1px, 0.08em) solid currentColor";
+                                cells[i].style.paddingBottom = "0.2em";
+                            }
+                        }
+                    }
+                }
+                // On fait disparaître le marqueur texte
+                el.style.display = "none";
+            }
+        });
+
+        // 3. Remplacement des références
+        document.querySelectorAll("body *").forEach(el => {
+            if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
+                el.innerHTML = el.innerHTML
+                .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m)
+                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => {
+                    let f = t + ":" + id;
+                    return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
+                });
+            }
+        });
+    }
+
+    // Attente robuste de MathJax
+    function waitForMathJax() {
+        if (window.MathJax && window.MathJax.startup && window.MathJax.startup.promise) {
+            window.MathJax.startup.promise.then(() => {
+                setTimeout(executerApresMathJax, 50); 
+            }).catch(err => console.log('Erreur MathJax', err));
+        } else {
+            setTimeout(waitForMathJax, 100);
+        }
+    }
+
+    waitForMathJax();
+
+});
+</script>
+

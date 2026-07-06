@@ -28,6 +28,11 @@
 </head>
 <body>
 
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+
+
 <style>
   /* Correctif MathJax : fusion des bordures pour les divisions de polynômes (array + cline) */
   mjx-container mjx-mtable {
@@ -38,6 +43,12 @@
     padding-bottom: 0.25em !important;
   }
 
+  body[data-md-color-scheme="slate"] svg {
+    filter: invert(1) hue-rotate(180deg);
+  }
+  body[data-md-color-scheme="slate"] .site-logo {
+    filter: none;
+  }
   
 </style>
 
@@ -1375,6 +1386,59 @@ donc <span class="math inline">\(f = 0_E\)</span>.</p></li>
 <p>On a donc bien <span class="math inline">\(F\)</span> injective donc
 <span class="math inline">\(f\)</span> bijective.</p>
 </div>
+<div class="wappli">
+<p>Soit <span class="math inline">\(E\)</span> un espace vectoriel de
+dimension finie <span class="math inline">\(n \geq 1\)</span>.</p>
+<p>Soit <span class="math inline">\(f \in \mathscr{L}(E)\)</span> tel
+qu’il existe <span class="math inline">\(g \in \mathscr{L}(E)\)</span>
+tel que <span class="math inline">\(f \circ g =
+\mathop{\mathrm{Id}}_E\)</span>.</p>
+<p>Alors, <span class="math inline">\(f \in GL(E)\)</span> et <span
+class="math inline">\(f^{-1} = g\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(f \circ g =
+\mathop{\mathrm{Id}}_E\)</span> implique <span class="math inline">\(f
+\circ g\)</span> bijective donc <span class="math inline">\(f\)</span>
+surjective.</p>
+<p>Or, comme <span class="math inline">\(f \in \mathscr{L}(E)\)</span>
+avec <span class="math inline">\(E\)</span> de dimension finie, <span
+class="math inline">\(f\)</span> surjective <span
+class="math inline">\(\iff\)</span> <span
+class="math inline">\(f\)</span> bijective.</p>
+<p>On a donc <span class="math inline">\(f \in GL(E)\)</span> et <span
+class="math inline">\(f \circ g = \mathop{\mathrm{Id}}_E \Longrightarrow
+f^{-1} \circ f \circ g = f^{-1} \circ \mathop{\mathrm{Id}}_E
+\Longrightarrow g = f^{-1}\)</span>.</p>
+</div>
+<div class="wrem">
+<ul>
+<li><p>Cela fonctionne aussi avec <span class="math inline">\(g \circ f
+= \mathop{\mathrm{Id}}_E\)</span>.</p></li>
+<li><p>Cela ne fonctionne pas avec <span
+class="math inline">\(E\)</span> de dimension infinie.</p>
+<p>Par exemple, considérons <span class="math inline">\(E =
+\mathscr{C}^1(\mathbb{R},\mathbb{R})\)</span>,</p>
+<p><span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; h &amp; \mapsto &amp; h&#39;
+\end{array}\)</span> et <span class="math inline">\(\begin{array}{lllll}
+g &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; h &amp; \mapsto &amp; H : x \mapsto \int_0^x h(t)dt
+\end{array}\)</span>.</p>
+<p>Alors, pour tout <span class="math inline">\(h \in E\)</span>, <span
+class="math inline">\(\left\{\begin{array}{ll}
+        (f\circ g)(h) = h = \mathop{\mathrm{Id}}_E(h) \\
+        (g \circ f)(h) = h-h(0) \neq \mathop{\mathrm{Id}}_E(h)
+    \end{array}\right.\)</span></p>
+<p>donc on ne peut pas avoir <span class="math inline">\(g =
+f^{-1}\)</span> malgré <span class="math inline">\(f \circ g =
+\mathop{\mathrm{Id}}_E\)</span>. En fait, <span
+class="math inline">\(f\)</span> n’est pas bijective car elle n’est pas
+injective (<span class="math inline">\(\mathop{\mathrm{Ker}}f\)</span>
+est l’ensemble des fonctions constantes).</p></li>
+</ul>
+</div>
 <h2 data-number="1.8"
 id="exemples-despaces-vectoriels-de-dimension-finie"><span
 class="header-section-number">1.8</span> Exemples d’espaces vectoriels
@@ -2152,6 +2216,18 @@ toggle.addEventListener('click', () => {
     body.setAttribute('data-md-color-scheme', newScheme);
     localStorage.setItem('theme', newScheme);
 });
+
+// 4. CONVERSION TIKZ POUR TIKZJAX
+    document.querySelectorAll('pre').forEach(pre => {
+        let code = pre.querySelector('code');
+        if (code && code.textContent.includes('\\begin{tikzpicture}')) {
+            let script = document.createElement('script');
+            script.type = 'text/tikz';
+            // On force le chargement des librairies nécessaires pour vos matrices
+            script.innerHTML = '\\usetikzlibrary{matrix, calc}\n' + code.textContent;
+            pre.replaceWith(script);
+        }
+    });
 
 document.addEventListener("DOMContentLoaded", function() {
 
