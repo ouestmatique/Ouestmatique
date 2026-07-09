@@ -1,0 +1,2742 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Intégration des fonctions d’une variable réelle sur un segment</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+
+
+<style>
+  /* Correctif MathJax : fusion des bordures pour les divisions de polynômes (array + cline) */
+  mjx-container mjx-mtable {
+    border-collapse: collapse !important;
+  }
+  mjx-container mjx-mtd {
+    padding-top: 0.25em !important;
+    padding-bottom: 0.25em !important;
+  }
+
+  body[data-md-color-scheme="slate"] svg {
+    filter: invert(1) hue-rotate(180deg);
+  }
+  body[data-md-color-scheme="slate"] .site-logo {
+    filter: none;
+  }
+  
+</style>
+
+<header class="site-header">
+
+   <div class="site-header-left">
+      <a href="../../index.html">
+        <img src="../../assets/logo.svg"
+             class="site-logo"
+             alt="Logo">
+      </a>
+    </div>
+
+<div class="site-header-right">
+   <button id="theme-toggle"
+style="
+margin-right: 15px;
+cursor: pointer;
+background: transparent;
+border: none;
+font-size: 1.1rem;
+color: var(--md-primary-bg-color);
+">
+🌙 / ☀️
+</button>
+
+<a href="../../index.html" class="home-link">
+   Retour à l’accueil
+ </a>
+</div>
+
+</header>
+
+
+<header id="title-block-header">
+
+<h1 class="title">Intégration des fonctions d’une variable réelle sur un
+segment</h1>
+<p class="pdf-link">
+<a href="integration.pdf" target="_blank">[PDF]</a>
+</p>
+
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#uniforme-continuité-dune-fonction-sur-un-intervalle"
+id="toc-uniforme-continuité-dune-fonction-sur-un-intervalle"><span
+class="toc-section-number">1</span> Uniforme continuité d’une fonction
+sur un intervalle</a></li>
+<li><a href="#intégrale-dune-fonction-en-escalier-sur-ab"
+id="toc-intégrale-dune-fonction-en-escalier-sur-ab"><span
+class="toc-section-number">2</span> Intégrale d’une fonction en escalier
+sur <span class="math inline">\([a,b]\)</span></a>
+<ul>
+<li><a href="#subdivisions-de-ab" id="toc-subdivisions-de-ab"><span
+class="toc-section-number">2.1</span> Subdivisions de <span
+class="math inline">\([a,b]\)</span></a></li>
+<li><a href="#fonction-en-escalier-sur-ab"
+id="toc-fonction-en-escalier-sur-ab"><span
+class="toc-section-number">2.2</span> Fonction en escalier sur <span
+class="math inline">\([a,b]\)</span></a></li>
+<li><a href="#intégrale-dune-fonction-en-escalier"
+id="toc-intégrale-dune-fonction-en-escalier"><span
+class="toc-section-number">2.3</span> Intégrale d’une fonction en
+escalier</a></li>
+<li><a href="#propriétés-de-lintégrale"
+id="toc-propriétés-de-lintégrale"><span
+class="toc-section-number">2.4</span> Propriétés de l’intégrale</a>
+<ul>
+<li><a href="#linéarité" id="toc-linéarité"><span
+class="toc-section-number">2.4.1</span> Linéarité</a></li>
+<li><a href="#positivité-et-croissance"
+id="toc-positivité-et-croissance"><span
+class="toc-section-number">2.4.2</span> Positivité et
+croissance</a></li>
+<li><a href="#relation-de-chasles" id="toc-relation-de-chasles"><span
+class="toc-section-number">2.4.3</span> Relation de Chasles</a></li>
+<li><a
+href="#lintégrale-ne-dépend-de-la-valeur-de-la-fonction-en-un-seul-point"
+id="toc-lintégrale-ne-dépend-de-la-valeur-de-la-fonction-en-un-seul-point"><span
+class="toc-section-number">2.4.4</span> L’intégrale ne dépend de la
+valeur de la fonction en un seul point</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#intégrale-dune-fonction-continue-par-morceaux-sur-ab"
+id="toc-intégrale-dune-fonction-continue-par-morceaux-sur-ab"><span
+class="toc-section-number">3</span> Intégrale d’une fonction continue
+par morceaux sur <span class="math inline">\([a,b]\)</span></a>
+<ul>
+<li><a href="#définition-dune-fonction-continue-par-morceaux"
+id="toc-définition-dune-fonction-continue-par-morceaux"><span
+class="toc-section-number">3.1</span> Définition d’une fonction continue
+par morceaux</a></li>
+<li><a
+href="#approximation-uniforme-dune-fonction-continue-par-morceaux-par-une-fonction-en-escalier"
+id="toc-approximation-uniforme-dune-fonction-continue-par-morceaux-par-une-fonction-en-escalier"><span
+class="toc-section-number">3.2</span> Approximation uniforme d’une
+fonction continue par morceaux par une fonction en escalier</a></li>
+<li><a href="#intégrale-de-f-in-mathscrc_mathrmmleftabright"
+id="toc-intégrale-de-f-in-mathscrc_mathrmmleftabright"><span
+class="toc-section-number">3.3</span> Intégrale de <span
+class="math inline">\(f \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span></a></li>
+<li><a href="#interprétation-géométrique-de-int_ab-f"
+id="toc-interprétation-géométrique-de-int_ab-f"><span
+class="toc-section-number">3.4</span> Interprétation géométrique de
+<span class="math inline">\(\int_a^b f\)</span></a></li>
+<li><a href="#propriétés-de-lintégrale-1"
+id="toc-propriétés-de-lintégrale-1"><span
+class="toc-section-number">3.5</span> Propriétés de l’intégrale</a>
+<ul>
+<li><a href="#linéarité-1" id="toc-linéarité-1"><span
+class="toc-section-number">3.5.1</span> Linéarité</a></li>
+<li><a href="#positivité-et-croissance-1"
+id="toc-positivité-et-croissance-1"><span
+class="toc-section-number">3.5.2</span> Positivité et
+croissance</a></li>
+<li><a href="#relation-de-chasles-1"
+id="toc-relation-de-chasles-1"><span
+class="toc-section-number">3.5.3</span> Relation de Chasles</a></li>
+<li><a
+href="#lintégrale-ne-dépend-de-la-valeur-de-la-fonction-en-un-seul-point-1"
+id="toc-lintégrale-ne-dépend-de-la-valeur-de-la-fonction-en-un-seul-point-1"><span
+class="toc-section-number">3.5.4</span> L’intégrale ne dépend de la
+valeur de la fonction en un seul point</a></li>
+<li><a href="#inégalité-de-cauchy-schwarz"
+id="toc-inégalité-de-cauchy-schwarz"><span
+class="toc-section-number">3.5.5</span> Inégalité de
+Cauchy-Schwarz</a></li>
+<li><a href="#un-cas-important-de-la-nullité-de-lintégrale"
+id="toc-un-cas-important-de-la-nullité-de-lintégrale"><span
+class="toc-section-number">3.5.6</span> Un cas important de la nullité
+de l’intégrale</a></li>
+</ul></li>
+<li><a href="#sommes-de-riemann" id="toc-sommes-de-riemann"><span
+class="toc-section-number">3.6</span> Sommes de Riemann</a></li>
+</ul></li>
+<li><a href="#étude-de-lapplication-x-mapsto-int_x_0x-ftdt"
+id="toc-étude-de-lapplication-x-mapsto-int_x_0x-ftdt"><span
+class="toc-section-number">4</span> Étude de l’application <span
+class="math inline">\(x \mapsto \int_{x_0}^x f(t)dt\)</span></a>
+<ul>
+<li><a href="#extension-de-la-notion-dintégrale"
+id="toc-extension-de-la-notion-dintégrale"><span
+class="toc-section-number">4.1</span> Extension de la notion
+d’intégrale</a></li>
+<li><a href="#introduction-de-x-mapsto-int_ax-ftdt"
+id="toc-introduction-de-x-mapsto-int_ax-ftdt"><span
+class="toc-section-number">4.2</span> Introduction de <span
+class="math inline">\(x \mapsto \int_a^x f(t)dt\)</span></a></li>
+<li><a
+href="#rappels-du-changement-de-variable-et-de-lintégration-par-parties"
+id="toc-rappels-du-changement-de-variable-et-de-lintégration-par-parties"><span
+class="toc-section-number">4.3</span> Rappels du changement de variable
+et de l’intégration par parties</a></li>
+<li><a href="#égalité-de-taylor-avec-reste-intégral"
+id="toc-égalité-de-taylor-avec-reste-intégral"><span
+class="toc-section-number">4.4</span> Égalité de Taylor avec reste
+intégral</a></li>
+<li><a href="#inégalité-de-taylor-lagrange"
+id="toc-inégalité-de-taylor-lagrange"><span
+class="toc-section-number">4.5</span> Inégalité de
+Taylor-Lagrange</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1"
+id="uniforme-continuité-dune-fonction-sur-un-intervalle"><span
+class="header-section-number">1</span> Uniforme continuité d’une
+fonction sur un intervalle</h1>
+<div class="wrappel">
+<p>Soit <span class="math inline">\(f: I \to \mathbb{R}\)</span> avec
+<span class="math inline">\(I\)</span> intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>.</p>
+<p><span class="math inline">\(f\)</span> est continue sur <span
+class="math inline">\(I\)</span> si</p>
+<p><span class="math display">\[\forall x_0 \in I, \forall \varepsilon
+&gt; 0, \exists \eta_{\varepsilon,x_0} &gt; 0 / \forall x \in I, |x-x_0|
+\leq \eta_{\varepsilon,x_0} \Longrightarrow |f(x)-f(x_0)| \leq
+\varepsilon.\]</span></p>
+<p>En général, <span
+class="math inline">\(\eta_{\varepsilon,x_0}\)</span> dépend de <span
+class="math inline">\(x_0\)</span>.</p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(f: I \to \mathbb{R}\)</span> avec
+<span class="math inline">\(I\)</span> intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>.</p>
+<p><span class="math inline">\(f\)</span> est uniformément continue sur
+<span class="math inline">\(I\)</span> si</p>
+<p><span class="math display">\[\forall \varepsilon &gt; 0, \exists
+\eta_{\varepsilon} &gt; 0 /
+    \forall x_0 \in I,  \forall x \in I, |x-x_0| \leq
+\eta_{\varepsilon,x_0} \Longrightarrow |f(x)-f(x_0)| \leq
+\varepsilon.\]</span></p>
+<p>Autrement dit, <span class="math inline">\(\eta_\varepsilon\)</span>
+ne dépend plus que de <span class="math inline">\(\varepsilon\)</span>
+et est uniforme sur <span class="math inline">\(I\)</span>.</p>
+</div>
+<div class="wex">
+<ul>
+<li><p>Soit <span class="math inline">\(f : I \to \mathbb{R}\)</span>
+lipschitzienne sur <span class="math inline">\(I\)</span> alors <span
+class="math inline">\(f\)</span> est uniformément continue sur <span
+class="math inline">\(I\)</span>.</p>
+<p>En effet, il existe <span class="math inline">\(C \in
+\mathbb{R}^{+\star}\)</span> tel que</p>
+<p><span class="math display">\[\forall x,x&#39; \in I,
+\left|f(x)-f(x&#39;)\right| \leq C\left|x-x&#39;\right|.\]</span></p>
+<p>On a donc pour tout <span class="math inline">\(\varepsilon &gt;
+0\)</span>, avec <span class="math inline">\(\eta =
+\frac{\varepsilon}{C}\)</span>,</p>
+<p><span class="math display">\[|x-x&#39;| \leq \eta \Longrightarrow
+\left|f(x)-f(x&#39;)\right| \leq C\eta = \varepsilon.\]</span></p></li>
+<li><p><span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{R}^{+} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; x^2
+\end{array}\)</span> n’est pas uniformément continue sur <span
+class="math inline">\(\mathbb{R}^{+}\)</span> bien que <span
+class="math inline">\(f\)</span> soit continue sur <span
+class="math inline">\(\mathbb{R}^{+}\)</span>.</p>
+<div class="webtextfigure">
+<div class="webtext">
+<p>On comprend sur le graphe ci-contre que pour un <span
+class="math inline">\(\varepsilon &gt; 0\)</span> fixé, le <span
+class="math inline">\(\eta_{x,\varepsilon}\)</span> diminue quand <span
+class="math inline">\(x\)</span> augmente.</p>
+<p>On présume même <span class="math display">\[\eta_{x,\varepsilon}
+\xrightarrow[x \to +\infty]{} 0,\]</span></p>
+<p>ce que l’on montrera dans la preuve.</p>
+</div>
+<div class="webimg">
+<p><img src="x2nonuniformementcontinue.png" alt="image" /></p>
+</div>
+</div>
+<p>Par l’absurde, si <span class="math inline">\(f\)</span> était
+uniformément continue sur <span
+class="math inline">\(\mathbb{R}^+\)</span>, on aurait : soit <span
+class="math inline">\(\varepsilon &gt; 0\)</span>, il existe <span
+class="math inline">\(\eta_\varepsilon\)</span> tel que <span
+class="math display">\[\forall x,x&#39; \in \mathbb{R}^{+}, |x-x&#39;|
+\leq \eta_\varepsilon \Longrightarrow |f(x)-f(x&#39;)| \leq
+\varepsilon.\]</span></p>
+<p>Or, pour <span class="math inline">\(x \in \mathbb{R}^{+}\)</span> et
+<span class="math inline">\(x&#39; = x+\eta_\varepsilon\)</span>, on a
+<span class="math inline">\(|x-x&#39;| = \eta_\varepsilon \leq
+\eta_\varepsilon\)</span></p>
+<p><span class="math inline">\(|f(x)-f(x&#39;)| =
+\left|x^2-\left(x&#39;\right)^2\right| =
+\left|x-x&#39;\right|\left|x+x&#39;\right| = \eta_\varepsilon
+\left|x+x&#39;\right|
+=  \left(2x+\eta_\varepsilon\right)\eta_\varepsilon \leq
+\varepsilon\)</span>.</p>
+<p>On a donc <span class="math inline">\(\eta_\varepsilon \leq
+\frac{\varepsilon}{2x+\eta_\varepsilon} \xrightarrow[x \to +\infty]{}
+0\)</span>, ce qui est absurde.</p></li>
+</ul>
+</div>
+<div class="wthm">
+<p><strong>(Théorème de Heine)</strong> Soit <span
+class="math inline">\(f : [a,b] \mapsto \mathbb{R}\)</span> continue sur
+<span class="math inline">\([a,b]\)</span> (<span
+class="math inline">\(a,b \in \mathbb{R}\)</span> et <span
+class="math inline">\(a \leq b\)</span>).</p>
+<p>Alors, <span class="math inline">\(f\)</span> est uniformément
+continue sur <span class="math inline">\([a,b]\)</span></p>
+</div>
+<div class="wproof">
+<p>Par l’absurde, supposons que <span class="math inline">\(f\)</span>
+n’est pas uniformément continue sur <span
+class="math inline">\([a,b]\)</span>.</p>
+<p>Alors, il existe <span class="math inline">\(\varepsilon_0 &gt;
+0\)</span> tel que pour tout <span class="math inline">\(\eta
+&gt;0\)</span>, il existe <span class="math inline">\(x_\eta,
+x&#39;_\eta \in [a,b]\)</span> tels que <span
+class="math inline">\(\left|x_\eta-x&#39;_\eta\right| \leq \eta\)</span>
+mais <span
+class="math inline">\(\left|f\left(x_\eta\right)-f\left(x&#39;_\eta\right)\right|
+&gt; \varepsilon_0\)</span>.</p>
+<p>En considérant <span class="math inline">\(\eta =
+\frac{1}{n+1}\)</span> pour chaque <span class="math inline">\(n \in
+\mathbb{N}\)</span>, on construit donc deux suites <span
+class="math inline">\((x_n)_{n\geq 0}\)</span> et <span
+class="math inline">\((x&#39;_n)_{n\geq 0}\)</span> de <span
+class="math inline">\([a,b]\)</span> telles que pour tout <span
+class="math inline">\(n \in \mathbb{N}\)</span>, <span
+class="math inline">\(\left|x_n-x&#39;_n\right| \leq
+\frac{1}{n+1}\)</span> et <span
+class="math inline">\(\left|f\left(x_n\right)-f\left(x&#39;_n\right)\right|
+&gt; \varepsilon_0\)</span>.</p>
+<p>On a donc <span class="math inline">\((x_n)_{n \geq 0}\)</span> qui
+est une suite bornée et par théorème de Bolzano-Weierstrass, il existe
+une extraction <span class="math inline">\(\varphi : \mathbb{N}\to
+\mathbb{N}\)</span> telle que <span
+class="math inline">\(\left(x_{\varphi(n)}\right)\)</span> converge vers
+une limite <span class="math inline">\(\ell \in [a,b]\)</span>.</p>
+<p>De "pour tout <span class="math inline">\(n \in \mathbb{N},
+\left|x_{\varphi(n)}-x&#39;_{\varphi(n)}\right| \leq
+\frac{1}{{\varphi(n)}+1}\)</span>", on tire alors aussi <span
+class="math inline">\(x&#39;_{\varphi(n)} \xrightarrow[n \to +\infty]{}
+\ell\)</span>.</p>
+<p>On en déduit alors, comme <span class="math inline">\(f\)</span> est
+continue sur <span class="math inline">\([a,b]\)</span>, <span
+class="math inline">\(\left|f\left(x_{\varphi(n)}\right)-f\left(x&#39;_{\varphi(n)}\right)\right|
+\xrightarrow[n \to +\infty]{} \left|f(\ell)-f(\ell)\right| = 0\)</span>,
+ce qui est contradictoire avec <span
+class="math inline">\(\left|f\left(x_{\varphi(n)}\right)-f\left(x&#39;_{\varphi(n)}\right)\right|
+&gt; \varepsilon_0\)</span>.</p>
+<p>On a donc bien <span class="math inline">\(f\)</span> uniformément
+continue sur <span class="math inline">\([a,b]\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Bien que <span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{R}^{+} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; x^2
+\end{array}\)</span> ne soit pas uniformément continue sur <span
+class="math inline">\(\mathbb{R}^{+}\)</span>, en appliquant le théorème
+de Heine, on a pour tout <span class="math inline">\(A \geq 0\)</span>,
+<span class="math inline">\(\begin{array}{lllll}
+\tilde{f} &amp; : &amp; [0,A] &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; x^2
+\end{array}\)</span> qui est uniformément continue sur <span
+class="math inline">\([0,A]\)</span>.</p>
+</div>
+<h1 data-number="2"
+id="intégrale-dune-fonction-en-escalier-sur-ab"><span
+class="header-section-number">2</span> Intégrale d’une fonction en
+escalier sur <span class="math inline">\([a,b]\)</span></h1>
+<h2 data-number="2.1" id="subdivisions-de-ab"><span
+class="header-section-number">2.1</span> Subdivisions de <span
+class="math inline">\([a,b]\)</span></h2>
+<div class="wdefi">
+<p><span id="def:subdivision" label="def:subdivision"></span> Soient
+<span class="math inline">\(a,b \in \mathbb{R}\)</span> tels que <span
+class="math inline">\(a &lt; b\)</span>.</p>
+<p>Une subdivision <span class="math inline">\(\sigma\)</span> de <span
+class="math inline">\([a,b]\)</span> est une suite finie strictement
+croissante <span class="math inline">\((a_0,\ldots,a_p)\)</span> de
+points de <span class="math inline">\([a,b]\)</span> telle que <span
+class="math inline">\(a_0 = a\)</span> et <span
+class="math inline">\(a_p = a\)</span>.</p>
+<div class="center">
+<p><img src="subdivision_anarchie.png" alt="image" /></p>
+</div>
+<p>Le pas de <span class="math inline">\(\sigma\)</span> désigne alors
+<span class="math inline">\(\max_{k \in [\![ 0, p-1]\!] }
+a_{k+1-a_k}\)</span>, noté <span
+class="math inline">\(p(\sigma)\)</span>.</p>
+</div>
+<div class="wex">
+<p><span id="ex:subdivision_reguliere"
+label="ex:subdivision_reguliere"></span> La subdivision régulière <span
+class="math inline">\(\sigma = (a_0,\ldots,a_p)\)</span> est telle qu’il
+existe <span class="math inline">\(h &gt; 0\)</span> tel que <span
+class="math inline">\(h = a_{k+1}-a_k\)</span> pour tout <span
+class="math inline">\(k \in [\![ 0,p-1]\!]\)</span>.</p>
+<p>Dans ce cas, on a pour tout <span class="math inline">\(k \in [\![
+0,p-1]\!]\)</span>, <span class="math inline">\(a_{k+1} = a_k+h\)</span>
+donc <span class="math inline">\(a_k = a_0+kh = a+kh\)</span>.</p>
+<p>Ce qui donne aussi <span class="math inline">\(a_p = b = a+ph \iff h
+= \frac{b-a}{p}\)</span>.</p>
+<div class="center">
+<p><img src="subdivision_regul.png" alt="image" /></p>
+</div>
+</div>
+<h2 data-number="2.2" id="fonction-en-escalier-sur-ab"><span
+class="header-section-number">2.2</span> Fonction en escalier sur <span
+class="math inline">\([a,b]\)</span></h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(\varphi : [a,b] \to
+\mathbb{R}\)</span>.</p>
+<p><span class="math inline">\(\varphi\)</span> est en escalier sur
+<span class="math inline">\([a,b]\)</span> s’il existe <span
+class="math inline">\(\sigma = (a_0,\ldots,a_p)\)</span> une subdivision
+de <span class="math inline">\([a,b]\)</span> telle que pour tout <span
+class="math inline">\(0 \leq k \leq p-1\)</span>, <span
+class="math inline">\(\varphi_{| ]a_k, a_{k+1}[}\)</span> est constante
+sur <span class="math inline">\(]a_k,a_{k+1}[\)</span>.</p>
+<p>Dans ce cas <span class="math inline">\(\sigma\)</span> est dite
+adaptée à <span class="math inline">\(\varphi\)</span> et pour <span
+class="math inline">\(0 \leq k \leq p-1\)</span>, on note <span
+class="math inline">\(\varphi_k\)</span> la valeur constante de <span
+class="math inline">\(\varphi\)</span> sur <span
+class="math inline">\(]a_k,a_{k+1}[\)</span>.</p>
+<p>On note <span
+class="math inline">\(\mathscr{E}([a,b],\mathbb{R})\)</span> ou <span
+class="math inline">\(\mathscr{E}([a,b])\)</span> l’ensemble des
+fonctions en escalier sur <span
+class="math inline">\([a,b]\)</span>.</p>
+</div>
+<p>Par exemple, le graphe ci-dessous représente une fonction en
+escalier.</p>
+<div class="center">
+<p><img src="fonction_escalier.png" alt="image" /></p>
+</div>
+<div class="wprop">
+<p><span id="prop:subdivision_aggrandie_toujours_adaptee"
+label="prop:subdivision_aggrandie_toujours_adaptee"></span> Soit <span
+class="math inline">\(\varphi \in \mathscr{E}([a,b])\)</span> et <span
+class="math inline">\(\sigma = (a_0,\ldots,a_p)\)</span> subdivision
+adapté à <span class="math inline">\(\varphi\)</span>.</p>
+<p>Soit <span class="math inline">\(i \in [\![ 0,p-1 ]\!]\)</span> et
+<span class="math inline">\(c \in ]a_i,a_{i+1}[\)</span> alors <span
+class="math inline">\(\tau =
+(a_0,\ldots,a_i,c,a_{i+1},\ldots,a_p)\)</span> est adaptée à <span
+class="math inline">\(\varphi\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\varphi\)</span> est constante sur <span
+class="math inline">\(]a_i,a_{i+1}[\)</span> donc a fortiori, elle est
+constante sur <span class="math inline">\(]a_i,c[\)</span> et <span
+class="math inline">\(]c,a_{i+1}[\)</span>.</p>
+</div>
+<div class="wprop">
+<p><span id="prop:escalier_est_espace_vectoriel"
+label="prop:escalier_est_espace_vectoriel"></span> <span
+class="math inline">\(\mathscr{E}([a,b])\)</span> est un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel.</p>
+</div>
+<div class="wproof">
+<p>Montrons que c’est un sous-espace vectoriel de <span
+class="math inline">\(\mathscr{F}([a,b],\mathbb{R})\)</span>.</p>
+<ol>
+<li><p><span class="math inline">\(0_{\mathscr{F}([a,b],\mathbb{R})} \in
+\mathscr{E}([a,b])\)</span> et la subdivision <span
+class="math inline">\((a,b)\)</span> est adaptée.</p></li>
+<li><p>Soient <span class="math inline">\(\varphi, \psi \in
+\mathscr{E}([a,b])\)</span> et <span class="math inline">\(\lambda \in
+\mathbb{R}\)</span> et <span class="math inline">\(\sigma, \tau\)</span>
+des subdivisions adaptées à <span class="math inline">\(\varphi\)</span>
+et <span class="math inline">\(\psi\)</span>.</p>
+<p>On note <span class="math inline">\(\sigma \cup \tau\)</span> la
+subdivision obtenue en réunissant les points de <span
+class="math inline">\(\sigma\)</span> et <span
+class="math inline">\(\tau\)</span> et en les rangeant dans un ordre
+strictement croissant.</p>
+<p>Alors, <span class="math inline">\(\sigma \cup \tau\)</span> est la
+subdivision <span class="math inline">\(\sigma\)</span> à laquelle on a
+ajouté un nombre fini de points donc en appliquant la proposition <a
+href="#prop:subdivision_aggrandie_toujours_adaptee"
+data-reference-type="ref"
+data-reference="prop:subdivision_aggrandie_toujours_adaptee">[prop:subdivision_aggrandie_toujours_adaptee]</a>
+un nombre fini de fois, <span class="math inline">\(\sigma \cup \tau =
+(a_0,\ldots,a_p)\)</span> est adaptée à <span
+class="math inline">\(\varphi\)</span>.</p>
+<p>De même, <span class="math inline">\(\sigma \cup \tau\)</span> est
+adaptée à <span class="math inline">\(\psi\)</span>.</p>
+<p>On a donc pour tout <span class="math inline">\(k \in [\![ 0,p-1
+]\!]\)</span>, <span class="math inline">\(\varphi_{| ]
+a_k,a_{k+1}[}\)</span> et <span class="math inline">\(\psi_{| ]
+a_k,a_{k+1}[}\)</span> constantes.</p>
+<p>Donc <span class="math inline">\(\lambda\psi_{| ]
+a_k,a_{k+1}[}\)</span> constante et <span
+class="math inline">\(\left(\varphi+\lambda\psi\right)_{| ]
+a_k,a_{k+1}[}\)</span> aussi.</p>
+<p>On a donc <span class="math inline">\(\varphi+\lambda\psi \in
+\mathscr{E}([a,b])\)</span>.</p></li>
+</ol>
+</div>
+<h2 data-number="2.3" id="intégrale-dune-fonction-en-escalier"><span
+class="header-section-number">2.3</span> Intégrale d’une fonction en
+escalier</h2>
+<p>Soit <span class="math inline">\(\varphi \in
+\mathscr{E}([a,b])\)</span> et <span class="math inline">\(\sigma =
+(a_0,\ldots,a_p)\)</span> subdivision de <span
+class="math inline">\([a,b]\)</span> adaptée à <span
+class="math inline">\(\varphi\)</span>.</p>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\(k \in  [\![ 0, p-1]\!]\)</span>, on
+considère <span class="math inline">\(\varphi_k(a_{k+1}-a_k)\)</span>
+qui est l’aire algébrique d’un rectangle. Elle est algébrique au sens où
+si <span class="math inline">\(\varphi_k &lt; 0\)</span>, cette aire est
+négative. Autrement dit, l’aire d’un rectangle "au-dessus de l’axe des
+abscisses" est comptée positivement et l’aire d’un rectangle "en dessous
+de l’axe des abscisses" est comptée négativement.</p>
+<p>Sur l’exemple ci-contre, les aires vertes sont comptées positivement
+tandis que les aires rouges sont comptées négativement.</p>
+</div>
+<div class="webimg">
+<p><img src="integrale_escalier.png" alt="image" /></p>
+</div>
+</div>
+<p>On considère alors <span class="math inline">\(S(\varphi,\sigma) =
+\sum_{k=0}^{p-1} \varphi_k(a_{k+1}-a_k)\)</span>. On voudrait définir
+<span class="math inline">\(S(\varphi,\sigma)\)</span> comme l’intégrale
+entre <span class="math inline">\(a\)</span> et <span
+class="math inline">\(b\)</span> de <span
+class="math inline">\(\varphi\)</span>, que l’on noterait <span
+class="math inline">\(\int_a^b \varphi(t)dt\)</span> mais cette aire
+algébrique semble a priori dépendre de la subdivision <span
+class="math inline">\(\sigma\)</span> (et pas seulement de <span
+class="math inline">\(\sigma\)</span>). Montrons que ce n’est pas le cas
+pur pouvoir définir formellement <span class="math inline">\(\int_a^b
+\varphi(t)dt\)</span>.</p>
+<div class="wprop">
+<p>Soit <span class="math inline">\(\varphi \in
+\mathscr{E}([a,b])\)</span> et <span
+class="math inline">\(\sigma\)</span> et <span
+class="math inline">\(\tau\)</span> subdivisions de <span
+class="math inline">\([a,b]\)</span> adaptée à <span
+class="math inline">\(\varphi\)</span>.</p>
+<p>Alors <span class="math inline">\(S(\varphi,\sigma) =
+S(\varphi,\tau)\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>On commence par traiter le cas où <span
+class="math inline">\(\sigma = (a_0,\ldots,a_p)\)</span> et <span
+class="math inline">\(\tau = (a_0,\ldots,a_k,c,a_{k+1},a_p)\)</span>
+avec <span class="math inline">\(k \in [\![ 0, p-1]\!]\)</span> et <span
+class="math inline">\(c \in ]a_k,a_{k+1}[\)</span>.</p>
+<p>On a</p>
+<p><span class="math display">\[\begin{aligned}
+                 S(\varphi,\sigma)
+                &amp; = \sum_{i=0}^{p-1}(a_{i+1}-a_i) \varphi_{|
+]a_i,a_{i+1}[} \\
+                &amp;  = \sum_{i=0}^{k-1}(a_{i+1}-a_i) \varphi_{|
+]a_i,a_{i+1}[} +
+                 (a_{k+1}-a_k) \varphi_{| ]a_k,a_{k+1}[}
+                +
+                \sum_{i=k+1}^{p-1}(a_{i+1}-a_i) \varphi_{|
+]a_i,a_{i+1}[}.
+            \end{aligned}\]</span></p>
+<p>Or, <span class="math inline">\(\varphi_{|]a_k,a_{k+1}[} =
+\varphi_{|]a_k,c[} = \varphi_{|c,a_{k+1}[}\)</span> donc</p>
+<p><span class="math display">\[\begin{aligned}
+                (a_{k+1}-a_k) \varphi_{| ]a_k,a_{k+1}[}
+                &amp; = (a_{k+1}-c+c-a_k) \varphi_{| ]a_k,a_{k+1}[} \\
+                &amp; = (a_{k+1}-c)\varphi_{| ]a_k,a_{k+1}[}+(c-a_k)
+\varphi_{| ]a_k,a_{k+1}[} \\
+                &amp; =  (a_{k+1}-c)\varphi_{| ]c,a_{k+1}[}+(c-a_k)
+\varphi_{| ]a_k,c[},
+            \end{aligned}\]</span> ce qui revient à considérer le dessin
+ci-dessous.</p>
+<div class="center">
+<p><img src="preuve_integrale_escalier_ne_depend_pas_subdiv.png"
+alt="image" /></p>
+</div>
+<p>On a donc</p>
+<p><span class="math display">\[\begin{aligned}
+                S(\varphi,\sigma)
+                &amp;  = \sum_{i=0}^{k-1}(a_{i+1}-a_i) \varphi_{|
+]a_i,a_{i+1}[} +
+                 (a_{k+1}-c)\varphi_{| ]c,a_{k+1}[}+(c-a_k) \varphi_{|
+]a_k,c[}
+                +
+                \sum_{i=k+1}^{p-1}(a_{i+1}-a_i) \varphi_{|
+]a_i,a_{i+1}[} \\
+                &amp; = S(\varphi,\tau).
+            \end{aligned}\]</span></p></li>
+<li><p>Dans le cas général, on considère <span
+class="math inline">\(\sigma \cup \tau\)</span> la subdivision obtenue
+en réunissant les points de <span class="math inline">\(\sigma\)</span>
+et <span class="math inline">\(\tau\)</span> et en les rangeant dans un
+ordre strictement croissant.</p>
+<p>Et alors, <span class="math inline">\(\sigma \cup \tau\)</span> est
+la subdivision <span class="math inline">\(\sigma\)</span> à laquelle on
+a ajouté un nombre fini de points.</p>
+<p>En itérant le premier cas, on a donc <span
+class="math inline">\(S(\varphi,\sigma) = S(\varphi, \sigma \cup
+\tau)\)</span>.</p>
+<p>De même, <span class="math inline">\(S(\varphi,\tau) = S(\varphi,
+\sigma \cup \tau)\)</span>.</p>
+<p>Donc <span class="math inline">\(S(\varphi,\sigma) =
+S(\varphi,\tau)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(\varphi \in
+\mathscr{E}([a,b])\)</span> et <span class="math inline">\(\sigma =
+(a_0,\ldots,a_p)\)</span> subdivision de <span
+class="math inline">\([a,b]\)</span> adaptée à <span
+class="math inline">\(\varphi\)</span>.</p>
+<p>On définit l’intégrale de <span
+class="math inline">\(\varphi\)</span> entre <span
+class="math inline">\(a\)</span> et <span
+class="math inline">\(b\)</span>, notée <span
+class="math inline">\(\int_a^b \varphi(t)dt\)</span> ou <span
+class="math inline">\(\int_a^b \varphi\)</span>, comme</p>
+<p><span class="math display">\[\int_a^b \varphi(t)dt = \sum_{k=0}^{p-1}
+\varphi_k(a_{k+1}-a_k).\]</span></p>
+<p>Comme démontré avant, cette définition est bien posée car elle ne
+dépend pas de la subdivision <span class="math inline">\(\sigma\)</span>
+(du temps qu’elle est adaptée à <span
+class="math inline">\(\varphi\)</span>).</p>
+</div>
+<div class="wrem">
+<ul>
+<li><p>Si <span class="math inline">\(\sigma = (a_0,\ldots,a_p)\)</span>
+est adaptée à <span class="math inline">\(\varphi \in
+\mathscr{E}([a,b])\)</span> alors <span class="math inline">\(\int_a^b
+\varphi\)</span> ne dépend pas de <span
+class="math inline">\(\varphi(a_k)\)</span> pour <span
+class="math inline">\(0 \leq k \leq p\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\varphi\)</span> est constante
+égale à <span class="math inline">\(\alpha \in \mathbb{R}\)</span> alors
+<span class="math inline">\(\sigma = (a,b)\)</span> est adaptée à <span
+class="math inline">\(\varphi\)</span> et <span
+class="math inline">\(\int_a^b \varphi = \alpha(b-a)\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="2.4" id="propriétés-de-lintégrale"><span
+class="header-section-number">2.4</span> Propriétés de l’intégrale</h2>
+<h3 data-number="2.4.1" id="linéarité"><span
+class="header-section-number">2.4.1</span> Linéarité</h3>
+<div class="wprop">
+<p>L’application <span class="math inline">\(\begin{array}{lllll}
+L &amp; : &amp; \mathscr{E}([a,b]) &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; \varphi &amp; \mapsto &amp; \int_a^b \varphi
+\end{array}\)</span> est une forme linéaire sur <span
+class="math inline">\(\mathscr{E}([a,b])\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soient <span class="math inline">\(\varphi, \psi \in
+\mathscr{E}\left([a,b]\right)\)</span> et <span
+class="math inline">\(\lambda \in \mathbb{R}\)</span>.</p>
+<p>Comme celle construite dans la preuve de la proposition <a
+href="#prop:escalier_est_espace_vectoriel" data-reference-type="ref"
+data-reference="prop:escalier_est_espace_vectoriel">[prop:escalier_est_espace_vectoriel]</a>,
+on considère <span class="math inline">\(\sigma\)</span> une subdivision
+de <span class="math inline">\([a,b]\)</span> adaptée à <span
+class="math inline">\(\varphi\)</span> et à <span
+class="math inline">\(\psi\)</span>.</p>
+<p>Alors, en écrivant <span class="math inline">\(\sigma =
+(a_0,\ldots,a_p)\)</span>, on a</p>
+<p><span class="math display">\[\begin{aligned}
+            \int_a^b (\varphi + \lambda \psi)
+            &amp; = \sum_{k=0}^{p-1} (a_{k+1}-a_k)(\varphi_k + \lambda
+\psi_k) \\
+            &amp; =  \sum_{k=0}^{p-1} (a_{k+1}-a_k)\varphi_k + \lambda
+\sum_{k=0}^{p-1} (a_{k+1}-a_k)\psi_k) \\
+            &amp; = \int_a^b \varphi + \int_a^b \lambda \psi.
+        \end{aligned}\]</span></p>
+</div>
+<h3 data-number="2.4.2" id="positivité-et-croissance"><span
+class="header-section-number">2.4.2</span> Positivité et croissance</h3>
+<div class="wprop">
+<p>Soit <span class="math inline">\(\varphi \in
+\mathscr{E}([a,b])\)</span> telle que pour tout <span
+class="math inline">\(x \in [a,b]\)</span>, <span
+class="math inline">\(\varphi(x) \geq 0\)</span>.</p>
+<p>Alors, <span class="math inline">\(\int_a^b \varphi \geq
+0\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(\sigma = (a_0,\ldots,a_p)\)</span>
+subdivision de <span class="math inline">\([a,b]\)</span> adaptée à
+<span class="math inline">\(\varphi\)</span>.</p>
+<p>Alors,</p>
+<p><span class="math display">\[\int_a^b \varphi = \sum_{k=0}^{p-1}
+\underbrace{(a_{k+1}-a_k)}_{\geq 0}\underbrace{\varphi_k}_{\geq 0} \geq
+0.\]</span></p>
+</div>
+<div class="wcor">
+<p>Soient <span class="math inline">\(\varphi,\psi \in
+\mathscr{E}([a,b])\)</span> telles que pour tout <span
+class="math inline">\(x \in [a,b]\)</span>, <span
+class="math inline">\(\varphi(x) \leq \psi(x)\)</span>.</p>
+<p>Alors, <span class="math inline">\(\int_a^b \varphi \leq \int_a^b
+\psi.\)</span></p>
+</div>
+<div class="wproof">
+<p>On applique la proposition précédente à <span
+class="math inline">\(\gamma = \psi - \varphi\)</span> qui est
+positive.</p>
+<p>On a alors <span class="math inline">\(0 \leq \int_a^b \psi - \varphi
+= \int_a^b \psi - \int_a^b \varphi\)</span> par linéarité de l’intégrale
+donc <span class="math inline">\(\int_a^b \varphi \leq \int_a^b
+\psi.\)</span></p>
+</div>
+<h3 data-number="2.4.3" id="relation-de-chasles"><span
+class="header-section-number">2.4.3</span> Relation de Chasles</h3>
+<div class="wprop">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soient <span class="math inline">\(\varphi \in
+\mathscr{E}([a,b])\)</span> et <span class="math inline">\(c \in
+]a,b[\)</span>.</p>
+<p>Alors, <span class="math inline">\(\varphi_{|[a,c]}  \in
+\mathscr{E}([a,c])\)</span> et <span
+class="math inline">\(\varphi_{|[c,b]}  \in
+\mathscr{E}([c,b])\)</span>.</p>
+<p>De plus, <span class="math inline">\(\int_a^b \varphi = \int_a^c
+\varphi_{|[a,c]} + \int_c^b \varphi_{|[c,b]}\)</span>, ce que l’on écrit
+plus simplement</p>
+<p><span class="math display">\[\int_a^b \varphi = \int_a^c \varphi +
+\int_c^b \varphi.\]</span></p>
+</div>
+<div class="webimg">
+<p><img src="Chasles_escalier.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(\sigma\)</span> subdivision adaptée
+à <span class="math inline">\(\varphi\)</span> telle que <span
+class="math inline">\(\sigma = (a_0,\ldots,a_i,\underbrace{c}_{=
+a_{i+1}},a_{i+2},a_p)\)</span> (on peut construire <span
+class="math inline">\(\sigma\)</span> en considérant une subdivision
+adaptée puis en y ajoutant <span class="math inline">\(c\)</span>).</p>
+<p>Alors,</p>
+<p><span class="math display">\[\begin{aligned}
+        \int_a^b \varphi
+        &amp; = \sum_{k=0}^{p-1} (a_{k+1}-a_k)\varphi_k \\
+        &amp; = \sum_{k=0}^{i} (a_{k+1}-a_k)\varphi_k+\sum_{k=i+1}^{p-1}
+(a_{k+1}-a_k)\varphi_k  \\
+        &amp; = \int_a^c \varphi + \int_c^b \varphi.
+        \end{aligned}\]</span></p>
+</div>
+<h3 data-number="2.4.4"
+id="lintégrale-ne-dépend-de-la-valeur-de-la-fonction-en-un-seul-point"><span
+class="header-section-number">2.4.4</span> L’intégrale ne dépend de la
+valeur de la fonction en un seul point</h3>
+<div class="wprop">
+<p><span id="prop:integrale_un_seul_point_escalier"
+label="prop:integrale_un_seul_point_escalier"></span> Soit <span
+class="math inline">\(\varphi \in \mathscr{E}([a,b])\)</span> et <span
+class="math inline">\(c \in [a,b]\)</span>.</p>
+<p>On considère <span class="math inline">\(\begin{array}{lllll}
+\psi &amp; : &amp; [a,b] &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \left\{\begin{array}{ll}
+            \psi(c) \neq \varphi(c) &amp; \mbox{ si $x=c$,} \\
+            \varphi(x) &amp; \mbox{ sinon.}
+        \end{array}\right.
+\end{array}\)</span>.</p>
+<p>Alors, <span class="math inline">\(\int_a^b \varphi = \int_a^b
+\psi\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(\sigma\)</span> subdivision adaptée
+à <span class="math inline">\(\varphi\)</span> telle que <span
+class="math inline">\(\sigma = (a_0,\ldots,a_i,\underbrace{c}_{=
+a_{i+1}},a_{i+2},a_p)\)</span> (on peut construire <span
+class="math inline">\(\sigma\)</span> en considérant une subdivision
+adaptée puis en y ajoutant <span class="math inline">\(c\)</span>).</p>
+<p>Alors, pour tout <span class="math inline">\(0 \leq k \leq
+p-1\)</span>, <span class="math inline">\(\varphi_k\)</span> ne dépend
+pas de <span class="math inline">\(\varphi(c)\)</span> et donc</p>
+<p><span class="math display">\[\begin{aligned}
+        \int_a^b \varphi
+         = \sum_{k=0}^{p-1} (a_{k+1}-a_k)\varphi_k
+         = \sum_{k=0}^{p-1} (a_{k+1}-a_k)\psi_k
+         = \int_a^b \psi.
+        \end{aligned}\]</span></p>
+</div>
+<h1 data-number="3"
+id="intégrale-dune-fonction-continue-par-morceaux-sur-ab"><span
+class="header-section-number">3</span> Intégrale d’une fonction continue
+par morceaux sur <span class="math inline">\([a,b]\)</span></h1>
+<h2 data-number="3.1"
+id="définition-dune-fonction-continue-par-morceaux"><span
+class="header-section-number">3.1</span> Définition d’une fonction
+continue par morceaux</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(f : [a,b] \to \mathbb{R}\)</span>
+(<span class="math inline">\(a &lt; b\)</span>).</p>
+<p><span class="math inline">\(f\)</span> est continue par morceaux s’il
+existe <span class="math inline">\(\sigma = (a_0,\ldots,a_p)\)</span>
+une subdivision de <span class="math inline">\([a,b]\)</span> telle
+que</p>
+<ul>
+<li><p>pour tout <span class="math inline">\(0 \leq k \leq p-1\)</span>,
+<span class="math inline">\(f_{| ]a_k, a_{k+1}[}\)</span> est
+continue.</p></li>
+<li><p>pour tout <span class="math inline">\(0 \leq k \leq p-1\)</span>,
+<span class="math inline">\(f_{| ]a_k, a_{k+1}[}\)</span>, il existe
+<span class="math inline">\(\ell_{k,d} \in \mathbb{R}\)</span> et <span
+class="math inline">\(\ell_{k+1,g} \in \mathbb{R}\)</span> telles
+que</p>
+<p><span class="math display">\[f(x) \xrightarrow[x \to a_k^+]{}
+\ell_{k,d} \text{ et }f(x) \xrightarrow[x \to a_{k+1}^-]{}
+\ell_{k+1,g}.\]</span></p>
+<p>(en général <span class="math inline">\(\ell_{k,d} \neq
+f(a_k)\)</span> et <span class="math inline">\(\ell_{k+1,g} \neq
+f(a_{k+1})\)</span>).</p></li>
+</ul>
+<p>Dans ce cas <span class="math inline">\(\sigma\)</span> est dite
+adaptée à <span class="math inline">\(\varphi\)</span>.</p>
+<p>On note <span
+class="math inline">\(\mathscr{C}_{\mathrm{m}}\left([a,b],\mathbb{R}\right)\)</span>
+ou <span
+class="math inline">\(\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>
+l’ensemble des fonctions continues par morceaux sur <span
+class="math inline">\([a,b]\)</span>.</p>
+</div>
+<p>Par exemple, la fonction possédant le graphe ci-dessous est continue
+par morceaux.</p>
+<div class="center">
+<p><img src="fonction_continue_par_morceaux.png" alt="image" /></p>
+</div>
+<p>En revanche, ce n’est pas le cas de la fonction ci-dessous, comme
+elle n’admet pas de limite finie à gauche de <span
+class="math inline">\(a_1\)</span>.</p>
+<div class="center">
+<p><img src="fonction_non_continue_par_morceaux.png" alt="image" /></p>
+</div>
+<div class="wrem">
+<p>On a <span class="math inline">\(\mathscr{E}([a,b]) \subset
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span> et <span
+class="math inline">\(\mathscr{C}\left([a,b],\mathbb{R}\right) \subset
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>.</p>
+</div>
+<div class="wprop">
+<p><span
+class="math inline">\(\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>
+est un <span class="math inline">\(\mathbb{R}\)</span>-espace
+vectoriel.</p>
+</div>
+<div class="wproof">
+<p>Montrons que <span
+class="math inline">\(\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>
+est un sous-espace vectoriel de <span
+class="math inline">\(\mathscr{F}\left([a,b],\mathbb{R}\right)\)</span>.</p>
+<ul>
+<li><p>On a clairement <span
+class="math inline">\(0_{\mathscr{F}\left([a,b],\mathbb{R}\right)} \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(f,g \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span> et <span
+class="math inline">\(\lambda \in \mathbb{R}\)</span>.</p>
+<p>Soient <span class="math inline">\(\sigma\)</span> subdivision
+adaptée à <span class="math inline">\(f\)</span> et <span
+class="math inline">\(\tau\)</span> subdivision adaptée à <span
+class="math inline">\(g\)</span>. De même que pour les fonctions en
+escalier, on peut considérer <span class="math inline">\(\sigma \cup
+\tau\)</span>, obtenue en réunissant <span
+class="math inline">\(\sigma\)</span> et <span
+class="math inline">\(\tau\)</span> dans le bon ordre, et elle est alors
+adaptée à <span class="math inline">\(f\)</span> et <span
+class="math inline">\(g\)</span>.</p>
+<p>En notant <span class="math inline">\(\sigma \cup \tau =
+(a_0,\ldots,a_p)\)</span>, on a</p>
+<ul>
+<li><p>pour tout <span class="math inline">\(0 \leq k \leq p-1\)</span>,
+<span class="math inline">\(\left(f+\lambda g\right)_{| ]a_k,
+a_{k+1}[}\)</span> est continue.</p></li>
+<li><p>pour tout <span class="math inline">\(0 \leq k \leq
+p-1\)</span>,</p>
+<p><span class="math display">\[\left(f+\lambda g\right)(x)
+\xrightarrow[x \to a_k^+]{} \ell_{k,d}^f + \lambda\ell_{k,d}^g  \text{
+et }\left(f+\lambda g\right)(x) \xrightarrow[x \to a_{k+1}^-]{}
+\ell^f_{k+1,g}+\lambda\ell^g_{k+1,g}.\]</span></p>
+<p>en notant <span
+class="math inline">\(\ell_{k,d}^f,\ell_{k+1,g}^f\)</span> les limites à
+droite de <span class="math inline">\(a_k\)</span> et à gauche de <span
+class="math inline">\(a_{k+1}\)</span> de <span
+class="math inline">\(g\)</span> et <span
+class="math inline">\(\ell_{k,d}^g,\ell_{k+1,g}^g\)</span> celles de
+<span class="math inline">\(g\)</span>.</p></li>
+</ul>
+<p>On a donc <span class="math inline">\(f+\lambda g \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><span id="prop:Cmab_est_un_anneau"
+label="prop:Cmab_est_un_anneau"></span> <span
+class="math inline">\(\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>
+est un anneau.</p>
+</div>
+<div class="wproof">
+<p>Montrons que <span
+class="math inline">\(\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>
+est un sous-anneau de <span
+class="math inline">\(\mathscr{F}([a,b],\mathbb{R})\)</span>.</p>
+<ol>
+<li><p>Comme <span
+class="math inline">\(\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>
+est un sous-espace vectoriel de <span
+class="math inline">\(\mathscr{F}([a,b],\mathbb{R})\)</span>, c’est a
+fortiori un sous-groupe de <span
+class="math inline">\(\mathscr{F}([a,b],\mathbb{R})\)</span>.</p></li>
+<li><p><span class="math inline">\(1_{\mathscr{F}([a,b],\mathbb{R})} \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(f,g \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>.</p>
+<p>Soient <span class="math inline">\(\sigma\)</span> subdivision
+adaptée à <span class="math inline">\(f\)</span> et <span
+class="math inline">\(\tau\)</span> subdivision adaptée à <span
+class="math inline">\(g\)</span>. De même que pour les fonctions en
+escalier, on peut considérer <span class="math inline">\(\sigma \cup
+\tau\)</span>, obtenue en réunissant <span
+class="math inline">\(\sigma\)</span> et <span
+class="math inline">\(\tau\)</span> dans le bon ordre, et elle est alors
+adaptée à <span class="math inline">\(f\)</span> et <span
+class="math inline">\(g\)</span>.</p>
+<p>En notant <span class="math inline">\(\sigma \cup \tau =
+(a_0,\ldots,a_p)\)</span>, on a</p>
+<ul>
+<li><p>pour tout <span class="math inline">\(0 \leq k \leq p-1\)</span>,
+<span class="math inline">\(\left(fg\right)_{| ]a_k, a_{k+1}[}\)</span>
+est continue comme produit de fonctions continues.</p></li>
+<li><p>pour tout <span class="math inline">\(0 \leq k \leq
+p-1\)</span>,</p>
+<p><span class="math display">\[\left(fg\right)(x) \xrightarrow[x \to
+a_k^+]{} \ell_{k,d}^f\ell_{k,d}^g  \text{ et }\left(f g\right)(x)
+\xrightarrow[x \to a_{k+1}^-]{}
+\ell^f_{k+1,g}\ell^g_{k+1,g}.\]</span></p>
+<p>en notant <span
+class="math inline">\(\ell_{k,d}^f,\ell_{k+1,g}^f\)</span> les limites à
+droite de <span class="math inline">\(a_k\)</span> et à gauche de <span
+class="math inline">\(a_{k+1}\)</span> de <span
+class="math inline">\(g\)</span> et <span
+class="math inline">\(\ell_{k,d}^g,\ell_{k+1,g}^g\)</span> celles de
+<span class="math inline">\(g\)</span>.</p></li>
+</ul>
+<p>On a donc <span class="math inline">\(fg \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>.</p></li>
+</ol>
+</div>
+<div class="wprop">
+<p>Si <span class="math inline">\(f \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>, <span
+class="math inline">\(f\)</span> est bornée sur <span
+class="math inline">\([a,b]\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(\sigma = (a_0,\ldots,a_p)\)</span>
+subdivision adaptée à <span class="math inline">\(f\)</span>.</p>
+<p>Alors,</p>
+<ul>
+<li><p>pour tout <span class="math inline">\(0 \leq k \leq p-1\)</span>,
+<span class="math inline">\(f_{| ]a_k, a_{k+1}[}\)</span> est
+continue.</p></li>
+<li><p>pour tout <span class="math inline">\(0 \leq k \leq p-1\)</span>,
+il existe <span class="math inline">\(\ell_{k,d} \in \mathbb{R}\)</span>
+et <span class="math inline">\(\ell_{k+1,g} \in \mathbb{R}\)</span>
+telles que</p>
+<p><span class="math display">\[f(x) \xrightarrow[x \to a_k^+]{}
+\ell_{k,d} \text{ et }f(x) \xrightarrow[x \to a_{k+1}^-]{}
+\ell_{k+1,g}.\]</span></p></li>
+</ul>
+<p>On a donc <span class="math inline">\(f_{|]a_k,a_{k+1}[}\)</span> qui
+est prolongeable en une fonction continue <span
+class="math inline">\(\tilde{f}_k\)</span> sur <span
+class="math inline">\([a_k,a_{k+1}]\)</span> en posant <span
+class="math inline">\(\tilde{f}_k(a_k) = \ell_{k,d}\)</span> et <span
+class="math inline">\(\tilde{f}_k(a_{k+1}) = \ell_{k+1,g}\)</span>.</p>
+<p>Alors, en tant que fonction continue sur un segment, <span
+class="math inline">\(\tilde{f}_k\)</span> est bornée. Il existe donc
+<span class="math inline">\(M_k \in \mathbb{R}^{+}\)</span> tel que pour
+tout <span class="math inline">\(x \in [a_k,a_{k+1}],
+\left|\tilde{f}_k(x)\right| \leq M_k\)</span>.</p>
+<p>A fortiori, pour tout <span class="math inline">\(x \in
+]a_k,a_{k+1}[\)</span>, <span class="math inline">\(\left|f(x)\right|
+=\left|\tilde{f}_k(x)\right| \leq M_k\)</span>.</p>
+<p>On en déduit alors qu’en notant <span class="math inline">\(M =
+\max_{0 \leq k \leq p-1} M_k\)</span>,</p>
+<p>pour tout <span class="math inline">\(x \in [a,b] \setminus
+\left\{a_0,\ldots,a_p\right\}\)</span>, <span
+class="math inline">\(\left|f(x)\right| \leq M\)</span>.</p>
+<p>Donc en notant <span class="math inline">\(M&#39; = \max_{0 \leq k
+\leq p}\left|f(a_k)\right|\)</span>,</p>
+<p>pour tout <span class="math inline">\(x \in [a,b]\)</span>, <span
+class="math inline">\(|f(x)| \leq
+\max\left\{M,M&#39;\right\}\)</span>.</p>
+</div>
+<h2 data-number="3.2"
+id="approximation-uniforme-dune-fonction-continue-par-morceaux-par-une-fonction-en-escalier"><span
+class="header-section-number">3.2</span> Approximation uniforme d’une
+fonction continue par morceaux par une fonction en escalier</h2>
+<div class="wthm">
+<p><span id="thm:approximation" label="thm:approximation"></span></p>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span> et <span
+class="math inline">\(\varepsilon \in \mathbb{R}^{+\star}\)</span>.</p>
+<p>Alors, il existe <span class="math inline">\(\varphi \in
+\mathscr{E}\left([a,b]\right)\)</span> telle que</p>
+<p><span class="math display">\[\forall x \in [a,b], \varphi(x) \leq
+f(x) \leq \varphi(x)+\varepsilon.\]</span></p>
+</div>
+<div class="webimg">
+<p><img src="approx_unif_c0_escalier.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Commençons par traiter le cas <span
+class="math inline">\(f\)</span> continue sur <span
+class="math inline">\([a,b]\)</span>.</p>
+<p>Par théorème de Heine, <span class="math inline">\(f\)</span> est
+uniformément continue sur <span class="math inline">\([a,b]\)</span>
+donc il existe <span class="math inline">\(\eta_\varepsilon\)</span> tel
+que <span class="math display">\[\forall x,x&#39; \in [a,b], |x-x&#39;|
+\leq \eta_\varepsilon \Longrightarrow \left|f(x)-f(x&#39;)\right| \leq
+\varepsilon.\]</span></p>
+<p>On considère alors <span class="math inline">\(\sigma =
+(a_0,\ldots,a_p)\)</span> la subdivision régulière de <span
+class="math inline">\([a,b]\)</span> de pas <span
+class="math inline">\(h = \frac{b-a}{p}\)</span> (voir l’exemple <a
+href="#ex:subdivision_reguliere" data-reference-type="ref"
+data-reference="ex:subdivision_reguliere">[ex:subdivision_reguliere]</a>).
+On prend <span class="math inline">\(p\)</span> assez grand tel que
+<span class="math inline">\(h &lt; \eta_\varepsilon\)</span> (ce qui est
+possible car <span class="math inline">\(\frac{b-a}{p} \xrightarrow[p
+\to +\infty]{} 0\)</span>).</p>
+<p>Pour <span class="math inline">\(k \in [\![ 0,p-1]\!]\)</span>, comme
+<span class="math inline">\(f\)</span> est continue sur le segment <span
+class="math inline">\([a_k,a_{k+1}] f(x)\)</span>, <span
+class="math inline">\(f\)</span> atteint <span class="math inline">\(m_k
+= \inf_{x \in [a_k,a_{k+1}]}\)</span> ie il existe <span
+class="math inline">\(c_k \in [a_k,a_{k+1}]\)</span> tel que <span
+class="math inline">\(f(c_k) = m_k\)</span>.</p>
+<div class="webtextfigure">
+<div class="webtext">
+<p>On définit alors <span class="math inline">\(\varphi \in
+\mathscr{E}\left(ab\right)\)</span> telle que</p>
+<p>pour tout <span class="math inline">\(k \in [\![
+0,p-1]\!]\)</span>,</p>
+<p><span class="math inline">\(\forall x \in [a_k,a_{k+1}[, \varphi(x) =
+f(c_k) = m_k\)</span></p>
+<p>et <span class="math inline">\(\varphi(a_p) = f(c_p) =
+m_p\)</span>.</p>
+<p>Alors, tout d’abord, pour tout <span class="math inline">\(x \in
+[a,b[\)</span>,</p>
+<p>il existe <span class="math inline">\(0 \leq k \leq p-1\)</span> tel
+que <span class="math inline">\(x \in [a_k,a_{k+1}[\)</span>.</p>
+<p>On a donc</p>
+<p><span class="math inline">\(\varphi(x) = m_k = \inf_{x \in
+[a_k,a_{k+1}]} f(x) \leq f(x)\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="approx_unif_c0_escalier_proof.png" alt="image" /></p>
+</div>
+</div>
+<p>De plus, <span class="math inline">\(\left|x-c_k\right| \leq
+a_{k+1-a_k} = h &lt; \eta_\varepsilon\)</span>.</p>
+<p>Donc, par uniforme continuité de <span
+class="math inline">\(f\)</span>, <span
+class="math inline">\(f(x)-\varphi(x)=\left|f(x)-\varphi(x)\right| =
+\left|f(x)-f(c_k)\right| \leq \varepsilon\)</span>.</p>
+<p>On a donc bien <span class="math inline">\(\varphi(x) \leq f(x) \leq
+\varphi(x)+\varepsilon\)</span>.</p>
+<p>Pour <span class="math inline">\(x = b\)</span>, on a <span
+class="math inline">\(\varphi(b) =  f(c_{p-1}) = \inf_{x \in
+[a_{p-1},b]} f(x) \leq f(b)\)</span> et de même que précédemment, <span
+class="math inline">\(\left|b-c_{p-1}\right| \leq
+\eta_\varepsilon\)</span> donc <span class="math inline">\(f(b) \leq
+\varphi(b) + \varepsilon\)</span>.</p>
+<p>On a donc bien <span class="math display">\[\forall x \in [a,b],
+\varphi(x) \leq f(x) \leq \varphi(x)+\varepsilon.\]</span></p></li>
+<li><p>Revenons au cas général : <span class="math inline">\(f \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>.</p>
+<p>Soit <span class="math inline">\(\sigma = (a_0,\ldots,a_p)\)</span>
+adaptée à <span class="math inline">\(f\)</span>.</p>
+<p>Alors, pour tout <span class="math inline">\(0 \leq k \leq
+p-1\)</span>, <span class="math inline">\(f_{| ]a_k, a_{k+1}[}\)</span>
+est continue et il existe <span class="math inline">\(\ell_{k,d} \in
+\mathbb{R}\)</span> et <span class="math inline">\(\ell_{k+1,g} \in
+\mathbb{R}\)</span> telles que <span class="math inline">\(f(x)
+\xrightarrow[x \to a_k^+]{} \ell_{k,d}\)</span> et <span
+class="math inline">\(f(x) \xrightarrow[x \to a_{k+1}^-]{}
+\ell_{k+1,g}.\)</span></p>
+<p>On a donc <span class="math inline">\(f_{|]a_k,a_{k+1}[}\)</span> qui
+est prolongeable en une fonction continue <span
+class="math inline">\(\tilde{f}_k\)</span> sur <span
+class="math inline">\([a_k,a_{k+1}]\)</span> en posant <span
+class="math inline">\(\tilde{f}_k(a_k) = \ell_{k,d}\)</span> et <span
+class="math inline">\(\tilde{f}_k(a_{k+1}) = \ell_{k+1,g}\)</span>.</p>
+<p>Par le cas précédent, il existe <span class="math inline">\(\varphi_k
+\in \mathscr{E}\left([a_k,a_{k+1}]\right)\)</span> telle que pour tout
+<span class="math inline">\(x \in [a_k,a_{k+1}], \varphi_k(x) \leq
+\tilde{f}_k(x) \leq \varphi_k(x)+\varepsilon\)</span>.</p>
+<div class="webtextfigure">
+<div class="webtext">
+<p>On définit alors <span class="math inline">\(\varphi\)</span> en
+escalier telle que pour tout <span class="math inline">\(x \in
+]a_k,a_{k+1}[\)</span>, <span class="math inline">\(\varphi(x) =
+\varphi_k(x)\)</span> et pour tout <span class="math inline">\(0 \leq k
+\leq p, \varphi(a_k) = f(a_k)\)</span>.</p>
+<p>On a bien <span class="math inline">\(\varphi\)</span> en escalier
+(qui reprend les escaliers de chaque <span
+class="math inline">\(\varphi_k\)</span>) et de plus,</p>
+<p>pour tout <span class="math inline">\(x \in [a,b] \setminus
+\left\{a_0,\ldots,a_p\right\}\)</span>, <span
+class="math inline">\(\varphi(x) = \varphi_k(x) \leq \tilde{f}_k(x)  =
+f(x) \leq  \varphi_k(x)+\varepsilon = \varphi(x)
++\varepsilon\)</span>.</p>
+<p>Puis, pour <span class="math inline">\(k \in [\![ 0,p
+]\!]\)</span>,</p>
+<p><span class="math inline">\(\varphi(a_k) = f(a_k) \leq
+f(a_k)+\varepsilon = \varphi(a_k) + \varepsilon\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="approx_unif_cm_escalier_proof.png" alt="image" /></p>
+</div>
+</div></li>
+</ul>
+</div>
+<h2 data-number="3.3"
+id="intégrale-de-f-in-mathscrc_mathrmmleftabright"><span
+class="header-section-number">3.3</span> Intégrale de <span
+class="math inline">\(f \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span></h2>
+<p>Pour rappel, on a <span class="math inline">\(\mathscr{E}([a,b])
+\subset \mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span> et on
+cherche donc à étendre la définition de l’intégrale dans <span
+class="math inline">\(\mathscr{E}([a,b])\)</span> à la notion
+d’intégrale dans <span
+class="math inline">\(\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>,
+d’où la proposition suivante.</p>
+<div class="wprop">
+<p><span id="prop:lim_def_integrale_CM"
+label="prop:lim_def_integrale_CM"></span> Soit <span
+class="math inline">\(f \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span> et <span
+class="math inline">\(\left(\varepsilon_n\right)\)</span> une suite de
+réels tels que <span class="math inline">\(\varepsilon_n \xrightarrow[n
+\to +\infty]{} 0\)</span>.</p>
+<p>Pour chaque <span class="math inline">\(n \in \mathbb{N}\)</span>, il
+existe <span class="math inline">\(\varphi_n \in
+\mathscr{E}\left([a,b]\right)\)</span> telle que</p>
+<p><span class="math display">\[\forall x \in [a,b], \varphi_n(x) \leq
+f(x) \leq \varphi_n(x)+\varepsilon_n.\]</span></p>
+<p>On considère alors la suite <span
+class="math inline">\(\left(\int_a^b \varphi_n\right)_{n \geq
+0}\)</span> converge vers une limite <span class="math inline">\(I\in
+\mathbb{R}\)</span> qui ne dépend que de <span
+class="math inline">\(f\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Pour <span class="math inline">\(n \in \mathbb{N}\)</span>, on note
+<span class="math inline">\(I_n = \int_a^b \varphi_n\)</span>.</p>
+<p>D’abord, <span class="math inline">\(f\)</span> est bornée sur <span
+class="math inline">\([a,b]\)</span> donc il existe <span
+class="math inline">\(M\in \mathbb{R}^{+}\)</span> tel que pour tout
+<span class="math inline">\(x \in [a,b], f(x) \leq M\)</span>.</p>
+<p>Donc soit <span class="math inline">\(\varphi \in
+\mathscr{E}([a,b])\)</span> telle que pour tout <span
+class="math inline">\(x \in [a,b]\)</span>, <span
+class="math inline">\(\varphi(x) \leq f(x)\)</span>, on a aussi pour
+tout <span class="math inline">\(x \in [a,b], \varphi(x) \leq M\)</span>
+et par croissance de l’intégrale, <span class="math inline">\(\int_a^b
+\varphi \leq M(b-a)\)</span>.</p>
+<p>Cela donne que <span class="math inline">\(A = \left\{\int_a^b
+\varphi / \varphi \in \mathscr{E}\left([a,b]\right) \text{ et
+}\text{pour tout $x \in [a,b], \varphi(x) \leq f(x)$} \right\}\)</span>
+est majoré. On note <span class="math inline">\(I\)</span> sa borne
+supérieure et on va montrer <span class="math inline">\(I_n
+\xrightarrow[n \to +\infty]{} I\)</span>.</p>
+<ul>
+<li><p>D’abord, soit <span class="math inline">\(n \in
+\mathbb{N}\)</span>, pour tout <span class="math inline">\(x \in [a,b],
+\varphi_n(x) \leq f(x)\)</span>.</p>
+<p>Donc <span class="math inline">\(\int_a^b \varphi_n \in A\)</span> et
+<span class="math inline">\(\int_a^b \varphi_n \leq I\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(\alpha &gt; 0\)</span>, par
+propriété de la borne supérieure, il existe <span
+class="math inline">\(\varphi \in \mathscr{E}\left([a,b]\right)\)</span>
+telle que pour tout <span class="math inline">\(x \in [a,b], \varphi(x)
+\leq f(x)\)</span> et <span class="math display">\[I-\alpha &lt;
+\int_a^b \varphi \leq I.\]</span></p>
+<p>Or, pour tout <span class="math inline">\(x \in [a,b], \varphi(x)
+\leq f(x) \leq \varphi_n(x) +\varepsilon\)</span> donc par croissance de
+l’intégrale,</p>
+<p><span class="math display">\[\int_a^b \varphi \leq \int_a^b
+\left(\varphi_n+\varepsilon_n\right)  =  I_n+(b-a)\varepsilon_n \text{
+par linéarité de l&#39;intégrale.}\]</span></p>
+<p>On en déduit alors <span class="math inline">\(I_n
++(b-a)\varepsilon_n\geq \int_a^b \varphi  &gt; I-\alpha\)</span> donc
+<span class="math inline">\(I_n &gt;
+I-\alpha-(b-a)\varepsilon_n\)</span>.</p>
+<p>OR, <span class="math inline">\(\varepsilon_n \xrightarrow[n \to
++\infty]{} 0\)</span> donc il existe <span class="math inline">\(N \in
+\mathbb{N}\)</span> tel que pour tout <span class="math inline">\(n \geq
+N\)</span>, <span class="math inline">\(\varepsilon_n \leq
+\frac{\alpha}{b-a}\)</span>.</p>
+<p>On a donc pour tout <span class="math inline">\(n \geq
+N\)</span>,</p>
+<p><span class="math inline">\(I_n &gt; I-\alpha-(b-a)\varepsilon_n &gt;
+I-2\alpha\)</span>.</p></li>
+</ul>
+<p>On a alors pour tout <span class="math inline">\(n \geq N\)</span>,
+<span class="math inline">\(I-2\alpha \leq I_n \leq I \Longrightarrow
+\left|I_n-I\right| \leq 2\alpha\)</span>. On peut trouver un tel <span
+class="math inline">\(N\)</span> pour tout <span
+class="math inline">\(\alpha &gt; 0\)</span> donc <span
+class="math inline">\(I_n \xrightarrow[n \to +\infty]{} I\)</span>.</p>
+<p>De plus, on a clairement <span class="math inline">\(I\)</span> qui
+ne dépend que de <span class="math inline">\(f\)</span>.</p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>,</p>
+<p>la limite <span class="math inline">\(I\)</span> de la proposition <a
+href="#prop:lim_def_integrale_CM" data-reference-type="ref"
+data-reference="prop:lim_def_integrale_CM">[prop:lim_def_integrale_CM]</a>
+est appelée l’intégrale de <span class="math inline">\(f\)</span> sur
+<span class="math inline">\([a,b]\)</span>, notée <span
+class="math inline">\(\int_a^b f(x)dx\)</span> ou <span
+class="math inline">\(\int_a^b f\)</span>.</p>
+<p>On peut la définir aussi comme</p>
+<p><span class="math display">\[I = \sup \left\{\int_a^b \varphi /
+\varphi \in \mathscr{E}\left([a,b]\right) \text{ et }\text{pour tout $x
+\in [a,b], \varphi(x) \leq f(x)$} \right\}.\]</span></p>
+</div>
+<div class="wrem">
+<p><span class="math inline">\(\varphi \in
+\mathscr{E}\left([a,b]\right)\)</span> peut être considérée comme un
+élément de <span
+class="math inline">\(\mathscr{E}\left([a,b]\right)\)</span> ou <span
+class="math inline">\(\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>
+et possède donc a priori deux définitions de son intégrale.</p>
+<p>En fait, ces deux définitions coïncident car en considérant la suite
+de <span class="math inline">\(\mathscr{E}\left([a,b]\right)\)</span>
+constante égale à <span class="math inline">\(\varphi\)</span>, on
+obtient la convergence vers <span class="math inline">\(\int_a^b
+\varphi\)</span> au sens des deux intégrales.</p>
+</div>
+<h2 data-number="3.4" id="interprétation-géométrique-de-int_ab-f"><span
+class="header-section-number">3.4</span> Interprétation géométrique de
+<span class="math inline">\(\int_a^b f\)</span></h2>
+<p>Soit <span class="math inline">\(f \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span> avec pour tout <span
+class="math inline">\(x \geq 0, f(x) \geq 0\)</span> et <span
+class="math inline">\((O,\overrightarrow{i},\overrightarrow{j})\)</span>
+repère orthonormé de <span
+class="math inline">\(\mathscr{P}\)</span>.</p>
+<p>On note <span class="math inline">\(\mathscr{A} = \left\{M(x,y) \in
+\mathscr{P}/ a \leq x \leq b \text{ et }0 \leq y \leq
+f(x)\right\}\)</span>.</p>
+<p>Soit <span class="math inline">\(n \in \mathbb{N}\)</span> et <span
+class="math inline">\(\varphi_n \in
+\mathscr{E}\left([a,b]\right)\)</span> telle que pour tout <span
+class="math inline">\(x \in [a,b], \varphi_n(x) \leq f(x) \leq
+\varphi_n(x) + \frac{1}{n+1}\)</span>.</p>
+<p>En construisant <span class="math inline">\(\varphi_n\)</span> comme
+dans la preuve du théorème <a href="#thm:approximation"
+data-reference-type="ref"
+data-reference="thm:approximation">[thm:approximation]</a>, on peut
+suppose que <span class="math inline">\(\varphi_n\)</span> est
+positive.</p>
+<p>On note alors <span class="math inline">\(\mathscr{A}_n^- =
+\left\{M(x,y) \in \mathscr{P}/ a \leq x \leq b \text{ et }0 \leq y \leq
+\varphi_n(x)\right\}\)</span></p>
+<p>et <span class="math inline">\(\mathscr{A}_n^+ = \left\{M(x,y) \in
+\mathscr{P}/ a \leq x \leq b \text{ et }0 \leq y \leq
+\varphi_n(x)+\frac{1}{n+1}\right\}\)</span>.</p>
+<p>On a alors pour tout <span class="math inline">\(n \geq 0,
+\mathscr{A}_n^{-} \subset \mathscr{A} \subset \mathscr{A}_n^+\)</span>
+donc <span
+class="math inline">\(\mathrm{Aire}\left(\mathscr{A}_n^{-}\right) \leq
+\mathrm{Aire}\left(\mathscr{A}\right)\leq
+\mathrm{Aire}\left(\mathscr{A}_n^{+}\right).\)</span></p>
+<p>De plus, <span
+class="math inline">\(\mathrm{Aire}\left(\mathscr{A}_n^{-}\right) =
+\int_a^b \varphi_n\)</span> et <span
+class="math inline">\(\mathrm{Aire}\left(\mathscr{A}_n^{+}\right) =
+\int_a^b\left(\varphi_n+\varepsilon_n\right)\)</span></p>
+<p>et <span class="math inline">\(\int_a^b \varphi_n \xrightarrow[n \to
++\infty]{} \int_a^b f\)</span> et <span
+class="math inline">\(\int_a^b\left(\varphi_n+\varepsilon_n\right) =
+\int_a^b \varphi_n +\frac{b-a}{n+1}\xrightarrow[n \to +\infty]{}
+\int_a^b f\)</span>.</p>
+<p>Le phénomène est illustré ci-dessous.</p>
+<div class="center">
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><span
+class="math inline">\(\varepsilon_0\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(&gt;\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varepsilon_1\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(&gt;\)</span></td>
+<td style="text-align: center;"><span
+class="math inline">\(\varepsilon_2\)</span></td>
+</tr>
+<tr>
+<td style="text-align: center;"><img src="Aire_Cm_pos_1.png"
+alt="image" /></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><img src="Aire_Cm_pos_2.png"
+alt="image" /></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"><img src="Aire_Cm_pos_3.png"
+alt="image" /></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+
+    <style>
+    .nSlider {
+    width: 600px;
+}
+
+.integral-widget {
+    background: transparent !important;
+}
+    </style>
+
+    <div class="integral-widget">
+
+    <p>
+        n :
+
+        <input
+            type="range"
+            class="nSlider"
+            min="1"
+            max="100"
+            step="1"
+            value="10"
+        >
+
+        <input
+            type="number"
+            class="nInput"
+            min="1"
+            max="100"
+            step="1"
+            value="10"
+        >
+    </p>
+
+    <div class="plot"></div>
+
+</div>
+
+    <script>
+    (function () {
+
+    const widget = document.querySelector(".integral-widget");
+
+    if (!widget) return;
+
+    const slider = widget.querySelector(".nSlider");
+    const input  = widget.querySelector(".nInput");
+    const plot   = widget.querySelector(".plot");
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Fonction f(x)
+    ////////////////////////////////////////////////////////////////////////////
+
+    function f(x) {
+        // Équivalent de g(x) = x + 0.5*sin(x) - sin(2*x) + 0.3
+        return x + 0.5 * Math.sin(x) - Math.sin(2 * x) + 0.3;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Abscisses et tracé de la fonction (Aire exacte)
+    ////////////////////////////////////////////////////////////////////////////
+
+    const a = 0;
+    const b = 6.2;
+    const xs = [];
+    const ys = [];
+
+    // On précalcule les points de la courbe pour l'affichage de la ligne bleue
+    for (let x = a; x <= b; x += 0.01) {
+        xs.push(x);
+        ys.push(f(x));
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Graphe
+    ////////////////////////////////////////////////////////////////////////////
+
+    function updatePlot(N) {
+
+        N = parseInt(N, 10);
+        const w = (b - a) / N;
+
+        const barX = [];
+        const barYLower = [];
+        const barYUpper = [];
+
+        // Calcul des sommes inférieures (min) et supérieures (max)
+        for (let k = 0; k < N; k++) {
+            const Ak = a + k * w;
+            const Ak1 = a + (k + 1) * w;
+            
+            let min_y = Infinity;
+            let max_y = -Infinity;
+
+            // Échantillonnage du sous-intervalle pour trouver m_k et M_k
+            for (let x = Ak; x <= Ak1; x += w / 20) {
+                const y = f(x);
+                if (y < min_y) min_y = y;
+                if (y > max_y) max_y = y;
+            }
+
+            // Les barres Plotly sont centrées sur leur valeur X
+            barX.push(Ak + w / 2);
+            barYLower.push(min_y);
+            barYUpper.push(max_y);
+        }
+
+        Plotly.react(
+
+            plot,
+
+            [
+                ////////////////////////////////////////////////////////////////////////////
+                // Sommes supérieures (Rectangles verts)
+                ////////////////////////////////////////////////////////////////////////////
+                {
+                    x: barX,
+                    y: barYUpper,
+                    type: "bar",
+                    width: w,
+                    marker: {
+                        color: 'rgba(44, 160, 44, 0.3)', // tab:green transparent
+                        line: { color: '#2ca02c', width: 1 }
+                    },
+                    hoverinfo: 'none',
+                    showlegend: false
+                },
+
+                ////////////////////////////////////////////////////////////////////////////
+                // Aire exacte (Bleue) - Optionnelle mais reproduit le remplissage
+                ////////////////////////////////////////////////////////////////////////////
+                {
+                    x: xs,
+                    y: ys,
+                    mode: "none",
+                    fill: 'tozeroy',
+                    fillcolor: 'rgba(31, 119, 180, 0.3)', // tab:blue transparent
+                    hoverinfo: 'none',
+                    showlegend: false
+                },
+
+                ////////////////////////////////////////////////////////////////////////////
+                // Sommes inférieures (Rectangles oranges)
+                ////////////////////////////////////////////////////////////////////////////
+                {
+                    x: barX,
+                    y: barYLower,
+                    type: "bar",
+                    width: w,
+                    marker: {
+                        color: 'rgba(255, 127, 14, 0.8)', // tab:orange opaque
+                        line: { color: '#ff7f0e', width: 1 }
+                    },
+                    hoverinfo: 'none',
+                    showlegend: false
+                },
+
+                ////////////////////////////////////////////////////////////////////////////
+                // Courbe principale f(x)
+                ////////////////////////////////////////////////////////////////////////////
+                {
+                    x: xs,
+                    y: ys,
+                    mode: "lines",
+                    type: "scatter",
+                    line: {
+                        color: '#1f77b4',   // tab:blue
+                        width: 2
+                    },
+                    showlegend: false
+                }
+            ],
+
+            {
+                paper_bgcolor: 'rgba(0,0,0,0)',
+                plot_bgcolor: 'rgba(0,0,0,0)',
+            
+                title: {
+                    text: `Approximation pour n = ${N}`,
+                    font: {
+                        size: 20
+                    },
+                    color: window.matchMedia('(prefers-color-scheme: dark)').matches
+                        ? '#ffe0b3'
+                        : '#2d1b12'
+                },
+            
+                width: 600,
+                height: 600,
+            
+                margin: {
+                    t: 60
+                },
+
+                barmode: 'overlay', // Permet de superposer les barres
+                bargap: 0,          // Supprime l'espace entre les rectangles
+            
+                xaxis: {
+                    range: [-0.5, b + 0.5],
+                    color: '#2d1b12',
+                    gridcolor: 'rgba(0,0,0,0.08)',
+                    zerolinecolor: 'rgba(0,0,0,0.2)',
+                    showticklabels: false
+                },
+            
+                yaxis: {
+                    range: [-0.5, 8.5],
+                    color: '#2d1b12',
+                    gridcolor: 'rgba(0,0,0,0.08)',
+                    zerolinecolor: 'rgba(0,0,0,0.2)',
+                    showticklabels: false
+                }
+            }
+        );
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Synchronisation
+    ////////////////////////////////////////////////////////////////////////////
+
+    function sync(N) {
+
+        slider.value = N;
+        input.value  = N;
+
+        updatePlot(N);
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Events
+    ////////////////////////////////////////////////////////////////////////////
+
+    slider.addEventListener("input", () => {
+        sync(slider.value);
+    });
+
+    input.addEventListener("input", () => {
+        sync(input.value);
+    });
+
+    ////////////////////////////////////////////////////////////////////////////
+    // Initialisation
+    ////////////////////////////////////////////////////////////////////////////
+
+    sync(10); // Initialisation avec 10 rectangles
+
+})();
+    </script>
+    </p>
+<p>On a donc l’aire de <span
+class="math inline">\(\mathrm{Aire}\left(\mathscr{A}\right)=\int_a^b
+f\)</span> et on peut interpréter <span class="math inline">\(\int_a^b
+f\)</span> comme l’aire entre la courbe de <span
+class="math inline">\(f\)</span> et l’axe des abscisses ou encore
+"l’aire sous la courbe de <span class="math inline">\(f\)</span>".</p>
+<div class="webtextfigure">
+<div class="webtext">
+<p>De même, pour <span class="math inline">\(f\)</span> de signe
+quelconque, <span class="math inline">\(\int_a^b f\)</span> est l’aire
+<em>algébrique</em> entre la courbe de <span
+class="math inline">\(f\)</span> et l’axe des abscisses au sens où les
+parties où <span class="math inline">\(f\)</span> sont négative sont
+comptées négativement et celles où <span
+class="math inline">\(f\)</span> est négative sont comptées
+positivement.</p>
+<p>On illustre ci-contre sur un exemple en vert les aires comptées
+positivement et en rouge les aires comptées négativement.</p>
+</div>
+<div class="webimg">
+<p><img src="integrale_signe_quelconque.png" alt="image" /></p>
+</div>
+</div>
+<h2 data-number="3.5" id="propriétés-de-lintégrale-1"><span
+class="header-section-number">3.5</span> Propriétés de l’intégrale</h2>
+<h3 data-number="3.5.1" id="linéarité-1"><span
+class="header-section-number">3.5.1</span> Linéarité</h3>
+<div class="wprop">
+<p>L’application <span class="math inline">\(\begin{array}{lllll}
+L &amp; : &amp; \mathscr{C}_{\mathrm{m}}\left([a,b]\right)) &amp; \to
+&amp; \mathbb{R} \\
+   &amp;   &amp; f &amp; \mapsto &amp; \int_a^b f
+\end{array}\)</span> est une forme linéaire sur <span
+class="math inline">\(\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soient <span class="math inline">\(f,g \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span> et <span
+class="math inline">\(\lambda \in \mathbb{R}\)</span>.</p>
+<p>Soit <span class="math inline">\(n \in \mathbb{N}\)</span>, <span
+class="math inline">\(\varphi_n \in
+\mathscr{E}\left([a,b]\right)\)</span> telle que pour tout <span
+class="math inline">\(x \in [a,b], \varphi_n(x) \leq f(x) \leq
+\varphi_n(x) + \frac{1}{n+1}\)</span> et <span
+class="math inline">\(\psi_n \in \mathscr{E}\left([a,b]\right)\)</span>
+telle que pour tout <span class="math inline">\(x \in [a,b], \psi_n(x)
+\leq g(x) \leq \psi_n(x) + \frac{1}{n+1}\)</span></p>
+<p>Alors, pour <span class="math inline">\(n \in \mathbb{N}\)</span>,
+<span class="math inline">\(\varphi_n + \lambda \psi_n \in
+\mathscr{E}\left([a,b]\right)\)</span> et pour tout <span
+class="math inline">\(x \in [a,b]\)</span>, <span
+class="math display">\[\varphi_n(x) + \lambda \psi_n(x) \leq
+f(x)+\lambda g(x) \leq \varphi_n(x) + \lambda
+\psi_n(x)+\frac{1+\lambda}{n+1}.\]</span></p>
+<p>On a par la proposition <a href="#prop:lim_def_integrale_CM"
+data-reference-type="ref"
+data-reference="prop:lim_def_integrale_CM">[prop:lim_def_integrale_CM]</a>,
+<span class="math inline">\(\int_a^b \left(\varphi_n + \lambda \psi_n
+\right) \xrightarrow[n \to +\infty]{} \int_a^b \left(f+\lambda
+g\right)\)</span> et donc <span class="math inline">\(\int_a^b
+\left(\varphi_n + \lambda \psi_n +\frac{1+\lambda}{n+1}\right)
+=  \int_a^b \left(\varphi_n + \lambda \psi_n\right)
++\frac{(1+\lambda)(b-a)}{n+1}\xrightarrow[n \to +\infty]{} \int_a^b
+\left(f+\lambda g\right)\)</span>.</p>
+<p>Or, on a aussi <span class="math inline">\(\int_a^b \left(\varphi_n +
+\lambda \psi_n \right) = \int_a^b\varphi_n + \lambda \int_a^b\psi_n
+\xrightarrow[n \to +\infty]{} \int_a^bf + \lambda \int_a^bg\)</span> et
+de même, <span class="math inline">\(\int_a^b \left(\varphi_n + \lambda
+\psi_n +\frac{1+\lambda}{n+1}\right) \xrightarrow[n \to +\infty]{}
+\int_a^bf + \lambda \int_a^bg\)</span>.</p>
+<p>Donc, par unicité de la limite, <span
+class="math inline">\(L(f+\lambda g) = \int_a^b \left(f+\lambda g\right)
+= \int_a^bf + \lambda \int_a^bg = L(f)+\lambda L(g).\)</span></p>
+</div>
+<h3 data-number="3.5.2" id="positivité-et-croissance-1"><span
+class="header-section-number">3.5.2</span> Positivité et croissance</h3>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span> telle que pour tout
+<span class="math inline">\(x \in [a,b]\)</span>, <span
+class="math inline">\(f(x) \geq 0\)</span>.</p>
+<p>Alors, <span class="math inline">\(\int_a^b f \geq 0\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Pour rappel, on a <span class="math display">\[\int_a^b f  = \sup
+\left\{\int_a^b \varphi / \varphi \in \mathscr{E}\left([a,b]\right)
+\text{ et }\text{pour tout $x \in [a,b], \varphi(x) \leq f(x)$}
+\right\}.\]</span></p>
+<p>Or, <span class="math inline">\(0_{\mathscr{F}([a,b],\mathbb{R})} \in
+\mathscr{E}([a,b])\)</span> et pour tout <span class="math inline">\(x
+\in [a,b], 0_{\mathscr{F}([a,b],\mathbb{R})}(x) = 0 \leq
+f(x)\)</span>.</p>
+<p>On a donc <span class="math inline">\(\int_a^b 0 = 0 \in
+\left\{\int_a^b \varphi / \varphi \in \mathscr{E}\left([a,b]\right)
+\text{ et }\text{pour tout $x \in [a,b], \varphi(x) \leq f(x)$}
+\right\}\)</span></p>
+<p>et donc <span class="math inline">\(I \geq 0\)</span>.</p>
+</div>
+<div class="wcor">
+<p><span id="cor:croissance_int_Cmab"
+label="cor:croissance_int_Cmab"></span> Soient <span
+class="math inline">\(f,g \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span> telles que pour tout
+<span class="math inline">\(x \in [a,b]\)</span>, <span
+class="math inline">\(f(x) \leq g(x)\)</span>.</p>
+<p>Alors, <span class="math inline">\(\int_a^b f \leq \int_a^b
+g.\)</span></p>
+</div>
+<div class="wproof">
+<p>On applique la proposition précédente à <span
+class="math inline">\(h=g-f\)</span> qui est positive.</p>
+<p>On a alors <span class="math inline">\(0 \leq \int_a^b
+\left(g-f\right) = \int_a^b g - \int_a^b f\)</span> par linéarité de
+l’intégrale donc <span class="math inline">\(\int_a^b f \leq \int_a^b
+g.\)</span></p>
+</div>
+<div class="wcor">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span> alors <span
+class="math inline">\(|f| \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span> et <span
+class="math display">\[\left|\int_a^b f\right| \leq \int_a^b
+|f|.\]</span></p>
+</div>
+<div class="wproof">
+<p>On a <span class="math inline">\(-|f| \leq f \leq |f|\)</span> donc
+par le corollaire <a href="#cor:croissance_int_Cmab"
+data-reference-type="ref"
+data-reference="cor:croissance_int_Cmab">[cor:croissance_int_Cmab]</a>,</p>
+<p><span class="math inline">\(-\int_a^b|f| \leq \int_a^bf \leq
+\int_a^b|f| \iff \left|\int_a^b f\right| \leq \int_a^b |f|.\)</span></p>
+</div>
+<div class="wappli">
+<p>Soient <span class="math inline">\(f,g \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span> et <span
+class="math inline">\(M \in \mathbb{R}^{+}\)</span> tel que pour tout
+<span class="math inline">\(x \in [a,b]\)</span>, <span
+class="math inline">\(|f(x)| \leq M\)</span>.</p>
+<p>Alors, <span class="math inline">\(\left|\int_a^b fg\right| \leq
+\int_a^b |g|\)</span>.</p>
+</div>
+<div class="wproof">
+<p>D’abord, <span class="math inline">\(fg \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span> par la
+proposition <a href="#prop:Cmab_est_un_anneau" data-reference-type="ref"
+data-reference="prop:Cmab_est_un_anneau">[prop:Cmab_est_un_anneau]</a>
+donc <span class="math inline">\(\int_a^b fg\)</span> a un sens. <span
+class="math display">\[\begin{aligned}
+            \left|\int_a^b fg\right| \leq \int_a^b \left|fg\right| =
+\int_a-b \left|f\right|\left|g\right| \leq M\int_a^b |g|.
+        \end{aligned}\]</span></p>
+</div>
+<h3 data-number="3.5.3" id="relation-de-chasles-1"><span
+class="header-section-number">3.5.3</span> Relation de Chasles</h3>
+<div class="wprop">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soient <span class="math inline">\(f \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span> et <span
+class="math inline">\(c \in ]a,b[\)</span>.</p>
+<p>Alors, <span class="math inline">\(\int_a^b f = \int_a^c f_{|[a,c]} +
+\int_c^b f_{|[c,b]}\)</span>, ce que l’on écrit plus simplement</p>
+<p><span class="math display">\[\int_a^b f = \int_a^c f + \int_c^b
+f.\]</span></p>
+</div>
+<div class="webimg">
+<p><img src="Chasles_Cm.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>.</p>
+<p>Soit <span class="math inline">\(n \in \mathbb{N}\)</span> et <span
+class="math inline">\(\varphi_n \in
+\mathscr{E}\left([a,b]\right)\)</span> telle que pour tout <span
+class="math inline">\(x \in [a,b], \varphi_n(x) \leq f(x) \leq
+\varphi_n(x) + \frac{1}{n+1}\)</span> et donc par la proposition <a
+href="#prop:lim_def_integrale_CM" data-reference-type="ref"
+data-reference="prop:lim_def_integrale_CM">[prop:lim_def_integrale_CM]</a>,
+<span class="math inline">\(\int_a^b \varphi_n \xrightarrow[n \to
++\infty]{} \int_a^b f\)</span>.</p>
+<p>On note <span class="math inline">\(\psi_n =
+\varphi_{n,|[a,c]}\)</span> et <span class="math inline">\(\theta_n =
+\varphi_{n,|[c,b]}\)</span>.</p>
+<p>On a alors pour tout <span class="math inline">\(x \in
+[a,c]\)</span>, <span class="math inline">\(\psi_n(x) \leq f_{|[a,c]}(x)
+\leq \psi_n(x) + \frac{1}{n+1}\)</span> donc par la proposition <a
+href="#prop:lim_def_integrale_CM" data-reference-type="ref"
+data-reference="prop:lim_def_integrale_CM">[prop:lim_def_integrale_CM]</a>,
+<span class="math inline">\(\int_a^c \psi_n \xrightarrow[n \to
++\infty]{} \int_a^c f\)</span>.</p>
+<p>De même, <span class="math inline">\(\int_c^b \theta_n \xrightarrow[n
+\to +\infty]{} \int_c^b f\)</span></p>
+<p>Or, par relation de Chasles dans <span
+class="math inline">\(\mathscr{E}([a,b])\)</span>, <span
+class="math inline">\(\int_a^b \varphi_n = \int_a^c \psi_n + \int_c^b
+\theta_n\)</span>.</p>
+<p>Donc en passant à la limite, <span class="math inline">\(\int_a^b f =
+\int_a^c f + \int_c^b f\)</span>.</p>
+</div>
+<h3 data-number="3.5.4"
+id="lintégrale-ne-dépend-de-la-valeur-de-la-fonction-en-un-seul-point-1"><span
+class="header-section-number">3.5.4</span> L’intégrale ne dépend de la
+valeur de la fonction en un seul point</h3>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span> et <span
+class="math inline">\(c \in [a,b]\)</span>.</p>
+<p>On considère <span class="math inline">\(\begin{array}{lllll}
+g &amp; : &amp; [a,b] &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \left\{\begin{array}{ll}
+            g(c) \neq f(c) &amp; \mbox{ si $x=c$,} \\
+            f(x) &amp; \mbox{ sinon.}
+        \end{array}\right.
+\end{array}\)</span>.</p>
+<p>Alors, <span class="math inline">\(\int_a^b f= \int_a^b
+g\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(n \in \mathbb{N}\)</span> et <span
+class="math inline">\(\varphi_n \in
+\mathscr{E}\left([a,b]\right)\)</span> telle que pour tout <span
+class="math inline">\(x \in [a,b], \varphi_n(x) \leq f(x) \leq
+\varphi_n(x) + \frac{1}{n+1}\)</span> et donc par la proposition <a
+href="#prop:lim_def_integrale_CM" data-reference-type="ref"
+data-reference="prop:lim_def_integrale_CM">[prop:lim_def_integrale_CM]</a>,
+<span class="math inline">\(\int_a^b \varphi_n \xrightarrow[n \to
++\infty]{} \int_a^b f\)</span>.</p>
+<p>On considère maintenant <span
+class="math inline">\(\begin{array}{lllll}
+\psi_n &amp; : &amp; [a,b] &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \left\{\begin{array}{ll}
+            g(c)&amp; \mbox{ si $x=c$,} \\
+            \varphi_n(x) &amp; \mbox{ sinon.}
+        \end{array}\right.
+\end{array}\)</span>.</p>
+<p>On a alors <span class="math inline">\(\psi_n \in
+\mathscr{E}([a,b])\)</span> pour tout <span class="math inline">\(x \in
+[a,b]\)</span>, <span class="math inline">\(\psi_n(x) \leq g(x) \leq
+\psi_n(x) + \frac{1}{n+1}\)</span> donc par la proposition <a
+href="#prop:lim_def_integrale_CM" data-reference-type="ref"
+data-reference="prop:lim_def_integrale_CM">[prop:lim_def_integrale_CM]</a>,
+<span class="math inline">\(\int_a^b \psi_n \xrightarrow[n \to
++\infty]{} \int_a^b g\)</span>.</p>
+<p>Or, par la proposition <a
+href="#prop:integrale_un_seul_point_escalier" data-reference-type="ref"
+data-reference="prop:integrale_un_seul_point_escalier">[prop:integrale_un_seul_point_escalier]</a>
+connue sur les fonctions en escalier , on a <span
+class="math inline">\(\int_a^b \varphi_n = \int_a^b \psi_n\)</span> donc
+à la limite, <span class="math inline">\(\int_a^b f= \int_a^b
+g\)</span>.</p>
+</div>
+<h3 data-number="3.5.5" id="inégalité-de-cauchy-schwarz"><span
+class="header-section-number">3.5.5</span> Inégalité de
+Cauchy-Schwarz</h3>
+<div class="wprop">
+<p>Soient <span class="math inline">\(f,g \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span> alors</p>
+<p><span class="math display">\[\left|\int_a^b fg\right| \leq
+\sqrt{\left(\int_a^b f^2\right)\left(\int_a^b g^2\right)}.\]</span></p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(t \in \mathbb{R}\)</span>, on
+considère <span class="math inline">\((f+tg)^2\)</span>.</p>
+<p>Pour tout <span class="math inline">\(x \in [a,b]\)</span>, <span
+class="math inline">\((f+tg)^2(x) \geq 0\)</span> donc <span
+class="math inline">\(\int_a^b (f+tg)^2 \geq 0\)</span>.</p>
+<p>Or, <span class="math inline">\(\int_a^b (f+tg)^2 = \int_a^b
+\left(t^2g^2 + 2tfg + f^2\right) = t^2\int_a^b g^2+2t \int_a^b fg +
+\int_a^b f^2\)</span>.</p>
+<p>Notons <span class="math inline">\(\alpha = \int_a^b g^2, \beta
+=  2\int_a^b fg\)</span> et <span class="math inline">\(\gamma
+=  \int_a^b f^2\)</span>.</p>
+<p>On a alors pour tout <span class="math inline">\(t \in
+\mathbb{R}\)</span>, <span class="math inline">\(\alpha t^2 + \beta t +
+\gamma \geq 0\)</span>.</p>
+<ul>
+<li><p>Soit <span class="math inline">\(\alpha = 0\)</span> et donc pour
+tout <span class="math inline">\(t \in \mathbb{R}\)</span>, <span
+class="math inline">\(\beta t + \gamma \geq 0\)</span>.</p>
+<p>On a alors forcément <span class="math inline">\(\beta = 0\)</span>
+car si <span class="math inline">\(\beta &gt; 0\)</span>, <span
+class="math inline">\(\beta t + \gamma \xrightarrow[t \to -\infty]{}
+-\infty\)</span>, ce qui est contradictoire et si <span
+class="math inline">\(\beta &lt; 0\)</span>, <span
+class="math inline">\(\beta t + \gamma \xrightarrow[t \to +\infty]{}
++\infty\)</span>, ce qui est de même contradictoire.</p>
+<p>On a donc <span class="math inline">\(\alpha = \int_a^b g^2 =
+0\)</span> et <span class="math inline">\(\frac{\beta}{2} = \int_a^b fg
+= 0\)</span> donc on a bien <span class="math inline">\(\left|\int_a^b
+fg\right| \leq \sqrt{\left(\int_a^b f^2\right)\left(\int_a^b
+g^2\right)}\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(\alpha \neq 0\)</span> et dans
+ce cas, on reconnaît un polynôme du second degré en <span
+class="math inline">\(t\)</span> qui est toujours positif.</p>
+<p>Comme <span class="math inline">\(\alpha &gt; 0\)</span>, ceci est
+possible mais seulement dans le cas où le polynôme a au plus une racine
+réelle.</p>
+<p>On a donc son discriminant <span class="math inline">\(\Delta =
+\beta^2-4\alpha\gamma\)</span> qui vérifie <span
+class="math inline">\(\Delta \leq 0\)</span>.</p>
+<p>Donc <span class="math display">\[\begin{aligned}
+            &amp; \beta^2-4\alpha\gamma  = 4\left(\int_a^b
+fg\right)^2-4\left(\int_a^b g^2\right)\left(\int_a^b f^2\right) \leq 0
+\\
+            &amp; \iff \left(\int_a^b fg\right)^2 \leq \left(\int_a^b
+g^2\right)\left(\int_a^b f^2\right) \\
+            &amp; \iff \left|\int_a^b fg\right| \leq
+\sqrt{\left(\int_a^b f^2\right)\left(\int_a^b g^2\right)}.
+            \end{aligned}\]</span></p></li>
+</ul>
+</div>
+<h3 data-number="3.5.6"
+id="un-cas-important-de-la-nullité-de-lintégrale"><span
+class="header-section-number">3.5.6</span> Un cas important de la
+nullité de l’intégrale</h3>
+<div class="wprop">
+<p>Soit <u><span class="math inline">\(f \in
+\mathscr{C}\left([a,b],\mathbb{R}\right)\)</span></u> telle que pour
+tout <span class="math inline">\(x \in [a,b], f(x) \geq 0\)</span>.</p>
+<p>Alors, <span class="math display">\[\int_a^b f = 0 \iff \forall x \in
+[a,b], f(x) = 0.\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Si <span
+class="math inline">\(f\)</span> est nulle alors <span
+class="math inline">\(\forall x \in [a,b], f(x) \leq 0 \text{ et }f(x)
+\geq 0\)</span></p>
+<p>donc <span class="math inline">\(\int_a^b f \leq 0 \text{ et
+}\int_a^b f \geq 0\)</span> donc <span class="math inline">\(\int_a^b f
+= 0\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Par
+l’absurde, si <span class="math inline">\(f\)</span> est non nulle, il
+existe <span class="math inline">\(x_0 \in [a,b]\)</span> telle que
+<span class="math inline">\(f(x_0) &gt; 0\)</span>.</p>
+<p>Or, <u><span class="math inline">\(f\)</span> est continue</u>
+donc</p>
+<ul>
+<li><p>si <span class="math inline">\(x_0 \in ]a,b[\)</span>, il existe
+<span class="math inline">\(\alpha &gt; 0, \eta &gt; 0\)</span> tels que
+pour tout <span class="math inline">\(x \in [x_0-\eta,x_0+\eta], f(x)
+\geq \alpha\)</span>.</p>
+<p>On a alors <span class="math inline">\(\int_a^b f =
+\int_a^{x_0-\eta}f + \int_{x_0-\eta}^{x_0+\eta}f+\int_{x_0+\eta}^{b}f
+\geq 0 + \int_{x_0-\eta}^{x_0+\eta}\alpha + 0 \geq 2\eta\alpha &gt;
+0\)</span>, ce qui est absurde.</p></li>
+<li><p>si <span class="math inline">\(x_0 = a\)</span>, il existe <span
+class="math inline">\(\alpha &gt; 0, \eta &gt; 0\)</span> tels que pour
+tout <span class="math inline">\(x \in [a,a+\eta], f(x) \geq
+\alpha\)</span>.</p>
+<p>On a alors de même, <span class="math inline">\(\int_a^b
+f  \geq  \int_{a}^{a+\eta}\alpha + 0 \geq \eta\alpha &gt; 0\)</span>, ce
+qui est absurde.</p></li>
+<li><p>si <span class="math inline">\(x_0 = b\)</span>, il existe <span
+class="math inline">\(\alpha &gt; 0, \eta &gt; 0\)</span> tels que pour
+tout <span class="math inline">\(x \in [b-\eta,b], f(x) \geq
+\alpha\)</span>.</p>
+<p>On a alors de même, <span class="math inline">\(\int_a^b f  \geq 0+
+\int_{b-\eta}^{b}\alpha \geq \eta\alpha &gt; 0\)</span>, ce qui est
+absurde.</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="wrem">
+<p>Ceci est faux pour une fonction <span class="math inline">\(f \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span> non continue.</p>
+<p>Par la propriété <a href="#prop:integrale_un_seul_point_escalier"
+data-reference-type="ref"
+data-reference="prop:integrale_un_seul_point_escalier">[prop:integrale_un_seul_point_escalier]</a>,
+la fonction <span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; [0,1] &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \left\{\begin{array}{ll}
+        1 &amp; \mbox{ si $x=1/2$} \\
+        0 &amp; \text{ sinon.}
+    \end{array}\right.
+\end{array}\)</span> est d’intégrale nulle bien que <span
+class="math inline">\(f\)</span> soit non nulle.</p>
+</div>
+<h2 data-number="3.6" id="sommes-de-riemann"><span
+class="header-section-number">3.6</span> Sommes de Riemann</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(f \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span> et <span
+class="math inline">\(\sigma = (x_0,\ldots,x_n)\)</span> une subdivision
+quelconque de <span class="math inline">\([a,b]\)</span>.</p>
+<p>Pour <span class="math inline">\(k \in [\![ 0,n-1]\!]\)</span>, on
+considère <span class="math inline">\(c_k \in [x_k,x_{k+1}]\)</span> et
+on note <span class="math inline">\(c =
+(c_0,\ldots,c_{n-1})\)</span>.</p>
+<p>La somme <span class="math inline">\(\sum_{k=0}^{n-1} f(c_k)
+(x_{k+1}-x_k)\)</span> est appelée la somme de Riemann relative à <span
+class="math inline">\(f\)</span> à <span
+class="math inline">\(\sigma\)</span> et à <span
+class="math inline">\(c\)</span>, notée <span
+class="math inline">\(S(f,\sigma,c)\)</span>.</p>
+</div>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Ci-contre, voici une illustration d’une somme de Riemann avec <span
+class="math inline">\(n=3\)</span>. La somme correspondant à la fonction
+à la courbe bleue ainsi qu’à <span class="math inline">\(\sigma =
+(x_0,x_1,x_2,x_3)\)</span> et <span class="math inline">\(c=
+(c_0,c_1,c_2)\)</span> vaut l’aire représentée en vert.</p>
+<p>On peut alors présager de la proposition qui suit.</p>
+</div>
+<div class="webimg">
+<p><img src="Somme_Riemann.png" alt="image" /></p>
+</div>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(f \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span> et <span
+class="math inline">\(\sigma = (x_0,\ldots,x_n)\)</span> une subdivision
+quelconque de <span class="math inline">\([a,b]\)</span>.</p>
+<p>Pour <span class="math inline">\(k \in [\![ 0,n-1]\!]\)</span>, on
+considère <span class="math inline">\(c_k \in [x_k,x_{k+1}]\)</span> et
+<span class="math inline">\(c = (c_0,\ldots,c_{n-1})\)</span>.</p>
+<p>Alors,</p>
+<p><span class="math display">\[S(f,\sigma,c) \xrightarrow[p(\sigma) \to
+0]{} \int_a^b f\]</span></p>
+<p>où, pour rappel, <span class="math inline">\(p(\sigma)\)</span>
+désigne le pas de <span class="math inline">\(\sigma\)</span> (voir la
+définition <a href="#def:subdivision" data-reference-type="ref"
+data-reference="def:subdivision">[def:subdivision]</a>).</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Commençons par traiter le cas <span
+class="math inline">\(f\)</span> continue sur <span
+class="math inline">\([a,b]\)</span>.</p>
+<p>Par théorème de Heine, <span class="math inline">\(f\)</span> est
+uniformément continue sur <span class="math inline">\([a,b]\)</span>
+donc il existe <span class="math inline">\(\eta_\varepsilon\)</span> tel
+que <span class="math display">\[\forall x,x&#39; \in [a,b], |x-x&#39;|
+\leq \eta_\varepsilon \Longrightarrow \left|f(x)-f(x&#39;)\right| \leq
+\varepsilon.\]</span></p>
+<p>De plus, par relation de Chasles,</p>
+<p><span class="math display">\[\begin{aligned}
+            S(f,\sigma,c)-\int_a^b f
+            &amp; = \sum_{k=0}^{n-1} f(c_k)
+(x_{k+1}-x_k)-\sum_{k=0}^{n-1} \int_{x_k}^{x_{k+1}} f \\
+            &amp; = \sum_{k=0}^{n-1}\left(f(c_k)
+(x_{k+1}-x_k)-\int_{x_k}^{x_{k+1}} f \right).
+        \end{aligned}\]</span></p>
+<p>Or, pour <span class="math inline">\(0 \leq k \leq n-1\)</span>,
+<span class="math inline">\(f(c_k)(x_{k+1}-x_k) =
+\int_{x_k}^{x_{k+1}}  f(c_k)\)</span> donc</p>
+<p><span class="math display">\[\begin{aligned}
+            \left|S(f,\sigma,c)-\int_a^b f\right|
+            &amp; =
+\left|\sum_{k=0}^{n-1}\int_{x_k}^{x_{k+1}}\left(f(c_k)-f(x)\right)dx\right|
+\\
+            &amp; \leq
+\sum_{k=0}^{n-1}\int_{x_k}^{x_{k+1}}\left|f(c_k)-f(x)\right|dx
+        \end{aligned}\]</span></p>
+<p>Or, pour <span class="math inline">\(x \in [x_k,x_{k+1}]\)</span>, on
+a <span class="math inline">\(\left|c_k-x\right| \leq
+\left|x_{k+1}-x_k\right|  = x_{k+1}-x_k \leq p(\sigma)\)</span>.</p>
+<p>Donc en imposant <span class="math inline">\(p(\sigma) \leq
+\eta_\varepsilon\)</span>, pour <span class="math inline">\(x \in
+[x_k,x_{k+1}]\)</span>, on a <span
+class="math inline">\(\left|c_k-x\right| \leq \eta_\varepsilon\)</span>
+donc <span class="math inline">\(\left|f(c_k)-f(x)\right| \leq
+\varepsilon\)</span> par uniforme continuité de <span
+class="math inline">\(f\)</span>.</p>
+<p>Finalement,</p>
+<p><span class="math display">\[\begin{aligned}
+        \left|S(f,\sigma,c)-\int_a^b f\right|
+        &amp; \leq \sum_{k=0}^{n-1}\int_{x_k}^{x_{k+1}} \varepsilon dx
+\\
+        &amp; =  \sum_{k=0}^{n-1}(x_{k+1}-x_k) \varepsilon \\
+        &amp; = (x_{n}-x_0) \varepsilon = (b-a)\varepsilon.
+        \end{aligned}\]</span></p>
+<p>Donc pour <span class="math inline">\(p(\sigma) \leq
+\eta_\varepsilon\)</span> assez petit, <span
+class="math inline">\(\left|S(f,\sigma,c)-\int_a^b f\right| \leq
+\varepsilon\)</span>, ce qui veut dire</p>
+<p><span class="math display">\[S(f,\sigma,c) \xrightarrow[p(\sigma) \to
+0]{} \int_a^b f.\]</span></p></li>
+<li><p>Revenons au cas général : <span class="math inline">\(f \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>.</p>
+<p>Soit <span class="math inline">\(\tau = (a_0,\ldots,a_p)\)</span>
+adaptée à <span class="math inline">\(f\)</span>.</p>
+<p>Alors, pour tout <span class="math inline">\(0 \leq k \leq
+p-1\)</span>, <span class="math inline">\(f_{| ]a_k, a_{k+1}[}\)</span>
+est continue et il existe <span class="math inline">\(\ell_{k,d} \in
+\mathbb{R}\)</span> et <span class="math inline">\(\ell_{k+1,g} \in
+\mathbb{R}\)</span> telles que <span class="math inline">\(f(x)
+\xrightarrow[x \to a_k^+]{} \ell_{k,d}\)</span> et <span
+class="math inline">\(f(x) \xrightarrow[x \to a_{k+1}^-]{}
+\ell_{k+1,g}.\)</span></p>
+<p>On a donc <span class="math inline">\(f_{|]a_k,a_{k+1}[}\)</span> qui
+est prolongeable en une fonction continue <span
+class="math inline">\(\tilde{f}_k\)</span> sur <span
+class="math inline">\([a_k,a_{k+1}]\)</span> en posant <span
+class="math inline">\(\tilde{f}_k(a_k) = \ell_{k,d}\)</span> et <span
+class="math inline">\(\tilde{f}_k(a_{k+1}) = \ell_{k+1,g}\)</span>.</p>
+<p>On note <span class="math inline">\(\sigma_{|[a_k,a_{k+1}]}\)</span>
+la subdivision <span class="math inline">\(\sigma\)</span> ramenée à
+<span class="math inline">\([a_k,a_{k+1}]\)</span>, c’est-à dire la
+subdivision <span class="math inline">\(\sigma\)</span> à laquelle on a
+ôté les points hors de <span
+class="math inline">\([a_k,a_{k+1}]\)</span> et rajouter <span
+class="math inline">\(a_k,a_{k+1}\)</span> aux extrémités.</p>
+<p>On note de même <span
+class="math inline">\(c_{|[a_k,a_{k+1}]})\)</span> qui correspond aux
+points <span class="math inline">\(c\)</span> qui sont dans les segments
+de <span class="math inline">\(\sigma_{|[a_k,a_{k+1}]}\)</span>.</p>
+<p>Alors, par le cas précédent, <span
+class="math inline">\(S(\tilde{f}_k,\sigma_{|[a_k,a_{k+1}]},c_{|[a_k,a_{k+1}]})
+\xrightarrow[p(\sigma) \to 0]{} \int_{a_k}^{a_{k+1}} \tilde{f}_k =
+\int_{a_k}^{a_{k+1}} f\)</span>.</p>
+<p>Or, <span class="math inline">\(S(f,\sigma,c) = \sum_{k=0}^{n-1}
+S(\tilde{f}_k,\sigma_{|[a_k,a_{k+1}]},c_{|[a_k,a_{k+1}]})\)</span>
+donc</p>
+<p><span class="math display">\[S(f,\sigma,c)  \xrightarrow[p(\sigma)
+\to 0]{} \sum_{k=0}^{n-1}\int_{a_k}^{a_{k+1}} f = \int_a^b
+f.\]</span></p></li>
+</ul>
+</div>
+<div class="wex">
+<p><span id="ex:somme_Riemann_sub_reguliere"
+label="ex:somme_Riemann_sub_reguliere"></span> Soit <span
+class="math inline">\(f \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>.</p>
+<p>Pour <span class="math inline">\(n \in \mathbb{N}^{\star}\)</span>,
+on considère <span class="math inline">\(\sigma_n =
+\left(a+k\frac{b-a}{n}\right)_{0 \leq k \leq n}\)</span> la subdivision
+régulière de <span class="math inline">\([a,b]\)</span> de taille <span
+class="math inline">\(n\)</span>.</p>
+<p>Alors, <span class="math inline">\(p(\sigma_n) = \frac{b-a}{n}
+\xrightarrow[n \to +\infty]{} 0\)</span>.</p>
+<p>Donc en considérant pour <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span>, <span class="math inline">\(c_n =
+(c_{0,n},\ldots,c_{n-1,n})\)</span> tel que pour tout <span
+class="math inline">\(0 \leq k \leq n-1\)</span>, <span
+class="math inline">\(c_{k,n} \in
+\left[a+k\frac{b-a}{n},a+(k+1)\frac{b-a}{n}\right]\)</span> , on a</p>
+<p><span class="math display">\[S(f,\sigma_n,c_n) =
+\frac{b-a}{n}\sum_{k=0}^n f\left(c_{k,n}\right) \xrightarrow[n \to
++\infty]{} \int_a^b f.\]</span></p>
+<p>Par exemple,</p>
+<p><span class="math display">\[S(f,\sigma_n,c_n) =
+\frac{b-a}{n}\sum_{k=0}^n f\left(a+k\frac{b-a}{n}\right) \xrightarrow[n
+\to +\infty]{} \int_a^b f.\]</span></p>
+<p>Pour <span class="math inline">\(f \in
+\mathscr{C}_{\mathrm{m}}\left([0,1]\right)\)</span>, cela donne <span
+class="math display">\[S(f,\sigma_n,c_n) = \frac{1}{n}\sum_{k=0}^n
+f\left(\frac{k}{n}\right) \xrightarrow[n \to +\infty]{} \int_0^1
+f.\]</span></p>
+</div>
+<div class="wex">
+<p><strong>Exercice</strong> — Déterminer la limite de <span
+class="math inline">\((u_n)_{n \geq 1}\)</span> définie par <span
+class="math display">\[\forall n \in \mathbb{N}^{\star}, u_n =
+\sum_{k=0}^{n-1} \frac{\sqrt[n]{e^k}}{n^2+k^2}.\]</span></p>
+<p><strong>Corrigé</strong> — Remarquons que pour <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span>,</p>
+<p><span class="math display">\[u_n = \sum_{k=0}^{n-1}
+\frac{e^{\frac{k}{n}}}{n^2+k^2} = \frac{1}{n} \sum_{k=0}^{n-1}
+\frac{e^{\frac{k}{n}}}{1+\left(\frac{k}{n}\right)^2}.\]</span></p>
+<p>On reconnaît donc une somme de Riemann comme dans l’exemple <a
+href="#ex:somme_Riemann_sub_reguliere" data-reference-type="ref"
+data-reference="ex:somme_Riemann_sub_reguliere">[ex:somme_Riemann_sub_reguliere]</a>
+et on a donc</p>
+<p><span class="math inline">\(u_n \xrightarrow[n \to +\infty]{}
+\int_0^1 \frac{e^x}{1+x^2}dx.\)</span></p>
+</div>
+<h1 data-number="4"
+id="étude-de-lapplication-x-mapsto-int_x_0x-ftdt"><span
+class="header-section-number">4</span> Étude de l’application <span
+class="math inline">\(x \mapsto \int_{x_0}^x f(t)dt\)</span></h1>
+<p>Dans cette partie on va maintenant considérer <span
+class="math inline">\(f : I \to \mathbb{R}\)</span> continue avec <span
+class="math inline">\(I\)</span> un intervalle quelconque de <span
+class="math inline">\(\mathbb{R}\)</span>.</p>
+<h2 data-number="4.1" id="extension-de-la-notion-dintégrale"><span
+class="header-section-number">4.1</span> Extension de la notion
+d’intégrale</h2>
+<p>Soit <span class="math inline">\(f : I \to \mathbb{R}\)</span>
+continue et <span class="math inline">\(a,b \in I\)</span>.</p>
+<p>Jusqu’ici, on a défini <span class="math inline">\(\int_a^b
+f\)</span> avec <span class="math inline">\(a &lt;b\)</span>. On étend
+cette définition de sorte que</p>
+<ul>
+<li><p>si <span class="math inline">\(a = b\)</span>, on pose <span
+class="math inline">\(\int_a^b f = \int_a^a f = 0\)</span>,</p></li>
+<li><p>si <span class="math inline">\(a &gt; b\)</span>, on pose <span
+class="math inline">\(\int_a^b f = -\int_b^a f\)</span>.</p></li>
+</ul>
+<p>Cette définition est choisie de sorte que la relation de Chasles
+reste vraie, c’est-à-dire, pour tout <span class="math inline">\(a,b,c
+\in I\)</span>,</p>
+<p><span class="math display">\[\boxed{\int_a^b f =\int_a^c f + \int_c^b
+f.}\]</span></p>
+<p>En effet,</p>
+<ul>
+<li><p>si <span class="math inline">\(c=a\)</span>, <span
+class="math inline">\(\int_a^c f = 0\)</span> et donc <span
+class="math inline">\(\int_a^b f =\int_a^c f + \int_c^b f = 0+\int_a^b
+f\)</span>.</p></li>
+<li><p>si <span class="math inline">\(c &lt; a &lt; b\)</span>, on sait
+par ce qui précède que <span class="math display">\[\int_c^b f =
+\int_c^a f + \int_a^b f,\]</span> ce qui équivaut à <span
+class="math inline">\(\int_a^b f =-\int_c^a f+ \int_c^b f   = \int_a^c
+f+ \int_c^b f\)</span>.</p></li>
+</ul>
+<p>Le détail important qui change est le suivant : pour <span
+class="math inline">\(a,b \in I\)</span>, on a <span
+class="math display">\[\boxed{\left|\int_a^b f\right| \leq \left\{
+\begin{array}{ll}
+    \int_a^b \left|f\right| &amp; \mbox{si $a \leq b$} \\
+    &amp; \\
+    \int_b^a \left|f\right| &amp; \mbox{si $a &gt; b$} \\
+\end{array}
+\right..}\]</span></p>
+<p>En effet,</p>
+<ul>
+<li><p>Le cas <span class="math inline">\(a &lt; b\)</span> correspond
+au début du cours,</p></li>
+<li><p>le cas <span class="math inline">\(a=b\)</span> donne <span
+class="math inline">\(0 \leq 0\)</span>,</p></li>
+<li><p>le cas <span class="math inline">\(b=a\)</span> donne</p>
+<p><span class="math display">\[\left|\int_a^b f\right| =
+\left|-\int_b^a f\right| = \left|\int_b^a f\right| \leq \int_b^a
+\left|f\right|  \text{ d&#39;après le début de cours car $b &lt;
+a$.}\]</span></p></li>
+</ul>
+<h2 data-number="4.2" id="introduction-de-x-mapsto-int_ax-ftdt"><span
+class="header-section-number">4.2</span> Introduction de <span
+class="math inline">\(x \mapsto \int_a^x f(t)dt\)</span></h2>
+<div class="wprop">
+<p><span id="prop:primitive_fonctione_c0_integrale"
+label="prop:primitive_fonctione_c0_integrale"></span> Soit <span
+class="math inline">\(f : I \to \mathbb{R}\)</span> continue et <span
+class="math inline">\(x_0 \in I\)</span>.</p>
+<p>On peut considérer <span class="math inline">\(\int_{x_0}^x
+f\)</span> pour <span class="math inline">\(x \in I\)</span> (car <span
+class="math inline">\([x_0,x] \subset I\)</span>).</p>
+<p>On pose <span class="math inline">\(\begin{array}{lllll}
+F_{x_0} &amp; : &amp; I &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \int_{x_0}^x f(t)dt
+\end{array}\)</span>.</p>
+<p>Alors, <span class="math inline">\(F_{x_0}\)</span> est dérivable sur
+<span class="math inline">\(I\)</span> et <span
+class="math inline">\(F_{x_0}&#39; = f\)</span>. Autrement dit, <span
+class="math inline">\(F_{x_0}\)</span> est une primitive de <span
+class="math inline">\(f\)</span> sur <span
+class="math inline">\(I\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Cela revient à montrer que pour tout <span class="math inline">\(x
+\in I\)</span>, <span class="math inline">\(d(h) =
+\frac{F_{x_0}(x+h)-F_{x_0}(x)}{h}-f(x)\)</span> tend vers <span
+class="math inline">\(0\)</span> quand <span
+class="math inline">\(h\)</span> tend vers <span
+class="math inline">\(0\)</span>.</p>
+<p>Or, pour <span class="math inline">\(h \in
+\mathbb{R}^{\star}\)</span>, par Chasles, <span
+class="math display">\[F_{x_0}(x+h)-F_{x_0}(x) = \int_{x_0}^{x+h} f(t)dt
+- \int_{x_0}^x f(t)dt =  \int_{x}^{x+h} f(t)dt.\]</span></p>
+<p>De plus, <span class="math inline">\(h f(x) = \int_{x}^{x+h} f(x)dt
+\iff f(x) = \frac{1}{h}\int_{x}^{x+h} f(x)dt\)</span>.</p>
+<p>On a donc <span class="math inline">\(d(h) = \frac{1}{h}
+\int_{x}^{x+h} f(t)dt-\frac{1}{h}\int_{x}^{x+h} f(x)dt =
+\frac{1}{h}\int_{x}^{x+h}\left( f(t)-f(x)\right)dt\)</span>.</p>
+<p>On remarque alors que <span class="math inline">\(f\)</span> est
+continue en <span class="math inline">\(x\)</span> donc il existe <span
+class="math inline">\(\eta &gt; 0\)</span> tel que pour tout <span
+class="math inline">\(t \in I\)</span> tel que <span
+class="math inline">\(\left|t-x\right| &lt; \eta\)</span>, <span
+class="math inline">\(\left|f(t)-f(x)\right| \leq
+\varepsilon\)</span>.</p>
+<p>Puis,</p>
+<ul>
+<li><p>si <span class="math inline">\(h &gt; 0\)</span>, <span
+class="math inline">\(x+h &gt; x\)</span> et</p>
+<p><span class="math display">\[\left|d(h)\right| =
+\frac{1}{h}\left|\int_{x}^{x+h}\left( f(t)-f(x)\right)dt\right| \leq
+\frac{1}{h} \int_{x}^{x+h}\left| f(t)-f(x)\right|dt.\]</span></p>
+<p>De plus, pour <span class="math inline">\(t \in [x,x+h]\)</span>,
+<span class="math inline">\(\left|t-x\right| \leq h\)</span> donc en
+prenant <span class="math inline">\(h\)</span> tel que <span
+class="math inline">\(0 &lt; h \leq \eta\)</span>,</p>
+<p><span class="math display">\[\left|d(h)\right| \leq \frac{1}{h}
+\int_{x}^{x+h} \varepsilon dt = \varepsilon.\]</span></p></li>
+<li><p>Si <span class="math inline">\(h &lt; 0\)</span>, <span
+class="math inline">\(x+h &lt; x\)</span> et</p>
+<p><span class="math display">\[\left|d(h)\right| =
+\frac{1}{h}\left|\int_{x}^{x+h}\left( f(t)-f(x)\right)dt\right| \leq
+\frac{1}{h} \int_{x+h}^{x}\left| f(t)-f(x)\right|dt.\]</span></p>
+<p>De plus, pour <span class="math inline">\(t \in [x+h,x]\)</span>,
+<span class="math inline">\(\left|t-x\right| \leq
+\left|h\right|\)</span> donc en prenant <span
+class="math inline">\(h\)</span> tel que <span
+class="math inline">\(-\eta \leq h &lt; 0\)</span>,</p>
+<p><span class="math display">\[\left|d(h)\right| \leq \frac{1}{h}
+\int_{x+h}^{x} \varepsilon dt = \varepsilon.\]</span></p></li>
+</ul>
+<p>Finalement, pour <span class="math inline">\(h\)</span> tel que <span
+class="math inline">\(\left|h\right| \leq \eta\)</span>, <span
+class="math inline">\(\left|d(h)\right| \leq \varepsilon\)</span>.</p>
+<p>On a donc <span class="math inline">\(d(h) \xrightarrow[h \to 0]{}
+0\)</span> et <span class="math inline">\(F_{x_0}\)</span> dérivable en
+<span class="math inline">\(x\)</span> avec <span
+class="math inline">\(F_{x_0}&#39;(x) = f(x)\)</span>.</p>
+</div>
+<div class="wcor">
+<p>Soit <span class="math inline">\(f: I \to \mathbb{R}\)</span>
+continue alors <span class="math inline">\(f\)</span> admet une
+primitive sur <span class="math inline">\(I\)</span>.</p>
+<p>De plus, <span class="math inline">\(F_{x_0}\)</span> est l’unique
+primitive de <span class="math inline">\(f\)</span> qui s’annule en
+<span class="math inline">\(x_0\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(x_0 \in I\)</span>, <span
+class="math inline">\(F_{x_0}\)</span> définie dans la proposition <a
+href="#prop:primitive_fonctione_c0_integrale" data-reference-type="ref"
+data-reference="prop:primitive_fonctione_c0_integrale">[prop:primitive_fonctione_c0_integrale]</a>
+est une primitive de <span class="math inline">\(f\)</span> sur <span
+class="math inline">\(I\)</span>.</p>
+<p>De plus, soit <span class="math inline">\(F\)</span> une primitive
+quelconque de <span class="math inline">\(f\)</span> sur <span
+class="math inline">\(I\)</span> alors <span
+class="math inline">\((F-F_{x_0})&#39; = f-f = 0\)</span> donc il existe
+<span class="math inline">\(C \in \mathbb{R}\)</span> tel que <span
+class="math inline">\(F = F_{x_0} + C\)</span>.</p>
+<p>Alors, <span class="math inline">\(F(x_0) = 0\)</span> implique <span
+class="math inline">\(0 = F(x_0) = F_{x_0}(x_0) + C = C\)</span> donc
+<span class="math inline">\(F = F_{x_0}\)</span>.</p>
+</div>
+<div class="wrem">
+<p>En revanche, il est faux d’affirmer que toute primitive de <span
+class="math inline">\(f\)</span> continue s’écrive <span
+class="math inline">\(x \mapsto \int_{x_0}^x f(t)dt\)</span> avec un
+certain <span class="math inline">\(x_0 \in I\)</span>.</p>
+<p>Par exemple, avec <span class="math inline">\(I = \mathbb{R}\)</span>
+et <span class="math inline">\(f=0\)</span>, la primitive <span
+class="math inline">\(F = 1\)</span> ne peut pas s’écrire <span
+class="math inline">\(x \mapsto \int_{x_0}^x 0 dt = 0\)</span>.</p>
+</div>
+<div class="wcor">
+<p>Soit <span class="math inline">\(f: I \to \mathbb{R}\)</span>
+continue et <span class="math inline">\(a,b \in \mathbb{R}\)</span>.</p>
+<p>Soit <span class="math inline">\(F\)</span> une primitive de <span
+class="math inline">\(f\)</span> sur <span
+class="math inline">\(I\)</span> alors <span
+class="math inline">\(\int_a^b f(t)dt = F(b)-F(a)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Considérons <span class="math inline">\(x_0 \in I\)</span>, <span
+class="math inline">\(F_{x_0}\)</span> définie dans la proposition <a
+href="#prop:primitive_fonctione_c0_integrale" data-reference-type="ref"
+data-reference="prop:primitive_fonctione_c0_integrale">[prop:primitive_fonctione_c0_integrale]</a>
+et <span class="math inline">\(F\)</span> une primitive quelconque de
+<span class="math inline">\(f\)</span> sur <span
+class="math inline">\(I\)</span>.</p>
+<p>Alors <span class="math inline">\((F-F_{x_0})&#39; = f-f = 0\)</span>
+donc il existe <span class="math inline">\(C \in \mathbb{R}\)</span> tel
+que <span class="math inline">\(F = F_{x_0} + C\)</span>.</p>
+<p>On a donc</p>
+<p><span class="math display">\[\begin{aligned}
+     F(b) - F(a)
+     &amp; =F_{x_0}(b) + C -\left(F_{x_0}(a) + C \right) \\
+     &amp; = F_{x_0}(b)-F_{x_0}(a)  \\
+     &amp; = \int_{x_0}^b f(t)dt - \int_{x_0}^a f(t)dt \\
+     &amp; = \int_{x_0}^b f(t)dt + \int^{x_0}_a f(t)dt \\
+     &amp; =  \int_a^b f(t)dt.
+     \end{aligned}\]</span></p>
+</div>
+<h2 data-number="4.3"
+id="rappels-du-changement-de-variable-et-de-lintégration-par-parties"><span
+class="header-section-number">4.3</span> Rappels du changement de
+variable et de l’intégration par parties</h2>
+<div class="wthm">
+<p><strong>(Changement de variable)</strong> Soit <span
+class="math inline">\(f : I \to \mathbb{R}\)</span> continue sur <span
+class="math inline">\(I\)</span> et <span class="math inline">\(\varphi
+: J \to \mathbb{R}\)</span> (avec <span class="math inline">\(J\)</span>
+intervalle de <span class="math inline">\(\mathbb{R}\)</span>). On
+suppose <span class="math inline">\(\varphi\)</span> dérivable sur <span
+class="math inline">\(J\)</span>, <span
+class="math inline">\(\varphi&#39;\)</span> continue sur <span
+class="math inline">\(J\)</span> et <span
+class="math inline">\(\varphi(J) \subset I\)</span>. Alors, soient <span
+class="math inline">\(\alpha, \beta \in J\)</span>, <span
+class="math display">\[\int_\alpha^\beta  (f\circ \varphi)(t)
+\varphi&#39;(t)dt =
+\int_{\varphi(\alpha)}^{\varphi(\beta)}f(x)dx.\]</span></p>
+</div>
+<div class="wthm">
+<p><strong>(Intégration par parties)</strong> Soient <span
+class="math inline">\(u : I \to \mathbb{R}\)</span> et <span
+class="math inline">\(v: I \to \mathbb{R}\)</span> dérivables sur <span
+class="math inline">\(I\)</span> avec <span
+class="math inline">\(u&#39;,v&#39;\)</span> continues et <span
+class="math inline">\(a, b \in I\)</span> alors <span
+class="math display">\[\int_a^b u&#39;(x)v(x)dx = [u(x)v(x)]_a^b -
+\int_a^b u(x)v&#39;(x)dx.\]</span></p>
+</div>
+<h2 data-number="4.4" id="égalité-de-taylor-avec-reste-intégral"><span
+class="header-section-number">4.4</span> Égalité de Taylor avec reste
+intégral</h2>
+<div class="wthm">
+<p><strong>(Égalité de Taylor avec reste intégral)</strong> Soient <span
+class="math inline">\(f : I \to \mathbb{R}\)</span> de classe <span
+class="math inline">\(\mathscr{C}^{n+1}\)</span> sur <span
+class="math inline">\(I\)</span> (<span class="math inline">\(n\in
+\mathbb{N}\)</span>) et <span class="math inline">\(a,b \in
+I\)</span>.</p>
+<p>Alors,</p>
+<p><span class="math display">\[f(b) = f(a) +
+f&#39;(a)(b-a)+\ldots+\frac{f^{(n)}(a)}{n!}(b-a)^n + \int_a^b
+\frac{(b-t)^n}{n!}f^{(n+1)}(t)dt.\]</span></p>
+</div>
+<div class="wproof">
+<p>Démontrons ce résultat par récurrence sur <span
+class="math inline">\(n\)</span>.</p>
+<ul>
+<li><p><u>Initialisation.</u> Pour <span class="math inline">\(n =
+0\)</span>, pour <span class="math inline">\(f\)</span> <span
+class="math inline">\(\mathscr{C}^1\)</span> sur <span
+class="math inline">\(I\)</span>, <span class="math inline">\(f\)</span>
+est une primitive de <span class="math inline">\(f&#39;\)</span> sur
+<span class="math inline">\(I\)</span> donc on a <span
+class="math display">\[\int_a^b f&#39;(t)dt = f(b)-f(a) \iff f(b) = f(a)
++ \int_a^b \frac{(b-t)^0}{0!}f&#39;(t)dt.\]</span></p></li>
+<li><p><u>Hérédité.</u> Supposons le résultat vrai pour <span
+class="math inline">\(f \in \mathscr{C}^{n+1}\)</span> sur <span
+class="math inline">\(I\)</span>.</p>
+<p>On a alors <span class="math display">\[f(b) = f(a) +
+f&#39;(a)(b-a)+\ldots+\frac{f^{(n)}(a)}{n!}(b-a)^n + \int_a^b
+\frac{(b-t)^n}{n!}f^{(n+1)}(t)dt.\]</span></p>
+<p>En intégrant par parties <span class="math inline">\(\int_a^b
+\frac{(b-t)^n}{n!}f^{(n+1)}(t)dt\)</span></p>
+<p>avec <span class="math inline">\(\left\{ \begin{array}{ll}
+        u(t) &amp; = -\frac{(b-t)^{n+1}}{n!(n+1)} =
+-\frac{(b-t)^{n+1}}{(n+1)!} \\
+        v(t) &amp; = f^{(n+1)}(t)
+    \end{array}\right. \Longrightarrow \left\{ \begin{array}{ll}
+        u&#39;(t) &amp; = \frac{(b-t)^n}{n!} \\
+        v&#39;(t) &amp; = f^{(n+2)}(t)
+    \end{array}\right.\)</span>,</p>
+<p>on a</p>
+<p><span class="math display">\[\begin{aligned}
+        \int_a^b \frac{(b-t)^n}{n!}f^{(n+1)}(t)dt
+        &amp; = \left[-\frac{(b-t)^{n+1}}{(n+1)!}f^{(n+1)}(t)\right]_a^b
++\int_a^b\frac{(b-t)^{n+1}}{(n+1)!} f^{(n+2)}(t)dt \\
+        &amp; =
+\frac{(a-t)^{n+1}}{(n+1)!}f^{(n+1)}(t)+\int_a^b\frac{(b-t)^{n+1}}{(n+1)!}
+f^{(n+2)}(t)dt.
+    \end{aligned}\]</span></p>
+<p>Donc <span class="math display">\[f(b) = f(a) +
+f&#39;(a)(b-a)+\ldots+\frac{f^{(n)}(a)}{n!}(b-a)^n
++\frac{(a-t)^{n+1}}{(n+1)!}f^{(n+1)}(t)+\int_a^b\frac{(b-t)^{n+1}}{(n+1)!}
+f^{(n+2)}(t)dt,\]</span> ce qui est l’égalité à <span
+class="math inline">\(n+1\)</span>.</p></li>
+</ul>
+</div>
+<div class="wcor">
+<p><span id="cor:egalite_Taylor_reste_integral"
+label="cor:egalite_Taylor_reste_integral"></span> Soient <span
+class="math inline">\(f : I \to \mathbb{R}\)</span> de classe <span
+class="math inline">\(\mathscr{C}^{n+1}\)</span> sur <span
+class="math inline">\(I\)</span> (<span class="math inline">\(n\in
+\mathbb{N}\)</span>) et <span class="math inline">\(a,b \in
+I\)</span>.</p>
+<p>Alors,</p>
+<p><span class="math display">\[\begin{aligned}
+    f(b) &amp; = f(a) +
+f&#39;(a)(b-a)+\ldots+\frac{f^{(n)}(a)}{n!}(b-a)^n \\
+    &amp; + \frac{(b-a)^{n+1}}{n!}\int_0^1 (1-u)^n
+f^{(n+1)}\left(a+u(b-a)\right)du.
+    \end{aligned}\]</span></p>
+</div>
+<div class="wproof">
+<p>On remarque que seul l’intégrale est changée par rapport à la formule
+de Taylor avec reste intégral.</p>
+<p>On applique le changement de variable <span
+class="math inline">\(a+u(b-a) = t \iff u =
+\frac{t-a}{b-a}\)</span>.</p>
+<p>On a alors <span class="math inline">\(dt = (b-a)du\)</span> et</p>
+<p><span class="math display">\[\begin{aligned}
+    \int_a^b \frac{(b-t)^n}{n!}f^{(n+1)}(t)dt
+    &amp;  = \int_0^1
+\frac{(b-a-u(b-a))^n}{n!}f^{(n+1)}\left(a+u(b-a)\right) (b-a)du \\
+    &amp; = (b-a) \int_0^1
+\frac{(b-a)(1-u))^n}{n!}f^{(n+1)}\left(a+u(b-a)\right) du \\
+    &amp; = \frac{(b-a)^{n+1}}{n!}\int_0^1 (1-u)^n
+f^{(n+1)}\left(a+u(b-a)\right)du.
+    \end{aligned}\]</span></p>
+</div>
+<div class="wrem">
+<p>Le changement de variable utilisé dans la preuve du corollaire <a
+href="#cor:egalite_Taylor_reste_integral" data-reference-type="ref"
+data-reference="cor:egalite_Taylor_reste_integral">[cor:egalite_Taylor_reste_integral]</a>
+est intéressant à retenir. Il permet de passer d’une intégrale sur <span
+class="math inline">\([a,b]\)</span> à une intégrale sur <span
+class="math inline">\([0,1]\)</span>.</p>
+<p>En fait, il suffit de remarquer que</p>
+<p><span class="math display">\[t \in [a,b] \iff \exists u \in [0,1] / t
+= a+u(b-a).\]</span></p>
+<p>En effet,</p>
+<ul>
+<li><p>Si <span class="math inline">\(t = a+u(b-a)\)</span> avec <span
+class="math inline">\(u \in [0,1]\)</span> alors <span
+class="math inline">\(t \leq a+b-a = b\)</span> et <span
+class="math inline">\(t \geq a\)</span> donc <span
+class="math inline">\(t\in[a,b]\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(t \in [a,b]\)</span>, <span
+class="math inline">\(u = \frac{t-a}{b-a}\)</span> vérifie <span
+class="math inline">\(0 \leq u \leq 1\)</span> et <span
+class="math inline">\(a+u(b-a) = t-a+a = t\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="4.5" id="inégalité-de-taylor-lagrange"><span
+class="header-section-number">4.5</span> Inégalité de
+Taylor-Lagrange</h2>
+<div class="wthm">
+<p><strong>(Inégalité de Taylor-Lagrange)</strong> Soient <span
+class="math inline">\(f : I \to \mathbb{R}\)</span> de classe <span
+class="math inline">\(\mathscr{C}^{n+1}\)</span> sur <span
+class="math inline">\(I\)</span> (<span class="math inline">\(n\in
+\mathbb{N}\)</span>) et <span class="math inline">\(a,b \in
+I\)</span>.</p>
+<p>Soit <span class="math inline">\(M_{n+1}\)</span> majorant de <span
+class="math inline">\(\left|f^{(n+1)}\right|\)</span> sur <span
+class="math inline">\([a,b]\)</span>.</p>
+<p>Alors,</p>
+<p><span class="math display">\[\left|f(b) - f(a) +
+f&#39;(a)(b-a)+\ldots+\frac{f^{(n)}(a)}{n!}(b-a)^n\right|
+\leq  \frac{\left|b-a\right|^{n+1}}{(n+1)!}M_{n+1}.\]</span></p>
+</div>
+<div class="wproof">
+<p>La formulation du corollaire <a
+href="#cor:egalite_Taylor_reste_integral" data-reference-type="ref"
+data-reference="cor:egalite_Taylor_reste_integral">[cor:egalite_Taylor_reste_integral]</a>
+de l’égalité de Taylor avec reste intégral appliquée à <span
+class="math inline">\(f \in \mathscr{C}^{n+1}\)</span> donne</p>
+<p><span class="math display">\[\begin{aligned}
+    f(b) &amp; = f(a) +
+f&#39;(a)(b-a)+\ldots+\frac{f^{(n)}(a)}{n!}(b-a)^n \\
+    &amp; + \frac{(b-a)^{n+1}}{n!}\int_0^1 (1-u)^n
+f^{(n+1)}\left(a+u(b-a)\right)du.
+    \end{aligned}\]</span></p>
+<p>On a donc <span class="math display">\[\begin{aligned}
+        &amp;\left|f(b) - f(a) +
+f&#39;(a)(b-a)+\ldots+\frac{f^{(n)}(a)}{n!}(b-a)^n\right| \\
+        &amp; = \left|\frac{(b-a)^{n+1}}{n!}\int_0^1 (1-u)^n
+f^{(n+1)}\left(a+u(b-a)\right)du\right| \\
+        &amp; \leq \frac{\left|b-a\right|^{n+1}}{n!} \int_0^1 (1-u)^n
+\left|f^{(n+1)}\left(a+u(b-a)\right)\right|du \\
+        &amp; \leq  \frac{\left|b-a\right|^{n+1}}{n!} \int_0^1 (1-u)^n
+M_{n+1}du \text{ car pour $u \in [0,1], a+u(b-a) \in [a,b]$} \\
+        &amp; =  \frac{\left|b-a\right|^{n+1}M_{n+1}}{n!}\int_0^1
+(1-u)^ndu \\
+        &amp; =
+\frac{\left|b-a\right|^{n+1}M_{n+1}}{n!}\left[\frac{-1}{n+1}(1-u)^{n+1}\right]_0^1
+\\
+        &amp; = \frac{\left|b-a\right|^{n+1}}{(n+1)!}M_{n+1}.
+    \end{aligned}\]</span></p>
+</div>
+<div class="wappli">
+<p>On considère <span class="math inline">\(f=\exp\)</span> qui est
+<span class="math inline">\(\mathscr{C}^\infty\)</span> sur <span
+class="math inline">\(\mathbb{R}\)</span> et <span
+class="math inline">\(a=0, b=x \in \mathbb{R}\)</span>.</p>
+<p>Alors, pour tout <span class="math inline">\(n \in
+\mathbb{N}\)</span>, <span class="math inline">\(f^{(n+1)} =
+\exp\)</span> donc <span class="math inline">\(f^{(n+1)}(a)
+=f^{(n+1)}(0) = 1\)</span> et par croissance de <span
+class="math inline">\(\exp\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+        &amp;\mbox{ si $x &gt; 0$,}  \\
+        \forall t \in [0,x], \left|e^t\right| = e^t \leq e^x \\
+        &amp;\mbox{et si $x &lt; 0$,}  \\
+        \forall t \in [x,0], \left|e^t\right| = e^t \leq 1 \\
+    \end{aligned}\]</span></p>
+<p><span class="math inline">\(M_x\)</span> est donc un majorant de
+<span class="math inline">\(\left|f^{(n+1)}\right|\)</span> sur <span
+class="math inline">\([0,x]\)</span>.</p>
+<p>On a donc, en appliquant l’inégalité de Taylor-Lagrange, pour tout
+<span class="math inline">\(n \in \mathbb{N}\)</span>,</p>
+<p><span class="math display">\[\left|e^x - \sum_{k=0}^n
+\frac{x^k}{k!}\right| \leq \frac{x^{n+1}}{(n+1)!}M_x \xrightarrow[n \to
++\infty]{} 0.\]</span></p>
+<p>Donc pour tout <span class="math inline">\(x \in
+\mathbb{R}\)</span>,</p>
+<p><span class="math display">\[\sum_{k=0}^n \frac{x^k}{k!}
+\xrightarrow[n \to +\infty]{} e^x.\]</span></p>
+<p>En particulier,</p>
+<p><span class="math display">\[\sum_{k=0}^n \frac{1}{k!} \xrightarrow[n
+\to +\infty]{} e.\]</span></p>
+</div>
+</body>
+</html>
+
+<script>
+
+const toggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Appliquer le thème au chargement
+const currentTheme = localStorage.getItem('theme') || 'default';
+body.setAttribute('data-md-color-scheme', currentTheme);
+
+toggle.addEventListener('click', () => {
+    let scheme = body.getAttribute('data-md-color-scheme');
+    let newScheme = (scheme === 'default') ? 'slate' : 'default';
+    
+    body.setAttribute('data-md-color-scheme', newScheme);
+    localStorage.setItem('theme', newScheme);
+});
+
+// 4. CONVERSION TIKZ POUR TIKZJAX
+    document.querySelectorAll('pre').forEach(pre => {
+        let code = pre.querySelector('code');
+        if (code && code.textContent.includes('\\begin{tikzpicture}')) {
+            let script = document.createElement('script');
+            script.type = 'text/tikz';
+            // On force le chargement des librairies nécessaires pour vos matrices
+            script.innerHTML = '\\usetikzlibrary{matrix, calc}\n' + code.textContent;
+            pre.replaceWith(script);
+        }
+    });
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    let secCount = -1;
+    let thmCount = -1;
+    let labels = {};
+
+    const noms = {
+        'wthm':'Théorème', 'wprop':'Proposition', 'wdefi':'Définition',
+        'wlem':'Lemme', 'wcor':'Corollaire', 'wappli':'Application',
+        'wrem':'Remarque', 'wrappel': 'Rappel', 'wex':'Exemple',
+        'wexs':'Exemples', 'wproof':'Preuve'
+    };
+
+    // Numérotation des environnements
+    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs, .wrappel,.wproof").forEach(el => {
+        if (el.tagName.toLowerCase() === "h1" && !el.closest("#TOC")) {
+            secCount++;
+            thmCount = 0;
+        } else if (noms[Array.from(el.classList).find(c => noms[c])]) {
+            let type = Array.from(el.classList).find(c => noms[c]);
+            if (type !== 'wproof') {
+                thmCount++;
+                let num = secCount + "." + thmCount;
+                let id = el.querySelector("span[id]") ? el.querySelector("span[id]").id : null;
+                if(id) labels[id] = { num: num, type: type.substring(1) };
+                
+                let p = el.querySelector("p");
+                if (p) {
+                    let strong = p.querySelector("strong");
+                    let title = (strong && strong.innerText.includes("(")) ? ` <span class="env-title">${strong.outerHTML}</span>` : "";
+                    if (title) strong.remove();
+                    p.innerHTML = `<strong class="env-header">${noms[type]} ${num}</strong>` + title + " — " + p.innerHTML;
+                }
+            } else {
+                let p = el.querySelector("p");
+                if (p) p.innerHTML = `<strong class="env-header">Preuve</strong> — ` + p.innerHTML;
+            }
+        }
+    });
+
+    // Fonction lancée une fois MathJax terminé
+    function executerApresMathJax() {
+        
+        // 1. Capture des équations
+        document.querySelectorAll("mjx-math[display='true']").forEach((el, index) => {
+            let num = el.querySelector(".mjx-eqn-number");
+            if (num) {
+                let val = num.innerText.replace(/[()]/g, '');
+                let id = el.id || "eq-" + index;
+                el.id = id;
+                labels[id] = { num: val, type: 'eq' };
+            }
+        });
+
+        // 2. TRACÉ DES LIGNES PARTIELLES
+        document.querySelectorAll("mjx-mtext").forEach(el => {
+            let text = el.textContent;
+            
+            // DÉCODAGE MAGIQUE : si MathJax cache le texte dans les classes CSS
+            if (!text || text.trim() === "") {
+                text = Array.from(el.children).map(c => {
+                    let cls = Array.from(c.classList).find(className => className.startsWith('mjx-c'));
+                    return cls ? String.fromCharCode(parseInt(cls.replace('mjx-c', ''), 16)) : '';
+                }).join('');
+            }
+
+            if (text.includes("CLINEX")) {
+                let regex = /CLINEX(\d+)X(\d+)X/g;
+                let match;
+                let row = el.closest("mjx-mtr");
+                let prevRow = row ? row.previousElementSibling : null;
+
+                while ((match = regex.exec(text)) !== null) {
+                    let start = parseInt(match[1]);
+                    let end = parseInt(match[2]);
+
+                    if (prevRow) {
+                        let cells = prevRow.querySelectorAll("mjx-mtd");
+                        for (let i = start - 1; i < end; i++) {
+                            if (cells[i]) {
+                                cells[i].style.borderBottom = "max(1px, 0.08em) solid currentColor";
+                                cells[i].style.paddingBottom = "0.2em";
+                            }
+                        }
+                    }
+                }
+                // On fait disparaître le marqueur texte
+                el.style.display = "none";
+            }
+        });
+
+        // 3. Remplacement des références
+        document.querySelectorAll("body *").forEach(el => {
+            if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
+                el.innerHTML = el.innerHTML
+                .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m)
+                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => {
+                    let f = t + ":" + id;
+                    return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
+                });
+            }
+        });
+    }
+
+    // Attente robuste de MathJax
+    function waitForMathJax() {
+        if (window.MathJax && window.MathJax.startup && window.MathJax.startup.promise) {
+            window.MathJax.startup.promise.then(() => {
+                setTimeout(executerApresMathJax, 50); 
+            }).catch(err => console.log('Erreur MathJax', err));
+        } else {
+            setTimeout(waitForMathJax, 100);
+        }
+    }
+
+    waitForMathJax();
+
+});
+</script>
+
