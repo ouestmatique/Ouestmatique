@@ -1,0 +1,1470 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Fractions rationnelles</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+
+
+<style>
+  /* Correctif MathJax : fusion des bordures pour les divisions de polynômes (array + cline) */
+  mjx-container mjx-mtable {
+    border-collapse: collapse !important;
+  }
+  mjx-container mjx-mtd {
+    padding-top: 0.25em !important;
+    padding-bottom: 0.25em !important;
+  }
+
+  body[data-md-color-scheme="slate"] svg {
+    filter: invert(1) hue-rotate(180deg);
+  }
+  body[data-md-color-scheme="slate"] .site-logo {
+    filter: none;
+  }
+  
+</style>
+
+<header class="site-header">
+
+   <div class="site-header-left">
+      <a href="../../index.html">
+        <img src="../../assets/logo.svg"
+             class="site-logo"
+             alt="Logo">
+      </a>
+    </div>
+
+<div class="site-header-right">
+   <button id="theme-toggle"
+style="
+margin-right: 15px;
+cursor: pointer;
+background: transparent;
+border: none;
+font-size: 1.1rem;
+color: var(--md-primary-bg-color);
+">
+🌙 / ☀️
+</button>
+
+<a href="../../index.html" class="home-link">
+   Retour à l’accueil
+ </a>
+</div>
+
+</header>
+
+
+<header id="title-block-header">
+
+<h1 class="title">Fractions rationnelles</h1>
+<p class="pdf-link">
+<a href="fractions_rationnelles.pdf" target="_blank">[PDF]</a>
+</p>
+
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#généralités" id="toc-généralités"><span
+class="toc-section-number">1</span> Généralités</a>
+<ul>
+<li><a href="#représentation-du-corps-des-fractions-rationnelles"
+id="toc-représentation-du-corps-des-fractions-rationnelles"><span
+class="toc-section-number">1.1</span> Représentation du corps des
+fractions rationnelles</a></li>
+<li><a href="#représentation-irréductible-de-f-in-mathbbkx"
+id="toc-représentation-irréductible-de-f-in-mathbbkx"><span
+class="toc-section-number">1.2</span> Représentation irréductible de
+<span class="math inline">\(F \in \mathbb{K}(X)\)</span></a></li>
+<li><a href="#racine-et-pôle-de-f-in-kx"
+id="toc-racine-et-pôle-de-f-in-kx"><span
+class="toc-section-number">1.3</span> Racine et pôle de <span
+class="math inline">\(F \in K(X)\)</span></a></li>
+<li><a href="#degré-de-f-in-mathbbkx"
+id="toc-degré-de-f-in-mathbbkx"><span
+class="toc-section-number">1.4</span> Degré de <span
+class="math inline">\(F \in \mathbb{K}(X)\)</span></a></li>
+<li><a href="#fonction-associée-à-f-in-mathbbkx"
+id="toc-fonction-associée-à-f-in-mathbbkx"><span
+class="toc-section-number">1.5</span> Fonction associée à <span
+class="math inline">\(F \in \mathbb{K}(X)\)</span></a></li>
+</ul></li>
+<li><a href="#décomposition-de-f-in-mathbbkx-en-éléments-simples"
+id="toc-décomposition-de-f-in-mathbbkx-en-éléments-simples"><span
+class="toc-section-number">2</span> Décomposition de <span
+class="math inline">\(F \in \mathbb{K}(X)\)</span> en éléments
+simples</a>
+<ul>
+<li><a href="#partie-entière-de-f-in-mathbbkx"
+id="toc-partie-entière-de-f-in-mathbbkx"><span
+class="toc-section-number">2.1</span> Partie entière de <span
+class="math inline">\(F \in \mathbb{K}(X)\)</span></a></li>
+<li><a href="#partie-polaire-associée-à-un-pôle-de-f-in-mathbbkx"
+id="toc-partie-polaire-associée-à-un-pôle-de-f-in-mathbbkx"><span
+class="toc-section-number">2.2</span> Partie polaire associée à un pôle
+de <span class="math inline">\(F \in \mathbb{K}(X)\)</span></a></li>
+<li><a
+href="#décomposition-en-éléments-simples-de-f-in-mathbbkx-si-le-dénominateur-est-scindé"
+id="toc-décomposition-en-éléments-simples-de-f-in-mathbbkx-si-le-dénominateur-est-scindé"><span
+class="toc-section-number">2.3</span> Décomposition en éléments simples
+de <span class="math inline">\(F \in \mathbb{K}(X)\)</span> si le
+dénominateur est scindé</a></li>
+<li><a
+href="#décomposition-de-f-in-mathbbrx-si-le-dénominateur-nest-pas-scindé-dans-mathbbrx"
+id="toc-décomposition-de-f-in-mathbbrx-si-le-dénominateur-nest-pas-scindé-dans-mathbbrx"><span
+class="toc-section-number">2.4</span> Décomposition de <span
+class="math inline">\(F \in \mathbb{R}(X)\)</span> si le dénominateur
+n’est pas scindé dans <span
+class="math inline">\(\mathbb{R}[X]\)</span></a></li>
+<li><a href="#fraction-paire-ou-impaire"
+id="toc-fraction-paire-ou-impaire"><span
+class="toc-section-number">2.5</span> Fraction paire ou impaire</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="généralités"><span
+class="header-section-number">1</span> Généralités</h1>
+<h2 data-number="1.1"
+id="représentation-du-corps-des-fractions-rationnelles"><span
+class="header-section-number">1.1</span> Représentation du corps des
+fractions rationnelles</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(\mathbb{K}\)</span> un sous-corps de
+<span class="math inline">\(\mathbb{C}\)</span>.</p>
+<p>On peut construire à partir de <span
+class="math inline">\(\mathbb{K}[X]\)</span> un corps noté <span
+class="math inline">\(\mathbb{K}(X)\)</span>, appelé le corps des
+fractions rationnelles à coefficients dans <span
+class="math inline">\(\mathbb{K}\)</span>, tel que</p>
+<ul>
+<li><p><span class="math inline">\(\mathbb{K}[X] \subset
+\mathbb{K}(X)\)</span>,</p></li>
+<li><p>les opérations dans <span
+class="math inline">\(\mathbb{K}(X)\)</span> prolongent les opérations
+de <span class="math inline">\(\mathbb{K}[X]\)</span>.</p></li>
+</ul>
+<p>On dote alors chaque élément non nul <span
+class="math inline">\(P\)</span> de <span
+class="math inline">\(\mathbb{K}[X]\)</span> d’un inverse <span
+class="math inline">\(P^{-1}\)</span> tel que <span
+class="math inline">\(\mathbb{K}(X) = \left\{AB^{-1} / A,B \in
+\mathbb{K}[X] \text{ et }B \neq 0\right\}\)</span>. On note alors <span
+class="math inline">\(\frac{A}{B}\)</span> plutôt que <span
+class="math inline">\(AB^{-1}\)</span>.</p>
+</div>
+<div class="wex">
+<p>Par exemple, <span class="math inline">\(\frac{X}{X+1} \in
+\mathbb{R}(X)\)</span> et <span
+class="math inline">\(\frac{X^2+i}{X^2+X+1} \in
+\mathbb{C}(X)\)</span>.</p>
+</div>
+<div class="wrem">
+<p><span class="math inline">\(\mathbb{Q}\)</span> agit de la même façon
+avec <span class="math inline">\(\mathbb{Z}\)</span>, on a <span
+class="math inline">\(Q = \left\{\frac{a}{b} / a \in \mathbb{Z}, b \in
+\mathbb{Z}^{\star}\right\}\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(A,B \in \mathbb{K}[X]\)</span> et
+<span class="math inline">\(B \neq 0\)</span> et <span
+class="math inline">\(C,D \in \mathbb{K}[X]\)</span> et <span
+class="math inline">\(D \neq 0\)</span>,</p>
+<p><span class="math display">\[\frac{A}{B} = \frac{C}{D} \iff AD =
+CB.\]</span></p>
+</div>
+<div class="wproof">
+<p><span class="math display">\[\begin{aligned}
+    \frac{A}{B} = \frac{C}{D}
+        &amp; \iff AB^{-1} = CD^{-1} \\
+        &amp; \iff AB^{-1}BD = CD^{-1}BD \\
+        &amp; \iff AB^{-1}BD = CD^{-1}DB \text{ par commutativité} \\
+        &amp; \iff A1D = C1B \\
+        &amp; \iff AD=CB.
+    \end{aligned}\]</span></p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(F \in \mathbb{K}(X)\)</span>. Tout
+couple <span class="math inline">\((A,B)\)</span> tels que <span
+class="math inline">\(A,B \in \mathbb{K}[X]\)</span>, <span
+class="math inline">\(B \neq 0\)</span> et <span class="math inline">\(F
+= \frac{A}{B}\)</span> est appelé un représentant de <span
+class="math inline">\(F\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(F \in \mathbb{K}(X)\)</span> et
+<span class="math inline">\(G \in \mathbb{K}(X)\)</span> tels que <span
+class="math inline">\(F = \frac{A}{B}\)</span> et <span
+class="math inline">\(G = \frac{C}{D}\)</span>.</p>
+<p>Alors, <span class="math inline">\(F+G = \frac{AD+BC}{BD}\)</span> et
+<span class="math inline">\(FG = \frac{AC}{BD}\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math display">\[\begin{aligned}
+        F+G
+        &amp; = AB^{-1}+CD^{-1} \\
+        &amp; = ADD^{-1}B^{-1} + CBB^{-1}D^{-1} \\
+        &amp; = AD\left(BD\right)^{-1}+CB\left(DB\right)^{-1} \\
+        &amp; = AD\left(BD\right)^{-1}+CB\left(BD\right)^{-1} \text{ car
+$BD = DB$} \\
+        &amp; = (AD+CB)\left(BD\right)^{-1} \\
+        &amp; = \frac{AD+BC}{BD} \\
+         \text{ et }&amp; \\
+        FG
+        &amp; = AB^{-1}CD^{-1} \\
+        &amp; = ACB^{-1}D^{-1} \\
+        &amp; = AC\left(DB\right)^{-1} \\
+        &amp; = \frac{AC}{DB}.
+    \end{aligned}\]</span></p>
+</div>
+<div class="wrem">
+<p>En fait, toutes les opérations fonctionnent bien comme dans <span
+class="math inline">\(\mathbb{Q}\)</span> ou <span
+class="math inline">\(\mathbb{R}\)</span>.</p>
+</div>
+<h2 data-number="1.2"
+id="représentation-irréductible-de-f-in-mathbbkx"><span
+class="header-section-number">1.2</span> Représentation irréductible de
+<span class="math inline">\(F \in \mathbb{K}(X)\)</span></h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\(F \in \mathbb{K}(X)\)</span>, il
+existe <span class="math inline">\((A_1,B_1) \in \mathbb{K}[X] \times
+\mathbb{K}[X] \setminus\left\{0\right\}\)</span> représentant de <span
+class="math inline">\(F\)</span> avec <span class="math inline">\(A_1
+\wedge B_1 = 1\)</span>.</p>
+<p><span class="math inline">\((A_1,B_1)\)</span> est appelé un
+représentant irréductible de <span class="math inline">\(F\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soient <span class="math inline">\((A,B) \in \mathbb{K}[X] \times
+\mathbb{K}[X] \setminus\left\{0\right\}\)</span> tels que <span
+class="math inline">\(F = \frac{A}{B}\)</span>.</p>
+<p>Soit <span class="math inline">\(D\)</span> pgcd de <span
+class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span>, il existe <span
+class="math inline">\(A_1,B_1 \in \mathbb{K}[X] \times \mathbb{K}[X]
+\setminus\left\{0\right\}\)</span> tels que <span
+class="math inline">\(A_1,B_1 \wedge = 1\)</span> et <span
+class="math inline">\(A=DA_1\)</span> et <span class="math inline">\(B =
+DB_1\)</span>.</p>
+<p>On a donc <span class="math inline">\(F = \frac{A}{B} =
+\frac{DA_1}{DB_1} = \frac{A_1}{B_1}\)</span>.</p>
+</div>
+<div class="wprop">
+<p><span id="prop:rep_irreductible_facteur_tout_representant"
+label="prop:rep_irreductible_facteur_tout_representant"></span> Soit
+<span class="math inline">\(F \in \mathbb{K}(X)\)</span> et <span
+class="math inline">\((A_1,B_1)\)</span> un représentant irréductible de
+<span class="math inline">\(F\)</span>.</p>
+<p>Soit <span class="math inline">\((C,D) \in \mathbb{K}[X] \times
+\mathbb{K}[X] \setminus\left\{0\right\}\)</span>, alors</p>
+<p><span class="math display">\[F = \frac{C}{D} \iff \exists Q \in
+\mathbb{K}[X] \text{ tel que }C = QA_1 \text{ et }D = QB_1.\]</span></p>
+</div>
+<div class="wproof">
+<p>La démonstration est la même que pour <span
+class="math inline">\(\mathbb{Q}\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> S’il existe
+<span class="math inline">\(Q \in \mathbb{K}[X] \setminus
+\left\{0\right\}\)</span> tel que <span class="math inline">\(C =
+QA_1\)</span> et <span class="math inline">\(D = QB_1\)</span></p>
+<p>alors <span class="math inline">\(\frac{C}{D} = \frac{QA_1}{QB_1} =
+\frac{A_1}{B_1} = F\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(F = \frac{C}{D}\)</span>,</p>
+<p>alors <span class="math inline">\(\frac{A_1}{B_1} =
+\frac{C}{D}\)</span> donc <span
+class="math inline">\(A_1D=B_1C\)</span>.</p>
+<p>En particulier, on a alors <span class="math inline">\(B_1 |
+A_1D\)</span> et <span class="math inline">\(A_1 \wedge B_1 = 1\)</span>
+donc par lemme de Gauss, <span class="math inline">\(B_1 |
+D\)</span>.</p>
+<p>Donc il existe <span class="math inline">\(Q \in
+\mathbb{K}[X]\)</span> tel que <span class="math inline">\(D =
+QB_1\)</span> avec <span class="math inline">\(Q \neq 0\)</span> car
+<span class="math inline">\(D \neq 0\)</span> et <span
+class="math inline">\(B_1 \neq 0\)</span>.</p>
+<p>On a alors <span class="math inline">\(CB_1 = A_1QB_1 \Longrightarrow
+B_1(C-A_1Q) = 0\)</span> et par intégrité de <span
+class="math inline">\(\mathbb{K}[X]\)</span>, comme <span
+class="math inline">\(B_1 \neq 0\)</span>, <span
+class="math inline">\(C-A_1Q = 0 \iff C = A_1Q\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(F \in \mathbb{K}(X)\)</span> et
+<span class="math inline">\((A_1,B_1), (A_2,B_2)\)</span> deux
+représentants irréductibles de <span
+class="math inline">\(F\)</span>.</p>
+<p>Alors il existe <span class="math inline">\(\alpha \in
+\mathbb{K}^\star\)</span> tel que <span class="math inline">\(A_1 =
+\alpha A_2\)</span> et <span class="math inline">\(B_1 = \alpha
+B_2\)</span>.</p>
+</div>
+<div class="wproof">
+<p>On a <span class="math inline">\(\frac{A_1}{B_1} =
+\frac{A_2}{B_2}\)</span> et <span class="math inline">\((A_1,B_1),
+(A_2,B_2)\)</span> deux représentants irréductibles de <span
+class="math inline">\(F\)</span> donc par la proposition <a
+href="#prop:rep_irreductible_facteur_tout_representant"
+data-reference-type="ref"
+data-reference="prop:rep_irreductible_facteur_tout_representant">[prop:rep_irreductible_facteur_tout_representant]</a>,</p>
+<p>il existe <span class="math inline">\(Q \in \mathbb{K}[X], \neq
+0\)</span> tel que <span class="math inline">\(A_2 = QA_1\)</span>,
+<span class="math inline">\(B_2 = QB_1\)</span> et il existe <span
+class="math inline">\(R \in \mathbb{K}[X], \neq 0\)</span> tel que <span
+class="math inline">\(A_1 = RA_2\)</span>, <span
+class="math inline">\(B_1 = RB_2\)</span>.</p>
+<p>On a donc <span class="math inline">\(A_1 | A_2\)</span> et <span
+class="math inline">\(A_2| A_1\)</span> donc ils sont associés et <span
+class="math inline">\(\deg(Q) = 0\)</span> et on a finalement le
+résultat avec <span class="math inline">\(\alpha = Q\)</span>.</p>
+</div>
+<h2 data-number="1.3" id="racine-et-pôle-de-f-in-kx"><span
+class="header-section-number">1.3</span> Racine et pôle de <span
+class="math inline">\(F \in K(X)\)</span></h2>
+<p>Soit <span class="math inline">\(F \in \mathbb{K}(X)\)</span> et
+<span class="math inline">\((A,B)\)</span> représentant irréductible de
+<span class="math inline">\(F\)</span>.</p>
+<p>Alors, soit <span class="math inline">\((C,D)\)</span> un autre
+représentant irréductible de <span class="math inline">\(F\)</span>, il
+existe <span class="math inline">\(\alpha \in \mathbb{K}^\star\)</span>
+tel que <span class="math inline">\(C = \alpha A\)</span> et <span
+class="math inline">\(D = \alpha B\)</span> donc les racines de <span
+class="math inline">\(C\)</span> sont les mêmes que celles de <span
+class="math inline">\(A\)</span> et les racines de <span
+class="math inline">\(D\)</span> sont les mêmes que celles de <span
+class="math inline">\(B\)</span>.</p>
+<p>Pour cette raison, on pose sans ambiguïté la définition suivante.</p>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(F \in \mathbb{K}(X)\)</span> et
+<span class="math inline">\((A,B)\)</span> représentant irréductible de
+<span class="math inline">\(F\)</span>.</p>
+<p>Les racines du polynômes <span class="math inline">\(A\)</span> sont
+appelés les <u>racines de <span class="math inline">\(F\)</span></u>
+tandis que les racines du polynômes <span
+class="math inline">\(B\)</span> sont appelés les <u>pôles de <span
+class="math inline">\(F\)</span></u>.</p>
+<p>Une racine de <span class="math inline">\(B\)</span> d’ordre <span
+class="math inline">\(r\)</span> est appelé un pôle de <span
+class="math inline">\(F\)</span> d’ordre <span
+class="math inline">\(r\)</span>.</p>
+</div>
+<div class="wex">
+<p>Soit <span class="math inline">\(F = \frac{A}{B} =
+\frac{X^3-X^2-2X+2}{X^2-X}\)</span>.</p>
+<p>On pourrait croire au premier abord que <span
+class="math inline">\(1\)</span> est pôle de <span
+class="math inline">\(F\)</span>, en tant que racine de <span
+class="math inline">\(B\)</span> mais on a aussi <span
+class="math inline">\(A(1) = 0\)</span> donc <span
+class="math inline">\(A \wedge B \neq 1\)</span> et <span
+class="math inline">\((A,B)\)</span> n’est pas un représentant
+irréductible de <span class="math inline">\(F\)</span>.</p>
+<p>On a <span class="math inline">\(A = (X-1)(X^2-2)\)</span> donc <span
+class="math inline">\(F = \frac{X^2-2}{X}\)</span> et <span
+class="math inline">\((X^2-2,X)\)</span> est maintenant bien un
+représentant irréductible de <span class="math inline">\(F\)</span>.</p>
+<p>Donc les racines de <span class="math inline">\(F\)</span> sont <span
+class="math inline">\(\pm \sqrt{2}\)</span> et il admet pour unique pôle
+<span class="math inline">\(0\)</span>.</p>
+</div>
+<h2 data-number="1.4" id="degré-de-f-in-mathbbkx"><span
+class="header-section-number">1.4</span> Degré de <span
+class="math inline">\(F \in \mathbb{K}(X)\)</span></h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\(F \in \mathbb{K}(X)\)</span> tel que
+<span class="math inline">\(F = \frac{A}{B}\)</span>.</p>
+<p>Alors <span class="math inline">\(\deg(A)-\deg(B)\)</span> ne dépend
+pas du choix du représentant de <span
+class="math inline">\(F\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\((C,D)\)</span> un autre représentant
+de <span class="math inline">\(F\)</span>, alors il existe <span
+class="math inline">\(Q \in \mathbb{K}[X]\)</span> tel que <span
+class="math inline">\(C=QA\)</span> et <span class="math inline">\(D =
+QB\)</span>.</p>
+<p>On a donc <span class="math inline">\(\deg(C)- \deg(D) =
+\left(\deg(A)+\deg(Q)\right)-\left(\deg(B)+\deg(Q)\right) =
+\deg(A)-\deg(B)\)</span>.</p>
+</div>
+<p>Pour cette raison, on pose sans ambiguïté la définition suivante.</p>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(F \in \mathbb{K}(X)\)</span> tel que
+<span class="math inline">\(F = \frac{A}{B}\)</span>.</p>
+<p>Alors <span class="math inline">\(\deg(A)-\deg(B)\)</span> est appelé
+le degré de <span class="math inline">\(F\)</span>, noté <span
+class="math inline">\(\deg F\)</span>.</p>
+</div>
+<h2 data-number="1.5" id="fonction-associée-à-f-in-mathbbkx"><span
+class="header-section-number">1.5</span> Fonction associée à <span
+class="math inline">\(F \in \mathbb{K}(X)\)</span></h2>
+<p>De la même façon qu’on considère polynôme et fonction polynomiale, on
+peut associée une fonction à une fraction rationnelle <span
+class="math inline">\(F\)</span>.</p>
+<p>Soit <span class="math inline">\(F \in \mathbb{K}(X)\)</span> et
+<span class="math inline">\((A,B)\)</span> un représentant irréductible
+de <span class="math inline">\(F\)</span>. Soit <span
+class="math inline">\(\mathscr{P}_F\)</span> l’ensemble des pôles de
+<span class="math inline">\(F\)</span>, qui est fini.</p>
+<p>Alors, on considère la fonction <span
+class="math inline">\(\begin{array}{lllll}
+\tilde{F} &amp; : &amp; K \setminus \mathscr{P}_F &amp; \to &amp;
+\mathbb{K} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \frac{A(x)}{B(x)}
+\end{array}
+.\)</span></p>
+<p><span class="math inline">\(\tilde{F}\)</span> est indépendante du
+choix du représentant irréductible de <span
+class="math inline">\(F\)</span> et pour <span class="math inline">\(x
+\in \mathbb{K}\)</span>, <span
+class="math inline">\(\tilde{F}(x)\)</span> est noté <span
+class="math inline">\(F(x)\)</span>.</p>
+<div class="wrem">
+<p>Soit <span class="math inline">\((C,D)\)</span> représentant de <span
+class="math inline">\(F\)</span> tel que <span
+class="math inline">\(D(r) \neq 0\)</span> pour tout <span
+class="math inline">\(r \in \mathscr{P}_F\)</span> alors on a <span
+class="math inline">\(F(x) = \frac{C(x)}{D(x)}\)</span> pour tout <span
+class="math inline">\(x \in \mathbb{K}\)</span>.</p>
+</div>
+<h1 data-number="2"
+id="décomposition-de-f-in-mathbbkx-en-éléments-simples"><span
+class="header-section-number">2</span> Décomposition de <span
+class="math inline">\(F \in \mathbb{K}(X)\)</span> en éléments
+simples</h1>
+<h2 data-number="2.1" id="partie-entière-de-f-in-mathbbkx"><span
+class="header-section-number">2.1</span> Partie entière de <span
+class="math inline">\(F \in \mathbb{K}(X)\)</span></h2>
+<div class="wrappel">
+<p>Soit <span class="math inline">\(x \in \mathbb{Q}\)</span> tel que
+<span class="math inline">\(x = \frac{a}{b}\)</span> avec <span
+class="math inline">\(a \in \mathbb{Z}\)</span>, <span
+class="math inline">\(b \in \mathbb{N}^{\star}\)</span>.</p>
+<p>Alors, avec <span class="math inline">\(n = E(x)\)</span>, on a</p>
+<p><span class="math inline">\(n \leq \frac{a}{b} &lt; n+1 \iff nb \leq
+a &lt; nb+b \iff 0 \leq a-nb &lt; b\)</span></p>
+<p>donc <span class="math inline">\(n\)</span> est le quotient de la
+division euclidienne de <span class="math inline">\(a\)</span> par <span
+class="math inline">\(b\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(F \in \mathbb{K}(X)\)</span> et
+<span class="math inline">\((A,B)\)</span> un représentant irréductible
+de <span class="math inline">\(F\)</span>.</p>
+<p>Soit <span class="math inline">\(E \in \mathbb{K}[X]\)</span> le
+quotient de la division euclidienne de <span
+class="math inline">\(A\)</span> par <span
+class="math inline">\(B\)</span>.</p>
+<p>Soit <span class="math inline">\((C,D)\)</span> un autre représentant
+de <span class="math inline">\(F\)</span> tel que <span
+class="math inline">\(F = \frac{C}{D}\)</span>. Alors, <span
+class="math inline">\(E\)</span> est le quotient de la division
+euclidienne de <span class="math inline">\(C\)</span> par <span
+class="math inline">\(D\)</span>.</p>
+<p>Autrement dit, <span class="math inline">\(E\)</span> ne dépend pas
+du représentant de <span class="math inline">\(F\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Il existe <span class="math inline">\(R\)</span> tel que <span
+class="math inline">\(\deg(R) &lt; \deg(B)\)</span> et <span
+class="math inline">\(A = BE+R\)</span>.</p>
+<p>De plus, <span class="math inline">\(Q \in \mathbb{K}[X]\)</span> tel
+que <span class="math inline">\(C = AQ\)</span> et <span
+class="math inline">\(D = BQ\)</span>.</p>
+<p>On a donc <span class="math inline">\(C = AQ = BEQ+RQ =
+DE+RQ\)</span> et <span class="math inline">\(\deg(RQ) = \deg(R)+\deg(Q)
+&lt; \deg(B) + \deg(Q)  = \deg(BQ) = \deg(D)\)</span>.</p>
+<p>Donc <span class="math inline">\(E\)</span> est le quotient de la
+division euclidienne de <span class="math inline">\(C\)</span> par <span
+class="math inline">\(D\)</span>.</p>
+</div>
+<p>On pose alors sans ambigüité la définition suivante.</p>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(F \in \mathbb{K}(X)\)</span> et
+<span class="math inline">\((A,B)\)</span> un représentant irréductible
+de <span class="math inline">\(F\)</span>.</p>
+<p>Soit <span class="math inline">\(E \in \mathbb{K}[X]\)</span> le
+quotient de la division euclidienne de <span
+class="math inline">\(A\)</span> par <span
+class="math inline">\(B\)</span>.</p>
+<p>Alors <span class="math inline">\(E\)</span> est appelé la partie
+entière de <span class="math inline">\(F\)</span>.</p>
+</div>
+<div class="wprop">
+<p><span id="prop:caract_partie_entiere_fraction_rationnelle"
+label="prop:caract_partie_entiere_fraction_rationnelle"></span> Soit
+<span class="math inline">\(F \in \mathbb{K}(X)\)</span> et <span
+class="math inline">\(E\)</span> la partie entière de <span
+class="math inline">\(F\)</span>.</p>
+<p>Soit <span class="math inline">\(P \in \mathbb{K}[X]\)</span>.
+Alors,</p>
+<p><span class="math display">\[P \text{ est la partie entière de $F$}
+\iff \deg(F-P) &lt; 0.\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(P\)</span> est la partie entière de <span
+class="math inline">\(F\)</span>, il existe <span
+class="math inline">\(R \in \mathbb{K}[X]\)</span> tel que <span
+class="math inline">\(\deg(R) &lt; \deg(B)\)</span> et <span
+class="math inline">\(A = BP+R\)</span>.</p>
+<p>On a donc <span class="math inline">\(F-P = \frac{R}{B}\)</span> avec
+<span class="math inline">\(\deg\left(\frac{R}{B}\right) =
+\deg(R)-\deg(B) &lt; 0\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Si <span
+class="math inline">\(\deg(F-P) &lt; 0\)</span>, on a <span
+class="math inline">\(F-P = \frac{A-PB}{B}\)</span> donc <span
+class="math inline">\(R =A-PB\)</span> vérifie <span
+class="math inline">\(\deg(A-PB) &lt; \deg(B)\)</span>.</p>
+<p>Donc <span class="math inline">\(A = PB+R\)</span> est le division
+euclidienne de <span class="math inline">\(A\)</span> par <span
+class="math inline">\(B\)</span> et <span
+class="math inline">\(P\)</span> est la partie entière de <span
+class="math inline">\(F\)</span>.</p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>En particulier, on a donc pour <span class="math inline">\(F =
+\frac{A}{B}\)</span>,</p>
+<p><span class="math display">\[E = 0 \iff \deg(A) &lt;
+\deg(B).\]</span></p>
+</div>
+<h2 data-number="2.2"
+id="partie-polaire-associée-à-un-pôle-de-f-in-mathbbkx"><span
+class="header-section-number">2.2</span> Partie polaire associée à un
+pôle de <span class="math inline">\(F \in \mathbb{K}(X)\)</span></h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\(P\in \mathbb{K}(X)\)</span> et <span
+class="math inline">\(\alpha\)</span> un pôle de <span
+class="math inline">\(F\)</span> dans <span
+class="math inline">\(\mathbb{K}\)</span> d’ordre <span
+class="math inline">\(r\)</span>.</p>
+<p>Soit <span class="math inline">\((A,B)\)</span> un représentant
+irréductible de <span class="math inline">\(F\)</span> tel que <span
+class="math inline">\(B = (X-\alpha)^rC\)</span> avec <span
+class="math inline">\(C(\alpha) \neq 0\)</span>.</p>
+<p>Alors, il existe <span
+class="math inline">\(\lambda_1,\ldots,\lambda_r \in \mathbb{K}\)</span>
+uniques qui ne dépendent que de <span class="math inline">\(F\)</span>
+et <span class="math inline">\(D \in \mathbb{K}[X]\)</span> tel que
+<span class="math display">\[F = \frac{\lambda_1}{X-\alpha}
++  \frac{\lambda_2}{\left(X-\alpha\right)^2} +
+\ldots+  \frac{\lambda_r}{\left(X-\alpha\right)^r} +
+\frac{D}{C}.\]</span></p>
+<p><span class="math inline">\(\sum_{k=1}^r
+\frac{\lambda_k}{(X-\alpha)^k}\)</span> est appelée la partie polaire de
+<span class="math inline">\(F\)</span> relative à <span
+class="math inline">\(\alpha\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>(Unicité si existence). Supposons que <span
+class="math inline">\(\lambda_1,\ldots,\lambda_r \in \mathbb{K}\)</span>
+et <span class="math inline">\(D \in \mathbb{K}[X]\)</span>
+existent.</p>
+<p>Alors,</p>
+<ol>
+<li><p>en considérant <span class="math inline">\(G =
+(X-\alpha)^rF\)</span>, on a</p>
+<p><span class="math display">\[G
+=  \lambda_1\left(X-\alpha\right)^{r-1} + \ldots+
+\lambda_{r-1}(X-\alpha) + \lambda_r +
+\frac{D(X-\alpha)^r}{C}.\]</span></p>
+<p>et donc <span class="math inline">\(\lambda_r = G(\alpha)\)</span>,
+qui ne dépend que de <span class="math inline">\(F\)</span>.</p></li>
+<li><p>en considérant <span class="math inline">\(F_1 = F-
+\frac{\lambda_r}{\left(X-\alpha\right)^r}\)</span>, alors on a <span
+class="math display">\[F_1 =  \frac{\lambda_1}{X-\alpha}
++  \frac{\lambda_2}{\left(X-\alpha\right)^2} +
+\ldots+  \frac{\lambda_{r-1}}{\left(X-\alpha\right)^{r-1}} +
+\frac{D}{C}\]</span></p>
+<p>puis en considérant <span class="math inline">\(G_1
+=  (X-\alpha)^{r-1}F_1\)</span>, on a</p>
+<p><span class="math display">\[G_1 =  \lambda_1
++  \lambda_2\left(X-\alpha\right)^{r-2} +
+\ldots+  \lambda_{r-2}(X-\alpha) + \lambda_{r-1} +
+\frac{D(X-\alpha)^{r-1}}{C}\]</span></p>
+<p>et donc <span class="math inline">\(\lambda_{r-1} =
+G_1(\alpha)\)</span>, qui ne dépend que de <span
+class="math inline">\(F\)</span>.</p></li>
+<li><p>De même, on peut réitérer l’opération et obtenir l’unicité de
+<span
+class="math inline">\(\lambda_{r-2},\ldots,\lambda_1\)</span>.</p></li>
+</ol></li>
+<li><p>(Existence). On a <span class="math inline">\(F =
+\frac{A}{(X-\alpha)^rC}\)</span> avec <span
+class="math inline">\(C(\alpha)\neq 0\)</span> donc <span
+class="math inline">\((X-\alpha)^r \wedge C = 1\)</span>.</p>
+<p>Donc, par relation de Bézout, il existe <span
+class="math inline">\(U,V \in \mathbb{K}[X]\)</span> tels que <span
+class="math inline">\(U(X-\alpha)^r + VC = 1\)</span>.</p>
+<p>On a donc <span class="math inline">\(A = AU(X-\alpha)^r +
+AVC\)</span> puis <span class="math inline">\(F = \frac{AU}{C}+
+\frac{AV}{(X-\alpha)^r}\)</span>.</p>
+<p>On considère maintenant la division euclidienne de <span
+class="math inline">\(AV\)</span> par <span
+class="math inline">\((X-\alpha)^r\)</span> tel que <span
+class="math inline">\(AV = (X-\alpha)^rQ+R\)</span> avec <span
+class="math inline">\(\deg(R) &lt; r\)</span>.</p>
+<p>On a alors <span class="math inline">\(\frac{AV}{(X-\alpha)^r} =
+Q+\frac{R}{(X-\alpha)^r}\)</span> puis <span class="math inline">\(F
+=\frac{AU}{C}+ Q+\frac{R}{(X-\alpha)^r}.\)</span></p>
+<p>En utilisant l’égalité de Taylor de <span
+class="math inline">\(R\)</span> en <span
+class="math inline">\(\alpha\)</span>, comme <span
+class="math inline">\(\deg(R) \leq r-1\)</span>, on a <span
+class="math inline">\(R = \sum_{k=0}^{r-1}
+\frac{R^{(k)}(\alpha)}{k!}(X-\alpha)^k\)</span> donc</p>
+<p><span class="math display">\[F = \frac{AU}{C}+ Q + \sum_{k=0}^{r-1}
+\frac{R^{(k)}(\alpha)}{k!}\frac{(X-\alpha)^k}{(X-\alpha)^{r-1}} =
+\frac{AU+QC}{C}+ \sum_{\ell=1}^r \frac{\lambda_k
+}{(X-\lambda)^\ell}\]</span></p>
+<p>avec <span class="math inline">\(lambda_k =
+\frac{R^{(r-k)}(\alpha)}{(r-k)!}\)</span> pour <span
+class="math inline">\(1 \leq k \leq r\)</span>.</p>
+<p>On a donc l’existence voulue avec <span class="math inline">\(D =
+AU+QC\)</span>.</p></li>
+</ul>
+</div>
+<p>La preuve de l’unicité des <span
+class="math inline">\(\lambda_k\)</span> donne une méthode pour les
+obtenir. Mettons-la en oeuvre. Il est bon de noter que cette méthode
+n’est pas la plus économe en calculs et qu’on en développera d’autres
+dans les différents exemples.</p>
+<div class="wex">
+<p><span id="ex:parties_polaires_racines_n_ieme"
+label="ex:parties_polaires_racines_n_ieme"></span></p>
+<ul>
+<li><p><span class="math inline">\(F = \frac{X+2}{(X-1)^2(X^2+1)} \in
+\mathbb{R}(X)\)</span> admet un pôle d’ordre 2 qui est <span
+class="math inline">\(1\)</span>. Calculons la partie polaire de <span
+class="math inline">\(F\)</span> relative à <span
+class="math inline">\(1\)</span>.</p>
+<p>Il existe <span class="math inline">\(\lambda_1,\lambda_2 \in
+\mathbb{R}\)</span> et <span class="math inline">\(D \in
+\mathbb{R}[X]\)</span> tels que</p>
+<p><span class="math display">\[F =
+\frac{\lambda_1}{X-1}+\frac{\lambda_2}{(X-1)^2} +
+\frac{D}{X^2+1}\]</span></p>
+<ol>
+<li><p>En considérant <span class="math inline">\(G = (X-1)^2F\)</span>,
+on a donc <span class="math display">\[\begin{aligned}
+        G
+        &amp; =(X-1)^2\left(
+\frac{\lambda_1}{X-1}+\frac{\lambda_2}{(X-1)^2} + \frac{D}{X^2+1}\right)
+\\
+        &amp; = \lambda_1(X-1) + \lambda_2 +  \frac{D(X-1)^2}{X^2+1} \\
+        \text{ et }&amp; \\
+        G
+        &amp;= (X-1)^2F \\
+        &amp; = \frac{X+2}{X^2+1}
+        \end{aligned}\]</span> donc <span
+class="math inline">\(\lambda_2 = G(1) = \frac{3}{2}\)</span>.</p></li>
+<li><p>Considérons maintenant <span class="math inline">\(F_1 = F-
+\frac{3}{2(X-1)^2}\)</span>.</p>
+<p>On a alors <span class="math display">\[\begin{aligned}
+        F_1
+        &amp; = \frac{\lambda_1}{X-1}+\frac{3}{2(X-1)^2} +
+\frac{D}{X^2+1}-\frac{3}{2(X-1)^2} \\
+        &amp; = \frac{\lambda_1}{X-1}+\frac{D}{X^2+1}       \\
+        \text{ et }&amp; \\
+        F_1
+        &amp;  = \frac{X+2}{(X-1)^2(X^2+1)}- \frac{3}{2(X-1)^2} \\
+        &amp; = \frac{X+2-\frac{3}{2}(X^2+1)}{(X-1)^2(X^2+1)} \\
+        &amp; = \frac{-3X^2+2X+1}{2(X-1)^2(X^2+1)} \\
+        &amp; = \frac{(X-1)(-3X-1)}{2(X-1)^2(X^2+1)} \\
+        &amp; = -\frac{3X+1}{2(X-1)(X^2+1)}
+        \end{aligned}\]</span></p>
+<p>et alors <span class="math inline">\(G_1 = (X-1)F_1\)</span> vérifie
+<span class="math display">\[\begin{aligned}
+        G_1
+        &amp; =
+(X-1)\left(\frac{\lambda_1}{X-1}++\frac{D}{X^2+1}\right)     \\
+        &amp; = \lambda_1+\frac{D(X-1)}{X^2+1}
+        \text{ et }&amp; \\
+        G_1
+        &amp; = -(X-1)\frac{3X+1}{2(X-1)(X^2+1)} \\
+        &amp; = -\frac{3X+1}{2(X^2+1)}
+        \end{aligned}\]</span></p>
+<p>donc <span class="math inline">\(\lambda_1 = G_1(1) = -\frac{4}{2} =
+-\frac{4}{4}=-1\)</span>.</p></li>
+</ol>
+<p>Finalement, la partie polaire de <span
+class="math inline">\(F\)</span> relative à <span
+class="math inline">\(1\)</span> est <span
+class="math inline">\(\frac{3}{2(X-1)^2} -
+\frac{1}{X-1}\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span>, <span class="math inline">\(F =
+\frac{1}{X^n-1}\)</span> admet <span class="math inline">\(n\)</span>
+pôles simples qui sont <span class="math inline">\(\left\{\omega_k =
+e^{\frac{2ik\pi}{n}} / 0 \leq k \leq n-1\right\}\)</span> et <span
+class="math inline">\(F =
+\frac{1}{\prod_{k=0}^{n-1}(X-\alpha_k)}.\)</span></p>
+<p>Pour chaque <span class="math inline">\(0 \leq k \leq n-1\)</span>,
+il existe donc <span class="math inline">\(\mu_k \in \mathbb{C},
+\mathbb{D}_k \in \mathbb{C}[X]\)</span> tel que</p>
+<p><span class="math display">\[F =
+\frac{\mu_k}{X-\omega_k}+\frac{D_k}{C_k}\]</span></p>
+<p>avec <span class="math inline">\(C_k = \prod_{\substack{0 \leq \ell
+\leq n-1 \\ \ell \neq k}}(X-\omega_\ell)\)</span>.</p>
+<p>Alors, en considérant <span class="math inline">\(G_k = (X-\alpha_k)
+F\)</span>,</p>
+<p>on a <span class="math inline">\(G_k=
+(X-\alpha_k)\left(\frac{\mu_k}{X-\omega_k}+\frac{D_k}{C_k}\right)
+=\mu_k+(X-\omega_k)\frac{D_k}{C_k}\)</span></p>
+<p>et <span class="math inline">\(G_k = \frac{(X-\alpha_k)}{X^n-1} =
+\frac{1}{\prod_{\substack{0 \leq \ell \leq n-1 \\ \ell \neq
+k}}(X-\omega_\ell)}\)</span>.</p>
+<p>Donc <span class="math inline">\(\mu_k = G_k(\omega_k) =
+\frac{1}{\prod_{\substack{0 \leq \ell \leq n-1 \\ \ell \neq
+k}}(\omega_k-\omega_\ell)}\)</span>.</p>
+<p>Avec la remarque suivante, on va obtenir une expression plus simple
+de <span class="math inline">\(\mu_k\)</span>.</p>
+<div class="wrem">
+<p>Supposons que <span class="math inline">\(F = \frac{A}{B} \in
+\mathbb{K}(X)\)</span> avec <span class="math inline">\(B =
+(X-\alpha)C\)</span> et <span class="math inline">\(C(\alpha) \neq
+0\)</span>.</p>
+<p>On a donc l’existence de <span class="math inline">\(\lambda \in
+\mathbb{K}\)</span> et <span class="math inline">\(D \in
+\mathbb{K}[X]\)</span> tel que <span class="math display">\[F =
+\frac{\lambda}{X-\alpha}+\frac{D}{C}.\]</span></p>
+<p>Alors, <span class="math inline">\(G = (X-\alpha)F\)</span>
+vérifie</p>
+<p><span class="math inline">\(G = (X-\alpha)\frac{A}{B} =
+\frac{A(X-\alpha)}{C(X-\alpha)} = \frac{A}{C}\)</span></p>
+<p>et <span class="math inline">\(G =
+(X-\alpha)\left(\frac{\lambda}{X-\alpha}+\frac{D}{C}\right) = \lambda +
+\frac{D(X-\alpha)}{C}\)</span></p>
+<p>Donc <span class="math inline">\(\lambda = G(\alpha) =
+\frac{A(\alpha)}{C(\alpha)}\)</span>.</p>
+<p>Remarquons alors que <span class="math inline">\(B =
+(X-\alpha)C\)</span> implique <span class="math inline">\(B&#39; =
+C+(X-\alpha)C&#39;\)</span> donc <span class="math inline">\(C(\alpha) =
+B&#39;(\alpha)\)</span> et finalement, <span
+class="math inline">\(\lambda = B&#39;(\alpha)\)</span>.</p>
+</div>
+<p>Reprenons notre exemple, on a alors <span class="math inline">\(\mu_k
+= \frac{1}{B&#39;(\omega_k)}\)</span> avec <span class="math inline">\(B
+= X^n-1\)</span>.</p>
+<p>Donc <span class="math inline">\(\mu_k = \frac{1}{n\omega_k^{n-1}}
+=  \frac{\omega_k}{n\omega_k^{n}}= \frac{\omega_k}{n}\)</span>.</p>
+<p>(Au passage, on a donc montrer <span
+class="math inline">\(\prod_{\substack{0 \leq \ell \leq n-1 \\ \ell \neq
+k}}(\omega_k-\omega_\ell) = \frac{n}{\omega_k}\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="2.3"
+id="décomposition-en-éléments-simples-de-f-in-mathbbkx-si-le-dénominateur-est-scindé"><span
+class="header-section-number">2.3</span> Décomposition en éléments
+simples de <span class="math inline">\(F \in \mathbb{K}(X)\)</span> si
+le dénominateur est scindé</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(\alpha \in
+\mathbb{K}^\star\)</span>, <span class="math inline">\(\ell \in
+\mathbb{N}^{\star}\)</span> et <span class="math inline">\(\lambda \in
+\mathbb{K}^\star\)</span>, <span
+class="math inline">\(\frac{\lambda}{(X-\alpha)^\ell}\)</span> est un
+élément simple de <span
+class="math inline">\(\mathbb{K}(X)\)</span>.</p>
+<p>Si <span class="math inline">\(\mathbb{K}= \mathbb{R}\)</span>, <span
+class="math inline">\(\frac{\lambda}{(X-\alpha)^\ell}\)</span> est un
+élément simple de première espèce de <span
+class="math inline">\(\mathbb{R}(X)\)</span></p>
+</div>
+<div class="wthm">
+<p>Soit <span class="math inline">\(F \in \mathbb{K}(X)\)</span> tel que
+<span class="math inline">\(F = \frac{A}{B}\)</span> avec <span
+class="math inline">\(A \wedge B = 1\)</span> et <span
+class="math inline">\(B\)</span> scindé simple tel que <span
+class="math inline">\(B = \beta
+\prod_{k=1}^{n}\left(X-\alpha_k\right)^{r_k}\)</span> avec <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span>, <span
+class="math inline">\(\beta \in \mathbb{K}^\star\)</span>, <span
+class="math inline">\(\alpha_k \in \mathbb{K}\)</span> pour <span
+class="math inline">\(1 \leq k \leq r\)</span>, les <span
+class="math inline">\(\alpha_k\)</span> tous distincts et <span
+class="math inline">\(r_1,\ldots,r_n \in
+\mathbb{N}^{\star}\)</span>.</p>
+<p>Alors, en notant <span class="math inline">\(G_k\)</span> la partie
+polaire de <span class="math inline">\(F\)</span> relative à <span
+class="math inline">\(\alpha_k\)</span> pour <span
+class="math inline">\(1 \leq k \leq n\)</span>, et <span
+class="math inline">\(E\)</span> la partie entière de <span
+class="math inline">\(F\)</span>,</p>
+<p><span class="math display">\[F =E+ G_1+\ldots+G_n.\]</span></p>
+<p>Autrement dit, il existe <span
+class="math inline">\(\lambda_{11},\ldots,\lambda_{1r_1},\ldots,\lambda_{11},\ldots,\lambda_{rr_n}\)</span>
+tels que <span class="math display">\[F = E + \sum_{k=1}^n
+\sum_{\ell=1}^{r_k}
+\frac{\lambda_{k\ell}}{(X-\alpha_k)^\ell}.\]</span></p>
+</div>
+<div class="wproof">
+<p>On ne propose pas réellement une preuve du théorème mais plutôt
+l’étude d’un exemple qui permet de comprendre ce qui se passe.</p>
+<p>On considère <span class="math inline">\(F =
+\frac{A}{(X-1)^3(X+2)(X-3)^2} \in \mathbb{R}(X)\)</span> avec <span
+class="math inline">\(A \in \mathbb{R}[X]\)</span> quelconque.</p>
+<ol>
+<li><p>En considérant la partie polaire de <span
+class="math inline">\(F\)</span> relative à <span
+class="math inline">\(1\)</span>, on a l’existence de <span
+class="math inline">\(\lambda_1,\lambda_2,\lambda_3 \in
+\mathbb{R}\)</span> et <span class="math inline">\(A_1 \in
+\mathbb{R}[X]\)</span> tels que</p>
+<p><span class="math display">\[F =
+\frac{\lambda_1}{X-1}+\frac{\lambda_2}{(X-1)^2}+\frac{\lambda_3}{(X-1)^3}
++ \frac{A_1}{ (X+2)(X-3)^2}.\]</span></p></li>
+<li><p>Maintenant, en considérant la partie polaire de <span
+class="math inline">\(\frac{A_1}{(X+2)(X-3)^2}\)</span> relative à <span
+class="math inline">\(2\)</span>, on a l’existence de <span
+class="math inline">\(\alpha \in \mathbb{R}\)</span> et <span
+class="math inline">\(A_2 \in \mathbb{R}[X]\)</span> tels que <span
+class="math display">\[\frac{A_1}{(X+2)(X-3)^2} = \frac{\alpha}{X+2} +
+\frac{A_2}{(X-3)^2}\]</span> donc <span class="math display">\[F =
+\frac{\lambda_1}{X-1}+\frac{\lambda_2}{(X-1)^2}+\frac{\alpha}{X+2} +
+\frac{A_2}{(X-3)^2}.\]</span></p></li>
+<li><p>Enfin, en considérant la partie polaire de <span
+class="math inline">\(\frac{A_2}{(X-3)^2}\)</span> relative à <span
+class="math inline">\(2\)</span>, on a l’existence de <span
+class="math inline">\(\beta_1,\beta_2 \in \mathbb{R}\)</span> et <span
+class="math inline">\(A_3 \in \mathbb{R}[X]\)</span> tels que <span
+class="math display">\[\frac{A_2}{(X-3)^2} =
+\frac{\beta_1}{X-3}+\frac{\beta_2}{(X_3)^2} + \frac{A_3}{1}\]</span>
+donc <span class="math display">\[F =
+\frac{\lambda_1}{X-1}+\frac{\lambda_2}{(X-1)^2}+\frac{\alpha}{X+2}
+\frac{\beta_1}{X-3}+\frac{\beta_2}{(X_3)^2} + A_3.\]</span></p></li>
+<li><p>Il reste à vérifier qu’on a bien <span
+class="math inline">\(A_3\)</span> qui est la partie entière de <span
+class="math inline">\(F\)</span>.</p>
+<p>Or,</p>
+<p><span class="math display">\[F-A_3
+=  \frac{\lambda_1}{X-1}+\frac{\lambda_2}{(X-1)^2}+\frac{\alpha}{X+2}
+\frac{\beta_1}{X-3}+\frac{\beta_2}{(X_3)^2} =
+\frac{R}{(X-1)^3(X+2)(X-3)^2}\]</span> avec <span
+class="math inline">\(\deg(R) \leq 5\)</span>, en réunissant les
+fractions donc <span
+class="math inline">\(\deg\left(\frac{R}{(X-1)^3(X+2)(X-3)^2}\right) =
+\deg(R)-6 &lt; 0\)</span> donc <span class="math inline">\(A_3\)</span>
+est bien la partie entière de <span class="math inline">\(F\)</span> par
+la proposition <a
+href="#prop:caract_partie_entiere_fraction_rationnelle"
+data-reference-type="ref"
+data-reference="prop:caract_partie_entiere_fraction_rationnelle">[prop:caract_partie_entiere_fraction_rationnelle]</a>.</p></li>
+</ol>
+</div>
+<div class="wrem">
+<p>Dans <span class="math inline">\(\mathbb{C}[X]\)</span>, tout
+polynôme est scindé donc on peut appliquer cette décomposition en
+élément simple à tout élément de <span
+class="math inline">\(\mathbb{C}(X)\)</span>.</p>
+</div>
+<div class="wex">
+<p>Considérons <span class="math inline">\(F = \frac{1}{X^n-1}\)</span>
+avec <span class="math inline">\(n \in \mathbb{N}^{\star}\)</span>.</p>
+<p>Comme traité dans l’exemple <a
+href="#ex:parties_polaires_racines_n_ieme" data-reference-type="ref"
+data-reference="ex:parties_polaires_racines_n_ieme">[ex:parties_polaires_racines_n_ieme]</a>,
+la partie polaire de <span class="math inline">\(F\)</span> relative à
+<span class="math inline">\(\omega_k = e^{\frac{2ik\pi}{n}}\)</span>
+pour <span class="math inline">\(0 \leq k \leq n-1\)</span> est <span
+class="math inline">\(\frac{\omega_k}{n(X-\omega_k)}\)</span>.</p>
+<p>De plus, la partie entière de <span class="math inline">\(F\)</span>
+est <span class="math inline">\(0\)</span> car <span
+class="math inline">\(\deg F = -n &lt; 0\)</span>.</p>
+<p>Donc <span class="math inline">\(F = \frac{1}{n}\sum_{k=0}^{n-1}
+\frac{1}{X-\omega_k}\)</span>.</p>
+</div>
+<div class="wappli">
+<p><strong>Exercice</strong> — Calculer une primitive de <span
+class="math inline">\(f: x \mapsto
+\frac{x}{x^3+7x^2+8x-16}\)</span>.</p>
+<p><strong>Corrigé</strong> — Commençons par décomposer <span
+class="math inline">\(F =  \frac{X}{X^3+7X^2+8X+6}\)</span> en éléments
+simples.</p>
+<p>D’abord, la partie entière de <span class="math inline">\(F\)</span>
+vaut <span class="math inline">\(0\)</span> car <span
+class="math inline">\(\deg(F) = -2 &lt; 0\)</span>.</p>
+<p>Ensuite, <span class="math inline">\(1\)</span> est un pôle évident
+et on a <span class="math inline">\(X^3+7X^2+8X-16 = (X-1)(X^2+8X+16) =
+(X-1)(X^2+2\times 4X +4^2) = (X-1)(X+4)^2\)</span>.</p>
+<ol>
+<li><p>La partie polaire relative à <span
+class="math inline">\(1\)</span> s’écrit <span
+class="math inline">\(\frac{\lambda_1}{X-1}\)</span> et en considérant
+<span class="math inline">\(G_1 = (X-1)F\)</span> comme précédemment, on
+a <span class="math inline">\(\lambda_1 = G_1(1) = \frac{1}{5^2} =
+\frac{1}{25}\)</span>.</p></li>
+<li><p>La partie polaire relative à <span
+class="math inline">\(-4\)</span> s’écrit <span
+class="math inline">\(\frac{\alpha_1}{X+4}+\frac{\alpha_2}{(X+4)^2}\)</span>
+et en considérant <span class="math inline">\(G_2 = (X+4)^2F\)</span>
+comme précédemment, on a <span class="math inline">\(\alpha_2 = G_2(-4)
+= \frac{4}{5}\)</span>.</p>
+<p>Concernant le calcul de <span
+class="math inline">\(\alpha_1\)</span>, on peut utiliser la méthode
+développée avant.</p>
+<p>Ou alors, on peut remarquer que pour <span class="math inline">\(x
+\in \mathbb{R}\setminus\left\{-4,1\right\}\)</span>,</p>
+<p><span class="math display">\[F(x) = \frac{1}{25(x-1)} +
+\frac{\alpha_1}{x+4}+\frac{4}{5(x+4)^2}\]</span></p>
+<p>donc que <span class="math inline">\(xF(x)= \frac{x}{25(x-1)} +
+\frac{\alpha_1x}{x+4}+\frac{4x}{5(x+4)^2} \xrightarrow[x \to +\infty]{}
+\frac{1}{25}+ \alpha_1\)</span>.</p>
+<p>D’autre part, <span class="math inline">\(xF(x) =
+\frac{x^2}{x^3+7x^2+8x-16} \xrightarrow[x \to +\infty]{} 0\)</span>.</p>
+<p>Donc, par unicité de la limite, <span class="math inline">\(\alpha_1
+= -\frac{1}{25}\)</span>.</p></li>
+</ol>
+<p>On a donc finalement, <span class="math inline">\(F =
+\frac{1}{25(X-1)} - \frac{1}{25(X+4)}+\frac{4}{5(X+4)^2}\)</span>.</p>
+<p>On a donc pour tout <span class="math inline">\(x \in
+\mathbb{R}\setminus\left\{-4,1\right\}\)</span>, <span
+class="math inline">\(f(x) = \frac{1}{25(x-1)} -
+\frac{1}{25(x+4)}+\frac{4}{5(x+4)^2}\)</span>.</p>
+<p>Il devient donc aisé de calculer une primitive de chaque terme de
+sorte qu’un primitive de <span class="math inline">\(f\)</span> est</p>
+<p><span class="math display">\[x \in
+\mathbb{R}\setminus\left\{-4,1\right\} \mapsto
+\frac{1}{25}\ln\left|x-1\right| -\frac{1}{25}\ln \left|x+4\right| -
+\frac{4}{5(x+4)}.\]</span></p>
+</div>
+<h2 data-number="2.4"
+id="décomposition-de-f-in-mathbbrx-si-le-dénominateur-nest-pas-scindé-dans-mathbbrx"><span
+class="header-section-number">2.4</span> Décomposition de <span
+class="math inline">\(F \in \mathbb{R}(X)\)</span> si le dénominateur
+n’est pas scindé dans <span
+class="math inline">\(\mathbb{R}[X]\)</span></h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(R \in \mathbb{R}[X]\)</span> de
+degré <span class="math inline">\(\leq 1\)</span> non nul, <span
+class="math inline">\(P\in \mathbb{R}[X]\)</span> de degré <span
+class="math inline">\(2\)</span> sans racine réelle (donc irréductible)
+et <span class="math inline">\(i \in \mathbb{N}^{\star}\)</span>,</p>
+<p>alors <span class="math inline">\(\frac{R}{P^i}\)</span> est un
+élément simple de 2-ième espèce de <span
+class="math inline">\(\mathbb{R}[X]\)</span></p>
+</div>
+<div class="wthm">
+<p>Soit <span class="math inline">\(F \in \mathbb{R}(X)\)</span> tel que
+<span class="math inline">\(F = \frac{A}{B}\)</span> avec <span
+class="math inline">\(A \wedge B = 1\)</span> et <span
+class="math inline">\(B\)</span> qui se décompose en irréductibles sous
+la forme <span class="math inline">\(B = \beta
+\prod_{k=1}^{n}\left(X-\alpha_k\right)^{r_k} \prod_{j = 1}^p
+P_j^{s_j}\)</span> avec</p>
+<ul>
+<li><p><span class="math inline">\(n \in \mathbb{N}^{\star}\)</span>,
+<span class="math inline">\(\beta \in
+\mathbb{R}^{\star}\)</span>,</p></li>
+<li><p><span class="math inline">\(\alpha_k \in \mathbb{R}\)</span> pour
+<span class="math inline">\(1 \leq k \leq r\)</span>, les <span
+class="math inline">\(\alpha_k\)</span> tous distincts et <span
+class="math inline">\(r_1,\ldots,r_n \in
+\mathbb{N}^{\star}\)</span>,</p></li>
+<li><p><span class="math inline">\(P_j \in \mathbb{R}[X]\)</span> de
+degré <span class="math inline">\(2\)</span>, sans racine réelle (donc
+irréductible) pour <span class="math inline">\(1 \leq j \leq p\)</span>,
+les <span class="math inline">\(P_j\)</span> tous distincts et <span
+class="math inline">\(s_1,\ldots,s_p \in
+\mathbb{N}^{\star}\)</span>,</p></li>
+</ul>
+<p><span class="math inline">\(n \in \mathbb{N}^{\star}\)</span>, <span
+class="math inline">\(\beta \in \mathbb{R}^{\star}\)</span>, Alors, en
+notant</p>
+<ul>
+<li><p><span class="math inline">\(E\)</span> la partie entière de <span
+class="math inline">\(F\)</span>,</p></li>
+<li><p><span class="math inline">\(G_k\)</span> la partie polaire de
+<span class="math inline">\(F\)</span> relative à <span
+class="math inline">\(\alpha_k\)</span> pour <span
+class="math inline">\(1 \leq k \leq n\)</span>,</p></li>
+</ul>
+<p>il existe <span class="math inline">\(\begin{array}{l}
+        R_{11},\ldots,R_{1s_1} \\
+        \ldots, \\
+        R_{p1},\ldots,R_{ps_p} \\
+    \end{array}\)</span> polynôme de <span
+class="math inline">\(\mathbb{R}[X]\)</span> de degré <span
+class="math inline">\(\leq 1\)</span>, uniques, ne dépendant que de
+<span class="math inline">\(F\)</span> tels que</p>
+<p><span class="math display">\[F =E+ G_1+\ldots+G_n + \sum_{j=1}^p
+\left(\sum_{i=1}^{s_i} \frac{R_{ji}}{P_j^i}\right).\]</span></p>
+<p>Autrement dit, il existe <span
+class="math inline">\(\lambda_{11},\ldots,\lambda_{1r_1},\ldots,\lambda_{11},\ldots,\lambda_{rr_n}\)</span>
+tels que <span class="math display">\[F = E + \sum_{k=1}^n
+\sum_{\ell=1}^{r_k} \frac{\lambda_{k\ell}}{(X-\alpha_k)^\ell}+
+\sum_{j=1}^p \left(\sum_{i=1}^{s_i}
+\frac{R_{ji}}{P_j^i}\right).\]</span></p>
+</div>
+<div class="wproof">
+<p>Comme précédemment, on ne propose pas réellement une preuve du
+théorème mais plutôt l’étude d’un exemple qui permet de comprendre ce
+qui se passe.</p>
+<p>On considère <span class="math inline">\(F =
+\frac{A}{(X-1)^2(X^2+X+1)^3} \in \mathbb{R}(X)\)</span> avec <span
+class="math inline">\(A \in \mathbb{R}[X]\)</span> quelconque. On a
+<span class="math inline">\(X^2+X+1\)</span> de déterminant <span
+class="math inline">\(-3 &lt; 0\)</span> donc sans racines réelles.</p>
+<ol>
+<li><p>En considérant la partie polaire de <span
+class="math inline">\(F\)</span> relative à <span
+class="math inline">\(1\)</span>, on a l’existence de <span
+class="math inline">\(\lambda_1,\lambda_2 \in \mathbb{R}\)</span> et
+<span class="math inline">\(A_1 \in \mathbb{R}[X]\)</span> tels que</p>
+<p><span class="math display">\[F =
+\frac{\lambda_1}{X-1}+\frac{\lambda_2}{(X-1)^2}+
+\frac{A_1}{(X^2+X+1)^3}.\]</span></p></li>
+<li><p>Maintenant, en considérant la division euclidienne de <span
+class="math inline">\(A_1\)</span> par <span
+class="math inline">\((X^2+X+1)^3\)</span>, on a l’existence de <span
+class="math inline">\(Q,R \in \mathbb{R}[X]\)</span> tels que <span
+class="math inline">\(\deg(R) &lt; 6\)</span> donc <span
+class="math inline">\(\deg(R_1) \leq 5\)</span> et</p>
+<p><span class="math display">\[A_1 = Q(X^2+X+1)^3 + R.\]</span></p>
+<p>Donc <span class="math display">\[F =
+\frac{\lambda_1}{X-1}+\frac{\lambda_2}{(X-1)^2}+
+Q+\frac{R}{(X^2+X+1)^3}.\]</span></p></li>
+<li><p>Puis, en considérant la division euclidienne de <span
+class="math inline">\(R\)</span> par <span
+class="math inline">\(X^2+X+1\)</span>, on a l’existence de <span
+class="math inline">\(Q_1,R_1 \in \mathbb{R}[X]\)</span> tels que <span
+class="math inline">\(\deg(R_1) &lt; 2\)</span> donc <span
+class="math inline">\(\deg(R_1) \leq 1\)</span> et</p>
+<p><span class="math display">\[R = Q_1(X^2+X+1)^2 + R_1.\]</span></p>
+<p>On remarque que <span class="math inline">\(\deg(Q_1) \leq \deg(R)-2
+\leq 3\)</span> et donc <span class="math display">\[F =
+\frac{\lambda_1}{X-1}+\frac{\lambda_2}{(X-1)^2}+
+Q+\frac{R_1}{(X^2+X+1)^3}+\frac{Q_1}{(X^2+X+1)^2}.\]</span></p></li>
+<li><p>Puis, en considérant la division euclidienne de <span
+class="math inline">\(Q_1\)</span> par <span
+class="math inline">\(X^2+X+1\)</span>, on a l’existence de <span
+class="math inline">\(Q_2,R_2 \in \mathbb{R}[X]\)</span> tels que <span
+class="math inline">\(\deg(R_2) &lt; 2\)</span> donc <span
+class="math inline">\(\deg(R_2) \leq 1\)</span> et</p>
+<p><span class="math display">\[Q_1 = Q_2\left(X^2+X+1\right) +
+R_2.\]</span></p>
+<p>On remarque <span class="math inline">\(\deg(Q_2) \leq \deg(Q_1)-2
+\leq 1\)</span> et donc <span class="math display">\[F =
+\frac{\lambda_1}{X-1}+\frac{\lambda_2}{(X-1)^2}+
+Q+\frac{R_1}{(X^2+X+1)^3}+\frac{R_2}{(X^2+X+1)^2}+\frac{Q_2}{X^2+X+1}.\]</span>
+avec <span class="math inline">\(\deg(R_1) \leq 1, \deg(R_2) \leq
+1\)</span> et <span class="math inline">\(\deg(Q_2) \leq
+1\)</span>.</p></li>
+<li><p>Il reste à remarquer que <span class="math inline">\(Q\)</span>
+est la partie entière de <span class="math inline">\(F\)</span>.</p>
+<p>En effet, on a</p>
+<p><span class="math inline">\(F
+=  \frac{\lambda_1}{X-1}+\frac{\lambda_2}{(X-1)^2}+
+Q+\frac{R}{(X^2+X+1)^3}\)</span></p>
+<p>donc <span class="math inline">\(F-Q
+=  \frac{\lambda_1}{X-1}+\frac{\lambda_2}{(X-1)^2}+\frac{R}{(X^2+X+1)^3}\)</span>
+est de degré <span class="math inline">\(\leq 5-6 = -1 &lt;
+0\)</span>.</p></li>
+</ol>
+</div>
+<div class="wex">
+<p>Décomposons <span class="math inline">\(F = \frac{X}{(X-1)^2(X^2+1)}
+\in \mathbb{R}[X]\)</span> en éléments simples.</p>
+<p>D’abord, la partie entière de <span class="math inline">\(F\)</span>
+est <span class="math inline">\(0\)</span> car <span
+class="math inline">\(\deg(F) = -3 &lt; 0\)</span>.</p>
+<p>Il existe <span class="math inline">\(\lambda_1,\lambda_2,a,b \in
+\mathbb{R}\)</span> tels que</p>
+<p><span class="math display">\[F =
+\frac{\lambda_1}{X-1}+\frac{\lambda_2}{(X-1)^2}+\frac{aX+b}{X^2+1}.\]</span></p>
+<ul>
+<li><p>D’abord, en considérant <span class="math inline">\(G =
+(X-1)^2F\)</span>, on a <span class="math inline">\(\lambda_2 =
+\frac{1}{2}\)</span>.</p></li>
+<li><p>Déterminons <span class="math inline">\(a,b \in
+\mathbb{R}\)</span>.</p>
+<p>Pour cela remarquons que <span class="math inline">\(H =
+(X^2+1)F\)</span> vérifie <span class="math inline">\(H =
+\frac{X}{(X-1)^2}\)</span> et <span class="math inline">\(H =
+\frac{(X^2+1)\lambda_1}{X-1}+\frac{(X^2+1)\lambda_2}{(X-1)^2}+aX+b\)</span>
+et que ces égalités de <span
+class="math inline">\(\mathbb{R}[X]\)</span> sont aussi valables dans
+<span class="math inline">\(\mathbb{C}[X]\)</span>.</p>
+<p>Donc en évaluant <span class="math inline">\(H\)</span> en <span
+class="math inline">\(i\)</span>, on a <span class="math inline">\(H(i)
+= \frac{i}{(i-1)^2} = \frac{i}{-2i} = -\frac{1}{2}\)</span> et <span
+class="math inline">\(H(i) = ai+b\)</span>.</p>
+<p>Donc <span class="math inline">\(a = 0\)</span> et <span
+class="math inline">\(b = -\frac{1}{2}\)</span>.</p></li>
+<li><p>Enfin, déterminons <span
+class="math inline">\(\lambda_1\)</span>.</p>
+<p>Pour cela, on remarque que <span class="math inline">\(xF(x) =
+\frac{\lambda_1x}{x-1}+\frac{\lambda_2x}{(x-1)^2}+\frac{ax^2+bx}{x^2+1}
+\xrightarrow[x \to +\infty]{} \lambda_1+0+a = \lambda_1\)</span> et
+<span class="math inline">\(xF(x) = \frac{x^2}{(x-1)^2(x^2+1)}
+\xrightarrow[x \to +\infty]{} 0\)</span> donc <span
+class="math inline">\(\lambda_1 = 0\)</span>.</p></li>
+</ul>
+<p>Finalement,</p>
+<p><span class="math display">\[F = \frac{1}{2(X-1)^2} -
+\frac{1}{X^2+1}.\]</span></p>
+</div>
+<div class="wappli">
+<p><strong>Exercice</strong> — Déterminer une primitive de <span
+class="math inline">\(f : x \mapsto
+\frac{x}{(x-1)(x^2+1)^2}\)</span>.</p>
+<p><strong>Corrigé</strong> — Commençons par décomposer <span
+class="math inline">\(F =  \frac{X}{(X-1)(X^2+1)^2}\)</span> en éléments
+simples.</p>
+<p>D’abord, la partie entière de <span class="math inline">\(F\)</span>
+vaut <span class="math inline">\(0\)</span> car <span
+class="math inline">\(\deg(F) = -3 &lt; 0\)</span>.</p>
+<p>Donc il existe <span
+class="math inline">\(\lambda,\alpha,\beta,\gamma,\delta \in
+\mathbb{R}\)</span> tels que</p>
+<p><span class="math display">\[F = \frac{\lambda}{X-1}+\frac{\alpha
+X+\beta}{X^2+1}+\frac{\gamma X + \delta}{(X^2+1)^2}.\]</span></p>
+<ul>
+<li><p>En considérant <span class="math inline">\(G = (X-1)F\)</span>,
+on a <span class="math inline">\(\lambda = G(1) =
+\frac{1}{4}\)</span>.</p></li>
+<li><p>Ensuite, comme dans l’exemple précédent on fait un séjour dans
+<span class="math inline">\(\mathbb{C}\)</span> en considérant <span
+class="math inline">\(H = (X^2+1)^2F\)</span>.</p>
+<p>On a alors <span class="math inline">\(H(i) = 0+0+\gamma i+\delta =
+\frac{i}{i-1} = \frac{i(-i-1)}{2} =
+\frac{1}{2}-\frac{1}{2}i\)</span>.</p>
+<p>Donc <span class="math inline">\(\delta = \frac{1}{2}\)</span> et
+<span class="math inline">\(\gamma = -\frac{1}{2}\)</span>.</p></li>
+<li><p>Puis, <span class="math inline">\(xF(x) =  \frac{\lambda
+x}{x-1}+\frac{\alpha x^2+\beta x}{X^2+1}+\frac{\gamma x^2 + \delta
+x}{(X^2+1)^2} \xrightarrow[x \to +\infty]{} \lambda+\beta\)</span> donc
+<span class="math inline">\(\beta = -\frac{1}{4}\)</span>.</p></li>
+<li><p>Enfin, en évaluant <span class="math inline">\(F\)</span> en
+<span class="math inline">\(0\)</span>, on a <span
+class="math display">\[\begin{aligned}
+            \frac{0}{(0-1)(0^2+1)^2} = \frac{\lambda}{0-1}+\frac{\alpha
+0+\beta}{0^2+1}+\frac{\gamma 0 + \delta}{(0^2+1)^2}
+            &amp; \iff 0 = -\lambda+\alpha +\delta \\
+            &amp; \iff \alpha = \lambda-\delta = -\frac{1}{4}.
+            \end{aligned}\]</span></p></li>
+</ul>
+<p>Donc <span class="math inline">\(F = \frac{1}{4(X-1)}
+-\frac{X+1}{4(X^2+1)}-\frac{X-1}{2(X^2+1)^2}\)</span> et finalement,
+pour tout <span class="math inline">\(x \in \mathbb{R}\setminus
+\left\{1\right\}\)</span>,</p>
+<p><span class="math display">\[f(x) = \frac{1}{4(x-1)}
+-\frac{x+1}{4(x^2+1)}-\frac{x-1}{2(x^2+1)^2}.\]</span></p>
+<p>Il reste à primitiver chaque morceau.</p>
+<p>On remarque que</p>
+<ul>
+<li><p><span class="math inline">\(x \mapsto \frac{1}{4(x-1)}\)</span>
+admet pour primitive <span class="math inline">\(x
+\mapsto  \frac{1}{4}\ln \left|x-1\right|\)</span>,</p></li>
+<li><p><span class="math inline">\(x \mapsto -\frac{x+1}{4(x^2+1)} =
+-\frac{1}{4}\frac{x}{x^2+1}-\frac{1}{4}\frac{1}{x^2+1}\)</span> admet
+pour primitive <span class="math inline">\(x
+\mapsto  -\frac{1}{8}\ln\left(x^2+1\right)-\frac{1}{4}\mathop{\mathrm{Arctan}}(x)\)</span>,</p></li>
+<li><p>Pour <span class="math inline">\(x \in \mathbb{R}\)</span>, <span
+class="math inline">\(\frac{x-1}{2(x^2+1)^2} =
+\frac{x}{2(x^2+1)^2}-\frac{1}{2(x^2+1)^2}\)</span> et <span
+class="math inline">\(x \mapsto \frac{x}{2(x^2+1)^2}\)</span> admet pour
+primitive <span class="math inline">\(x \mapsto
+-\frac{1}{4(x^2+1)}\)</span>.</p></li>
+<li><p>Il nous reste à déterminer une primitive de <span
+class="math inline">\(x \mapsto \frac{1}{2(x^2+1)^2}\)</span>.</p>
+<p>Or, pour <span class="math inline">\(x \in \mathbb{R}\)</span>, <span
+class="math inline">\(\frac{1}{(x^2+1)^2} = \frac{1+x^2-x^2}{(1+x^2)^2}
+= \frac{1}{1+x^2} -\frac{x^2}{(1+x^2)^2}\)</span> où <span
+class="math inline">\(x \mapsto \frac{1}{1+x^2}\)</span> se primitive en
+<span class="math inline">\(x \mapsto
+\mathop{\mathrm{Arctan}}(x)\)</span>.</p>
+<p>D’autre part, une primitive <span class="math inline">\(\int
+\frac{x^2}{(1+x^2)^2}dx = \int x\frac{x}{(1+x^2)^2}dx\)</span> peut se
+calculer en intégrant par parties avec <span
+class="math inline">\(\left\{\begin{array}{ll}
+                u(x) &amp; =x \\
+                v(x) &amp; = -\frac{1}{2}\frac{1}{1+x^2}
+            \end{array}\right. \Longrightarrow \left\{\begin{array}{ll}
+                u&#39;(x) &amp; =1 \\
+                v&#39;(x) &amp; = \frac{x}{1+x^2}
+            \end{array}\right.\)</span> de sorte que</p>
+<p><span class="math display">\[\int \frac{x^2}{(1+x^2)^2}dx
+=  -\frac{x}{2}\frac{1}{1+x^2} -\int\left( \frac{1}{2}\frac{1}{1+x^2}
+\right)dx =
+-\frac{x}{2}\frac{1}{1+x^2}+\frac{1}{2}\mathop{\mathrm{Arctan}}(x) +
+\text{ Cste}.\]</span></p>
+<p>Finalement, <span class="math inline">\(x \mapsto
+\frac{1}{2(x^2+1)^2}\)</span> se primitive en <span
+class="math inline">\(x \mapsto \frac{1}{2}\mathop{\mathrm{Arctan}}(x)
++\frac{x}{4}\frac{1}{1+x^2}-\frac{1}{4}\mathop{\mathrm{Arctan}}(x) =
+\frac{1}{4}\mathop{\mathrm{Arctan}}(x)
++\frac{x}{4}\frac{1}{1+x^2}\)</span></p></li>
+</ul>
+<p>Puis, pour finir, <span class="math inline">\(f\)</span> admet pour
+primitive <span class="math display">\[x \in \mathbb{R}\setminus
+\left\{1\right\} \mapsto \frac{1}{4}\ln \left|x-1\right|
+-\frac{1}{8}\ln\left(x^2+1\right)-\frac{1}{4}\mathop{\mathrm{Arctan}}(x)+\frac{1}{4(x^2+1)}+\frac{1}{4}\mathop{\mathrm{Arctan}}(x)
++\frac{x}{4}\frac{1}{1+x^2}.\]</span> ce qui se simplifie en <span
+class="math display">\[x \in \mathbb{R}\setminus \left\{1\right\}
+\mapsto \frac{1}{4}\ln \left|x-1\right|
+-\frac{1}{8}\ln\left(x^2+1\right)+\frac{x+1}{4(x^2+1)}.\]</span></p>
+</div>
+<h2 data-number="2.5" id="fraction-paire-ou-impaire"><span
+class="header-section-number">2.5</span> Fraction paire ou impaire</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(F \in \mathbb{K}(X)\)</span> tel que
+<span class="math inline">\(F = \frac{A}{B}\)</span>.</p>
+<p>Si <span class="math inline">\(A = \sum_{k=0}^n a_k X^k\)</span>, on
+pose <span class="math inline">\(A(-X) = \sum_{k=0}^n a_k
+(-X)^k\)</span> et de même pour <span
+class="math inline">\(B\)</span>.</p>
+<p>On pose alors <span class="math inline">\(F(-X) =
+\frac{A(-X)}{B(-X)}\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(F\)</span> est dite paire si <span
+class="math inline">\(F(-X) = F\)</span>,</p></li>
+<li><p><span class="math inline">\(F\)</span> est dite impaire si <span
+class="math inline">\(F(-X) = -F\)</span>.</p></li>
+</ul>
+</div>
+<p>Cela permet quelques simplifications parfois, comme illustré par
+l’exemple ci-dessous.</p>
+<div class="wex">
+<p><strong>Exercice</strong> — Calculer une primitive de <span
+class="math inline">\(f : x \mapsto \frac{1}{(x^3-x)^2}\)</span>.</p>
+<p><strong>Corrigé</strong> — On s’intéresse alors à <span
+class="math inline">\(F = \frac{1}{(X^3-X)^2} = \frac{1}{X^2(X^2-1)^2} =
+\frac{1}{X^2(X-1)^2(X+1)^2}\)</span>.</p>
+<p>D’abord, la partie entière de <span class="math inline">\(F\)</span>
+est nulle car <span class="math inline">\(\deg F = -6 &lt;
+0\)</span>.</p>
+<p>Il existe donc <span
+class="math inline">\(\lambda_1,\lambda_2,\mu_1,\mu_2,\nu_1,\nu_2 \in
+\mathbb{R}\)</span> tels que <span class="math display">\[F =
+\frac{\lambda_1}{X}+\frac{\lambda_2}{X^2}+\frac{\mu_1}{X-1}+\frac{\mu_2}{(X-1)^2}+\frac{\nu_1}{X+1}+\frac{\nu_2}{(X+1)^2}.\]</span></p>
+<p>Or, <span class="math inline">\(F\)</span> est paire car <span
+class="math inline">\(F(-X) =  \frac{1}{((-X)^3+X)^2} =
+\frac{1}{(-X^3+X)^2} = \frac{1}{(X^3-X)^2}\)</span>.</p>
+<p>Donc <span class="math display">\[\begin{aligned}
+        &amp;
+\frac{\lambda_1}{X}+\frac{\lambda_2}{X^2}+\frac{\mu_1}{X-1}+\frac{\mu_2}{(X-1)^2}+\frac{\nu_1}{X+1}+\frac{\nu_2}{(X+1)^2}
+\\
+        &amp; =
+-\frac{\lambda_1}{X}+\frac{\lambda_2}{X^2}-\frac{\mu_1}{X+1}+\frac{\mu_2}{(X+1)^2}-\frac{\nu_1}{X-1}+\frac{\nu_2}{(X-1)^2}.
+        \end{aligned}\]</span></p>
+<p>Ce qui impose, par unicité des parties polaires, <span
+class="math display">\[\left\{
+        \begin{array}{ll}
+            \lambda_1 &amp; = -\lambda_1 \Longrightarrow \lambda_1 = 0
+\\
+            \mu_1 &amp; = -\nu_1 \\
+            \mu_2 &amp; = \nu_2.
+        \end{array}
+        \right.\]</span></p>
+<p>On a donc <span class="math display">\[F =
+\frac{\lambda_2}{X^2}+\frac{\mu_1}{X-1}+\frac{\mu_2}{(X-1)^2}-\frac{\mu_1}{X+1}+\frac{\mu_2}{(X+1)^2}.\]</span>
+et cela fait 4 coefficients à déterminer plutôt que 8.</p>
+<ul>
+<li><p>En considérant <span class="math inline">\(X^2F\)</span> en <span
+class="math inline">\(0\)</span>, on a <span
+class="math inline">\(\lambda_2 = 1\)</span>,</p></li>
+<li><p>En considérant <span class="math inline">\((X-1)^2F\)</span>, on
+a <span class="math inline">\(\mu_2 = \frac{1}{4}\)</span>,</p></li>
+<li><p>En évaluant <span class="math inline">\(F\)</span> en <span
+class="math inline">\(2\)</span>, on a</p>
+<p><span class="math inline">\(\frac{1}{4 \times 9} = \frac{1}{4}
++\mu_1+\frac{1}{4}-\frac{1}{3}\mu_1+\frac{1}{4 \times 9} \iff
+\frac{2}{3}\mu_1 = -\frac{1}{2} \iff \mu_1 =
+\frac{3}{4}\)</span>.</p></li>
+</ul>
+<p>On a donc pour tout <span class="math inline">\(x \in
+\mathbb{R}\setminus \left\{0, \pm 1\right\}\)</span>,</p>
+<p><span class="math display">\[f(x) = \frac{1}{x^2} +\frac{3}{4(x-1)} +
+\frac{1}{4(x-1)^2}-\frac{3}{4(x+1)} + \frac{1}{4(x+1)^2}\]</span></p>
+<p>donc une primitive de <span class="math inline">\(f\)</span> est
+<span class="math display">\[x  \in \mathbb{R}\setminus \left\{0, \pm
+1\right\} \mapsto -\frac{1}{x} +\frac{3}{4}\ln \left|x-1\right| -
+\frac{1}{4(x-1)}-\frac{3}{4}\ln \left|x+1\right| -
+\frac{1}{4(x+1)}.\]</span></p>
+</div>
+</body>
+</html>
+
+<script>
+
+const toggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Appliquer le thème au chargement
+const currentTheme = localStorage.getItem('theme') || 'default';
+body.setAttribute('data-md-color-scheme', currentTheme);
+
+toggle.addEventListener('click', () => {
+    let scheme = body.getAttribute('data-md-color-scheme');
+    let newScheme = (scheme === 'default') ? 'slate' : 'default';
+    
+    body.setAttribute('data-md-color-scheme', newScheme);
+    localStorage.setItem('theme', newScheme);
+});
+
+// 4. CONVERSION TIKZ POUR TIKZJAX
+    document.querySelectorAll('pre').forEach(pre => {
+        let code = pre.querySelector('code');
+        if (code && code.textContent.includes('\\begin{tikzpicture}')) {
+            let script = document.createElement('script');
+            script.type = 'text/tikz';
+            // On force le chargement des librairies nécessaires pour vos matrices
+            script.innerHTML = '\\usetikzlibrary{matrix, calc}\n' + code.textContent;
+            pre.replaceWith(script);
+        }
+    });
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    let secCount = -1;
+    let thmCount = -1;
+    let labels = {};
+
+    const noms = {
+        'wthm':'Théorème', 'wprop':'Proposition', 'wdefi':'Définition',
+        'wlem':'Lemme', 'wcor':'Corollaire', 'wappli':'Application',
+        'wrem':'Remarque', 'wrappel': 'Rappel', 'wex':'Exemple',
+        'wexs':'Exemples', 'wproof':'Preuve'
+    };
+
+    // Numérotation des environnements
+    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs, .wrappel,.wproof").forEach(el => {
+        if (el.tagName.toLowerCase() === "h1" && !el.closest("#TOC")) {
+            secCount++;
+            thmCount = 0;
+        } else if (noms[Array.from(el.classList).find(c => noms[c])]) {
+            let type = Array.from(el.classList).find(c => noms[c]);
+            if (type !== 'wproof') {
+                thmCount++;
+                let num = secCount + "." + thmCount;
+                let id = el.querySelector("span[id]") ? el.querySelector("span[id]").id : null;
+                if(id) labels[id] = { num: num, type: type.substring(1) };
+                
+                let p = el.querySelector("p");
+                if (p) {
+                    let strong = p.querySelector("strong");
+                    let title = (strong && strong.innerText.includes("(")) ? ` <span class="env-title">${strong.outerHTML}</span>` : "";
+                    if (title) strong.remove();
+                    p.innerHTML = `<strong class="env-header">${noms[type]} ${num}</strong>` + title + " — " + p.innerHTML;
+                }
+            } else {
+                let p = el.querySelector("p");
+                if (p) p.innerHTML = `<strong class="env-header">Preuve</strong> — ` + p.innerHTML;
+            }
+        }
+    });
+
+    // Fonction lancée une fois MathJax terminé
+    function executerApresMathJax() {
+        
+        // 1. Capture des équations
+        document.querySelectorAll("mjx-math[display='true']").forEach((el, index) => {
+            let num = el.querySelector(".mjx-eqn-number");
+            if (num) {
+                let val = num.innerText.replace(/[()]/g, '');
+                let id = el.id || "eq-" + index;
+                el.id = id;
+                labels[id] = { num: val, type: 'eq' };
+            }
+        });
+
+        // 2. TRACÉ DES LIGNES PARTIELLES
+        document.querySelectorAll("mjx-mtext").forEach(el => {
+            let text = el.textContent;
+            
+            // DÉCODAGE MAGIQUE : si MathJax cache le texte dans les classes CSS
+            if (!text || text.trim() === "") {
+                text = Array.from(el.children).map(c => {
+                    let cls = Array.from(c.classList).find(className => className.startsWith('mjx-c'));
+                    return cls ? String.fromCharCode(parseInt(cls.replace('mjx-c', ''), 16)) : '';
+                }).join('');
+            }
+
+            if (text.includes("CLINEX")) {
+                let regex = /CLINEX(\d+)X(\d+)X/g;
+                let match;
+                let row = el.closest("mjx-mtr");
+                let prevRow = row ? row.previousElementSibling : null;
+
+                while ((match = regex.exec(text)) !== null) {
+                    let start = parseInt(match[1]);
+                    let end = parseInt(match[2]);
+
+                    if (prevRow) {
+                        let cells = prevRow.querySelectorAll("mjx-mtd");
+                        for (let i = start - 1; i < end; i++) {
+                            if (cells[i]) {
+                                cells[i].style.borderBottom = "max(1px, 0.08em) solid currentColor";
+                                cells[i].style.paddingBottom = "0.2em";
+                            }
+                        }
+                    }
+                }
+                // On fait disparaître le marqueur texte
+                el.style.display = "none";
+            }
+        });
+
+        // 3. Remplacement des références
+        document.querySelectorAll("body *").forEach(el => {
+            if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
+                el.innerHTML = el.innerHTML
+                .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m)
+                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => {
+                    let f = t + ":" + id;
+                    return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
+                });
+            }
+        });
+    }
+
+    // Attente robuste de MathJax
+    function waitForMathJax() {
+        if (window.MathJax && window.MathJax.startup && window.MathJax.startup.promise) {
+            window.MathJax.startup.promise.then(() => {
+                setTimeout(executerApresMathJax, 50); 
+            }).catch(err => console.log('Erreur MathJax', err));
+        } else {
+            setTimeout(waitForMathJax, 100);
+        }
+    }
+
+    waitForMathJax();
+
+});
+</script>
+
