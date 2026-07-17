@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Probabilités</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+
+
+<style>
+  /* Correctif MathJax : fusion des bordures pour les divisions de polynômes (array + cline) */
+  mjx-container mjx-mtable {
+    border-collapse: collapse !important;
+  }
+  mjx-container mjx-mtd {
+    padding-top: 0.25em !important;
+    padding-bottom: 0.25em !important;
+  }
+
+  body[data-md-color-scheme="slate"] svg {
+    filter: invert(1) hue-rotate(180deg);
+  }
+  body[data-md-color-scheme="slate"] .site-logo {
+    filter: none;
+  }
+  
+</style>
+
+<header class="site-header">
+
+   <div class="site-header-left">
+      <a href="../../index.html">
+        <img src="../../assets/logo.svg"
+             class="site-logo"
+             alt="Logo">
+      </a>
+    </div>
+
+<div class="site-header-right">
+   <button id="theme-toggle"
+style="
+margin-right: 15px;
+cursor: pointer;
+background: transparent;
+border: none;
+font-size: 1.1rem;
+color: var(--md-primary-bg-color);
+">
+🌙 / ☀️
+</button>
+
+<a href="../../index.html" class="home-link">
+   Retour à l’accueil
+ </a>
+</div>
+
+</header>
+
+
+<header id="title-block-header">
+
+<h1 class="title">Probabilités</h1>
+<p class="pdf-link">
+<a href="probas.pdf" target="_blank">[PDF]</a>
+</p>
+
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#compléments-sur-les-dénombrements"
+id="toc-compléments-sur-les-dénombrements"><span
+class="toc-section-number">1</span> Compléments sur les
+dénombrements</a>
+<ul>
+<li><a href="#introduction" id="toc-introduction"><span
+class="toc-section-number">1.1</span> Introduction</a></li>
+<li><a href="#cardinal-dune-réunion"
+id="toc-cardinal-dune-réunion"><span
+class="toc-section-number">1.2</span> Cardinal d’une réunion</a></li>
+<li><a href="#cardinal-de-e-times-f-de-e_1-times-ldots-times-e_p"
+id="toc-cardinal-de-e-times-f-de-e_1-times-ldots-times-e_p"><span
+class="toc-section-number">1.3</span> Cardinal de <span
+class="math inline">\(E \times F\)</span>, de <span
+class="math inline">\(E_1 \times \ldots \times E_p\)</span></a></li>
+<li><a href="#fonctions-entre-ensembles-finis"
+id="toc-fonctions-entre-ensembles-finis"><span
+class="toc-section-number">1.4</span> Fonctions entre ensembles
+finis</a></li>
+<li><a href="#rappels" id="toc-rappels"><span
+class="toc-section-number">1.5</span> Rappels</a></li>
+</ul></li>
+<li><a href="#généralités-sur-les-probabilités"
+id="toc-généralités-sur-les-probabilités"><span
+class="toc-section-number">2</span> Généralités sur les probabilités</a>
+<ul>
+<li><a href="#introduction-1" id="toc-introduction-1"><span
+class="toc-section-number">2.1</span> Introduction</a></li>
+<li><a href="#lunivers-omega-et-la-tribu-des-événements"
+id="toc-lunivers-omega-et-la-tribu-des-événements"><span
+class="toc-section-number">2.2</span> L’univers <span
+class="math inline">\(\Omega\)</span> et la tribu des
+événements</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="compléments-sur-les-dénombrements"><span
+class="header-section-number">1</span> Compléments sur les
+dénombrements</h1>
+<h2 data-number="1.1" id="introduction"><span
+class="header-section-number">1.1</span> Introduction</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un ensemble fini, non
+vide, le nombre d’éléments de <span class="math inline">\(E\)</span> est
+le cardinal de <span class="math inline">\(E\)</span>, noté <span
+class="math inline">\(\mathop{\mathrm{card}}E\)</span>.</p>
+<p>Si <span class="math inline">\(E = \emptyset\)</span>, on pose <span
+class="math inline">\(\mathop{\mathrm{card}}E = 0\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(n \in \mathbb{N}^{\star}\)</span> et
+<span class="math inline">\(E\)</span> un ensemble fini,</p>
+<p>Alors,</p>
+<p><span class="math display">\[\text{$E$ est de cardinal $n$} \iff
+\text{il existe une bijection entre $[\![1,n]\!]$ et $E$.}\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(E = \left\{x_1,\ldots,x_n\right\}\)</span> (avec
+<span class="math inline">\(x_1,\ldots,x_n\)</span> distincts),</p>
+<p>alors <span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; [\![ 1,n ]\!] &amp; \to &amp; E \\
+   &amp;   &amp; k &amp; \mapsto &amp; x_k
+\end{array}\)</span> est une bijection.</p>
+<p>En effet, elle est injective car pour <span class="math inline">\(k
+\leq \ell, x_k \leq x_\ell\)</span> et elle est surjective.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Si il
+existe une bijection <span class="math inline">\(f : [\![ 1,n ]\!] \to
+E\)</span> alors par surjectivité de <span
+class="math inline">\(f\)</span>, <span class="math inline">\(E =
+\mathop{\mathrm{Im}}f = \left\{f(1),\ldots,f(n)\right\}\)</span> où
+<span class="math inline">\(f(1),\ldots,f(n)\)</span> sont distincts
+(par injectivité de <span class="math inline">\(f\)</span>) donc <span
+class="math inline">\(\mathop{\mathrm{card}}E = n\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="1.2" id="cardinal-dune-réunion"><span
+class="header-section-number">1.2</span> Cardinal d’une réunion</h2>
+<p>On considère <span class="math inline">\(E\)</span> un ensemble
+quelconque.</p>
+<div class="wprop">
+<p><span id="prop:cardinal_union" label="prop:cardinal_union"></span>
+Soient <span class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span> deux parties finies de <span
+class="math inline">\(E\)</span>.</p>
+<p>Alors, <span class="math inline">\(\mathop{\mathrm{card}}(A\cup B) =
+\mathop{\mathrm{card}}A + \mathop{\mathrm{card}}B -
+\mathop{\mathrm{card}}(A\cap B)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>On note <span class="math inline">\(r = \mathop{\mathrm{card}}(A \cap
+B)\)</span> et <span class="math inline">\(A\cap B =
+\left\{x_1,\ldots,x_r\right\}\)</span> avec <span
+class="math inline">\(x_1,\ldots,x_r\)</span> distincts.</p>
+<p>En notant <span class="math inline">\(p =
+\mathop{\mathrm{card}}A\)</span>, <span class="math inline">\(A \cap B
+\subset A\)</span> donc il existe <span
+class="math inline">\(y_{r+1},\ldots,y_p\)</span> distincts et distincts
+de <span class="math inline">\(x_1,\ldots,x_r\)</span> tels que <span
+class="math inline">\(A =
+\left\{x_1,\ldots,x_r,y_{r+1},\ldots,y_p\right\}\)</span>.</p>
+<p>De même, en notant <span class="math inline">\(q =
+\mathop{\mathrm{card}}B\)</span>, <span class="math inline">\(A \cap B
+\subset B\)</span> donc il existe <span
+class="math inline">\(z_{r+1},\ldots,z_q\)</span> distincts et distincts
+de <span class="math inline">\(x_1,\ldots,x_r\)</span> tels que <span
+class="math inline">\(B =
+\left\{x_1,\ldots,x_r,z_{r+1},\ldots,z_q\right\}\)</span>.</p>
+<p>Enfin, les <span class="math inline">\(z_1,\ldots,z_q\)</span> sont
+distincts des <span class="math inline">\(y_1,\ldots,y_p\)</span> car
+sinon ils seraient dans <span class="math inline">\(A \cap
+B\)</span>.</p>
+<p>Donc <span class="math inline">\(A \cup B =
+\left\{x_1,\ldots,x_r,y_{r+1},\ldots,y_p,z_{r+1},\ldots,z_q\right\}\)</span>
+et <span class="math inline">\(\mathop{\mathrm{card}}(A\cup B) = p+(q-r)
+= \mathop{\mathrm{card}}A + \mathop{\mathrm{card}}B -
+\mathop{\mathrm{card}}(A\cap B)\)</span>.</p>
+</div>
+<div class="wprop">
+<p><strong>(Extension partielle de la proposition <a
+href="#prop:cardinal_union" data-reference-type="ref"
+data-reference="prop:cardinal_union">[prop:cardinal_union]</a>)</strong>
+Soient <span class="math inline">\(n \in \mathbb{N}^{\star}, \geq
+2\)</span> et <span class="math inline">\(A_1,\ldots,A_n\)</span> des
+parties finies de <span class="math inline">\(E\)</span> deux à deux
+disjointes, ie telles que</p>
+<p>pour tout <span class="math inline">\(i,j \in [\![ 1,n ]\!]\)</span>,
+<span class="math inline">\(i \neq j \Longrightarrow A_i \cap A_j =
+\emptyset\)</span>.</p>
+<p>Alors, <span class="math inline">\(\bigcup_{i=1}^n A_i\)</span> est
+finie et <span
+class="math inline">\(\mathop{\mathrm{card}}\left(\bigcup_{i=1}^n
+A_i\right)= \sum_{i=1}^n
+\mathop{\mathrm{card}}\left(A_i\right)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Prouvons ce résultat par récurrence sur <span
+class="math inline">\(n\)</span>.</p>
+<ul>
+<li><p><u>Initialisation.</u> Soient <span
+class="math inline">\(A_1,A_2\)</span> finies telles que <span
+class="math inline">\(A_1 \cap A_2 = \emptyset\)</span>.</p>
+<p>Alors, <span class="math inline">\(\mathop{\mathrm{card}}\left(A_1
+\cup A_2\right) = \mathop{\mathrm{card}}A_1 + \mathop{\mathrm{card}}A_2
+- 0\)</span>.</p></li>
+<li><p><u>Hérédité.</u> Supposons le résultat vrai pour <span
+class="math inline">\(n \in \mathbb{N}^{\star}, \geq 2\)</span>
+fixée.</p>
+<p>On considère alors <span
+class="math inline">\(A_1,\ldots,A_n,A_{n+1}\)</span> des parties finies
+de <span class="math inline">\(E\)</span>.</p>
+<p>Par hypothèse de récurrence, <span
+class="math inline">\(\bigcup_{i=1}^{n} A_i\)</span> est finie donc par
+par la proposition <a href="#prop:cardinal_union"
+data-reference-type="ref"
+data-reference="prop:cardinal_union">[prop:cardinal_union]</a>, <span
+class="math inline">\(\bigcup_{i=1}^{n+1} A_i = \left(\bigcup_{i=1}^n
+A_i\right) \bigcup A_{n+1}\)</span> est finie et on a</p>
+<p><span
+class="math inline">\(\mathop{\mathrm{card}}\left(\bigcup_{i=1}^{n+1}
+A_i\right) = \mathop{\mathrm{card}}{\bigcup_{i=1}^n A_i} +
+\mathop{\mathrm{card}}A_{n+1} +
+\mathop{\mathrm{card}}\left(\left(\bigcup_{i=1}^n A_i\right) \bigcap
+A_{n+1}\right)\)</span>.</p>
+<p>Or, par hypothèse de récurrence, <span
+class="math inline">\(\mathop{\mathrm{card}}\left(\bigcup_{i=1}^n
+A_i\right)= \sum_{i=1}^n
+\mathop{\mathrm{card}}\left(A_i\right)\)</span>.</p>
+<p>De plus,<span class="math inline">\(\left(\bigcup_{i=1}^n A_i\right)
+\bigcap A_{n+1} = \bigcap_{i=1}^n \left(A_i \cap A_{n+1}\right) =
+\emptyset\)</span>.</p>
+<p>Donc, finalement, on a bien</p>
+<p><span
+class="math inline">\(\mathop{\mathrm{card}}\left(\bigcup_{i=1}^{n+1}
+A_i\right) = \sum_{i=1}^n
+\mathop{\mathrm{card}}\left(A_i\right)+\mathop{\mathrm{card}}A_{n+1}
+=  \sum_{i=1}^{n+1}
+\mathop{\mathrm{card}}\left(A_i\right).\)</span></p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>Et si on ne suppose pas les ensembles deux à deux disjoints ?</p>
+<p>Par exemple, pour <span class="math inline">\(n=3\)</span>, on a
+<span class="math display">\[\begin{aligned}
+     \mathop{\mathrm{card}}\left(A \cup B \cup C\right)
+    &amp; = \mathop{\mathrm{card}}\left(\left(A\cup B\right)\cup
+C\right) \\
+    &amp; = \mathop{\mathrm{card}}\left(A \cup B\right) +
+\mathop{\mathrm{card}}C - \mathop{\mathrm{card}}\left(\left(A\cup
+B\right)\cap C\right) \text{ par le cas $n=2$} \\
+    \end{aligned}\]</span></p>
+<p>Or, <span class="math inline">\(\mathop{\mathrm{card}}(A\cup B) =
+\mathop{\mathrm{card}}A + \mathop{\mathrm{card}}B -
+\mathop{\mathrm{card}}(A\cap B)\)</span> et <span
+class="math inline">\(\left(A\cup B\right)\cap C = \left(A \cap C\right)
+\cup \left(B \cap C\right)\)</span> donc toujours par la proposition <a
+href="#prop:cardinal_union" data-reference-type="ref"
+data-reference="prop:cardinal_union">[prop:cardinal_union]</a>,</p>
+<p><span class="math inline">\(\mathop{\mathrm{card}}\left(\left(A\cup
+B\right)\cap C\right) = \mathop{\mathrm{card}}\left(A \cap C\right) +
+\mathop{\mathrm{card}}\left(C \cap C\right)
+-\mathop{\mathrm{card}}\left(\underbrace{A \cap C\cap B \cap C}_{=A\cap
+B \cap C}\right)\)</span>.</p>
+<p>Finalement, on a donc</p>
+<p><span class="math display">\[\begin{aligned}
+\mathop{\mathrm{card}}\left(A \cup B \cup C\right)
+     = &amp;  \mathop{\mathrm{card}}A +\mathop{\mathrm{card}}B
++\mathop{\mathrm{card}}C \\
+    &amp;  - \mathop{\mathrm{card}}(A\cap B)-
+\mathop{\mathrm{card}}(A\cap C) - \mathop{\mathrm{card}}(B\cap C) \\
+    &amp; + \mathop{\mathrm{card}}\left(A\cap B \cap C\right).
+    \end{aligned}\]</span></p>
+<p>En fait, on a une formule plus générale, assez difficile à écrire,
+appelée la <u>formule du crible</u>.</p>
+</div>
+<h2 data-number="1.3"
+id="cardinal-de-e-times-f-de-e_1-times-ldots-times-e_p"><span
+class="header-section-number">1.3</span> Cardinal de <span
+class="math inline">\(E \times F\)</span>, de <span
+class="math inline">\(E_1 \times \ldots \times E_p\)</span></h2>
+<div class="wprop">
+<p><span id="prop:cardinal_ensemble_produit"
+label="prop:cardinal_ensemble_produit"></span> Soient <span
+class="math inline">\(E,F\)</span> deux ensembles finis.</p>
+<p>Alors <span class="math inline">\(E\times F\)</span> est finie et
+<span class="math inline">\(\mathop{\mathrm{card}}\left(E \times
+F\right) =
+\left(\mathop{\mathrm{card}}E\right)\left(\mathop{\mathrm{card}}F\right)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(n =
+\mathop{\mathrm{card}}E\)</span>, alors <span
+class="math inline">\(E\times F = \bigcup_{i=1}^n A_i\)</span> avec
+<span class="math inline">\(A_i=\left\{(x_i,y) / y \in
+F\right\}\)</span>.</p>
+<p>Or, les <span class="math inline">\(A_i\)</span> sont deux à deux
+disjoints.</p>
+<p>Donc <span class="math inline">\(E\times F\)</span> est fini et <span
+class="math inline">\(\mathop{\mathrm{card}}\left(E\times F\right) =
+\sum_{i=1}^n \mathop{\mathrm{card}}A_i\)</span>.</p>
+<p>De plus, pour tout <span class="math inline">\(1 \leq i \leq
+n\)</span>, <span class="math inline">\(\mathop{\mathrm{card}}A_i =
+\mathop{\mathrm{card}}F\)</span>.</p>
+<p>Donc <span class="math inline">\(\mathop{\mathrm{card}}\left(E \times
+F\right) = n\left(\mathop{\mathrm{card}}F\right) =
+\left(\mathop{\mathrm{card}}E\right)\left(\mathop{\mathrm{card}}F\right).\)</span></p>
+</div>
+<div class="wprop">
+<p><strong>(Extension de la proposition <a
+href="#prop:cardinal_ensemble_produit" data-reference-type="ref"
+data-reference="prop:cardinal_ensemble_produit">[prop:cardinal_ensemble_produit]</a>)</strong></p>
+<p>Soient <span class="math inline">\(p \in \mathbb{N}^{\star}, \geq
+2\)</span> et <span class="math inline">\(E_1,\ldots,E_p\)</span> des
+ensembles finis.</p>
+<p>Alors, <span class="math inline">\(\mathop{\mathrm{card}}(E_1\times
+\ldots\times E_p) = \prod_{k=1}^p
+\left(\mathop{\mathrm{card}}E_k\right)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Montrons ce résultat par récurrence sur <span
+class="math inline">\(p\)</span>.</p>
+<ul>
+<li><p><u>Initialisation.</u> Le cas <span
+class="math inline">\(p=2\)</span> a été démontré avec la proposition <a
+href="#prop:cardinal_ensemble_produit" data-reference-type="ref"
+data-reference="prop:cardinal_ensemble_produit">[prop:cardinal_ensemble_produit]</a>.</p></li>
+<li><p><u>Hérédité.</u> Supposons le résultat vrai pour <span
+class="math inline">\(p \in \mathbb{N}^{\star}, \geq 2\)</span>
+fixé.</p>
+<p>Soient <span class="math inline">\(E_1,\ldots,E_p,E_{p+1}\)</span>
+des ensembles finis alors</p>
+<p><span class="math display">\[\begin{aligned}
+            \mathop{\mathrm{card}}(E_1\times \ldots\times E_p \times
+E_{p+1})
+            &amp; = \mathop{\mathrm{card}}\left(\left(E_1\times
+\ldots\times E_p\right)\times E_{p+1}\right) \\
+            &amp; = \mathop{\mathrm{card}}\left(E_1\times \ldots\times
+E_p\right)\times \mathop{\mathrm{card}}\left(E_{p+1}\right) \text{ par
+la proposition~\ref{prop:cardinal_ensemble_produit}} \\
+            &amp; =  \prod_{k=1}^{p+1}
+\left(\mathop{\mathrm{card}}E_k\right)
+        \end{aligned}\]</span></p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>En particulier, <span class="math inline">\(\mathop{\mathrm{card}}E^p
+= \left(\mathop{\mathrm{card}}E\right)^p\)</span>.</p>
+</div>
+<h2 data-number="1.4" id="fonctions-entre-ensembles-finis"><span
+class="header-section-number">1.4</span> Fonctions entre ensembles
+finis</h2>
+<div class="wprop">
+<p><span id="prop:card_Imf_card_E" label="prop:card_Imf_card_E"></span>
+Soient <span class="math inline">\(E,F\)</span> deux ensembles finis et
+<span class="math inline">\(f \in \mathscr{F}(E,F)\)</span>.</p>
+<p>Alors, <span class="math inline">\(\begin{array}{ll}
+        &amp;\mathop{\mathrm{card}}\mathop{\mathrm{Im}}f \leq
+\mathop{\mathrm{card}}E \\
+        \text{ et }&amp;\mathop{\mathrm{card}}\mathop{\mathrm{Im}}f  =
+\mathop{\mathrm{card}}E \iff f \text{ est injective.}
+    \end{array}\)</span></p>
+</div>
+<div class="wproof">
+<p>Notons <span class="math inline">\(E =
+\left\{x_1,\ldots,x_n\right\}\)</span>.</p>
+<p><span class="math inline">\(\mathop{\mathrm{Im}}f\)</span> est
+l’ensemble des <span class="math inline">\(f(x_1),\ldots,f(x_n)\)</span>
+qui ne sont pas nécessairement tous distincts donc <span
+class="math inline">\(\mathop{\mathrm{card}}\mathop{\mathrm{Im}}f \leq n
+= \mathop{\mathrm{card}}E\)</span>.</p>
+<p>De plus, <span class="math display">\[\begin{aligned}
+        \mathop{\mathrm{card}}\mathop{\mathrm{Im}}f &lt;
+\mathop{\mathrm{card}}E
+        &amp; \iff \exists i,j \in [\![ 1,n]\!] \text{ tels que } i \neq
+j \text{ et }f(x_i) = f(x_j) \\
+        &amp; \iff f \text{ non injective.}
+    \end{aligned}\]</span></p>
+</div>
+<div class="wprop">
+<p><span id="prop:cardinal_injective_surjectivE_bijective"
+label="prop:cardinal_injective_surjectivE_bijective"></span> Soient
+<span class="math inline">\(E,F\)</span> deux ensembles finis et <span
+class="math inline">\(f \in \mathscr{F}(E,F)\)</span>.</p>
+<p>Alors,</p>
+<ul>
+<li><p>Si <span class="math inline">\(f\)</span> est injective, <span
+class="math inline">\(\mathop{\mathrm{card}}E \leq
+\mathop{\mathrm{card}}F\)</span>,</p></li>
+<li><p>si <span class="math inline">\(f\)</span> est surjective, <span
+class="math inline">\(\mathop{\mathrm{card}}E \geq
+\mathop{\mathrm{card}}F\)</span>,</p></li>
+<li><p>si <span class="math inline">\(f\)</span> est bijective, <span
+class="math inline">\(\mathop{\mathrm{card}}E =
+\mathop{\mathrm{card}}F\)</span>.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Par la proposition <a href="#prop:card_Imf_card_E"
+data-reference-type="ref"
+data-reference="prop:card_Imf_card_E">[prop:card_Imf_card_E]</a>, si
+<span class="math inline">\(f\)</span> est injective, <span
+class="math inline">\(\mathop{\mathrm{card}}\mathop{\mathrm{Im}}f =
+\mathop{\mathrm{card}}E\)</span>.</p>
+<p>Or, <span class="math inline">\(\mathop{\mathrm{Im}}f \subset
+F\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{card}}\mathop{\mathrm{Im}}f \leq
+\mathop{\mathrm{card}}F\)</span>.</p>
+<p>On en déduit donc <span class="math inline">\(\mathop{\mathrm{card}}E
+\leq \mathop{\mathrm{card}}F\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(f\)</span> est surjective, <span
+class="math inline">\(\mathop{\mathrm{Im}}f = F\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{card}}\mathop{\mathrm{Im}}f =
+\mathop{\mathrm{card}}F\)</span>.</p>
+<p>Or, par la proposition <a href="#prop:card_Imf_card_E"
+data-reference-type="ref"
+data-reference="prop:card_Imf_card_E">[prop:card_Imf_card_E]</a>, <span
+class="math inline">\(\mathop{\mathrm{card}}\mathop{\mathrm{Im}}f \leq
+\mathop{\mathrm{card}}E\)</span>.</p>
+<p>Donc <span class="math inline">\(\mathop{\mathrm{card}}F \leq
+\mathop{\mathrm{card}}E\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(f\)</span> est bijective, <span
+class="math inline">\(f\)</span> est injective et surjective donc par ce
+qui précède, <span class="math inline">\(\mathop{\mathrm{card}}E =
+\mathop{\mathrm{card}}F\)</span>.</p></li>
+</ul>
+</div>
+<div class="wappli">
+<p><strong>(Calcul du cardinal de <span
+class="math inline">\(\mathscr{F}(E,F)\)</span>)</strong> Soient <span
+class="math inline">\(E,F\)</span> deux ensembles finis alors <span
+class="math inline">\(\mathscr{F}(E,F)\)</span> est fini et <span
+class="math inline">\(\mathop{\mathrm{card}}\mathscr{F}(E,F) =
+\left(\mathop{\mathrm{card}}F\right)^{\left(\mathop{\mathrm{card}}E\right)}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Notons <span class="math inline">\(E =
+\left\{x_1,\ldots,x_n\right\}\)</span> et considérons <span
+class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; \mathscr{F}(E,F) &amp; \to &amp; F^n \\
+   &amp;   &amp; f &amp; \mapsto &amp; \left(f(x_1),\ldots,f(x_n)\right)
+\end{array}
+.\)</span></p>
+<p>Montrons que <span class="math inline">\(\varphi\)</span> est
+bijective.</p>
+<ul>
+<li><p><span class="math inline">\(\varphi\)</span> est injective car si
+<span class="math inline">\(\varphi(f) = \varphi(g)\)</span> avec <span
+class="math inline">\(f,g \in \mathscr{F}(E,F)\)</span> alors pour tout
+<span class="math inline">\(1 \leq i \leq n, f(x_i) = g(x_i)\)</span>
+donc <span class="math inline">\(f=g\)</span>.</p></li>
+<li><p><span class="math inline">\(\varphi\)</span> est surjective car
+si <span class="math inline">\((y_1,\ldots,y_n) \in F^n\)</span>, alors
+<span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; E &amp; \to &amp; F \\
+   &amp;   &amp; x_i &amp; \mapsto &amp; y_i \text{ pour tout $1\leq i
+\leq n$.}
+\end{array}
+\in \mathscr{F}(E,F)\)</span> vérifie <span
+class="math inline">\(\varphi(f) = (y_1,\ldots,y_n)\)</span>.</p></li>
+</ul>
+<p>Donc par la proposition <a
+href="#prop:cardinal_injective_surjectivE_bijective"
+data-reference-type="ref"
+data-reference="prop:cardinal_injective_surjectivE_bijective">[prop:cardinal_injective_surjectivE_bijective]</a>,
+<span class="math inline">\(\mathop{\mathrm{card}}\mathscr{F}(E,F) =
+\mathop{\mathrm{card}}F^n = \left(\mathop{\mathrm{card}}F\right)^n
+=  \left(\mathop{\mathrm{card}}F\right)^{\left(\mathop{\mathrm{card}}E\right)}\)</span>.</p>
+</div>
+<div class="wrem">
+<p><span class="math inline">\(\mathscr{F}(E,F)\)</span> est parfois
+noté <span class="math inline">\(F^E\)</span></p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E,F\)</span> deux ensembles finis
+tels que <span class="math inline">\(\mathop{\mathrm{card}}E =
+\mathop{\mathrm{card}}F\)</span>.</p>
+<p>Alors, soit <span class="math inline">\(f \in
+\mathscr{F}(E,F)\)</span>,</p>
+<p><span class="math display">\[f \text{ injective } \iff f \text{
+surjective } \iff f \text{ bijective }.\]</span></p>
+</div>
+<div class="wproof">
+<p>Il suffit de montrer <span class="math inline">\(f \text{ injective }
+\iff  f \text{ surjective }\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(f\)</span> est injective, alors par la
+proposition <a href="#prop:card_Imf_card_E" data-reference-type="ref"
+data-reference="prop:card_Imf_card_E">[prop:card_Imf_card_E]</a>, <span
+class="math inline">\(\mathop{\mathrm{card}}\mathop{\mathrm{Im}}f =
+\mathop{\mathrm{card}}E\)</span>.</p>
+<p>Or, <span class="math inline">\(\mathop{\mathrm{Im}}f \subset
+F\)</span> et <span
+class="math inline">\(\mathop{\mathrm{card}}\mathop{\mathrm{Im}}f =
+\mathop{\mathrm{card}}E = \mathop{\mathrm{card}}F\)</span>.</p>
+<p>Donc <span class="math inline">\(\mathop{\mathrm{Im}}f = F\)</span>
+et <span class="math inline">\(f\)</span> est surjective.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Si <span
+class="math inline">\(f\)</span> est surjective, alors <span
+class="math inline">\(\mathop{\mathrm{Im}}f = F\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{card}}\mathop{\mathrm{Im}}f =
+\mathop{\mathrm{card}}E\)</span>.</p>
+<p>Or, <span class="math inline">\(\mathop{\mathrm{card}}E =
+\mathop{\mathrm{card}}F\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{card}}\mathop{\mathrm{Im}}f =
+\mathop{\mathrm{card}}E\)</span> et par la proposition <a
+href="#prop:card_Imf_card_E" data-reference-type="ref"
+data-reference="prop:card_Imf_card_E">[prop:card_Imf_card_E]</a>, <span
+class="math inline">\(f\)</span> est injective.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><strong>(Cardinal de l’ensemble des fonctions injectives de <span
+class="math inline">\(E\)</span> dans <span
+class="math inline">\(F\)</span>)</strong> Soient <span
+class="math inline">\(E,F\)</span> deux ensembles finis tels que <span
+class="math inline">\(p = \mathop{\mathrm{card}}E\)</span> et <span
+class="math inline">\(n =\mathop{\mathrm{card}}F\)</span>. On note <span
+class="math inline">\(\mathcal{I}(E,F)\)</span> l’ensemble des fonctions
+injectives de <span class="math inline">\(E\)</span> dans <span
+class="math inline">\(F\)</span>.</p>
+<p>Alors,</p>
+<ul>
+<li><p>Si <span class="math inline">\(p &gt; n\)</span>, <span
+class="math inline">\(\mathcal{I}(E,F) = \emptyset\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{card}}\mathcal{I}(E,F) =
+0\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(p \geq n\)</span>, <span
+class="math inline">\(\mathcal{I}(E,F)\)</span> est fini et <span
+class="math inline">\(\mathop{\mathrm{card}}\mathcal{I}(E,F) =
+n(n-1)\ldots (n-p+1) = \prod_{k=0}^{p-1}(n-k)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Si <span class="math inline">\(p &gt; n\)</span>, par la
+proposition <a href="#prop:cardinal_injective_surjectivE_bijective"
+data-reference-type="ref"
+data-reference="prop:cardinal_injective_surjectivE_bijective">[prop:cardinal_injective_surjectivE_bijective]</a>,
+<span class="math inline">\(\mathcal{I}(E,F) = \emptyset\)</span> donc
+<span class="math inline">\(\mathop{\mathrm{card}}\mathcal{I}(E,F) =
+0\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(p \geq n\)</span>, on note <span
+class="math inline">\(E = \left\{x_1,\ldots,x_p\right\}\)</span>,</p>
+<p>construire une injection <span class="math inline">\(f\)</span> de
+<span class="math inline">\(E\)</span> dans <span
+class="math inline">\(F\)</span>, revient à</p>
+<ol>
+<li><p>Choisir <span class="math inline">\(f(x_1)\)</span> dans <span
+class="math inline">\(F\)</span>, ce qui fait <span
+class="math inline">\(n\)</span> choix,</p></li>
+<li><p>Choisir <span class="math inline">\(f(x_2)\)</span> dans <span
+class="math inline">\(F\)</span> avec <span class="math inline">\(f(x_2)
+\neq f(x_1)\)</span>, ce qui fait <span
+class="math inline">\(n-1\)</span> choix,</p></li>
+<li><p>Choisir <span class="math inline">\(f(x_3)\)</span> dans <span
+class="math inline">\(F\)</span> avec <span class="math inline">\(f(x_3)
+\neq f(x_2), f(x_1)\)</span>, ce qui fait <span
+class="math inline">\(n-2\)</span> choix,</p></li>
+<li><p><span class="math inline">\(\vdots\)</span></p></li>
+<li><p>Choisir <span class="math inline">\(f(x_p)\)</span> dans <span
+class="math inline">\(F\)</span> avec <span class="math inline">\(f(x_3)
+\neq f(x_{p-1}),\ldots,f(x_2), f(x_1)\)</span>, ce qui fait <span
+class="math inline">\(n-(p-1) = n-p+1\)</span> choix,</p></li>
+</ol>
+<p>Donc <span
+class="math inline">\(\mathop{\mathrm{card}}\mathcal{I}(E,F) =
+n(n-1)\ldots (n-p+1)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>En particulier, si <span
+class="math inline">\(\mathop{\mathrm{card}}E =
+\mathop{\mathrm{card}}F\)</span>, <span
+class="math inline">\(\mathcal{I}(E,F)\)</span> est l’ensemble des
+bijections dans de <span class="math inline">\(E\)</span> dans <span
+class="math inline">\(F\)</span>, de cardinal <span
+class="math inline">\(n!\)</span>.</p>
+</div>
+<h2 data-number="1.5" id="rappels"><span
+class="header-section-number">1.5</span> Rappels</h2>
+<p>Soit <span class="math inline">\(E\)</span> un ensemble de fini de
+cardinal <span class="math inline">\(n\)</span>,</p>
+<ul>
+<li><p>soit <span class="math inline">\(p \in [\![ 0,n ]\!]\)</span>, le
+nombre de parties de <span class="math inline">\(E\)</span> de cardinal
+<span class="math inline">\(p\)</span> est <span
+class="math inline">\(\binom{n}{p}\)</span>.</p></li>
+<li><p><span class="math inline">\(\sum_{k=0}^n \binom{n}{k} =
+2^n\)</span> est le nombre de parties de <span
+class="math inline">\(E\)</span>.</p></li>
+<li><p>Pour tout <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span>, <span class="math inline">\(p \in [\![ 0,n
+]\!]\)</span>, on a <span
+class="math inline">\(\binom{n}{n-p}=\binom{n}{p}\)</span>.</p></li>
+<li><p>Pour tout <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span>, <span class="math inline">\(p \in [\![ 1,n
+]\!]\)</span>, on a <span class="math inline">\(\binom{n}{p} =
+\binom{n-1}{p}+\binom{n-1}{p-1}\)</span> (qui permet de construire le
+triangle de Pascal).</p></li>
+<li><p>Pour tout <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span>, <span class="math inline">\(p \in [\![ 0,n
+]\!]\)</span>, <span class="math inline">\(\binom{n}{p} =
+\frac{n!}{p!(n-p)!}\)</span>.</p></li>
+<li><p>Pour tout <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span>, <span class="math inline">\(p \in [\![ 1,n
+]\!]\)</span>, <span class="math inline">\(p\binom{n}{p} =
+n\binom{n-1}{p-1}\)</span>.</p></li>
+</ul>
+<h1 data-number="2" id="généralités-sur-les-probabilités"><span
+class="header-section-number">2</span> Généralités sur les
+probabilités</h1>
+<h2 data-number="2.1" id="introduction-1"><span
+class="header-section-number">2.1</span> Introduction</h2>
+<p>On cherche à calculer des probabilités d’événements (au sens usuel)
+lors d’une expérience aléatoire (dont le résultat dépend du hasard) en
+modélisant l’expérience considérée.</p>
+<p>Comme exemples classiques d’expériences, on a</p>
+<ul>
+<li><p>On lance un dé à <span class="math inline">\(6\)</span> faces et
+on observe le résultat obtenu,</p></li>
+<li><p>On tire une boule dans une urne contenant des boules blanches et
+noire et on observe la couleur de la boule tirée,</p></li>
+<li><p>On lance une pièce <span class="math inline">\(N\)</span> fois et
+on observe la suite de piles et de faces obtenues.</p></li>
+</ul>
+<p>Pour cela, on cherche à calculer la probabilité d’événement en
+utilisant des "probabilités élémentaires".</p>
+<p>Par exemple, si on repart du lancer du dé à <span
+class="math inline">\(6\)</span> faces, numérotées de <span
+class="math inline">\(1\)</span> à <span
+class="math inline">\(6\)</span> et qu’on cherche à obtenir la
+probabilité d’obtenir un nombre pair ie <span
+class="math inline">\(2,4\)</span> ou 6.</p>
+<p>Alors, supposant connues <span
+class="math inline">\(\begin{array}{ll}
+    p_2, &amp; \text{ la probabilité d&#39;obtenir un $2$}, \\
+    p_4, &amp; \text{ la probabilité d&#39;obtenir un $4$}, \\
+    p_6, &amp; \text{ la probabilité d&#39;obtenir un $6$},
+\end{array}\)</span>, la probabilité de l’événement "obtenir un nombre
+pair" est <span class="math inline">\(p_2+p_4+p_6\)</span>.</p>
+<h2 data-number="2.2"
+id="lunivers-omega-et-la-tribu-des-événements"><span
+class="header-section-number">2.2</span> L’univers <span
+class="math inline">\(\Omega\)</span> et la tribu des événements</h2>
+<div class="wdefi">
+<p>On considère une expérience aléatoire. Alors, l’ensemble des
+résultats possibles est noté <span class="math inline">\(\Omega\)</span>
+et est appelé l’univers.</p>
+<p>On supposera toujours <span class="math inline">\(\Omega\)</span>
+fini, dans le cadre du cours de MPSI.</p>
+</div>
+<div class="wex">
+<ul>
+<li><p>Pour l’expérience : on fois un dé à <span
+class="math inline">\(6\)</span> faces numérotées de <span
+class="math inline">\(1\)</span> à <span
+class="math inline">\(6\)</span>,</p>
+<p><span class="math inline">\(\Omega =  [\![ 1,n ]\!]\)</span></p></li>
+<li><p>Pour l’expérience : on lance deux fois un dé à <span
+class="math inline">\(6\)</span> faces numérotées de <span
+class="math inline">\(1\)</span> à <span
+class="math inline">\(6\)</span>,</p>
+<p><span class="math inline">\(\Omega = \left\{(i,j)/ i,j \in [\![ 1,n
+]\!]\right\}= [\![ 1,n ]\!]^2\)</span>.</p></li>
+<li><p>On considère une urne et on note <span
+class="math inline">\(E\)</span> l’ensemble des boules contenues dans
+cette urne. Il y a alors différentes façons de faire <span
+class="math inline">\(k\)</span> tirages (avec <span
+class="math inline">\(k \geq 1\)</span>) dans cette urne :</p>
+<ol>
+<li><p>Soit à chaque tirage, on tire une boule puis on la remet dans
+l’urne pour mener le prochain tirage.</p>
+<p>On parle alors de <em>tirages avec remise</em></p>
+<p>et <span class="math inline">\(\Omega =
+\left\{\left(B_1,\ldots,B_k\right) / \forall 1 \leq i \leq k, B_i \in
+E\right\} = E^k\)</span>.</p></li>
+<li><p>Soit à chaque tirage, on tire une boule puis on ne la remet pas
+dans l’urne pour mener le prochain tirage.</p>
+<p>On parle alors de <em>tirages sans remise</em></p>
+<p>et <span class="math inline">\(\Omega =
+\left\{\left(f(1),\ldots,f(k)\right) / f \in \mathscr{F}\left([\![
+1,k]\!],E\right) \text{ est injective}\right\}\)</span>.</p>
+<p>(<span class="math inline">\(f(i)\)</span> désigne la boule tirée au
+<span class="math inline">\(i\)</span>-ième tirage et qui est différente
+des autres tirées).</p></li>
+<li><p>Soit, on effectue les <span class="math inline">\(k\)</span>
+tirages simultanément; on prend à pleine main <span
+class="math inline">\(k\)</span> boules en même temps.</p>
+<p>On parle de <em>tirages simultanés</em></p>
+<p>et <span class="math inline">\(\Omega = \mathscr{P}_k(E)\)</span>,
+l’ensemble des parties de <span class="math inline">\(E\)</span> à <span
+class="math inline">\(k\)</span> éléments.</p></li>
+</ol></li>
+</ul>
+</div>
+</body>
+</html>
+
+<script>
+
+const toggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Appliquer le thème au chargement
+const currentTheme = localStorage.getItem('theme') || 'default';
+body.setAttribute('data-md-color-scheme', currentTheme);
+
+toggle.addEventListener('click', () => {
+    let scheme = body.getAttribute('data-md-color-scheme');
+    let newScheme = (scheme === 'default') ? 'slate' : 'default';
+    
+    body.setAttribute('data-md-color-scheme', newScheme);
+    localStorage.setItem('theme', newScheme);
+});
+
+// 4. CONVERSION TIKZ POUR TIKZJAX
+    document.querySelectorAll('pre').forEach(pre => {
+        let code = pre.querySelector('code');
+        if (code && code.textContent.includes('\\begin{tikzpicture}')) {
+            let script = document.createElement('script');
+            script.type = 'text/tikz';
+            // On force le chargement des librairies nécessaires pour vos matrices
+            script.innerHTML = '\\usetikzlibrary{matrix, calc}\n' + code.textContent;
+            pre.replaceWith(script);
+        }
+    });
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    let secCount = -1;
+    let thmCount = -1;
+    let labels = {};
+
+    const noms = {
+        'wthm':'Théorème', 'wprop':'Proposition', 'wdefi':'Définition',
+        'wlem':'Lemme', 'wcor':'Corollaire', 'wappli':'Application',
+        'wrem':'Remarque', 'wrappel': 'Rappel', 'wex':'Exemple',
+        'wexs':'Exemples', 'wproof':'Preuve'
+    };
+
+    // Numérotation des environnements
+    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs, .wrappel,.wproof").forEach(el => {
+        if (el.tagName.toLowerCase() === "h1" && !el.closest("#TOC")) {
+            secCount++;
+            thmCount = 0;
+        } else if (noms[Array.from(el.classList).find(c => noms[c])]) {
+            let type = Array.from(el.classList).find(c => noms[c]);
+            if (type !== 'wproof') {
+                thmCount++;
+                let num = secCount + "." + thmCount;
+                let id = el.querySelector("span[id]") ? el.querySelector("span[id]").id : null;
+                if(id) labels[id] = { num: num, type: type.substring(1) };
+                
+                let p = el.querySelector("p");
+                if (p) {
+                    let strong = p.querySelector("strong");
+                    let title = (strong && strong.innerText.includes("(")) ? ` <span class="env-title">${strong.outerHTML}</span>` : "";
+                    if (title) strong.remove();
+                    p.innerHTML = `<strong class="env-header">${noms[type]} ${num}</strong>` + title + " — " + p.innerHTML;
+                }
+            } else {
+                let p = el.querySelector("p");
+                if (p) p.innerHTML = `<strong class="env-header">Preuve</strong> — ` + p.innerHTML;
+            }
+        }
+    });
+
+    // Fonction lancée une fois MathJax terminé
+    function executerApresMathJax() {
+        
+        // 1. Capture des équations
+        document.querySelectorAll("mjx-math[display='true']").forEach((el, index) => {
+            let num = el.querySelector(".mjx-eqn-number");
+            if (num) {
+                let val = num.innerText.replace(/[()]/g, '');
+                let id = el.id || "eq-" + index;
+                el.id = id;
+                labels[id] = { num: val, type: 'eq' };
+            }
+        });
+
+        // 2. TRACÉ DES LIGNES PARTIELLES
+        document.querySelectorAll("mjx-mtext").forEach(el => {
+            let text = el.textContent;
+            
+            // DÉCODAGE MAGIQUE : si MathJax cache le texte dans les classes CSS
+            if (!text || text.trim() === "") {
+                text = Array.from(el.children).map(c => {
+                    let cls = Array.from(c.classList).find(className => className.startsWith('mjx-c'));
+                    return cls ? String.fromCharCode(parseInt(cls.replace('mjx-c', ''), 16)) : '';
+                }).join('');
+            }
+
+            if (text.includes("CLINEX")) {
+                let regex = /CLINEX(\d+)X(\d+)X/g;
+                let match;
+                let row = el.closest("mjx-mtr");
+                let prevRow = row ? row.previousElementSibling : null;
+
+                while ((match = regex.exec(text)) !== null) {
+                    let start = parseInt(match[1]);
+                    let end = parseInt(match[2]);
+
+                    if (prevRow) {
+                        let cells = prevRow.querySelectorAll("mjx-mtd");
+                        for (let i = start - 1; i < end; i++) {
+                            if (cells[i]) {
+                                cells[i].style.borderBottom = "max(1px, 0.08em) solid currentColor";
+                                cells[i].style.paddingBottom = "0.2em";
+                            }
+                        }
+                    }
+                }
+                // On fait disparaître le marqueur texte
+                el.style.display = "none";
+            }
+        });
+
+        // 3. Remplacement des références
+        document.querySelectorAll("body *").forEach(el => {
+            if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
+                el.innerHTML = el.innerHTML
+                .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m)
+                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => {
+                    let f = t + ":" + id;
+                    return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
+                });
+            }
+        });
+    }
+
+    // Attente robuste de MathJax
+    function waitForMathJax() {
+        if (window.MathJax && window.MathJax.startup && window.MathJax.startup.promise) {
+            window.MathJax.startup.promise.then(() => {
+                setTimeout(executerApresMathJax, 50); 
+            }).catch(err => console.log('Erreur MathJax', err));
+        } else {
+            setTimeout(waitForMathJax, 100);
+        }
+    }
+
+    waitForMathJax();
+
+});
+</script>
+
