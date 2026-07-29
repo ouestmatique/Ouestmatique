@@ -22,6 +22,9 @@
     }
   </style>
   <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
 </head>
 <body>
 
@@ -88,7 +91,3189 @@ color: var(--md-primary-bg-color);
 </p>
 
 </header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#notions-sur-le-groupe-symétrique-de-1n"
+id="toc-notions-sur-le-groupe-symétrique-de-1n"><span
+class="toc-section-number">1</span> Notions sur le groupe symétrique de
+<span class="math inline">\([\![ 1,n ]\!]\)</span></a>
+<ul>
+<li><a href="#définiton" id="toc-définiton"><span
+class="toc-section-number">1.1</span> Définiton</a></li>
+<li><a href="#transpositions-et-cycles"
+id="toc-transpositions-et-cycles"><span
+class="toc-section-number">1.2</span> Transpositions et cycles</a></li>
+<li><a href="#signature-de-sigma-in-mathcals_n"
+id="toc-signature-de-sigma-in-mathcals_n"><span
+class="toc-section-number">1.3</span> Signature de <span
+class="math inline">\(\sigma \in \mathcal{S}_n\)</span></a></li>
+</ul></li>
+<li><a href="#déterminants" id="toc-déterminants"><span
+class="toc-section-number">2</span> Déterminants</a>
+<ul>
+<li><a href="#formes-n-linéaires-alternées"
+id="toc-formes-n-linéaires-alternées"><span
+class="toc-section-number">2.1</span> Formes <span
+class="math inline">\(n\)</span>-linéaires alternées</a>
+<ul>
+<li><a href="#propriétés" id="toc-propriétés"><span
+class="toc-section-number">2.1.1</span> Propriétés</a></li>
+</ul></li>
+<li><a
+href="#étude-de-mathcala_nemathbbk-quand-e-est-de-dimension-finie-n"
+id="toc-étude-de-mathcala_nemathbbk-quand-e-est-de-dimension-finie-n"><span
+class="toc-section-number">2.2</span> Étude de <span
+class="math inline">\(\mathcal{A}_n(E,\mathbb{K})\)</span> quand <span
+class="math inline">\(E\)</span> est de dimension finie <span
+class="math inline">\(n\)</span></a></li>
+<li><a href="#déterminant-dans-une-base-de-e"
+id="toc-déterminant-dans-une-base-de-e"><span
+class="toc-section-number">2.3</span> Déterminant dans une base de <span
+class="math inline">\(E\)</span></a>
+<ul>
+<li><a href="#déterminant" id="toc-déterminant"><span
+class="toc-section-number">2.3.1</span> Déterminant</a></li>
+<li><a href="#propriétés-de-du-déterminant"
+id="toc-propriétés-de-du-déterminant"><span
+class="toc-section-number">2.3.2</span> Propriétés de du
+déterminant</a></li>
+</ul></li>
+<li><a href="#déterminant-de-f-in-mathscrle"
+id="toc-déterminant-de-f-in-mathscrle"><span
+class="toc-section-number">2.4</span> Déterminant de <span
+class="math inline">\(f \in \mathscr{L}(E)\)</span></a>
+<ul>
+<li><a href="#définition" id="toc-définition"><span
+class="toc-section-number">2.4.1</span> Définition</a></li>
+<li><a href="#propriétés-1" id="toc-propriétés-1"><span
+class="toc-section-number">2.4.2</span> Propriétés</a></li>
+</ul></li>
+<li><a href="#déterminant-de-a-in-mathscrm_nmathbbk"
+id="toc-déterminant-de-a-in-mathscrm_nmathbbk"><span
+class="toc-section-number">2.5</span> Déterminant de <span
+class="math inline">\(A \in \mathscr{M}_{n}(\mathbb{K})\)</span></a>
+<ul>
+<li><a href="#définition-1" id="toc-définition-1"><span
+class="toc-section-number">2.5.1</span> Définition</a></li>
+<li><a href="#lien-entre-les-différentes-notions-de-déterminant"
+id="toc-lien-entre-les-différentes-notions-de-déterminant"><span
+class="toc-section-number">2.5.2</span> Lien entre les différentes
+notions de déterminant</a></li>
+<li><a href="#propriétés-2" id="toc-propriétés-2"><span
+class="toc-section-number">2.5.3</span> Propriétés</a></li>
+</ul></li>
+<li><a
+href="#développement-dun-déterminant-suivant-une-colonne-ou-une-ligne"
+id="toc-développement-dun-déterminant-suivant-une-colonne-ou-une-ligne"><span
+class="toc-section-number">2.6</span> Développement d’un déterminant
+suivant une colonne ou une ligne</a>
+<ul>
+<li><a href="#lemme-préliminaire" id="toc-lemme-préliminaire"><span
+class="toc-section-number">2.6.1</span> Lemme préliminaire</a></li>
+</ul></li>
+<li><a href="#développement-de-det-a-suivant-une-colonne"
+id="toc-développement-de-det-a-suivant-une-colonne"><span
+class="toc-section-number">2.7</span> Développement de <span
+class="math inline">\(\det A\)</span> suivant une colonne</a></li>
+<li><a href="#développement-de-det-a-suivant-une-ligne"
+id="toc-développement-de-det-a-suivant-une-ligne"><span
+class="toc-section-number">2.8</span> Développement de <span
+class="math inline">\(\det A\)</span> suivant une ligne</a></li>
+<li><a href="#comatrice" id="toc-comatrice"><span
+class="toc-section-number">2.9</span> Comatrice</a></li>
+<li><a href="#déterminant-de-vandermonde"
+id="toc-déterminant-de-vandermonde"><span
+class="toc-section-number">2.10</span> Déterminant de
+Vandermonde</a></li>
+<li><a
+href="#application-du-déterminant-à-léquation-cartésienne-dun-hyperplan"
+id="toc-application-du-déterminant-à-léquation-cartésienne-dun-hyperplan"><span
+class="toc-section-number">2.11</span> Application du déterminant à
+l’équation cartésienne d’un hyperplan</a></li>
+<li><a href="#application-du-déterminant-aux-systèmes-de-cramer"
+id="toc-application-du-déterminant-aux-systèmes-de-cramer"><span
+class="toc-section-number">2.12</span> Application du déterminant aux
+systèmes de Cramer</a></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1" id="notions-sur-le-groupe-symétrique-de-1n"><span
+class="header-section-number">1</span> Notions sur le groupe symétrique
+de <span class="math inline">\([\![ 1,n ]\!]\)</span></h1>
+<h2 data-number="1.1" id="définiton"><span
+class="header-section-number">1.1</span> Définiton</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(n \in \mathbb{N}^{\star}\)</span>,
+le groupe symétrique de <span class="math inline">\([\![ 1,n
+]\!]\)</span> est le groupe des bijections de <span
+class="math inline">\([\![ 1,n ]\!]\)</span> dans <span
+class="math inline">\([\![ 1,n ]\!]\)</span>, pour <span
+class="math inline">\(\circ\)</span>, noté <span
+class="math inline">\(\mathcal{S}_n\)</span>.</p>
+<p>On a alors <span class="math inline">\(\mathcal{S}_n\)</span> fini,
+de cardinal <span class="math inline">\(n!\)</span> et une bijection de
+<span class="math inline">\([\![ 1,n ]\!]\)</span> dans <span
+class="math inline">\([\![ 1,n ]\!]\)</span> est appelée une permutation
+de <span class="math inline">\([\![ 1,n ]\!]\)</span>.</p>
+<p>Soit <span class="math inline">\(\sigma \in \mathcal{S}_n\)</span>,
+<span class="math inline">\(\sigma\)</span> peut être représenté par
+<span class="math inline">\(\begin{pmatrix}
+        1 &amp; 2 &amp; \ldots &amp; n \\
+        \sigma(1) &amp; \sigma(2) &amp; \ldots &amp; \sigma(n)
+    \end{pmatrix}.\)</span></p>
+</div>
+<div class="wex">
+<p><span class="math display">\[\mathcal{S}_3 = \left\{\begin{pmatrix}
+        1 &amp; 2 &amp; 3 \\
+        1 &amp; 2 &amp; 3
+     \end{pmatrix},\begin{pmatrix}
+        1 &amp; 2 &amp; 3 \\
+        2 &amp; 1 &amp; 3
+     \end{pmatrix},\begin{pmatrix}
+        1 &amp; 2 &amp; 3 \\
+        3 &amp; 2 &amp; 1
+     \end{pmatrix},\begin{pmatrix}
+        1 &amp; 2 &amp; 3 \\
+        1 &amp; 3 &amp; 2
+     \end{pmatrix},\begin{pmatrix}
+        1 &amp; 2 &amp; 3 \\
+        3 &amp; 1 &amp; 2
+     \end{pmatrix},\begin{pmatrix}
+        1 &amp; 2 &amp; 3 \\
+        2 &amp; 3 &amp; 1
+     \end{pmatrix}\right\}.\]</span></p>
+</div>
+<div class="wrappel">
+<p>Soit <span class="math inline">\(\sigma \in \mathcal{S}_n\)</span>,
+pour <span class="math inline">\(k \in \mathbb{N}^{\star}\)</span>,</p>
+<ul>
+<li><p>on note <span class="math inline">\(\sigma^k = \underbrace{\sigma
+\circ \ldots \circ \sigma}_{k \text{ facteurs}}\)</span>,</p></li>
+<li><p><span class="math inline">\(\sigma^{-k} = \underbrace{\sigma^{-1}
+\circ \ldots \circ \sigma^{-1}}_{k \text{ facteurs}}\)</span>,</p></li>
+<li><p>et on a, par convention, <span class="math inline">\(\sigma^0 =
+\mathop{\mathrm{Id}}_{[\![ 1,n ]\!]}\)</span>,</p></li>
+<li><p>pour <span class="math inline">\(\tau \in \mathcal{S}_n,
+\left(\sigma \circ \tau\right)^{-1} = \tau^{-1}\circ
+\sigma^{-1}\)</span>.</p></li>
+</ul>
+</div>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(A,B\)</span> deux ensembles non
+vides et <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span>.</p>
+<p><span class="math inline">\(f:A\to B\)</span> est symétrique si <span
+class="math inline">\(\left\{\begin{array}{l}
+        \forall (a_1,\ldots,a_n) \in A^n, \\
+        \forall \sigma \in \mathcal{S}_n,
+    \end{array}\right. f(a_{\sigma(1)},\ldots,a_{\sigma(n)}) =
+f(a_1,\ldots,a_n).\)</span></p>
+</div>
+<div class="wex">
+<p>Si <span class="math inline">\(n = 2\)</span>, <span
+class="math inline">\(f\)</span> est symétrique <span
+class="math inline">\(\iff\)</span> <span class="math inline">\(\forall
+(a_1,a_2) \in A^2, f(a_1,a_2) = f(a_2,a_1)\)</span>.</p>
+</div>
+<h2 data-number="1.2" id="transpositions-et-cycles"><span
+class="header-section-number">1.2</span> Transpositions et cycles</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(\sigma \in \mathcal{S}_n\)</span>
+avec <span class="math inline">\(n \geq 2\)</span>, <span
+class="math inline">\(\sigma\)</span> est une transposition de <span
+class="math inline">\([\![ 1,n ]\!]\)</span> s’il existe <span
+class="math inline">\(i,j \in [\![ 1,n ]\!]\)</span> tels que <span
+class="math inline">\(i \neq j\)</span> et <span
+class="math inline">\(\begin{array}{ll}
+        \sigma(i) &amp; = j \\
+        \sigma(j) &amp; = i \\
+        \sigma(k) &amp; = k, \quad \forall k \notin \left\{i,j\right\}.
+    \end{array}\)</span></p>
+<p><span class="math inline">\(\sigma\)</span>, qui échange <span
+class="math inline">\(i\)</span> et <span
+class="math inline">\(j\)</span>, est alors noté <span
+class="math inline">\(\sigma=\begin{pmatrix}
+        i &amp; j
+    \end{pmatrix}\)</span>.</p>
+</div>
+<div class="wex">
+<p>Pour <span class="math inline">\(n =3\)</span>, <span
+class="math inline">\(\begin{pmatrix}
+        1 &amp; 2 &amp; 3 \\
+        2 &amp; 1 &amp; 3
+     \end{pmatrix}\)</span> est une transposition.</p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(\sigma \in \mathcal{S}_n\)</span>
+avec <span class="math inline">\(n \geq 2\)</span>, et <span
+class="math inline">\(p \in \mathbb{N}, \geq 2\)</span>, <span
+class="math inline">\(\sigma\)</span> est un cycle (ou <span
+class="math inline">\(p\)</span>-cycle) de <span
+class="math inline">\([\![ 1,n ]\!]\)</span> s’il existe <span
+class="math inline">\(i_1,\ldots,i_p \in [\![ 1,n ]\!]\)</span>
+distincts tels que</p>
+<div class="webtextfigure">
+<div class="webtext">
+<p><span class="math inline">\(\begin{array}{ll}
+        \sigma(i_1) &amp; = i_2 \\
+        \sigma(i_2) &amp; = i_3 \\
+        \vdots &amp; \\
+        \sigma(i_{p-1}) &amp; = i_{p} \\
+        \sigma(i_p) &amp; = i_1 \\
+        \sigma(k) &amp; = k, \quad \forall k \notin
+\left\{i_1,\ldots,i_p\right\}.
+    \end{array}\)</span></p>
+<p><span class="math inline">\(\sigma\)</span> est alors noté <span
+class="math inline">\(\sigma=\begin{pmatrix}
+        i_1 &amp; i_2 &amp; \ldots &amp; i_p
+    \end{pmatrix}\)</span>.</p>
+<p><span class="math inline">\(\left\{i_1,\ldots,i_p\right\}\)</span>
+est appelé le support de <span
+class="math inline">\(\sigma\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="cycle.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wex">
+<p>Pour <span class="math inline">\(n=5\)</span>,</p>
+<ul>
+<li><p><span class="math inline">\(\begin{pmatrix}
+            1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \\
+            3 &amp; 2 &amp; 4 &amp; 1 &amp; 5
+        \end{pmatrix}\)</span> est le cycle <span
+class="math inline">\(\begin{pmatrix}
+            1 &amp; 3 &amp; 4
+        \end{pmatrix} = \begin{pmatrix}
+            3 &amp; 4 &amp; 1
+        \end{pmatrix} = \begin{pmatrix}
+            4 &amp; 1 &amp; 3
+        \end{pmatrix}\)</span>.</p></li>
+<li><p>En revanche, <span class="math inline">\(\sigma = \begin{pmatrix}
+            1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \\
+            2 &amp; 4 &amp; 5 &amp; 1 &amp; 3
+        \end{pmatrix}\)</span> n’est pas un cycle.</p>
+<p>On peut tout de même remarquer <span
+class="math inline">\(\begin{array}{ll}
+            \sigma(1) &amp; = 2 \\
+            \sigma(2) &amp; = 4 \\
+            \sigma(4) &amp; = 1
+        \end{array}\)</span> et <span
+class="math inline">\(\begin{array}{ll}
+            \sigma(3) &amp; = 5 \\
+            \sigma(5) &amp; = 3 \\
+        \end{array}\)</span> donc <span class="math inline">\(\sigma =
+\begin{pmatrix}
+            1 &amp; 2 &amp; 4
+        \end{pmatrix}\circ \begin{pmatrix}
+            3 &amp; 5
+        \end{pmatrix}.\)</span></p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(c_1,c_2 \in \mathcal{S}_n\)</span>
+de supports <span class="math inline">\(A_1\)</span> et <span
+class="math inline">\(A_2\)</span> tels que <span
+class="math inline">\(A_1 \cap A_2 = \emptyset\)</span>.</p>
+<p>Alors, <span class="math inline">\(c_1 \circ c_2 = c_2 \circ
+c_1\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(i \in [\![ 1,n ]\!]\)</span>,</p>
+<ul>
+<li><p>Si <span class="math inline">\(i \in A_1\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+            \left(c_1 \circ c_2\right)(i)
+            &amp; = c_1(c_2(i)) \\
+            &amp; = c_1(i) \text{ car $i \notin A_2$} \\
+            \text{ et }&amp; \\
+            \left(c_2 \circ c_1\right)(i)
+            &amp; = c_2(c_1(i)) \\
+            &amp; = c_1(i) \text{ car $c_1(i) \in A_1$ donc $c_1(i)
+\notin A_2$}
+        \end{aligned}\]</span> donc on a bien <span
+class="math inline">\(\left(c_1 \circ c_2\right)(i) = \left(c_2 \circ
+c_1\right)(i)\)</span>.</p></li>
+<li><p>De même si <span class="math inline">\(i \in
+A_2\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(i \notin A_1, i \notin
+A_2\)</span>, <span class="math inline">\(\left(c_1 \circ c_2\right)(i)
+= c_1(c_2(i)) = c_1(i) = i = c_2(i) =\left(c_2 \circ
+c_1\right)(i)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wthm">
+<p><strong>(Décomposition d’une permutation en cycles
+disjoints)</strong> Soit <span class="math inline">\(\sigma \in
+\mathcal{S}_n\)</span> avec <span class="math inline">\(n \geq
+2\)</span> tel que <span class="math inline">\(\sigma \neq
+\mathop{\mathrm{Id}}_{[\![ 1,n ]\!]}\)</span>.</p>
+<p>Alors, il existe <span class="math inline">\(c_1,\ldots,c_s\)</span>
+des cycles à supports disjoints tels que <span
+class="math inline">\(\sigma = c_1 \circ c_2 \circ \ldots \circ
+c_s\)</span>, et ces cycles sont uniques à l’ordre près (on peut
+échanger <span class="math inline">\(c_1\)</span> et <span
+class="math inline">\(c_2\)</span> par exemple).</p>
+</div>
+<div class="wproof">
+<p>On ne propose pas une preuve, qui est assez lourde à écrire, mais
+plutôt le traitement d’un exemple pour comprendre le théorème.</p>
+<p>Regardons <span class="math inline">\(\sigma = \begin{pmatrix}
+        1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 &amp; 7 &amp; 8 &amp;
+9 &amp; 10 \\
+        3 &amp; 5 &amp; 6 &amp; 4 &amp; 9 &amp; 7 &amp; 1 &amp;10 &amp;
+2 &amp; 8
+    \end{pmatrix}\)</span>.</p>
+<p>Partant de <span class="math inline">\(1\)</span>, on a <span
+class="math inline">\(\begin{array}{ll}
+        \sigma(1) &amp; = 3 \\
+        \sigma(3) &amp; = 6 \\
+        \sigma(6) &amp; = 7 \\
+        \sigma(7) &amp; = 1
+    \end{array}\)</span>, ce qui constitue un cycle <span
+class="math inline">\(\begin{pmatrix}
+        1 &amp; 3 &amp; 6 &amp; 7
+    \end{pmatrix}\)</span>.</p>
+<p>Ensuite, partons d’un éléments hors de <span
+class="math inline">\(\left\{1,3,6,7\right\}\)</span>, par exemple <span
+class="math inline">\(2\)</span>. On a alors <span
+class="math inline">\(\begin{array}{ll}
+        \sigma(2) &amp; = 5 \\
+        \sigma(5) &amp; = 9 \\
+        \sigma(9) &amp; = 2
+    \end{array}\)</span>, ce qui constitue un autre cycle <span
+class="math inline">\(\begin{pmatrix}
+        2 &amp; 5 &amp; 9
+    \end{pmatrix}\)</span>.</p>
+<p>Partant de <span class="math inline">\(4\)</span>, on a <span
+class="math inline">\(\sigma(4) = 4\)</span> donc <span
+class="math inline">\(4\)</span> n’est dans aucun cycle.</p>
+<p>Partant de de <span class="math inline">\(6\)</span>, on a <span
+class="math inline">\(\begin{array}{ll}
+        \sigma(6) &amp; = 7 \\
+        \sigma(7) &amp; = 6
+    \end{array}\)</span> et donc le cycle <span
+class="math inline">\(\begin{pmatrix}
+        6 &amp; 7
+    \end{pmatrix}\)</span>.</p>
+<p>Enfin, partant de de <span class="math inline">\(8\)</span>, on a
+<span class="math inline">\(\begin{array}{ll}
+        \sigma(8) &amp; = 10 \\
+        \sigma(10) &amp; = 8
+    \end{array}\)</span> et donc le cycle <span
+class="math inline">\(\begin{pmatrix}
+        8 &amp; 10
+    \end{pmatrix}\)</span>.</p>
+<p>Finalement, <span class="math inline">\(\sigma = \begin{pmatrix}
+        1 &amp; 3 &amp; 6 &amp; 7
+    \end{pmatrix} \circ \begin{pmatrix}
+        2 &amp; 5 &amp; 9
+    \end{pmatrix} \circ \begin{pmatrix}
+        6 &amp; 7
+    \end{pmatrix} \circ \begin{pmatrix}
+        8 &amp; 10
+    \end{pmatrix}\)</span>.</p>
+</div>
+<div class="wthm">
+<p><strong>(Décomposition d’une permutation en transpositions)</strong>
+Soit <span class="math inline">\(\sigma \in \mathcal{S}_n\)</span> avec
+<span class="math inline">\(n \geq 2\)</span>.</p>
+<p>Alors, il existe <span
+class="math inline">\(\tau_1,\ldots,\tau_r\)</span> des transpositions
+de <span class="math inline">\([\![ 1,n ]\!]\)</span> telles que <span
+class="math inline">\(\sigma = \tau_1 \circ \tau_2 \circ \ldots \circ
+\tau_r\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Montrons ce résultat par récurrence sur <span
+class="math inline">\(n\)</span>.</p>
+<ul>
+<li><p><u>Initialisation.</u> Pour <span
+class="math inline">\(n=2\)</span>, <span
+class="math inline">\(\mathcal{S}_2 = \left\{\mathop{\mathrm{Id}}_{[\![
+1,2 ]\!]}, \begin{pmatrix}
+            1 &amp; 2
+        \end{pmatrix}\right\}\)</span>.</p>
+<ol>
+<li><p><span class="math inline">\(\begin{pmatrix}
+            1 &amp; 2
+        \end{pmatrix}\)</span> est bien décomposé en une
+transposition,</p></li>
+<li><p>Pour <span class="math inline">\(\mathop{\mathrm{Id}}_{[\![ 1,2
+]\!]}\)</span>, remarquons qu’une transposition <span
+class="math inline">\(\tau = \begin{pmatrix}
+            i &amp; j
+        \end{pmatrix}\)</span> vérifie <span
+class="math inline">\(\tau^{-1} = \tau\)</span>.</p>
+<p>En effet,</p>
+<p>pour <span class="math inline">\(k \notin
+\left\{i,j\right\}\)</span>,<span class="math inline">\(\tau\circ
+\tau(k) = k\)</span> puis <span class="math inline">\(\tau\circ \tau(i)
+= \tau(j) = i\)</span> et <span class="math inline">\(\tau\circ \tau(j)
+= \tau(i) = j\)</span>.</p>
+<p>On a donc <span class="math inline">\(\mathop{\mathrm{Id}}_{[\![ 1,2
+]\!]} = \begin{pmatrix}
+            1 &amp; 2
+        \end{pmatrix} \circ \begin{pmatrix}
+            1 &amp; 2
+        \end{pmatrix}\)</span>.</p></li>
+</ol></li>
+<li><p><u>Hérédité.</u> Supposons le résultat vrai pour <span
+class="math inline">\(\mathcal{S}_n\)</span> avec <span
+class="math inline">\(n \in \mathbb{N}^{\star}, \geq 2\)</span>
+fixé.</p>
+<p>Soit <span class="math inline">\(\sigma \in
+\mathcal{S}_{n+1}\)</span>,</p>
+<ul>
+<li><p><strong>Premier cas :</strong> Si <span
+class="math inline">\(\sigma(n+1) = n+1\)</span>, alors <span
+class="math inline">\(\sigma_{| [\![ 1,n ]\!]} \in
+\mathcal{S}_n\)</span>.</p>
+<p>Par hypothèse de récurrence, il existe donc <span
+class="math inline">\(\tau_1,\ldots,\tau_r\)</span> des transpositions
+de <span class="math inline">\([\![ 1,n ]\!]\)</span> telles que <span
+class="math inline">\(\sigma_{| [\![ 1,n ]\!]} = \tau_1 \circ \tau_2
+\circ \ldots \circ \tau_r\)</span>.</p>
+<p>Or, ces transpositions de <span class="math inline">\([\![ 1,n
+]\!]\)</span> peuvent être vues aussi comme des transpositions de <span
+class="math inline">\([\![ 1,n+1]\!]\)</span> (elles échangent des
+éléments de <span class="math inline">\([\![ 1,n ]\!]\)</span> qui sont
+a fortiori dans <span class="math inline">\([\![ 1,n+1]\!]\)</span>) et
+elles vérifient <span class="math inline">\(\tau_i(n+1) = n+1\)</span>
+pour tout <span class="math inline">\(1 \leq i \leq r\)</span>.</p>
+<p>On a donc pour <span class="math inline">\(k \in [\![ 1,n
+]\!]\)</span>, <span class="math inline">\(\tau_1 \circ \tau_2 \circ
+\ldots \circ \tau_r (k) = \sigma_{| [\![ 1,n ]\!]}(k) =
+\sigma(k)\)</span> et <span class="math inline">\(\tau_1 \circ \tau_2
+\circ \ldots \circ \tau_r (n+1) = n+1= \sigma(n+1)\)</span>.</p>
+<p>Donc <span class="math inline">\(\sigma = \tau_1 \circ \tau_2 \circ
+\ldots \circ \tau_r\)</span>.</p></li>
+<li><p><strong>Second cas :</strong> <span
+class="math inline">\(\sigma(n+1) = j\)</span> avec <span
+class="math inline">\(j \neq n+1\)</span>.</p>
+<p>On a alors avec <span class="math inline">\(\tau&#39;_{1} =
+\begin{pmatrix}
+            j &amp; n+1
+        \end{pmatrix}\)</span>, <span
+class="math inline">\(\tau&#39;_1\circ \sigma \in
+\mathcal{S}_{n+1}\)</span> et <span class="math inline">\(\tau&#39;_1
+\circ \sigma(n+1) = \tau&#39;_1(j) = n+1\)</span>.</p>
+<p>Donc <span class="math inline">\(\tau&#39;_1\circ \sigma\)</span>
+rentre dans le premier cas et on a montré qu’il existe <span
+class="math inline">\(\tau_1,\ldots,\tau_r\)</span> des transpositions
+de <span class="math inline">\([\![ 1,n+1]\!]\)</span> telles que <span
+class="math inline">\(\tau&#39;_1\circ \sigma = \tau_1 \circ \tau_2
+\circ \ldots \circ \tau_r\)</span>.</p>
+<p>Enfin, pour rappel, <span
+class="math inline">\(\left(\tau&#39;_1\right)^{-1} =
+\tau&#39;_1\)</span> donc <span class="math inline">\(\sigma =
+\tau&#39;_1 \circ \tau&#39;_1\circ \sigma = \tau&#39;_1 \circ \tau_1
+\circ \tau_2 \circ \ldots \circ \tau_r\)</span>.</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="wex">
+<p>Soit <span class="math inline">\(\sigma = \begin{pmatrix}
+        1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \\
+        3 &amp; 4 &amp; 5 &amp; 2 &amp; 1
+    \end{pmatrix} \in \mathcal{S}_5\)</span>.</p>
+<ol>
+<li><p>On a <span class="math inline">\(\sigma(1) = 3\)</span>, alors
+travaillons avec <span class="math inline">\(\sigma_1 = \begin{pmatrix}
+            1 &amp; 3
+        \end{pmatrix} \circ \sigma = \begin{pmatrix}
+        1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \\
+        1 &amp; 4 &amp; 5 &amp; 2 &amp; 3
+    \end{pmatrix}\)</span>,</p></li>
+<li><p>On a <span class="math inline">\(\sigma_1(2) = 4\)</span>, alors
+travaillons avec <span class="math inline">\(\sigma_2 = \begin{pmatrix}
+            2 &amp; 4
+        \end{pmatrix} \circ \sigma_1 = \begin{pmatrix}
+        1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \\
+        1 &amp; 2 &amp; 5 &amp; 4 &amp; 3
+    \end{pmatrix}\)</span>,</p></li>
+<li><p>On a <span class="math inline">\(\sigma_2(3) = 5\)</span>, alors
+travaillons avec <span class="math inline">\(\sigma_3 = \begin{pmatrix}
+            3 &amp; 5
+        \end{pmatrix} \circ \sigma_2 = \begin{pmatrix}
+        1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \\
+        1 &amp; 2 &amp; 3 &amp; 4 &amp; 5
+    \end{pmatrix} = \mathop{\mathrm{Id}}\)</span>.</p></li>
+</ol>
+<p>On a donc finalement</p>
+<p><span class="math inline">\(\sigma_3  = \begin{pmatrix}
+            3 &amp; 5
+        \end{pmatrix} \circ \sigma_2 = \begin{pmatrix}
+            3 &amp; 5
+        \end{pmatrix} \circ \begin{pmatrix}
+            2 &amp; 4
+        \end{pmatrix} \circ \sigma_1 = \begin{pmatrix}
+            3 &amp; 5
+        \end{pmatrix} \circ \begin{pmatrix}
+            2 &amp; 4
+        \end{pmatrix} \circ \begin{pmatrix}
+            1 &amp; 3
+        \end{pmatrix} \circ \sigma = \mathop{\mathrm{Id}}\)</span>.</p>
+<p>Ce qui donne, <span class="math inline">\(\sigma =
+\left(\begin{pmatrix}
+            3 &amp; 5
+        \end{pmatrix} \circ \begin{pmatrix}
+            2 &amp; 4
+        \end{pmatrix} \circ \begin{pmatrix}
+            1 &amp; 3
+        \end{pmatrix}\right)^{-1} = \begin{pmatrix}
+            1 &amp; 3
+        \end{pmatrix}\circ\begin{pmatrix}
+            2 &amp; 4
+        \end{pmatrix}\circ\begin{pmatrix}
+            3 &amp; 5
+        \end{pmatrix}\)</span>.</p>
+<div class="wrem">
+<p>Cette décomposition n’est pas unique, par exemple : <span
+class="math inline">\(\sigma =  \begin{pmatrix}
+            1 &amp; 5
+        \end{pmatrix}\circ\begin{pmatrix}
+            2 &amp; 4
+        \end{pmatrix}\circ\begin{pmatrix}
+            1 &amp; 3
+        \end{pmatrix}\)</span></p>
+</div>
+</div>
+<h2 data-number="1.3" id="signature-de-sigma-in-mathcals_n"><span
+class="header-section-number">1.3</span> Signature de <span
+class="math inline">\(\sigma \in \mathcal{S}_n\)</span></h2>
+<div class="wprop">
+<p><strong>(Admise)</strong> <span id="prop:parité_nb_transpos_decompo"
+label="prop:parité_nb_transpos_decompo"></span> Soit <span
+class="math inline">\(\sigma \in \mathcal{S}_n\)</span> avec <span
+class="math inline">\(n \geq 2\)</span>.</p>
+<p>Alors, pour rappel, il existe <span
+class="math inline">\(\tau_1,\ldots,\tau_r\)</span> des transpositions
+de <span class="math inline">\([\![ 1,n ]\!]\)</span> telles que <span
+class="math inline">\(\sigma = \tau_1 \circ \tau_2 \circ \ldots \circ
+\tau_r\)</span>.</p>
+<p><span class="math inline">\(r\)</span> n’est pas unique mais la
+parité de <span class="math inline">\(r\)</span> est bien
+déterminée.</p>
+<p>Autrement dit, toute autre décomposition de <span
+class="math inline">\(\sigma\)</span> en transpositions admet un nombre
+de transposition de même parité que <span
+class="math inline">\(r\)</span>.</p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(\sigma \in \mathcal{S}_n\)</span>
+avec <span class="math inline">\(n \geq 2\)</span> telle que <span
+class="math inline">\(\sigma = \tau_1 \circ \tau_2 \circ \ldots \circ
+\tau_r\)</span> avec <span
+class="math inline">\(\tau_1,\ldots,\tau_r\)</span> des transpositions
+de <span class="math inline">\([\![ 1,n ]\!]\)</span>.</p>
+<p>La signature de <span class="math inline">\(\sigma\)</span>, notée
+<span class="math inline">\(\varepsilon(\sigma)\)</span>, est <span
+class="math inline">\((-1)^r\)</span> dont la valeur ne dépend pas de la
+décomposition en transpositions d’après la proposition <a
+href="#prop:parité_nb_transpos_decompo" data-reference-type="ref"
+data-reference="prop:parité_nb_transpos_decompo">[prop:parité_nb_transpos_decompo]</a>.</p>
+<p>Si <span class="math inline">\(\varepsilon(\sigma) = 1\)</span>, la
+permutation est dite paire et si <span
+class="math inline">\(\varepsilon(\sigma) = -1\)</span>, la permutation
+est dite impaire.</p>
+<p>Par convention, pour <span class="math inline">\(n=1\)</span>, on
+pose <span
+class="math inline">\(\varepsilon\left(\mathop{\mathrm{Id}}_{\left\{1\right\}}\right)
+= 1\)</span>.</p>
+</div>
+<div class="wex">
+<p>Si <span class="math inline">\(\tau\)</span> est une transposition,
+<span class="math inline">\(\varepsilon(\tau) = -1\)</span>.</p>
+<p>D’autre part, <span
+class="math inline">\(\varepsilon\left(\mathop{\mathrm{Id}}_{[\![ 1,n
+]\!]}\right) = 1\)</span> car <span
+class="math inline">\(\mathop{\mathrm{Id}}_{[\![ 1,n ]\!]} =
+\begin{pmatrix}
+        1 &amp; 2
+    \end{pmatrix} \circ \begin{pmatrix}
+        1 &amp; 2
+    \end{pmatrix}.\)</span></p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(\sigma, \sigma&#39; \in
+\mathcal{S}_n\)</span> alors, <span
+class="math inline">\(\varepsilon\left(\sigma \circ \sigma&#39;\right) =
+\varepsilon\left(\sigma\right)\varepsilon\left(\sigma&#39;\right)\)</span>.</p>
+<p>Autrement dit, <span class="math inline">\(\varepsilon :
+\left(\mathcal{S}_n,\circ\right) \mapsto
+\left(\left\{0,1\right\},\times\right)\)</span> est un morphisme de
+groupes.</p>
+</div>
+<div class="wproof">
+<p>Si <span class="math inline">\(\sigma = \tau_1 \circ \ldots \circ
+\tau_r\)</span> et <span class="math inline">\(\sigma&#39; = \tau&#39;_1
+\circ \ldots \circ \tau&#39;_s\)</span> avec <span
+class="math inline">\(\tau_1,\ldots,\tau_r,\tau&#39;_1,\ldots,\tau&#39;_s\)</span>
+transpositions de <span class="math inline">\([\![ 1,n
+]\!]\)</span>.</p>
+<p>Alors, <span class="math inline">\(\sigma \circ \sigma&#39; = \tau_1
+\circ \ldots \circ \tau_r\circ \tau&#39;_1 \circ \ldots \circ
+\tau&#39;_s\)</span> donc <span
+class="math inline">\(\varepsilon\left(\sigma \circ \sigma&#39;\right) =
+(-1)^{r+s} =
+(-1)^r(-1)^s=\varepsilon\left(\sigma\right)\varepsilon\left(\sigma&#39;\right)\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(\sigma \in \mathcal{S}_n\)</span>
+alors, <span class="math inline">\(\varepsilon\left(\sigma^{-1}\right) =
+\varepsilon\left(\sigma\right)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Si <span class="math inline">\(\sigma = \tau_1 \circ \ldots \circ
+\tau_r\)</span> avec <span
+class="math inline">\(\tau_1,\ldots,\tau_r\)</span> transpositions de
+<span class="math inline">\([\![ 1,n ]\!]\)</span>.</p>
+<p>Alors, <span class="math inline">\(\sigma^{-1} = \tau_r^{-1} \circ
+\ldots \circ \tau_1^{-1} =  \tau_r \circ \ldots \circ \tau_1\)</span>
+donc <span class="math inline">\(\varepsilon\left(\sigma^{-1}\right) =
+(-1)^r=\varepsilon\left(\sigma\right)\)</span>.</p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(n \in \mathbb{N}^{\star}\)</span>,
+<span class="math inline">\(\mathcal{A}_n= \left\{\sigma \in
+\mathcal{S}_n/ \varepsilon(\sigma)=1\right\}\)</span> est appelé le
+groupe alterné de <span class="math inline">\([\![ 1,n
+]\!]\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Montrons que <span class="math inline">\(\mathcal{A}_n\)</span> est
+effectivement un groupe en montrant que c’est un sous-groupe de <span
+class="math inline">\(\mathcal{S}_n\)</span>.</p>
+<ol>
+<li><p><span class="math inline">\(\mathop{\mathrm{Id}}_{[\![ 1,n ]\!]}
+\in \mathcal{A}_n\)</span> car <span
+class="math inline">\(\varepsilon\left(\mathop{\mathrm{Id}}_{[\![ 1,n
+]\!]}\right)=1\)</span>,</p></li>
+<li><p>Soient <span class="math inline">\(\sigma,\sigma&#39; \in
+\mathcal{A}_n\)</span>, alors <span
+class="math inline">\(\varepsilon(\sigma) = \varepsilon(\sigma&#39;) =
+1\)</span></p>
+<p>et <span class="math inline">\(\varepsilon\left(\sigma \circ
+\sigma&#39;\right) =
+\varepsilon\left(\sigma\right)\varepsilon\left(\sigma&#39;\right) =
+1\)</span> donc <span class="math inline">\(\sigma \circ \sigma&#39; \in
+\mathcal{A}_n\)</span>.</p></li>
+</ol>
+</div>
+<div class="wrem">
+<p>Si <span class="math inline">\(\sigma,\sigma&#39; \in
+\mathcal{S}_n\setminus \mathcal{A}_n\)</span>, <span
+class="math inline">\(\sigma\circ \sigma&#39; \in \mathcal{A}_n\)</span>
+car <span class="math inline">\(\varepsilon\left(\sigma \circ
+\sigma&#39;\right) =
+\varepsilon\left(\sigma\right)\varepsilon\left(\sigma&#39;\right) =
+(-1)^2 = 1\)</span>.</p>
+</div>
+<div class="wprop">
+<p><span id="prop:cardinal_A_n" label="prop:cardinal_A_n"></span> Soit
+<span class="math inline">\(n \in \mathbb{N}, \geq 2\)</span> alors
+<span class="math inline">\(\mathop{\mathrm{card}}\mathcal{A}_n=
+\frac{n!}{2}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(\tau\)</span> une transposition de
+<span class="math inline">\([\![ 1,n ]\!]\)</span>, montrons que <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathcal{A}_n &amp; \to &amp; \mathcal{S}_n\setminus
+\mathcal{A}_n \\
+   &amp;   &amp; \sigma &amp; \mapsto &amp; \tau \circ \sigma
+\end{array}\)</span> est une bijection.</p>
+<ul>
+<li><p>D’abord, <span class="math inline">\(f\)</span> est surjective,
+ie on a <span class="math inline">\(\mathop{\mathrm{Im}}f
+=\mathcal{S}_n\setminus \mathcal{A}_n\)</span>.</p>
+<p>En effet, <span class="math inline">\(\mathop{\mathrm{Im}}f
+\subset\mathcal{S}_n\setminus \mathcal{A}_n\)</span> car si <span
+class="math inline">\(\sigma \in \mathcal{A}_n\)</span>, <span
+class="math inline">\(\varepsilon(\tau \circ \sigma) =
+\varepsilon(\tau)\varepsilon(\sigma) = -1\)</span>.</p>
+<p>D’autre part, <span class="math inline">\(\mathop{\mathrm{Im}}f
+\supset \mathcal{S}_n\setminus \mathcal{A}_n\)</span> car si <span
+class="math inline">\(\sigma&#39; \in \mathcal{S}_n\setminus
+\mathcal{A}_n\)</span>, <span class="math inline">\(\tau \circ
+\sigma&#39; \in \mathcal{A}_n\)</span> car <span
+class="math inline">\(\varepsilon(\tau \circ \sigma&#39;) =
+\varepsilon(\tau)\varepsilon(\sigma&#39;) = 1\)</span></p>
+<p>et on a <span class="math inline">\(f(\tau \circ \sigma) = \tau \circ
+\tau \circ \sigma&#39; = \sigma&#39;\)</span>.</p></li>
+<li><p>Ensuite, <span class="math inline">\(f\)</span> est injective car
+soient <span class="math inline">\(\sigma,\sigma&#39; \in
+\mathcal{A}_n\)</span>,</p>
+<p><span class="math inline">\(f(\sigma) = f(\sigma&#39;) \iff \tau
+\circ \sigma = \tau \circ \sigma&#39; \iff \tau \circ\tau \circ \sigma =
+\tau \circ\tau \circ \sigma&#39; \iff
+\sigma=\sigma&#39;\)</span>.</p></li>
+</ul>
+<p>On en déduit <span
+class="math inline">\(\mathop{\mathrm{card}}\mathcal{A}_n=
+\mathop{\mathrm{card}}\mathcal{S}_n\setminus \mathcal{A}_n\)</span>.</p>
+<p>Or, <span class="math inline">\(\mathcal{S}_n= \mathcal{A}_n\cup
+\mathcal{S}_n\setminus \mathcal{A}_n\)</span> et cette union est
+disjointe.</p>
+<p>Donc <span class="math inline">\(n! =
+\mathop{\mathrm{card}}\mathcal{S}_n=
+\mathop{\mathrm{card}}\mathcal{A}_n+
+\mathop{\mathrm{card}}\mathcal{S}_n\setminus \mathcal{A}_n=
+2\mathop{\mathrm{card}}\mathcal{A}_n\)</span> et <span
+class="math inline">\(\mathop{\mathrm{card}}\mathcal{A}_n=
+\frac{n!}{2}\)</span>.</p>
+</div>
+<div class="wex">
+<p>Par exemple, <span class="math inline">\(\mathcal{A}_3 =
+\left\{\mathop{\mathrm{Id}}_{[\![ 1,3 ]\!]}, \begin{pmatrix}
+        1 &amp; 2 &amp; 3 \\
+        3 &amp; 1 &amp; 2
+    \end{pmatrix},\begin{pmatrix}
+        1 &amp; 2 &amp; 3 \\
+        2 &amp; 3 &amp; 1
+    \end{pmatrix}\right\}\)</span> est de cardinal <span
+class="math inline">\(3 = \frac{3!}{2}\)</span>.</p>
+</div>
+<h1 data-number="2" id="déterminants"><span
+class="header-section-number">2</span> Déterminants</h1>
+<h2 data-number="2.1" id="formes-n-linéaires-alternées"><span
+class="header-section-number">2.1</span> Formes <span
+class="math inline">\(n\)</span>-linéaires alternées</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel (avec <span
+class="math inline">\(\mathbb{K}\)</span> sous-corps de <span
+class="math inline">\(\mathbb{C}\)</span>) et <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span>.</p>
+<p>Soit <span class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; E^n &amp; \to &amp; \mathbb{K} \\
+   &amp;   &amp; (x_1,\ldots,x_n) &amp; \mapsto &amp;
+\varphi(x_1,\ldots,x_n)
+\end{array}\)</span>,</p>
+<p><span class="math inline">\(\varphi\)</span> est une forme <span
+class="math inline">\(n\)</span>-linéaire si <span
+class="math inline">\(\varphi\)</span> est linéaire par rapport à
+chacune des <span class="math inline">\(n\)</span> variables,
+c’est-à-dire, pour tout <span class="math inline">\((v_1,\ldots,v_n) \in
+E^n\)</span>, pour tout <span class="math inline">\(1 \leq i \leq
+n\)</span>, <span class="math inline">\(\begin{array}{lllll}
+\varphi_i &amp; : &amp; E &amp; \to &amp; \mathbb{K} \\
+   &amp;   &amp; x &amp; \mapsto &amp;
+\varphi(v_1,\ldots,v_{i-1},x,v_{i+1},\ldots,v_n)
+\end{array}\)</span> est linéaire.</p>
+</div>
+<p>Autrement dit, pour tout <span class="math inline">\((v_1,\ldots,v_n)
+\in E^n\)</span>, <span class="math inline">\(u,v \in E\)</span> et
+<span class="math inline">\(\lambda \in \mathbb{K}\)</span>, on a pour
+tout <span class="math inline">\(1 \leq i \leq n\)</span>, <span
+class="math display">\[\varphi(v_1,\ldots,v_{i-1},u+\lambda
+v,v_{i+1},\ldots,v_n) =
+\varphi(v_1,\ldots,v_{i-1},u,v_{i+1},\ldots,v_n)+\lambda
+\varphi(v_1,\ldots,v_{i-1},v,v_{i+1},\ldots,v_n).\]</span></p>
+<p>On a par exemple, <span class="math inline">\(\varphi(\lambda
+v_1,\ldots,\lambda v_n) = \lambda^n
+\varphi(v_1,\ldots,v_n)\)</span>.</p>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel (avec <span
+class="math inline">\(\mathbb{K}\)</span> sous-corps de <span
+class="math inline">\(\mathbb{C}\)</span>) et <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span>.</p>
+<p>Soit <span class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; E^n &amp; \to &amp; \mathbb{K} \\
+   &amp;   &amp; (x_1,\ldots,x_n) &amp; \mapsto &amp;
+\varphi(x_1,\ldots,x_n)
+\end{array}\)</span>,</p>
+<p><span class="math inline">\(\varphi\)</span> est une forme alternée
+si <span class="math inline">\(\varphi(x_1,\ldots,x_n)=0\)</span> dès
+qu’il existe <span class="math inline">\(i,j \in [\![ 1,n ]\!]\)</span>
+tels que <span class="math inline">\(i \neq j\)</span> et <span
+class="math inline">\(x_i=x_j\)</span>.</p>
+<p>On note <span
+class="math inline">\(\mathcal{A}_n(E,\mathbb{K})\)</span> l’ensemble
+des formes <span class="math inline">\(n\)</span>-linéaires alternées
+sur <span class="math inline">\(E^n\)</span>.</p>
+</div>
+<h3 data-number="2.1.1" id="propriétés"><span
+class="header-section-number">2.1.1</span> Propriétés</h3>
+<div class="wprop">
+<p>Soit <span class="math inline">\(\varphi \in
+\mathcal{A}_n(E,\mathbb{K})\)</span>, alors <span
+class="math inline">\(\varphi\)</span> est antisymétrique, c’est-à-dire,
+pour tout <span class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span>
+et <span class="math inline">\(\sigma \in \mathcal{S}_n\)</span>, <span
+class="math display">\[\varphi(v_{\sigma(1)},\ldots,v_{\sigma(n)}) =
+\varepsilon(\sigma) \varphi(v_1,\ldots,v_n).\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><strong>Premier cas.</strong> <span
+class="math inline">\(\sigma\)</span> est une transposition <span
+class="math inline">\(\begin{pmatrix}
+        i &amp; j
+    \end{pmatrix}\)</span>.</p>
+<p>On cherche à montrer <span
+class="math display">\[\varphi(v_1,\ldots,v_{i-1},\underbrace{v_j}_{\substack{i\text{-ième}
+\\
+\text{position}}},v_{i+1},\ldots,v_{j-1},\underbrace{v_i}_{\substack{j\text{-ième}
+\\ \text{position}}},v_{j+1},\ldots,v_{n}) = -
+\varphi(v_1,\ldots,v_n).\]</span></p>
+<p>Posons <span class="math inline">\(\alpha =
+\varphi(v_1,\ldots,\underbrace{v_i+v_j}_{\substack{i\text{-ième} \\
+\text{position}}},\ldots,\underbrace{v_i+v_j}_{\substack{j\text{-ième}
+\\ \text{position}}},\ldots,v_{n})\)</span>.</p>
+<p>D’abord, <span class="math inline">\(\alpha = 0\)</span> car <span
+class="math inline">\(\varphi\)</span> est alternée.</p>
+<p>Ensuite, <span class="math display">\[\begin{aligned}
+        \alpha
+         = &amp; \text{
+}\varphi(v_1,\ldots,{v_i},\ldots,{v_i+v_j},\ldots,v_{n}) \\
+         &amp; +\varphi(v_1,\ldots,{v_j},\ldots,{v_i+v_j},\ldots,v_{n})
+\\ &amp;\qquad\qquad \text{ par linéarité par rapport à la $i$-ème
+composante} \\
+         = &amp; \text{
+}\varphi(v_1,\ldots,{v_i},\ldots,{v_i},\ldots,v_{n}) \\
+         &amp;+\varphi(v_1,\ldots,{v_i},\ldots,{v_j},\ldots,v_{n}) \\
+         &amp; +\varphi(v_1,\ldots,{v_j},\ldots,{v_i},\ldots,v_{n}) \\
+         &amp; +\varphi(v_1,\ldots,{v_j},\ldots,{v_j},\ldots,v_{n}) \\
+         &amp;\qquad\qquad \text{ par linéarité par rapport à la $j$-ème
+composante} \\
+         = &amp; \text{ }0 \\
+         &amp;+\varphi(v_1,\ldots,{v_i},\ldots,{v_j},\ldots,v_{n}) \\
+         &amp; +\varphi(v_1,\ldots,{v_j},\ldots,{v_i},\ldots,v_{n}) \\
+         &amp; +0\\
+         &amp;\qquad\qquad \text{ car $\varphi$ est alternée.} \\
+    \end{aligned}\]</span></p>
+<p>Donc <span class="math display">\[\begin{aligned}
+&amp;0 =
+\varphi(v_1,\ldots,{v_i},\ldots,{v_j},\ldots,v_{n})+\varphi(v_1,\ldots,{v_j},\ldots,{v_i},\ldots,v_{n})
+\\
+&amp;\iff
+\varphi(v_1,\ldots,{v_j},\ldots,{v_i},\ldots,v_{n})=-\varphi(v_1,\ldots,{v_i},\ldots,{v_j},\ldots,v_{n})  \end{aligned}\]</span></p></li>
+<li><p><strong>Second cas.</strong> Retour au cas <span
+class="math inline">\(\sigma \in \mathcal{S}_n\)</span> général. Il
+existe <span class="math inline">\(\tau_1,\ldots,\tau_r\)</span> des
+transpositions de <span class="math inline">\([\![ 1,n ]\!]\)</span>
+telles que <span class="math inline">\(\sigma = \tau_1 \circ \tau_2
+\circ \ldots \circ \tau_r\)</span>.</p>
+<p>Donc <span class="math display">\[\begin{aligned}
+    \varphi(v_{\sigma(1)},\ldots,v_{\sigma(n)})
+    &amp; = \varphi(v_{\tau_1 \circ \tau_2 \circ \ldots \circ
+\tau_r(1)},\ldots,v_{\tau_1 \circ \tau_2 \circ \ldots \circ \tau_r(n)})
+\\
+    &amp; = -\varphi(v_{\tau_2\circ \ldots \circ
+\tau_r(1)},\ldots,v_{\tau_2  \circ \ldots \circ \tau_r(n)}) \text{ par
+le premier cas} \\
+    &amp; = (-1)^2\varphi(v_{\tau_3 \circ \ldots \circ
+\tau_r(1)},\ldots,v_{\tau_3 \circ \ldots \circ \tau_r(n)}) \text{ par le
+premier cas} \\
+    &amp; \vdots \\
+    &amp; = (-1)^r\varphi(v_1,\ldots,v_n) \text{ par le premier cas} \\
+    &amp; = \varepsilon(\sigma) \varphi(v_1,\ldots,v_n).
+\end{aligned}\]</span></p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>Par exemple, si <span class="math inline">\(n=2\)</span>, pour tout
+<span class="math inline">\((v_1,v_2) \in E^2\)</span>, <span
+class="math inline">\(\varphi(v_2,v_1) = -\varphi(v_1,v_2)\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(\varphi \in
+\mathcal{A}_n(E,\mathbb{K}\)</span>), si <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> est liée alors
+<span class="math inline">\(\varphi(v_1,\ldots,v_n) = 0\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Comme <span class="math inline">\((v_1,\ldots,v_n)\)</span> est liée,
+il existe <span class="math inline">\(k \in [\![ 1,n ]\!]\)</span> et
+<span class="math inline">\(\alpha_1,\ldots,\alpha_n \in
+\mathbb{K}\)</span> tels que <span class="math inline">\(v_k =
+\sum_{\ell \neq k} \alpha_\ell v_\ell\)</span>.</p>
+<p>On a donc <span class="math display">\[\begin{aligned}
+    \varphi(v_1,\ldots,v_k,\ldots,v_n)
+    &amp; =\sum_{\ell \neq k}\alpha_\ell
+\varphi(v_1,\ldots,v_\ell,\ldots,v_n) \text{ par linéarité par rapport à
+la $k$-ième composante} \\
+    &amp; = \sum\alpha_\ell 0 \text{ car $\varphi$ est alternée.} \\
+    &amp; = 0.
+    \end{aligned}\]</span></p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(\varphi \in
+\mathcal{A}_n(E,\mathbb{K}\)</span>), <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> et <span
+class="math inline">\(\alpha_1,\ldots,\alpha_n \in \mathbb{K}\)</span>.
+Alors, soit <span class="math inline">\(k \in [\![ 1,n
+]\!]\)</span>,</p>
+<p><span class="math display">\[\varphi(v_1,\ldots,v_k + \sum_{\ell \neq
+k}\alpha_\ell v_\ell,\ldots,v_n) = \varphi(v_1,\ldots,v_n).\]</span></p>
+</div>
+<div class="wproof">
+<p><span class="math display">\[\begin{aligned}
+    \varphi(v_1,\ldots,v_k + \sum_{\ell \neq k}\alpha_\ell
+v_\ell,\ldots,v_n)
+    &amp;
+=\varphi(v_1,\ldots,v_n)+\sum\alpha_\ell\varphi(v_1,\ldots,v_\ell,\ldots,v_n)
+\\
+    &amp; \qquad\qquad \text{ par linéarité par rapport à la $k$-ième
+composante} \\
+    &amp; = \varphi(v_1,\ldots,v_n)+\sum\alpha_\ell 0 \text{ car
+$\varphi$ est alternée.} \\
+    &amp; =\varphi(v_1,\ldots,v_n).
+    \end{aligned}\]</span></p>
+</div>
+<h2 data-number="2.2"
+id="étude-de-mathcala_nemathbbk-quand-e-est-de-dimension-finie-n"><span
+class="header-section-number">2.2</span> Étude de <span
+class="math inline">\(\mathcal{A}_n(E,\mathbb{K})\)</span> quand <span
+class="math inline">\(E\)</span> est de dimension finie <span
+class="math inline">\(n\)</span></h2>
+<div class="wprop">
+<p><span class="math inline">\(\mathcal{A}_n(E,\mathbb{K})\)</span> est
+un <span class="math inline">\(\mathbb{K}\)</span>-espace vectoriel.</p>
+</div>
+<div class="wproof">
+<p>Montrons que <span
+class="math inline">\(\mathcal{A}_n(E,\mathbb{K})\)</span> est un
+sous-espace vectoriel de <span
+class="math inline">\(\mathscr{F}(E^n,\mathbb{K})\)</span>.</p>
+<ol>
+<li><p><span class="math inline">\(0_{\mathscr{F}(E^n,\mathbb{K})} \in
+\mathcal{A}_n(E,\mathbb{K})\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(\varphi,\psi \in
+\mathcal{A}_n(E,\mathbb{K})\)</span> et <span
+class="math inline">\(\alpha \in \mathbb{K}\)</span>.</p>
+<p>Alors,</p>
+<ul>
+<li><p><span class="math inline">\(\varphi+\alpha\psi\)</span> est <span
+class="math inline">\(n\)</span>-linéaire car pour tout <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span>, pour tout <span
+class="math inline">\(1 \leq i \leq n\)</span>, <span
+class="math inline">\(\begin{array}{lllll}
+(\varphi+\alpha\psi)_i &amp; : &amp; E &amp; \to &amp; \mathbb{K} \\
+   &amp;   &amp; x &amp; \mapsto &amp;
+\varphi(v_1,\ldots,v_{i-1},x,v_{i+1},\ldots,v_n)+\alpha\psi(v_1,\ldots,v_{i-1},x,v_{i+1},\ldots,v_n)
+\end{array}\)</span> est linéaire comme combinaison linéaire de
+fonctions linéaires.</p></li>
+<li><p><span class="math inline">\(\varphi+\alpha\psi\)</span> est
+alternée car soient <span class="math inline">\((v_1,\ldots,v_n) \in
+E^n\)</span> et <span class="math inline">\(i,j \in [\![ 1,n
+]\!]\)</span> tels que <span class="math inline">\(i \neq j\)</span> et
+<span class="math inline">\(v_i = v_j\)</span>,</p>
+<p><span
+class="math inline">\(\left(\varphi+\alpha\psi\right)(v_1,\ldots,v_n) =
+\varphi(v_1,\ldots,v_n)+\alpha\psi(v_1,\ldots,v_n) = 0+\alpha\times 0 =
+0\)</span>.</p></li>
+</ul>
+<p>Donc <span class="math inline">\(\varphi+\alpha\psi \in
+\mathcal{A}_n(E,\mathbb{K})\)</span>.</p></li>
+</ol>
+</div>
+<div class="wprop">
+<p><span id="prop:deter_grosse_somme"
+label="prop:deter_grosse_somme"></span> On suppose <span
+class="math inline">\(E\)</span> de dimension <span
+class="math inline">\(n\)</span>.</p>
+<p>Soit <span class="math inline">\(\mathscr{B}=
+(e_1,\ldots,e_n)\)</span> une base de <span
+class="math inline">\(E\)</span>, <span class="math inline">\(\varphi
+\in \mathcal{A}_n(E,\mathbb{K})\)</span> et <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span>. Alors, soient
+<span class="math inline">\((a_{ij})_{1 \leq i,j \leq n} \in
+\mathbb{K}^{n^2}\)</span> tels que pour <span class="math inline">\(j
+\in [\![ 1,n ]\!], v_j = \sum_{i=1}^n a_{ij} e_i\)</span>,</p>
+<p><span class="math display">\[\varphi(v_1,\ldots,v_n) =
+\left(\sum_{\sigma \in \mathcal{S}_n} \varepsilon(\sigma) a_{\sigma(1)
+1}a_{\sigma(2) 2} \ldots a_{\sigma(n)n}
+\right)\varphi(e_1,\ldots,e_n)\]</span></p>
+</div>
+<div class="wproof">
+<p>On écrit la preuve dans le cas <span
+class="math inline">\(n=3\)</span>, qui s’adapte parfaitement à des
+<span class="math inline">\(n\)</span> plus grand. On a <span
+class="math display">\[\begin{aligned}
+    \varphi(v_1,v_2,v_3)
+    &amp; = \varphi\left(\sum_{i=1}^3 a_{i1} e_{i_1},v_2,v_3\right) \\
+    &amp; = \sum_{i=1}^3 a_{i1} \varphi\left(e_{i},v_2,v_3\right)\text{
+par linéarité par rapport à la 1-ère variable} \\
+    &amp; = \sum_{i=1}^3 a_{i1} \varphi\left(e_{i},\sum_{j=1}^3 a_{j2}
+e_{j},v_3\right) \\
+    &amp; = \sum_{i=1}^3 a_{i1}\sum_{j=1}^3
+a_{j2}  \varphi\left(e_{i},e_{j},v_3\right)\text{ par linéarité par
+rapport à la 2-ème variable} \\
+    &amp; = \sum_{i_1=1}^3 a_{i1}\sum_{j=1}^3
+a_{j2}  \varphi\left(e_{i},e_{j},\sum_{k=1}^3 a_{k3}e_{k} \right) \\
+    &amp; = \sum_{i=1}^3 a_{i1}\sum_{j=1}^3 a_{j2}\sum_{k=1}^3
+a_{k3}  \varphi\left(e_{i},e_{j},e_{k}\right)\text{ par linéarité par
+rapport à la 3-ème variable} \\
+    &amp; = \sum_{i=1}^3 \sum_{j=1}^3\sum_{k=1}^3
+a_{i1}a_{j2}a_{k3}  \varphi\left(e_{i},e_{j},e_{k}\right).
+\end{aligned}\]</span></p>
+<p>Or, choisir <span class="math inline">\((i,j,k) \in [\![ 1,3
+]\!]^2\)</span> dans la somme précédente revient à considérer une
+fonction <span class="math inline">\(f:\begin{array}{rl}
+    [\![ 1, 3]\!] &amp; \to [\![ 1, 3 ]\!] \\
+    1 &amp; \mapsto i \\
+    2 &amp; \mapsto j \\
+    3 &amp; \mapsto k
+\end{array}\)</span></p>
+<p>donc en notant <span class="math inline">\(\mathscr{F}_3 =
+\mathscr{F}([\![ 1, 3]\!],[\![ 1, 3]\!])\)</span>, <span
+class="math inline">\(\varphi(v_1,v_2,v_3) = \sum_{f \in \mathscr{F}_3}
+a_{f(1)1}a_{f(2)2}a_{f(3)3}  \varphi\left(e_{f(1)},e_{f(2)},e_{f(3)}\right).\)</span></p>
+<p>De plus, <span class="math inline">\(\varphi\)</span> est non
+alternée donc quand <span class="math inline">\(f\)</span> est non
+injective, <span
+class="math inline">\(\varphi\left(e_{f(1)},e_{f(2)},e_{f(3)}\right) =
+0\)</span>.</p>
+<p>Donc, en retirant les termes nuls il ne reste plus que les fonctions
+injectives dans la somme.</p>
+<p>Comme, <span class="math inline">\(f : [\![ 1, 3]\!] \to [\![ 1, 3
+]\!]\)</span>, <span class="math inline">\(f\)</span> injectve <span
+class="math inline">\(\iff\)</span> <span
+class="math inline">\(f\)</span> bijective donc il ne reste que les
+bijections donc les permutations de <span
+class="math inline">\(\mathcal{S}_3\)</span> et <span
+class="math inline">\(\varphi(v_1,v_2,v_3) = \sum_{\sigma \in
+\mathcal{S}_3}
+a_{\sigma(1)1}a_{\sigma(2)2}a_{\sigma(3)3}  \varphi\left(e_{\sigma(1)},e_{\sigma(2)},e_{\sigma(3)}\right).\)</span></p>
+<p>Enfin, <span class="math inline">\(\varphi \in
+\mathcal{A}_3(E,\mathbb{K})\)</span> donc <span
+class="math inline">\(\varphi\)</span> est antisymétrique donc <span
+class="math inline">\(\varphi\left(e_{\sigma(1)},e_{\sigma(2)},e_{\sigma(3)}\right)
+= \varepsilon(\sigma) \varphi(e_1,e_2,e_3)\)</span> et <span
+class="math display">\[\varphi(v_1,v_2,v_3) = \sum_{\sigma \in
+\mathcal{S}_3} a_{\sigma(1)1}a_{\sigma(2)2}a_{\sigma(3)3}
+\varepsilon(\sigma) \varphi(e_1,e_2,e_3).\]</span></p>
+</div>
+<div class="wprop">
+<p><span id="prop:def_varphi_B" label="prop:def_varphi_B"></span> Soit
+<span class="math inline">\(E\)</span> un espace vectoriel de dimension
+<span class="math inline">\(n\)</span> et <span
+class="math inline">\(\mathscr{B}= (e_1,\ldots,e_n)\)</span> une base de
+<span class="math inline">\(E\)</span>.</p>
+<p>Alors, il existe <span class="math inline">\(\varphi_\mathscr{B}\in
+\mathcal{A}_n(E,\mathbb{K})\)</span> unique telle que <span
+class="math inline">\(\varphi_\mathscr{B}(e_1,\ldots,e_n) =
+1\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>(Analyse) Si <span
+class="math inline">\(\varphi_\mathscr{B}\)</span> existe alors pour
+tout <span class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> tel
+que que pour <span class="math inline">\(j \in [\![ 1,n ]\!], v_j =
+\sum_{i=1}^n a_{ij} e_i\)</span>, <span
+class="math display">\[\varphi_\mathscr{B}(v_1,\ldots,v_n)=\sum_{\sigma
+\in \mathcal{S}_n} \varepsilon(\sigma) a_{\sigma(1) 1}a_{\sigma(2) 2}
+\ldots a_{\sigma(n)n}\]</span> par la proposition <a
+href="#prop:deter_grosse_somme" data-reference-type="ref"
+data-reference="prop:deter_grosse_somme">[prop:deter_grosse_somme]</a>.</p></li>
+<li><p>(Synthèse) Montrons que</p>
+<p><span class="math display">\[\begin{array}{lllll}
+\varphi_\mathscr{B} &amp; : &amp; E^n &amp; \to &amp; \mathbb{K} \\
+   &amp;   &amp; (v_1,\ldots,v_n) &amp; \mapsto &amp; \sum_{\sigma \in
+\mathcal{S}_n} \varepsilon(\sigma) a_{\sigma(1) 1}a_{\sigma(2) 2} \ldots
+a_{\sigma(n)n} \text{ avec }v_j = \sum_{i=1}^n a_{ij} e_i \text{ pour $j
+\in [\![ 1,n ]\!]$}
+\end{array}\]</span></p>
+<p>vérifie bien <span
+class="math inline">\(\varphi_\mathscr{B}(e_1,\ldots,e_n) = 1\)</span>
+et <span class="math inline">\(\varphi_\mathscr{B}\in
+\mathcal{A}_n(E,\mathbb{K})\)</span>.</p>
+<ol>
+<li><p>D’abord, <span
+class="math inline">\(\varphi_\mathscr{B}(e_1,\ldots,e_n) =
+1\)</span>.</p>
+<p>En effet, pour <span class="math inline">\(j \in [\![ 1,n
+]\!]\)</span>, <span class="math inline">\(e_j = 1e_j + \sum_{i\neq j}
+0e_i\)</span> ie <span class="math inline">\(a_{jj} = 1\)</span> et
+<span class="math inline">\(a_{ij} = 0\)</span> pour <span
+class="math inline">\(i \neq j\)</span>.</p>
+<p>De plus, si <span class="math inline">\(\sigma \in
+\mathcal{S}_n\)</span> et <span class="math inline">\(\sigma \neq
+\mathop{\mathrm{Id}}\)</span>, il existe <span class="math inline">\(i
+\neq j\)</span> tels que <span class="math inline">\(\sigma(j) =
+i\)</span></p>
+<p>donc <span class="math inline">\(a_{\sigma(1) 1}a_{\sigma(2) 2}
+\ldots \underbrace{a_{\sigma(i)j}}_{=0} \ldots a_{\sigma(n)n} =
+0\)</span>.</p>
+<p>On a donc bien</p>
+<p><span
+class="math display">\[\varphi_\mathscr{B}(e_1,\ldots,e_n)=\sum_{\sigma
+\in \mathcal{S}_n} \varepsilon(\sigma) a_{\sigma(1) 1}a_{\sigma(2) 2}
+\ldots a_{\sigma(n)n} = \underbrace{a_{11}a_{22}\ldots
+a_{nn}}_{\text{terme pour $\sigma = \mathop{\mathrm{Id}}$}} =
+1.\]</span></p></li>
+<li><p><span class="math inline">\(\varphi_\mathscr{B}\)</span> est
+<span class="math inline">\(n\)</span>-linéaire. En effet, soient <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span>, <span
+class="math inline">\((v&#39;_1,\ldots,v&#39;_n) \in E^n\)</span> et
+<span class="math inline">\(\lambda \in \mathbb{K}\)</span>.</p>
+<p>Soient <span class="math inline">\((a_{ij})_{1 \leq i,j \leq
+n},(a&#39;_{ij})_{1 \leq i,j \leq n} \in \mathbb{K}^{n^2}\)</span> tels
+que pour <span class="math inline">\(j \in [\![ 1,n ]\!], v_j =
+\sum_{i=1}^n a_{ij} e_i\)</span> et <span class="math inline">\(v&#39;_j
+= \sum_{i=1}^n a&#39;_{ij} e_i\)</span>.</p>
+<p>Alors, pour <span class="math inline">\(j \in [\![ 1,n
+]\!]\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+        &amp;\varphi_\mathscr{B}(v_1,\ldots,v_j+\lambda
+v&#39;_j,\ldots,v_n) \\
+             = &amp;    \sum_{\sigma \in \mathcal{S}_n}
+\varepsilon(\sigma) a_{\sigma(1) 1}\ldots (a_{\sigma(j)j} +\lambda
+a&#39;_{\sigma(j)j} )\ldots a_{\sigma(n)n} \\
+             = &amp;    \sum_{\sigma \in \mathcal{S}_n}
+\varepsilon(\sigma) a_{\sigma(1) 1}\ldots a_{\sigma(j)j}\ldots
+a_{\sigma(n)n} +  \lambda \sum_{\sigma \in \mathcal{S}_n}
+\varepsilon(\sigma) a_{\sigma(1) 1}\ldots a&#39;_{\sigma(j)j} \ldots
+a_{\sigma(n)n} \\
+             =
+&amp;\varphi_\mathscr{B}(v_1,\ldots,v_j,\ldots,v_n)+\lambda
+\varphi_\mathscr{B}(v_1,\ldots, v&#39;_j,\ldots,v_n).
+        \end{aligned}\]</span></p></li>
+<li><p><span class="math inline">\(\varphi_\mathscr{B}\)</span> est
+alternée. En effet, soient <span class="math inline">\((v_1,\ldots,v_n)
+\in E^n\)</span> tel que <span class="math inline">\(v_k =
+v_\ell\)</span> pour <span class="math inline">\(k \neq
+\ell\)</span>.</p>
+<p>Soient <span class="math inline">\((a_{ij})_{1 \leq i,j \leq
+n}\)</span> tels que pour <span class="math inline">\(j \in [\![ 1,n
+]\!], v_j = \sum_{i=1}^n a_{ij} e_i\)</span>.</p>
+<p>Comme <span class="math inline">\(v_k = v_\ell\)</span>, on a <span
+class="math inline">\(a_{ik} = a_{i\ell}\)</span> pour tout <span
+class="math inline">\(i \in [\![ 1,n ]\!]\)</span>.</p>
+<p>Alors, remarquons que pour <span class="math inline">\(\sigma \in
+\mathcal{S}_n\)</span>, et <span class="math inline">\(\tau =
+\begin{pmatrix}
+            k &amp; \ell
+        \end{pmatrix}\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+    \varepsilon(\sigma \circ \tau ) a_{\left(\sigma \circ \tau\right)(1)
+1}\ldots a_{\left(\sigma \circ \tau\right)(k) k} \ldots a_{\left(\sigma
+\circ \tau\right)(\ell) \ell} \ldots a_{\left(\sigma \circ
+\tau\right)(n) n}
+    &amp; = -\varepsilon(\sigma) a_{\sigma(1) 1}\ldots a_{\sigma(\ell)k}
+\ldots a_{\sigma(k) \ell} \ldots a_{\sigma(n) n}.
+        \end{aligned}\]</span> Or, <span
+class="math inline">\(a_{\sigma(\ell)k} = a_{\sigma(\ell)\ell}\)</span>
+et <span class="math inline">\(a_{\sigma(k)\ell} =
+a_{\sigma(k)k}\)</span> donc <span
+class="math display">\[\begin{aligned}
+    \varepsilon(\sigma \circ \tau ) a_{\left(\sigma \circ \tau\right)(1)
+1}\ldots a_{\left(\sigma \circ \tau\right)(k) k} \ldots a_{\left(\sigma
+\circ \tau\right)(\ell) \ell} \ldots a_{\left(\sigma \circ
+\tau\right)(n) n}
+    &amp; = -\varepsilon(\sigma) a_{\sigma(1) 1}\ldots a_{\sigma(k)k}
+\ldots a_{\sigma(\ell) \ell} \ldots a_{\sigma(n) n}.
+        \end{aligned}\]</span></p>
+<p>De plus, comme utilisé dans la preuve de la proposition <a
+href="#prop:cardinal_A_n" data-reference-type="ref"
+data-reference="prop:cardinal_A_n">[prop:cardinal_A_n]</a>, <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathcal{A}_n &amp; \to &amp; \mathcal{S}_n\setminus
+\mathcal{A}_n \\
+   &amp;   &amp; \sigma &amp; \mapsto &amp; \tau \circ \sigma
+\end{array}\)</span> est une bijection.</p>
+<p>On a donc <span class="math display">\[\begin{aligned}
+            \varphi_\mathscr{B}(v_1,\ldots,v_n)
+            &amp; = \sum_{\sigma \in \mathcal{S}_n} \varepsilon(\sigma)
+a_{\sigma(1) 1}a_{\sigma(2) 2} \ldots a_{\sigma(n)n} \\
+            &amp; = \sum_{\sigma \in \mathcal{A}_n} \varepsilon(\sigma)
+a_{\sigma(1) 1}a_{\sigma(2) 2} \ldots a_{\sigma(n)n}+\sum_{\sigma \in
+\mathcal{A}_n} \varepsilon(\tau \circ \sigma) a_{\left(\tau \circ
+\sigma\right)(1) 1}a_{\left(\tau \circ \sigma\right)(2) 2} \ldots
+a_{\left(\tau \circ \sigma\right)(n)n} \\
+            &amp; = \sum_{\sigma \in \mathcal{A}_n} \varepsilon(\sigma)
+a_{\sigma(1) 1}a_{\sigma(2) 2} \ldots a_{\sigma(n)n}-\sum_{\sigma \in
+\mathcal{A}_n} \varepsilon(\sigma) a_{\sigma(1) 1}a_{\sigma(2) 2} \ldots
+a_{\sigma(n)n} \\
+            &amp; = 0.
+        \end{aligned}\]</span></p></li>
+</ol></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(E\)</span> un espace vectoriel de
+dimension <span class="math inline">\(n\)</span>, <span
+class="math inline">\(\mathscr{B}= (e_1,\ldots,e_n)\)</span> une base de
+<span class="math inline">\(E\)</span> et <span
+class="math inline">\(\varphi_\mathscr{B}\in
+\mathcal{A}_n(E,\mathbb{K})\)</span> définie dans la proposition <a
+href="#prop:def_varphi_B" data-reference-type="ref"
+data-reference="prop:def_varphi_B">[prop:def_varphi_B]</a>.</p>
+<p>Alors, <span class="math inline">\((\varphi_\mathscr{B})\)</span> est
+une base de <span
+class="math inline">\(\mathcal{A}_n(E,\mathbb{K})\)</span> (et est donc
+de dimension 1).</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>D’abord, <span
+class="math inline">\((\varphi_\mathscr{B})\)</span> est libre car <span
+class="math inline">\(\varphi_\mathscr{B}\neq 0\)</span> car <span
+class="math inline">\(\varphi_\mathscr{B}(e_1,\ldots,e_n) =
+1\)</span>.</p></li>
+<li><p>Ensuite, <span
+class="math inline">\((\varphi_\mathscr{B})\)</span> est génératrice car
+soit <span class="math inline">\(\psi \in
+\mathcal{A}_n(E,\mathbb{K})\)</span>, par la proposition <a
+href="#prop:deter_grosse_somme" data-reference-type="ref"
+data-reference="prop:deter_grosse_somme">[prop:deter_grosse_somme]</a>,
+pour tout <span class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span>,
+tel que que pour <span class="math inline">\(j \in [\![ 1,n ]\!], v_j =
+\sum_{i=1}^n a_{ij} e_i\)</span>, <span
+class="math display">\[\begin{aligned}
+        \psi(v_1,\ldots,v_n)
+        &amp;= \underbrace{\sum_{\sigma \in \mathcal{S}_n}
+\varepsilon(\sigma) a_{\sigma(1) 1}a_{\sigma(2) 2} \ldots a_{\sigma(n)n}
+}_{= \varphi_\mathscr{B}(v_1,\ldots,v_n)} \psi(e_1,\ldots,e_n) \\
+        &amp; = \lambda \varphi_\mathscr{B}(v_1,\ldots,v_n)  
+        \end{aligned}\]</span> avec <span class="math inline">\(\lambda
+= \psi(e_1,\ldots,e_n)\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="2.3" id="déterminant-dans-une-base-de-e"><span
+class="header-section-number">2.3</span> Déterminant dans une base de
+<span class="math inline">\(E\)</span></h2>
+<h3 data-number="2.3.1" id="déterminant"><span
+class="header-section-number">2.3.1</span> Déterminant</h3>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un espace vectoriel de
+dimension <span class="math inline">\(n\)</span>, <span
+class="math inline">\(\mathscr{B}= (e_1,\ldots,e_n)\)</span> une base de
+<span class="math inline">\(E\)</span> et <span
+class="math inline">\(\varphi_\mathscr{B}\in
+\mathcal{A}_n(E,\mathbb{K})\)</span> définie dans la proposition <a
+href="#prop:def_varphi_B" data-reference-type="ref"
+data-reference="prop:def_varphi_B">[prop:def_varphi_B]</a>. Soit <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span></p>
+<p>Alors, <span
+class="math inline">\(\varphi_\mathscr{B}(v_1,\ldots,v_n)\)</span> est
+appelé le déterminant de <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> dans <span
+class="math inline">\(\mathscr{B}\)</span> et est noté <span
+class="math inline">\({\det}_\mathscr{B}\)</span>. <span
+class="math inline">\(\varphi_\mathscr{B}\)</span> est alor noté <span
+class="math inline">\({\det}_\mathscr{B}\)</span>.</p>
+</div>
+<p>On a donc, pour rappel, <span
+class="math display">\[\begin{array}{lllll}
+{\det}_\mathscr{B} &amp; : &amp; E^n &amp; \to &amp; \mathbb{K} \\
+   &amp;   &amp; (v_1,\ldots,v_n) &amp; \mapsto &amp; \sum_{\sigma \in
+\mathcal{S}_n} \varepsilon(\sigma) a_{\sigma(1) 1}a_{\sigma(2) 2} \ldots
+a_{\sigma(n)n} \text{ avec }v_j = \sum_{i=1}^n a_{ij} e_i \text{ pour $j
+\in [\![ 1,n ]\!]$}
+\end{array}\]</span></p>
+<div class="wex">
+<p>Si <span class="math inline">\(n=2\)</span>, <span
+class="math inline">\(\mathscr{B}=(e_1,e_2)\)</span> et <span
+class="math inline">\(v_1 = ae_1+be_2, v_2 = ce_1+de_2\)</span> avec
+<span class="math inline">\(a,b,c,d \in \mathbb{K}\)</span>, on a pour
+rappel <span class="math inline">\(\mathcal{S}_2 =
+\left\{\mathop{\mathrm{Id}},\tau = \begin{pmatrix}
+        1 &amp; 2
+    \end{pmatrix}\right\}\)</span> et <span
+class="math display">\[{\det}_\mathscr{B}(v_1,v_2)
+    =
+\underbrace{\underbrace{a}_{=a_{11}}\underbrace{d}_{=a_{22}}}_{\text{terme
+de
+$\mathop{\mathrm{Id}}$}}-\underbrace{\underbrace{b}_{=a_{21}}\underbrace{c}_{=a_{12}}}_{\text{terme
+de $\tau$}}.\]</span></p>
+</div>
+<h3 data-number="2.3.2" id="propriétés-de-du-déterminant"><span
+class="header-section-number">2.3.2</span> Propriétés de du
+déterminant</h3>
+<div class="wprop">
+<p><span id="prop:rappels_pptes_anE_K"
+label="prop:rappels_pptes_anE_K"></span> Soient <span
+class="math inline">\(E\)</span> un espace vectoriel de dimension <span
+class="math inline">\(n\)</span> et <span
+class="math inline">\(\mathscr{B}\)</span> une base de <span
+class="math inline">\(E\)</span>. Les propriétés suivantes proviennent
+directement du fait que <span
+class="math inline">\({\det}_\mathscr{B}\in
+\mathcal{A}_n(E,\mathbb{K})\)</span> et ont déjà été démontrées. Pour
+tout <span class="math inline">\((v_1,\ldots,v_n)\in E^n\)</span>,</p>
+<ul>
+<li><p><span
+class="math inline">\({\det}_\mathscr{B}(v_1,\ldots,v_n)\)</span> dépend
+linéairement de chaque <span
+class="math inline">\(v_i\)</span>,</p></li>
+<li><p>Si <span class="math inline">\((v_1,\ldots,v_n)\)</span> est
+liée, <span class="math inline">\({\det}_\mathscr{B}(v_1,\ldots,v_n) =
+0\)</span>,</p></li>
+<li><p>Pour tout <span class="math inline">\(\sigma \in
+\mathcal{S}_n\)</span>, <span
+class="math inline">\({\det}_\mathscr{B}(v_{\sigma(1)},\ldots,\sigma(n))
+=
+\varepsilon(\sigma){\det}_\mathscr{B}(v_1,\ldots,v_n)\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(\alpha_1,\ldots,\alpha_n \in
+\mathbb{K}\)</span>. Alors, soit <span class="math inline">\(k \in [\![
+1,n ]\!]\)</span>,</p>
+<p><span class="math inline">\({\det}_\mathscr{B}(v_1,\ldots,v_k +
+\sum_{\ell \neq k}\alpha_\ell v_\ell,\ldots,v_n) =
+{\det}_\mathscr{B}(v_1,\ldots,v_n).\)</span></p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><span id="prop:detecteur_de_base"
+label="prop:detecteur_de_base"></span> Soit <span
+class="math inline">\(E\)</span> un espace vectoriel de dimension <span
+class="math inline">\(n\)</span>, <span
+class="math inline">\(\mathscr{B}\)</span> une base de <span
+class="math inline">\(E\)</span> et <span
+class="math inline">\((v_1,\ldots,v_n)\in E^n\)</span>. Alors, <span
+class="math display">\[\text{$(v_1,\ldots,v_n)$ est une base de $E$ }
+\iff {\det}_\mathscr{B}(v_1,\ldots,v_n) \neq 0.\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Si <span
+class="math inline">\({\det}_\mathscr{B}(v_1,\ldots,v_n) \neq
+0\)</span>, cela signifie que <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> n’est pas liée donc
+libre. De plus, cette famille de cardinal <span class="math inline">\(n
+= \dim E\)</span> donc c’est une base de <span
+class="math inline">\(E\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(v_1,\ldots,v_n\)</span> est une base de <span
+class="math inline">\(E\)</span> que l’on note <span
+class="math inline">\(\mathscr{B}&#39;\)</span> alors <span
+class="math inline">\(\left({\det}_{\mathscr{B}&#39;}\right)\)</span>
+est une base de <span
+class="math inline">\(\mathcal{A}_n(E,\mathbb{K})\)</span>.</p>
+<p>Donc il existe <span class="math inline">\(\alpha \in
+\mathbb{K}\)</span> tel que <span
+class="math inline">\({\det}_{\mathscr{B}} = \alpha
+{\det}_{\mathscr{B}&#39;}\)</span>. De plus, <span
+class="math inline">\(\alpha \neq 0\)</span> car <span
+class="math inline">\({\det}_{\mathscr{B}} \neq 0\)</span>.</p>
+<p>On a donc <span
+class="math inline">\({\det}_{\mathscr{B}}(v_1,\ldots,v_n) = \alpha
+\underbrace{{\det}_{\mathscr{B}&#39;}(v_1,\ldots,v_n)}_{=1} =
+\alpha\)</span> donc <span class="math inline">\(0\neq \alpha =
+{\det}_{\mathscr{B}}(v_1,\ldots,v_n)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wcor">
+<p>Soit <span class="math inline">\(E\)</span> un espace vectoriel de
+dimension <span class="math inline">\(n\)</span> et <span
+class="math inline">\(\mathscr{B}, \mathscr{B}&#39;\)</span> des bases
+de <span class="math inline">\(E\)</span>.</p>
+<p>Alors, <span class="math display">\[{\det}_{\mathscr{B}} =
+\left({\det}_{\mathscr{B}}\left(\mathscr{B}&#39;\right)\right){\det}_{\mathscr{B}&#39;}.\]</span></p>
+</div>
+<div class="wproof">
+<p>Ceci est montré dans la preuve de la proposition <a
+href="#prop:detecteur_de_base" data-reference-type="ref"
+data-reference="prop:detecteur_de_base">[prop:detecteur_de_base]</a>.</p>
+</div>
+<div class="wex">
+<p>La proposition <a href="#prop:detecteur_de_base"
+data-reference-type="ref"
+data-reference="prop:detecteur_de_base">[prop:detecteur_de_base]</a>
+fait du déterminant un vrai détecteur de base. Voyons comment
+l’utiliser.</p>
+<p><strong>Exercice</strong> — Soit <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(3\)</span> et <span
+class="math inline">\(\mathscr{B}= (e_1,e_2,e_3)\)</span> une base de
+<span class="math inline">\(E\)</span>. On introduit <span
+class="math inline">\((v_1,v_2,v_3) \in E^3\)</span> telle que <span
+class="math inline">\(\left\{\begin{array}{ll}
+            v_1 &amp; = 2e_1-e_2+e_3 \\
+            v_2 &amp; = e_2+3e_3 \\
+            v_3 &amp; = e_2-e_3
+        \end{array}\right..\)</span></p>
+<p>Montrer que <span class="math inline">\((v_1,v_2,v_3)\)</span> est
+une base de <span class="math inline">\(E\)</span>.</p>
+<p><strong>Corrigé</strong> — Il suffit de montrer que <span
+class="math inline">\({\det}_\mathscr{B}(v_1,v_2,v_3) \neq 0\)</span>.
+Or, <span class="math display">\[\begin{aligned}
+        {\det}_\mathscr{B}(v_1,v_2,v_3)
+        &amp; = {\det}_\mathscr{B}(v_1,e_2+3e_3, e_2-e_3 ) \\
+        &amp; = {\det}_\mathscr{B}(v_1,e_2+3e_3, (e_2+3e_3)-4e_3 ) \\
+        &amp; = {\det}_\mathscr{B}(v_1,v_2, v_2-4e_3 ) \\
+        &amp; =  {\det}_\mathscr{B}(v_1,v_2,-4e_3) \text{ par le
+quatrième point de la proposition~\ref{prop:rappels_pptes_anE_K}} \\
+        &amp; =  {\det}_\mathscr{B}(2e_1-e_2+e_3,e_2+3e_3,-4e_3) \\
+        &amp; = {\det}_\mathscr{B}(2e_1-e_2,e_2,-4e_3)\text{ par le
+quatrième point de la proposition~\ref{prop:rappels_pptes_anE_K}} \\
+        &amp; = {\det}_\mathscr{B}(2e_1,e_2,-4e_3)\text{ par le
+quatrième point de la proposition~\ref{prop:rappels_pptes_anE_K}} \\
+        &amp; = 2\times (-4) \times
+{\det}_\mathscr{B}(e_1,e_2,e_3)\text{ par $n$-linéarité} \\
+        &amp; = -8 \neq 0.
+    \end{aligned}\]</span></p>
+</div>
+<h2 data-number="2.4" id="déterminant-de-f-in-mathscrle"><span
+class="header-section-number">2.4</span> Déterminant de <span
+class="math inline">\(f \in \mathscr{L}(E)\)</span></h2>
+<h3 data-number="2.4.1" id="définition"><span
+class="header-section-number">2.4.1</span> Définition</h3>
+<div class="wprop">
+<p><span id="prop:graines_det_f" label="prop:graines_det_f"></span> Soit
+<span class="math inline">\(E\)</span> un espace vectoriel de dimension
+<span class="math inline">\(n\)</span> et <span class="math inline">\(f
+\in \mathscr{L}(E)\)</span>. Soit <span class="math inline">\(\varphi
+\in \mathcal{A}_n(E,\mathbb{K})\)</span>. Alors, <span
+class="math inline">\(\begin{array}{lllll}
+T^f_\varphi &amp; : &amp; E^n &amp; \to &amp; \mathbb{K} \\
+   &amp;   &amp; (v_1,\ldots,v_n) &amp; \mapsto &amp;
+\varphi(f(v_1),\ldots,f(v_n))
+\end{array}
+\in \mathcal{A}_n(E,\mathbb{K})\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\({T^f_\varphi}\)</span> est <span
+class="math inline">\(n\)</span>-linéaire.</p>
+<p>En effet, soient <span class="math inline">\((v_1,\ldots,v_n) \in
+E^n\)</span>, <span class="math inline">\((v&#39;_1,\ldots,v&#39;_n) \in
+E^n\)</span> et <span class="math inline">\(\alpha_1,\ldots,\alpha_n \in
+\mathbb{K}\)</span> alors soit <span class="math inline">\(k \in [\![
+1,n ]\!]\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+        &amp; T^f_\varphi(v_1,\ldots,v_k+\alpha_k v&#39;_k,\ldots,v_n)
+\\
+        &amp; = \varphi(f(v_1),\ldots,f(v_k+\alpha_k
+v&#39;_k),\ldots,f(v_n)) \\
+        &amp; = \varphi(f(v_1),\ldots,f(v_k)+\alpha_k
+f(v&#39;_k),\ldots,f(v_n)) \text{ par linéarité de $f$}\\
+        &amp; = \varphi(f(v_1),\ldots,f(v_k),\ldots,f(v_n))+
+\alpha_k\varphi(f(v_1),\ldots, f(v&#39;_k),\ldots,f(v_n))  \text{ par
+$n$-linéarité de $\varphi$}\\
+        &amp; = T^f_\varphi(v_1,\ldots,v_k,\ldots,v_n)+\alpha_k
+T^f_\varphi(v_1,\ldots, v&#39;_k,\ldots,v_n).
+        \end{aligned}\]</span></p></li>
+<li><p><span class="math inline">\({T^f_\varphi}\)</span> est
+aternée</p>
+<p>En effet, soient <span class="math inline">\((v_1,\ldots,v_n) \in
+E^n\)</span> tel que <span class="math inline">\(v_i = v_j\)</span> pour
+<span class="math inline">\(i \neq j\)</span>. Alors,</p>
+<p><span class="math display">\[\begin{aligned}
+         T^f_\varphi(v_1,\ldots,v_k,\ldots,\underbrace{v_\ell}_{=v_k},\ldots,v_n)
+        &amp; =
+\varphi(f(v_1),\ldots,f(v_k),\ldots,\underbrace{f(v_\ell)}_{=f(v_k)},\ldots,f(v_n))
+\\
+        &amp; = 0 \text{ car $\varphi$ est alternée.}
+        \end{aligned}\]</span></p></li>
+</ul>
+</div>
+<div class="wthm">
+<p><span id="thm:existence_det_f" label="thm:existence_det_f"></span>
+Soit <span class="math inline">\(E\)</span> un espace vectoriel de
+dimension <span class="math inline">\(n\)</span> et <span
+class="math inline">\(f \in \mathscr{L}(E)\)</span> et <span
+class="math inline">\(T^f_\varphi\)</span> définie dans la
+proposition <a href="#prop:graines_det_f" data-reference-type="ref"
+data-reference="prop:graines_det_f">[prop:graines_det_f]</a> pour tout
+<span class="math inline">\(\varphi \in
+\mathcal{A}_n(E,\mathbb{K})\)</span>.</p>
+<p>Alors, il existe <span class="math inline">\(\alpha_f \in
+\mathbb{K}\)</span>, qui ne dépend que de <span
+class="math inline">\(f\)</span> (et par de <span
+class="math inline">\(\varphi\)</span>) tel que pour tout <span
+class="math inline">\(\varphi \in
+\mathcal{A}_n(E,\mathbb{K})\)</span>,</p>
+<p><span class="math display">\[T^f_\varphi = \alpha_f
+\varphi.\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>(Unicité si existence). S’il existe <span
+class="math inline">\(\alpha_f, \beta_f \in \mathbb{K}\)</span> tels que
+pour tout <span class="math inline">\(\varphi \in
+\mathcal{A}_n(E,\mathbb{K})\)</span>, <span
+class="math inline">\(T^f_\varphi = \alpha_f \varphi = \beta_f
+\varphi\)</span>.</p>
+<p>Soit <span class="math inline">\(\varphi_0 \in
+\mathcal{A}_n(E,\mathbb{K})\)</span> telle que <span
+class="math inline">\(\varphi_0 \neq 0\)</span>, <span
+class="math inline">\(\alpha_f \varphi = \beta_f \varphi \iff (\alpha_f
+- \beta_f)\varphi_0\)</span>.</p>
+<p>Or, <span class="math inline">\(\varphi_0 \neq 0\)</span> donc <span
+class="math inline">\(\alpha_f - \beta_f = 0 \iff \alpha_f =
+\beta_f\)</span>.</p></li>
+<li><p>(Existence). Soit <span class="math inline">\(\varphi_0 \in
+\mathcal{A}_n(E,\mathbb{K})\)</span> telle que <span
+class="math inline">\(\varphi_0 \neq 0\)</span>.</p>
+<p>Alors, <span class="math inline">\((\varphi_0)\)</span> est une base
+de <span class="math inline">\(\mathcal{A}_n(E,\mathbb{K})\)</span> (car
+<span class="math inline">\(\dim \mathcal{A}_n(E,\mathbb{K}) =
+1\)</span>).</p>
+<p>Donc il existe <span class="math inline">\(\lambda \in
+\mathbb{K}\)</span> tel que <span class="math inline">\(T^f_{\varphi_0}
+= \lambda \varphi_0\)</span>.</p>
+<p>Maintenant, soit <span class="math inline">\(\psi \in
+\mathcal{A}_n(E,\mathbb{K})\)</span>, il existe <span
+class="math inline">\(\mu \in \mathbb{K}\)</span> tel que <span
+class="math inline">\(\psi = \mu \varphi_0\)</span>.</p>
+<p>De plus, pour <span class="math inline">\((v_1,\ldots,v_n) \in
+E\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+            T^f_\psi(v_1,\ldots,v_n)
+            &amp; = T^f_{\mu \varphi_0} (v_1,\ldots,v_n) \\
+            &amp; = \mu \varphi_0(f(v_1),\ldots,f(v_n)) \\
+            &amp; = \mu T^f_{\varphi_0}(v_1,\ldots,v_n) \\
+            &amp; = \mu \lambda \varphi_0 (v_1,\ldots,v_n) \\
+            &amp; = \lambda\left(\mu  \varphi_0 (v_1,\ldots,v_n)\right)
+\\
+            &amp; = \lambda \psi (v_1,\ldots,v_n).
+        \end{aligned}\]</span></p>
+<p>Donc <span class="math inline">\(T^f_\psi = \lambda \psi\)</span> et
+<span class="math inline">\(\alpha_f = \lambda\)</span>
+convient.</p></li>
+</ul>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un espace vectoriel de
+dimension <span class="math inline">\(n\)</span> et <span
+class="math inline">\(f \in \mathscr{L}(E)\)</span>.</p>
+<p>Le nombre <span class="math inline">\(\alpha_f\)</span> défini dans
+le théorème <a href="#thm:existence_det_f" data-reference-type="ref"
+data-reference="thm:existence_det_f">[thm:existence_det_f]</a> est
+appelé le déterminant de <span class="math inline">\(f\)</span> noté
+<span class="math inline">\(\det f\)</span>.</p>
+</div>
+<div class="wrem">
+<p><span class="math inline">\(\det f\)</span> ne dépend pas d’une base
+de <span class="math inline">\(E\)</span>, contrairement à <span
+class="math inline">\({\det}_\mathscr{B}(v_1,\ldots,v_n)\)</span>.</p>
+</div>
+<p>Par les propriétés précédentes, on a donc</p>
+<ul>
+<li><p>Pour tout <span class="math inline">\(\varphi \in
+\mathcal{A}_n(E,\mathbb{K})\)</span>, pour tout <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span>,</p>
+<p><span class="math inline">\(\varphi(f(v_1),\ldots,f(v_n)) =
+\left(\det f\right) \varphi(v_1,\ldots,v_n)\)</span>,</p></li>
+<li><p>En particulier, on a donc pour <span
+class="math inline">\(\mathscr{B}= (e_1,\ldots,e_n)\)</span> une base de
+<span class="math inline">\(E\)</span> et <span
+class="math inline">\(\varphi = {\det}_\mathscr{B}\)</span>,</p>
+<p><span class="math inline">\({\det}_\mathscr{B}(f(e_1),\ldots,f(e_n))
+= \left(\det f\right)
+\underbrace{{\det}_\mathscr{B}(e_1,\ldots,e_n)}_{=1} = \det
+f\)</span></p>
+<p>donc <span class="math inline">\(\det f =
+{\det}_\mathscr{B}(f(e_1),\ldots,f(e_n)) =
+{\det}_\mathscr{B}(f(\mathscr{B}))\)</span>.</p></li>
+</ul>
+<h3 data-number="2.4.2" id="propriétés-1"><span
+class="header-section-number">2.4.2</span> Propriétés</h3>
+<div class="wprop">
+<p>Soit <span class="math inline">\(E\)</span> un espace vectoriel de
+dimension <span class="math inline">\(n\)</span>.</p>
+<p>Alors, <span class="math inline">\(\det \mathop{\mathrm{Id}}_E =
+1\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Pour tout <span class="math inline">\(\varphi \in
+\mathcal{A}_n(E,\mathbb{K})\)</span>, pour tout <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span>,</p>
+<p><span class="math inline">\(\varphi(\mathop{\mathrm{Id}}_E
+(v_1),\ldots,\mathop{\mathrm{Id}}_E
+(v_n))=\varphi(v_1,\ldots,v_n)=1\times
+\varphi(v_1,\ldots,v_n)\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E\)</span> un espace vectoriel de
+dimension <span class="math inline">\(n\)</span> et <span
+class="math inline">\(f,g \in \mathscr{L}(E)\)</span>.</p>
+<p>Alors, <span class="math inline">\(\det \left(f \circ g\right)=
+\left(\det f\right)\left(\det g\right)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Pour tout <span class="math inline">\(\varphi \in
+\mathcal{A}_n(E,\mathbb{K})\)</span>, pour tout <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+    \varphi(\left(f \circ g\right)(v_1),\ldots,\left(f \circ g\right)
+(v_n))
+    &amp; =\varphi(f(g(v_1)),\ldots,f(g(v_n))) \\
+    &amp; = \left(\det f\right)\varphi(g(v_1),\ldots,g(v_n)) \\
+    &amp; =\left(\det f\right)\left(\det
+g\right)\varphi(v_1,\ldots,v_n).
+    \end{aligned}\]</span></p>
+</div>
+<div class="wrem">
+<p>En particulier, on a <span class="math inline">\(\det \left(f \circ
+g\right)= \underbrace{\left(\det f\right)\left(\det g\right)}_{\in
+\mathbb{K}} = \left(\det g\right)\left(\det f\right) = \det \left(g
+\circ f\right)\)</span> bien que <span class="math inline">\(f \circ g
+\neq g \circ f\)</span> en général.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E\)</span> un espace vectoriel de
+dimension <span class="math inline">\(n\)</span>, <span
+class="math inline">\(f \in \mathscr{L}(E)\)</span> et <span
+class="math inline">\(\alpha \in \mathbb{K}\)</span>.</p>
+<p>Alors, <span class="math inline">\(\det \left(\alpha f\right)=
+\alpha^n \det f\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(\mathscr{B}=
+(e_1,\ldots,e_n)\)</span> une base de <span
+class="math inline">\(E\)</span>, par <span
+class="math inline">\(n\)</span>-linéarité de <span
+class="math inline">\({\det}_\mathscr{B}\)</span>,</p>
+<p>donc <span class="math inline">\(\det (\alpha f) =
+{\det}_\mathscr{B}(\alpha  f(e_1),\ldots,\alpha f(e_n)) =
+\alpha^n  {\det}_\mathscr{B}(f(e_1),\ldots,f(e_n))  = \alpha^n \det
+f\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E\)</span> un espace vectoriel de
+dimension <span class="math inline">\(n\)</span>, <span
+class="math inline">\(f \in \mathscr{L}(E)\)</span>,</p>
+<p><span class="math display">\[f \in GL(E) \iff \det f \neq
+0.\]</span></p>
+<p>Dans ce cas, <span class="math inline">\(\det f^{-1} = \frac{1}{\det
+f}.\)</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(f \in GL(E)\)</span>, il existe <span
+class="math inline">\(f \in \mathscr{L}(E)\)</span> tel que <span
+class="math inline">\(f \circ f^{-1} =
+\mathop{\mathrm{Id}}_E\)</span>.</p>
+<p>On a donc <span class="math inline">\(\det(f \circ f^{-1}) = (\det
+f)(\det f^{-1}) = 1\)</span> donc <span class="math inline">\(\det f
+\neq 0\)</span> et <span class="math inline">\(\det f^{-1} =
+\frac{1}{\det f}\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Si <span
+class="math inline">\(\det f \neq 0\)</span>, soit <span
+class="math inline">\(\mathscr{B}= (e_1,\ldots,e_n)\)</span> une base de
+<span class="math inline">\(E\)</span>,</p>
+<p><span class="math inline">\(\det f
+=   {\det}_\mathscr{B}(f(e_1),\ldots,f(e_n)) \neq 0\)</span>.</p>
+<p>Donc, par la proposition <a href="#prop:detecteur_de_base"
+data-reference-type="ref"
+data-reference="prop:detecteur_de_base">[prop:detecteur_de_base]</a>,
+<span class="math inline">\((f(e_1),\ldots,f(e_n))\)</span> est une base
+de <span class="math inline">\(E\)</span></p>
+<p>et <span class="math inline">\(\mathop{\mathrm{Im}}f =
+\mathop{\mathrm{Vect}}(f(e_1),\ldots,f(e_n)) = E\)</span>.</p>
+<p>On en déduit que <span class="math inline">\(f\)</span> est
+surjective donc <span class="math inline">\(f\)</span> est bijective
+(comme <span class="math inline">\(f: E \to E\)</span>).</p></li>
+</ul>
+</div>
+<h2 data-number="2.5" id="déterminant-de-a-in-mathscrm_nmathbbk"><span
+class="header-section-number">2.5</span> Déterminant de <span
+class="math inline">\(A \in \mathscr{M}_{n}(\mathbb{K})\)</span></h2>
+<h3 data-number="2.5.1" id="définition-1"><span
+class="header-section-number">2.5.1</span> Définition</h3>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(A = \left(a_{ij}\right) \in
+\mathscr{M}_{n}(\mathbb{K})\)</span>.</p>
+<p>Pour <span class="math inline">\(1 \leq j \leq n\)</span>, on
+considère <span class="math inline">\(C_j = \begin{pmatrix}
+        a_{1j} \\ a_{2j} \\ \vdots \\ a_{nj}
+    \end{pmatrix} \in \mathscr{M}_{n,1}(\mathbb{K})\)</span> la <span
+class="math inline">\(j\)</span>-ième colonne de <span
+class="math inline">\(A\)</span>.</p>
+<p>On considère aussi <span class="math inline">\(\mathscr{B}=
+(E_1,\ldots,E_n)\)</span> base de <span
+class="math inline">\(\mathscr{M}_{n,1}(\mathbb{K})\)</span> de sorte
+que pour <span class="math inline">\(1 \leq j \leq n\)</span>, on a
+<span class="math inline">\(E_j =
+        \begin{pmatrix}
+            0 \\
+            \vdots \\
+            1 \\
+            0 \\
+            \vdots \\
+            0
+        \end{pmatrix}\)</span> où la <span
+class="math inline">\(j\)</span>-ième coordonnée vaut <span
+class="math inline">\(1\)</span>.</p>
+<p>On définit alors <span class="math inline">\(\det A\)</span>
+comme</p>
+<p><span class="math display">\[\det A =
+{\det}_\mathscr{B}(C_1,\ldots,C_n).\]</span></p>
+<p><span class="math inline">\(\det A\)</span> est noté <span
+class="math inline">\(\begin{vmatrix}
+a_{11} &amp; a_{12} &amp; \ldots &amp; a_{1n} \\
+a_{21} &amp; a_{22} &amp; \ldots &amp; a_{2n} \\
+\vdots &amp; \vdots &amp; \vdots &amp; \vdots \\
+a_{n1} &amp;  a_{n2} &amp; \ldots&amp;  a_{nn}
+\end{vmatrix}\)</span>.</p>
+</div>
+<p>On a alors <span class="math display">\[\det A = \sum_{\sigma \in
+\mathcal{S}_n} \varepsilon(\sigma) a_{\sigma(1) 1}a_{\sigma(2) 2} \ldots
+a_{\sigma(n)n}\]</span> car pour <span class="math inline">\(j \in [\![
+1,n ]\!]\)</span>, <span class="math inline">\(C_j = \sum_{i=1}^n
+a_{ij}E_i\)</span>.</p>
+<div class="wex">
+<p>Si <span class="math inline">\(n=2\)</span> et <span
+class="math inline">\(A = \begin{pmatrix}
+        a &amp; c \\
+        b &amp; d
+    \end{pmatrix}\)</span> avec <span class="math inline">\(a,b,c,d \in
+\mathbb{K}\)</span>, on a <span class="math inline">\(\begin{vmatrix}
+        a &amp; c \\
+        b &amp; d
+    \end{vmatrix} = ad-bc\)</span>.</p>
+</div>
+<h3 data-number="2.5.2"
+id="lien-entre-les-différentes-notions-de-déterminant"><span
+class="header-section-number">2.5.2</span> Lien entre les différentes
+notions de déterminant</h3>
+<div class="wprop">
+<p><span id="prop:lien_Det_mat_famille_vect"
+label="prop:lien_Det_mat_famille_vect"></span> Soit <span
+class="math inline">\(E\)</span> un espace vectoriel de dimension <span
+class="math inline">\(n\)</span> et <span
+class="math inline">\(\mathscr{B}\)</span> une base de <span
+class="math inline">\(E\)</span>. Soit <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span>. Soit <span
+class="math inline">\(A\)</span> la matrice associée à <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> dans <span
+class="math inline">\(\mathscr{B}\)</span>.</p>
+<p>Alors, <span
+class="math inline">\({\det}_{\mathscr{B}}(v_1,\ldots,v_n) = \det
+A.\)</span></p>
+</div>
+<div class="wproof">
+<p>Notons <span class="math inline">\(A = \left(a_{ij}\right)\)</span>
+et <span class="math inline">\(\mathscr{B}=
+(e_1,\ldots,e_n)\)</span>.</p>
+<p>On a alors, pour <span class="math inline">\(j \in [\![ 1,n
+]\!]\)</span>, <span class="math inline">\(v_j = \sum_{i=1}^n
+a_{ij}e_i\)</span>.</p>
+<p>Donc <span
+class="math inline">\({\det}_{\mathscr{B}}(v_1,\ldots,v_n)=  \sum_{\sigma
+\in \mathcal{S}_n} \varepsilon(\sigma) a_{\sigma(1) 1}a_{\sigma(2) 2}
+\ldots a_{\sigma(n)n} = \det A\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(E\)</span> un espace vectoriel de
+dimension <span class="math inline">\(n\)</span> et <span
+class="math inline">\(f \in \mathscr{L}(E)\)</span>.</p>
+<p>Soit <span class="math inline">\(\mathscr{B}\)</span> une base de
+<span class="math inline">\(E\)</span> et <span class="math inline">\(A
+= \mathscr{M}_{\mathscr{B}}(f) \in
+\mathscr{M}_{n}(\mathbb{K})\)</span>.</p>
+<p>Alors, <span class="math inline">\(\det A = \det f\)</span>.</p>
+</div>
+<div class="wproof">
+<p>En notant <span class="math inline">\(\mathscr{B}=
+(e_1,\ldots,e_n)\)</span>, <span class="math inline">\(A\)</span> est la
+matrice de <span class="math inline">\((f(e_1),\ldots,f(e_n))\)</span>
+dans la base <span class="math inline">\(\mathscr{B}=
+(e_1,\ldots,e_n)\)</span>.</p>
+<p>On a donc, par la proposition <a
+href="#prop:lien_Det_mat_famille_vect" data-reference-type="ref"
+data-reference="prop:lien_Det_mat_famille_vect">[prop:lien_Det_mat_famille_vect]</a>,
+<span class="math inline">\(\det A =
+{\det}_{\mathscr{B}}(f(e_1),\ldots,f(e_n)) = \det f\)</span>.</p>
+</div>
+<div class="wex">
+<p><span class="math inline">\(\det I_n = \det \mathop{\mathrm{Id}}_E =
+1\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Si <span class="math inline">\(A =
+\mathscr{M}_{\mathscr{B},\mathscr{B}&#39;}(f)\)</span> avec <span
+class="math inline">\(\mathscr{B}&#39;\)</span> une autre base de <span
+class="math inline">\(E\)</span>, on a en général <span
+class="math inline">\(\det A \neq \det f\)</span>. Plus précisément,
+<span class="math inline">\(A\)</span> est la matrice de <span
+class="math inline">\((f(e_1),\ldots,f(e_n))\)</span> dans la base <span
+class="math inline">\(\mathscr{B}&#39;\)</span> donc <span
+class="math display">\[\det A
+={\det}_{\mathscr{B}&#39;}(f(e_1),\ldots,f(e_n)) =
+{\det}_{\mathscr{B}&#39;}(\mathscr{B}){\det}_{\mathscr{B}}(f(e_1),\ldots,f(e_n))
+=  {\det}_{\mathscr{B}&#39;}(\mathscr{B})\left(\det
+f\right).\]</span></p>
+</div>
+<div class="wappli">
+<p>Soient <span class="math inline">\(A,B \in
+\mathscr{M}_{n}(\mathbb{K})\)</span>, semblables.</p>
+<p>Alors, <span class="math inline">\(\det A = \det B\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span> sont semblables donc il existe <span
+class="math inline">\(f \in \mathscr{L}(\mathbb{K}^n)\)</span> et <span
+class="math inline">\(\mathscr{B},\mathscr{B}&#39;\)</span> bases de
+<span class="math inline">\(\mathbb{K}^n\)</span> telles que <span
+class="math inline">\(A = \mathscr{M}_{\mathscr{B}}(f)\)</span> et <span
+class="math inline">\(B = \mathscr{M}_{\mathscr{B}&#39;}(f)\)</span>. On
+a donc <span class="math inline">\(\det f = \det A = \det
+B\)</span>.</p>
+</div>
+<h3 data-number="2.5.3" id="propriétés-2"><span
+class="header-section-number">2.5.3</span> Propriétés</h3>
+<div class="wprop">
+<p><span id="prop:rappels_pptes_anE_K_pour_matrices"
+label="prop:rappels_pptes_anE_K_pour_matrices"></span> Soit <span
+class="math inline">\(A  = \left(a_{ij}\right)\in
+\mathscr{M}_{n}(\mathbb{K})\)</span> et <span
+class="math inline">\((C_1,\ldots,C_n)\)</span> ses colonnes. Les
+propriétés suivantes proviennent directement des propriétés déjà
+montrées sur le déterminant.</p>
+<ul>
+<li><p><span class="math inline">\(\det A\)</span> dépend linéairement
+de chaque colonne de <span class="math inline">\(A\)</span>,</p></li>
+<li><p>Si <span class="math inline">\((C_1,\ldots,C_n)\)</span> est
+liée, <span class="math inline">\(\det A = 0\)</span>,</p></li>
+<li><p>Soient <span class="math inline">\(\sigma \in
+\mathcal{S}_n\)</span> et <span class="math inline">\(B \in
+\mathscr{M}_{n}(\mathbb{K})\)</span> tel que <span
+class="math inline">\(B = \left(a_{i \sigma(j)}\right)\)</span> alors
+<span class="math inline">\(\det B = \varepsilon(\sigma) \det
+A\)</span>,</p></li>
+<li><p>Soient <span class="math inline">\(\alpha_1,\ldots,\alpha_n \in
+\mathbb{K}\)</span>. Alors, soit <span class="math inline">\(k \in [\![
+1,n ]\!]\)</span>, on définit <span class="math inline">\(B \in
+\mathscr{M}_{n}(\mathbb{K})\)</span> de colonnes <span
+class="math inline">\(C_1,\ldots,C_k+\sum_{\ell \neq k}\alpha_\ell
+C_\ell,\ldots,C_n\)</span>. On a alors <span class="math inline">\(\det
+B = \det A\)</span>.</p></li>
+</ul>
+</div>
+<div class="wex">
+<ul>
+<li><p><span class="math inline">\(\begin{vmatrix}
+            a+\alpha &amp; a&#39; &amp; a&#39;&#39; \\
+            b+\beta &amp; b&#39; &amp; b&#39;&#39; \\
+            c+\gamma &amp; c&#39; &amp; c&#39;&#39;
+        \end{vmatrix} = \begin{vmatrix}
+            a &amp; a&#39; &amp; a&#39;&#39; \\
+            b &amp; b&#39; &amp; b&#39;&#39; \\
+            c &amp; c&#39; &amp; c&#39;&#39;
+        \end{vmatrix} +\begin{vmatrix}
+            \alpha &amp; a&#39; &amp; a&#39;&#39; \\
+            \beta &amp; b&#39; &amp; b&#39;&#39; \\
+            \gamma &amp; c&#39; &amp; c&#39;&#39;
+        \end{vmatrix}\)</span>,</p></li>
+<li><p><span class="math inline">\(\begin{vmatrix}
+            a &amp; \lambda a&#39; &amp; a&#39;&#39; \\
+            b &amp; \lambda b&#39; &amp; b&#39;&#39; \\
+            c &amp; \lambda c&#39; &amp; c&#39;&#39;
+        \end{vmatrix} = \lambda \begin{vmatrix}
+            a &amp; a&#39; &amp; a&#39;&#39; \\
+            b &amp; b&#39; &amp; b&#39;&#39; \\
+            c &amp; c&#39; &amp; c&#39;&#39;
+        \end{vmatrix}\)</span>,</p></li>
+<li><p><span class="math inline">\(\begin{vmatrix}
+            a &amp; a&#39;&#39; &amp; a&#39; \\
+            b &amp; b&#39;&#39; &amp; b&#39; \\
+            c &amp; c&#39;&#39; &amp; c&#39;
+        \end{vmatrix} = -\begin{vmatrix}
+            a &amp; a&#39; &amp; a&#39;&#39; \\
+            b &amp; b&#39; &amp; b&#39;&#39; \\
+            c &amp; c&#39; &amp; c&#39;&#39;
+        \end{vmatrix}\)</span> (en échangeant deux colonnes, on a
+appliqué une transposition de signature <span
+class="math inline">\(-1\)</span> et le troisième point de la
+proposition <a href="#prop:rappels_pptes_anE_K_pour_matrices"
+data-reference-type="ref"
+data-reference="prop:rappels_pptes_anE_K_pour_matrices">[prop:rappels_pptes_anE_K_pour_matrices]</a>
+s’applique),</p></li>
+<li><p><span class="math inline">\(\begin{vmatrix}
+            a &amp; a&#39;+\alpha a&#39;&#39; &amp; a&#39;&#39; \\
+            b &amp; b&#39;+\alpha b&#39;&#39; &amp; b&#39;&#39; \\
+            c &amp; c&#39;+\alpha c&#39;&#39; &amp; c&#39;&#39;
+        \end{vmatrix} = \begin{vmatrix}
+            a &amp; a&#39; &amp; a&#39;&#39; \\
+            b &amp; b&#39; &amp; b&#39;&#39; \\
+            c &amp; c&#39; &amp; c&#39;&#39;
+        \end{vmatrix}\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><span id="prop:det_tranpose" label="prop:det_tranpose"></span> Soit
+<span class="math inline">\(A \in \mathscr{M}_{n}(\mathbb{K})\)</span>.
+Alors, <span class="math inline">\(\det A = \det\left(^t
+A\right)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Notons <span class="math inline">\(A = \left(a_{ij}\right)\)</span>
+et <span class="math inline">\(B = \left(b_{ij}\right)\)</span> tel que
+<span class="math inline">\(b_{ij} = a_{ji}\)</span> pour tout <span
+class="math inline">\(i,j \in [\![ 1,n ]\!]\)</span>. On a alors <span
+class="math display">\[\begin{aligned}
+        \det A &amp;= \sum_{\sigma \in \mathcal{S}_n}
+\varepsilon(\sigma) a_{\sigma(1) 1}a_{\sigma(2) 2} \ldots a_{\sigma(n)n}
+\\
+        \text{ et }
+        \det\left(^t A\right) &amp; = \sum_{\sigma \in \mathcal{S}_n}
+\varepsilon(\sigma) b_{\sigma(1) 1}b_{\sigma(2) 2} \ldots b_{\sigma(n)n}
+= \sum_{\sigma \in \mathcal{S}_n} \varepsilon(\sigma) a_{ 1
+\sigma(1)}a_{ 2 \sigma(2)} \ldots a_{n \sigma(n)}
+    \end{aligned}\]</span></p>
+<p>Remarquons alors que pour <span class="math inline">\(\sigma \in
+\mathcal{S}_n\)</span> et <span class="math inline">\(\sigma&#39;  \in
+\mathcal{S}_n\)</span>, <span class="math display">\[a_{ 1 \sigma(1)}a_{
+2 \sigma(2)} \ldots a_{n \sigma(n)}
+     =   a_{ \sigma&#39;(1) (\sigma \circ \sigma&#39;)(1)}a_{
+\sigma&#39;(2) (\sigma \circ \sigma&#39;)(2)} \ldots a_{\sigma&#39;(n)
+(\sigma \circ \sigma&#39;)(n)}.\]</span></p>
+<p>En effet, cela revient juste à changer l’ordre des termes et à placer
+le terme <span class="math inline">\(n^\circ\)</span> <span
+class="math inline">\(\sigma&#39;(i)\)</span> à la place du terme <span
+class="math inline">\(n^\circ\)</span> <span
+class="math inline">\(i\)</span> pour tout <span class="math inline">\(i
+\in [\![ 1,n ]\!]\)</span>.</p>
+<p>En particulier, pour <span class="math inline">\(\sigma&#39; =
+\sigma^{-1}\)</span>, on a donc</p>
+<p><span class="math display">\[a_{ 1 \sigma(1)}a_{ 2 \sigma(2)} \ldots
+a_{n \sigma(n)}
+     =   a_{ \sigma^{-1}(1) 1}a_{ \sigma^{-1}(2)2} \ldots
+a_{\sigma^{-1}(n) n}.\]</span></p>
+<p>On en déduit <span class="math display">\[\begin{aligned}
+    \det\left(^t A\right)  
+    &amp; = \sum_{\sigma \in \mathcal{S}_n}
+\underbrace{\varepsilon(\sigma)}_{=\varepsilon(\sigma^{-1})} a_{
+\sigma^{-1}(1) 1}a_{ \sigma^{-1}(2)2} \ldots a_{\sigma^{-1}(n) n} \\
+    &amp; = \sum_{\sigma \in \mathcal{S}_n} \varepsilon(\sigma^{-1}) a_{
+\sigma^{-1}(1) 1}a_{ \sigma^{-1}(2)2} \ldots a_{\sigma^{-1}(n) n}.
+    \end{aligned}\]</span></p>
+<p>Enfin, <span class="math inline">\(\begin{array}{rll}
+        \mathcal{S}_n&amp; \to &amp; \mathcal{S}_n\\
+        \sigma &amp; \mapsto &amp; \sigma^{-1}
+    \end{array}\)</span> est une bijection donc <span
+class="math display">\[\begin{aligned}
+    \det\left(^t A\right)  
+    &amp; = \sum_{\sigma \in \mathcal{S}_n} \varepsilon(\sigma^{-1}) a_{
+\sigma^{-1}(1) 1}a_{ \sigma^{-1}(2)2} \ldots a_{\sigma^{-1}(n) n} \\
+    &amp; = \sum_{\sigma \in \mathcal{S}_n} \varepsilon(\sigma) a_{
+\sigma(1) 1}a_{ \sigma(2)2} \ldots a_{\sigma(n) n}  \\
+    &amp; = \det(A).
+    \end{aligned}\]</span></p>
+</div>
+<div class="wcor">
+<p><span id="cor:adapter_Regles_aux_lignes"
+label="cor:adapter_Regles_aux_lignes"></span> Soit <span
+class="math inline">\(A  = \left(a_{ij}\right)\in
+\mathscr{M}_{n}(\mathbb{K})\)</span> et <span
+class="math inline">\((L_1,\ldots,L_n)\)</span> ses lignes, les
+propriétés de la proposition <a
+href="#prop:rappels_pptes_anE_K_pour_matrices" data-reference-type="ref"
+data-reference="prop:rappels_pptes_anE_K_pour_matrices">[prop:rappels_pptes_anE_K_pour_matrices]</a>
+relatives aux colonnes s’appliquent aussi aux lignes de <span
+class="math inline">\(A\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(\det A\)</span> dépend linéairement
+de chaque ligne de <span class="math inline">\(A\)</span>,</p></li>
+<li><p>Si <span class="math inline">\((L_1,\ldots,L_n)\)</span> est
+liée, <span class="math inline">\(\det A = 0\)</span>,</p></li>
+<li><p>Soient <span class="math inline">\(\sigma \in
+\mathcal{S}_n\)</span> et <span class="math inline">\(B \in
+\mathscr{M}_{n}(\mathbb{K})\)</span> tel que <span
+class="math inline">\(B = \left(a_{ \sigma(i)j}\right)\)</span> alors
+<span class="math inline">\(\det B = \varepsilon(\sigma) \det
+A\)</span>,</p></li>
+<li><p>Soient <span class="math inline">\(\alpha_1,\ldots,\alpha_n \in
+\mathbb{K}\)</span>. Alors, soit <span class="math inline">\(k \in [\![
+1,n ]\!]\)</span>, on définit <span class="math inline">\(B \in
+\mathscr{M}_{n}(\mathbb{K})\)</span> de lignes <span
+class="math inline">\(L_1,\ldots,L_k+\sum_{\ell \neq k}\alpha_\ell
+L_\ell,\ldots,L_n\)</span>. On a alors <span class="math inline">\(\det
+B = \det A\)</span>.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<p>Il suffit de remarquer que les lignes de <span
+class="math inline">\(A\)</span> deviennent les colonnes de <span
+class="math inline">\(^t A\)</span> et que <span
+class="math inline">\(\det A = \det\left(^t A\right)\)</span>.</p>
+</div>
+<div class="wex">
+<ul>
+<li><p><strong>Exercice</strong> — Soient <span
+class="math inline">\(a,b,c \in \mathbb{K}\)</span> et <span
+class="math inline">\(A = \begin{pmatrix}
+            1 &amp; a &amp; b \\
+            0 &amp; 1 &amp; c \\
+            0 &amp; 0 &amp; 2
+        \end{pmatrix}\)</span>. Calculer <span
+class="math inline">\(\det A\)</span>.</p>
+<p><strong>Corrigé</strong> — En notant <span
+class="math inline">\(C_1,C_2,C_3\)</span> les colonnes de <span
+class="math inline">\(A\)</span> ainsi que <span
+class="math inline">\(\mathscr{B}= (E_1,E_2,E_3)\)</span> base de <span
+class="math inline">\(\mathscr{M}_{3}(\mathbb{K})\)</span> avec <span
+class="math inline">\(E_1 = \begin{pmatrix}
+            1 \\0 \\0
+        \end{pmatrix},E_2 = \begin{pmatrix}
+            0 \\1 \\0
+        \end{pmatrix}, E_1 = \begin{pmatrix}
+            0 \\0 \\1
+        \end{pmatrix}\)</span>, on a <span
+class="math display">\[\begin{aligned}
+            \det A
+            &amp; = {\det}_{\mathscr{B}}(C_1,C_2,C_3) \\
+            &amp; =  {\det}_{\mathscr{B}}(E_1,aE_1+E_2,bE_1+cE_2+2E_3)
+\\
+            &amp; = {\det}_{\mathscr{B}}(E_1,E_2,bE_1+cE_2+2E_3) \\
+            &amp; =  {\det}_{\mathscr{B}}(E_1,E_2,2E_3) = 2.
+        \end{aligned}\]</span></p>
+<p>On peut alors symboliser cette suite d’opérations ainsi : <span
+class="math display">\[\begin{aligned}
+        \begin{vmatrix}
+            1 &amp; a &amp; b \\
+            0 &amp; 1 &amp; c \\
+            0 &amp; 0 &amp; 2
+        \end{vmatrix}
+        &amp; \overset{\substack{C_2 \leftarrow C_2-aC_1}}{=}
+\begin{vmatrix}
+            1 &amp; 0 &amp; b \\
+            0 &amp; 1 &amp; c \\
+            0 &amp; 0 &amp; 2
+        \end{vmatrix} \\
+        &amp; \overset{\substack{C_3 \leftarrow C_3-bC_1 \\ C_3
+\leftarrow C_3-cC_2}}{=} \begin{vmatrix}
+            1 &amp; 0 &amp; 0 \\
+            0 &amp; 1 &amp; 0 \\
+            0 &amp; 0 &amp; 2
+        \end{vmatrix} \\
+        &amp; = 2\begin{vmatrix}
+            1 &amp; 0 &amp; 0 \\
+            0 &amp; 1 &amp; 0 \\
+            0 &amp; 0 &amp; 1
+        \end{vmatrix} = 2.
+    \end{aligned}\]</span></p></li>
+<li><p><strong>Exercice</strong> — Soient <span
+class="math inline">\(\alpha, \beta, \gamma \in \mathbb{K}\)</span>,
+calculer <span class="math inline">\(D= \begin{vmatrix}
+            \alpha &amp; \beta &amp; \gamma \\
+            \beta&amp; \alpha &amp; \gamma \\
+            \alpha &amp; \gamma &amp; \beta
+        \end{vmatrix}\)</span>.</p>
+<p><strong>Corrigé</strong> — <span
+class="math display">\[\begin{aligned}
+            \begin{vmatrix}
+            \alpha &amp; \beta &amp; \gamma \\
+            \beta&amp; \alpha &amp; \gamma \\
+            \alpha &amp; \gamma &amp; \beta
+        \end{vmatrix}
+        &amp; \overset{C_1 \leftarrow C_1+C_2+C_3}{=}\begin{vmatrix}
+            \alpha+\beta+\gamma &amp; \beta &amp; \gamma \\
+            \alpha+\beta+\gamma &amp; \alpha &amp; \gamma \\
+            \alpha+\beta+\gamma &amp; \gamma &amp; \beta
+        \end{vmatrix} \\
+        &amp; = (\alpha+\beta+\gamma)\begin{vmatrix}
+            1 &amp; \beta &amp; \gamma \\
+            1&amp; \alpha &amp; \gamma \\
+            1 &amp; \gamma &amp; \beta
+        \end{vmatrix} \\
+        &amp; \overset{\substack{L_2 \leftarrow L_2-L_1 \\ L_3
+\leftarrow L_3-L_1}  }{=}(\alpha+\beta+\gamma)\begin{vmatrix}
+            1 &amp; \beta &amp; \gamma \\
+            0&amp; \alpha-\beta &amp; 0 \\
+            0 &amp; \gamma-\beta &amp; \beta-\gamma
+        \end{vmatrix} \\
+        &amp; = (\alpha+\beta+\gamma)(\gamma-\beta)\begin{vmatrix}
+            1 &amp; \beta &amp; \gamma \\
+            0&amp; \alpha-\beta &amp; 0 \\
+            0 &amp;1 &amp; -1
+        \end{vmatrix} \\
+        &amp; = (\alpha+\beta+\gamma)(\gamma-\beta)(\alpha-\beta
+)\begin{vmatrix}
+            1 &amp; \beta &amp; \gamma \\
+            0&amp; 1&amp; 0 \\
+            0 &amp;1 &amp; -1
+        \end{vmatrix} \\
+        &amp; \overset{C_2 \leftarrow C_2+C_3}{=}
+(\alpha+\beta+\gamma)(\gamma-\beta)(\alpha-\beta )\begin{vmatrix}
+            1 &amp; \beta+\gamma &amp; \gamma \\
+            0&amp; 1&amp; 0 \\
+            0 &amp;0 &amp; -1
+        \end{vmatrix} \\
+        &amp; \overset{\substack{C_2 \leftarrow
+C_2-(\beta+\gamma)C_1\\C_3 \leftarrow C_3-\gamma C_1}}{=}
+(\alpha+\beta+\gamma)(\gamma-\beta)(\alpha-\beta )\begin{vmatrix}
+            1 &amp; 0&amp; 0 \\
+            0&amp; 1&amp; 0 \\
+            0 &amp;0 &amp; -1
+        \end{vmatrix} \\
+        &amp; = -(\alpha+\beta+\gamma)(\gamma-\beta)(\alpha-\beta
+)\begin{vmatrix}
+            1 &amp; 0&amp; 0 \\
+            0&amp; 1&amp; 0 \\
+            0 &amp;0 &amp; 1
+        \end{vmatrix}\\
+        &amp;  =  -(\alpha+\beta+\gamma)(\gamma-\beta)(\alpha-\beta ).
+        \end{aligned}\]</span></p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(A\in
+\mathscr{M}_{n}(\mathbb{K})\)</span> alors</p>
+<ol>
+<li><p>Soit <span class="math inline">\(B \in
+\mathscr{M}_{n}(\mathbb{K})\)</span>, <span
+class="math inline">\(\det(AB) = \left(\det A\right) \times \left(\det
+B\right)\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(\alpha \in \mathbb{K}\)</span>,
+<span class="math inline">\(\det(\alpha A) = \alpha^n
+\det(A)\)</span>.</p></li>
+<li><p><span class="math inline">\(A \in GL_n(\mathbb{K}) \iff \det(A)
+\neq 0\)</span> et dans ce cas, <span
+class="math inline">\(\det\left(A^{-1}\right) =
+\frac{1}{\det(A)}\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{L}(\mathbb{K}^n)\)</span> canoniquement associée à <span
+class="math inline">\(A\)</span>.</p>
+<ol>
+<li><p>Soit <span class="math inline">\(g \in
+\mathscr{L}(\mathbb{K}^n)\)</span> canoniquement associée à <span
+class="math inline">\(B\)</span>.</p>
+<p>Alors, <span class="math inline">\(AB\)</span> est canoniquement
+associée à <span class="math inline">\(f\circ g \in
+\mathscr{L}(\mathbb{K}^n)\)</span> donc <span
+class="math inline">\(\det(AB) = \det(f\circ g) =  \left(\det f\right)
+\times \left(\det g\right)= \left(\det A\right) \times \left(\det
+B\right)\)</span></p></li>
+<li><p><span class="math inline">\(\alpha f\)</span> est canoniquement
+associée à <span class="math inline">\(\alpha A\)</span></p>
+<p>Donc <span class="math inline">\(\det(\alpha A) = \det(\alpha f) =
+\alpha^n \det f = \alpha^n \det(A)\)</span>.</p></li>
+<li><p><span class="math inline">\(A \in GL_n(\mathbb{K}) \iff f \in
+GL(\mathbb{K}^n) \iff \det(f) = \det(A) \neq 0\)</span>.</p>
+<p>De plus, dans ce cas, <span class="math inline">\(f^{-1}\)</span> est
+canoniquement associée à <span class="math inline">\(A^{-1}\)</span>
+donc <span class="math inline">\(\det\left(A^{-1}\right) =
+\det\left(f^{-1}\right) = \frac{1}{\det f} = \frac{1}{\det
+A}\)</span>.</p></li>
+</ol>
+</div>
+<h2 data-number="2.6"
+id="développement-dun-déterminant-suivant-une-colonne-ou-une-ligne"><span
+class="header-section-number">2.6</span> Développement d’un déterminant
+suivant une colonne ou une ligne</h2>
+<h3 data-number="2.6.1" id="lemme-préliminaire"><span
+class="header-section-number">2.6.1</span> Lemme préliminaire</h3>
+<div class="wlem">
+<p><span id="lem:det_triangul_sup" label="lem:det_triangul_sup"></span>
+Soit <span class="math inline">\(A \in
+\mathscr{M}_{n}(\mathbb{K})\)</span> de la forme <span
+class="math inline">\(\left(\begin{array}{lll|l}
+a_{11}  &amp; \ldots&amp; a_{1 n-1} &amp;0 \\
+a_{21}  &amp; \ldots&amp; a_{2 n-1} &amp; 0 \\
+\vdots  &amp; \ddots&amp; \vdots &amp; \vdots \\
+a_{n-1 1} &amp; \ldots&amp; a_{n-1 n-1} &amp; 0 \\
+\hline
+a_{n1} &amp; \ldots&amp; a_{n n-1}&amp;  a_{nn}
+\end{array}\right)\)</span>.</p>
+<p>Alors, <span class="math display">\[\det(A) = a_{nn}\left(\det
+B\right)
+     \text{ avec }B = \begin{pmatrix}
+a_{11}  &amp; \ldots&amp; a_{1 n-1} \\
+a_{21}  &amp; \ldots&amp; a_{2 n-1}  \\
+\vdots  &amp; \ddots&amp; \vdots   \\
+a_{n-1 1} &amp; \ldots&amp; a_{n-1 n-1}
+\end{pmatrix}\in \mathscr{M}_{n-1}(\mathbb{K})\]</span></p>
+</div>
+<div class="wproof">
+<p>Pour rappel, <span class="math inline">\(\det(A) = \sum_{\sigma \in
+\mathcal{S}_n} \varepsilon(\sigma) a_{\sigma(1) 1}a_{\sigma(2) 2} \ldots
+a_{\sigma(n)n}\)</span>.</p>
+<p>De plus, soit <span class="math inline">\(\sigma \in
+\mathcal{S}_n\)</span> tel que <span class="math inline">\(\sigma(n)
+\neq n\)</span>, <span class="math inline">\(a_{\sigma(n)n} = 0\)</span>
+(on voit dans le dessin de <span class="math inline">\(A\)</span> que
+<span class="math inline">\(a_{in} = 0\)</span> pour <span
+class="math inline">\(1 \leq i \leq n-1\)</span>).</p>
+<p>On a donc, en enlevant les termes nuls,</p>
+<p><span class="math display">\[\begin{aligned}
+    \det(A)
+    &amp; = \sum_{\substack{\sigma \in \mathcal{S}_n\\ \sigma(n) = n}}
+\varepsilon(\sigma) a_{\sigma(1) 1}a_{\sigma(2) 2} \ldots a_{\sigma(n)n}
+\\
+    &amp; = \sum_{\substack{\sigma \in \mathcal{S}_n\\ \sigma(n) = n}}
+\varepsilon(\sigma) a_{\sigma(1) 1}a_{\sigma(2) 2} \ldots a_{nn}\\
+    &amp; =a_{nn}\sum_{\substack{\sigma \in \mathcal{S}_n\\ \sigma(n) =
+n}} \varepsilon(\sigma) a_{\sigma(1) 1}a_{\sigma(2) 2} \ldots
+a_{\sigma(n-1)n-1}.
+        \end{aligned}\]</span></p>
+<p>Or, si <span class="math inline">\(\sigma \in \mathcal{S}_n\)</span>
+et <span class="math inline">\(\sigma(n) = n\)</span>, <span
+class="math inline">\(\sigma&#39; = \sigma_{\mid [\![ 1,n-1]\!]} \in
+\mathcal{S}_{n-1}\)</span>.</p>
+<p>De plus, <span class="math inline">\(\varepsilon(\sigma&#39;) =
+\varepsilon(\sigma)\)</span> car si <span
+class="math inline">\(\sigma&#39; = \tau_1 \circ \ldots \circ
+\tau_r\)</span> avec pour <span class="math inline">\(1 \leq i \leq
+n-1\)</span>, <span class="math inline">\(\tau_i \in
+\mathcal{S}_{n-1}\)</span> est une transposition, on a toujours <span
+class="math inline">\(\sigma = \tau_1 \circ \ldots \circ \tau_r\)</span>
+où les <span class="math inline">\(\tau_i\)</span> peuvent être
+considérées dans <span class="math inline">\(\mathcal{S}_n\)</span> avec
+<span class="math inline">\(\tau_i(n) = n\)</span>.</p>
+<p>On a donc bien <span class="math inline">\(\varepsilon(\sigma&#39;) =
+\varepsilon(\sigma) = (-1)^r\)</span>.</p>
+<p>On en déduit finalement <span class="math display">\[\begin{aligned}
+    \det(A)
+    &amp; =a_{nn}\sum_{\sigma&#39; \in \mathcal{S}_{n-1}}
+\varepsilon(\sigma&#39;) a_{\sigma&#39;(1) 1}a_{\sigma&#39;(2) 2} \ldots
+a_{\sigma&#39;(n-1)n-1} = a_{nn}\det(B).
+        \end{aligned}\]</span></p>
+</div>
+<div class="wcor">
+<p><span id="cor:det_triangule_inf"
+label="cor:det_triangule_inf"></span> Soit <span class="math inline">\(A
+\in \mathscr{M}_{n}(\mathbb{K})\)</span> triangulaire inférieure telle
+que <span class="math inline">\(A = \begin{pmatrix}
+a_{11} &amp;  &amp;  &amp;  &amp; \\
+a_{21} &amp; a_{22} &amp;  &amp; (0) &amp; \\
+\vdots &amp; \ddots &amp; \ddots &amp;  &amp; \\
+\vdots &amp;  &amp; \ddots &amp; \ddots &amp; \\
+a_{n1} &amp; a_{n2} &amp; \ldots &amp; a_{n,n-1} &amp; a_{nn}
+\end{pmatrix}.\)</span></p>
+<p>Alors, <span class="math inline">\(\det A = \prod_{i=1}^n
+a_{ii}.\)</span></p>
+</div>
+<div class="wproof">
+<p>Par le lemme <a href="#lem:det_triangul_sup"
+data-reference-type="ref"
+data-reference="lem:det_triangul_sup">[lem:det_triangul_sup]</a>, <span
+class="math display">\[\begin{aligned}
+        \det A
+        &amp; = \begin{vmatrix}
+a_{11} &amp;  &amp;  &amp;  &amp; \\
+a_{21} &amp; a_{22} &amp;  &amp; (0) &amp; \\
+\vdots &amp; \ddots &amp; \ddots &amp;  &amp; \\
+\vdots &amp;  &amp; \ddots &amp; \ddots &amp; \\
+a_{n1} &amp; a_{n2} &amp; \ldots &amp; a_{nn-1} &amp; a_{nn}
+\end{vmatrix} \\
+&amp; = a_{nn}\begin{vmatrix}
+a_{11} &amp;    &amp;   \\
+a_{21}  &amp;  &amp; (0)  \\
+\vdots  &amp; \ddots &amp;   \\
+a_{n-11}  &amp; \ldots &amp; a_{n-1n-1}
+\end{vmatrix} \\
+&amp; \vdots \\
+&amp; = \prod_{i=3}^{n} a_{ii} \begin{vmatrix}
+    a_{11} &amp; 0 \\
+    a_{21} &amp; a_{22}
+\end{vmatrix} \\
+&amp; = \left(\prod_{i=3}^{n} a_{ii}\right)\left(a_{11}a_{22}-0\times
+a_{21}\right)  \\
+&amp; =  \prod_{i=1}^{n} a_{ii}.
+    \end{aligned}\]</span></p>
+</div>
+<div class="wcor">
+<p>Si <span class="math inline">\(A\)</span> est triangulaire
+supérieure, <span class="math inline">\(\det A = \prod_{i=1}^n
+a_{ii}.\)</span></p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(^tA\)</span> est triangulaire inférieure
+et <span class="math inline">\(\det A = \det\left(^t A\right)\)</span>
+donc par le corollaire <a href="#cor:det_triangule_inf"
+data-reference-type="ref"
+data-reference="cor:det_triangule_inf">[cor:det_triangule_inf]</a> <span
+class="math inline">\(\det A = \prod_{i=1}^n a_{ii}.\)</span></p>
+</div>
+<div class="wcor">
+<p>Soit <span class="math inline">\(A \in
+\mathscr{M}_{n}(\mathbb{K})\)</span> triangulaire alors <span
+class="math display">\[A \in GL_n(\mathbb{K}) \iff \forall i \in [\![
+1,n ]\!], a_{ii} \neq 0.\]</span></p>
+</div>
+<div class="wproof">
+<p><span class="math display">\[A \in GL_n(\mathbb{K}) \iff \det A \neq
+0 \iff \prod_{i=1}^n a_{ii} \neq 0 \iff \forall i \in [\![ 1,n ]\!],
+a_{ii} \neq 0.\]</span></p>
+</div>
+<div class="wrem">
+<p>Ceci est faux si <span class="math inline">\(A\)</span> n’est pas
+triangulaire. Par exemple, <span class="math inline">\(\det
+\begin{pmatrix}
+        0 &amp; 1 \\
+        1 &amp; 0
+    \end{pmatrix} = -1\)</span>.</p>
+</div>
+<h2 data-number="2.7"
+id="développement-de-det-a-suivant-une-colonne"><span
+class="header-section-number">2.7</span> Développement de <span
+class="math inline">\(\det A\)</span> suivant une colonne</h2>
+<p>Commençons par traiter un exemple. Mettons que l’on veuille calculer
+<span class="math inline">\(\Delta =\begin{vmatrix}
+    a &amp; \alpha &amp; a&#39;&#39;&amp; a&#39;&#39;&#39; \\
+    b &amp; \beta &amp; b&#39;&#39;&amp; b&#39;&#39;&#39; \\
+    c &amp; 0 &amp; c&#39;&#39;&amp; c&#39;&#39;&#39; \\
+    d &amp; 0 &amp; d&#39;&#39;&amp; d&#39;&#39;&#39;
+\end{vmatrix}\)</span>, nous allons opérer un développement du
+déterminant par rapport à la deuxième colonne.</p>
+<p>D’abord, remarquons que la deuxième colonne s’écrit <span
+class="math inline">\(\begin{pmatrix}
+    \alpha \\ \beta \\ 0 \\0
+\end{pmatrix} = \alpha \begin{pmatrix}
+    1 \\0 \\0 \\0
+\end{pmatrix}+\beta \begin{pmatrix}
+    0 \\1 \\0 \\0
+\end{pmatrix}\)</span> donc par <span
+class="math inline">\(n\)</span>-linéarité, <span
+class="math display">\[\Delta =\alpha \begin{vmatrix}
+    a &amp; 1 &amp; a&#39;&#39;&amp; a&#39;&#39;&#39; \\
+    b &amp; 0 &amp; b&#39;&#39;&amp; b&#39;&#39;&#39; \\
+    c &amp; 0 &amp; c&#39;&#39;&amp; c&#39;&#39;&#39; \\
+    d &amp; 0 &amp; d&#39;&#39;&amp; d&#39;&#39;&#39;
+\end{vmatrix} +\beta\begin{vmatrix}
+    a &amp; 0 &amp; a&#39;&#39;&amp; a&#39;&#39;&#39; \\
+    b &amp; 1 &amp; b&#39;&#39;&amp; b&#39;&#39;&#39; \\
+    c &amp; 0 &amp; c&#39;&#39;&amp; c&#39;&#39;&#39; \\
+    d &amp; 0 &amp; d&#39;&#39;&amp; d&#39;&#39;&#39;
+\end{vmatrix}.\]</span></p>
+<p>Ensuite, échanger deux colonnes revient à appliquer une transposition
+de signature <span class="math inline">\(-1\)</span> sur les indices, on
+a donc par la proposition <a
+href="#prop:rappels_pptes_anE_K_pour_matrices" data-reference-type="ref"
+data-reference="prop:rappels_pptes_anE_K_pour_matrices">[prop:rappels_pptes_anE_K_pour_matrices]</a>
+tel que <span class="math display">\[\begin{aligned}
+\begin{vmatrix}
+    a &amp; 1 &amp; a&#39;&#39;&amp; a&#39;&#39;&#39; \\
+    b &amp; 0 &amp; b&#39;&#39;&amp; b&#39;&#39;&#39; \\
+    c &amp; 0 &amp; c&#39;&#39;&amp; c&#39;&#39;&#39; \\
+    d &amp; 0 &amp; d&#39;&#39;&amp; d&#39;&#39;&#39;
+\end{vmatrix}
+&amp; = (-1)\begin{vmatrix}
+    a &amp; a&#39;&#39;&amp; 1&amp; a&#39;&#39;&#39; \\
+    b &amp; b&#39;&#39;&amp; 0&amp; b&#39;&#39;&#39; \\
+    c &amp; c&#39;&#39;&amp; 0&amp; c&#39;&#39;&#39; \\
+    d &amp; d&#39;&#39;&amp; 0&amp; d&#39;&#39;&#39;
+\end{vmatrix} \\
+&amp; = (-1)^2\begin{vmatrix}
+    a &amp; a&#39;&#39;&amp; a&#39;&#39;&#39;&amp; 1 \\
+    b &amp; b&#39;&#39;&amp; b&#39;&#39;&#39;&amp; 0 \\
+    c &amp; c&#39;&#39;&amp; c&#39;&#39;&#39;&amp; 0 \\
+    d &amp; d&#39;&#39;&amp; d&#39;&#39;&#39;&amp; 0
+\end{vmatrix}.
+\end{aligned}\]</span></p>
+<p>De même, les règles s’appliquent en échangeant deux lignes (voir le
+troisième point du corollaire <a href="#cor:adapter_Regles_aux_lignes"
+data-reference-type="ref"
+data-reference="cor:adapter_Regles_aux_lignes">[cor:adapter_Regles_aux_lignes]</a>)
+donc <span class="math display">\[\begin{aligned}
+\begin{vmatrix}
+    a &amp; 1 &amp; a&#39;&#39;&amp; a&#39;&#39;&#39; \\
+    b &amp; 0 &amp; b&#39;&#39;&amp; b&#39;&#39;&#39; \\
+    c &amp; 0 &amp; c&#39;&#39;&amp; c&#39;&#39;&#39; \\
+    d &amp; 0 &amp; d&#39;&#39;&amp; d&#39;&#39;&#39;
+\end{vmatrix}
+&amp; = (-1)^2\begin{vmatrix}
+    a &amp; a&#39;&#39;&amp; a&#39;&#39;&#39;&amp; 1 \\
+    b &amp; b&#39;&#39;&amp; b&#39;&#39;&#39;&amp; 0 \\
+    c &amp; c&#39;&#39;&amp; c&#39;&#39;&#39;&amp; 0 \\
+    d &amp; d&#39;&#39;&amp; d&#39;&#39;&#39;&amp; 0
+\end{vmatrix} \\
+&amp; = (-1)(-1)^2\begin{vmatrix}
+    b &amp; b&#39;&#39;&amp; b&#39;&#39;&#39;&amp; 0 \\
+    a &amp; a&#39;&#39;&amp; a&#39;&#39;&#39;&amp; 1 \\
+    c &amp; c&#39;&#39;&amp; c&#39;&#39;&#39;&amp; 0 \\
+    d &amp; d&#39;&#39;&amp; d&#39;&#39;&#39;&amp; 0
+\end{vmatrix} \\
+&amp; = (-1)^2(-1)^2\begin{vmatrix}
+    b &amp; b&#39;&#39;&amp; b&#39;&#39;&#39;&amp; 0 \\
+    c &amp; c&#39;&#39;&amp; c&#39;&#39;&#39;&amp; 0 \\
+    a &amp; a&#39;&#39;&amp; a&#39;&#39;&#39;&amp; 1 \\
+    d &amp; d&#39;&#39;&amp; d&#39;&#39;&#39;&amp; 0
+\end{vmatrix} \\
+&amp; = (-1)^3(-1)^2\begin{vmatrix}
+    b &amp; b&#39;&#39;&amp; b&#39;&#39;&#39;&amp; 0 \\
+    c &amp; c&#39;&#39;&amp; c&#39;&#39;&#39;&amp; 0 \\
+    d &amp; d&#39;&#39;&amp; d&#39;&#39;&#39;&amp; 0 \\
+    a &amp; a&#39;&#39;&amp; a&#39;&#39;&#39;&amp; 1
+\end{vmatrix}.
+\end{aligned}\]</span> et enfin, en appliquant le lemme <a
+href="#lem:det_triangul_sup" data-reference-type="ref"
+data-reference="lem:det_triangul_sup">[lem:det_triangul_sup]</a>, <span
+class="math display">\[\begin{aligned}
+\begin{vmatrix}
+    a &amp; 1 &amp; a&#39;&#39;&amp; a&#39;&#39;&#39; \\
+    b &amp; 0 &amp; b&#39;&#39;&amp; b&#39;&#39;&#39; \\
+    c &amp; 0 &amp; c&#39;&#39;&amp; c&#39;&#39;&#39; \\
+    d &amp; 0 &amp; d&#39;&#39;&amp; d&#39;&#39;&#39;
+\end{vmatrix}
+&amp; = (-1)^3(-1)^2\begin{vmatrix}
+    b &amp; b&#39;&#39;&amp; b&#39;&#39;&#39; \\
+    c &amp; c&#39;&#39;&amp; c&#39;&#39;&#39; \\
+    d &amp; d&#39;&#39;&amp; d&#39;&#39;&#39;
+\end{vmatrix}.
+\end{aligned}\]</span> Enfin, remarquons <span
+class="math inline">\((-1)^3(-1)^2 = (-1)^{4-1}(-1)^{4-2} =
+(-1)^{-1}(-1)^{-2} = (-1)^{1}(-1)^{2}\)</span> donc <span
+class="math display">\[\begin{aligned}
+\begin{vmatrix}
+    a &amp; 1 &amp; a&#39;&#39;&amp; a&#39;&#39;&#39; \\
+    b &amp; 0 &amp; b&#39;&#39;&amp; b&#39;&#39;&#39; \\
+    c &amp; 0 &amp; c&#39;&#39;&amp; c&#39;&#39;&#39; \\
+    d &amp; 0 &amp; d&#39;&#39;&amp; d&#39;&#39;&#39;
+\end{vmatrix}
+&amp; = (-1)^1(-1)^2\begin{vmatrix}
+    b &amp; b&#39;&#39;&amp; b&#39;&#39;&#39; \\
+    c &amp; c&#39;&#39;&amp; c&#39;&#39;&#39; \\
+    d &amp; d&#39;&#39;&amp; d&#39;&#39;&#39;
+\end{vmatrix}.
+\end{aligned}\]</span> De même, <span
+class="math display">\[\begin{vmatrix}
+    a &amp; 0 &amp; a&#39;&#39;&amp; a&#39;&#39;&#39; \\
+    b &amp; 1 &amp; b&#39;&#39;&amp; b&#39;&#39;&#39; \\
+    c &amp; 0 &amp; c&#39;&#39;&amp; c&#39;&#39;&#39; \\
+    d &amp; 0 &amp; d&#39;&#39;&amp; d&#39;&#39;&#39;
+\end{vmatrix}
+=  (-1)^2(-1)^2\begin{vmatrix}
+    a &amp; a&#39;&#39;&amp; a&#39;&#39;&#39; \\
+    c &amp; c&#39;&#39;&amp; c&#39;&#39;&#39; \\
+    d &amp; d&#39;&#39;&amp; d&#39;&#39;&#39;
+\end{vmatrix}.\]</span></p>
+<p>On en déduit finalement donc <span class="math display">\[\Delta =
+\begin{vmatrix}
+    a &amp; \alpha &amp; a&#39;&#39;&amp; a&#39;&#39;&#39; \\
+    b &amp; \beta &amp; b&#39;&#39;&amp; b&#39;&#39;&#39; \\
+    c &amp; 0 &amp; c&#39;&#39;&amp; c&#39;&#39;&#39; \\
+    d &amp; 0 &amp; d&#39;&#39;&amp; d&#39;&#39;&#39;
+\end{vmatrix} = \alpha(-1)^1(-1)^2\begin{vmatrix}
+    b &amp; b&#39;&#39;&amp; b&#39;&#39;&#39; \\
+    c &amp; c&#39;&#39;&amp; c&#39;&#39;&#39; \\
+    d &amp; d&#39;&#39;&amp; d&#39;&#39;&#39;
+\end{vmatrix} +\beta (-1)^2(-1)^2\begin{vmatrix}
+    a &amp; a&#39;&#39;&amp; a&#39;&#39;&#39; \\
+    c &amp; c&#39;&#39;&amp; c&#39;&#39;&#39; \\
+    d &amp; d&#39;&#39;&amp; d&#39;&#39;&#39;
+\end{vmatrix}.\]</span> De plus, <span
+class="math inline">\(\alpha\)</span> est en position <span
+class="math inline">\((1,2)\)</span> et <span
+class="math inline">\(\begin{vmatrix}
+    b &amp; b&#39;&#39;&amp; b&#39;&#39;&#39; \\
+    c &amp; c&#39;&#39;&amp; c&#39;&#39;&#39; \\
+    d &amp; d&#39;&#39;&amp; d&#39;&#39;&#39;
+\end{vmatrix}\)</span> est le déterminant <span
+class="math inline">\(\Delta\)</span> auquel on a retiré la première
+ligne et la deuxième colonne et <span
+class="math inline">\(\alpha\)</span> est en position <span
+class="math inline">\((2,2)\)</span> et <span
+class="math inline">\(\begin{vmatrix}
+    a &amp; a&#39;&#39;&amp; a&#39;&#39;&#39; \\
+    c &amp; c&#39;&#39;&amp; c&#39;&#39;&#39; \\
+    d &amp; d&#39;&#39;&amp; d&#39;&#39;&#39;
+\end{vmatrix}\)</span> est le déterminant <span
+class="math inline">\(\Delta\)</span> auquel on a retiré la deuxième
+ligne et la deuxième colonne. Cela se généralise par la proposition
+suivante.</p>
+<div class="wprop">
+<p>Soit <span class="math inline">\(A \in
+\mathscr{M}_{n}(\mathbb{K})\)</span>, on peut développer <span
+class="math inline">\(\det A\)</span> par rapport à la <span
+class="math inline">\(j\)</span>-ième colonne tel que <span
+class="math display">\[\det A = \sum_{i=1}^n (-1)^{i+j} a_{ij}
+\det(A_{ij})\]</span> où <span class="math inline">\(A_{ij} \in
+\mathscr{M}_{n-1}(\mathbb{K})\)</span> est la matrice <span
+class="math inline">\(A\)</span> à laquelle on a retiré la <span
+class="math inline">\(i\)</span>-ième ligne et la <span
+class="math inline">\(j\)</span>-ième colonne.</p>
+</div>
+<div class="wproof">
+<p>On note <span class="math inline">\(\mathscr{B}=
+(E_1,\ldots,E_n)\)</span> avec pour <span class="math inline">\(i \in
+[\![ 1,n ]\!]\)</span>, <span class="math inline">\(E_i\)</span> la
+matrice colonne dont le <span class="math inline">\(i\)</span>-ième
+élément vaut <span class="math inline">\(1\)</span> et <span
+class="math inline">\((C_1,\ldots,C_n)\)</span> les colonnes de <span
+class="math inline">\(A\)</span>.</p>
+<p>Comme dans l’exemple traité en introduction, on écrit <span
+class="math inline">\(C_j = \sum_{i=1}^n a_{ij} E_i\)</span> et on a
+alors <span class="math display">\[\det(A) = \sum_{i=1}^n a_{ij}
+{\det}_{\mathscr{B}} (C_1,\ldots,E_i,\ldots,C_n).\]</span></p>
+<p>Puis, en poursuivant les calculs de l’exemple, on décale de proche en
+proche <span class="math inline">\(n-j\)</span> colonnes puis <span
+class="math inline">\(n-i\)</span> lignes dans <span
+class="math inline">\({\det}_{\mathscr{B}}
+(C_1,\ldots,E_i,\ldots,C_n)\)</span> pour obtenir <span
+class="math display">\[\det(A) = \sum_{i=1}^n a_{ij}
+(-1)^{n-i}(-1)^{n-j} \det(A_{ij}) = \sum_{i=1}^n a_{ij} (-1)^{i+j}
+\det(A_{ij}).\]</span></p>
+</div>
+<div class="wex">
+<ul>
+<li><p>En développant par rapport à la première colonne, <span
+class="math display">\[\begin{aligned}
+            \begin{vmatrix}
+                a &amp; a&#39; &amp; a&#39;&#39; \\
+                b &amp; b&#39; &amp; b&#39;&#39; \\
+                c &amp; c&#39; &amp; c&#39;&#39; \\
+            \end{vmatrix}
+            &amp; = a\begin{vmatrix}
+                 b&#39; &amp; b&#39;&#39; \\
+                 c&#39; &amp; c&#39;&#39; \\
+            \end{vmatrix}+b\begin{vmatrix}
+                 a&#39; &amp; a&#39;&#39; \\
+                 c&#39; &amp; c&#39;&#39; \\
+            \end{vmatrix}+c\begin{vmatrix}
+                a&#39; &amp; a&#39;&#39; \\
+                 b&#39; &amp; b&#39;&#39; \\
+            \end{vmatrix} \\
+            &amp; =
+a(b&#39;c&#39;&#39;-c&#39;b&#39;&#39;)+b(a&#39;c&#39;&#39;-a&#39;&#39;c&#39;)+c(a&#39;b&#39;&#39;-a&#39;&#39;b&#39;)
+\\
+            &amp; =
+ab&#39;c&#39;&#39;+a&#39;b&#39;&#39;c+a&#39;&#39;bc&#39;-a&#39;&#39;b&#39;c-a&#39;bc&#39;&#39;-ab&#39;&#39;c&#39;.
+        \end{aligned}\]</span> Un moyen de retenir ce calcul est la
+règle de Sarrus. En réécrivant les deux première colonnes à la suite du
+déterminant,</p>
+<pre><code>\begin{tikzpicture}[&gt;=stealth, every node/.style={font=\Large}]
 
+\matrix (m) [matrix of math nodes,
+             row sep=8mm,
+             column sep=8mm]
+{
+a &amp; a&#39; &amp; a&#39;&#39; &amp; a &amp; a&#39; \\
+b &amp; b&#39; &amp; b&#39;&#39; &amp; b &amp; b&#39; \\
+c &amp; c&#39; &amp; c&#39;&#39; &amp; c &amp; c&#39; \\
+};
+
+\draw[-&gt;, very thick, blue]
+(m-1-1) -- (m-2-2) -- (m-3-3);
+
+\draw[-&gt;, very thick, blue]
+(m-1-2) -- (m-2-3) -- (m-3-4);
+
+\draw[-&gt;, very thick, blue]
+(m-1-3) -- (m-2-4) -- (m-3-5);
+
+\draw[-&gt;, very thick, red]
+(m-3-1) -- (m-2-2) -- (m-1-3);
+
+\draw[-&gt;, very thick, red]
+(m-3-2) -- (m-2-3) -- (m-1-4);
+
+\draw[-&gt;, very thick, red]
+(m-3-3) -- (m-2-4) -- (m-1-5);
+
+\node[anchor=west] at ($(m.east)+(1.,0)$)
+{$\displaystyle
+\begin{aligned}
+&amp;\textcolor{blue}{ab&#39;c&#39;&#39;+a&#39;b&#39;&#39;c+a&#39;&#39;bc&#39;}\\
+&amp;\textcolor{red}{-a&#39;&#39;b&#39;c-a&#39;bc&#39;&#39;-ab&#39;&#39;c&#39;}
+\end{aligned}
+$};
+\end{tikzpicture}</code></pre></li>
+<li><p>Soit <span class="math inline">\(\alpha \in \mathbb{K}\)</span>,
+calculons <span class="math inline">\(D_\alpha = \begin{vmatrix}
+    \alpha &amp; 0 &amp; 3 &amp; 1 \\
+    -1 &amp; \alpha &amp; 1 &amp; 0 \\
+    1 &amp; 2 &amp; -2 &amp; 3 \\
+    0 &amp; \alpha &amp; 4 &amp; -1
+\end{vmatrix}\)</span>. <span class="math display">\[D_\alpha
+\overset{L_2 \leftarrow L_2+L_3}{=} \begin{vmatrix}
+    \alpha &amp; 0 &amp; 3 &amp; 1 \\
+    0 &amp; \alpha+2 &amp; -1 &amp; 3 \\
+    1 &amp; 2 &amp; -2 &amp; 3 \\
+    0 &amp; 2 &amp; 4 &amp; -1
+\end{vmatrix}.\]</span> Puis, en développant par rapport à la première
+colonne, <span
+class="math display">\[D_\alpha=  \alpha(-1)^2\underbrace{\begin{vmatrix}
+\alpha+2 &amp; -1 &amp; 3 \\
+2 &amp; -2 &amp; 3 \\
+2&amp; 4 &amp; -1
+\end{vmatrix}}_{= \Delta_1}+(-1)^4\underbrace{\begin{vmatrix}
+     0 &amp; 3 &amp; 1 \\
+     \alpha+2 &amp; -1 &amp; 3 \\
+    2 &amp; 4 &amp; -1
+\end{vmatrix}}_{= \Delta_2}.\]</span></p>
+<p>Or, <span class="math display">\[\begin{aligned}
+\Delta_1
+&amp; \overset{L_3 \leftarrow L_3-L_2}{=} \begin{vmatrix}
+\alpha+2 &amp; -1 &amp; 3 \\
+  2 &amp; -2 &amp; 3 \\
+0 &amp; 6 &amp; -4
+\end{vmatrix} \\
+&amp; = (\alpha+2)(8-18) - 2(4-18) \quad\substack{\text{ en développant
+par rapport}\\\text{  à la première colonne}} \\
+&amp; = -10\alpha+8.
+\end{aligned}\]</span> et <span class="math display">\[\begin{aligned}
+\Delta_2
+&amp; = \begin{vmatrix}
+     0 &amp; 3 &amp; 1 \\
+     \alpha+2 &amp; -1 &amp; 3 \\
+    2 &amp; 4 &amp; -1
+\end{vmatrix} \\
+&amp; = -(\alpha+2)(-3-4)+2(9+1) \quad\substack{\text{ en développant
+par rapport}\\\text{  à la première colonne}} \\
+&amp; = 7\alpha+34
+\end{aligned}\]</span> Donc <span class="math display">\[\Delta =
+-10^2\alpha+15\alpha+34.\]</span></p></li>
+</ul>
+</div>
+<h2 data-number="2.8"
+id="développement-de-det-a-suivant-une-ligne"><span
+class="header-section-number">2.8</span> Développement de <span
+class="math inline">\(\det A\)</span> suivant une ligne</h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\(A \in
+\mathscr{M}_{n}(\mathbb{K})\)</span>, on peut développer <span
+class="math inline">\(\det A\)</span> par rapport à la <span
+class="math inline">\(i\)</span>-ième ligne tel que <span
+class="math display">\[\det A = \sum_{j=1}^n (-1)^{i+j}
+a_{ij}\det(A_{ij})\]</span> où <span class="math inline">\(A_{ij} \in
+\mathscr{M}_{n-1}(\mathbb{K})\)</span> est la matrice <span
+class="math inline">\(A\)</span> à laquelle on a retiré la <span
+class="math inline">\(i\)</span>-ième ligne et la <span
+class="math inline">\(j\)</span>-ième colonne.</p>
+</div>
+<div class="wproof">
+<p>On a <span class="math inline">\(\det A =
+\det\left(^tA\right)\)</span>.</p>
+<p>Or, en notant <span class="math inline">\(^tA = \left(b_{ij}\right) =
+\left(a_{ji}\right)\)</span> et en développant <span
+class="math inline">\(\det\left(^tA\right)\)</span> par rapport à la
+<span class="math inline">\(i\)</span>-ième colonne, on a <span
+class="math display">\[\det\left(^tA\right)= \sum_{k=1}^n (-1)^{k+i}
+b_{ki} \det(B_{ki}) = \sum_{k=1}^n (-1)^{k+i} a_{ik}
+\det(B_{ki})\]</span> où <span class="math inline">\(B_{ki} \in
+\mathscr{M}_{n-1}(\mathbb{K})\)</span> est la matrice <span
+class="math inline">\(^tA\)</span> à laquelle on a retiré la <span
+class="math inline">\(k\)</span>-ième ligne et la <span
+class="math inline">\(i\)</span>-ième colonne. On a donc <span
+class="math inline">\(^tB_{ij} \in
+\mathscr{M}_{n-1}(\mathbb{K})\)</span> est la matrice <span
+class="math inline">\(A\)</span> à laquelle on a retiré la <span
+class="math inline">\(i\)</span>-ième ligne et la <span
+class="math inline">\(k\)</span>-ième colonne.</p>
+<p>Donc <span class="math display">\[\det\left(^tA\right)= \sum_{k=1}^n
+(-1)^{k+i} a_{ik} \det(^tB_{ki}) = \sum_{k=1}^n (-1)^{k+i} a_{ik}
+\det(A_{ik}) = \sum_{j=1}^n (-1)^{i+j} a_{ij} \det(A_{ij}).\]</span></p>
+</div>
+<h2 data-number="2.9" id="comatrice"><span
+class="header-section-number">2.9</span> Comatrice</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(A \in
+\mathscr{M}_{n}(\mathbb{K})\)</span>. Pour <span
+class="math inline">\(i,j \in [\![ 1,n ]\!]\)</span>, on considère <span
+class="math inline">\(A_{ij} \in \mathscr{M}_{n-1}(\mathbb{K})\)</span>
+est la matrice <span class="math inline">\(A\)</span> à laquelle on a
+retiré la <span class="math inline">\(i\)</span>-ième ligne et la <span
+class="math inline">\(j\)</span>-ième colonne.</p>
+<ul>
+<li><p><span class="math inline">\((-1)^{i+j}\det(A_{ij})\)</span> est
+appelé le cofacteur de <span
+class="math inline">\(a_{ij}\)</span>,</p></li>
+<li><p>La matrice <span
+class="math inline">\(\left((-1)^{i+j}\det(A_{ij})\right) \in
+\mathscr{M}_{n}(\mathbb{K})\)</span> est appelé la comatrice de <span
+class="math inline">\(A\)</span>, notée <span
+class="math inline">\(\mathop{\mathrm{Com}}(A)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(A \in
+\mathscr{M}_{n}(\mathbb{K})\)</span>, <span
+class="math inline">\({}^t\left(\mathop{\mathrm{Com}}(A)\right)A =
+A{}^t\left(\mathop{\mathrm{Com}}(A)\right)= \det(A) I_n\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Le coefficient <span class="math inline">\((k,j)\)</span> de <span
+class="math inline">\({}^t\left(\mathop{\mathrm{Com}}(A)\right)\)</span>
+est <span class="math display">\[\sum_{i=1}^n
+(-1)^{k+i}a_{ij}\det(A_{ik}).\]</span></p>
+<p>Si <span class="math inline">\(k=j\)</span>, on a alors <span
+class="math inline">\(\sum_{i=1}^n (-1)^{j+i}a_{ij}\det(A_{ij})\)</span>
+qui est le développement de <span class="math inline">\(\det A\)</span>
+par rapport à la <span class="math inline">\(j\)</span>-ième colonne et
+vaut donc <span class="math inline">\(\det A\)</span>.</p>
+<p>Si <span class="math inline">\(k \neq j\)</span>, on obtient le
+développement par rapport à la <span
+class="math inline">\(j\)</span>-ième suivant <span
+class="math display">\[\sum_{i=1}^n (-1)^{k+i}a_{ij}\det(A_{ik})
+    = \begin{array}{l}
+\begin{matrix}
+\hphantom{a_{11}} &amp; \hphantom{\ldots} &amp;
+\substack{\text{$j$-ième} \\ \downarrow} &amp; \hphantom{\ldots} &amp;
+\substack{\text{$k$-ième} \\ \downarrow} &amp; \hphantom{\ldots} &amp;
+\hphantom{a_{1n}}
+\end{matrix} \\
+\begin{vmatrix}
+a_{11} &amp; \ldots &amp; a_{1j} &amp; \ldots &amp; a_{1i} &amp; \ldots
+&amp; a_{1n} \\
+a_{21} &amp; \ldots &amp; a_{2j} &amp; \ldots &amp; a_{2i} &amp; \ldots
+&amp; a_{2n} \\
+\vdots &amp; \ldots &amp; \vdots &amp; \ldots &amp; \vdots &amp; \ldots
+&amp; \vdots \\
+\vdots &amp; \ldots &amp; \vdots &amp; \ldots &amp; \vdots &amp; \ldots
+&amp; \vdots \\
+a_{n1} &amp; \ldots &amp; a_{nj} &amp; \ldots &amp; a_{ni} &amp; \ldots
+&amp; a_{nn}
+\end{vmatrix}
+\end{array}
+=
+0\]</span></p>
+<p>car alors la matrice possède le coefficient <span
+class="math inline">\(a_{ij}\)</span> en position <span
+class="math inline">\((i,k)\)</span> pour tout <span
+class="math inline">\(i \in [\![ 1,n ]\!]\)</span>.</p>
+<p>On a donc <span
+class="math display">\[{}^t\left(\mathop{\mathrm{Com}}(A)\right) =
+\begin{pmatrix}
+    \det(A) &amp;  &amp; &amp;  &amp;  \\
+     &amp; \ddots &amp;  &amp; (0) &amp;  \\
+     &amp;  &amp; \ddots &amp;  &amp;  \\
+     &amp; (0) &amp;  &amp; \ddots &amp;  \\
+     &amp; &amp;  &amp;  &amp;\det(A) \\
+\end{pmatrix} = \det(A)I_n.\]</span></p>
+<p>La relation <span
+class="math inline">\(A{}^t\left(\mathop{\mathrm{Com}}(A)\right)=
+\det(A) I_n\)</span> s’obtient de façon similaire en développant par
+rapport aux lignes.</p>
+</div>
+<div class="wappli">
+<p>Si <span class="math inline">\(A \in GL_n(\mathbb{K})\)</span>, <span
+class="math display">\[A^{-1} = \frac{1}{\det
+A}{}^t\mathop{\mathrm{Com}}(A).\]</span></p>
+</div>
+<div class="wproof">
+<p>Si <span class="math inline">\(A \in GL_n(\mathbb{K})\)</span>, <span
+class="math inline">\(\det(A) \neq 0\)</span></p>
+<p>et <span
+class="math inline">\({}^t\left(\mathop{\mathrm{Com}}(A)\right)A =
+\det(A) I_n \iff
+\frac{1}{\det(A)}{}^t\left(\mathop{\mathrm{Com}}(A)\right)A =
+I_n.\)</span></p>
+</div>
+<div class="wex">
+<p>Pour <span class="math inline">\(n =2\)</span> et <span
+class="math inline">\(A = \begin{pmatrix}
+        a &amp; c \\
+        b &amp; d
+    \end{pmatrix}\)</span> inversible,</p>
+<p><span class="math display">\[\mathop{\mathrm{Com}}(A)  =
+\begin{pmatrix}
+        d &amp; -b \\
+        -c &amp; a
+    \end{pmatrix}.\]</span></p>
+<p>Donc <span class="math inline">\(A^{-1} = \frac{1}{ad-bc}
+\begin{pmatrix}
+        d &amp; -c \\
+        -b &amp; a
+    \end{pmatrix}.\)</span></p>
+</div>
+<div class="wrem">
+<p>Malheureusement, cette formule pour calculer <span
+class="math inline">\(A^{-1}\)</span> est inutilisable en pratique pour
+un humain ou un ordinateur.</p>
+</div>
+<h2 data-number="2.10" id="déterminant-de-vandermonde"><span
+class="header-section-number">2.10</span> Déterminant de
+Vandermonde</h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\(n \in \mathbb{N}^{\star}, \geq
+2\)</span> et <span class="math inline">\(\alpha_1,\ldots,\alpha_n \in
+\mathbb{K}\)</span>, <span
+class="math display">\[V_n(\alpha_1,\ldots,\alpha_n)
+=
+\begin{vmatrix}
+\alpha_1^0 &amp; \alpha_1 &amp; \alpha_1^2 &amp; \cdots &amp;
+\alpha_1^{n-1} \\
+\alpha_2^0  &amp; \alpha_2 &amp; \alpha_2^2 &amp; \cdots &amp;
+\alpha_2^{n-1} \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+\alpha_n^0 &amp; \alpha_n &amp; \alpha_n^2 &amp; \cdots &amp;
+\alpha_n^{n-1}
+\end{vmatrix}
+=
+\begin{vmatrix}
+1 &amp; \alpha_1 &amp; \alpha_1^2 &amp; \cdots &amp; \alpha_1^{n-1} \\
+1 &amp; \alpha_2 &amp; \alpha_2^2 &amp; \cdots &amp; \alpha_2^{n-1} \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+1 &amp; \alpha_n &amp; \alpha_n^2 &amp; \cdots &amp; \alpha_n^{n-1}
+\end{vmatrix}\]</span></p>
+<p>est appelé le déterminant de Vandermonde associé à <span
+class="math inline">\(\alpha_1,\ldots,\alpha_n\)</span>.</p>
+<p>De plus, <span class="math display">\[V_n(\alpha_1,\ldots,\alpha_n) =
+\prod_{1 \le i &lt; j \le n} (\alpha_j-\alpha_i).\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Si les <span class="math inline">\(\alpha_i\)</span> ne sont pas
+distincts, le déterminant possède deux lignes identiques et vaut donc
+<span class="math inline">\(0\)</span>. On a aussi <span
+class="math inline">\(\prod_{1 \le i &lt; j \le n} (\alpha_j-\alpha_i) =
+0\)</span> (car alors il existe <span class="math inline">\(i \neq
+j\)</span> tels que <span class="math inline">\(\alpha_i =\alpha_j \iff
+\alpha_j-\alpha_i =0\)</span>).</p></li>
+<li><p>Dans le cas où les <span class="math inline">\(\alpha_i\)</span>
+sont distincts, montrons ce résultat par récurrence sur <span
+class="math inline">\(n\)</span>.</p>
+<ul>
+<li><p><u>Initialisation.</u> Pour <span
+class="math inline">\(n=2\)</span>, <span
+class="math display">\[V_2(\alpha_1,\alpha_2) = \begin{vmatrix}
+            1 &amp; \alpha_1 \\
+            1 &amp; \alpha_2
+        \end{vmatrix} = \alpha_2-\alpha_1.\]</span></p></li>
+<li><p><u>Hérédité</u>. Supposons le résultat vrai pour <span
+class="math inline">\(n \in \mathbb{N}^{\star}, \geq 2\)</span> fixé.
+Considérons alors <span
+class="math inline">\(\alpha_1,\ldots,\alpha_{n+1} \in
+\mathbb{K}\)</span>.</p>
+<p>Pour <span class="math inline">\(x \in \mathbb{K}\)</span>, on pose
+<span class="math inline">\(P(x) = \begin{vmatrix}
+1 &amp; \alpha_1 &amp; \alpha_1^2 &amp; \cdots &amp; \alpha_1^{n} \\
+1 &amp; \alpha_2 &amp; \alpha_2^2 &amp; \cdots &amp; \alpha_2^{n} \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+1 &amp; \alpha_n &amp; \alpha_n^2 &amp; \cdots &amp; \alpha_n^{n} \\
+1 &amp; x &amp; x^2 &amp; \cdots &amp; x^{n}
+\end{vmatrix}\)</span>.</p>
+<p>On cherche alors <span
+class="math inline">\(V_{n+1}(\alpha_1,\ldots,\alpha_{n+1}) =
+P(\alpha_{n+1})\)</span>.</p>
+<p>En développant <span class="math inline">\(P\)</span> selon la
+dernière ligne, on a <span class="math inline">\(P(x) = \sum_{j=1}^n
+(-1)^{j+n+1}x^j \Delta_j\)</span> où <span
+class="math inline">\(\Delta_j\)</span> est indépendant de <span
+class="math inline">\(x\)</span> (on a retiré la dernière ligne au
+déterminant). De plus, le coefficient en <span class="math inline">\(j =
+n\)</span> est <span
+class="math inline">\(V_n(\alpha_1,\ldots,\alpha_n)x^n\)</span> (le
+déterminant auquel on a retiré la dernière ligne et la dernière
+colonne).</p>
+<p>Donc <span class="math inline">\(P\)</span> est un polynôme de degré
+<span class="math inline">\(\leq n\)</span>, de coefficient domin ant
+<span class="math inline">\(V_n(\alpha_1,\ldots,\alpha_n)\)</span>. De
+plus, pour tout <span class="math inline">\(1 \leq i \leq n\)</span>,
+<span class="math inline">\(P(\alpha_i) = \begin{vmatrix}
+1 &amp; \alpha_1 &amp; \alpha_1^2 &amp; \cdots &amp; \alpha_1^{n} \\
+1 &amp; \alpha_2 &amp; \alpha_2^2 &amp; \cdots &amp; \alpha_2^{n} \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+1 &amp; \alpha_n &amp; \alpha_n^2 &amp; \cdots &amp; \alpha_n^{n} \\
+1 &amp; \alpha_i &amp; \alpha_i^2 &amp; \cdots &amp; \alpha_i^{n}
+\end{vmatrix} = 0\)</span> car alors les lignes <span
+class="math inline">\(i\)</span> et <span
+class="math inline">\(n+1\)</span> sont identiques dans le
+déterminant.</p>
+<p>On sait alors que <span class="math inline">\(P\)</span> possède
+<span class="math inline">\(n\)</span> racines distinctes et donc qu’il
+existe <span class="math inline">\(\alpha \in \mathbb{K}\)</span> tel
+que <span class="math inline">\(P = \alpha
+\prod_{i=1}^{n}(X-\alpha_i)\)</span>.</p>
+<p>Or, <span class="math inline">\(\alpha\)</span> est le coefficient
+dominant de <span class="math inline">\(P\)</span> donc <span
+class="math inline">\(P =
+V_n(\alpha_1,\ldots,\alpha_n)\prod_{i=1}^{n}(X-\alpha_i)\)</span>.</p>
+<p>Donc <span
+class="math inline">\(V_{n+1}(\alpha_1,\ldots,\alpha_{n+1}) =
+V_n(\alpha_1,\ldots,\alpha_n)\prod_{i=1}^{n}(\alpha_{n+1}-\alpha_i)\)</span>.</p>
+<p>Or, par hypothèse de récurrence, <span
+class="math inline">\(V_n(\alpha_1,\ldots,\alpha_n) =
+\prod_{1 \le i &lt; j \le n} (\alpha_j-\alpha_i).\)</span></p>
+<p>Donc <span
+class="math display">\[V_{n+1}(\alpha_1,\ldots,\alpha_{n+1}) = \prod_{1
+\le i &lt; j \le n}
+(\alpha_j-\alpha_i)\prod_{i=1}^{n}(\alpha_{n+1}-\alpha_i) = \prod_{1 \le
+i &lt; j \le n+1} (\alpha_j-\alpha_i).\]</span></p></li>
+</ul></li>
+</ul>
+</div>
+<div class="wcor">
+<p>Soit <span class="math inline">\(n \in \mathbb{N}^{\star}, \geq
+2\)</span> et <span class="math inline">\(\alpha_1,\ldots,\alpha_n \in
+\mathbb{K}\)</span>,</p>
+<p><span class="math display">\[V_n(\alpha_1,\ldots,\alpha_n) \neq 0
+\iff \text{ les $\alpha_i$ sont tous distincts.}\]</span></p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(V_n(\alpha_1,\ldots,\alpha_n) =
+\prod_{1 \le i &lt; j \le n} (\alpha_j-\alpha_i)\)</span> donc <span
+class="math display">\[V_n(\alpha_1,\ldots,\alpha_n) \neq 0 \iff
+\prod_{1 \le i &lt; j \le n} (\alpha_j-\alpha_i)\neq 0\iff \forall 1\leq
+i \neq j\leq n, \alpha_i \neq \alpha_j.\]</span></p>
+</div>
+<div class="wappli">
+<p>Soient <span class="math inline">\(\alpha_1,\ldots,\alpha_n \in
+\mathbb{K}\)</span> tous distincts et <span
+class="math inline">\(\beta_1,\ldots,\beta_n \in
+\mathbb{K}^n\)</span>.</p>
+<p>Il existe un unique <span class="math inline">\(P \in
+\mathbb{K}_{n-1}[X]\)</span> tel que <span
+class="math inline">\(P(\alpha_i) = \beta_i\)</span> pour tout <span
+class="math inline">\(i \in [\![ 1,n ]\!]\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(P = \sum_{k=0}^{n-1}a_k X^k \in
+\mathbb{K}_{n-1}[X]\)</span>.</p>
+<p><span class="math display">\[\begin{aligned}
+        &amp; \text{$P(\alpha_i) = \beta_i$ pour tout $i \in [\![ 1,n
+]\!]$} \\
+        &amp; \iff
+        \left\{
+        \begin{array}{ll}
+            P(\alpha_1) &amp; = \beta_1 \\
+            P(\alpha_2) &amp; = \beta_2 \\
+            \vdots &amp; \\
+            P(\alpha_n) &amp; = \beta_n \\
+        \end{array}
+        \right. \\
+        &amp; \iff
+        \left\{
+        \begin{array}{llllll}
+            a_{0} &amp; +a_1 \alpha_1 &amp; + a_2\alpha_1^2 &amp;
++\ldots+ &amp; a_{n-1}\alpha_1^{n-1} &amp; = \beta_1 \\
+            a_{0} &amp; +a_1 \alpha_2 &amp; + a_2\alpha_2^2 &amp;
++\ldots+ &amp; a_{n-1}\alpha_2^{n-1} &amp; = \beta_1 \\
+            \vdots &amp; \\
+            a_{0} &amp; +a_1 \alpha_n &amp; + a_2\alpha_n^2 &amp;
++\ldots+ &amp; a_{n-1}\alpha_n^{n-1} &amp; = \beta_1 \\
+        \end{array}
+        \right. \\
+        &amp; \iff
+        \begin{pmatrix}
+1 &amp; \alpha_1 &amp; \alpha_1^2 &amp; \cdots &amp; \alpha_1^{n-1} \\
+1 &amp; \alpha_2 &amp; \alpha_2^2 &amp; \cdots &amp; \alpha_2^{n-1} \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+1 &amp; \alpha_n &amp; \alpha_n^2 &amp; \cdots &amp; \alpha_n^{n-1}
+\end{pmatrix} \begin{pmatrix}
+    a_0 \\ a_1 \\ \vdots \\ a_{n-1}
+\end{pmatrix}
+= \begin{pmatrix}
+    \beta_1 \\ \beta_2 \\ \vdots \\ \beta_{n}
+\end{pmatrix}.
+    \end{aligned}\]</span></p>
+<p>Or, <span class="math inline">\(\begin{pmatrix}
+1 &amp; \alpha_1 &amp; \alpha_1^2 &amp; \cdots &amp; \alpha_1^{n-1} \\
+1 &amp; \alpha_2 &amp; \alpha_2^2 &amp; \cdots &amp; \alpha_2^{n-1} \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+1 &amp; \alpha_n &amp; \alpha_n^2 &amp; \cdots &amp; \alpha_n^{n-1}
+\end{pmatrix}\)</span> est inversible déterminant <span
+class="math inline">\(V_n(\alpha_1,\ldots,\alpha_n) \neq 0\)</span> donc
+<span class="math display">\[\begin{aligned}
+        &amp; \text{$P(\alpha_i) = \beta_i$ pour tout $i \in [\![ 1,n
+]\!]$} \\
+        &amp; \iff
+        \begin{pmatrix}
+    a_0 \\ a_1 \\ \vdots \\ a_{n-1}
+\end{pmatrix}
+= \begin{pmatrix}
+1 &amp; \alpha_1 &amp; \alpha_1^2 &amp; \cdots &amp; \alpha_1^{n-1} \\
+1 &amp; \alpha_2 &amp; \alpha_2^2 &amp; \cdots &amp; \alpha_2^{n-1} \\
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+1 &amp; \alpha_n &amp; \alpha_n^2 &amp; \cdots &amp; \alpha_n^{n-1}
+\end{pmatrix}^{-1}\begin{pmatrix}
+    \beta_1 \\ \beta_2 \\ \vdots \\ \beta_{n}
+\end{pmatrix}.
+    \end{aligned}\]</span> ce qui donne l’existence et l’unicité de
+<span class="math inline">\(a_0,\ldots,a_{n-1}\)</span> donc de <span
+class="math inline">\(P\)</span>.</p>
+</div>
+<h2 data-number="2.11"
+id="application-du-déterminant-à-léquation-cartésienne-dun-hyperplan"><span
+class="header-section-number">2.11</span> Application du déterminant à
+l’équation cartésienne d’un hyperplan</h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\(H\)</span> un hyperplan de <span
+class="math inline">\(E\)</span> de dimension <span
+class="math inline">\(n\)</span> et <span
+class="math inline">\((v_1,\ldots,v_{n-1}) \in E^{n-1}\)</span> est une
+base de <span class="math inline">\(H\)</span>.</p>
+<p>Soit <span class="math inline">\(\mathscr{B}\)</span> une base de
+<span class="math inline">\(E\)</span>.</p>
+<p>Alors, soit <span class="math inline">\(v \in E\)</span>, <span
+class="math display">\[\begin{aligned}
+    v \in H
+    &amp; \iff v \in \mathop{\mathrm{Vect}}(v_1,\ldots,v_{n-1})\\
+    &amp;  \iff (v_1,\ldots,v_{n-1},v) \text{ est liée} \\
+    &amp; \iff {\det}_{\mathscr{B}}(v_1,\ldots,v_{n-1},v) = 0.
+    \end{aligned}\]</span> ce qui constitue une équation cartésienne de
+<span class="math inline">\(H\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Notons <span class="math inline">\(\mathscr{B}=
+(e_1,\ldots,e_n)\)</span> et décomposons les vecteurs dans cette base
+tel que <span class="math inline">\(v = \sum_{k=1}^n v_k e_k\)</span> et
+pour <span class="math inline">\(j \in [\![ 1, n-1 ]\!], v_j =
+\sum_{i=1}^n a_{ij}e_i\)</span>.</p>
+<p>Alors, <span class="math display">\[\begin{aligned}
+    v \in H
+    &amp; \iff  \begin{vmatrix}
+        a_{11} &amp; \ldots &amp; a_{1 n-1} &amp; x_1 \\
+        \vdots &amp; \ldots &amp; \vdots &amp; \vdots \\
+        \vdots &amp; \ldots &amp; \vdots &amp; \vdots \\
+        a_{n1} &amp; \ldots &amp; a_{n n-1} &amp; x_n \\
+    \end{vmatrix} = 0,
+    \end{aligned}\]</span> ce qui constitue en effet une équation
+cartésienne en développant par rapport à la dernière colonne.</p>
+</div>
+<div class="wex">
+<p>Si <span class="math inline">\(n=3\)</span>, <span
+class="math inline">\(\mathscr{B}= (e_1,e_2,e_3)\)</span> et <span
+class="math inline">\(v_1 = e_1-e_2, v_2=2e_1+e_2-e_3\)</span>.</p>
+<p>Soit <span class="math inline">\(v = xe_1+ye_2+ze_3\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+        v \in H = \mathop{\mathrm{Vect}}(v_1,v_2)
+        &amp; \iff \begin{vmatrix}
+            1 &amp; 2 &amp; x \\
+            -1 &amp; 1 &amp; y \\
+            0 &amp; -1 &amp; z
+        \end{vmatrix} = 0 \\
+        &amp; \iff x\begin{vmatrix}
+            -1 &amp; 1  \\
+            0 &amp; -1
+        \end{vmatrix}-y\begin{vmatrix}
+            1 &amp; 2  \\
+            0 &amp; -1
+        \end{vmatrix}+z\begin{vmatrix}
+            1 &amp; 2 \\
+            -1 &amp; 1  \\
+        \end{vmatrix} = 0 \substack{\text{ en développant par rapport }
+\\\text{à la troisième colonne} } \\
+        &amp; \iff x+y+3z = 0.
+    \end{aligned}\]</span></p>
+</div>
+<h2 data-number="2.12"
+id="application-du-déterminant-aux-systèmes-de-cramer"><span
+class="header-section-number">2.12</span> Application du déterminant aux
+systèmes de Cramer</h2>
+<div class="wprop">
+<p><strong>(Formules de Cramer)</strong> Soient <span
+class="math inline">\(A = \left(a_{ij}\right)\in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span> et <span class="math inline">\(b
+= \begin{pmatrix}
+        b_1 \\ \vdots \\ b_n
+    \end{pmatrix}\in \mathscr{M}_{n,1}(\mathbb{K})\)</span>.</p>
+<p>On considère le système linéaire associé à <span
+class="math inline">\(A\)</span> et <span
+class="math inline">\(b\)</span> d’inconnue <span
+class="math inline">\(X = \begin{pmatrix}
+        x_1 \\ \vdots \\ x_p
+    \end{pmatrix}\in \mathscr{M}_{p,1}(\mathbb{K})\)</span> (ou
+d’inconnues <span class="math inline">\(x_1,\ldots,x_p\)</span>)</p>
+<p><span class="math display">\[\label{eq:defi_syst_lin}
+    \tag{L}
+            AX=b \iff \left\{\begin{array}{lllll}
+        a_{11}x_1 &amp; +a_{12}x_2 &amp; +\ldots &amp; +a_{1p}x_p &amp;
+= b_1 \\
+        \vdots &amp; \vdots &amp; \ldots &amp; \vdots &amp; = \vdots \\
+        a_{i1}x_1 &amp; +a_{i2}x_2 &amp; +\ldots &amp; +a_{ip}x_p &amp;
+= b_i \\
+        \vdots &amp; \vdots &amp; \ldots &amp; \vdots &amp; = \vdots \\
+        a_{n1}x_1 &amp; +a_{n2}x_2 &amp; +\ldots &amp; +a_{np}x_p &amp;
+= b_n \\
+    \end{array}\right..\]</span></p>
+<p>Si <span class="math inline">\(\eqref{eq:defi_syst_lin}\)</span>est
+de Cramer, ie <span class="math inline">\(A \in
+GL_n(\mathbb{K})\)</span> alors l’unique solution de <span
+class="math inline">\(\eqref{eq:defi_syst_lin}\)</span>s’écrit <span
+class="math inline">\(X = \begin{pmatrix}
+        x_1 \\ \vdots \\ x_n
+    \end{pmatrix}\)</span> avec pour <span class="math inline">\(j \in
+[\![ 1,n ]\!]\)</span>, <span class="math display">\[x_j =
+    \frac{\begin{array}{l}
+\begin{matrix}
+\hphantom{a_{11}} &amp; \hphantom{\ldots} &amp;
+\substack{\text{$j$-ième} \\ \downarrow} &amp; \hphantom{\ldots} &amp;
+\hphantom{a_{1n}}
+\end{matrix} \\
+\begin{vmatrix}
+a_{11} &amp; \ldots &amp; b_1 &amp; \ldots &amp; a_{1n} \\
+        \vdots &amp; \ldots &amp; \vdots &amp; \ldots &amp; \vdots \\
+        \vdots &amp; \ldots &amp; \vdots &amp; \ldots &amp; \vdots \\
+        a_{n1} &amp; \ldots &amp; b_n &amp; \ldots &amp; a_{nn} \\
+\end{vmatrix}
+\end{array}
+}{\det(A)}\]</span></p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(X= \begin{pmatrix}
+        x_1 \\ \vdots \\ x_n
+    \end{pmatrix}\)</span> unique solution de <span
+class="math inline">\(\eqref{eq:defi_syst_lin}\)</span>.</p>
+<p>Alors,</p>
+<p><span class="math display">\[\begin{aligned}
+        x_j \det A
+        &amp; = x_j \begin{vmatrix}
+a_{11} &amp; \ldots &amp; a_{1j} &amp; \ldots &amp; a_{1n} \\
+        \vdots &amp; \ldots &amp; \vdots &amp; \ldots &amp; \vdots \\
+        \vdots &amp; \ldots &amp; \vdots &amp; \ldots &amp; \vdots \\
+        a_{n1} &amp; \ldots &amp; a_{nj} &amp; \ldots &amp; a_{nn} \\
+\end{vmatrix} \\
+&amp; = \begin{vmatrix}
+a_{11} &amp; \ldots &amp; a_{1j}x_j &amp; \ldots &amp; a_{1n} \\
+        \vdots &amp; \ldots &amp; \vdots &amp; \ldots &amp; \vdots \\
+        \vdots &amp; \ldots &amp; \vdots &amp; \ldots &amp; \vdots \\
+        a_{n1} &amp; \ldots &amp; a_{nj}x_j &amp; \ldots &amp; a_{nn} \\
+\end{vmatrix} \text{ par $n$-linéarité du déterminant}.
+\end{aligned}\]</span></p>
+<p>Or, <span class="math inline">\(AX = b\)</span> donc pour <span
+class="math inline">\(i \in [\![ 1,n ]\!]\)</span>, <span
+class="math inline">\(b_i = \sum_{k=1}^n a_{ik}x_k \iff a_{ij}x_j =
+b_i-\sum_{k\neq j}a_{ik}x_k\)</span>.</p>
+<p>On a donc <span class="math display">\[\begin{aligned}
+        x_j \det A
+&amp; = \begin{vmatrix}
+a_{11} &amp; \ldots &amp; b_1-\sum_{k\neq j}a_{1k}x_k &amp; \ldots &amp;
+a_{1n} \\
+        \vdots &amp; \ldots &amp; \vdots &amp; \ldots &amp; \vdots \\
+        \vdots &amp; \ldots &amp; \vdots &amp; \ldots &amp; \vdots \\
+        a_{n1} &amp; \ldots &amp; b_n-\sum_{k\neq j}a_{nk}x_k &amp;
+\ldots &amp; a_{nn} \\
+\end{vmatrix}\\
+&amp; = \begin{vmatrix}
+a_{11} &amp; \ldots &amp; b_1 &amp; \ldots &amp; a_{1n} \\
+        \vdots &amp; \ldots &amp; \vdots &amp; \ldots &amp; \vdots \\
+        \vdots &amp; \ldots &amp; \vdots &amp; \ldots &amp; \vdots \\
+        a_{n1} &amp; \ldots &amp; b_n &amp; \ldots &amp; a_{nn} \\
+\end{vmatrix}
+    \end{aligned}\]</span> et <span class="math display">\[x_j =
+    \frac{\begin{array}{l}
+\begin{matrix}
+\hphantom{a_{11}} &amp; \hphantom{\ldots} &amp;
+\substack{\text{$j$-ième} \\ \downarrow} &amp; \hphantom{\ldots} &amp;
+\hphantom{a_{1n}}
+\end{matrix} \\
+\begin{vmatrix}
+a_{11} &amp; \ldots &amp; b_1 &amp; \ldots &amp; a_{1n} \\
+        \vdots &amp; \ldots &amp; \vdots &amp; \ldots &amp; \vdots \\
+        \vdots &amp; \ldots &amp; \vdots &amp; \ldots &amp; \vdots \\
+        a_{n1} &amp; \ldots &amp; b_n &amp; \ldots &amp; a_{nn} \\
+\end{vmatrix}
+\end{array}
+}{\det(A)}.\]</span></p>
+</div>
+<div class="wex">
+<p>Si <span class="math inline">\(n=2\)</span>, si le système <span
+class="math inline">\((L): \left\{
+\begin{aligned}
+ax+cy &amp;= \alpha \\
+bx+d&amp; &amp;=0
+\end{aligned}
+\right.\)</span> est de Cramer (ie <span class="math inline">\(ad-bc =
+0\)</span>), l’unique solution <span
+class="math inline">\((x_0,y_0)\)</span> de <span
+class="math inline">\((L)\)</span> s’écrit <span
+class="math display">\[x_0 = \frac{\begin{vmatrix}
+        \alpha &amp; c \\
+        \beta &amp; d
+    \end{vmatrix}}{\begin{vmatrix}
+        a &amp; c \\
+        b &amp; d
+    \end{vmatrix}} = \frac{\alpha d - \beta c}{ad-bc} \text{ et }y_0 =
+\frac{\begin{vmatrix}
+        a &amp; \alpha \\
+        b&amp; \beta
+    \end{vmatrix}}{\begin{vmatrix}
+        a &amp; c \\
+        b &amp; d
+    \end{vmatrix}} = \frac{a\beta - \alpha b}{ad-bc}.\]</span></p>
+</div>
+<div class="wrem">
+<p>Les formules de Cramer sont inutilisables en pratique dès <span
+class="math inline">\(n&gt;2\)</span> (pour un ordinateur aussi), il
+faut privilégier le pivot de Gauss.</p>
+</div>
 </body>
 </html>
 

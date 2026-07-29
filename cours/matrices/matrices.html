@@ -211,43 +211,66 @@ class="toc-section-number">7.3.2</span> Lien entre la notion du rang de
 <span class="math inline">\(f\in \mathscr{L}(E,F)\)</span> et d’une
 matrice</a></li>
 </ul></li>
+<li><a href="#identification-de-mathbbkn-et-mathscrm_n1mathbbk"
+id="toc-identification-de-mathbbkn-et-mathscrm_n1mathbbk"><span
+class="toc-section-number">7.4</span> Identification de <span
+class="math inline">\(\mathbb{K}^n\)</span> et <span
+class="math inline">\(\mathscr{M}_{n,1}(\mathbb{K})\)</span></a></li>
 <li><a
 href="#caractérisation-des-éléments-de-gl_nmathbbk-à-laide-du-rang"
 id="toc-caractérisation-des-éléments-de-gl_nmathbbk-à-laide-du-rang"><span
-class="toc-section-number">7.4</span> Caractérisation des éléments de
+class="toc-section-number">7.5</span> Caractérisation des éléments de
 <span class="math inline">\(GL_n(\mathbb{K})\)</span> à l’aide du
 rang</a></li>
 <li><a href="#caractérisation-des-matrices-de-rang-r"
 id="toc-caractérisation-des-matrices-de-rang-r"><span
-class="toc-section-number">7.5</span> Caractérisation des matrices de
+class="toc-section-number">7.6</span> Caractérisation des matrices de
 rang <span class="math inline">\(r\)</span></a></li>
 <li><a href="#transposition-dans-mathscrm_npmathbbk"
 id="toc-transposition-dans-mathscrm_npmathbbk"><span
-class="toc-section-number">7.6</span> Transposition dans <span
+class="toc-section-number">7.7</span> Transposition dans <span
 class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span></a>
 <ul>
 <li><a href="#définition-2" id="toc-définition-2"><span
-class="toc-section-number">7.6.1</span> Définition</a></li>
+class="toc-section-number">7.7.1</span> Définition</a></li>
 <li><a href="#propriétés-1" id="toc-propriétés-1"><span
-class="toc-section-number">7.6.2</span> Propriétés</a></li>
+class="toc-section-number">7.7.2</span> Propriétés</a></li>
 </ul></li>
 <li><a
 href="#opérations-élémentaires-sur-les-lignes-ou-colonnes-dune-matrice"
 id="toc-opérations-élémentaires-sur-les-lignes-ou-colonnes-dune-matrice"><span
-class="toc-section-number">7.7</span> Opérations élémentaires sur les
+class="toc-section-number">7.8</span> Opérations élémentaires sur les
 lignes ou colonnes d’une matrice</a>
 <ul>
 <li><a href="#définition-3" id="toc-définition-3"><span
-class="toc-section-number">7.7.1</span> Définition</a></li>
+class="toc-section-number">7.8.1</span> Définition</a></li>
 <li><a href="#application-au-calcul-du-rang-dune-matrice"
 id="toc-application-au-calcul-du-rang-dune-matrice"><span
-class="toc-section-number">7.7.2</span> Application au calcul du rang
+class="toc-section-number">7.8.2</span> Application au calcul du rang
 d’une matrice</a></li>
 <li><a href="#application-au-calcul-de-a-1-pour-ain-gl_nmathbbk"
 id="toc-application-au-calcul-de-a-1-pour-ain-gl_nmathbbk"><span
-class="toc-section-number">7.7.3</span> Application au calcul de <span
+class="toc-section-number">7.8.3</span> Application au calcul de <span
 class="math inline">\(A^{-1}\)</span> pour <span
 class="math inline">\(A\in GL_n(\mathbb{K})\)</span></a></li>
+</ul></li>
+</ul></li>
+<li><a href="#equations-linéaires" id="toc-equations-linéaires"><span
+class="toc-section-number">8</span> Equations linéaires</a>
+<ul>
+<li><a href="#equation-linéaire" id="toc-equation-linéaire"><span
+class="toc-section-number">8.1</span> Equation linéaire</a></li>
+<li><a href="#système-déquations-linéaires"
+id="toc-système-déquations-linéaires"><span
+class="toc-section-number">8.2</span> Système d’équations linéaires</a>
+<ul>
+<li><a href="#définition-4" id="toc-définition-4"><span
+class="toc-section-number">8.2.1</span> Définition</a></li>
+<li><a
+href="#résolution-dun-système-de-cramer-par-la-méthode-du-pivot-de-gauss"
+id="toc-résolution-dun-système-de-cramer-par-la-méthode-du-pivot-de-gauss"><span
+class="toc-section-number">8.2.2</span> Résolution d’un système de
+Cramer par la méthode du pivot de Gauss</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -507,10 +530,10 @@ class="math inline">\(a_{ij}\)</span> ie</p>
 <p><span
 class="math display">\[\mathscr{M}_{{\color{CornflowerBlue}\mathscr{B}},{\color{Orchid}\mathscr{C}}}(f)
 = \begin{pmatrix}
-a_{11} &amp; a_{12} &amp; \ldots a_{1p} \\
-a_{21} &amp; a_{22} &amp; \ldots a_{2p} \\
-\vdots &amp; \vdots &amp; \vdots \\
-a_{n1} &amp;  a_{n2} &amp; \ldots a_{np}
+a_{11} &amp; a_{12} &amp; \ldots &amp; a_{1p} \\
+a_{21} &amp; a_{22} &amp; \ldots &amp;a_{2p} \\
+\vdots &amp; \vdots &amp; \ldots &amp; \vdots \\
+a_{n1} &amp;  a_{n2} &amp; \ldots &amp; a_{np}
 \end{pmatrix}.\]</span> On l’appelle la matrice de <span
 class="math inline">\(f\)</span> relativement à <span
 class="math inline">\(\mathscr{B}\)</span> et <span
@@ -1441,17 +1464,6 @@ $\mathscr{B}_3$} \\
 <p>Donc <span class="math inline">\(\mathop{\mathrm{Ker}}f =
 \mathop{\mathrm{Vect}}((1,-3,1)).\)</span></p>
 </div>
-<p>Pour cette raison, on confond parfois <span
-class="math inline">\(\mathbb{K}^n\)</span> et <span
-class="math inline">\(\mathscr{M}_{n,1}(\mathbb{K})\)</span>, quitte à
-écrire les éléments de <span class="math inline">\(\mathbb{K}^n\)</span>
-en colonnes.</p>
-<p>L’endomorphisme canoniquement associé à une matrice <span
-class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span> devient
-alors <span class="math inline">\(\begin{array}{lllll}
-f &amp; : &amp; \mathbb{K}^p &amp; \to &amp; \mathbb{K}^n \\
-   &amp;   &amp; x &amp; \mapsto &amp; Ax
-\end{array}\)</span>.</p>
 <h1 data-number="5"
 id="lanneau-non-commutatif-et-non-intègre-mathscrm_nmathbbk"><span
 class="header-section-number">5</span> L’anneau non commutatif et non
@@ -2628,7 +2640,7 @@ existe <span class="math inline">\(a_{1j},\ldots,a_{nj} \in
 <p>Alors, <span class="math inline">\(A = (a_{ij}) \in
 \mathscr{M}_{n,p}(\mathbb{K})\)</span> est appelée la matrice associée à
 <span class="math inline">\((v_1,\ldots,v_p)\)</span> dans <span
-class="math inline">\(\mathbb{C}\)</span>.</p>
+class="math inline">\(\mathscr{C}\)</span>.</p>
 </div>
 <p>Sur le modèle d’une matrice de passage, on décompose chaque vecteur
 sur les colonnes de la matrice.</p>
@@ -2693,7 +2705,7 @@ sont les colonnes de <span class="math inline">\(A\)</span>.</p>
             \vdots \\
             0
         \end{pmatrix}\)</span> de sorte que la <span
-class="math inline">\(j\)</span>-ième coordonnée vaille <span
+class="math inline">\(j\)</span>-ième coordonnée vale <span
 class="math inline">\(1\)</span>. On a alors <span
 class="math inline">\((E_1,\ldots,E_n)\)</span> qui est une base de
 <span class="math inline">\(\mathscr{M}_{n,1}(\mathbb{K})\)</span> et
@@ -2755,8 +2767,29 @@ dans la base <span class="math inline">\(\mathscr{C}\)</span>.</p>
 \mathop{\mathrm{rg}}f\)</span>.</p>
 </div>
 <h2 data-number="7.4"
+id="identification-de-mathbbkn-et-mathscrm_n1mathbbk"><span
+class="header-section-number">7.4</span> Identification de <span
+class="math inline">\(\mathbb{K}^n\)</span> et <span
+class="math inline">\(\mathscr{M}_{n,1}(\mathbb{K})\)</span></h2>
+<p>On confond parfois <span class="math inline">\(\mathbb{K}^n\)</span>
+et <span class="math inline">\(\mathscr{M}_{n,1}(\mathbb{K})\)</span>,
+quitte à écrire les éléments de <span
+class="math inline">\(\mathbb{K}^n\)</span> en colonnes.</p>
+<p>L’endomorphisme canoniquement associé à une matrice <span
+class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span> devient
+alors <span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{K}^p &amp; \to &amp; \mathbb{K}^n \\
+   &amp;   &amp; x &amp; \mapsto &amp; Ax
+\end{array}\)</span>.</p>
+<p>On définit aussi <span class="math display">\[\mathop{\mathrm{Ker}}A
+= \left\{ x \in \mathbb{K}^p / Ax = 0_{\mathbb{K}^n}\right\} \text{ et
+}\mathop{\mathrm{Im}}A = \left\{Ax \in \mathbb{K}^n / x \in
+\mathbb{K}^p\right\}.\]</span></p>
+<p>et <span class="math inline">\(\mathop{\mathrm{rg}}(A) = \dim
+\mathop{\mathrm{Im}}A\)</span> d’après les propriétés précédentes.</p>
+<h2 data-number="7.5"
 id="caractérisation-des-éléments-de-gl_nmathbbk-à-laide-du-rang"><span
-class="header-section-number">7.4</span> Caractérisation des éléments de
+class="header-section-number">7.5</span> Caractérisation des éléments de
 <span class="math inline">\(GL_n(\mathbb{K})\)</span> à l’aide du
 rang</h2>
 <div class="wprop">
@@ -2776,8 +2809,8 @@ class="math display">\[\begin{aligned}
         &amp; \iff \mathop{\mathrm{rg}}A = \mathop{\mathrm{rg}}f = n.
     \end{aligned}\]</span></p>
 </div>
-<h2 data-number="7.5" id="caractérisation-des-matrices-de-rang-r"><span
-class="header-section-number">7.5</span> Caractérisation des matrices de
+<h2 data-number="7.6" id="caractérisation-des-matrices-de-rang-r"><span
+class="header-section-number">7.6</span> Caractérisation des matrices de
 rang <span class="math inline">\(r\)</span></h2>
 <div class="wprop">
 <p><span id="prop:rang_J_n_p_r" label="prop:rang_J_n_p_r"></span> Soient
@@ -2983,11 +3016,11 @@ r\right\}\)</span>.</p>
 class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span> de la
 relation binaire "être semblable à" sont bien plus difficiles à écrire,
 cela constitue une partie du cours de deuxième année.</p>
-<h2 data-number="7.6" id="transposition-dans-mathscrm_npmathbbk"><span
-class="header-section-number">7.6</span> Transposition dans <span
+<h2 data-number="7.7" id="transposition-dans-mathscrm_npmathbbk"><span
+class="header-section-number">7.7</span> Transposition dans <span
 class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span></h2>
-<h3 data-number="7.6.1" id="définition-2"><span
-class="header-section-number">7.6.1</span> Définition</h3>
+<h3 data-number="7.7.1" id="définition-2"><span
+class="header-section-number">7.7.1</span> Définition</h3>
 <div class="wdefi">
 <p>Soit <span class="math inline">\(A = (a_{i,j}) \in
 \mathscr{M}_{n,p}(\mathbb{K})\)</span>,</p>
@@ -3068,8 +3101,8 @@ class="math inline">\(^tA = \begin{pmatrix}
         3 &amp; 6
     \end{pmatrix} \in \mathscr{M}_{3,2}(\mathbb{R})\)</span>.</p>
 </div>
-<h3 data-number="7.6.2" id="propriétés-1"><span
-class="header-section-number">7.6.2</span> Propriétés</h3>
+<h3 data-number="7.7.2" id="propriétés-1"><span
+class="header-section-number">7.7.2</span> Propriétés</h3>
 <div class="wprop">
 <p>Pour tout <span class="math inline">\(A,B \in
 \mathscr{M}_{n,p}(\mathbb{K})\)</span> et <span
@@ -3188,12 +3221,12 @@ class="math display">\[\mathop{\mathrm{rg}}(L_1,\ldots,L_n) =
 de ${}^tA$}}) = \mathop{\mathrm{rg}}{}^tA =
 \mathop{\mathrm{rg}}A.\]</span></p>
 </div>
-<h2 data-number="7.7"
+<h2 data-number="7.8"
 id="opérations-élémentaires-sur-les-lignes-ou-colonnes-dune-matrice"><span
-class="header-section-number">7.7</span> Opérations élémentaires sur les
+class="header-section-number">7.8</span> Opérations élémentaires sur les
 lignes ou colonnes d’une matrice</h2>
-<h3 data-number="7.7.1" id="définition-3"><span
-class="header-section-number">7.7.1</span> Définition</h3>
+<h3 data-number="7.8.1" id="définition-3"><span
+class="header-section-number">7.8.1</span> Définition</h3>
 <div class="wlem">
 <p><span
 id="lem:operations_vecteurs_qui_conservent_le_rang_dune_famille"
@@ -3336,9 +3369,9 @@ les opérations élémentaires conservent le rang.</p>
 </div>
 <p>On définit de même les opérations élémentaires sur les colonnes (en
 remplaçant ligne par colonne).</p>
-<h3 data-number="7.7.2"
+<h3 data-number="7.8.2"
 id="application-au-calcul-du-rang-dune-matrice"><span
-class="header-section-number">7.7.2</span> Application au calcul du rang
+class="header-section-number">7.8.2</span> Application au calcul du rang
 d’une matrice</h3>
 <p>On utilise le fait que si <span class="math inline">\(A\)</span> est
 de la forme</p>
@@ -3590,9 +3623,9 @@ libres.</p></li>
 \mathop{\mathrm{rg}}(A) = 3 \iff a \neq b, a \neq c \text{ et }b \neq c
 \iff a,b,c \text{ sont distincts.}\]</span></p>
 </div>
-<h3 data-number="7.7.3"
+<h3 data-number="7.8.3"
 id="application-au-calcul-de-a-1-pour-ain-gl_nmathbbk"><span
-class="header-section-number">7.7.3</span> Application au calcul de
+class="header-section-number">7.8.3</span> Application au calcul de
 <span class="math inline">\(A^{-1}\)</span> pour <span
 class="math inline">\(A\in GL_n(\mathbb{K})\)</span></h3>
 <div class="wprop">
@@ -3781,8 +3814,12 @@ L_2}}{\longrightarrow} &amp;
 -2&amp;2&amp;-2
 \end{pmatrix}.\]</span></p>
 <p>On procède toujours de cette façon en descendant puis remontant les
-lignes pour faire apparaître l’identité. Cette algorithme est appelé le
-pivot de Gauss.</p>
+lignes pour faire apparaître l’identité. Les nombres utilisés
+successivement (<span class="math inline">\(2\)</span> pour <span
+class="math inline">\(L_2 \leftarrow L_2-2L_1\)</span>, <span
+class="math inline">\(-1\)</span> pour <span class="math inline">\(L_3
+\leftarrow L_3-L_1\)</span>,...) sont appelés des pivots d’élimination
+et cet algorithme est appelé le pivot de Gauss.</p>
 </div>
 <div class="wex">
 <p>Essayons de calculer <span class="math inline">\(A^{-1}\)</span> avec
@@ -3823,6 +3860,443 @@ class="math inline">\(A \notin GL_3(\mathbb{K})\)</span> car <span
 class="math inline">\(L_3 = L_2+L_1\)</span>. D’après les opérations
 effectuées, on peut même dire <span
 class="math inline">\(\mathop{\mathrm{rg}}(A) = 2\)</span>.</p>
+</div>
+<div class="wrem">
+<p>La méthode consiste en fait à résoudre le système par élimination
+successive des inconnues. Dans l’exemple précédent <span
+class="math inline">\((L)\)</span> s’écrit <span
+class="math inline">\(\left\{
+\begin{aligned}
+x &amp;= 2+y-z,\\
+2(2+y-z)+y+6z &amp;=1,\\
+3(2+y-z)-2y+4z &amp;=1,
+\end{aligned}
+\right.\)</span> ou encore <span class="math inline">\(\left\{
+\begin{aligned}
+x &amp;=2+y-z,\\
+3y+4z &amp;=-3,\\
+y+z &amp;=-5,
+\end{aligned}
+\right.\)</span> et on résout le système aux inconnues <span
+class="math inline">\(y\)</span> et <span
+class="math inline">\(z\)</span>.</p>
+</div>
+<div class="wrem">
+<p><em>Point de vue numérique : choix des différents pivots pour
+l’élimination lorsque <span class="math inline">\(K=\mathbb{R}\)</span>,
+dans le cas de calculs avec des valeurs approchées.</em></p>
+<p>Soit <span class="math inline">\(A\in GL_n(\mathbb{R})\)</span> avec
+<span class="math inline">\(A=(a_{ij}).\)</span> Les coefficients <span
+class="math inline">\(a_{i1}\)</span> ne sont pas tous nuls ; en théorie
+on peut utiliser (pour faire apparaître des zéros dans la première
+colonne) un <span class="math inline">\(a_{i1}\)</span> quelconque,
+<span class="math inline">\(\neq 0\)</span>, qu’on appelle le premier
+pivot de l’élimination.</p>
+<p>En pratique, on a intérêt (pour éviter les erreurs d’arrondi pouvant
+conduire à des résultats très différents des résultats exacts) à ne pas
+diviser par un nombre trop petit ; par conséquent on utilisera <span
+class="math inline">\(a_{i_0,1}\)</span> tel que <span
+class="math inline">\(|a_{i_0,1}|=\max_{i\ge 1}|a_{i1}|,\)</span> en
+échangeant au besoin les lignes <span class="math inline">\(1\)</span>
+et <span class="math inline">\(i_0\)</span>. De même, pour les colonnes,
+on recherchera pour la <span
+class="math inline">\(j^{\text{ème}}\)</span> <span
+class="math inline">\(\max_{i\ge j}|a_{ij}|.\)</span></p>
+</div>
+<h1 data-number="8" id="equations-linéaires"><span
+class="header-section-number">8</span> Equations linéaires</h1>
+<h2 data-number="8.1" id="equation-linéaire"><span
+class="header-section-number">8.1</span> Equation linéaire</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(E,F\)</span> deux espaces
+vectoriels sur <span class="math inline">\(\mathbb{K}\)</span>.</p>
+<p>Soient <span class="math inline">\(f \in \mathscr{L}(E,F)\)</span> et
+<span class="math inline">\(b \in F\)</span>.</p>
+<p>L’équation linéaire associée à <span class="math inline">\(f\)</span>
+et <span class="math inline">\(b\)</span> est</p>
+<p><span class="math display">\[\label{eq:equation_lin}
+        \tag{$e$}
+        f(v) = b\]</span> d’inconnue <span
+class="math inline">\(v\)</span> dans <span
+class="math inline">\(E\)</span>.</p>
+<p><span class="math inline">\(\eqref{eq:equation_lin}\)</span>est dite
+<u>compatible</u> si<span
+class="math inline">\(\eqref{eq:equation_lin}\)</span>possède au moins
+une solution.</p>
+<p>L’équation <span class="math display">\[\label{eq:equation_lin_homo}
+        \tag{$e&#39;$}
+        f(v) = 0\]</span> d’inconnue <span
+class="math inline">\(v\)</span> dans <span
+class="math inline">\(E\)</span> est appelée l’équation homogène
+associée à <span
+class="math inline">\(\eqref{eq:equation_lin}\)</span>.</p>
+</div>
+<div class="wrem">
+<ul>
+<li><p><span class="math inline">\(\eqref{eq:equation_lin}\)</span>est
+<u>compatible</u> si et seulement si <span class="math inline">\(b \in
+\mathop{\mathrm{Im}}f\)</span>.</p></li>
+<li><p><span class="math inline">\(v\)</span> solution de <span
+class="math inline">\(\eqref{eq:equation_lin_homo}\)</span>si et
+seulement si <span class="math inline">\(v \in
+\mathop{\mathrm{Ker}}f\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Si<span class="math inline">\(\eqref{eq:equation_lin}\)</span>est
+compatible, soit <span class="math inline">\(v_0\)</span> solution
+de<span class="math inline">\(\eqref{eq:equation_lin}\)</span>alors
+l’ensemble <span
+class="math inline">\(\mathcal{S}_{$\eqref{eq:equation_lin}$}\)</span>
+des solutions de<span
+class="math inline">\(\eqref{eq:equation_lin}\)</span>s’écrit <span
+class="math display">\[\mathcal{S}_{$\eqref{eq:equation_lin}$} =
+\left\{v_0 + u \in E/ u \in
+\mathcal{S}_{$\eqref{eq:equation_lin_homo}$}\right\}.\]</span> où <span
+class="math inline">\(\mathcal{S}_{$\eqref{eq:equation_lin_homo}$}\)</span>
+est l’ensemble des solutions de <span
+class="math inline">\(\eqref{eq:equation_lin_homo}\)</span></p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(v \in E\)</span>, <span
+class="math display">\[\begin{aligned}
+        v \text{ solution de~$\eqref{eq:equation_lin}$}
+        &amp; \iff f(v) = b  \\
+        &amp; \iff f(v)   = f(v_0)\\
+        &amp; \iff f(v)-f(v_0) = 0_E \\
+        &amp; \iff f(v-v_0) = 0_E \\
+        &amp; \iff v-v_0 \in \mathop{\mathrm{Ker}}f \\
+        &amp; \iff \exists u \in \mathop{\mathrm{Ker}}f / u = v-v_0 \\
+        &amp; \iff \exists u \in \mathop{\mathrm{Ker}}f / v = u+v_0 \\
+        &amp; \iff \exists u \in
+\mathcal{S}_{$\eqref{eq:equation_lin_homo}$}/ v = u+v_0.
+    \end{aligned}\]</span></p>
+</div>
+<div class="wex">
+<p>Soit <span class="math inline">\(I\)</span> un intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>, considérons <span
+class="math inline">\(\left\{
+        \begin{array}{rl}
+            E &amp; = \mathscr{C}^1(I,\mathbb{R}) \\
+            F &amp; = \mathscr{C}(I,\mathbb{R}) \\
+            a: I \to \mathbb{R}, &amp; \text{continue sur $I$}
+        \end{array}
+        \right..\)</span></p>
+<p>Puis, <span class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; E &amp; \to &amp; F \\
+   &amp;   &amp; y &amp; \mapsto &amp; y&#39;-ay
+\end{array}
+\in \mathscr{L}(E,F)\)</span> et <span class="math inline">\(b:I \to
+\mathbb{R}\)</span>, continue sur <span
+class="math inline">\(I\)</span>.</p>
+<p>Alors, en considérant l’équation <span
+class="math display">\[\label{eq:ex_deo_lin_comme_equation_lin}
+            \tag{E}
+            \varphi(y) = b,\]</span></p>
+<p><span class="math display">\[\begin{aligned}
+            y \text{ solution
+de~$\eqref{eq:ex_deo_lin_comme_equation_lin}$}
+            &amp; \iff y&#39;-ay = b \\
+            &amp; \iff \forall t \in I, y&#39;(t)-a(t)y(t) = b(t) \\
+            &amp; \iff y \text{ solution de l&#39;équation
+différentielle $z&#39;(t) = a(t)z(t)+b(t)$.}
+        \end{aligned}\]</span></p>
+<p>Les résultats relatifs à l’équation homogène avait alors déjà été
+montrés.</p>
+</div>
+<h2 data-number="8.2" id="système-déquations-linéaires"><span
+class="header-section-number">8.2</span> Système d’équations
+linéaires</h2>
+<h3 data-number="8.2.1" id="définition-4"><span
+class="header-section-number">8.2.1</span> Définition</h3>
+<div class="wdefi">
+<p><span id="defi:def_systeme" label="defi:def_systeme"></span> Soient
+<span class="math inline">\(A = \left(a_{ij}\right)\in
+\mathscr{M}_{n,p}(\mathbb{K})\)</span> et <span class="math inline">\(b
+= \begin{pmatrix}
+        b_1 \\ \vdots \\ b_n
+    \end{pmatrix}\in \mathscr{M}_{n,1}(\mathbb{K})\)</span>.</p>
+<p>Le système linéaire associé à <span class="math inline">\(A\)</span>
+et <span class="math inline">\(b\)</span> d’inconnue <span
+class="math inline">\(X = \begin{pmatrix}
+        x_1 \\ \vdots \\ x_p
+    \end{pmatrix}\in \mathscr{M}_{p,1}(\mathbb{K})\)</span> (ou
+d’inconnues <span class="math inline">\(x_1,\ldots,x_p\)</span>)
+s’écrit</p>
+<p><span class="math display">\[\label{eq:defi_syst_lin}
+    \tag{L}
+            AX=b \iff \left\{\begin{array}{lllll}
+        a_{11}x_1 &amp; +a_{12}x_2 &amp; +\ldots &amp; +a_{1p}x_p &amp;
+= b_1 \\
+        \vdots &amp; \vdots &amp; \ldots &amp; \vdots &amp; = \vdots \\
+        a_{i1}x_1 &amp; +a_{i2}x_2 &amp; +\ldots &amp; +a_{ip}x_p &amp;
+= b_i \\
+        \vdots &amp; \vdots &amp; \ldots &amp; \vdots &amp; = \vdots \\
+        a_{n1}x_1 &amp; +a_{n2}x_2 &amp; +\ldots &amp; +a_{np}x_p &amp;
+= b_n \\
+    \end{array}\right..\]</span></p>
+<p>Le système linéaire <span
+class="math display">\[\label{eq:defi_syst_lin_homo}
+    \tag{L&#39;}
+            AX=b \iff \left\{\begin{array}{lllll}
+        a_{11}x_1 &amp; +a_{12}x_2 &amp; +\ldots &amp; +a_{1p}x_p &amp;
+= 0\\
+        \vdots &amp; \vdots &amp; \ldots &amp; \vdots &amp; = \vdots \\
+        a_{i1}x_1 &amp; +a_{i2}x_2 &amp; +\ldots &amp; +a_{ip}x_p &amp;
+=0 \\
+        \vdots &amp; \vdots &amp; \ldots &amp; \vdots &amp; = \vdots \\
+        a_{n1}x_1 &amp; +a_{n2}x_2 &amp; +\ldots &amp; +a_{np}x_p &amp;
+=0 \\
+    \end{array}\right..\]</span> est appelé le système linéaire homogène
+associé à <span
+class="math inline">\(\eqref{eq:defi_syst_lin}\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{L}(\mathbb{K}^p,\mathbb{K}^n)\)</span> canoniquement asociée à
+<span class="math inline">\(A\)</span> et <span
+class="math inline">\(x_1,\ldots,x_p \in \mathbb{K}^p\)</span>.</p>
+<p><span class="math display">\[\begin{pmatrix}
+        x_1 \\ \vdots \\ x_p
+    \end{pmatrix} \text{ solution de~$\eqref{eq:defi_syst_lin}$}
+    \iff f(x_1,\ldots,x_p) = (b_1,\ldots,b_p).\]</span></p>
+</div>
+<div class="wprop">
+<p>Si<span class="math inline">\(\eqref{eq:defi_syst_lin}\)</span>admet
+une solution <span class="math inline">\(X_0\)</span> alors l’ensemble
+<span
+class="math inline">\(\mathcal{S}_{$\eqref{eq:defi_syst_lin}$}\)</span>
+des solutions de<span
+class="math inline">\(\eqref{eq:defi_syst_lin}\)</span>s’écrit <span
+class="math display">\[\mathcal{S}_{$\eqref{eq:defi_syst_lin}$} =
+\left\{X_0 + U/ U \in
+\mathcal{S}_{$\eqref{eq:defi_syst_lin_homo}$}\right\}.\]</span> où <span
+class="math inline">\(\mathcal{S}_{$\eqref{eq:defi_syst_lin_homo}$}\)</span>
+est l’ensemble des solutions de <span
+class="math inline">\(\eqref{eq:defi_syst_lin_homo}\)</span></p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(X \in
+\mathscr{M}_{p,1}(\mathbb{K})\)</span>, <span
+class="math display">\[\begin{aligned}
+        X \text{ solution de~$\eqref{eq:defi_syst_lin}$}
+        &amp; \iff AX=b \\
+        &amp; \iff AX=AX_0\\
+        &amp; \iff AX-AX_0 = 0_{\mathscr{M}_{n,1}(\mathbb{K})} \\
+        &amp; \iff A(X-X_0) = 0_{\mathscr{M}_{n,1}(\mathbb{K})} \\
+        &amp; \iff \exists U \in
+\mathcal{S}_{$\eqref{eq:defi_syst_lin_homo}$}/ X = U+X_0.
+    \end{aligned}\]</span></p>
+</div>
+<div class="wcor">
+<p><span
+class="math inline">\(\eqref{eq:defi_syst_lin}\)</span>admet</p>
+<ul>
+<li><p><span class="math inline">\(0\)</span> solution</p></li>
+<li><p>ou une unique solution</p></li>
+<li><p>ou une infinité de solution.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Soit il n’existe pas de <span class="math inline">\(X_0 \in
+\mathscr{M}_{p,1}(\mathbb{K})\)</span> tel que <span
+class="math inline">\(AX_0 = b\)</span> donc le système n’admet pas de
+solution,</p></li>
+<li><p>Soit il existe <span class="math inline">\(X_0 \in
+\mathscr{M}_{p,1}(\mathbb{K})\)</span> tel que <span
+class="math inline">\(AX_0 = b\)</span>. Alors,</p>
+<ul>
+<li><p>Soit <span class="math inline">\(\dim \mathop{\mathrm{Ker}}A =
+0\)</span> donc <span
+class="math inline">\(\mathcal{S}_{$\eqref{defi:def_systeme}$} =
+\left\{X_0\right\}\)</span>,</p></li>
+<li><p>Soit <span class="math inline">\(\dim \mathop{\mathrm{Ker}}A &gt;
+0\)</span> et <span
+class="math inline">\(\mathcal{S}_{$\eqref{eq:defi_syst_lin}$} =
+\left\{X_0 + U/ U \in \mathop{\mathrm{Ker}}A\right\}.\)</span> est
+infini car <span class="math inline">\(\mathop{\mathrm{Ker}}A\)</span>
+est infini, comme espace vectoriel de dimension strictement
+positive.</p></li>
+</ul></li>
+</ul>
+</div>
+<h3 data-number="8.2.2"
+id="résolution-dun-système-de-cramer-par-la-méthode-du-pivot-de-gauss"><span
+class="header-section-number">8.2.2</span> Résolution d’un système de
+Cramer par la méthode du pivot de Gauss</h3>
+<div class="wdefi">
+<p>Soit <span
+class="math inline">\(\eqref{eq:defi_syst_lin}\)</span>associé à <span
+class="math inline">\(A \in \mathscr{M}_{n}(\mathbb{K})\)</span> et
+<span class="math inline">\(b \in
+\mathscr{M}_{n,1}(\mathbb{K})\)</span>.</p>
+<p><span class="math inline">\(\eqref{eq:defi_syst_lin}\)</span>est dit
+de Cramer si <span class="math inline">\(A \in
+GL_n(\mathbb{K})\)</span>.</p>
+<p>Dans ce cas,<span
+class="math inline">\(\eqref{eq:defi_syst_lin}\)</span>admet une unique
+solution.</p>
+</div>
+<p>Présentons la méthode de résolution d’un système de Cramer par le
+pivot de Gauss.</p>
+<p>Pour rappel, soit <span class="math inline">\(A= \left(a_{ij}\right)
+\in GL_n(\mathbb{K})\)</span>, on peut calculer l’inverse de <span
+class="math inline">\(A\)</span> par la méthode du pivot de Gauss. Plus
+précisément, on a écrit <span class="math display">\[\left(
+\begin{array}{ccccc|ccccc}
+a_{11} &amp; \ldots &amp; a_{1j} &amp; \ldots &amp; a_{1n} &amp; 1 &amp;
+0 &amp; \ldots &amp; \ldots &amp; 0\\
+\vdots &amp; \ldots &amp; \vdots &amp; \ldots &amp; \vdots&amp; 0 &amp;
+1 &amp; \ldots &amp; \ldots &amp; 0\\
+a_{i1} &amp; \ldots &amp; a_{ij} &amp; \ldots &amp; a_{in}&amp; \vdots
+&amp; \ldots &amp; \ddots &amp; \ldots &amp; \vdots \\
+\vdots &amp; \ldots &amp; \vdots &amp; \ldots &amp; \vdots&amp; \vdots
+&amp; \ldots &amp; \ldots &amp; \ddots &amp; \vdots \\
+a_{n1} &amp; \ldots &amp; a_{nj} &amp; \ldots &amp; a_{nn}&amp; 0 &amp;
+0 &amp; \ldots &amp; \ldots &amp; 1
+\end{array}
+\right)\]</span> Puis en effectuant des opérations sur les lignes, on se
+ramène à <span class="math display">\[\left(
+\begin{array}{ccccc|ccccc}
+1 &amp; 0 &amp; \ldots &amp; \ldots &amp; 0&amp;b_{11} &amp; \ldots
+&amp; b_{1j} &amp; \ldots &amp; b_{1n} \\
+0 &amp; 1 &amp; \ldots &amp; \ldots &amp; 0&amp;\vdots &amp; \ldots
+&amp; \vdots &amp; \ldots &amp; \vdots\\
+\vdots &amp; \ldots &amp; \ddots &amp; \ldots &amp; \vdots &amp;b_{i1}
+&amp; \ldots &amp; b_{ij} &amp; \ldots &amp; b_{in}\\
+\vdots &amp; \ldots &amp; \ldots &amp; \ddots &amp; \vdots&amp; \vdots
+&amp; \ldots &amp; \vdots &amp; \ldots &amp; \vdots \\
+0 &amp; 0 &amp; \ldots &amp; \ldots &amp; 1&amp; b_{n1} &amp; \ldots
+&amp; b_{nj} &amp; \ldots &amp; b_{nn}
+\end{array}
+\right)\]</span> et la matrice <span class="math inline">\(B =
+\left(b_{ij}\right) \in \mathscr{M}_{n}(\mathbb{K})\)</span> est <span
+class="math inline">\(A^{-1}\)</span>.</p>
+<p>Pour résoudre le système linéaire <span class="math inline">\(AX =
+b\)</span> avec <span class="math inline">\(b \in
+\mathscr{M}_{n,1}(\mathbb{K})\)</span>, on peut appliquer une méthode
+similaire qui repose sur les mêmes propriétés. Partant de <span
+class="math display">\[\left(
+\begin{array}{ccccc|c}
+a_{11} &amp; \ldots &amp; a_{1j} &amp; \ldots &amp; a_{1n} &amp; b_1\\
+\vdots &amp; \ldots &amp; \vdots &amp; \ldots &amp; \vdots&amp; \vdots\\
+a_{i1} &amp; \ldots &amp; a_{ij} &amp; \ldots &amp; a_{in}&amp; b_i \\
+\vdots &amp; \ldots &amp; \vdots &amp; \ldots &amp; \vdots&amp; \vdots
+\\
+a_{n1} &amp; \ldots &amp; a_{nj} &amp; \ldots &amp; a_{nn}&amp; b_n
+\end{array}
+\right),\]</span> on effectue des opérations sur les lignes pour se
+ramener à <span class="math display">\[\left(
+\begin{array}{ccccc|c}
+1 &amp; 0 &amp; \ldots &amp; \ldots &amp; 0 &amp; c_1\\
+0 &amp; 1 &amp; \ldots &amp; \ldots &amp; 0&amp; \vdots\\
+\vdots &amp; \ldots &amp; \ddots &amp; \ldots &amp; \vdots &amp; c_i \\
+\vdots &amp; \ldots &amp; \ldots &amp; \ddots &amp; \vdots&amp; \vdots
+\\
+0 &amp; 0 &amp; \ldots &amp; \ldots &amp; 1&amp; c_n
+\end{array}
+\right)\]</span> et alors <span class="math inline">\(c =
+\begin{pmatrix}
+    c_1 \\ \vdots \\ c_i \\ \vdots \\ c_n
+\end{pmatrix} \in \mathscr{M}_{n,1}(\mathbb{K})\)</span> est <span
+class="math inline">\(A^{-1}b\)</span>, l’unique solution du sytème de
+Cramer <span class="math inline">\(Ax=b\)</span>. Cette méthode
+s’appelle la méthode du pivot de Gauss.</p>
+<div class="wex">
+<p><strong>Exercice</strong> — Résoudre <span
+class="math display">\[(L): \left\{
+\begin{aligned}
+x-y+z &amp;=2,\\
+2x+y+6z &amp;=1,\\
+3x-2y+4z &amp;=1.
+\end{aligned}
+\right.\]</span></p>
+<p><strong>Corrigé</strong> — Le système <span
+class="math inline">\((L)\)</span> s’écrit <span
+class="math inline">\(AX = b\)</span> avec <span class="math inline">\(A
+= \begin{pmatrix}
+            1&amp;-1&amp;1\\
+2&amp;1&amp;6\\
+3&amp;-2&amp;4
+        \end{pmatrix}\)</span> et <span class="math inline">\(b =
+\begin{pmatrix}
+            2 \\ 1 \\ 1
+        \end{pmatrix}\)</span>.</p>
+<p>On applique donc le pivot de Gauss : <span
+class="math display">\[\begin{aligned}
+            \left(
+\begin{array}{ccc|c}
+1&amp;-1&amp;1&amp;2\\
+2&amp;1&amp;6&amp;1\\
+3&amp;-2&amp;4&amp;1
+\end{array}
+\right)
+\overset{\substack{L_2 \leftarrow L_2-2L_1 \\ L_3 \leftarrow L_3-3L_1}
+}{\longrightarrow} &amp;
+\left(
+\begin{array}{ccc|c}
+1&amp;-1&amp;1&amp;2\\
+0&amp;3&amp;4&amp;-3\\
+0&amp;1&amp;1&amp;-5
+\end{array}
+\right)
+\\
+\overset{\substack{L_2 \leftarrow \tfrac{1}{3}L_2} }{\longrightarrow}
+&amp;
+\left(
+\begin{array}{ccc|c}
+1&amp;-1&amp;1&amp;2\\
+0&amp;1&amp;\tfrac{4}{3}&amp;-1\\
+0&amp;1&amp;1&amp;-5
+\end{array}
+\right)
+\\
+\overset{\substack{L_3 \leftarrow L_3-L_2} }{\longrightarrow} &amp;
+\left(
+\begin{array}{ccc|c}
+1&amp;-1&amp;1&amp;2\\
+0&amp;1&amp;\tfrac{4}{3}&amp;-1\\
+0&amp;0&amp;-\tfrac{1}{3}&amp;-4
+\end{array}
+\right)
+\\
+\overset{\substack{L_2 \leftarrow L_2+4L_3} }{\longrightarrow} &amp;
+\left(
+\begin{array}{ccc|c}
+1&amp;-1&amp;1&amp;2\\
+0&amp;1&amp;0&amp;-17\\
+0&amp;0&amp;-\tfrac{1}{3}&amp;-4
+\end{array}
+\right)
+\\
+\overset{\substack{L_3 \leftarrow -3L_3} }{\longrightarrow} &amp;
+\left(
+\begin{array}{ccc|c}
+1&amp;-1&amp;1&amp;2\\
+0&amp;1&amp;0&amp;-17\\
+0&amp;0&amp;1&amp;12
+\end{array}
+\right)
+\\
+\overset{\substack{L_1 \leftarrow L_1-L_3} }{\longrightarrow} &amp;
+\left(
+\begin{array}{ccc|c}
+1&amp;-1&amp;0&amp;-10\\
+0&amp;1&amp;0&amp;-17\\
+0&amp;0&amp;1&amp;12
+\end{array}
+\right)
+\\
+\overset{\substack{L_1 \leftarrow L_1+L_2} }{\longrightarrow} &amp;
+\left(
+\begin{array}{ccc|c}
+1&amp;0&amp;0&amp;-27\\
+0&amp;1&amp;0&amp;-17\\
+0&amp;0&amp;1&amp;12
+\end{array}
+\right).
+        \end{aligned}\]</span></p>
 </div>
 </body>
 </html>
