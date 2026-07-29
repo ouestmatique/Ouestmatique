@@ -4016,14 +4016,13 @@ class="header-section-number">8.2.1</span> Définition</h3>
 \mathscr{M}_{n,p}(\mathbb{K})\)</span> et <span class="math inline">\(b
 = \begin{pmatrix}
         b_1 \\ \vdots \\ b_n
-    \end{pmatrix}\in \mathscr{M}_{n,1}(\mathbb{K})\)</span>.</p>
+    \end{pmatrix}\in \mathbb{K}^n\)</span>.</p>
 <p>Le système linéaire associé à <span class="math inline">\(A\)</span>
 et <span class="math inline">\(b\)</span> d’inconnue <span
 class="math inline">\(X = \begin{pmatrix}
         x_1 \\ \vdots \\ x_p
-    \end{pmatrix}\in \mathscr{M}_{p,1}(\mathbb{K})\)</span> (ou
-d’inconnues <span class="math inline">\(x_1,\ldots,x_p\)</span>)
-s’écrit</p>
+    \end{pmatrix}\in \mathbb{K}^p\)</span> (ou d’inconnues <span
+class="math inline">\(x_1,\ldots,x_p\)</span>) s’écrit</p>
 <p><span class="math display">\[\label{eq:defi_syst_lin}
     \tag{L}
             AX=b \iff \left\{\begin{array}{lllll}
@@ -4052,16 +4051,6 @@ class="math display">\[\label{eq:defi_syst_lin_homo}
 associé à <span
 class="math inline">\(\eqref{eq:defi_syst_lin}\)</span>.</p>
 </div>
-<div class="wrem">
-<p>Soit <span class="math inline">\(f \in
-\mathscr{L}(\mathbb{K}^p,\mathbb{K}^n)\)</span> canoniquement asociée à
-<span class="math inline">\(A\)</span> et <span
-class="math inline">\(x_1,\ldots,x_p \in \mathbb{K}^p\)</span>.</p>
-<p><span class="math display">\[\begin{pmatrix}
-        x_1 \\ \vdots \\ x_p
-    \end{pmatrix} \text{ solution de~$\eqref{eq:defi_syst_lin}$}
-    \iff f(x_1,\ldots,x_p) = (b_1,\ldots,b_p).\]</span></p>
-</div>
 <div class="wprop">
 <p>Si<span class="math inline">\(\eqref{eq:defi_syst_lin}\)</span>admet
 une solution <span class="math inline">\(X_0\)</span> alors l’ensemble
@@ -4078,14 +4067,13 @@ est l’ensemble des solutions de <span
 class="math inline">\(\eqref{eq:defi_syst_lin_homo}\)</span></p>
 </div>
 <div class="wproof">
-<p>Soit <span class="math inline">\(X \in
-\mathscr{M}_{p,1}(\mathbb{K})\)</span>, <span
+<p>Soit <span class="math inline">\(X \in \mathbb{K}^p\)</span>, <span
 class="math display">\[\begin{aligned}
         X \text{ solution de~$\eqref{eq:defi_syst_lin}$}
         &amp; \iff AX=b \\
         &amp; \iff AX=AX_0\\
-        &amp; \iff AX-AX_0 = 0_{\mathscr{M}_{n,1}(\mathbb{K})} \\
-        &amp; \iff A(X-X_0) = 0_{\mathscr{M}_{n,1}(\mathbb{K})} \\
+        &amp; \iff AX-AX_0 = 0_{\mathbb{K}^n} \\
+        &amp; \iff A(X-X_0) = 0_{\mathbb{K}^n} \\
         &amp; \iff \exists U \in
 \mathcal{S}_{$\eqref{eq:defi_syst_lin_homo}$}/ X = U+X_0.
     \end{aligned}\]</span></p>
@@ -4102,12 +4090,11 @@ class="math inline">\(\eqref{eq:defi_syst_lin}\)</span>admet</p>
 <div class="wproof">
 <ul>
 <li><p>Soit il n’existe pas de <span class="math inline">\(X_0 \in
-\mathscr{M}_{p,1}(\mathbb{K})\)</span> tel que <span
-class="math inline">\(AX_0 = b\)</span> donc le système n’admet pas de
-solution,</p></li>
+\mathbb{K}^p\)</span> tel que <span class="math inline">\(AX_0 =
+b\)</span> donc le système n’admet pas de solution,</p></li>
 <li><p>Soit il existe <span class="math inline">\(X_0 \in
-\mathscr{M}_{p,1}(\mathbb{K})\)</span> tel que <span
-class="math inline">\(AX_0 = b\)</span>. Alors,</p>
+\mathbb{K}^p\)</span> tel que <span class="math inline">\(AX_0 =
+b\)</span>. Alors,</p>
 <ul>
 <li><p>Soit <span class="math inline">\(\dim \mathop{\mathrm{Ker}}A =
 0\)</span> donc <span
@@ -4131,8 +4118,7 @@ Cramer par la méthode du pivot de Gauss</h3>
 <p>Soit <span
 class="math inline">\(\eqref{eq:defi_syst_lin}\)</span>associé à <span
 class="math inline">\(A \in \mathscr{M}_{n}(\mathbb{K})\)</span> et
-<span class="math inline">\(b \in
-\mathscr{M}_{n,1}(\mathbb{K})\)</span>.</p>
+<span class="math inline">\(b \in \mathbb{K}^n\)</span>.</p>
 <p><span class="math inline">\(\eqref{eq:defi_syst_lin}\)</span>est dit
 de Cramer si <span class="math inline">\(A \in
 GL_n(\mathbb{K})\)</span>.</p>
@@ -4176,10 +4162,9 @@ ramène à <span class="math display">\[\left(
 \left(b_{ij}\right) \in \mathscr{M}_{n}(\mathbb{K})\)</span> est <span
 class="math inline">\(A^{-1}\)</span>.</p>
 <p>Pour résoudre le système linéaire <span class="math inline">\(AX =
-b\)</span> avec <span class="math inline">\(b \in
-\mathscr{M}_{n,1}(\mathbb{K})\)</span>, on peut appliquer une méthode
-similaire qui repose sur les mêmes propriétés. Partant de <span
-class="math display">\[\left(
+b\)</span> avec <span class="math inline">\(b \in \mathbb{K}^n\)</span>,
+on peut appliquer une méthode similaire qui repose sur les mêmes
+propriétés. Partant de <span class="math display">\[\left(
 \begin{array}{ccccc|c}
 a_{11} &amp; \ldots &amp; a_{1j} &amp; \ldots &amp; a_{1n} &amp; b_1\\
 \vdots &amp; \ldots &amp; \vdots &amp; \ldots &amp; \vdots&amp; \vdots\\
@@ -4201,7 +4186,7 @@ ramener à <span class="math display">\[\left(
 \right)\]</span> et alors <span class="math inline">\(c =
 \begin{pmatrix}
     c_1 \\ \vdots \\ c_i \\ \vdots \\ c_n
-\end{pmatrix} \in \mathscr{M}_{n,1}(\mathbb{K})\)</span> est <span
+\end{pmatrix} \in \mathbb{K}^n\)</span> est <span
 class="math inline">\(A^{-1}b\)</span>, l’unique solution du sytème de
 Cramer <span class="math inline">\(Ax=b\)</span>. Cette méthode
 s’appelle la méthode du pivot de Gauss.</p>
