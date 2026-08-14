@@ -3360,7 +3360,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 
-// 2. TRACÉ DES LIGNES PARTIELLES ET RÉFÉRENCES MATHJAX
+        // 2. TRACÉ DES LIGNES PARTIELLES
         document.querySelectorAll("mjx-mtext").forEach(el => {
             let text = el.textContent;
             
@@ -3370,25 +3370,6 @@ document.addEventListener("DOMContentLoaded", function() {
                     let cls = Array.from(c.classList).find(className => className.startsWith('mjx-c'));
                     return cls ? String.fromCharCode(parseInt(cls.replace('mjx-c', ''), 16)) : '';
                 }).join('');
-            }
-
-            // NOUVEAU : Traitement des \ref{} cachés dans MathJax
-            if (text.includes("\\ref{")) {
-                let modifie = false;
-                // J'ai remplacé "def" par "defi?" pour correspondre à ta classe wdefi
-                let nouveauHtml = text.replace(/\\ref\{(prop|thm|defi?|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g, (m, t, id) => {
-                    modifie = true;
-                    let f = t + ":" + id;
-                    return labels[f] ? `<a href="#${f}" class="ref-${t}" style="color: inherit; text-decoration: none;">${labels[f].num}</a>` : m;
-                });
-                
-                // On nettoie les tildes (~) souvent utilisés comme espaces insécables en LaTeX
-                nouveauHtml = nouveauHtml.replace(/~/g, "&nbsp;");
-
-                if (modifie) {
-                    el.innerHTML = nouveauHtml;
-                    el.style.fontFamily = "inherit"; // Pour éviter des bugs d'affichage de police MathJax
-                }
             }
 
             if (text.includes("CLINEX")) {
@@ -3416,6 +3397,25 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 
+       // 3. Remplacement des références
+        document.querySelectorAll("body *").forEach(el => {
+            if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
+                el.innerHTML = el.innerHTML
+                // Remplace les \eqref{...}
+                .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m)
+                // NOUVEAU : Remplace les \ref{...} classiques (souvent utilisés dans les \text{} de MathJax)
+                .replace(/\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g, (m, t, id) => {
+                    let f = t + ":" + id;
+                    return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
+                })
+                // Remplace ta syntaxe personnalisée entre crochets [...]
+                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => {
+                    let f = t + ":" + id;
+                    return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
+                });
+            }
+        });
+
         // 3. Remplacement des références 
         document.querySelectorAll("body *").forEach(el => { 
             if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
@@ -3424,7 +3424,6 @@ document.addEventListener("DOMContentLoaded", function() {
                  .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => { 
                     let f = t + ":" + id; 
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m; }); } }); } 
-
 
     // Attente robuste de MathJax
     function waitForMathJax() {
