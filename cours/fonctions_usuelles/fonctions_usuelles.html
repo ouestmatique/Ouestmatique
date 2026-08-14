@@ -847,12 +847,11 @@ f&#39;(x_0)(x-x_0) + f(x_0),\]</span> est appelée <u>droite tangente</u>
 <p><strong>(Tangente et non-dérivabilité)</strong> Parmi tant d’autres,
 deux cas se présentent pour des fonctions non dérivables en un certain
 point. La fonction valeur absolue "admet deux tangentes en <span
-class="math inline">\(0\)</span>" (voir l’exemple <a
-href="#ex:valeur_aboslue_non_derivable" data-reference-type="ref"
-data-reference="ex:valeur_aboslue_non_derivable">[ex:valeur_aboslue_non_derivable]</a>)
-tandis que la fonction racine carrée admet une "tangente verticale" en
-<span class="math inline">\(0\)</span> (qui n’admet donc pas de
-coefficient directeur).</p>
+class="math inline">\(0\)</span>" (voir
+l’exemple [ex:valeur_aboslue_non_derivable]) tandis que la fonction
+racine carrée admet une "tangente verticale" en <span
+class="math inline">\(0\)</span> (qui n’admet donc pas de coefficient
+directeur).</p>
 <div class="center">
 <table>
 <tbody>
@@ -2099,13 +2098,11 @@ class="math inline">\(\sqrt{\cos^2(\mathop{\mathrm{Arcsin}}(y))} =
 class="math inline">\(\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span>
 donc <span class="math inline">\(\cos(\mathop{\mathrm{Arcsin}}(y)) =
 \sqrt{1-y^2}\)</span>.</p></li>
-<li><p>Par le corollaire <a href="#cor:derivee_reciproque"
-data-reference-type="ref"
-data-reference="cor:derivee_reciproque">[cor:derivee_reciproque]</a>,
-<span class="math inline">\(\mathop{\mathrm{Arcsin}}\)</span> est
-dérivable en les points <span class="math inline">\(y \in
-[-1,1]\)</span> tels que <span class="math inline">\(y=\sin(x)\)</span>,
-<span class="math inline">\(x \in
+<li><p>Par le corollaire [cor:derivee_reciproque], <span
+class="math inline">\(\mathop{\mathrm{Arcsin}}\)</span> est dérivable en
+les points <span class="math inline">\(y \in [-1,1]\)</span> tels que
+<span class="math inline">\(y=\sin(x)\)</span>, <span
+class="math inline">\(x \in
 \left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span> et <span
 class="math inline">\(\sin&#39;(x)  = \cos(x)\neq 0\)</span> donc pour
 <span class="math inline">\(x \in
@@ -2400,11 +2397,9 @@ class="math inline">\(\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\)</span>
 tel que <span class="math inline">\(\tan(-x) = y\)</span> donc <span
 class="math inline">\(\mathop{\mathrm{Arctan}}(-y) = -x = -
 \mathop{\mathrm{Arctan}}(y)\)</span>.</p></li>
-<li><p>Par le corrolaire <a href="#cor:derivee_reciproque"
-data-reference-type="ref"
-data-reference="cor:derivee_reciproque">[cor:derivee_reciproque]</a>,
-<span class="math inline">\(\mathop{\mathrm{Arctan}}\)</span> est
-dérivable en les points <span class="math inline">\(y \in
+<li><p>Par le corrolaire [cor:derivee_reciproque], <span
+class="math inline">\(\mathop{\mathrm{Arctan}}\)</span> est dérivable en
+les points <span class="math inline">\(y \in
 \left]-\frac{\pi}{2},\frac{\pi}{2}\right[\)</span> tels que <span
 class="math inline">\(y=\tan x\)</span> avec <span
 class="math inline">\(x \in
@@ -2774,10 +2769,8 @@ croissante sur <span class="math inline">\(\mathbb{R}\)</span>.</p>
 <div class="wproof">
 <p><span class="math inline">\(\ln\)</span> est dérivable sur <span
 class="math inline">\(\mathbb{R}^{+\star}\)</span>, avec une dérivée qui
-ne s’annule pas. Donc par le corrolaire <a
-href="#cor:derivee_reciproque" data-reference-type="ref"
-data-reference="cor:derivee_reciproque">[cor:derivee_reciproque]</a>,
-<span class="math inline">\(\exp\)</span> est dérivable sur <span
+ne s’annule pas. Donc par le corrolaire [cor:derivee_reciproque], <span
+class="math inline">\(\exp\)</span> est dérivable sur <span
 class="math inline">\(\mathbb{R}\)</span> et <span
 class="math display">\[\forall y \in \mathbb{R}, \exp&#39;(y)=
 \frac{1}{\ln&#39;(\exp(y))} = \exp(y).\]</span></p>
@@ -3854,18 +3847,24 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 
-        // 3. Remplacement des références
+       // 3. Remplacement des références
         document.querySelectorAll("body *").forEach(el => {
             if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
                 el.innerHTML = el.innerHTML
+                // Remplace les \eqref{...}
                 .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m)
+                // NOUVEAU : Remplace les \ref{...} classiques (souvent utilisés dans les \text{} de MathJax)
+                .replace(/\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g, (m, t, id) => {
+                    let f = t + ":" + id;
+                    return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
+                })
+                // Remplace ta syntaxe personnalisée entre crochets [...]
                 .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => {
                     let f = t + ":" + id;
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
                 });
             }
         });
-    }
 
     // Attente robuste de MathJax
     function waitForMathJax() {

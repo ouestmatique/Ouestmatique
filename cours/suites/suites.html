@@ -1178,8 +1178,7 @@ class="math display">\[|u_{n+1}-u_n| = |u_{n+1}-\ell+\ell-u_n| \leq
 </div>
 <div class="wrem">
 <p>La réciproque est fausse et nous en verrons un exemple plus tard
-(Exemple <a href="#ex:suite_harmonique" data-reference-type="ref"
-data-reference="ex:suite_harmonique">[ex:suite_harmonique]</a>).</p>
+(Exemple [ex:suite_harmonique]).</p>
 </div>
 <div class="wprop">
 <p>Soit <span class="math inline">\((u_n) \in
@@ -1802,11 +1801,9 @@ Soit <span class="math inline">\((u_{\varphi(n)})\)</span> suite
 extraite de <span class="math inline">\((u_n)\)</span> alors pour tout
 <span class="math inline">\(n \geq N_\varepsilon\)</span>, <span
 class="math inline">\(\varphi(n) \geq N_\varepsilon\)</span> par le
-lemme <a href="#lem:extractrice" data-reference-type="ref"
-data-reference="lem:extractrice">[lem:extractrice]</a> donc pour <span
-class="math inline">\(n \geq N_\varepsilon\)</span>, <span
-class="math display">\[|u_{\varphi{n}} - \ell| \leq
-\varepsilon.\]</span> Donc <span
+lemme [lem:extractrice] donc pour <span class="math inline">\(n \geq
+N_\varepsilon\)</span>, <span class="math display">\[|u_{\varphi{n}}
+- \ell| \leq \varepsilon.\]</span> Donc <span
 class="math inline">\((u_{\varphi(n)})\)</span> converge vers <span
 class="math inline">\(\ell\)</span>.</p>
 </div>
@@ -2488,18 +2485,24 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 
-        // 3. Remplacement des références
+       // 3. Remplacement des références
         document.querySelectorAll("body *").forEach(el => {
             if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
                 el.innerHTML = el.innerHTML
+                // Remplace les \eqref{...}
                 .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m)
+                // NOUVEAU : Remplace les \ref{...} classiques (souvent utilisés dans les \text{} de MathJax)
+                .replace(/\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g, (m, t, id) => {
+                    let f = t + ":" + id;
+                    return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
+                })
+                // Remplace ta syntaxe personnalisée entre crochets [...]
                 .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => {
                     let f = t + ":" + id;
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
                 });
             }
         });
-    }
 
     // Attente robuste de MathJax
     function waitForMathJax() {
