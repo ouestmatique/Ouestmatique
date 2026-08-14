@@ -2727,6 +2727,15 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
 
+        // 3. Remplacement des références 
+        document.querySelectorAll("body *").forEach(el => { 
+            if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
+                 el.innerHTML = el.innerHTML 
+                 .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m) 
+                 .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => { 
+                    let f = t + ":" + id; 
+                    return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m; }); } }); } 
+
     // Attente robuste de MathJax
     function waitForMathJax() {
         if (window.MathJax && window.MathJax.startup && window.MathJax.startup.promise) {
