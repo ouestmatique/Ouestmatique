@@ -152,6 +152,8 @@ class="toc-section-number">5.1</span> Introduction</a></li>
 id="toc-les-éléments-inversibles-de-mathscrm_nmathbbk"><span
 class="toc-section-number">5.2</span> Les éléments inversibles de <span
 class="math inline">\(\mathscr{M}_{n}(\mathbb{K})\)</span></a></li>
+<li><a href="#trace-dune-matrice" id="toc-trace-dune-matrice"><span
+class="toc-section-number">5.3</span> Trace d’une matrice</a></li>
 </ul></li>
 <li><a href="#changement-de-bases" id="toc-changement-de-bases"><span
 class="toc-section-number">6</span> Changement de bases</a>
@@ -1855,6 +1857,61 @@ cherche donc <span class="math inline">\(f_2^{-1}\)</span> telle que
         \end{pmatrix}.\)</span></p></li>
 </ol>
 </div>
+<h2 data-number="5.3" id="trace-dune-matrice"><span
+class="header-section-number">5.3</span> Trace d’une matrice</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(A = \left(a_{ij}\right)\in
+\mathscr{M}_{n}(\mathbb{K})\)</span>, on définit la trace de <span
+class="math inline">\(A\)</span>, notée <span
+class="math inline">\(\mathop{\mathrm{Tr}}(A)\)</span>, comme <span
+class="math inline">\(\mathop{\mathrm{Tr}}(A) = \sum_{i=1}^n
+a_{ii}\)</span>.</p>
+</div>
+<div class="wrem">
+<p>La trace est donc la somme des coefficients diagonaux.</p>
+</div>
+<div class="wprop">
+<p><span class="math inline">\(\mathop{\mathrm{Tr}}:
+\mathscr{M}_{n}(\mathbb{K}) \to \mathbb{K}\)</span> est une forme
+linéaire.</p>
+</div>
+<div class="wproof">
+<p>Pour tout <span class="math inline">\(A, B \in
+\mathscr{M}_{n}(\mathbb{K})\)</span> et <span
+class="math inline">\(\lambda \in \mathbb{K}\)</span>, <span
+class="math display">\[\mathop{\mathrm{Tr}}(A+\lambda B) = \sum_{i=1}^n
+(a_{ii}+\lambda b_{ii}) = \sum_{i=1}^n a_{ii}+\lambda \sum_{i=1}^n
+b_{ii} = \mathop{\mathrm{Tr}}(A) +\lambda
+\mathop{\mathrm{Tr}}(B).\]</span></p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(A \in
+\mathscr{M}_{n}(\mathbb{K})\)</span>, alors <span
+class="math inline">\(\mathop{\mathrm{Tr}}\left({}^tA\right) =
+\mathop{\mathrm{Tr}}(A)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Les coefficients diagonaux de <span
+class="math inline">\({}^tA\)</span> sont les mêmes que ceux de <span
+class="math inline">\(A\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(A,B \in
+\mathscr{M}_{n}(\mathbb{K})\)</span>, alors <span
+class="math inline">\(\mathop{\mathrm{Tr}}(AB) =
+\mathop{\mathrm{Tr}}(BA)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>En notant <span class="math inline">\(A = (a_{ij})\)</span> et <span
+class="math inline">\(B = (b_{ij})\)</span>, <span
+class="math inline">\(AB = \left(\sum_{k=1}^n
+a_{ik}b_{kj}\right)\)</span> et <span class="math inline">\(BA =
+\left(\sum_{k=1}^n b_{ik}a_{kj}\right)\)</span>.</p>
+<p>On a donc <span class="math display">\[\mathop{\mathrm{Tr}}(AB) =
+\sum_{i=1}^n \sum_{k=1}^n a_{ik}b_{ki} = \sum_{k=1}^n \left(\sum_{i=1}^n
+a_{ik}b_{ki}\right) = \sum_{k=1}^n (BA)_{kk} =
+\mathop{\mathrm{Tr}}(BA).\]</span></p>
+</div>
 <h1 data-number="6" id="changement-de-bases"><span
 class="header-section-number">6</span> Changement de bases</h1>
 <h2 data-number="6.1" id="matrice-de-passage-entre-deux-bases"><span
@@ -2456,6 +2513,27 @@ class="math display">\[\text{$A$ est semblable à $B$} \iff
 base de $E$ } \\ \text{ telle que $A = \mathscr{M}_{\mathscr{B}}(f)$ et
 $B = \mathscr{M}_{\mathscr{B}&#39;}(f)$.}
     \end{array}\]</span></p>
+</div>
+<p>On ajoute juste cette autre propriété.</p>
+<div class="wprop">
+<p>Soient <span class="math inline">\(A,B \in
+\mathscr{M}_{n}(\mathbb{K})\)</span> semblables alors <span
+class="math inline">\(\mathop{\mathrm{Tr}}(A) =
+\mathop{\mathrm{Tr}}(B)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Il existe <span class="math inline">\(P \in GL_n(\mathbb{K})\)</span>
+telle que <span class="math inline">\(A =P^{-1}AP\)</span>.</p>
+<p>De plus, <span class="math inline">\(Tr(CD) =
+\mathop{\mathrm{Tr}}(DC)\)</span> pour toute matrice <span
+class="math inline">\(C,D \in \mathscr{M}_{n}(\mathbb{K})\)</span>.</p>
+<p>Donc</p>
+<p><span class="math display">\[\mathop{\mathrm{Tr}}(B) =
+\mathop{\mathrm{Tr}}\left(P^{-1}AP\right)
+=\mathop{\mathrm{Tr}}\left(\left(P^{-1}A\right)P\right) =
+\mathop{\mathrm{Tr}}\left(P\left(P^{-1}A\right)\right) =
+\mathop{\mathrm{Tr}}(PP^{-1}A) = \mathop{\mathrm{Tr}}(I_nA) =
+\mathop{\mathrm{Tr}}(A).\]</span></p>
 </div>
 <h1 data-number="7" id="rang-dune-matrice"><span
 class="header-section-number">7</span> Rang d’une matrice</h1>

@@ -22,6 +22,9 @@
     }
   </style>
   <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
 </head>
 <body>
 
@@ -88,7 +91,2500 @@ color: var(--md-primary-bg-color);
 </p>
 
 </header>
-
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#produit-scalaire-dun-mathbbr-espace-vectoriel"
+id="toc-produit-scalaire-dun-mathbbr-espace-vectoriel"><span
+class="toc-section-number">1</span> Produit scalaire d’un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel</a>
+<ul>
+<li><a href="#définition" id="toc-définition"><span
+class="toc-section-number">1.1</span> Définition</a></li>
+<li><a href="#exemples-de-produits-scalaires"
+id="toc-exemples-de-produits-scalaires"><span
+class="toc-section-number">1.2</span> Exemples de produits scalaires</a>
+<ul>
+<li><a href="#sur-mathbbrn" id="toc-sur-mathbbrn"><span
+class="toc-section-number">1.2.1</span> Sur <span
+class="math inline">\(\mathbb{R}^n\)</span></a></li>
+<li><a href="#sur-mathscrcabmathbbr"
+id="toc-sur-mathscrcabmathbbr"><span
+class="toc-section-number">1.2.2</span> Sur <span
+class="math inline">\(\mathscr{C}([a,b],\mathbb{R})\)</span></a></li>
+<li><a href="#sur-mathscrm_nmathbbr"
+id="toc-sur-mathscrm_nmathbbr"><span
+class="toc-section-number">1.2.3</span> Sur <span
+class="math inline">\(\mathscr{M}_{n}(\mathbb{R})\)</span></a></li>
+<li><a href="#deux-petits-contre-exemples"
+id="toc-deux-petits-contre-exemples"><span
+class="toc-section-number">1.2.4</span> Deux petits
+contre-exemples</a></li>
+</ul></li>
+<li><a href="#norme-associée-à-un-produit-scalaire"
+id="toc-norme-associée-à-un-produit-scalaire"><span
+class="toc-section-number">1.3</span> Norme associée à un produit
+scalaire</a></li>
+<li><a href="#propriétés-de-la-norme"
+id="toc-propriétés-de-la-norme"><span
+class="toc-section-number">1.4</span> Propriétés de la norme</a>
+<ul>
+<li><a href="#homogénéité" id="toc-homogénéité"><span
+class="toc-section-number">1.4.1</span> Homogénéité</a></li>
+<li><a href="#séparation" id="toc-séparation"><span
+class="toc-section-number">1.4.2</span> Séparation</a></li>
+<li><a href="#identité-de-polarisation"
+id="toc-identité-de-polarisation"><span
+class="toc-section-number">1.4.3</span> Identité de
+polarisation</a></li>
+<li><a href="#inégalité-de-cauchy-schwarz"
+id="toc-inégalité-de-cauchy-schwarz"><span
+class="toc-section-number">1.4.4</span> Inégalité de
+Cauchy-Schwarz</a></li>
+<li><a href="#inégalité-triangulaire"
+id="toc-inégalité-triangulaire"><span
+class="toc-section-number">1.4.5</span> Inégalité triangulaire</a></li>
+</ul></li>
+<li><a href="#orthogonalité" id="toc-orthogonalité"><span
+class="toc-section-number">1.5</span> Orthogonalité</a>
+<ul>
+<li><a href="#vecteurs-orthogonaux" id="toc-vecteurs-orthogonaux"><span
+class="toc-section-number">1.5.1</span> Vecteurs orthogonaux</a></li>
+<li><a href="#orthogonal-dun-sous-espace-vectoriel"
+id="toc-orthogonal-dun-sous-espace-vectoriel"><span
+class="toc-section-number">1.5.2</span> Orthogonal d’un sous-espace
+vectoriel</a></li>
+<li><a href="#famille-orthogonale-de-vecteurs"
+id="toc-famille-orthogonale-de-vecteurs"><span
+class="toc-section-number">1.5.3</span> Famille orthogonale de
+vecteurs</a></li>
+<li><a href="#famille-orthonormée-de-vecteurs"
+id="toc-famille-orthonormée-de-vecteurs"><span
+class="toc-section-number">1.5.4</span> Famille orthonormée de
+vecteurs</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#espaces-euclidiens" id="toc-espaces-euclidiens"><span
+class="toc-section-number">2</span> Espaces euclidiens</a>
+<ul>
+<li><a href="#définition-1" id="toc-définition-1"><span
+class="toc-section-number">2.1</span> Définition</a></li>
+<li><a href="#base-orthonormée" id="toc-base-orthonormée"><span
+class="toc-section-number">2.2</span> Base orthonormée</a></li>
+<li><a href="#existence-dune-base-orthonormée"
+id="toc-existence-dune-base-orthonormée"><span
+class="toc-section-number">2.3</span> Existence d’une base
+orthonormée</a></li>
+<li><a href="#utilisation-dune-base-orthonormée"
+id="toc-utilisation-dune-base-orthonormée"><span
+class="toc-section-number">2.4</span> Utilisation d’une base
+orthonormée</a></li>
+<li><a href="#projection-orthogonale-sur-un-espace-vectoriel"
+id="toc-projection-orthogonale-sur-un-espace-vectoriel"><span
+class="toc-section-number">2.5</span> Projection orthogonale sur un
+espace vectoriel</a></li>
+<li><a href="#algorithme-de-gram-schmidt"
+id="toc-algorithme-de-gram-schmidt"><span
+class="toc-section-number">2.6</span> Algorithme de
+Gram-Schmidt</a></li>
+</ul></li>
+<li><a href="#isométries-dun-espace-euclidien"
+id="toc-isométries-dun-espace-euclidien"><span
+class="toc-section-number">3</span> Isométries d’un espace euclidien</a>
+<ul>
+<li><a href="#définition-et-premiers-exemples"
+id="toc-définition-et-premiers-exemples"><span
+class="toc-section-number">3.1</span> Définition et premiers
+exemples</a></li>
+<li><a href="#propriétés" id="toc-propriétés"><span
+class="toc-section-number">3.2</span> Propriétés</a></li>
+<li><a href="#caractérisation-des-isométries"
+id="toc-caractérisation-des-isométries"><span
+class="toc-section-number">3.3</span> Caractérisation des
+isométries</a></li>
+<li><a href="#matrices-orthogonales"
+id="toc-matrices-orthogonales"><span
+class="toc-section-number">3.4</span> Matrices orthogonales</a></li>
+<li><a href="#déterminant-dune-isométrie"
+id="toc-déterminant-dune-isométrie"><span
+class="toc-section-number">3.5</span> Déterminant d’une
+isométrie</a></li>
+<li><a href="#isométries-en-dimension-2"
+id="toc-isométries-en-dimension-2"><span
+class="toc-section-number">3.6</span> Isométries en dimension 2</a>
+<ul>
+<li><a href="#préliminaire" id="toc-préliminaire"><span
+class="toc-section-number">3.6.1</span> Préliminaire</a></li>
+<li><a href="#description-de-smathcaloe"
+id="toc-description-de-smathcaloe"><span
+class="toc-section-number">3.6.2</span> Description de <span
+class="math inline">\(S\mathcal{O}(E)\)</span></a></li>
+<li><a href="#description-de-mathcalo-e"
+id="toc-description-de-mathcalo-e"><span
+class="toc-section-number">3.6.3</span> Description de <span
+class="math inline">\(\mathcal{O}^{-}(E)\)</span></a></li>
+</ul></li>
+<li><a href="#orientation-dune-espace-vectoriel-de-dimension-finie"
+id="toc-orientation-dune-espace-vectoriel-de-dimension-finie"><span
+class="toc-section-number">3.7</span> Orientation d’une espace vectoriel
+de dimension finie</a>
+<ul>
+<li><a href="#introduction-en-dimension-2"
+id="toc-introduction-en-dimension-2"><span
+class="toc-section-number">3.7.1</span> Introduction en dimension
+2</a></li>
+<li><a href="#généralisation" id="toc-généralisation"><span
+class="toc-section-number">3.7.2</span> Généralisation</a></li>
+<li><a href="#orientation-et-rotation-en-dimension-2"
+id="toc-orientation-et-rotation-en-dimension-2"><span
+class="toc-section-number">3.7.3</span> Orientation et rotation en
+dimension 2</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1"
+id="produit-scalaire-dun-mathbbr-espace-vectoriel"><span
+class="header-section-number">1</span> Produit scalaire d’un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel</h1>
+<h2 data-number="1.1" id="définition"><span
+class="header-section-number">1.1</span> Définition</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel et <span
+class="math inline">\(\varphi : E\times E \to \mathbb{R}\)</span>.</p>
+<p><span class="math inline">\(\varphi\)</span> est un produit scalaire
+sur <span class="math inline">\(E\)</span> si</p>
+<ol>
+<li><p><span class="math inline">\(\varphi\)</span> est bilinéaire ie
+<span class="math inline">\(\varphi\)</span> est linéaire par rapport à
+chacune des variables, ou encore pour tout <span
+class="math inline">\(u,v \in E\)</span>, <span
+class="math inline">\(\begin{array}{lllll}
+\varphi_1 &amp; : &amp; E &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \varphi(x,v)
+\end{array}\)</span> est linéaire (linéarité à gauche) et <span
+class="math inline">\(\begin{array}{lllll}
+\varphi_2 &amp; : &amp; E &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; y &amp; \mapsto &amp; \varphi(u,y)
+\end{array}\)</span> est linéaire (linéarité à droite).</p></li>
+<li><p><span class="math inline">\(\varphi\)</span> est symétrique ie
+pour tout <span class="math inline">\(u,v \in E\)</span>, <span
+class="math inline">\(\varphi(u,v) = \varphi(v,u)\)</span></p></li>
+<li><p><span class="math inline">\(\varphi\)</span> est définie positive
+ie pour tout <span class="math inline">\(v \in E\)</span>, <span
+class="math inline">\(\varphi(v,v) \geq 0\)</span> et <span
+class="math inline">\(\varphi(v,v) = 0 \iff v = 0_E\)</span>.</p></li>
+</ol>
+<p><span class="math inline">\(\varphi(u,v)\)</span> est alors
+généralement noté <span class="math inline">\(\langle u,v
+\rangle\)</span>, <span class="math inline">\(\left(u \mid
+v\right)\)</span> ou <span
+class="math inline">\(\left[u,v\right]\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Si <span class="math inline">\(\varphi\)</span> est symétrique et
+linéaire à gauche alors <span class="math inline">\(\varphi\)</span> est
+linéaire à droite (donc bilinéaire).</p>
+<p>En effet, pour <span class="math inline">\(u,v_1,v_2 \in E\)</span>
+et <span class="math inline">\(\lambda \in \mathbb{R}\)</span>, on a
+alors <span class="math display">\[\begin{aligned}
+        \varphi(u,v_1+\lambda v_2)
+        &amp; = \varphi(v_1+\lambda v_2,u) \text{ par symétrie} \\
+        &amp; = \varphi(v_1,u) + \lambda \varphi(v_2,u) \text{ par
+linéarité à gauche} \\
+        &amp; = \varphi(u,v_2) + \lambda \varphi(u,v_2) \text{ par
+symétrie}.
+    \end{aligned}\]</span></p>
+</div>
+<h2 data-number="1.2" id="exemples-de-produits-scalaires"><span
+class="header-section-number">1.2</span> Exemples de produits
+scalaires</h2>
+<h3 data-number="1.2.1" id="sur-mathbbrn"><span
+class="header-section-number">1.2.1</span> Sur <span
+class="math inline">\(\mathbb{R}^n\)</span></h3>
+<div class="wprop">
+<p><span class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; \mathbb{R}^n \times \mathbb{R}^n &amp; \to &amp;
+\mathbb{R} \\
+   &amp;   &amp; (x,y) &amp; \mapsto &amp; \sum_{k=1}^n x_k y_k \text{
+avec }\substack{x = (x_1,\ldots,x_n) \\ y=(y_1,\ldots,y_n)}
+\end{array}\)</span> est un produit scalaire sur <span
+class="math inline">\(\mathbb{R}^n\)</span>, appelé le produit scalaire
+usuel de <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
+</div>
+<div class="wproof">
+<ol>
+<li><p><span class="math inline">\(\varphi\)</span> est linéaire à
+gauche.</p>
+<p>En effet, soient <span class="math inline">\(x = (x_1,\ldots,x_n) \in
+\mathbb{R}^n\)</span>, <span class="math inline">\(y=(y_1,\ldots,y_n)
+\in \mathbb{R}^n\)</span>, <span
+class="math inline">\(z=(z_1,\ldots,z_n) \in \mathbb{R}^n\)</span> ainsi
+que <span class="math inline">\(\lambda \in \mathbb{R}\)</span> alors
+<span class="math inline">\(x+\lambda z = (x_1+\lambda
+z_1,\ldots,x_n+\lambda z_n)\)</span> et</p>
+<p><span class="math display">\[\varphi(x+\lambda z,y) = \sum_{k=1}^n
+(x_k + \lambda z_k)y_k = \sum_{k=1}^n x_ky_k+\lambda \sum_{k=1}^n z_ky_k
+= \varphi(x,y) + \lambda \varphi(z,y).\]</span></p></li>
+<li><p><span class="math inline">\(\varphi\)</span> est symétrique.</p>
+<p>En effet, soient <span class="math inline">\(x = (x_1,\ldots,x_n) \in
+\mathbb{R}^n\)</span> et <span class="math inline">\(y=(y_1,\ldots,y_n)
+\in \mathbb{R}^n\)</span>,</p>
+<p><span class="math display">\[\varphi(x,y) = \sum_{k=1}^n x_k y_k =
+\sum_{k=1}^n y_k x_k = \varphi(y,x).\]</span></p></li>
+<li><p><span class="math inline">\(\varphi\)</span> est définie
+positive.</p>
+<p>En effet, soit <span class="math inline">\(x = (x_1,\ldots,x_n) \in
+\mathbb{R}^n\)</span>, <span class="math inline">\(\varphi(x,x) =
+\sum_{k=1}^n x_k^2 \geq 0\)</span>.</p>
+<p>De plus, <span class="math inline">\(\varphi(x,x) = 0 \iff
+\sum_{k=1}^n \underbrace{x_k^2}_{\geq 0} = 0 \iff \forall k \in [\![ 1,n
+]\!], x_k = 0 \iff x = 0_{\mathbb{R}^n}.\)</span></p></li>
+</ol>
+</div>
+<h3 data-number="1.2.2" id="sur-mathscrcabmathbbr"><span
+class="header-section-number">1.2.2</span> Sur <span
+class="math inline">\(\mathscr{C}([a,b],\mathbb{R})\)</span></h3>
+<div class="wprop">
+<p><span class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; \mathscr{C}([a,b],\mathbb{R}) \times
+\mathscr{C}([a,b],\mathbb{R}) &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; (f,g) &amp; \mapsto &amp; \int_a^b fg
+\end{array}\)</span> est un produit scalaire sur <span
+class="math inline">\(\mathscr{C}([a,b],\mathbb{R})\)</span>.</p>
+</div>
+<div class="wproof">
+<ol>
+<li><p><span class="math inline">\(\varphi\)</span> est linéaire à
+gauche.</p>
+<p>En effet, soient <span class="math inline">\(f,g,h \in
+\mathscr{C}([a,b],\mathbb{R})\)</span> et <span
+class="math inline">\(\lambda \in \mathbb{R}\)</span>, par linéarité de
+l’intégrale on a <span class="math display">\[\varphi(f+\lambda g,h) =
+\int_a^b (f+\lambda g)h = \int_a^b fh+\lambda \int_a^b gh = \varphi(f,h)
++ \lambda \varphi(g,h).\]</span></p></li>
+<li><p><span class="math inline">\(\varphi\)</span> est symétrique.</p>
+<p>En effet, soient <span class="math inline">\(f,g \in
+\mathscr{C}([a,b],\mathbb{R})\)</span>, <span
+class="math display">\[\varphi(f,g) = \int_a^b fg= \int_a^b gf =
+\varphi(g,f).\]</span></p></li>
+<li><p><span class="math inline">\(\varphi\)</span> est définie
+positive.</p>
+<p>En effet, soit <span class="math inline">\(f \in
+\mathscr{C}([a,b],\mathbb{R})\)</span>, <span
+class="math inline">\(\varphi(f,f) = \int_a^b \underbrace{f^2}_{\geq 0}
+\geq 0\)</span> et <span class="math inline">\(\int_a^b
+\underbrace{f^2}_{\geq 0} = 0 \iff f = 0\)</span> car <span
+class="math inline">\(f\)</span> est continue.</p></li>
+</ol>
+</div>
+<div class="wrem">
+<p>En revanche, <span class="math inline">\(\varphi\)</span> n’est pas
+un produit scalaire sur <span
+class="math inline">\(\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>.</p>
+<p>En effet, elle n’y est pas définie positive car <span
+class="math inline">\(\varphi(f,f) =0\)</span> avec <span
+class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; [a,b] &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \left\{\begin{array}{ll}
+        0 &amp; \mbox{ si $x \in [a,b[$} \\
+        1 &amp; \mbox{ si $x=b$}
+    \end{array}\right.
+\end{array}\)</span> qui est non nulle.</p>
+</div>
+<h3 data-number="1.2.3" id="sur-mathscrm_nmathbbr"><span
+class="header-section-number">1.2.3</span> Sur <span
+class="math inline">\(\mathscr{M}_{n}(\mathbb{R})\)</span></h3>
+<div class="wprop">
+<p><span class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; \mathscr{M}_{n}(\mathbb{R}) \times
+\mathscr{M}_{n}(\mathbb{R}) &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; (A,B) &amp; \mapsto &amp;
+\mathop{\mathrm{Tr}}\left({}^tAB\right)
+\end{array}\)</span> est un produit scalaire sur <span
+class="math inline">\(\mathscr{M}_{n}(\mathbb{R})\)</span>.</p>
+</div>
+<div class="wproof">
+<ol>
+<li><p><span class="math inline">\(\varphi\)</span> est linéaire à
+gauche.</p>
+<p>En effet, soient <span class="math inline">\(A,B,C \in
+\mathscr{M}_{n}(R)\)</span> et <span class="math inline">\(\lambda \in
+\mathbb{R}\)</span>,</p>
+<p><span class="math display">\[\varphi(A+\lambda C,B) =
+\mathop{\mathrm{Tr}}\left({}^t\left(A+\lambda C\right)B\right)
+=\mathop{\mathrm{Tr}}\left({}^tA+\lambda {}^tCB\right) =
+\mathop{\mathrm{Tr}}({}^TAB)+\lambda\mathop{\mathrm{Tr}}({}^tCB) =
+\varphi(A,B)+\lambda\varphi(C,B).\]</span></p></li>
+<li><p><span class="math inline">\(\varphi\)</span> est symétrique.</p>
+<p>En effet, soient <span class="math inline">\(A,B \in
+\mathscr{M}_{n}(\mathbb{R})\)</span>,</p>
+<p><span class="math display">\[\varphi(A,B) =
+\mathop{\mathrm{Tr}}\left({}^tAB\right) =
+\mathop{\mathrm{Tr}}\left({}^t\left({}^tAB\right)\right) =
+\mathop{\mathrm{Tr}}\left({}^tBA\right) =
+\varphi(B,A).\]</span></p></li>
+<li><p><span class="math inline">\(\varphi\)</span> est définie
+positive.</p>
+<p>En effet, pour <span class="math inline">\(A = \left(a_{ij}\right)
+\in \mathscr{M}_{n}(\mathbb{R})\)</span> <span
+class="math inline">\(^tAA = \left(\sum_{k=1}^n
+a_{ki}a_{kj}\right)\)</span> donc <span
+class="math display">\[\varphi(A,A) = \sum_{i=1}^n \sum_{k=1}^n
+a_{ki}a_{ki} = \sum_{1 \leq i,k \leq n} a_{ki}^2.\]</span></p>
+<p>Donc <span class="math inline">\(\varphi(A,A) \geq 0\)</span></p>
+<p>et <span class="math inline">\(\varphi(A,A) = 0 \iff  \sum_{1 \leq
+i,k \leq n} \underbrace{a_{ki}^2}_{\geq 0} = 0 \iff \forall 1 \leq i,k
+\leq n, a_{ki} = 0 \iff A =
+0_{\mathscr{M}_{n}(\mathbb{R})}\)</span>.</p></li>
+</ol>
+</div>
+<div class="wrem">
+<p>Remarquons que pour <span class="math inline">\(A =
+\left(a_{ij}\right),B=\left(b_{ij}\right) \in
+\mathscr{M}_{n}(\mathbb{R})\)</span>, <span class="math inline">\({}^tAB
+= \left(\sum_{k=1}^n a_{ki}b_{kj}\right)\)</span>.</p>
+<p>Donc <span class="math inline">\(\varphi(A,B) =
+\mathop{\mathrm{Tr}}\left({}^tAB\right) = \sum_{i=1}^n \sum_{k=1}^n
+a_{ki}b_{ki} = \sum_{1 \leq i,j \leq n}a_{ij}b_{ij}\)</span> est en fait
+la somme du produit des coefficients (comme fonctionne le produit
+scalaire usuel de <span
+class="math inline">\(\mathbb{R}^n\)</span>).</p>
+</div>
+<h3 data-number="1.2.4" id="deux-petits-contre-exemples"><span
+class="header-section-number">1.2.4</span> Deux petits
+contre-exemples</h3>
+<div class="wex">
+<p><span class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; \mathbb{R}^3 \times \mathbb{R}^3 &amp; \to &amp;
+\mathbb{R} \\
+   &amp;   &amp; (u,v) &amp; \mapsto &amp; x_1y_1-2x_2y_2+3x_3y_3 \text{
+avec }\substack{u = (x_1,x_2,x_3) \\ v=(y_1,y_2,y_3)}
+\end{array}\)</span> n’est pas un produit scalaire.</p>
+<p>En effet, par exemple avec <span class="math inline">\(v_0 =
+(0,1,0)\)</span>, <span class="math inline">\(\varphi(v_0,v_0) = -2 &lt;
+0\)</span>.</p>
+</div>
+<div class="wex">
+<p>Soit <span class="math inline">\((\Omega,\mathbb{P})\)</span> un
+espace probabilisé. Notons <span
+class="math inline">\(\mathscr{E}\)</span> l’ensemble des variables
+aléatoires de <span class="math inline">\(\Omega\)</span> dans <span
+class="math inline">\(\mathbb{R}\)</span>.</p>
+<p>Alors, <span class="math inline">\(\mathscr{E}\)</span> est un espace
+vectoriel mais <span class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; \mathscr{E}\times \mathscr{E} &amp; \to &amp;
+\mathbb{R} \\
+   &amp;   &amp; (X,Y) &amp; \mapsto &amp; \mathop{\mathrm{Cov}}(X,Y)
+\end{array}\)</span> n’est pas un produit scalaire.</p>
+<ol>
+<li><p><span class="math inline">\(\varphi\)</span> est linéaire à
+gauche,</p></li>
+<li><p><span class="math inline">\(\varphi\)</span> est
+symétrique,</p></li>
+<li><p><span class="math inline">\(\varphi\)</span> est positive car
+pour <span class="math inline">\(X \in Ec\)</span>, <span
+class="math inline">\(\varphi(X,X) = \mathop{\mathrm{Cov}}(X,X) =
+\mathop{\mathrm{Var}}(X) \geq 0\)</span>,</p></li>
+<li><p>mais <span class="math inline">\(\varphi\)</span> n’est pas
+définie positive.</p>
+<p>En effet, soit <span class="math inline">\(X \in
+\mathscr{E}\)</span>, <span class="math display">\[\varphi(X,X) = 0 \iff
+\mathop{\mathrm{Var}}(X) = 0 \iff \mathbb{P}(X=0) = 1 \centernot{\iff} X
+= 0.\]</span></p></li>
+</ol>
+</div>
+<h2 data-number="1.3" id="norme-associée-à-un-produit-scalaire"><span
+class="header-section-number">1.3</span> Norme associée à un produit
+scalaire</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel et <span
+class="math inline">\(\left(\cdot \mid \cdot\right)\)</span> un produit
+scalaire de <span class="math inline">\(E\)</span>.</p>
+<p>On définit la norme de <span class="math inline">\(v \in E\)</span>
+comme le réel positif <span class="math inline">\(\sqrt{\left(v\mid
+v\right)}\)</span>. On la note alors <span
+class="math inline">\(\left\|v\right\|\)</span>.</p>
+</div>
+<div class="wex">
+<ul>
+<li><p>Pour <span class="math inline">\(E = \mathbb{R}^n\)</span> et
+<span class="math inline">\(\left(\cdot \mid \cdot\right)\)</span> le
+produit scalaire usuel, pour <span class="math inline">\(x =
+(x_1,\ldots,x_n) \in \mathbb{R}^n\)</span>, <span
+class="math inline">\(\left\|x\right\| = \sqrt{\sum_{k=1}^n
+x_k^2}.\)</span></p></li>
+<li><p>Pour <span class="math inline">\(E =
+\mathscr{C}([a,b],\mathbb{R})\)</span> et <span
+class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; \mathscr{C}([a,b],\mathbb{R}) \times
+\mathscr{C}([a,b],\mathbb{R}) &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; (f,g) &amp; \mapsto &amp; \int_a^b fg
+\end{array}\)</span>, pour <span class="math inline">\(f
+\in  \mathscr{C}([a,b],\mathbb{R})\)</span>, <span
+class="math inline">\(\left\|f\right\| = \sqrt{\int_a^b
+f^2}\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="1.4" id="propriétés-de-la-norme"><span
+class="header-section-number">1.4</span> Propriétés de la norme</h2>
+<h3 data-number="1.4.1" id="homogénéité"><span
+class="header-section-number">1.4.1</span> Homogénéité</h3>
+<div class="wprop">
+<p><strong>(Homogénéité de la norme)</strong> Soit <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel et <span
+class="math inline">\(\left(\cdot \mid \cdot\right)\)</span> un produit
+scalaire de <span class="math inline">\(E\)</span>.</p>
+<p>Soient <span class="math inline">\(u \in E\)</span> et <span
+class="math inline">\(\lambda \in \mathbb{R}\)</span> alors <span
+class="math inline">\(\left\|\lambda u\right\| =
+\left|\lambda\right|\left\|u\right\|\)</span>.</p>
+</div>
+<div class="wproof">
+<p>On a <span class="math inline">\(\left\|\lambda u\right\|^2 =
+\left(\lambda u\mid  \lambda u\right) =  \lambda^2 \left(u\mid u\right)
+= \lambda^2 \left\|u\right\|^2\)</span> par bilinéarité de <span
+class="math inline">\(\left(\cdot \mid \cdot\right)\)</span>.</p>
+<p>Donc <span class="math inline">\(\left\|\lambda u\right\| =
+\sqrt{\underbrace{\left\|\lambda u\right\|}_{\geq 0}{}^2} =
+\sqrt{\lambda^2 \left\|u\right\|^2} =
+\sqrt{\lambda^2}\sqrt{\underbrace{\left\|u\right\|}_{\geq
+0}{}^2}=\left|\lambda\right|\left\|u\right\|.\)</span></p>
+</div>
+<h3 data-number="1.4.2" id="séparation"><span
+class="header-section-number">1.4.2</span> Séparation</h3>
+<div class="wprop">
+<p><strong>(Propriété de séparation de la norme)</strong> Soit <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel et <span
+class="math inline">\(\left(\cdot \mid \cdot\right)\)</span> un produit
+scalaire de <span class="math inline">\(E\)</span>.</p>
+<p>Soient <span class="math inline">\(u \in E\)</span> alors <span
+class="math inline">\(\left\| u\right\| = 0 \iff u=0_E\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\left\| u\right\| = \sqrt{\left(u\mid
+u\right)}\)</span> et <span class="math inline">\(\left(\cdot \mid
+\cdot\right)\)</span> est défini positif donc <span
+class="math inline">\(\left\| u\right\| = 0 \iff \left(u\mid u\right)=0
+\iff u=0_E\)</span>.</p>
+</div>
+<div class="wrem">
+<p>En particulier, si <span class="math inline">\(u,v \in E\)</span>, on
+a donc <span class="math inline">\(u=v \iff
+\left\|u-v\right\|=0\)</span>.</p>
+</div>
+<h3 data-number="1.4.3" id="identité-de-polarisation"><span
+class="header-section-number">1.4.3</span> Identité de polarisation</h3>
+<div class="wprop">
+<p><span id="prop:dev_norm_au_carre"
+label="prop:dev_norm_au_carre"></span> Soit <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel et <span
+class="math inline">\(\left(\cdot \mid \cdot\right)\)</span> un produit
+scalaire de <span class="math inline">\(E\)</span>.</p>
+<p>Alors, soient <span class="math inline">\(u,v \in E\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+        \|u+v\|^2 &amp; = \|u\|^2 + \|v\|^2 + 2\left(u\mid v\right)\\
+        \|u-v\|^2 &amp; = \|u\|^2 + \|v\|^2 - 2\left(u\mid v\right).
+    \end{aligned}\]</span></p>
+</div>
+<div class="wproof">
+<p><span class="math display">\[\begin{aligned}
+        \|u+v\|^2
+        &amp; = \left(u+v\mid u+v\right) \\
+        &amp; = \left(u\mid u+v\right)+\left(v\mid u+v\right) \text{ par
+linéarité à gauche de $\left(\cdot \mid \cdot\right)$}\\
+        &amp; = \underbrace{\left(u\mid
+u\right)}_{=\left\|u\right\|^2}+\left(u\mid v\right)+\left(v\mid
+u\right)+\underbrace{\left(v\mid v\right)}_{=\left\|v\right\|^2} \text{
+par linéarité à droite de $\left(\cdot \mid \cdot\right)$}\\
+        &amp; = \left\|u\right\|^2+\left\|v\right\|^2+2\left(u\mid
+v\right) \text{ par symétrie de $\left(\cdot \mid \cdot\right)$}
+    \end{aligned}\]</span> et <span
+class="math display">\[\begin{aligned}
+        \|u+v\|^2
+        &amp; = \|u+(-v)\|^2  \\
+        &amp; = \left\|u\right\|^2+\left\|-v\right\|^2+2\left(u\mid
+-v\right) \\
+        &amp; =
+\left\|u\right\|^2+\left|-1\right|\left\|v\right\|^2-2\left(u\mid
+v\right) \substack{\text{ par homogénéité de la norme}\\\text{ et
+linéarité à droite de $\left(\cdot \mid \cdot\right)$}} \\
+        &amp; = \|u\|^2 + \|v\|^2 + 2\left(u\mid v\right).
+    \end{aligned}\]</span></p>
+</div>
+<div class="wrem">
+<p>Pour le produit scalaire usuel sur <span
+class="math inline">\(\mathbb{R}^n\)</span> avec <span
+class="math inline">\(n=1\)</span>, on retrouve que pour tout <span
+class="math inline">\(a,b \in \mathbb{R}\)</span>, <span
+class="math inline">\((a+b)^2=a^2+b^2+2ab\)</span> et <span
+class="math inline">\((a-b)^2=a^2+b^2-2ab\)</span>.</p>
+</div>
+<div class="wprop">
+<p><strong>(Identité de polarisation)</strong> Soit <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel et <span
+class="math inline">\(\left(\cdot \mid \cdot\right)\)</span> un produit
+scalaire de <span class="math inline">\(E\)</span>.</p>
+<p>Alors, soient <span class="math inline">\(u,v \in E\)</span>,</p>
+<p><span class="math display">\[\left(u\mid v\right) =
+\frac{1}{4}\left(\left\|u+v\right\|^2-\left\|u-v\right\|^2\right).\]</span></p>
+</div>
+<div class="wproof">
+<p>Par la proposition <a href="#prop:dev_norm_au_carre"
+data-reference-type="ref"
+data-reference="prop:dev_norm_au_carre">[prop:dev_norm_au_carre]</a>,
+<span class="math display">\[\begin{aligned}
+        \left(u\mid v\right) &amp; =
+\frac{1}{2}\left(\left\|u+v\right\|^2-\left\|u\right\|^2-\left\|v\right\|^2\right)
+\\
+        \text{ et }\left(u\mid v\right) &amp; =
+\frac{1}{2}\left(-\left\|u-v\right\|^2+\left\|u\right\|^2+\left\|v\right\|^2\right)
+    \end{aligned}\]</span></p>
+<p>Donc <span class="math display">\[\begin{aligned}
+        \left(u\mid v\right)
+        &amp; = \frac{1}{2}\left(u\mid v\right) +\frac{1}{2}\left(u\mid
+v\right)\\
+        &amp; =
+\frac{1}{4}\left(\left\|u+v\right\|^2-\left\|u\right\|^2-\left\|v\right\|^2\right)+\frac{1}{4}\left(-\left\|u-v\right\|^2+\left\|u\right\|^2+\left\|v\right\|^2\right)\\
+        &amp; =
+\frac{1}{4}\left(\left\|u+v\right\|^2-\left\|u-v\right\|^2\right).
+    \end{aligned}\]</span></p>
+</div>
+<h3 data-number="1.4.4" id="inégalité-de-cauchy-schwarz"><span
+class="header-section-number">1.4.4</span> Inégalité de
+Cauchy-Schwarz</h3>
+<div class="wprop">
+<p><strong>(Inégalité de Cauchy-Schwarz)</strong> Soit <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel et <span
+class="math inline">\(\left(\cdot \mid \cdot\right)\)</span> un produit
+scalaire de <span class="math inline">\(E\)</span>.</p>
+<p>Soient <span class="math inline">\(u,v \in E\)</span> alors <span
+class="math display">\[\left|\left(u\mid v\right)\right| \leq
+\left\|u\right\|\left\|v\right\|.\]</span></p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(t \in \mathbb{R}\)</span> alors
+<span class="math inline">\(u+tv \in E\)</span>.</p>
+<p>De plus, <span class="math inline">\(\left\|u+tv\right\|^2 =
+\left\|u\right\|^2+t^2\left\|v\right\|^2+2t\left(u\mid v\right)\)</span>
+et pour <span class="math inline">\(\left\|u+tv\right\|^2 \geq
+0\)</span>.</p>
+<p><span class="math inline">\(t \in \mathbb{R}\mapsto
+\left\|u\right\|^2+t^2\left\|v\right\|^2+2t\left(u\mid v\right)\)</span>
+est donc un polynôme toujours positif.</p>
+<ul>
+<li><p>Soit <span class="math inline">\(\left\|v\right\| = 0\)</span>
+donc <span class="math inline">\(v = 0_E\)</span> et <span
+class="math inline">\(\left(u\mid v\right) = 0 \leq
+\left\|u\right\|\left\|v\right\| = 0\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(\left\|v\right\| \neq 0\)</span>
+et dans ce cas, <span class="math inline">\(t \in \mathbb{R}\mapsto
+\left\|u\right\|^2+t^2\left\|v\right\|^2+2t\left(u\mid v\right)\)</span>
+est un polynôme du second degré avec au plus une racine.</p>
+<p>Son discriminant est alors négatif, ce qui donne</p>
+<p><span class="math inline">\(4\left(u\mid
+v\right)^2-4\left\|u\right\|^2\left\|v\right\|^2 \leq 0 \iff \left(u\mid
+v\right)^2 \leq \left\|u\right\|^2\left\|v\right\|^2 \iff
+\left|\left(u\mid v\right)\right| \leq
+\left\|u\right\|\left\|v\right\|\)</span>.</p></li>
+</ul>
+</div>
+<div class="wex">
+<p>En considérant le produit scalaire sur <span
+class="math inline">\(\mathbb{R}^n\)</span>, on a pour <span
+class="math inline">\(x = (x_1,\ldots,x_n) \in \mathbb{R}^n\)</span> et
+<span class="math inline">\(y=(y_1,\ldots,y_n) \in
+\mathbb{R}^n\)</span>, <span class="math display">\[\left|\sum_{k=1}^n
+x_k y_k\right| \leq \sqrt{\sum_{k=1}^n x_k^2}\sqrt{\sum_{k=1}^n y_k^2}
+\iff \left(\sum_{k=1}^n x_k y_k\right)^2 \leq \left(\sum_{k=1}^n
+x_k^2\right)\left(\sum_{k=1}^n y_k^2\right)\]</span></p>
+</div>
+<div class="wprop">
+<p><strong>(Cas d’égalité de l’inégalité de Cauchy-Schwarz)</strong>
+Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel et <span
+class="math inline">\(\left(\cdot \mid \cdot\right)\)</span> un produit
+scalaire de <span class="math inline">\(E\)</span>.</p>
+<p>Soient <span class="math inline">\(u,v \in E\)</span> alors il y a
+égalité dans l’inégalité de Cauchy-Schwarz ie <span
+class="math inline">\(\left|\left(u\mid v\right)\right| \leq
+\left\|u\right\|\left\|v\right\|\)</span> si et seulement si <span
+class="math inline">\((u,v)\)</span> est liée.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Si <span
+class="math inline">\((u,v)\)</span> est liée, alors</p>
+<ul>
+<li><p>soit <span class="math inline">\(v=0_E\)</span> et <span
+class="math inline">\(\left|\left(u\mid v\right)\right|
+=\left\|u\right\|\left\|v\right\|=0\)</span>,</p></li>
+<li><p>soit <span class="math inline">\(v \neq 0_E\)</span> et il existe
+<span class="math inline">\(\lambda \in \mathbb{R}\)</span> tel que
+<span class="math inline">\(u = \lambda v\)</span>.</p>
+<p>On a alors <span class="math inline">\(\left|\left(u\mid
+v\right)\right| = \left|\left(\lambda v \mid v\right)\right|
+=  \left|\lambda\left(v \mid v\right)\right| =
+\left|\lambda\right|\left\|v\right\|^2= \left\|\lambda
+v\right\|\left\|v\right\|
+=\left\|u\right\|\left\|v\right\|\)</span>.</p></li>
+</ul></li>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> En cas
+d’égalité de l’inégalité de Cauchy-Schwarz,</p>
+<ul>
+<li><p>soit <span class="math inline">\(v=0_E\)</span> et <span
+class="math inline">\(\left|\left(u\mid v\right)\right|
+=\left\|u\right\|\left\|v\right\|=0\)</span>,</p></li>
+<li><p>soit <span class="math inline">\(v \neq 0_E\)</span> et en
+reprenant la preuve de l’inégalité de Cauchy-Schwarz, le polynôme <span
+class="math inline">\(t \in \mathbb{R}\mapsto \left\|u+tv\right\|^2=
+\left\|u\right\|^2+t^2\left\|v\right\|^2+2t\left(u\mid v\right)\)</span>
+du second degré admet le discriminant <span
+class="math inline">\(4\left(u\mid
+v\right)^2-4\left\|u\right\|^2\left\|v\right\|^2 =0\)</span>.</p>
+<p>Il admet donc une racine <span class="math inline">\(t_0 \in
+\mathbb{R}\)</span> et <span
+class="math inline">\(\left\|u+t_0v\right\|^2 = 0\)</span>. On a donc
+<span class="math inline">\(u+t_0v = 0_E \iff u=-t_0v\)</span> donc
+<span class="math inline">\((u,v)\)</span> est liée.</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="wrem">
+<p>Pour rappel, on n’a pas</p>
+<p><span class="math display">\[(u,v) \text{ liée } \iff
+\left\{\begin{array}{ll}
+        &amp; u=0_E \\
+        \text{ ou }&amp; \text{il existe $\lambda \in \mathbb{R}$ tel
+que $v = \lambda u$.}
+    \end{array}\right.\]</span></p>
+</div>
+<h3 data-number="1.4.5" id="inégalité-triangulaire"><span
+class="header-section-number">1.4.5</span> Inégalité triangulaire</h3>
+<div class="wprop">
+<p><strong>(Inégalité triangulaire)</strong> Soit <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel et <span
+class="math inline">\(\left(\cdot \mid \cdot\right)\)</span> un produit
+scalaire de <span class="math inline">\(E\)</span>.</p>
+<p>Alors, soient <span class="math inline">\(u,v \in E\)</span>,</p>
+<p><span class="math display">\[\left\|u+v\right\| \leq
+\left\|u\right\|+\left\|v\right\|.\]</span></p>
+</div>
+<div class="wproof">
+<p>Comme <span class="math inline">\(\left\|u+v\right\| \geq 0\)</span>
+et <span class="math inline">\(\left\|u\right\|+\left\|v\right\| \geq
+0\)</span>, on a <span class="math inline">\(\left\|u+v\right\| \leq
+\left\|u\right\|+\left\|v\right\| \iff \left\|u+v\right\|^2 \leq
+\left(\left\|u\right\|+\left\|v\right\|\right)^2\)</span>.</p>
+<p>Donc <span class="math display">\[\begin{aligned}
+            \left\|u+v\right\| \leq \left\|u\right\|+\left\|v\right\|
+            &amp; \iff \left\|u+v\right\|^2 \leq
+\left(\left\|u\right\|+\left\|v\right\|\right)^2 \\
+            &amp; \iff
+\left\|u\right\|^2+\left\|v\right\|^2+2\left(u\mid v\right) \leq
+\left\|u\right\|^2+\left\|v\right\|^2+2\left\|u\right\|\left\|v\right\|
+\\
+            &amp; \iff \left(u\mid v\right)\leq
+\left\|u\right\|\left\|v\right\|.
+    \end{aligned}\]</span></p>
+<p>Or, par inégalité de Cauchy-Schwarz, on a <span
+class="math inline">\(\left|\left(u\mid v\right)\right|\leq
+\left\|u\right\|\left\|v\right\|\)</span>.</p>
+<p>Donc <span class="math inline">\(\left(u\mid v\right)\leq
+\left|\left(u\mid v\right)\right|
+\leq\left\|u\right\|\left\|v\right\|\)</span> et l’inégalité
+triangulaire est vérifiée.</p>
+</div>
+<div class="wrem">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Dans le cadre spécifique où <span
+class="math inline">\(E=\mathbb{R}^2\)</span> et <span
+class="math inline">\(\left(\cdot \mid \cdot\right)\)</span> est le
+produit scalaire usuel, l’inégalité triangulaire illustre que "la ligne
+droite est le chemin le plus rapide".</p>
+<p>Sur le dessin, la longueur verte est plus courte que la somme des
+longueurs bleue et rouge.</p>
+</div>
+<div class="webimg">
+<p><img src="inegalite_triangulaire.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wprop">
+<p><strong>(cas d’égalité de l’inégalité triangulaire)</strong> Soit
+<span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel et <span
+class="math inline">\(\left(\cdot \mid \cdot\right)\)</span> un produit
+scalaire de <span class="math inline">\(E\)</span>.</p>
+<p>Alors, soient <span class="math inline">\(u,v \in E\)</span>,</p>
+<p><span class="math display">\[\left\|u+v\right\| =
+\left\|u\right\|+\left\|v\right\| \iff \left\{\begin{array}{ll}
+    &amp; u = 0_E \\
+    \text{ ou }&amp; \text{ il existe $\lambda \in \mathbb{R}^{+}$ tel
+que $v = \lambda u$.}
+    \end{array}\right.\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> S’il existe
+<span class="math inline">\(\lambda \in \mathbb{R}^{+}\)</span> tel que
+<span class="math inline">\(v = \lambda u\)</span>,</p>
+<p><span class="math inline">\(\left\|u+v\right\| =
+\left\|\left(1+\lambda\right)u\right\| =
+\left|\underbrace{1+\lambda}_{\geq 0}\right|\left\|u\right\| =
+\left(1+\lambda\right)\left\|u\right\| =
+\left\|u\right\|+\lambda\left\|u\right\| =
+\left\|u\right\|+\left|\lambda\right|\left\|u\right\| =
+\left\|u\right\|+\left\|\lambda u\right\| =
+\left\|u\right\|+\left\|v\right\|\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> En
+reprenant la preuve de l’inégalité triangulaire, <span
+class="math inline">\(\left\|u+v\right\| =
+\left\|u\right\|+\left\|v\right\|\)</span> donne <span
+class="math inline">\(\left(u\mid
+v\right)=\left\|u\right\|\left\|v\right\|\)</span>.</p>
+<p>Cela impose <span class="math inline">\(\left(u\mid v\right) \geq
+0\)</span> et donc <span class="math inline">\(\left|\left(u\mid
+v\right)\right| = \left(u\mid v\right) =
+\left\|u\right\|\left\|v\right\|\)</span>.</p>
+<p>On est dans le cas d’égalité de l’inégalité de Cauchy-Schwarz donc
+<span class="math inline">\((u,v)\)</span> est liée et</p>
+<ul>
+<li><p>soit <span class="math inline">\(u=0_E\)</span>,</p></li>
+<li><p>soit <span class="math inline">\(u \neq 0_E\)</span> et il existe
+<span class="math inline">\(\lambda \in \mathbb{R}\)</span> tel que
+<span class="math inline">\(v = \lambda u\)</span>. De plus, <span
+class="math inline">\(\left(u\mid v\right) \geq 0\)</span> impose <span
+class="math inline">\(\left(u\mid v\right) = \lambda
+\underbrace{\left(u\mid u\right)}_{&gt; 0} \geq 0\)</span> donc <span
+class="math inline">\(\lambda \geq 0\)</span>.</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="wrem">
+<div class="webtextfigure">
+<div class="webtext">
+<p>En replongeant dans <span class="math inline">\(E =
+\mathbb{R}^2\)</span>, on retrouve l’égalité de l’inégalité triangulaire
+avec les dessins ci-contre. On comprend aussi pourquoi il est nécessaire
+que <span class="math inline">\(\lambda \geq 0\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="egalite_inegalite_triangulaire.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<h2 data-number="1.5" id="orthogonalité"><span
+class="header-section-number">1.5</span> Orthogonalité</h2>
+<h3 data-number="1.5.1" id="vecteurs-orthogonaux"><span
+class="header-section-number">1.5.1</span> Vecteurs orthogonaux</h3>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel et <span
+class="math inline">\(\left(\cdot \mid \cdot\right)\)</span> un produit
+scalaire de <span class="math inline">\(E\)</span>.</p>
+<p>Soient <span class="math inline">\(u,v \in E\)</span>. On dit que
+<span class="math inline">\(u\)</span> et <span
+class="math inline">\(v\)</span> sont orthogonaux si <span
+class="math inline">\(\left(u\mid v\right) = 0\)</span>.</p>
+</div>
+<div class="wthm">
+<p><strong>(Théorème de Pythagore (et réciproque))</strong> Soit <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel et <span
+class="math inline">\(\left(\cdot \mid \cdot\right)\)</span> un produit
+scalaire de <span class="math inline">\(E\)</span>.</p>
+<p>Soient <span class="math inline">\(u,v \in E\)</span> alors</p>
+<p><span class="math display">\[\left(u\mid v\right) = 0 \iff
+\left\|u+v\right\|^2 =
+\left\|u\right\|^2+\left\|v\right\|^2.\]</span></p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\left\|u+v\right\|^2 =
+\left\|u\right\|^2+\left\|v\right\|^2+2\left(u\mid v\right)\)</span>
+donc <span class="math display">\[\left(u\mid v\right) = 0 \iff
+\frac{1}{2}\left(\left\|u+v\right\|^2 -
+\left\|u\right\|^2+\left\|v\right\|^2\right) = 0
+\iff  \left\|u+v\right\|^2 =
+\left\|u\right\|^2+\left\|v\right\|^2.\]</span></p>
+</div>
+<div class="wrem">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Dans <span class="math inline">\(E=\mathbb{R}^2\)</span>, on retrouve
+l’interprétation de l’orthogonalité comme un angle droit et on retombe
+sur le théorème de Pythagore usuel.</p>
+</div>
+<div class="webimg">
+<p><img src="Pythagore.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<h3 data-number="1.5.2" id="orthogonal-dun-sous-espace-vectoriel"><span
+class="header-section-number">1.5.2</span> Orthogonal d’un sous-espace
+vectoriel</h3>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel muni du
+produit scalaire <span class="math inline">\(\left(\cdot \mid
+\cdot\right)\)</span>. Soit <span class="math inline">\(F\)</span> un
+sous-espace vectoriel de <span class="math inline">\(E\)</span>,</p>
+<p>l’orthogonal de <span class="math inline">\(F\)</span>, notée <span
+class="math inline">\(F^\perp\)</span> est la partie <span
+class="math display">\[F^\perp = \left\{v \in E / \forall u \in F,
+\left(u \mid v\right) = 0\right\}.\]</span></p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel muni du
+produit scalaire <span class="math inline">\(\left(\cdot \mid
+\cdot\right)\)</span>. Soit <span class="math inline">\(F\)</span> un
+sous-espace vectoriel de <span class="math inline">\(E\)</span> alors
+<span class="math inline">\(F^\perp\)</span> est un sous-espace
+vectoriel de <span class="math inline">\(E\)</span>.</p>
+</div>
+<div class="wproof">
+<ol>
+<li><p><span class="math inline">\(0_E \in F\)</span> car <span
+class="math inline">\(\left(0_E \mid u\right) = 0\)</span> pour tout
+<span class="math inline">\(u \in F\)</span>, par bilinéarité de <span
+class="math inline">\(\left(\cdot \mid \cdot\right)\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(v_1,v_2 \in F^\perp\)</span>
+et <span class="math inline">\(\lambda \in \mathbb{R}\)</span>. Soit
+<span class="math inline">\(u \in F\)</span> alors par linéarité à
+droite de <span class="math inline">\(\left(\cdot \mid
+\cdot\right)\)</span>, <span class="math display">\[\left(u \mid v_1
++\lambda v_2\right) = \left(u \mid v_1\right)+\lambda \left(u \mid
+v_2\right).\]</span></p>
+<p>Or, <span class="math inline">\(v_1,v_2 \in F^\perp\)</span> donc
+<span class="math display">\[\left(u \mid v_1 +\lambda v_2\right) =
+0+\lambda \times 0 = 0\]</span> et <span class="math inline">\(v_1
++\lambda v_2 \in F^\perp\)</span>.</p></li>
+</ol>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel muni du
+produit scalaire <span class="math inline">\(\left(\cdot \mid
+\cdot\right)\)</span>.</p>
+<p>Alors, <span class="math inline">\(\left\{0_E\right\}^\perp =
+E\)</span> et <span class="math inline">\(E^\perp =
+\left\{0_E\right\}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Pour tout <span class="math inline">\(v \in E\)</span>, <span
+class="math inline">\(\left(u \mid 0_E\right) = 0\)</span> donc <span
+class="math inline">\(\left\{0_E\right\}^\perp = E\)</span>.</p>
+<p>Si <span class="math inline">\(v \in E^\perp\)</span> alors en
+particulier, <span class="math inline">\(\left(v \mid v\right) =
+0\)</span> donc <span class="math inline">\(\left\|v\right\| =
+0\)</span> donc <span class="math inline">\(v=0_E\)</span>.</p>
+</div>
+<h3 data-number="1.5.3" id="famille-orthogonale-de-vecteurs"><span
+class="header-section-number">1.5.3</span> Famille orthogonale de
+vecteurs</h3>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel muni du
+produit scalaire <span class="math inline">\(\left(\cdot \mid
+\cdot\right)\)</span>. Soient <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> alors <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> est une famille
+orthogonale si <span class="math inline">\(n=1\)</span> ou <span
+class="math inline">\(n \geq 2\)</span> et pour tout <span
+class="math inline">\(i,j \in [\![ 1,n ]\!]\)</span> tel que <span
+class="math inline">\(i \neq j\)</span>, <span
+class="math inline">\(\left(v_i \mid v_j\right) = 0\)</span>.</p>
+</div>
+<div class="wprop">
+<p><span id="prop:orthogonale_non_nuls_libre"
+label="prop:orthogonale_non_nuls_libre"></span> Soit <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel muni du
+produit scalaire <span class="math inline">\(\left(\cdot \mid
+\cdot\right)\)</span>. Soient <span
+class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> une famille
+orthogonale de <span class="math inline">\(E\)</span> telle que pour
+tout <span class="math inline">\(i \in [\![ 1,n ]\!], v_i \neq
+0_E\)</span>.</p>
+<p>Alors, <span class="math inline">\((v_1,\ldots,v_n)\)</span> est
+libre.</p>
+</div>
+<div class="wproof">
+<p>Par récurrence sur <span class="math inline">\(n\)</span>,</p>
+<ul>
+<li><p><u>Initialisation.</u> Pour <span class="math inline">\(n =
+1\)</span>, <span class="math inline">\(v_1 \neq 0_E\)</span> donc <span
+class="math inline">\((v_1)\)</span> est libre.</p></li>
+<li><p><u>Hérédité.</u> Supposons le résultat vrai pour <span
+class="math inline">\(n \in \mathbb{N}\)</span> fixé et considérons
+<span class="math inline">\((v_1,\ldots,v_{n+1}) \in E^{n+1}\)</span>
+une famille orthogonale de <span class="math inline">\(E\)</span>.</p>
+<p>Alors, <span class="math inline">\((v_1,\ldots,v_n)\)</span> est une
+famille orthogonale de vecteurs non nuls de <span
+class="math inline">\(E\)</span> donc libre par hypothèse de
+récurrence.</p>
+<p>Il suffit alors de montrer <span class="math inline">\(v_{n+1} \notin
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_n)\)</span>.</p>
+<p>Par l’absurde, s’il existe <span
+class="math inline">\(\lambda_1,\ldots,\lambda_{n} \in
+\mathbb{R}\)</span> tels que <span class="math inline">\(v_{n+1} =
+\sum_{i=1}^{n} \lambda_i v_i\)</span>, alors</p>
+<p><span class="math display">\[\begin{aligned}
+            \left\|v_{n+1}\right\|^2
+            &amp; = \left(v_{n+1}\mid v_{n+1}\right) \\
+            &amp; =  (v_{n+1}\mid\sum_{i=1}^{n} \lambda_i v_i) \\
+            &amp; = \sum_{i=1}^{n} \lambda_i
+\underbrace{\left(v_{n+1}\mid v_i\right)}_{=0} \\
+            &amp; = 0.
+        \end{aligned}\]</span></p>
+<p>Donc <span class="math inline">\(\left\|v_{n+1}\right\|^2  =
+0\)</span> et <span class="math inline">\(v_{n+1} = 0_E\)</span>, ce qui
+est absurde.</p></li>
+</ul>
+</div>
+<h3 data-number="1.5.4" id="famille-orthonormée-de-vecteurs"><span
+class="header-section-number">1.5.4</span> Famille orthonormée de
+vecteurs</h3>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel muni du
+produit scalaire <span class="math inline">\(\left(\cdot \mid
+\cdot\right)\)</span>.</p>
+<p>On dit que <span class="math inline">\(v\)</span> est normé si <span
+class="math inline">\(\left\|v\right\| = 1\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Si <span class="math inline">\(v \in E\)</span> et <span
+class="math inline">\(v \neq 0_E\)</span>, alors <span
+class="math inline">\(\pm \frac{1}{\left\|v\right\|}v\)</span> est
+normé.</p>
+<p>En effet, <span class="math inline">\(\left\|\pm
+\frac{1}{\left\|v\right\|}v\right\| =\left|\frac{\pm
+1}{\left\|v\right\|}\right|\left\|v\right\|
+=\frac{1}{\left\|v\right\|}\left\|v\right\| = 1\)</span>.</p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel muni du
+produit scalaire <span class="math inline">\(\left(\cdot \mid
+\cdot\right)\)</span>. Soit <span class="math inline">\((v_1,\ldots,v_n)
+\in E^n\)</span> alors <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> est une famille
+orthonormée (ou orthonormale) si <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> est orthogonale et pour
+tout <span class="math inline">\(i \in [\![ 1,n ]\!], \left\|v_i\right\|
+= 1\)</span>.</p>
+</div>
+<div class="wprop">
+<p><span id="prop:orthonormee_est_libre"
+label="prop:orthonormee_est_libre"></span> Soit <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel muni du
+produit scalaire <span class="math inline">\(\left(\cdot \mid
+\cdot\right)\)</span>. Soit <span class="math inline">\((v_1,\ldots,v_n)
+\in E^n\)</span> une famille orthonormée de <span
+class="math inline">\(E\)</span> alors <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> est libre.</p>
+</div>
+<div class="wproof">
+<p>On a pour tout <span class="math inline">\(1 \leq i \leq n,
+\left\|v_i\right\|=1\)</span> donc <span class="math inline">\(v_i \neq
+0_E\)</span>.</p>
+<p>On retombe donc dans la proposiiton <a
+href="#prop:orthogonale_non_nuls_libre" data-reference-type="ref"
+data-reference="prop:orthogonale_non_nuls_libre">[prop:orthogonale_non_nuls_libre]</a>.</p>
+</div>
+<h1 data-number="2" id="espaces-euclidiens"><span
+class="header-section-number">2</span> Espaces euclidiens</h1>
+<h2 data-number="2.1" id="définition-1"><span
+class="header-section-number">2.1</span> Définition</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel <strong>de
+dimension finie</strong> muni du produit scalaire <span
+class="math inline">\(\left(\cdot \mid \cdot\right)\)</span>.</p>
+<p>Alors, <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> définit un espace euclidien.</p>
+</div>
+<h2 data-number="2.2" id="base-orthonormée"><span
+class="header-section-number">2.2</span> Base orthonormée</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien de dimension <span
+class="math inline">\(n\)</span>.</p>
+<p><span class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> est une
+base orthonormée de <span class="math inline">\(E\)</span> si <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> est une base de <span
+class="math inline">\(E\)</span> et <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> est une famille
+orthonormée.</p>
+</div>
+<div class="wrem">
+<p>Si <span class="math inline">\(\dim E = n\)</span>, toute famille
+orthonormée de <span class="math inline">\(E\)</span> de cardinal <span
+class="math inline">\(n\)</span> est une base orthonormée de <span
+class="math inline">\(E\)</span> (car elle est libre par la
+proposition <a href="#prop:orthonormee_est_libre"
+data-reference-type="ref"
+data-reference="prop:orthonormee_est_libre">[prop:orthonormee_est_libre]</a>).</p>
+</div>
+<div class="wex">
+<p>Pour <span class="math inline">\(E = \mathbb{R}^n\)</span> et <span
+class="math inline">\(\left(\cdot \mid \cdot\right)\)</span> le produit
+scalaire usuel alors la base canonique <span
+class="math inline">\(\mathscr{B}= (e_1,\ldots,e_n)\)</span> est une
+base orthonormée.</p>
+<p>En effet, pour <span class="math inline">\(1 \leq i,j \neq
+n\)</span>, <span class="math inline">\(\left\|e_i\right\| = 0\)</span>
+et si <span class="math inline">\(i \neq j\)</span>, <span
+class="math inline">\(\left(e_i \mid e_j\right) = 0\)</span>.</p>
+</div>
+<h2 data-number="2.3" id="existence-dune-base-orthonormée"><span
+class="header-section-number">2.3</span> Existence d’une base
+orthonormée</h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien de dimension <span
+class="math inline">\(n\)</span>.</p>
+<p>Alors, il existe une base orthonormée de <span
+class="math inline">\(E\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Par récurrence sur <span class="math inline">\(n\)</span>,</p>
+<ul>
+<li><p><u>Initialisation.</u> Si <span class="math inline">\(n =
+1\)</span>, soit <span class="math inline">\(v \in E\)</span> tel que
+<span class="math inline">\(v \neq 0_E\)</span>, <span
+class="math inline">\(\left(\frac{1}{\left\|v\right\|}v\right)\)</span>
+est une base orthonormée de <span
+class="math inline">\(E\)</span>.</p></li>
+<li><p><u>Hérédité.</u> Supposons le résultat vrai pour <span
+class="math inline">\(n \in \mathbb{N}\)</span> fixé.</p>
+<p>Soit <span class="math inline">\(v_{n+1} \in E\)</span>, normé.</p>
+<p>Alors, <span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; E &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; v &amp; \mapsto &amp; \left(v \mid v_{n+1}\right)
+\end{array}\)</span> est une forme linéaire sur <span
+class="math inline">\(E\)</span>.</p>
+<p>De plus, <span class="math inline">\(f\)</span> est non nulle car
+<span class="math inline">\(f(v_{n+1}) = 1 \neq 0\)</span>. Donc <span
+class="math inline">\(\mathop{\mathrm{Ker}}f\)</span> est un hyperplan
+de <span class="math inline">\(E\)</span>, de dimension <span
+class="math inline">\(n\)</span>.</p>
+<p>Par hypothèse de récurrence, il existe <span
+class="math inline">\(v_1,\ldots,v_n \in E\)</span>, base orthonormée de
+<span class="math inline">\(E\)</span>.</p>
+<p>De plus, <span class="math inline">\(v_{n+1} \notin
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_n) = \mathop{\mathrm{Ker}}f\)</span>
+donc <span class="math inline">\((v_1,\ldots,v_{n+1})\)</span> est libre
+et donc une base de <span class="math inline">\(E\)</span>.</p>
+<p>Enfin, <span class="math inline">\((v_1,\ldots,v_{n+1})\)</span> est
+bien orhonormée car les vecteurs sont normés, <span
+class="math inline">\((v_1,\ldots,v_{n})\)</span> est orthogonale et
+pour tout <span class="math inline">\(i \in [\![ 1,n ]\!], v_i \in
+\mathop{\mathrm{Ker}}f\)</span> donc <span
+class="math inline">\(\left(v_i \mid v_{n+1}\right) =
+0\)</span>.</p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>Nous verrons plus tard une preuve beaucoup plus constructive de cette
+propriété avec l’algorithme de Gram-Schmidt (proposition <a
+href="#prop:algo_Gram_Schmidt" data-reference-type="ref"
+data-reference="prop:algo_Gram_Schmidt">[prop:algo_Gram_Schmidt]</a>).
+Il permet de construire une base orthonormée à partir d’une base
+quelconque.</p>
+</div>
+<h2 data-number="2.4" id="utilisation-dune-base-orthonormée"><span
+class="header-section-number">2.4</span> Utilisation d’une base
+orthonormée</h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien de dimension <span
+class="math inline">\(n\)</span> et <span
+class="math inline">\(\mathscr{B}= (e_1,\ldots,e_n)\)</span> une base
+orthonormée de <span class="math inline">\(E\)</span>. Alors, soient
+<span class="math inline">\(x,y \in E\)</span>, il existe <span
+class="math inline">\(x_1,\ldots,x_n \in \mathbb{R}\)</span> et <span
+class="math inline">\(y_1,\ldots,y_n \in \mathbb{R}\)</span> tels que
+<span class="math inline">\(x = \sum_{k=1}^n x_k e_k\)</span> et <span
+class="math inline">\(y = \sum_{k=1}^n y_k e_k\)</span>.</p>
+<p>On a alors <span class="math inline">\(\left(x \mid y\right) =
+\sum_{k=1}^n x_ky_k\)</span> et <span
+class="math inline">\(\left\|x\right\|^2 = \sum_{k=1}^n
+x_k^2\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math display">\[\begin{aligned}
+        \left(x \mid y\right)
+        &amp; =  (\sum_{i=1}^n x_i e_i \mid  \sum_{j=1}^n y_j e_j ) \\
+        &amp; = \sum_{1 \leq i,j \leq n} x_i y_j \left(e_i \mid
+e_j\right).
+    \end{aligned}\]</span></p>
+<p>Or, <span class="math inline">\(\mathscr{B}\)</span> est orthonormée
+donc <span class="math inline">\(\left(e_i \mid e_j\right) =
+\left\{\begin{array}{ll}
+        1 &amp; \mbox{ si $i=j$} \\
+        0 &amp; \mbox{ sinon.}
+    \end{array}\right.\)</span></p>
+<p>Donc <span class="math display">\[\begin{aligned}
+        \left(x \mid y\right)
+        &amp; = \sum_{i=1}^n x_i y_i.
+    \end{aligned}\]</span></p>
+<p>En prenant <span class="math inline">\(y=x\)</span>, on a aussi <span
+class="math inline">\(\left(x \mid x\right) = \left\|x\right\|^2 =
+\sum_{i=1}^n x_i^2\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien de dimension <span
+class="math inline">\(n\)</span> et <span
+class="math inline">\(\mathscr{B}= (e_1,\ldots,e_n)\)</span> une base
+orthonormée de <span class="math inline">\(E\)</span>.</p>
+<p>Alors, soit <span class="math inline">\(x \in E\)</span>, <span
+class="math inline">\(x = \sum_{k=1}^n \left(x \mid e_k\right)
+e_k\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Il existe <span class="math inline">\(x_1,\ldots,x_n \in
+\mathbb{R}\)</span> tels que <span class="math inline">\(x =
+\sum_{k=1}^n x_k e_k\)</span>.</p>
+<p>Puis, pour <span class="math inline">\(1 \leq i\leq n\)</span>, <span
+class="math inline">\(\left(x \mid e_k\right) = (\sum_{i=1}^n x_i
+e_i\mid e_k) = \sum_{i=1}^n x_i \left(e_i \mid e_k\right)\)</span>.</p>
+<p>Or, <span class="math inline">\(\mathscr{B}\)</span> est orthonormée
+donc <span class="math inline">\(\left(e_i \mid e_j\right) =
+\left\{\begin{array}{ll}
+        1 &amp; \mbox{ si $i=j$} \\
+        0 &amp; \mbox{ sinon.}
+    \end{array}\right.\)</span></p>
+<p>Donc <span class="math inline">\(\left(x \mid e_k\right) = x_k
+\left(e_k \mid e_k\right) = x_k\)</span>.</p>
+</div>
+<h2 data-number="2.5"
+id="projection-orthogonale-sur-un-espace-vectoriel"><span
+class="header-section-number">2.5</span> Projection orthogonale sur un
+espace vectoriel</h2>
+<div class="wprop">
+<p><span id="prop:somme_directe_f_f_ortho"
+label="prop:somme_directe_f_f_ortho"></span> Soit <span
+class="math inline">\((E,\left(\cdot \mid \cdot\right))\)</span> un
+espace euclidien et <span class="math inline">\(F\)</span> un
+sous-espace vectoriel de <span class="math inline">\(E\)</span>.</p>
+<p>Alors, <span class="math inline">\(E = F \oplus F^\perp\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Notons <span class="math inline">\(p = \dim F\)</span> et <span
+class="math inline">\((e_1,\ldots,e_p)\)</span> une base orthonormée de
+<span class="math inline">\(F\)</span>. Soit <span
+class="math inline">\(v \in E\)</span>, montrons qu’il existe <span
+class="math inline">\(u \in F, u&#39; \in F\)</span> uniques tels que
+<span class="math inline">\(v = u+u&#39;\)</span>.</p>
+<ul>
+<li><p><u>Analyse.</u> Si <span class="math inline">\(u,u&#39;\)</span>
+existe alors il existe <span
+class="math inline">\(\lambda_1,\ldots,\lambda_p \in \mathbb{R}\)</span>
+tels que <span class="math inline">\(u = \sum_{i=1}^p \lambda_i
+e_i\)</span>.</p>
+<p>De plus, <span class="math inline">\(u&#39; = v-u \in
+F^\perp\)</span> donc pour tout <span class="math inline">\(1 \leq i
+\leq p\)</span>, <span class="math inline">\((u&#39; \mid e_i) =
+(v-u\mid e_i) =  (v\mid e_i) - \lambda_i = 0\)</span> et <span
+class="math inline">\(u = \sum_{i=1}^p (v \mid e_i)
+e_i\)</span>.</p></li>
+<li><p><u>Synthèse.</u> Posons <span class="math inline">\(u =
+\sum_{i=1}^p (v \mid e_i) e_i\)</span> et <span
+class="math inline">\(u&#39; = v-u\)</span>.</p>
+<p>On a alors <span class="math inline">\(u \in F\)</span>, <span
+class="math inline">\(u&#39; \in F^\perp\)</span> car pour tout <span
+class="math inline">\(1 \leq i \leq p\)</span>, <span
+class="math inline">\((u&#39; \mid e_i) = 0\)</span> et <span
+class="math inline">\(v = u+u&#39;\)</span>.</p></li>
+</ul>
+</div>
+<div class="wdefi">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien et <span
+class="math inline">\(F\)</span> un sous-espace vectoriel de <span
+class="math inline">\(E\)</span>.</p>
+<p>La projection sur <span class="math inline">\(F\)</span>
+parallèlement à <span class="math inline">\(F^\perp\)</span> est appelée
+la projection orthogonale sur <span class="math inline">\(F\)</span>,
+notée <span class="math inline">\(p_F\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="proj_ortho.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wrem">
+<p>D’après la preuve de la proposition <a
+href="#prop:somme_directe_f_f_ortho" data-reference-type="ref"
+data-reference="prop:somme_directe_f_f_ortho">[prop:somme_directe_f_f_ortho]</a>,
+en considérant <span class="math inline">\((e_1,\ldots,e_p)\)</span> une
+base orthonormée de <span class="math inline">\(F\)</span> et <span
+class="math inline">\(v \in E\)</span>, on a <span
+class="math inline">\(p_F(v) = \sum_{i=1}^p (v \mid e_i)
+e_i\)</span>.</p>
+</div>
+<div class="wprop">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien et <span
+class="math inline">\(F\)</span> un sous-espace vectoriel de <span
+class="math inline">\(E\)</span>.</p>
+<p>Soit <span class="math inline">\(v \in E\)</span>, alors <span
+class="math display">\[\left\|v-p_F(v)\right\| = \min_{w \in F}
+\left\|v-w\right\|.\]</span> De plus, ce minimum est atteint uniquement
+en <span class="math inline">\(w=p_F(v)\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="dist_proj_ortho.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wproof">
+<p>D’abord, <span class="math inline">\(\left\|v-p_F(v)\right\| \leq
+\min_{w \in F} \left\|v-w\right\|\)</span> car <span
+class="math inline">\(p_F(v) \in F\)</span>.</p>
+<p>Ensuite, <span class="math inline">\(v = \underbrace{p_F(v)}_{\in
+F}+\underbrace{v-p_F(v)}_{\in F^\perp}\)</span>. Donc pour <span
+class="math inline">\(w \in F\)</span>, <span class="math inline">\((w
+\mid v-p_F(v)) = 0\)</span>.</p>
+<p>Cela donne <span class="math display">\[\begin{aligned}
+        \left\|v-w\right\|^2
+        &amp; = \left\|v-p_F(v)+p_F(v)-w\right\|^2 \\
+        &amp;
+=\left\|v-p_F(v)\right\|^2+\left\|p_F(v)-w\right\|^2+2(v-p_F(v)\mid
+p_F(v)-w) \\
+        &amp; =\left\|v-p_F(v)\right\|^2+\left\|p_F(v)-w\right\|^2 \\
+        &amp; \geq \left\|v-p_F(v)\right\|^2
+    \end{aligned}\]</span> avec égalité si et seulement si <span
+class="math inline">\(\left\|p_F(v)-w\right\|^2 = 0\)</span> donc <span
+class="math inline">\(w = p_F(v)\)</span>.</p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien et <span
+class="math inline">\(F\)</span> un sous-espace vectoriel de <span
+class="math inline">\(E\)</span>.</p>
+<p>Soit <span class="math inline">\(v \in E\)</span>, alors <span
+class="math inline">\(\left\|v-p_F(v)\right\|\)</span> est appelée la
+distance de <span class="math inline">\(v\)</span> à <span
+class="math inline">\(F\)</span>, notée <span
+class="math inline">\(d(v,F)\)</span>.</p>
+</div>
+<h2 data-number="2.6" id="algorithme-de-gram-schmidt"><span
+class="header-section-number">2.6</span> Algorithme de Gram-Schmidt</h2>
+<p>La preuve de la proposition suivante (ou l’exemple qui suit) est tout
+aussi importante que son énoncé. Elle applique une méthode appelée
+l’algorithme de Gram-Schmidt.</p>
+<div class="wprop">
+<p><span id="prop:algo_Gram_Schmidt"
+label="prop:algo_Gram_Schmidt"></span> Soit <span
+class="math inline">\((E,\left(\cdot \mid \cdot\right))\)</span> un
+espace euclidien de dimension <span
+class="math inline">\(n\)</span>.</p>
+<p>Soit <span class="math inline">\((e_1,\ldots,e_n)\)</span> une base
+<u>quelconque</u> de <span class="math inline">\(E\)</span>.</p>
+<p>Alors, il existe <span
+class="math inline">\((v_1,\ldots,v_n)\)</span> base orthonormée de
+<span class="math inline">\(E\)</span> telle que pour tout <span
+class="math inline">\(1 \leq k \leq n\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_k) =
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_k)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Construisons pas à pas <span
+class="math inline">\((v_1,\ldots,v_n)\)</span>.</p>
+<ol>
+<li><p>Pour <span class="math inline">\(v_1\)</span>, il suffit de
+prendre <span class="math inline">\(v_1 =
+\frac{1}{\left\|e_1\right\|}e_1\)</span>, de sorte que <span
+class="math inline">\(\left(v_1\right)\)</span> est orthonormée et <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_1) =
+\mathop{\mathrm{Vect}}(v_1)\)</span>.</p></li>
+<li></li>
+<li><p>Supposons que l’on a construit <span
+class="math inline">\((v_1,\ldots,v_k)\)</span> famille orthonormée
+telle que pour <span class="math inline">\(1 \leq i \leq k\)</span>,
+<span class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_i) =
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_i)\)</span>.</p>
+<p>On pose <span class="math inline">\(F_k =
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_k)\)</span> et on considère <span
+class="math inline">\(v&#39;_{k+1} =
+e_{k+1}-P_{F_k}(e_{k+1})\)</span>.</p>
+<p>Alors, <span
+class="math inline">\((v_1,\ldots,v_k,v&#39;_{k+1})\)</span> est
+orthogonale (car <span class="math inline">\(v&#39;_{k+1} =
+e_{k+1}-P_{F_k}(e_{k+1}) \in F_k^{\perp}\)</span>).</p>
+<p>Donc <span class="math inline">\((v_1,\ldots,v_k,v_{k+1})\)</span>
+est orthonormée avec <span class="math inline">\(v_{k+1} =
+\frac{1}{\left\|v&#39;_{k+1}\right\|}v&#39;_{k+1}\)</span>.</p>
+<p>Il reste à vérifier que <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_k,e_{k+1}) =
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_k,v_{k+1})\)</span>.</p>
+<p>Or, <span
+class="math inline">\(\mathop{\mathrm{Vect}}(v_1,\ldots,v_k) =
+\mathop{\mathrm{Vect}}(e_1,\ldots,e_k)\)</span>.</p>
+<p>De plus, <span class="math inline">\(v_{k+1} =
+\frac{1}{v&#39;_{k+1}}\left(e_{k+1}-\underbrace{P_{F_k}(e_{k+1})}_{\in
+\mathop{\mathrm{Vect}}(e_1,\ldots,e_k)}\right) \in
+\mathop{\mathrm{Vect}}(e_1,\ldots,e_{k+1})\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_k,e_{k+1})
+\supset \mathop{\mathrm{Vect}}(v_1,\ldots,v_k,v_{k+1})\)</span>.</p>
+<p>Enfin, <span class="math inline">\(\dim
+\mathop{\mathrm{Vect}}(e_1,\ldots,e_k,e_{k+1})  =
+\dim  \mathop{\mathrm{Vect}}(v_1,\ldots,v_k,v_{k+1}) = k+1\)</span> donc
+on a bien <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_k,e_{k+1}) =
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_k,v_{k+1})\)</span>.</p>
+<div class="wrem">
+<p>Comme <span class="math inline">\(F_k =
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_k)\)</span> et que <span
+class="math inline">\((v_1,\ldots,v_k)\)</span> est orthonormée, <span
+class="math inline">\(p_{F_k}(v) = \sum_{i=1}^k (v \mid
+v_i)v_i\)</span>.</p>
+</div></li>
+<li></li>
+<li><p>A l’étape <span class="math inline">\(n\)</span>, on a construit
+une famille orthonormée de cardinal <span
+class="math inline">\(n\)</span> qui convient donc une base orthonormée
+de <span class="math inline">\(E\)</span> qui convient.</p></li>
+</ol>
+</div>
+<div class="wex">
+<p>Dans <span class="math inline">\(E = \mathbb{R}_2[X]\)</span>, <span
+class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; E \times E &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; (P,Q) &amp; \mapsto &amp; P(0)Q(0)+P(1)Q(1)+P(2)Q(2)
+\end{array}\)</span> est un produit scalaire.</p>
+<p>En effet,</p>
+<ul>
+<li><p><span class="math inline">\(\varphi\)</span> est clairement
+symétrique,</p></li>
+<li><p><span class="math inline">\(\varphi\)</span> est linéaire à
+gauche car pour <span class="math inline">\(P_1,P_2 \in E\)</span> et
+<span class="math inline">\(\lambda \in \mathbb{R}\)</span>, <span
+class="math display">\[\varphi(P_1+\lambda P_2,Q)  =
+\varphi(P_1,Q)+\lambda \varphi(P_2,Q).\]</span></p></li>
+<li><p><span class="math inline">\(\varphi\)</span> est définie positive
+car pour <span class="math inline">\(P \in \mathbb{R}_2[X]\)</span>,
+<span class="math inline">\(\varphi(P,P) = P(0)^2+P(1)^2+P(2)^2 \geq
+0\)</span> et <span class="math inline">\(\varphi(P,P) = 0\)</span>
+implique <span class="math inline">\(P(0) = P(1) = P(2) = 0\)</span>
+(comme somme de réels positifs) donc <span
+class="math inline">\(P\)</span> admet trois racines distinctes malgré
+<span class="math inline">\(\deg(P) \leq 2\)</span> donc <span
+class="math inline">\(P = 0\)</span>.</p></li>
+</ul>
+<p>Appliquons l’algorithme de Gram-Schmidt à <span
+class="math inline">\((1,X,X^2)\)</span>. On construit <span
+class="math inline">\((v_1,v_2,v_3)\)</span>.</p>
+<ol>
+<li><p>D’abord, <span class="math inline">\(v_1 =
+\frac{1}{\left\|1\right\|}1 = \frac{1}{\sqrt{3}}\)</span>.</p></li>
+<li><p>Ensuite, <span class="math inline">\(v&#39;_2 = X-
+P_{F_1}(X)\)</span> avec <span class="math inline">\(F_1 =
+\mathop{\mathrm{Vect}}(v_1)\)</span> et <span
+class="math inline">\((v_1)\)</span> orthonormée.</p>
+<p>On a donc <span class="math inline">\(P_{F_1}(X) = \varphi(X,v_1).v_1
+= \frac{3}{\sqrt{3}}.\frac{1}{\sqrt{3}} = 1\)</span> puis <span
+class="math inline">\(v&#39;_2 = X-1\)</span></p>
+<p>et <span class="math inline">\(v_2 =
+\frac{1}{\left\|v&#39;_2\right\|}v&#39;_2 =
+\frac{1}{\sqrt{2}}\left(X-1\right)\)</span>.</p></li>
+<li><p>Enfin, <span class="math inline">\(v&#39;_3 = X-
+P_{F_2}(X^2)\)</span> avec <span class="math inline">\(F_2 =
+\mathop{\mathrm{Vect}}(v_1,v_2)\)</span> et <span
+class="math inline">\((v_1,v_2)\)</span> orthonormée.</p>
+<p>On a donc <span class="math display">\[\begin{aligned}
+            P_{F_2}(X^2)
+            &amp; = \varphi(X^2,v_1).v_1+\varphi(X^2,v_2).v_2 \\
+            &amp;
+=  \varphi(X^2,\frac{1}{\sqrt{3}}).\frac{1}{\sqrt{3}}+\varphi(X^2,\frac{X-1}{\sqrt{2}}).\frac{X-1}{\sqrt{2}}
+\\
+            &amp;
+=  \frac{1}{3}\varphi(X^2,1)+\frac{1}{2}\varphi(X^2,X-1)(X-1) \\
+            &amp; =  \frac{5}{3}+\frac{4}{2}(X-1) \\
+            &amp;  = 2X-\frac{1}{3}
+        \end{aligned}\]</span></p>
+<p>puis <span class="math inline">\(v&#39;_3 =
+X^2-2X+\frac{1}{3}\)</span></p>
+<p>et <span class="math inline">\(\left\|v&#39;_3\right\|^2 =
+\frac{1}{9}+\frac{4}{9}+\frac{1}{9} = \frac{6}{9} = \frac{2}{3}\)</span>
+donc <span class="math inline">\(v_3 =
+\frac{1}{\left\|v&#39;_3\right\|}v&#39;_3=
+\sqrt{\frac{3}{2}}\left(X^2-2X+\frac{1}{3}\right)\)</span>.</p></li>
+</ol>
+</div>
+<h1 data-number="3" id="isométries-dun-espace-euclidien"><span
+class="header-section-number">3</span> Isométries d’un espace
+euclidien</h1>
+<h2 data-number="3.1" id="définition-et-premiers-exemples"><span
+class="header-section-number">3.1</span> Définition et premiers
+exemples</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien et <span
+class="math inline">\(f \in \mathscr{L}(E)\)</span>.</p>
+<p><span class="math inline">\(f\)</span> est une isométrie de <span
+class="math inline">\(E\)</span> si pour tout <span
+class="math inline">\(v \in E\)</span>, <span
+class="math inline">\(\left\|f(v)\right\| =
+\left\|v\right\|\)</span>.</p>
+<p>On note <span class="math inline">\(\mathcal{O}(E)\)</span>
+l’ensemble des isométries de <span class="math inline">\(E\)</span>.</p>
+</div>
+<div class="wex">
+<p><span class="math inline">\(\mathop{\mathrm{Id}}_E \in
+\mathcal{O}(E)\)</span>.</p>
+</div>
+<div class="wdefi">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien et <span
+class="math inline">\(F\)</span> un sous-espace vectoriel de <span
+class="math inline">\(E\)</span>, on a alors <span
+class="math inline">\(E = F\oplus F^\perp\)</span> et on peut considérer
+<span class="math inline">\(s_F\)</span> la symétrie par rapport à <span
+class="math inline">\(F\)</span>, parallèlement à <span
+class="math inline">\(F^\perp\)</span>.</p>
+<p>Elle est appelée la symétrie orthogonale par rapport à <span
+class="math inline">\(F\)</span>.</p>
+<p>Si <span class="math inline">\(F\)</span> est un hyperplan, <span
+class="math inline">\(s_F\)</span> est appelée la réflexion d’hyperplan
+<span class="math inline">\(F\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="sym_ortho.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wrem">
+<p>On a donc pour <span class="math inline">\(v \in E\)</span>, <span
+class="math inline">\(s_F(v) = p_F(v) - p_{F^\perp}(v) =
+2p_F(v)-v\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien et <span
+class="math inline">\(F\)</span> un sous-espace vectoriel de <span
+class="math inline">\(E\)</span>.</p>
+<p>Alors, <span class="math inline">\(s_F\)</span> est une
+isométrie.</p>
+</div>
+<div class="wproof">
+<p>On a pour <span class="math inline">\(v \in E\)</span>, <span
+class="math inline">\(s_F(v) = p_F(v) - p_{F^\perp}(v)\)</span>.</p>
+<p>Donc <span class="math inline">\(\left\|s_F(v)\right\|^2 =
+\left\|p_F(v)\right\|^2+
+\left\|p_{F^\perp}(v)\right\|^2-2\underbrace{(p_F(v) \mid
+p_{F^\perp}(v))}_{=0} = \left\|p_F(v)\right\|^2+
+\left\|p_{F^\perp}(v)\right\|^2\)</span>.</p>
+<p>Or, <span class="math inline">\(v =  p_F(v) + p_{F^\perp}(v)\)</span>
+et <span class="math inline">\(\left\|v\right\|^2 =
+\left\|p_F(v)\right\|^2+ \left\|p_{F^\perp}(v)\right\|^2\)</span> de
+même.</p>
+<p>Donc <span class="math inline">\(\left\|s_F(v)\right\| =
+\left\|v\right\|\)</span>.</p>
+</div>
+<h2 data-number="3.2" id="propriétés"><span
+class="header-section-number">3.2</span> Propriétés</h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien et <span
+class="math inline">\(f \in \mathcal{O}(E)\)</span>.</p>
+<p>Alors <span class="math inline">\(f\)</span> est bijective.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(f \in \mathscr{L}(E)\)</span> et <span
+class="math inline">\(E\)</span> est de dimension finie donc <span
+class="math inline">\(f\)</span> est bijective si et seulement si elle
+est injective.</p>
+<p>Or, si <span class="math inline">\(x \in
+\mathop{\mathrm{Ker}}f\)</span>, <span class="math inline">\(f(x) =
+0_E\)</span> donc <span class="math inline">\(\left\|x\right\| =
+\left\|f(x)\right\| = 0\)</span> et <span
+class="math inline">\(x=0_E\)</span>.</p>
+<p>On a donc bien <span class="math inline">\(f\)</span> injective donc
+bijective.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien et <span
+class="math inline">\(f \in \mathcal{O}(E)\)</span>.</p>
+<p>Alors, pour tout <span class="math inline">\(u,v \in E\)</span>,
+<span class="math inline">\((f(u) \mid f(v)) = (u \mid v)\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math display">\[\begin{aligned}
+        (f(u) \mid f(v))
+        &amp; =
+\frac{1}{4}\left(\left\|f(u)+f(v)\right\|^2-\left\|f(u)-f(v)\right\|^2\right)
+\text{ par l&#39;identité de polarisation} \\
+        &amp; =
+\frac{1}{4}\left(\left\|f(u+v)\right\|^2-\left\|f(u-v)\right\|^2\right)
+\text{ par linéarité de $f$} \\
+        &amp; =
+\frac{1}{4}\left(\left\|u+v\right\|^2-\left\|u-v\right\|^2\right) \text{
+car $f \in \mathcal{O}(E)$} \\
+        &amp; = (u\mid v) \text{ par l&#39;identité de polarisation.}
+    \end{aligned}\]</span></p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien, <span
+class="math inline">\(\mathcal{O}(E)\)</span> est un sous-groupe de
+<span class="math inline">\(GL(E)\)</span>, appelé le groupe orthogonal
+de <span class="math inline">\(E\)</span>.</p>
+</div>
+<div class="wproof">
+<ol>
+<li><p><span class="math inline">\(\mathop{\mathrm{Id}}_E \in
+\mathcal{O}(E)\)</span>,</p></li>
+<li><p>Soient <span class="math inline">\(f,g \in
+\mathcal{O}(E)\)</span> et <span class="math inline">\(v \in
+E\)</span>,</p>
+<p><span class="math display">\[\left\|\left(f\circ g\right)(v)\right\|
+= \left\|f\left(g(v)\right)\right\| = \left\|g(v)\right\| =
+\left\|v\right\|.\]</span></p>
+<p>Donc <span class="math inline">\(f \circ g \in
+\mathcal{O}(E)\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(f \in \mathcal{O}(E)\)</span> et
+<span class="math inline">\(v \in E\)</span>,</p>
+<p><span class="math display">\[\left\|v\right\| = \left\|(f\circ
+f^{-1})(v)\right\| = \left\|f\left(f^{-1}(v)\right)\right\| =
+\left\|f^{-1}(v)\right\|\]</span> donc <span
+class="math inline">\(f^{-1} \in \mathcal{O}(E)\)</span>.</p></li>
+</ol>
+</div>
+<h2 data-number="3.3" id="caractérisation-des-isométries"><span
+class="header-section-number">3.3</span> Caractérisation des
+isométries</h2>
+<div class="wprop">
+<p><span id="prop:iso_ssi_tranforme_bon_en_bon"
+label="prop:iso_ssi_tranforme_bon_en_bon"></span> Soit <span
+class="math inline">\((E,\left(\cdot \mid \cdot\right))\)</span> un
+espace euclidien, <span class="math inline">\(\mathscr{B}=
+(e_1,\ldots,e_n)\)</span> une base orthonormée de <span
+class="math inline">\(E\)</span> et <span class="math inline">\(f \in
+\mathscr{L}(E)\)</span>.</p>
+<p>Alors, <span class="math display">\[f \in \mathcal{O}(E)
+    \iff
+    \text{$\left(f(e_1),\ldots,f(e_n)\right)$ est une base orthonormée
+de $E$.}\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>(<span class="math inline">\(\Longrightarrow\)</span>) Si <span
+class="math inline">\(f \in \mathcal{O}(E)\)</span> alors pour tout
+<span class="math inline">\(i,j \in [\![ 1,n ]\!]\)</span>, <span
+class="math inline">\(\left\|f(e_i)\right\| = \left\|e_i\right\| =
+1\)</span> et pour <span class="math inline">\(i \neq j\)</span>, <span
+class="math inline">\(( f(e_i) \mid f(e_j)) = (e_i \mid e_j) =
+0\)</span>.</p></li>
+<li><p>(<span class="math inline">\(\Longleftarrow\)</span>) Soit <span
+class="math inline">\(v \in E\)</span>, <span
+class="math display">\[\begin{aligned}
+            \left\|v\right\|^2
+            &amp; = \sum_{i=1}^n (v \mid e_i)^2 \text{ car $\mathscr{B}$
+est une base orthnormée de $E$} \\
+            &amp; =  \sum_{i=1}^n (f(v) \mid f(e_i))^2 \text{ car $f \in
+\mathcal{O}(E)$} \\
+            &amp; = \left\|f(v)\right\|^2 \text{ car
+$\left(f(e_1),\ldots,f(e_n)\right)$ est une base orthonormée de $E$.}
+        \end{aligned}\]</span></p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><span id="prop:iso_et_mat_ortho"
+label="prop:iso_et_mat_ortho"></span> Soit <span
+class="math inline">\((E,\left(\cdot \mid \cdot\right))\)</span> un
+espace euclidien, <span class="math inline">\(\mathscr{B}=
+(e_1,\ldots,e_n)\)</span> une base orthonormée de <span
+class="math inline">\(E\)</span> et <span class="math inline">\(f \in
+\mathscr{L}(E)\)</span>.</p>
+<p>Soit <span class="math inline">\(A = \mathscr{M}_{\mathscr{B}}(f) \in
+\mathscr{M}_{n}(\mathbb{R})\)</span>.</p>
+<p>Alors, <span class="math display">\[f \in \mathcal{O}(E) \iff A^tA =
+I_n.\]</span></p>
+</div>
+<div class="wproof">
+<p>En notant <span class="math inline">\(A=\left(a_{ij}\right)\)</span>,
+pour <span class="math inline">\(1 \leq j \leq n\)</span>, <span
+class="math inline">\(f(e_j) = \sum_{i=1}^n a_{ij}e_i\)</span>.</p>
+<p>Or, <span class="math inline">\(\mathscr{B}=
+(e_1,\ldots,e_n)\)</span> est une base orthonormée de <span
+class="math inline">\(E\)</span> donc pour <span
+class="math inline">\(i,j \in [\![ 1,n ]\!]\)</span>, <span
+class="math inline">\((f(e_i)\mid f(e_j)) = \sum_{k=1}^n
+a_{ki}a_{kj}\)</span>.</p>
+<p>Par la proposition <a href="#prop:iso_ssi_tranforme_bon_en_bon"
+data-reference-type="ref"
+data-reference="prop:iso_ssi_tranforme_bon_en_bon">[prop:iso_ssi_tranforme_bon_en_bon]</a>,</p>
+<p><span class="math display">\[\begin{aligned}
+        f \in \mathcal{O}(E)
+        &amp; \iff \text{$\left(f(e_1),\ldots,f(e_n)\right)$ est une
+base orthonormée de $E$} \\
+        &amp; \iff \forall i,j \in [\![ 1,n ]\!], \left\{
+        \begin{array}{ll}
+            (f(e_i)\mid f(e_j)) &amp; = 0 \mbox{ si $i\neq j$} \\
+            (f(e_i)\mid f(e_j)) &amp; = \left\|f(e_i)\right\|^2 = 1
+\mbox{ si $i=j$}
+        \end{array}
+        \right. \\
+        &amp; \iff \forall i,j \in [\![ 1,n ]\!], \left\{
+        \begin{array}{ll}
+             \sum_{k=1}^n a_{ki}a_{kj} &amp; = 0 \mbox{ si $i\neq j$} \\
+             \sum_{k=1}^n a_{ki}^2 &amp; = 1 \mbox{ si $i=j$}
+        \end{array}
+        \right..
+    \end{aligned}\]</span></p>
+<p>Or, en notant <span class="math inline">\({}^tA =
+\left(b_{ij}\right)\)</span> (tel que <span class="math inline">\(b_{ij}
+= a_{ji}\)</span>), <span class="math inline">\(A^tA = (c_{ij})\)</span>
+avec <span class="math inline">\(c_{ij} = \sum_{k=1}^n a_{ik}b_{kj}
+=  \sum_{k=1}^n a_{ik}a_{jk}\)</span> pour <span
+class="math inline">\(i,j \in [\![ 1,n ]\!]\)</span>.</p>
+<p>Donc <span class="math display">\[\begin{aligned}
+        f \in \mathcal{O}(E)
+        &amp; \iff A^tA = I_n.
+    \end{aligned}\]</span></p>
+</div>
+<div class="wrem">
+<p><span id="rem:matrice_ortho_transpose"
+label="rem:matrice_ortho_transpose"></span> <span
+class="math inline">\(A^tA = I_n\)</span> donne <span
+class="math inline">\(A^{-1}={}^tA\)</span> et équivaut à <span
+class="math inline">\({}^tAA = I_n\)</span>.</p>
+</div>
+<h2 data-number="3.4" id="matrices-orthogonales"><span
+class="header-section-number">3.4</span> Matrices orthogonales</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(M \in
+\mathscr{M}_{n}(\mathbb{R})\)</span>, <span
+class="math inline">\(M\)</span> est dite orthogonale si <span
+class="math inline">\(M^tM = I_n\)</span>.</p>
+<p>Par la remarque <a href="#rem:matrice_ortho_transpose"
+data-reference-type="ref"
+data-reference="rem:matrice_ortho_transpose">[rem:matrice_ortho_transpose]</a>,
+cela équivaut à <span class="math inline">\({}^tMM = I_n\)</span> ou
+encore <span class="math inline">\(M\in GL_n(\mathbb{R})\)</span> et
+<span class="math inline">\(M^{-1} = {}^tM\)</span>.</p>
+<p>On note <span class="math inline">\(O_n(\mathbb{R})\)</span>
+l’ensemble des matrices orthogonales de taille <span
+class="math inline">\(n\)</span>.</p>
+</div>
+<div class="wrem">
+<p>La proposition <a href="#prop:iso_et_mat_ortho"
+data-reference-type="ref"
+data-reference="prop:iso_et_mat_ortho">[prop:iso_et_mat_ortho]</a> se
+reformule en : Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien, <span
+class="math inline">\(\mathscr{B}= (e_1,\ldots,e_n)\)</span> une base
+orthonormée de <span class="math inline">\(E\)</span> et <span
+class="math inline">\(f \in \mathscr{L}(E)\)</span>.</p>
+<p>Soit <span class="math inline">\(A = \mathscr{M}_{\mathscr{B}}(f) \in
+\mathscr{M}_{n}(\mathbb{R})\)</span>. <span class="math display">\[f \in
+\mathcal{O}(E) \iff A \in O_n(\mathbb{R}).\]</span></p>
+</div>
+<div class="wprop">
+<p><span class="math inline">\(O_n(\mathbb{R})\)</span> est un
+sous-groupe de <span
+class="math inline">\(GL_n(\mathbb{R})\)</span>.</p>
+</div>
+<div class="wproof">
+<ol>
+<li><p><span class="math inline">\(I_n \in O_n(\mathbb{R})\)</span> car
+<span class="math inline">\(^tI_nI_n = I_n\)</span>,</p></li>
+<li><p>Soient <span class="math inline">\(A,B \in
+O_n(\mathbb{R})\)</span>, <span
+class="math inline">\({}^t\left(AB\right)AB = {}^tB{}^tAAB
+=  {}^tB\left({}^tAA\right)B = {}^tBI_nB = I_n\)</span> donc <span
+class="math inline">\(AB \in O_n(\mathbb{R})\)</span>,</p></li>
+<li><p>Soit <span class="math inline">\(A \in O_n(\mathbb{R})\)</span>,
+<span class="math inline">\(A^{-1} = {}^tA\)</span> donc <span
+class="math inline">\(\left({}^tA\right)^{-1} = {}^t\left(A^{-1}\right)=
+{}^t\left({}^tA\right)\)</span> et <span class="math inline">\(A^{-1}
+\in O_n(\mathbb{R})\)</span>.</p></li>
+</ol>
+</div>
+<div class="wprop">
+<p><span id="prop:matrice_passage_bon_on_R"
+label="prop:matrice_passage_bon_on_R"></span> Soit <span
+class="math inline">\(M \in \mathscr{M}_{n}(\mathbb{R})\)</span>,</p>
+<p><span class="math display">\[M \in O_n(\mathbb{R})
+    \iff \substack{\text{Etant donné un espace euclidien $(E,(\cdot \mid
+\cdot))$,} \\ \text{ il existe deux bases orthonormées
+$\mathscr{B},\mathscr{B}&#39;$ de $E$ telles que $M =
+P_{\mathscr{B},\mathscr{B}&#39;}$.}}\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(M \in O_n(\mathbb{R})\)</span>, soit <span
+class="math inline">\((E,(\cdot \mid \cdot))\)</span> un espace
+euclidien.</p>
+<p>Soit <span class="math inline">\(\mathscr{B}=
+(e_1,\ldots,e_n)\)</span> une base orthonormée de <span
+class="math inline">\(E\)</span> et <span class="math inline">\(f \in
+\mathscr{L}(E)\)</span> telle que <span class="math inline">\(M =
+\mathscr{M}_{\mathscr{B}}(f)\)</span>.</p>
+<p>Alors, par la proposition <a href="#prop:iso_et_mat_ortho"
+data-reference-type="ref"
+data-reference="prop:iso_et_mat_ortho">[prop:iso_et_mat_ortho]</a>,
+<span class="math inline">\(f \in \mathcal{O}(E)\)</span>.</p>
+<p>De plus, par la proposition <a
+href="#prop:iso_ssi_tranforme_bon_en_bon" data-reference-type="ref"
+data-reference="prop:iso_ssi_tranforme_bon_en_bon">[prop:iso_ssi_tranforme_bon_en_bon]</a>,
+<span class="math inline">\(\mathscr{B}&#39; =
+\left(f(e_1),\ldots,f(e_n)\right)\)</span> est une base orthonormée de
+<span class="math inline">\(E\)</span>.</p>
+<p>On a alors <span class="math inline">\(M =
+P_{\mathscr{B},\mathscr{B}&#39;}\)</span>.</p></li>
+<li><p>Inversement, si <span class="math inline">\(M =
+P_{\mathscr{B},\mathscr{B}&#39;}\)</span> alors soit <span
+class="math inline">\(f \in \mathscr{L}(E)\)</span> tel que <span
+class="math inline">\(M =  \mathscr{M}_{\mathscr{B}}(f)\)</span>, en
+notant <span class="math inline">\(\mathscr{B}=
+(e_1,\ldots,e_n)\)</span>, on a <span
+class="math inline">\((f(e_1),\ldots,f(e_n)) =
+\mathscr{B}&#39;\)</span>, une base orthonormée de <span
+class="math inline">\(E\)</span>.</p>
+<p>Donc par la proposition <a href="#prop:iso_ssi_tranforme_bon_en_bon"
+data-reference-type="ref"
+data-reference="prop:iso_ssi_tranforme_bon_en_bon">[prop:iso_ssi_tranforme_bon_en_bon]</a>,
+<span class="math inline">\(f \in \mathcal{O}(E)\)</span> et par la
+proposition <a href="#prop:iso_et_mat_ortho" data-reference-type="ref"
+data-reference="prop:iso_et_mat_ortho">[prop:iso_et_mat_ortho]</a>,
+<span class="math inline">\(M \in O_n(\mathbb{R})\)</span>.</p></li>
+</ul>
+</div>
+<div class="wex">
+<p><span class="math inline">\(M = \frac{1}{3}\begin{pmatrix}
+            -1 &amp; -2 &amp; 2 \\
+            2 &amp; 1 &amp; 2 \\
+            2 &amp; -2 &amp; -1
+        \end{pmatrix} \in O_3(\mathbb{R})\)</span>.</p>
+<p>En effet, en considérant <span class="math inline">\(E =
+\mathbb{R}^3\)</span> muni du produit scalaire usuel et <span
+class="math inline">\(\mathscr{B}= (e_1,e_2,e_3)\)</span> la base
+canonique, il suffit de montrer que <span
+class="math inline">\(\mathscr{B}&#39; =
+(e&#39;_1,e&#39;_2,e&#39;_3)\)</span> telle que <span
+class="math inline">\(\left\{\begin{array}{ll}
+            e&#39;_1 &amp; =  \frac{1}{3}(-e_1+2e_2+2e_3) \\
+            e&#39;_2 &amp; =  \frac{1}{3}(-2e_1+e_2-2e_3 )\\
+            e&#39;_3 &amp; =  \frac{1}{3}(2e_1+2e_2-e_3 )
+        \end{array}\right.\)</span> est une base orthonormée de <span
+class="math inline">\(E\)</span>.</p>
+<p>On a <span class="math display">\[\begin{aligned}
+            \left\|e&#39;_1\right\|^2 &amp; = \frac{1+4+4}{9} = 1 \\
+            \left\|e&#39;_2\right\|^2 &amp; = \frac{4+1+4}{9} = 1 \\
+             \left\|e&#39;_3\right\|^2 &amp; = \frac{4+4+1}{9} = 1 \\
+             (e&#39;_1 \mid e&#39;_2) &amp; = \frac{2+2-4}{9}= 0 \\
+              (e&#39;_1 \mid e&#39;_3) &amp; = \frac{-2+4-2}{9}= 0 \\
+               (e&#39;_1 \mid e&#39;_2) &amp; = \frac{-4+2+2}{9}= 0
+        \end{aligned}\]</span></p>
+<p>donc effectivement <span class="math inline">\(M \in
+O_3(\mathbb{R})\)</span>. On peut vérifier <span
+class="math inline">\({}^tMM = I_3\)</span> par le calcul.</p>
+</div>
+<h2 data-number="3.5" id="déterminant-dune-isométrie"><span
+class="header-section-number">3.5</span> Déterminant d’une
+isométrie</h2>
+<div class="wprop">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien et <span
+class="math inline">\(f \in \mathcal{O}(E)\)</span> alors <span
+class="math inline">\(\det f = 1\)</span> ou <span
+class="math inline">\(\det f = -1\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(\mathscr{B}\)</span> une base
+orthonormée de <span class="math inline">\(E\)</span> et <span
+class="math inline">\(A = \mathscr{M}_{\mathscr{B}}(f)\)</span>.</p>
+<p>Alors, <span class="math inline">\(A \in O_n(\mathbb{R})\)</span>
+donc <span class="math inline">\({}^tAA = I_n\)</span>.</p>
+<p>On a donc <span class="math inline">\(\det\left({}^tAA\right) =
+\det\left({}^tA\right)\det\left(A\right) = \det(A)^2 = \det(I_n) =
+1\)</span> donc <span class="math inline">\(\det f = \det(A) = \pm
+1\)</span>.</p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien, on note <span
+class="math inline">\(S\mathcal{O}(E)\)</span> (ou <span
+class="math inline">\(\mathcal{O}^+(E)\)</span>) l’ensemble <span
+class="math inline">\(\left\{f \in \mathcal{O}(E)/ \det f =
+1\right\}\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien, <span
+class="math inline">\(S\mathcal{O}(E)\)</span> est un sous-groupe de
+<span class="math inline">\(\mathcal{O}(E)\)</span> que l’on appelle le
+groupe spécial orthogonal de <span class="math inline">\(E\)</span>.</p>
+</div>
+<div class="wproof">
+<ol>
+<li><p><span class="math inline">\(\mathop{\mathrm{Id}}_E \in
+S\mathcal{O}(E)\)</span> car <span
+class="math inline">\(\mathop{\mathrm{Id}}_E \in \mathcal{O}(E)\)</span>
+et <span class="math inline">\(\det(\mathop{\mathrm{Id}}_E) =
+1\)</span>,</p></li>
+<li><p>Soient <span class="math inline">\(f,g \in
+S\mathcal{O}(E)\)</span> alors <span class="math inline">\(f \circ g \in
+\mathcal{O}(E)\)</span> et <span class="math inline">\(\det(f \circ g )
+= \det(f)\det(g) = 1\)</span> donc <span class="math inline">\(f \circ g
+\in S\mathcal{O}(E)\)</span>,</p></li>
+<li><p>Soit <span class="math inline">\(f \in S\mathcal{O}(E)\)</span>,
+<span class="math inline">\(f^{-1} \in \mathcal{O}(E)\)</span> et <span
+class="math inline">\(\det\left(f^{-1}\right) = \frac{1}{\det f} =
+1\)</span> donc <span class="math inline">\(f^{-1} \in
+S\mathcal{O}(E)\)</span>.</p></li>
+</ol>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien, on note <span
+class="math inline">\(\mathcal{O}^-(E)\)</span> l’ensemble <span
+class="math inline">\(\left\{f \in \mathcal{O}(E)/ \det f =
+-1\right\}\)</span>.</p>
+</div>
+<div class="wrem">
+<p><span class="math inline">\(\mathcal{O}^-(E)\)</span> n’est pas un
+groupe car <span class="math inline">\(\mathop{\mathrm{Id}}_E \notin
+\mathcal{O}^-(E)\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien, alors <span
+class="math inline">\(\mathcal{O}^-(E) \neq \emptyset\)</span>.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Si <span class="math inline">\(\dim E = 1\)</span>, <span
+class="math inline">\(-\mathop{\mathrm{Id}}_E \in
+\mathcal{O}^-(E)\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\dim E = n \geq 2\)</span>, soit
+<span class="math inline">\(\mathscr{B}= (e_1,\ldots,e_n)\)</span> une
+base orthonormée de <span class="math inline">\(E\)</span>.</p>
+<p>On considère l’hyperplan <span class="math inline">\(H =
+\mathop{\mathrm{Vect}}(e_1,\ldots,e_{n-1})\)</span> et <span
+class="math inline">\(s_H\)</span> la réflexion d’hyperplan <span
+class="math inline">\(H\)</span>.</p>
+<p>On a alors <span class="math inline">\(s_H \in
+\mathcal{O}(E)\)</span> et <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}}(s_H) = \begin{pmatrix}
+1 &amp; 0 &amp; \cdots &amp; 0 \\
+0 &amp; 1 &amp; \cdots &amp; 0 \\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+0 &amp; 0 &amp; \cdots &amp; -1
+\end{pmatrix}\)</span> donc <span class="math inline">\(\det(s_H) =
+-1\)</span> et <span class="math inline">\(s_H \in
+\mathcal{O}^-(E)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wdefi">
+<p>Similairement, on définit le groupe <span
+class="math inline">\(SO_n(\mathbb{R}) = \left\{M \in
+\O_n(\mathbb{R})/\det(M) = 1\right\}\)</span> et l’ensemble <span
+class="math inline">\(O_n^-(\mathbb{R}) = \left\{M \in
+\O_n(\mathbb{R})/\det(M) = -1\right\}\)</span>.</p>
+</div>
+<h2 data-number="3.6" id="isométries-en-dimension-2"><span
+class="header-section-number">3.6</span> Isométries en dimension 2</h2>
+<h3 data-number="3.6.1" id="préliminaire"><span
+class="header-section-number">3.6.1</span> Préliminaire</h3>
+<div class="wprop">
+<p><span id="prop:desciption_O_E_dim_2"
+label="prop:desciption_O_E_dim_2"></span> Soit <span
+class="math inline">\((E,\left(\cdot \mid \cdot\right))\)</span> un
+espace euclidien de dimension 2 et <span
+class="math inline">\(\mathscr{B}\)</span> une base orthonormée de <span
+class="math inline">\(E\)</span>.</p>
+<p>Soit <span class="math inline">\(f \in \mathcal{O}(E)\)</span> alors
+il existe <span class="math inline">\(a,b \in \mathbb{R}\)</span> tels
+que <span class="math inline">\(a^2+b^2 = 1\)</span> et</p>
+<ul>
+<li><p>soit <span class="math inline">\(\mathscr{M}_{\mathscr{B}}(f) =
+\begin{pmatrix}
+                a &amp; -b \\
+                b &amp; a
+            \end{pmatrix}\)</span> et <span class="math inline">\(f \in
+S\mathcal{O}(E)\)</span>,</p></li>
+<li><p>soit <span class="math inline">\(\mathscr{M}_{\mathscr{B}}(f) =
+\begin{pmatrix}
+                a &amp; b \\
+                b &amp; -a
+            \end{pmatrix}\)</span> et <span class="math inline">\(f \in
+\mathcal{O}^-(E)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<p>Notons <span class="math inline">\(\mathscr{B}= (e_1,e_2)\)</span> et
+<span class="math inline">\(a,b,c,d \in \mathbb{R}\)</span> tels que
+<span class="math inline">\(\mathscr{M}_{\mathscr{B}}(f) =
+\begin{pmatrix}
+                a &amp; c \\
+                b &amp; d
+            \end{pmatrix}\)</span>.</p>
+<p><span class="math inline">\(\left(f(e_1),f(e_2)\right)\)</span> est
+une base orthonormée de <span class="math inline">\(E\)</span> donc
+<span class="math inline">\(\left\|f(e_1)\right\|^2 = 1\)</span>.</p>
+<p>Comme <span class="math inline">\(f(e_1) = ae_1+be_2\)</span> avec
+<span class="math inline">\((e_1,e_2)\)</span> orthonormée, cela donne
+<span class="math inline">\(a^2+b^2=1\)</span>.</p>
+<p>De plus, <span class="math inline">\((f(e_1) \mid f(e_2)) =
+0\)</span> donc <span class="math inline">\(f(e_2) \in
+\mathop{\mathrm{Vect}}(f(e_1))^\perp\)</span>.</p>
+<p>Or, on remarque que <span class="math inline">\(-be_1+ae_2 \in
+\mathop{\mathrm{Vect}}(f(e_1))^\perp\)</span> car <span
+class="math inline">\((f(e_1) \mid -be_1+ae_2) = (ae_1+be_2\mid
+-be_1+ae_2) =a-ba+ab=0\)</span>.</p>
+<p>Comme <span
+class="math inline">\(\dim\mathop{\mathrm{Vect}}(f(e_1))^\perp = \dim E
+- \dim \mathop{\mathrm{Vect}}(f(e_1))=1\)</span>, on a <span
+class="math inline">\(\mathop{\mathrm{Vect}}(f(e_1))^\perp =
+\mathop{\mathrm{Vect}}(-be_1+ae_2)\)</span>.</p>
+<p>Donc il existe <span class="math inline">\(\alpha \in
+\mathbb{R}\)</span> tel que <span class="math inline">\(f(e_2) =
+\alpha(-be_1+ae_2)\)</span> et <span
+class="math inline">\(\left\|f(e_2)\right\|^2 = 1\)</span> donne <span
+class="math inline">\(\alpha^2=1\)</span> donc <span
+class="math inline">\(\alpha = \pm 1\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(\alpha = 1\)</span>, <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}}(f) = \begin{pmatrix}
+                a &amp; -b \\
+                b &amp; a
+            \end{pmatrix}\)</span> et <span class="math inline">\(\det f
+= a^2+b^2 = 1\)</span>,</p></li>
+<li><p>si <span class="math inline">\(\alpha = -1\)</span>, <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}}(f) = \begin{pmatrix}
+                a &amp; b \\
+                b &amp; -a
+            \end{pmatrix}\)</span> et <span class="math inline">\(\det f
+= -a^2-b^2=-1\)</span>.</p></li>
+</ul>
+</div>
+<h3 data-number="3.6.2" id="description-de-smathcaloe"><span
+class="header-section-number">3.6.2</span> Description de <span
+class="math inline">\(S\mathcal{O}(E)\)</span></h3>
+<div class="wprop">
+<p><span id="prop:SOE_dim_2_sont_rotations"
+label="prop:SOE_dim_2_sont_rotations"></span> Soit <span
+class="math inline">\((E,\left(\cdot \mid \cdot\right))\)</span> un
+espace euclidien de dimension 2 et <span class="math inline">\(f \in
+S\mathcal{O}(E)\)</span>. Soit <span
+class="math inline">\(\mathscr{B}\)</span> une base orthonormée de <span
+class="math inline">\(E\)</span> alors il existe <span
+class="math inline">\(\theta \in \mathbb{R}\)</span> tel que <span
+class="math display">\[\mathscr{M}_{\mathscr{B}}(f) = R_\theta, \text{
+avec }R_\theta = \begin{pmatrix}
+            \cos(\theta) &amp; -\sin(\theta) \\
+            \sin(\theta) &amp; \cos(\theta)
+        \end{pmatrix}.\]</span></p>
+<p><span class="math inline">\(f\)</span> est alors une rotation de
+mesure d’angle <span class="math inline">\(\theta\)</span> et <span
+class="math inline">\(R_\theta\)</span> est appelée une matrice de
+rotation de mesure d’angle <span
+class="math inline">\(\theta\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(\mathscr{B}\)</span> une base
+orthonormée de <span class="math inline">\(E\)</span>, soit <span
+class="math inline">\(f \in S\mathcal{O}(E)\)</span>, par la
+proposition <a href="#prop:desciption_O_E_dim_2"
+data-reference-type="ref"
+data-reference="prop:desciption_O_E_dim_2">[prop:desciption_O_E_dim_2]</a>,
+il existe <span class="math inline">\(a,b \in \mathbb{R}\)</span> tels
+que <span class="math inline">\(\mathscr{M}_{\mathscr{B}}(f)=
+\begin{pmatrix}
+            a &amp; -b \\
+            b &amp; a
+        \end{pmatrix}\)</span> et <span
+class="math inline">\(a^2+b^2=1\)</span>.</p>
+<p>Comme <span class="math inline">\(a^2+b^2=1\)</span>, il existe <span
+class="math inline">\(\theta \in \mathbb{R}\)</span> tel que <span
+class="math inline">\(a = \cos(\theta)\)</span> et <span
+class="math inline">\(b = \sin(\theta)\)</span>.</p>
+<div class="webtextfigure">
+<div class="webtext">
+<p>On a donc <span class="math inline">\(\mathscr{M}_{\mathscr{B}}(f)=
+\begin{pmatrix}
+            \cos(\theta) &amp; -\sin(\theta) \\
+            \sin(\theta) &amp; \cos(\theta)
+        \end{pmatrix}\)</span>.</p>
+<p>En notant <span class="math inline">\(\mathscr{B}=
+(e_1,e_2)\)</span>, on voit dans la figure ci-contre que <span
+class="math inline">\(f(e_1) = \cos (\theta)e_1+\sin(\theta)e_2\)</span>
+est le vecteur <span class="math inline">\(e_1\)</span> tourné d’une
+angle de mesure <span class="math inline">\(\theta\)</span> et
+similairement pour <span class="math inline">\(f(e_2) = -\sin
+(\theta)e_1+\cos(\theta)e_2\)</span>.</p>
+<p>On constate donc que <span class="math inline">\(f\)</span> fait
+effectivement tourner les vecteurs de <span
+class="math inline">\(\mathscr{B}\)</span> d’un angle de mesure et il
+agit donc de la même façon sur tous les autres vecteurs par
+linéarité.</p>
+</div>
+<div class="webimg">
+<p><img src="rotation_2D.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wcor">
+<p><span class="math inline">\(SO_2(\mathbb{R}) = \left\{R_\theta =
+\begin{pmatrix}
+            \cos(\theta) &amp; -\sin(\theta) \\
+            \sin(\theta) &amp; \cos(\theta)
+        \end{pmatrix}/\theta \in \mathbb{R}\right\}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien de dimension 2 et <span
+class="math inline">\(\mathscr{B}\)</span> une base orthonormée de <span
+class="math inline">\(E\)</span>.</p>
+<p>Soit <span class="math inline">\(A \in SO_2(\mathbb{R})\)</span>, par
+la proposition <a href="#prop:iso_et_mat_ortho"
+data-reference-type="ref"
+data-reference="prop:iso_et_mat_ortho">[prop:iso_et_mat_ortho]</a>, il
+existe <span class="math inline">\(f \in S\mathcal{O}(E)\)</span> tel
+que <span class="math inline">\(A =
+\mathscr{M}_{\mathscr{B}}(f)\)</span>.</p>
+<p>Donc par la proposition <a href="#prop:SOE_dim_2_sont_rotations"
+data-reference-type="ref"
+data-reference="prop:SOE_dim_2_sont_rotations">[prop:SOE_dim_2_sont_rotations]</a>,
+il existe <span class="math inline">\(\theta \in \mathbb{R}\)</span> tel
+que <span class="math inline">\(A = R_\theta\)</span>.</p>
+</div>
+<div class="wprop">
+<p><span id="prop:produit_r_theta" label="prop:produit_r_theta"></span>
+Soient <span class="math inline">\(\theta,\theta&#39; \in
+\mathbb{R}\)</span>, alors</p>
+<ol>
+<li><p><span class="math inline">\(R_{\theta}R_{\theta&#39;} =
+R_{\theta+\theta&#39;}\)</span>.</p></li>
+<li><p><span class="math inline">\(R_\theta^{-1} =
+R_{-\theta}\)</span></p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p><span class="math display">\[\begin{aligned}
+            R_{\theta}R_{\theta&#39;}
+            &amp; = \begin{pmatrix}
+            \cos(\theta) &amp; -\sin(\theta) \\
+            \sin(\theta) &amp; \cos(\theta)
+        \end{pmatrix}
+        \begin{pmatrix}
+            \cos(\theta&#39;) &amp; -\sin(\theta&#39;) \\
+            \sin(\theta&#39;) &amp; \cos(\theta&#39;)
+        \end{pmatrix} \\
+        &amp; =  \begin{pmatrix}
+            \cos(\theta)\cos(\theta&#39;)-\sin(\theta)\sin(\theta&#39;)
+&amp; -\cos(\theta)\sin(\theta&#39;) -\sin(\theta)\cos(\theta&#39;) \\
+            \sin(\theta)\cos(\theta&#39;)+\cos(\theta)\sin(\theta&#39;)
+&amp; -\sin(\theta)\sin(\theta&#39;)+\cos(\theta)\cos(\theta&#39;)
+        \end{pmatrix} \\
+        &amp; = \begin{pmatrix}
+            \cos(\theta+\theta&#39;) &amp; -\sin(\theta+\theta&#39;) \\
+            \sin(\theta+\theta&#39;) &amp; \cos(\theta+\theta&#39;)
+        \end{pmatrix} \\
+        &amp; = R_{\theta+\theta&#39;}.
+        \end{aligned}\]</span></p></li>
+<li><p><span class="math inline">\(R_{\theta}R_{-\theta} =
+R_{\theta-\theta} = R_0 = I_2\)</span>.</p></li>
+</ol>
+</div>
+<div class="wrem">
+<p>En fait, il est cohérent qu’appliquer une rotation de mesure d’angle
+<span class="math inline">\(\theta\)</span> puis appliquer une rotation
+de mesure d’angle <span class="math inline">\(\theta&#39;\)</span>
+revienne à appliquer une rotation de mesure d’angle <span
+class="math inline">\(\theta+\theta&#39;\)</span>.</p>
+<p>De même, faire une rotation de mesure d’angle <span
+class="math inline">\(-\theta\)</span> inverse une rotation de mesure
+d’angle <span class="math inline">\(\theta\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien de dimension 2 alors <span
+class="math inline">\(S\mathcal{O}(E)\)</span> est un groupe
+commutatif.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(\mathscr{B}\)</span> une base
+orthonormée de <span class="math inline">\(E\)</span> et <span
+class="math inline">\(f,g \in S\mathcal{O}(E)\)</span>.</p>
+<p>Par la proposition <a href="#prop:SOE_dim_2_sont_rotations"
+data-reference-type="ref"
+data-reference="prop:SOE_dim_2_sont_rotations">[prop:SOE_dim_2_sont_rotations]</a>,
+il existe <span class="math inline">\(\theta,\theta&#39; \in
+\mathbb{R}\)</span> tels que <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}}(f) = R_\theta\)</span>
+et <span class="math inline">\(\mathscr{M}_{\mathscr{B}}(g) =
+R_{\theta&#39;}\)</span>.</p>
+<p>On a donc <span class="math display">\[\begin{aligned}
+            \mathscr{M}_{\mathscr{B}}(f\circ g)
+            &amp; =
+\mathscr{M}_{\mathscr{B}}(f)\mathscr{M}_{\mathscr{B}}(g) \\
+            &amp; =  R_\theta R_{\theta&#39;}\\
+            &amp; = R_{\theta+\theta&#39;} \text{ par la
+proposition~\ref{prop:produit_r_theta}} \\
+            &amp; = R_{\theta&#39;+\theta} \\
+            &amp; = R_{\theta&#39;} R_\theta \text{ par la
+proposition~\ref{prop:produit_r_theta}}\\
+            &amp; =
+\mathscr{M}_{\mathscr{B}}(g)\mathscr{M}_{\mathscr{B}}(f) \\
+            &amp; = \mathscr{M}_{\mathscr{B}}(g\circ f).
+        \end{aligned}\]</span></p>
+<p>donc <span class="math inline">\(f\circ g = g\circ f\)</span>.</p>
+</div>
+<div class="wrem">
+<p>De même, <span class="math inline">\(SO_2(\mathbb{R})\)</span> est
+commutatif.</p>
+</div>
+<h3 data-number="3.6.3" id="description-de-mathcalo-e"><span
+class="header-section-number">3.6.3</span> Description de <span
+class="math inline">\(\mathcal{O}^{-}(E)\)</span></h3>
+<div class="wprop">
+<p><span id="prop:OE_moins_sont_symétries"
+label="prop:OE_moins_sont_symétries"></span> Soit <span
+class="math inline">\((E,\left(\cdot \mid \cdot\right))\)</span> un
+espace euclidien de dimension 2 et <span class="math inline">\(f \in
+\mathcal{O}^{-}(E)\)</span>. Alors <span
+class="math inline">\(f\)</span> est une symétrie orthogonale.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(\mathscr{B}\)</span> une base
+orthonormée de <span class="math inline">\(E\)</span>, soit <span
+class="math inline">\(f \in \mathcal{O}^{-1}(E)\)</span>, par la
+proposition <a href="#prop:desciption_O_E_dim_2"
+data-reference-type="ref"
+data-reference="prop:desciption_O_E_dim_2">[prop:desciption_O_E_dim_2]</a>,
+il existe <span class="math inline">\(a,b \in \mathbb{R}\)</span> tels
+que <span class="math inline">\(\mathscr{M}_{\mathscr{B}}(f)=
+\begin{pmatrix}
+            a &amp; b \\
+            b &amp; -a
+        \end{pmatrix}\)</span> et <span
+class="math inline">\(a^2+b^2=1\)</span>.</p>
+<p>On a donc <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}}(f^2)=\mathscr{M}_{\mathscr{B}}(f)^2
+= \begin{pmatrix}
+            a &amp; b \\
+            b &amp; -a
+        \end{pmatrix}^2= \begin{pmatrix}
+            a^2+b^2 &amp; ab-ba \\
+            ba-ba &amp; a^B+b^2
+        \end{pmatrix} = I_2 =
+\mathscr{M}_{\mathscr{B}}(\mathop{\mathrm{Id}}_E)\)</span>.</p>
+<p>Donc <span class="math inline">\(f^2 =
+\mathop{\mathrm{Id}}_E\)</span> et <span
+class="math inline">\(f\)</span> est une symétrie. De plus, <span
+class="math inline">\(\mathscr{B}\)</span> est orthonormée donc <span
+class="math inline">\(f\)</span> est une symétrie orthogonale.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien de dimension 2, <span
+class="math inline">\(f \in \mathcal{O}^{-}(E)\)</span> et <span
+class="math inline">\(\mathscr{B}= (e_1,e_2)\)</span> une base
+orthonormée de <span class="math inline">\(E\)</span>. Alors,</p>
+<ul>
+<li><p>soit <span class="math inline">\(f\)</span> est la réflexion
+d’hyperplan par rapport à <span class="math inline">\(D =
+\mathop{\mathrm{Vect}}(e_1)\)</span> (parallèlement à <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_2)\)</span>),</p></li>
+<li><p>soit <span class="math inline">\(f\)</span> est la réflexion
+d’hyperplan par rapport à <span class="math inline">\(D =
+\mathop{\mathrm{Vect}}(e_2)\)</span> (parallèlement à <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_1)\)</span>),</p></li>
+<li><p>soit <span class="math inline">\(f\)</span> est la réflexion
+d’hyperplan par rapport à <span class="math inline">\(D =
+\mathop{\mathrm{Vect}}(f(e_1)+e_1)\)</span> (parallèlement à <span
+class="math inline">\(\mathop{\mathrm{Vect}}(f(e_1)-e_1)\)</span>).</p></li>
+</ul>
+</div>
+<div class="wproof">
+<p>Par la proposition <a href="#prop:desciption_O_E_dim_2"
+data-reference-type="ref"
+data-reference="prop:desciption_O_E_dim_2">[prop:desciption_O_E_dim_2]</a>,
+il existe <span class="math inline">\(a,b \in \mathbb{R}\)</span> tels
+que <span class="math inline">\(\mathscr{M}_{\mathscr{B}}(f)=
+\begin{pmatrix}
+            a &amp; b \\
+            b &amp; -a
+        \end{pmatrix}\)</span> et <span
+class="math inline">\(a^2+b^2=1\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(f(e_1) = e_1\)</span>, alors <span
+class="math inline">\(a = 1\)</span> donc <span
+class="math inline">\(b=0\)</span>, <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}}(f)= \begin{pmatrix}
+            1 &amp; 0 \\
+            0 &amp; -1
+        \end{pmatrix}\)</span> et <span class="math inline">\(f(e_2) =
+-e_2\)</span>. <span class="math inline">\(f\)</span> est donc bien la
+symétrie orthogonale de <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_1)\)</span> parallèlement
+à <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_2)\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(f(e_2) = e_2\)</span>, alors <span
+class="math inline">\(a = -1\)</span> donc <span
+class="math inline">\(b=0\)</span>, <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}}(f)= \begin{pmatrix}
+            -1 &amp; 0 \\
+            0 &amp; 1
+        \end{pmatrix}\)</span> et <span class="math inline">\(f(e_1) =
+-e_1\)</span>. <span class="math inline">\(f\)</span> est donc bien la
+symétrie orthogonale de <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_2)\)</span> parallèlement
+à <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_1)\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(f(e_1) \neq e_1\)</span> et <span
+class="math inline">\(f(e_2) \neq e_2\)</span> alors <span
+class="math inline">\(a,b \neq 1\)</span> et <span
+class="math inline">\(a,b \neq 0\)</span>.</p>
+<p>En posant <span class="math inline">\(v_1 = f(e_1)+e_1\)</span>, on a
+<span class="math inline">\(f(v_1) = f^2(e_1)+f(e_1) = e_1+f(e_1) =
+v_1\)</span>.</p>
+<p>De plus, en posant <span class="math inline">\(v_2 =
+f(e_1)-e_1\)</span>, on a <span class="math inline">\(f(v_2) =
+f^2(e_1)-f(e_1) = e_1-f(e_1) = -v_2\)</span>.</p>
+<p>Enfin, <span class="math inline">\((v_1 \mid v_2) = ( f(e_1)+e_1\mid
+f(e_1)-e_1) = (f(e_1)\mid f(e_1))-(f(e_1)\mid e_1)-(e_1\mid
+f(e_1))-(e_1\mid e_1)=(e_1\mid e_1)-(f(e_1)\mid e_1)-(f(e_1)\mid
+e_1)-(e_1\mid e_1) = 0\)</span>.</p>
+<p>Donc en notant <span class="math inline">\(e&#39;_1 =
+\frac{1}{\left\|v_1\right\|}v_1\)</span>, <span
+class="math inline">\(e&#39;_2 =
+\frac{1}{\left\|v_2\right\|}v_2\)</span>, <span
+class="math inline">\((e&#39;_1,e&#39;_2)\)</span> est une base
+orthonormée de <span class="math inline">\(E\)</span> et <span
+class="math inline">\(f\)</span> est la réflexion d’hyperplan <span
+class="math inline">\(D = \mathop{\mathrm{Vect}}(e&#39;_1) =
+\mathop{\mathrm{Vect}}(e_1+f(e_1))\)</span> (parallèlement à <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e&#39;_2) =
+\mathop{\mathrm{Vect}}(f(e_1)-e_1)\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="3.7"
+id="orientation-dune-espace-vectoriel-de-dimension-finie"><span
+class="header-section-number">3.7</span> Orientation d’une espace
+vectoriel de dimension finie</h2>
+<h3 data-number="3.7.1" id="introduction-en-dimension-2"><span
+class="header-section-number">3.7.1</span> Introduction en dimension
+2</h3>
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien de dimension <span
+class="math inline">\(2\)</span> et <span
+class="math inline">\(\mathscr{B}= (e_1,e_2),\mathscr{B}&#39; =
+(e&#39;_1,e&#39;_2)\)</span> deux bases orthonormées de <span
+class="math inline">\(E\)</span>.</p>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Dans ce premier cas, on dit que les bases sont orientées dans le même
+sens.</p>
+<p>Remarquons qu’alors, en considérant <span class="math inline">\(P =
+P_{\mathscr{B},\mathscr{B}&#39;}\)</span>, la matrice de passage de
+<span class="math inline">\(\mathscr{B}\)</span> à <span
+class="math inline">\(\mathscr{B}&#39;\)</span>, <span
+class="math inline">\(P\)</span> est une matrice de rotation de mesure
+d’angle <span class="math inline">\(\theta\)</span> et <span
+class="math inline">\(\det(P) = 1 &gt; 0\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="orientation_base_meme_sens.png" alt="image" /></p>
+</div>
+</div>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Dans ce second cas, on dit que les bases sont orientées dans le même
+sens.</p>
+<p>Remarquons qu’alors, en considérant <span class="math inline">\(P =
+P_{\mathscr{B},\mathscr{B}&#39;}\)</span>, la matrice de passage de
+<span class="math inline">\(\mathscr{B}\)</span> à <span
+class="math inline">\(\mathscr{B}&#39;\)</span>, <span
+class="math inline">\(P\)</span> ne peut pas être une matrice de
+rotation; on a beau essayé de faire tourner <span
+class="math inline">\(e&#39;_1\)</span> pour tomber sur <span
+class="math inline">\(e_1\)</span>, <span
+class="math inline">\(e&#39;_2\)</span> ne retombe pas sur <span
+class="math inline">\(e&#39;_2\)</span> simultanément. Pn a donc <span
+class="math inline">\(P \in O_2^-(\mathbb{R})\)</span> et <span
+class="math inline">\(\det(P) = -1 &lt; 0\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="orientation_base_sens_diff.png" alt="image" /></p>
+</div>
+</div>
+<h3 data-number="3.7.2" id="généralisation"><span
+class="header-section-number">3.7.2</span> Généralisation</h3>
+<div class="wdefi">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien et <span
+class="math inline">\(\mathscr{B},\mathscr{B}&#39;\)</span> deux bases
+<u>quelconques</u> de <span class="math inline">\(E\)</span>.</p>
+<p>Soit <span
+class="math inline">\(P_{\mathscr{B},\mathscr{B}&#39;}\)</span> la
+matrice de passage de <span class="math inline">\(\mathscr{B}\)</span> à
+<span class="math inline">\(\mathscr{B}&#39;\)</span>,</p>
+<ul>
+<li><p>Si <span class="math inline">\(\det
+P_{\mathscr{B},\mathscr{B}&#39;} &gt; 0\)</span>, on dit que <span
+class="math inline">\(\mathscr{B},\mathscr{B}&#39;\)</span> sont de même
+sens,</p></li>
+<li><p>Si <span class="math inline">\(\det
+P_{\mathscr{B},\mathscr{B}&#39;} &lt; 0\)</span>, on dit que <span
+class="math inline">\(\mathscr{B},\mathscr{B}&#39;\)</span> sont de sens
+opposé.</p></li>
+</ul>
+</div>
+<p>Orienter un espace euclidien <span class="math inline">\(E\)</span>,
+c’est choisir une base <span
+class="math inline">\(\mathscr{B}_0\)</span> de <span
+class="math inline">\(E\)</span>, dite base de référence, et on ne
+considère alors ensuite que des bases de même sens que <span
+class="math inline">\(\mathscr{B}_0\)</span> (une telle base est dire
+directe).</p>
+<div class="wrem">
+<p>Si <span class="math inline">\(\mathscr{B}\)</span> et <span
+class="math inline">\(\mathscr{B}&#39;\)</span> sont orthonormées,</p>
+<ul>
+<li><p><span class="math inline">\(\mathscr{B},\mathscr{B}&#39;\)</span>
+de même sens <span class="math inline">\(\iff\)</span> <span
+class="math inline">\(\det P_{\mathscr{B},\mathscr{B}&#39;}
+=1\)</span>,</p></li>
+<li><p><span class="math inline">\(\mathscr{B},\mathscr{B}&#39;\)</span>
+de sens opposé <span class="math inline">\(\iff\)</span> <span
+class="math inline">\(\det P_{\mathscr{B},\mathscr{B}&#39;}
+=-1\)</span>.</p></li>
+</ul>
+</div>
+<h3 data-number="3.7.3"
+id="orientation-et-rotation-en-dimension-2"><span
+class="header-section-number">3.7.3</span> Orientation et rotation en
+dimension 2</h3>
+<div class="wprop">
+<p>Soit <span class="math inline">\((E,\left(\cdot \mid
+\cdot\right))\)</span> un espace euclidien de dimension 2 et <span
+class="math inline">\(f \in S\mathcal{O}(E)\)</span>. Soit <span
+class="math inline">\(\mathscr{B}\)</span> une base orthonormée de <span
+class="math inline">\(E\)</span> et <span class="math inline">\(\theta
+\in \mathbb{R}\)</span> tel que <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}}(f) =
+R_\theta\)</span>.</p>
+<p>Soit <span class="math inline">\(\mathscr{B}&#39;\)</span> une autre
+base orthonormée de <span class="math inline">\(E\)</span> alors</p>
+<ul>
+<li><p>soit <span class="math inline">\(\mathscr{B}&#39;\)</span> est du
+même sens que <span class="math inline">\(\mathscr{B}\)</span> et <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}&#39;}(f) =
+R_\theta\)</span>,</p></li>
+<li><p>soit <span class="math inline">\(\mathscr{B}&#39;\)</span> est du
+sens opposé à <span class="math inline">\(\mathscr{B}\)</span> et <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}&#39;}(f) =
+R_{-\theta}\)</span>.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(P =
+P_{\mathscr{B},\mathscr{B}&#39;}\)</span> alors <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}&#39;}(f) =
+P^{-1}\mathscr{M}_{\mathscr{B}}(f)P\)</span>.</p>
+<p>De plus, par la proposition <a href="#prop:matrice_passage_bon_on_R"
+data-reference-type="ref"
+data-reference="prop:matrice_passage_bon_on_R">[prop:matrice_passage_bon_on_R]</a>,
+<span class="math inline">\(P \in O_2(\mathbb{R})\)</span>.</p>
+<ul>
+<li><p>Soit <span class="math inline">\(P \in SO_2(\mathbb{R})\)</span>
+et par la proposition <a href="#prop:SOE_dim_2_sont_rotations"
+data-reference-type="ref"
+data-reference="prop:SOE_dim_2_sont_rotations">[prop:SOE_dim_2_sont_rotations]</a>,
+il existe <span class="math inline">\(\theta&#39; \in
+\mathbb{R}\)</span> tel que <span class="math inline">\(P =
+R_{\theta&#39;}\)</span>.</p>
+<p>On a donc <span class="math display">\[\begin{aligned}
+                \mathscr{M}_{\mathscr{B}&#39;}(f)
+                &amp; = P^{-1}\mathscr{M}_{\mathscr{B}}(f)P \\
+                &amp; =  R_{\theta&#39;}^{-1}R_\theta R_{\theta&#39;} \\
+                &amp; = R_{-\theta&#39;+\theta+\theta&#39;} \text{ par
+la proposition~\ref{prop:produit_r_theta}} \\
+                &amp; = R_\theta.
+            \end{aligned}\]</span></p></li>
+<li><p>Soit <span class="math inline">\(P \in
+O_2^-(\mathbb{R})\)</span>.</p>
+<p>Dans ce cas, en notant <span class="math inline">\(\mathscr{B}&#39; =
+(e&#39;_1,e&#39;_2)\)</span>, on considère <span
+class="math inline">\(\mathscr{B}&#39;&#39; =
+(e&#39;_1,-e&#39;_2)\)</span> et <span class="math inline">\(P&#39; =
+P_{\mathscr{B}&#39;,\mathscr{B}&#39;&#39;} = \begin{pmatrix}
+                1 &amp; 0 \\
+                0 &amp; -1
+            \end{pmatrix}\)</span> de déterminant <span
+class="math inline">\(-1\)</span>.</p>
+<p>Donc <span class="math inline">\(\mathscr{B}&#39;\)</span> et <span
+class="math inline">\(\mathscr{B}&#39;&#39;\)</span> sont de sens
+opposés et <span class="math inline">\(\mathscr{B}&#39;&#39;\)</span>
+est du même sens que <span
+class="math inline">\(\mathscr{B}\)</span>.</p>
+<p>On a alors, par le point précédent <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}&#39;&#39;}(f) =
+R_{\theta}\)</span> puis <span class="math display">\[\begin{aligned}
+                \mathscr{M}_{\mathscr{B}&#39;}(f)
+                &amp; =
+P&#39;\mathscr{M}_{\mathscr{B}&#39;}(f)\left(P&#39;\right)^{-1} \\
+                &amp; = \begin{pmatrix}
+                1 &amp; 0 \\
+                0 &amp; -1
+            \end{pmatrix}\begin{pmatrix}
+            \cos(\theta) &amp; -\sin(\theta) \\
+            \sin(\theta) &amp; \cos(\theta)
+        \end{pmatrix}\begin{pmatrix}
+                1 &amp; 0 \\
+                0 &amp; -1
+            \end{pmatrix} \\
+            &amp; = \begin{pmatrix}
+                1 &amp; 0 \\
+                0 &amp; -1
+            \end{pmatrix}\begin{pmatrix}
+            \cos(\theta) &amp; \sin(\theta) \\
+            \sin(\theta) &amp; -\cos(\theta)
+        \end{pmatrix} \\
+        &amp; = \begin{pmatrix}
+            \cos(\theta) &amp; \sin(\theta) \\
+            -\sin(\theta) &amp; \cos(\theta)
+        \end{pmatrix} \\
+        &amp; = \begin{pmatrix}
+            \cos(-\theta) &amp; -\sin(-\theta) \\
+            \sin(-\theta) &amp; \cos(-\theta)
+        \end{pmatrix} \\
+        &amp; = R_{-\theta}.
+            \end{aligned}\]</span></p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>En fait, l’orientation d’un espace donne aussi le sens dans lequel
+considérer les angles.</p>
+</div>
 </body>
 </html>
 
