@@ -2977,7 +2977,7 @@ class="math inline">\(J_{n,n,n} = I_n\)</span>.</p>
 \mathscr{M}_{n,p}(\mathbb{K})\)</span>. <span
 class="math display">\[\mathop{\mathrm{rg}}(A) = r \iff A \text{ est
 équivalente à la matrice $J_{n,p,r}$ donnée dans la
-proposition~\ref{prop:rang_J_n_p_r}.}\]</span></p>
+proposition~{\color{PropCol}7.11}.}\]</span></p>
 </div>
 <div class="wproof">
 <p>Soit <span class="math inline">\(f \in
@@ -4459,6 +4459,20 @@ document.addEventListener("DOMContentLoaded", function() {
                     let cls = Array.from(c.classList).find(className => className.startsWith('mjx-c'));
                     return cls ? String.fromCharCode(parseInt(cls.replace('mjx-c', ''), 16)) : '';
                 }).join('');
+            }
+
+            // Remplacement des \ref{type:id} à l'intérieur de \text{} en mode math
+            const refRegex = /\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g;
+
+            if (refRegex.test(text)) {
+                const nouveauTexte = text.replace(refRegex, (m, t, id) => {
+                    const f = t + ":" + id;
+                    return labels[f] ? labels[f].num : m;
+                });
+
+                if (nouveauTexte !== text) {
+                    el.textContent = nouveauTexte;
+                }
             }
 
             if (text.includes("CLINEX")) {
