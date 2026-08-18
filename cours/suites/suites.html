@@ -2165,21 +2165,22 @@ class="math inline">\((u_n)\)</span> est négligeable devant <span
 class="math inline">\((v_n)\)</span> quand <span
 class="math inline">\(n\)</span> tend vers <span
 class="math inline">\(+\infty\)</span> s’il existe <span
+class="math inline">\(N \geq 0\)</span> et <span
 class="math inline">\((w_n) \in
 \mathscr{F}(\mathbb{N},\mathbb{R})\)</span> telle que <span
 class="math inline">\(w_n \longrightarrow 0\)</span> et <span
-class="math display">\[\forall n \geq 0, u_n = v_n w_n.\]</span> On note
+class="math display">\[\forall n \geq N, u_n = v_n w_n.\]</span> On note
 alors <span class="math inline">\(u_n =
 \underset{+\infty}{o}(v_n)\)</span> ou plus simplement <span
 class="math inline">\(u_n = o(v_n)\)</span>.</p>
 </div>
 <div class="wrem">
 <p>Cette définition équivaut à <span class="math display">\[\forall
-\varepsilon &gt; 0, \exists N_\varepsilon / \forall n \geq \varepsilon,
-|u_n| \leq \varepsilon |w_n|.\]</span> On comprend alors que la
-définition dépend juste de la valeur absolue des suites et donc <span
-class="math display">\[u_n = o(v_n) \iff |u_n| = o(v_n) \iff  u_n =
-o(|v_n|) \iff |u_n| = o(|v_n|).\]</span></p>
+\varepsilon &gt; 0, \exists N_\varepsilon / \forall n \geq
+N_\varepsilon, |u_n| \leq \varepsilon |w_n|.\]</span> On comprend alors
+que la définition dépend juste de la valeur absolue des suites et donc
+<span class="math display">\[u_n = o(v_n) \iff |u_n| = o(v_n) \iff  u_n
+= o(|v_n|) \iff |u_n| = o(|v_n|).\]</span></p>
 </div>
 <div class="wrem">
 <p>S’il existe <span class="math inline">\(N&#39; \geq 0\)</span> tel
@@ -2237,19 +2238,20 @@ class="math inline">\((u_n)\)</span> est dominée <span
 class="math inline">\((v_n)\)</span> quand <span
 class="math inline">\(n\)</span> tend vers <span
 class="math inline">\(+\infty\)</span> s’il existe <span
+class="math inline">\(N \in \mathbb{N}\)</span> et <span
 class="math inline">\((w_n) \in
 \mathscr{F}(\mathbb{N},\mathbb{R})\)</span> bornée tel que <span
-class="math display">\[\forall n \geq 0, u_n = v_n w_n.\]</span> On note
+class="math display">\[\forall n \geq N, u_n = v_n w_n.\]</span> On note
 alors <span class="math inline">\(u_n =
 \underset{+\infty}{O}(v_n)\)</span> ou plus simplement <span
 class="math inline">\(u_n = O(v_n)\)</span>.</p>
 </div>
 <div class="wrem">
 <p>Cette définition équivaut à <span class="math display">\[\exists M
-\geq 0 / \forall n \geq 0, |u_n| \leq M |v_n|.\]</span> On comprend
-alors que la définition dépend juste de la valeur absolue des suites et
-donc <span class="math display">\[u_n = O(v_n) \iff |u_n| = O(v_n)
-\iff  u_n = O(|v_n|) \iff |u_n| = O(|v_n|).\]</span></p>
+\geq 0, N \in \mathbb{N}/ \forall n \geq N, |u_n| \leq M |v_n|.\]</span>
+On comprend alors que la définition dépend juste de la valeur absolue
+des suites et donc <span class="math display">\[u_n = O(v_n) \iff |u_n|
+= O(v_n) \iff  u_n = O(|v_n|) \iff |u_n| = O(|v_n|).\]</span></p>
 </div>
 <div class="wrem">
 <p>S’il existe <span class="math inline">\(N&#39; \geq 0\)</span> tel
@@ -2271,10 +2273,11 @@ class="math inline">\((u_n)\)</span> est dominée <span
 class="math inline">\((v_n)\)</span> quand <span
 class="math inline">\(n\)</span> tend vers <span
 class="math inline">\(+\infty\)</span> s’il existe <span
+class="math inline">\(N \in \mathbb{N}\)</span> et <span
 class="math inline">\((w_n) \in
 \mathscr{F}(\mathbb{N},\mathbb{R})\)</span> telle que <span
 class="math inline">\(w_n \longrightarrow 1\)</span> et <span
-class="math display">\[\forall n \geq 0, u_n = v_n w_n.\]</span> On note
+class="math display">\[\forall n \geq N, u_n = v_n w_n.\]</span> On note
 alors <span class="math inline">\(u_n = \underset{+\infty}{\sim}
 v_n\)</span> ou plus simplement <span class="math inline">\(u_n = \sim
 v_n\)</span>.</p>
@@ -2298,16 +2301,17 @@ class="math display">\[u_n \sim v_n \iff \frac{u_n}{v_n} \longrightarrow
 u_n\)</span>.</p>
 <div class="wproof">
 <p>Si <span class="math inline">\(u_n \sim v_n\)</span>, il existe <span
+class="math inline">\(N \in \mathbb{N}\)</span> et <span
 class="math inline">\((w_n) \in
 \mathscr{F}(\mathbb{N},\mathbb{R})\)</span> telle que <span
 class="math inline">\(w_n \longrightarrow 1\)</span> et <span
-class="math display">\[\forall n \geq 0, u_n = v_n w_n.\]</span> On a
-donc l’existence de <span class="math inline">\(N \in
-\mathbb{N}\)</span> tel que pour tout <span class="math inline">\(n\geq
-N, w_n &gt; 0\)</span>. et pour tout <span class="math inline">\(n \geq
-N\)</span>, <span class="math display">\[v_n = \frac{1}{w_n}u_n\]</span>
-avec <span class="math inline">\(\frac{1}{w_n} \longrightarrow
-1.\)</span></p>
+class="math display">\[\forall n \geq N, u_n = v_n w_n.\]</span> On a
+donc l’existence de <span class="math inline">\(N&#39; \in \mathbb{N},
+\geq N\)</span> tel que pour tout <span class="math inline">\(n\geq
+N&#39;, w_n &gt; 0\)</span> et pour tout <span class="math inline">\(n
+\geq N&#39;\)</span>, <span class="math display">\[v_n =
+\frac{1}{w_n}u_n\]</span> avec <span class="math inline">\(\frac{1}{w_n}
+\longrightarrow 1.\)</span></p>
 </div>
 </div>
 <div class="wex">
@@ -2324,31 +2328,33 @@ class="math inline">\(\frac{n+\sqrt{n}}{n} = 1+\frac{1}{\sqrt{n}}
 <div class="wprop">
 <p>Soient <span class="math inline">\((u_n), (v_n)\in
 \mathscr{F}(\mathbb{N},\mathbb{R})\)</span>, <span
-class="math display">\[u_n = \sim v_n \iff \exists (t_n)\in
-\mathscr{F}(\mathbb{N},\mathbb{R}) / \forall n \geq 0, u_n = v_n + t_n
-\text{ et }t_n = o(v_n)\]</span>.</p>
+class="math display">\[u_n \sim v_n \iff \exists N \in \mathbb{N},
+\exists (t_n)\in \mathscr{F}(\mathbb{N},\mathbb{R}) / \forall n \geq N,
+u_n = v_n + t_n \text{ et }t_n = o(v_n).\]</span></p>
 </div>
 <div class="wproof">
 <ul>
 <li><p><span class="math inline">\(\Longrightarrow\)</span> Si <span
 class="math inline">\(u_n \sim v_n\)</span>, il existe <span
+class="math inline">\(N \in \mathbb{N}\)</span>, <span
 class="math inline">\((w_n) \in
 \mathscr{F}(\mathbb{N},\mathbb{R})\)</span> telle que <span
 class="math inline">\(w_n \longrightarrow 1\)</span> et <span
-class="math display">\[\forall n \geq 0, u_n = v_n w_n.\]</span> Donc
-<span class="math display">\[\forall n \geq 0, u_n = v_n+ v_n
+class="math display">\[\forall n \geq N, u_n = v_n w_n.\]</span> Donc
+<span class="math display">\[\forall n \geq N, u_n = v_n+ v_n
 (w_n-1).\]</span> et <span class="math inline">\(v_n (w_n-1) =
 o(v_n)\)</span> car <span class="math inline">\(w_n-1 \longrightarrow
 0\)</span>.</p></li>
 <li><p><span class="math inline">\(\Longleftarrow\)</span> S’il existe
-<span class="math inline">\((t_n)\in
+<span class="math inline">\(N \in \mathbb{N}\)</span> et <span
+class="math inline">\((t_n)\in
 \mathscr{F}(\mathbb{N},\mathbb{R})\)</span> telle que <span
-class="math inline">\(\forall n \geq 0, u_n = v_n + t_n \text{ et }t_n =
+class="math inline">\(\forall n \geq N, u_n = v_n + t_n \text{ et }t_n =
 o(v_n)\)</span>, alors <span class="math inline">\(u_n - v_n =
 o(v_n)\)</span> Donc il existe <span class="math inline">\((w_n) \in
 \mathscr{F}(\mathbb{N},\mathbb{R})\)</span> telle que <span
 class="math inline">\(w_n \longrightarrow 0\)</span> et <span
-class="math display">\[\forall n \geq 0, u_n -v_n= v_n w_n \iff u_n =
+class="math display">\[\forall n \geq N, u_n -v_n= v_n w_n \iff u_n =
 v_n(1+w_n).\]</span> avec <span class="math inline">\(1+w_n
 \longrightarrow 1\)</span>.</p></li>
 </ul>
@@ -2356,14 +2362,15 @@ v_n(1+w_n).\]</span> avec <span class="math inline">\(1+w_n
 <div class="wprop">
 <p>Soient <span class="math inline">\((u_n), (v_n)\in
 \mathscr{F}(\mathbb{N},\mathbb{R})\)</span>, <span
-class="math display">\[u_n = \sim v_n \iff \exists (t_n)\in
-\mathscr{F}(\mathbb{N},\mathbb{R}) / \forall n \geq 0, u_n = v_n + t_n
-\text{ et }t_n = o(u_n)\]</span>.</p>
+class="math display">\[u_n \sim v_n \iff \exists N \in \mathbb{N},
+\exists (t_n)\in \mathscr{F}(\mathbb{N},\mathbb{R}) / \forall n \geq N,
+u_n = v_n + t_n \text{ et }t_n = o(u_n)\]</span>.</p>
 </div>
 <div class="wproof">
 <p><span class="math display">\[u_n \sim v_n \iff v_n \sim u_n \iff
-\exists (t_n)\in \mathscr{F}(\mathbb{N},\mathbb{R}) / \forall n \geq 0,
-u_n = v_n + t_n \text{ et }t_n = o(u_n).\]</span></p>
+\exists N \in \mathbb{N}, \exists (t_n)\in
+\mathscr{F}(\mathbb{N},\mathbb{R}) / \forall n \geq N, u_n = v_n + t_n
+\text{ et }t_n = o(u_n).\]</span></p>
 </div>
 </body>
 </html>
