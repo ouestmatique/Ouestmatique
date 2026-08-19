@@ -137,6 +137,10 @@ série-intégrale</a></li>
 id="toc-séries-absolument-convergentes"><span
 class="toc-section-number">3</span> Séries absolument
 convergentes</a></li>
+<li><a href="#développement-décimal-dun-réel"
+id="toc-développement-décimal-dun-réel"><span
+class="toc-section-number">4</span> Développement décimal d’un
+réel</a></li>
 </ul>
 </nav>
 <h1 data-number="1" id="généralites"><span
@@ -825,6 +829,190 @@ croissante.</p></li>
 </ol>
 <p>Donc on a bien le résultat voulu.</p>
 </div>
+</div>
+<h1 data-number="4" id="développement-décimal-dun-réel"><span
+class="header-section-number">4</span> Développement décimal d’un
+réel</h1>
+<div class="wprop">
+<p>Soit <span class="math inline">\(\left(\alpha_n\right)_{n \geq
+1}\)</span> une suite d’entiers compris entre <span
+class="math inline">\(0\)</span> et <span
+class="math inline">\(9\)</span> alors <span class="math inline">\(\sum
+\frac{\alpha_n}{10^n}\)</span> converge et <span
+class="math inline">\(\sum_{n=1}^{+\infty} \frac{\alpha_n}{10^n} \in
+[0,1]\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\sum \frac{\alpha_n}{10^n}\)</span> est à
+termes positifs et pour tout <span class="math inline">\(n \geq
+1\)</span>, <span class="math inline">\(\left|
+\frac{\alpha_n}{10^n}\right| \leq \frac{9}{10^n} =
+9\frac{1}{10^{n}}\)</span> qui est le terme d’une série convergente car
+<span class="math inline">\(\frac{1}{10} &lt; 1\)</span>.</p>
+<p>De plus, <span class="math inline">\(\sum_{n=1}^{+\infty}
+\frac{\alpha_n}{10^n} \leq \sum_{n=1}^{+\infty} \frac{9}{10^{n}} =
+\frac{9}{10}\sum_{n=0}^{+\infty} \frac{1}{10^{n}}=
+\frac{9}{10}\frac{1}{1-\frac{1}{10}} = 1.\)</span></p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(\left(\alpha_n\right)_{n \geq
+1}\)</span> une suite d’entiers compris entre <span
+class="math inline">\(0\)</span> et <span
+class="math inline">\(9\)</span>.</p>
+<p>Alors, <span class="math inline">\(\sum_{n=1}^{+\infty}
+\frac{\alpha_n}{10^n}\)</span> est noté <span class="math inline">\(0,
+\alpha_1 \alpha_2 \ldots \alpha_n \ldots\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(\left(\alpha_n\right)_{n \geq
+1}\)</span> tel que pour tout <span class="math inline">\(n \geq 1,
+\alpha_n = 9\)</span>. Alors,</p>
+<p><span class="math display">\[\sum_{n=1}^{+\infty} \frac{9}{10^n} =
+0,9999\ldots = 1.\]</span></p>
+</div>
+<div class="wproof">
+<p><span class="math display">\[\begin{aligned}
+    \sum_{n=1}^{+\infty} \frac{\alpha_n}{10^n}
+    &amp; = \sum_{n=1}^{+\infty} \frac{9}{10^n} \\
+    &amp; =\frac{9}{10}\sum_{n=0}^{+\infty} \frac{1}{10^n} \\
+    &amp; = \frac{9}{10}\frac{1}{1-\frac{1}{10}} \\
+    &amp; = 1.
+    \end{aligned}\]</span></p>
+</div>
+<p>On a donc <span class="math inline">\(0,1 = 0,0999\ldots\)</span> et
+<span class="math inline">\(0,1 = 0,1000000\ldots\)</span> ce qui donne
+a priori deux développements décimaux de <span
+class="math inline">\(0,1\)</span>. Pour éliminer ce doublon, on
+considère les suites non stationnaires à <span
+class="math inline">\(9\)</span>.</p>
+<div class="wprop">
+<p>Soit <span class="math inline">\(x \in [0,1[\)</span>.</p>
+<p>Alors, il existe <span class="math inline">\(\left(\alpha_n\right)_{n
+\geq 1}\)</span> une suite d’entiers compris entre <span
+class="math inline">\(0\)</span> et <span
+class="math inline">\(9\)</span> tel que <span class="math display">\[x
+= \sum_{n=1}^{+\infty} \frac{\alpha_n}{10^n}.\]</span></p>
+<p>De plus, on peut imposer que la suite ne soit pas stationnaire à
+<span class="math inline">\(9\)</span> (ie il n’existe pas <span
+class="math inline">\(N \geq 0\)</span> tel que pour tout <span
+class="math inline">\(n \geq N, \alpha_n = 9\)</span>) et dans ce cas,
+<span class="math inline">\(\left(\alpha_n\right)\)</span> est unique et
+est appelée le développement décimal propre de <span
+class="math inline">\(x\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Commençons par remarquer que l’on a déjà montré l’existence et
+unicité la valeur décimale approchée par défaut de <span
+class="math inline">\(x\)</span> à <span
+class="math inline">\(\frac{1}{10^k}\)</span> près pour <span
+class="math inline">\(k \in \mathbb{N}\)</span>.</p>
+<p>Pour rappel, il existe <span class="math inline">\(p_k \in
+\mathbb{N}\)</span> unique tel que <span
+class="math inline">\(\frac{p_k}{10^k} \leq x &lt;
+\frac{p_k}{10^k}+\frac{1}{10^k}\)</span> (car alors <span
+class="math inline">\(p_k = \lfloor 10^k x\rfloor\)</span>) et on a
+<span class="math inline">\(\frac{p_k}{10^k} \xrightarrow[k \to
++\infty]{} x\)</span>.</p>
+<div class="wex">
+<p>Pour <span class="math inline">\(x = 0,12345678\)</span>, on a <span
+class="math inline">\(\left\{\begin{array}{ll}
+    \alpha_1 &amp;= 1 \\
+    \alpha_2 &amp;= 2 \\
+    \vdots &amp; \\
+    \alpha_8 =  8
+\end{array}\right. \Longrightarrow \left\{\begin{array}{ll}
+    \frac{\alpha_1}{10} &amp;= 0,1 \\
+    &amp; \\
+    \frac{\alpha_2}{10^2} &amp;= 0,02 \\
+    \vdots &amp; \\
+    \frac{\alpha_8}{10^8} &amp;= 0,00000008 = 8\times 10^{-8} \\
+\end{array}\right.\)</span> tandis que <span
+class="math inline">\(\left\{\begin{array}{ll}
+    p_0 &amp; = 0 \\
+    \frac{p_1}{10} &amp;= 0,1 \\
+    &amp; \\
+    \frac{p_2}{10^2} &amp;= 0,12 \\
+    &amp; \\
+    \vdots &amp; \\
+    \frac{p_8}{10^8} &amp; =  0,12345678
+\end{array}\right..\)</span></p>
+<p>On remarque donc <span class="math inline">\(\left\{\begin{array}{ll}
+    p_0+\frac{\alpha_1}{10} &amp;= p_1 \\
+    &amp; \\
+    \frac{p_1}{10}+\frac{\alpha_2}{10^2} &amp;= 0,12 = p_2 \\
+    \vdots &amp; \\
+    \frac{p_7}{10^7}+\frac{\alpha_8}{10^8} &amp;= 0,12345678 =
+\frac{p_8}{10^8} \\
+\end{array}\right..\)</span></p>
+</div>
+<p>On a alors une bonne idée de ce qui va passer; l’unicité et
+l’existence de <span class="math inline">\(\alpha_n\)</span> pour <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span> sera donné par
+<span class="math inline">\(\frac{p_{n}}{10^{n}} =
+\frac{p_{n-1}}{10^{n-1}}+\frac{\alpha_{n}}{10^{n}} \iff \alpha_n =
+p_n-10p_{n-1}\)</span>.</p>
+<ul>
+<li><p><u>Unicité de <span
+class="math inline">\(\left(\alpha_n\right)\)</span>.</u> Supposons que
+<span class="math inline">\(\left(\alpha_n\right)\)</span> existe.
+Alors, pour <span class="math inline">\(k \in \mathbb{N}\)</span>, <span
+class="math display">\[x = \sum_{n=1}^{k}
+\frac{\alpha_n}{10^n}+\sum_{n=k+1}^{+\infty}
+\frac{\alpha_n}{10^n}.\]</span></p>
+<p>Or, soit <span class="math inline">\(k \in \mathbb{N}\)</span>, <span
+class="math inline">\(\sum_{n=1}^{k} \frac{\alpha_n}{10^n} =
+\sum_{n=1}^{k} \frac{\alpha_n}{ 10^{n-k}10^k}= \sum_{n=1}^{k}
+\frac{10^{\overbrace{k-n}^{\geq 0}}\alpha_n}{10^k} =
+\frac{\overbrace{\sum_{n=1}^{k}10^{k-n}\alpha_n}^{\in \mathbb{N}}}{10^k}
+= \frac{p_k}{10^k}\)</span> avec <span class="math inline">\(p_k \in
+\mathbb{N}\)</span>.</p>
+<p>De plus, comme la suite n’est pas stationnaire à <span
+class="math inline">\(9\)</span>, l’inégalité est stricte dans</p>
+<p><span class="math inline">\(\sum_{n=k+1}^{+\infty}
+\frac{\alpha_n}{10^n} &lt; \sum_{n=k+1}^{+\infty} \frac{9}{10^n} =
+\frac{9}{10^{k+1}}\sum_{n=0}^{+\infty} \frac{1}{10^n} =
+\frac{1}{10^k}\)</span>.</p>
+<p>Donc <span class="math inline">\(\frac{p_k}{10^k} \leq x &lt;
+\frac{p_k}{10^k}+\frac{1}{10^k}\)</span> et <span
+class="math inline">\(\frac{p_k}{10^k}\)</span> est la valeur décimale
+approchée par défaut de <span class="math inline">\(x\)</span> à <span
+class="math inline">\(\frac{1}{10^k}\)</span> près, qui est unique (qui
+vaut <span class="math inline">\(\lfloor 10^k x\rfloor\)</span>).</p>
+<p>Mais on a aussi <span class="math inline">\(p_k = 10^k \sum_{n=1}^{k}
+\frac{10^{k-n}\alpha_n}{10^k} = \sum_{n=1}^{k} 10^{k-n}\alpha_n =
+10^{k-1}\alpha_1+\ldots+10\alpha_{k-1}+\alpha_k = 10q+\alpha_k\)</span>
+avec <span class="math inline">\(q \in \mathbb{N}\)</span>.</p>
+<p>Donc <span class="math inline">\(\alpha_k \in [\![ 0,9 ]\!]\)</span>
+est le reste de la division euclidienne de <span
+class="math inline">\(p_k\)</span> par <span
+class="math inline">\(10\)</span> et est aussi unique.</p></li>
+<li><p><u>Existence de <span
+class="math inline">\(\left(\alpha_n\right)\)</span>.</u> Comme suggéré
+en introduction de la preuve, considérons <span
+class="math inline">\(\left(\alpha_n\right)\)</span> tel que pour tout
+<span class="math inline">\(n \in \mathbb{N}^{\star}\)</span>, <span
+class="math inline">\(\alpha_n = p_n-10p_{n-1}\)</span> avec <span
+class="math inline">\(\frac{p_n}{10^n}\)</span> la valeur décimale
+approchée par défaut de <span class="math inline">\(x\)</span> à <span
+class="math inline">\(\frac{1}{10^n}\)</span> près.</p>
+<p>On a alors <span class="math inline">\(\frac{\alpha_n}{10^n} =
+\frac{p_n}{10^n}-\frac{p_{n-1}}{10^{n-1}}\)</span>.</p>
+<p>Puis, par télescopage, soit <span class="math inline">\(N \in
+\mathbb{N}^{\star}\)</span>, <span class="math inline">\(\sum_{n=1}^N
+\frac{\alpha_n}{10^n} =   \frac{p_N}{10^N} \xrightarrow[N \to +\infty]{}
+x\)</span>.</p>
+<p>Il reste à s’assurer que <span
+class="math inline">\(\left(\alpha_n\right)\)</span> ne soit pas
+stationnaire à <span class="math inline">\(9\)</span>.</p>
+<p>Par l’absurde, s’il existe <span class="math inline">\(N \in
+\mathbb{N}\)</span> tel que pour tout <span class="math inline">\(k \geq
+N\)</span>, <span class="math inline">\(\alpha_k = 9\)</span> alors on a
+<span class="math inline">\(x = \sum_{k=1}^{N-1}\frac{\alpha_k}{10^k}
++  \sum_{k=N}^{+\infty}\frac{9}{10^k} =
+\frac{p_{N-1}}{10^{N-1}}+\frac{1}{10^{N-1}}\)</span>, ce qui est absurde
+car <span class="math inline">\(x &lt;
+\frac{p_{N-1}}{10^{N-1}}+\frac{1}{10^{N-1}}\)</span>.</p></li>
+</ul>
 </div>
 </body>
 </html>

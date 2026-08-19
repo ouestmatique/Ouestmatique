@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Compléments de géométrie</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+
+
+<style>
+  /* Correctif MathJax : fusion des bordures pour les divisions de polynômes (array + cline) */
+  mjx-container mjx-mtable {
+    border-collapse: collapse !important;
+  }
+  mjx-container mjx-mtd {
+    padding-top: 0.25em !important;
+    padding-bottom: 0.25em !important;
+  }
+
+  body[data-md-color-scheme="slate"] svg {
+    filter: invert(1) hue-rotate(180deg);
+  }
+  body[data-md-color-scheme="slate"] .site-logo {
+    filter: none;
+  }
+  
+</style>
+
+<header class="site-header">
+
+   <div class="site-header-left">
+      <a href="../../index.html">
+        <img src="../../assets/logo.svg"
+             class="site-logo"
+             alt="Logo">
+      </a>
+    </div>
+
+<div class="site-header-right">
+   <button id="theme-toggle"
+style="
+margin-right: 15px;
+cursor: pointer;
+background: transparent;
+border: none;
+font-size: 1.1rem;
+color: var(--md-primary-bg-color);
+">
+🌙 / ☀️
+</button>
+
+<a href="../../index.html" class="home-link">
+   Retour à l’accueil
+ </a>
+</div>
+
+</header>
+
+
+<header id="title-block-header">
+
+<h1 class="title">Compléments de géométrie</h1>
+<p class="pdf-link">
+<a href="geometrie.pdf" target="_blank">[PDF]</a>
+</p>
+
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a
+href="#application-des-déterminants-au-calcul-daires-et-de-volumes"
+id="toc-application-des-déterminants-au-calcul-daires-et-de-volumes"><span
+class="toc-section-number">1</span> Application des déterminants au
+calcul d’aires et de volumes</a>
+<ul>
+<li><a href="#aire-dun-parallélogramme"
+id="toc-aire-dun-parallélogramme"><span
+class="toc-section-number">1.1</span> Aire d’un parallélogramme</a></li>
+<li><a href="#volume-dun-parallélépipède"
+id="toc-volume-dun-parallélépipède"><span
+class="toc-section-number">1.2</span> Volume d’un
+parallélépipède</a></li>
+</ul></li>
+<li><a href="#sous-espace-affine-dun-espace-vectoriel"
+id="toc-sous-espace-affine-dun-espace-vectoriel"><span
+class="toc-section-number">2</span> Sous-espace affine d’un espace
+vectoriel</a>
+<ul>
+<li><a href="#translation" id="toc-translation"><span
+class="toc-section-number">2.1</span> Translation</a></li>
+<li><a href="#sous-espace-affine" id="toc-sous-espace-affine"><span
+class="toc-section-number">2.2</span> Sous-espace affine</a>
+<ul>
+<li><a href="#définition" id="toc-définition"><span
+class="toc-section-number">2.2.1</span> Définition</a></li>
+<li><a href="#direction-dun-sous-espace-affine"
+id="toc-direction-dun-sous-espace-affine"><span
+class="toc-section-number">2.2.2</span> Direction d’un sous-espace
+affine</a></li>
+<li><a href="#intersection-de-sous-espaces-affines"
+id="toc-intersection-de-sous-espaces-affines"><span
+class="toc-section-number">2.2.3</span> Intersection de sous-espaces
+affines</a></li>
+<li><a href="#sous-espaces-affines-parallèles"
+id="toc-sous-espaces-affines-parallèles"><span
+class="toc-section-number">2.2.4</span> Sous-espaces affines
+parallèles</a></li>
+<li><a href="#détermination-dune-droite-ou-dun-plan-affine"
+id="toc-détermination-dune-droite-ou-dun-plan-affine"><span
+class="toc-section-number">2.2.5</span> Détermination d’une droite ou
+d’un plan affine</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#hyperplans-affines" id="toc-hyperplans-affines"><span
+class="toc-section-number">3</span> Hyperplans affines</a>
+<ul>
+<li><a href="#définition-1" id="toc-définition-1"><span
+class="toc-section-number">3.1</span> Définition</a></li>
+<li><a href="#equation-cartésienne-dun-hyperplan"
+id="toc-equation-cartésienne-dun-hyperplan"><span
+class="toc-section-number">3.2</span> Equation cartésienne d’un
+hyperplan</a></li>
+<li><a href="#hyperplan-dun-espace-euclidien"
+id="toc-hyperplan-dun-espace-euclidien"><span
+class="toc-section-number">3.3</span> Hyperplan d’un espace
+euclidien</a>
+<ul>
+<li><a href="#vecteur-normal" id="toc-vecteur-normal"><span
+class="toc-section-number">3.3.1</span> Vecteur normal</a></li>
+<li><a href="#distance-à-un-hyperplan"
+id="toc-distance-à-un-hyperplan"><span
+class="toc-section-number">3.3.2</span> Distance à un hyperplan</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 data-number="1"
+id="application-des-déterminants-au-calcul-daires-et-de-volumes"><span
+class="header-section-number">1</span> Application des déterminants au
+calcul d’aires et de volumes</h1>
+<h2 data-number="1.1" id="aire-dun-parallélogramme"><span
+class="header-section-number">1.1</span> Aire d’un parallélogramme</h2>
+<div class="webtextfigure">
+<div class="webtext">
+<p>On considère <span class="math inline">\(\mathscr{P}\)</span>, le
+plan usuel ainsi que trois points <span class="math inline">\(A,B,C \in
+\mathscr{P}\)</span> et <span class="math inline">\(\overrightarrow{u} =
+\overrightarrow{AB}\)</span> et <span
+class="math inline">\(\overrightarrow{v} = \overrightarrow{AC}\)</span>.
+On considère aussi <span class="math inline">\(D \in
+\mathscr{P}\)</span> le point tel que <span
+class="math inline">\(\overrightarrow{AD} =
+\overrightarrow{u}+\overrightarrow{v} =
+\overrightarrow{AB}+\overrightarrow{AC}\)</span> et on note <span
+class="math inline">\(\mathcal{A}\)</span> l’aire du parallélogramme
+<span class="math inline">\(ABCD\)</span>. Enfin, on considère <span
+class="math inline">\(\overrightarrow{v_1}\)</span> et <span
+class="math inline">\(\overrightarrow{v_2}\)</span> telle que <span
+class="math inline">\(\mathscr{B}_0\)</span> est une base orthonormée de
+<span class="math inline">\(\mathscr{P}\)</span> et <span
+class="math inline">\(\overrightarrow{AB} =
+\left\|\overrightarrow{AB}\right\|\overrightarrow{v_1}\)</span> (obtenu
+par le procédé de Gram-Schmidt par exemple).</p>
+</div>
+<div class="webimg">
+<p><img src="aire_parallelogramme.png" alt="image" /></p>
+</div>
+</div>
+<div class="wrappel">
+<div class="webtextfigure">
+<div class="webtext">
+<p><span class="math inline">\(\mathcal{A}\)</span> vaut « base <span
+class="math inline">\(\times\)</span> hauteur »</p>
+<p>Soit <span class="math inline">\(\mathscr{D}\)</span> la droite
+passant par <span class="math inline">\(A\)</span> et dirigée par <span
+class="math inline">\(\overrightarrow{v_1}\)</span> et <span
+class="math inline">\(H\)</span> le projeté orthogonal de <span
+class="math inline">\(C\)</span> sur <span
+class="math inline">\(\mathscr{D}\)</span>.</p>
+<p>Alors, <span class="math inline">\(\mathcal{A} =
+\left\|\overrightarrow{AB}\right\|\left\|\overrightarrow{HC}\right\|\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="aire_parallelogramme_prop.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wprop">
+<p><span class="math display">\[\mathcal{A} =
+\left|\det{}_{\mathcal{B}_0}(\overrightarrow{AB},
+\overrightarrow{AC})\right|.\]</span></p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\overrightarrow{AB} =
+\left\|\overrightarrow{AB}\right\|\overrightarrow{v_1}\)</span> et <span
+class="math inline">\(\overrightarrow{AC} =
+\overrightarrow{AH}+\overrightarrow{HC}\)</span> avec <span
+class="math inline">\(\overrightarrow{AH} =
+\left\|\overrightarrow{AH}\right\|\overrightarrow{v_1}\)</span> et <span
+class="math inline">\(\overrightarrow{HC} = \pm
+\left\|\overrightarrow{HC}\right\|\overrightarrow{v_2}\)</span>.</p>
+<p>Donc <span
+class="math display">\[\det{}_{\mathcal{B}_0}(\overrightarrow{AB},
+\overrightarrow{AC})
+    = \begin{vmatrix}
+        \left\|\overrightarrow{AB}\right\| &amp;
+\left\|\overrightarrow{AH}\right\| \\
+        0 &amp; \pm \left\|\overrightarrow{HC}\right\|
+    \end{vmatrix}=\pm
+\left\|\overrightarrow{AB}\right\|\left\|\overrightarrow{HC}\right\| =
+\pm \mathcal{A}.\]</span></p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(\mathscr{B}\)</span> une base
+orthonormée de <span class="math inline">\(\mathscr{P}\)</span> alors
+<span class="math display">\[\mathcal{A} =
+\left|\det{}_{\mathscr{B}}(\overrightarrow{AB},
+\overrightarrow{AC})\right|.\]</span></p>
+</div>
+<div class="wproof">
+<p>Comme <span class="math inline">\(\mathscr{B},\mathscr{B}_0\)</span>
+sont orthonormées, <span
+class="math inline">\(\det{}_{\mathscr{B}_0}(\mathscr{B}) = \pm
+1\)</span> donc <span class="math display">\[\mathcal{A} =
+\left|\det{}_{\mathcal{B}_0}(\overrightarrow{AB},
+\overrightarrow{AC})\right| =
+\left|\det{}_{\mathscr{B}_0}(\mathscr{B})\det{}_{\mathcal{B}}(\overrightarrow{AB},
+\overrightarrow{AC})\right| =
+\left|\det{}_{\mathscr{B}}(\overrightarrow{AB},
+\overrightarrow{AC})\right|.\]</span></p>
+</div>
+<div class="wex">
+<p><strong>Exercice</strong> — On considère <span
+class="math inline">\(\mathscr{P}\)</span> orthonormé par <span
+class="math inline">\((O,\overrightarrow{i},\overrightarrow{j})\)</span>
+ainsi que les points <span class="math inline">\(A (1,2)\)</span>, <span
+class="math inline">\(B (-1,3)\)</span> et <span class="math inline">\(C
+= (2,1)\)</span>. Calculer l’aire du triangle <span
+class="math inline">\(ABC\)</span>.</p>
+<p><strong>Corrigé</strong> — L’aire du triangle est l’aire du
+parallèlogramme divisé par deux <span
+class="math inline">\(\left(\frac{\text{base}\times\text{hauteur}}{2}\right)\)</span>,
+<span class="math inline">\(\overrightarrow{AB} =
+-2\overrightarrow{i}+\overrightarrow{j}\)</span> et <span
+class="math inline">\(\overrightarrow{AC} =
+\overrightarrow{i}-\overrightarrow{j}\)</span></p>
+<p>Or, <span
+class="math inline">\(\det{}_{\left(\overrightarrow{i},\overrightarrow{j}\right)}(\overrightarrow{AB},\overrightarrow{AC})
+= \begin{vmatrix}
+            -2 &amp; 1 \\
+            1 &amp; -1
+        \end{vmatrix} = 1.\)</span> Donc l’aire du triangle vaut <span
+class="math inline">\(\frac{1}{2}\)</span>.</p>
+</div>
+<h2 data-number="1.2" id="volume-dun-parallélépipède"><span
+class="header-section-number">1.2</span> Volume d’un
+parallélépipède</h2>
+<div class="webtextfigure">
+<div class="webtext">
+<p>On considère <span class="math inline">\(\mathscr{E}\)</span>,
+l’espace usuel ainsi que quatre points <span
+class="math inline">\(A,B,C,D \in \mathscr{E}\)</span> et le
+parallélépipède construits à partir de <span
+class="math inline">\(A,B,C,D\)</span> et <span
+class="math inline">\(\mathcal{V}\)</span> son volume. On considère
+aussi <span
+class="math inline">\(\mathscr{B}_0=(\overrightarrow{v_1},\overrightarrow{v_2},\overrightarrow{v_3})\)</span>,
+base orthonormée de <span class="math inline">\(\mathscr{E}\)</span>
+telle que <span class="math inline">\(\overrightarrow{AB} =
+\left\|\overrightarrow{AB}\right\| v_1\)</span> et <span
+class="math inline">\(\overrightarrow{AC} \in
+\mathop{\mathrm{Vect}}(\overrightarrow{v_1},\overrightarrow{v_2})\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="aire_parallelelepipede.png" alt="image" /></p>
+</div>
+</div>
+<div class="wrappel">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\(K\)</span> le projeté orthogonal de
+<span class="math inline">\(D\)</span> sur le plan dirigé par <span
+class="math inline">\(\overrightarrow{v_1}\)</span> et <span
+class="math inline">\(\overrightarrow{v_2}\)</span> passant par <span
+class="math inline">\(A\)</span>, alors <span
+class="math display">\[\mathcal{V} = \mathcal{A}\times
+\left\|DK\right\|\]</span> où <span
+class="math inline">\(\mathcal{A}\)</span> est le volume du
+parallélogramme dirigé par <span
+class="math inline">\(A,B,C\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="aire_parallelelepipede_prop.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wprop">
+<p><span class="math display">\[\mathcal{V} =
+\left|\det{}_{\mathscr{B}_0}(\overrightarrow{AB},\overrightarrow{AC},\overrightarrow{AD})\right|\]</span></p>
+</div>
+<div class="wproof">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\(H\)</span> le projeté orthogonal de
+<span class="math inline">\(C\)</span> sur la droite passant par <span
+class="math inline">\(A\)</span>, dirigé par <span
+class="math inline">\(\overrightarrow{v_1}\)</span>.</p>
+<p>Alors, <span class="math inline">\(\mathcal{A}=
+\left\|\overrightarrow{AB}\right\|
+\left\|\overrightarrow{HC}\right\|\)</span>.</p>
+<p>De plus, <span class="math inline">\(\overrightarrow{AC} =
+\overrightarrow{AH}+\overrightarrow{HC} = \alpha \overrightarrow{v_1}
+\pm \left\|\overrightarrow{HC}\right\|\overrightarrow{v_2}.\)</span> et
+<span class="math inline">\(\overrightarrow{AD} =
+\overrightarrow{AK}+\overrightarrow{KD} = \underbrace{\beta
+\overrightarrow{v_1}+\gamma \overrightarrow{v_2}}_{\overrightarrow{AK}
+\in
+\mathop{\mathrm{Vect}}(\overrightarrow{v_1},\overrightarrow{v_2})}\pm
+\left\|\overrightarrow{KD}\right\|\overrightarrow{v_3}\)</span>.</p>
+<p>Donc</p>
+</div>
+<div class="webimg">
+<p><img src="aire_parallelelepipede_prop_proof.png" alt="image" /></p>
+</div>
+</div>
+<p><span
+class="math display">\[\det{}_{\mathscr{B}_0}(\overrightarrow{AB},\overrightarrow{AC},\overrightarrow{AD}
+    = \begin{vmatrix}
+        \left\|\overrightarrow{AB}\right\| &amp; \alpha &amp; \beta \\
+        0 &amp; \pm \left\|\overrightarrow{HC}\right\| &amp; \gamma \\
+        0 &amp; 0 &amp; \pm \left\|\overrightarrow{KD}\right\|
+    \end{vmatrix} = \pm
+\left\|\overrightarrow{AB}\right\|\left\|\overrightarrow{HC}\right\|\left\|\overrightarrow{KD}\right\|
+= \pm \mathcal{A}\left\|\overrightarrow{KD}\right\| =
+\mathcal{V}.\]</span></p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(\mathscr{B}\)</span> une base
+orthonormée de <span class="math inline">\(\mathscr{E}\)</span> alors
+<span class="math display">\[\mathcal{A} =
+\left|\det{}_{\mathscr{B}}(\overrightarrow{AB},
+\overrightarrow{AC},\overrightarrow{AD})\right|.\]</span></p>
+</div>
+<div class="wproof">
+<p>Comme <span class="math inline">\(\mathscr{B},\mathscr{B}_0\)</span>
+sont orthonormées, <span
+class="math inline">\(\det{}_{\mathscr{B}_0}(\mathscr{B}) = \pm
+1\)</span> donc <span class="math display">\[\mathcal{V} =
+\left|\det{}_{\mathcal{B}_0}(\overrightarrow{AB},
+\overrightarrow{AC},\overrightarrow{AD})\right| =
+\left|\det{}_{\mathscr{B}_0}(\mathscr{B})\det{}_{\mathcal{B}}(\overrightarrow{AB},
+\overrightarrow{AC},\overrightarrow{AD})\right| =
+\left|\det{}_{\mathscr{B}}(\overrightarrow{AB},
+\overrightarrow{AC},\overrightarrow{AD})\right|.\]</span></p>
+</div>
+<div class="wex">
+<p>Dans <span
+class="math inline">\((O,\overrightarrow{i},\overrightarrow{j},\overrightarrow{k})\)</span>
+repère orthonormé de <span class="math inline">\(\mathscr{E}\)</span>,
+pour <span class="math inline">\(A (1,-1,-1)\)</span>, <span
+class="math inline">\(B(0,1,3)\)</span>, <span
+class="math inline">\(C(1,0,3)\)</span>, <span
+class="math inline">\(D(0,-2,-1)\)</span>, on a <span
+class="math display">\[\begin{aligned}
+        \overrightarrow{AB} &amp; =
+-\overrightarrow{i}+2\overrightarrow{j}+4\overrightarrow{k} \\
+        \overrightarrow{AC} &amp; =
+0\overrightarrow{i}+\overrightarrow{j}+4\overrightarrow{k} \\
+        \overrightarrow{AD} &amp; =
+-\overrightarrow{i}+-\overrightarrow{j}+0\overrightarrow{k}
+    \end{aligned}\]</span> donc <span
+class="math display">\[\begin{vmatrix}
+        -1 &amp; 0 &amp; -1 \\
+        2 &amp; 1 &amp; -1 \\
+        4 &amp; 4 &amp; 0
+    \end{vmatrix} \underset{C_1 \leftarrow C_1-C_2}{=} \begin{vmatrix}
+        -1 &amp; 0 &amp; -1 \\
+        1 &amp; 1 &amp; -1 \\
+        0 &amp; 4 &amp; 0
+    \end{vmatrix} = -4\begin{vmatrix}
+        -1 &amp;  -1 \\
+        1 &amp;  -1 \\
+    \end{vmatrix} = -8.\]</span> et <span
+class="math inline">\(\mathcal{V} = 8\)</span>.</p>
+</div>
+<h1 data-number="2" id="sous-espace-affine-dun-espace-vectoriel"><span
+class="header-section-number">2</span> Sous-espace affine d’un espace
+vectoriel</h1>
+<h2 data-number="2.1" id="translation"><span
+class="header-section-number">2.1</span> Translation</h2>
+<div class="wdefi">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(v_0 \in E\)</span>, la translation de vecteur
+<span class="math inline">\(v_0\)</span> est l’application <span
+class="math inline">\(\begin{array}{lllll}
+t_{v_0} &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; v &amp; \mapsto &amp; v+v_0
+\end{array}\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="translation_ev.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wrem">
+<p>Si <span class="math inline">\(v_0 \neq 0_E\)</span>, <span
+class="math inline">\(t_{v_0} \notin \mathscr{L}(E)\)</span> car <span
+class="math inline">\(t_{v_0}(0_E) = v_0 \neq 0_E\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(v_1,v_2 \in E\)</span> alors <span
+class="math inline">\(t_{v_1} \circ t_{v_2}= t_{v_1+v_2}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Pour <span class="math inline">\(v \in E\)</span>, <span
+class="math inline">\(t_{v_1} \circ t_{v_2}(v) = t_{v_1}(v+v_2) =
+v+v_1+v_2 = t_{v_1+v_2}(v)\)</span>.</p>
+</div>
+<div class="wcor">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(v_0 \in E\)</span> alors <span
+class="math inline">\(t_{v_0}\)</span> est bijective de réciproque <span
+class="math inline">\(t_{-v_0}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Pour <span class="math inline">\(v \in E\)</span>, <span
+class="math inline">\(t_{-v_0} \circ t_{v_0}(v) = t_{-v_0+v_0}(v) =
+t_{0_E}(v) = v = \mathop{\mathrm{Id}}_E(v)\)</span> et <span
+class="math inline">\(t_{v_0} \circ t_{-v_0}(v)= = t_{v_0-v_0}(v) =
+t_{0_E}(v) = v = \mathop{\mathrm{Id}}_E(v)\)</span>.</p>
+</div>
+<h2 data-number="2.2" id="sous-espace-affine"><span
+class="header-section-number">2.2</span> Sous-espace affine</h2>
+<h3 data-number="2.2.1" id="définition"><span
+class="header-section-number">2.2.1</span> Définition</h3>
+<div class="wdefi">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(\mathscr{F}\)</span> une partie de <span
+class="math inline">\(E\)</span>.</p>
+<p>Alors, <span class="math inline">\(\mathscr{F}\)</span> est un
+sous-espace affine de <span class="math inline">\(E\)</span> s’il existe
+<span class="math inline">\(v_0 \in E\)</span> et <span
+class="math inline">\(F\)</span> un sous-espace vectoriel de <span
+class="math inline">\(E\)</span> tel que <span
+class="math inline">\(\mathscr{F}= t_{v_0}(F) = \left\{v+v_0 / v \in
+F\right\}\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="translation_ev_sea.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wrem">
+<p><span class="math inline">\(v_0 = t_{v_0}(\underbrace{0_E}_{\in F})
+\in \mathscr{F}\)</span>.</p>
+</div>
+<div class="wex">
+<ul>
+<li><p>Soit <span class="math inline">\(v_0 \in E\)</span>, <span
+class="math inline">\(\mathscr{F}= \left\{v_0\right\}\)</span> est un
+sous-espace affine de <span class="math inline">\(E\)</span> car <span
+class="math inline">\(\mathscr{F}=
+t_{v_0}\left(\left\{0_E\right\}\right)\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathscr{F}= E\)</span> est un
+sous-espace affine de <span class="math inline">\(E\)</span> car <span
+class="math inline">\(\mathscr{F}=
+t_{0_E}\left(E\right)\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(E,E&#39;\)</span> deux <span
+class="math inline">\(\mathbb{K}\)</span>-espaces vectoriels, <span
+class="math inline">\(f \in \mathscr{L}(E,E&#39;)\)</span> ainsi que
+<span class="math inline">\(b \in \mathop{\mathrm{Im}}f\)</span> et
+<span class="math inline">\(v_0 \in E\)</span> tel que <span
+class="math inline">\(f(v_0) = b\)</span>.</p>
+<p>Alors, <span class="math inline">\(\mathscr{F}= \left\{v \in E / f(v)
+= b\right\}\)</span>, l’ensemble des solutions de l’équation linéaire
+<span class="math inline">\(f(v) = b\)</span>, est un sous-espace affine
+de <span class="math inline">\(E\)</span> tel que <span
+class="math inline">\(\mathscr{F}=
+t_{v_0}(\mathop{\mathrm{Ker}}f)\)</span>.</p></li>
+</ul>
+</div>
+<h3 data-number="2.2.2" id="direction-dun-sous-espace-affine"><span
+class="header-section-number">2.2.2</span> Direction d’un sous-espace
+affine</h3>
+<div class="wprop">
+<p><span id="prop:unicite_direction"
+label="prop:unicite_direction"></span> Soit <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(\mathscr{F}\)</span> un sous-espace affine de
+<span class="math inline">\(E\)</span>.</p>
+<p>Soient <span class="math inline">\(v_0 \in E\)</span> et <span
+class="math inline">\(F\)</span> un sous-espace vectoriel de <span
+class="math inline">\(E\)</span> tel que <span
+class="math inline">\(\mathscr{F}= t_{v_0}(F)\)</span>.</p>
+<p>Alors, <span class="math inline">\(F = \left\{u-u&#39; \in E / u \in
+\mathscr{F}, u&#39; \in \mathscr{F}\right\}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Notons <span class="math inline">\(G = \left\{u-u&#39; \in E / u \in
+\mathscr{F}, u&#39; \in \mathscr{F}\right\}\)</span> et montrons
+l’égalité par double-inclusion.</p>
+<ul>
+<li><p><span class="math inline">\(G \subset F\)</span>. Soient <span
+class="math inline">\(u,u&#39; \in \mathscr{F}\)</span>, il existe <span
+class="math inline">\(v,v&#39; \in F\)</span> tels que <span
+class="math inline">\(u = v_0+v\)</span> et <span
+class="math inline">\(u&#39; = v_0+v&#39;\)</span>.</p>
+<p>Donc <span class="math inline">\(u-u&#39; = v_0+v-(v_0+v&#39;) =
+v-v&#39; \in F\)</span> et <span class="math inline">\(G \subset
+F\)</span>.</p></li>
+<li><p><span class="math inline">\(F \subset G\)</span>. Soit <span
+class="math inline">\(v \in F\)</span>, alors <span
+class="math inline">\(v+v_0 = t_{v_0}(v) \in \mathscr{F}\)</span>.</p>
+<p>De plus, <span class="math inline">\(v_0 = t_{v_0}(0_E) = v_0 \in
+\mathscr{F}\)</span> donc <span class="math inline">\(v+v_0-v_0 = v \in
+G\)</span>.</p></li>
+</ul>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(\mathscr{F}\)</span> un sous-espace affine de
+<span class="math inline">\(E\)</span>.</p>
+<p>Soient <span class="math inline">\(v_0 \in E\)</span> et <span
+class="math inline">\(F\)</span> un sous-espace vectoriel de <span
+class="math inline">\(E\)</span> tel que <span
+class="math inline">\(\mathscr{F}= t_{v_0}(F)\)</span>.</p>
+<p>Par la proposition <a href="#prop:unicite_direction"
+data-reference-type="ref"
+data-reference="prop:unicite_direction">[prop:unicite_direction]</a>,
+<span class="math inline">\(F\)</span> est unique et il est alors appelé
+la direction de <span class="math inline">\(\mathscr{F}\)</span>, notée
+<span class="math inline">\(\overrightarrow{\mathscr{F}}\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(\dim \overrightarrow{\mathscr{F}}
+= 1\)</span>, <span class="math inline">\(\mathscr{F}\)</span> est
+appelé une droite affine de <span
+class="math inline">\(E\)</span>,</p></li>
+<li><p>Si <span class="math inline">\(\dim \overrightarrow{\mathscr{F}}
+= 2\)</span>, <span class="math inline">\(\mathscr{F}\)</span> est
+appelé un plan affine de <span
+class="math inline">\(E\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><span id="prop:non_unicite_v0" label="prop:non_unicite_v0"></span>
+Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(\mathscr{F}\)</span> un sous-espace affine de
+<span class="math inline">\(E\)</span> de direction <span
+class="math inline">\(\overrightarrow{\mathscr{F}}\)</span> tel que
+<span class="math inline">\(\mathscr{F}=
+t_{v_0}(\overrightarrow{\mathscr{F}})\)</span> avec <span
+class="math inline">\(v_0 \in E\)</span>.</p>
+<p>Alors, soit <span class="math inline">\(v_1 \in \mathscr{F}\)</span>,
+<span class="math inline">\(\mathscr{F}=
+t_{v_1}(\overrightarrow{\mathscr{F}})\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Montrons <span
+class="math inline">\(t_{v_0}(\overrightarrow{\mathscr{F}}) =
+t_{v_1}(\overrightarrow{\mathscr{F}})\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(t_{v_0}(\overrightarrow{\mathscr{F}})
+\subset t_{v_1}(\overrightarrow{\mathscr{F}})\)</span>. Si <span
+class="math inline">\(u \in
+t_{v_0}(\overrightarrow{\mathscr{F}})\)</span>, il existe <span
+class="math inline">\(v \in \overrightarrow{\mathscr{F}}\)</span> tel
+que <span class="math inline">\(u = v+v_0\)</span>.</p>
+<p>On a donc <span class="math inline">\(u = v-v_1+v_0+v_1\)</span>.</p>
+<p>Or, <span class="math inline">\(\overrightarrow{\mathscr{F}}
+=  \left\{u-u&#39; \in E / u \in \mathscr{F}, u&#39; \in
+\mathscr{F}\right\}\)</span> par la proposition <a
+href="#prop:unicite_direction" data-reference-type="ref"
+data-reference="prop:unicite_direction">[prop:unicite_direction]</a>
+donc <span class="math inline">\(v_0-v_1 \in
+\overrightarrow{\mathscr{F}}\)</span> et <span
+class="math inline">\(v-v_1+v_0 \in
+\overrightarrow{\mathscr{F}}\)</span> donc <span class="math inline">\(u
+\in  t_{v_1}(\overrightarrow{\mathscr{F}})\)</span>.</p></li>
+<li><p><span class="math inline">\(v_0\)</span> et <span
+class="math inline">\(v_1\)</span> jouant un rôle symétrique, on a de la
+même façon <span
+class="math inline">\(t_{v_0}(\overrightarrow{\mathscr{F}}) \supset
+t_{v_1}(\overrightarrow{\mathscr{F}})\)</span>.</p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>Bien qu’on ait unicité de <span
+class="math inline">\(\overrightarrow{\mathscr{F}}\)</span>, on a
+absolument pas unicité de <span class="math inline">\(v_0\)</span>
+d’après la proposition <a href="#prop:non_unicite_v0"
+data-reference-type="ref"
+data-reference="prop:non_unicite_v0">[prop:non_unicite_v0]</a>.</p>
+</div>
+<h3 data-number="2.2.3" id="intersection-de-sous-espaces-affines"><span
+class="header-section-number">2.2.3</span> Intersection de sous-espaces
+affines</h3>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(\mathscr{F}_1\)</span>, <span
+class="math inline">\(\mathscr{F}_2\)</span> deux sous-espaces affines
+de <span class="math inline">\(E\)</span> <u> tels que <span
+class="math inline">\(\mathscr{F}_1 \cap \mathscr{F}_2 \neq
+\emptyset\)</span>.</u></p>
+<p>Alors, <span class="math inline">\(\mathscr{F}_1 \cap
+\mathscr{F}_2\)</span> est un sous-espace affine de direction <span
+class="math inline">\(\overrightarrow{\mathscr{F}_1} \cap
+\overrightarrow{\mathscr{F}_2}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(v_0 \in \mathscr{F}_1 \cap
+\mathscr{F}_2\)</span>, par la proposition <a
+href="#prop:non_unicite_v0" data-reference-type="ref"
+data-reference="prop:non_unicite_v0">[prop:non_unicite_v0]</a>, on a
+<span class="math inline">\(\mathscr{F}_1 =
+t_{v_0}(\overrightarrow{\mathscr{F}_1})\)</span> et <span
+class="math inline">\(\mathscr{F}_2 =
+t_{v_0}(\overrightarrow{\mathscr{F}_2})\)</span>.</p>
+<p>On a donc <span class="math display">\[\mathscr{F}_1 \cap
+\mathscr{F}_2 =  t_{v_0}(\overrightarrow{\mathscr{F}_1})
+\cap  t_{v_0}(\overrightarrow{\mathscr{F}_2})
+=  t_{v_0}(\overrightarrow{\mathscr{F}_1} \cap
+\overrightarrow{\mathscr{F}_2}).\]</span></p>
+<p>Donc <span class="math inline">\(\mathscr{F}_1 \cap
+\mathscr{F}_2\)</span> est un sous-espace affine de direction <span
+class="math inline">\(\overrightarrow{\mathscr{F}_1} \cap
+\overrightarrow{\mathscr{F}_2}\)</span>.</p>
+</div>
+<h3 data-number="2.2.4" id="sous-espaces-affines-parallèles"><span
+class="header-section-number">2.2.4</span> Sous-espaces affines
+parallèles</h3>
+<div class="wdefi">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(\mathscr{F}_1\)</span>, <span
+class="math inline">\(\mathscr{F}_2\)</span> deux sous-espaces affines
+de <span class="math inline">\(E\)</span>. On dit que <span
+class="math inline">\(\mathscr{F}_1\)</span> est parallèle à <span
+class="math inline">\(\mathscr{F}_2\)</span> si <span
+class="math inline">\(\overrightarrow{\mathscr{F}_1} \subset
+\overrightarrow{\mathscr{F}_2}\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="illus_sea_paralleles.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(\mathscr{F}_1\)</span>, <span
+class="math inline">\(\mathscr{F}_2\)</span> deux sous-espaces affines
+de <span class="math inline">\(E\)</span>.</p>
+<p>Si <span class="math inline">\(\mathscr{F}_1\)</span> est parallèle à
+<span class="math inline">\(\mathscr{F}_2\)</span> alors <span
+class="math inline">\(\mathscr{F}_1 \cap \mathscr{F}_2 =
+\emptyset\)</span> ou <span class="math inline">\(\mathscr{F}_1 \subset
+\mathscr{F}_2\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Si <span class="math inline">\(\mathscr{F}_1 \cap \mathscr{F}_2 \neq
+\emptyset\)</span>, <span class="math inline">\(\mathscr{F}_1 \cap
+\mathscr{F}_2\)</span> est un sous-espace affine dirigé par <span
+class="math inline">\(\overrightarrow{\mathscr{F}_1} \cap
+\overrightarrow{\mathscr{F}_2} =
+\overrightarrow{\mathscr{F}_1}\)</span>.</p>
+<p>Soit <span class="math inline">\(v_0 \in \mathscr{F}_1 \cap
+\mathscr{F}_2\)</span>, on a alors <span
+class="math inline">\(\mathscr{F}_1 \cap \mathscr{F}_2 =
+t_{v_0}(\overrightarrow{\mathscr{F}_1})= \mathscr{F}_1\)</span>.</p>
+<p>Donc <span class="math inline">\(\mathscr{F}_1 \subset
+\mathscr{F}_2\)</span>.</p>
+</div>
+<h3 data-number="2.2.5"
+id="détermination-dune-droite-ou-dun-plan-affine"><span
+class="header-section-number">2.2.5</span> Détermination d’une droite ou
+d’un plan affine</h3>
+<div class="wprop">
+<p>Soient <span class="math inline">\(v_1,v_2 \in E\)</span> tels que
+<span class="math inline">\(v_1 \neq v_2\)</span>.</p>
+<p>La droite <span class="math inline">\(\mathscr{D}=
+t_{v_1}(\mathop{\mathrm{Vect}}(v_2-v_1))\)</span> est l’unique droite
+affine contenant <span class="math inline">\(v_1\)</span> et <span
+class="math inline">\(v_2\)</span>.</p>
+</div>
+<div class="wproof">
+<p>D’abord, <span class="math inline">\(v_1 = 0_E+v_1\)</span>, <span
+class="math inline">\(v_2 = (v_2-v_1)+v_1\)</span> donc <span
+class="math inline">\(v_1,v_2 \in \mathscr{D}\)</span>.</p>
+<p>D’autre part, soit <span
+class="math inline">\(\mathscr{D}&#39;\)</span> une droite affine
+contenant <span class="math inline">\(v_1\)</span> et <span
+class="math inline">\(v_2\)</span> alors <span class="math inline">\(v_1
+\in \mathscr{D}&#39;\)</span> et <span class="math inline">\(v_2-v_1 \in
+\overrightarrow{\mathscr{D}&#39;}\)</span> par la proposition <a
+href="#prop:unicite_direction" data-reference-type="ref"
+data-reference="prop:unicite_direction">[prop:unicite_direction]</a>.</p>
+<p>Or, <span class="math inline">\(v_2 -v_1 \neq 0_E\)</span> et <span
+class="math inline">\(\dim(\overrightarrow{\mathscr{D}&#39;}) =
+1\)</span> donc <span class="math inline">\(\mathscr{D}&#39;\)</span>
+est dirigé par <span
+class="math inline">\(\mathop{\mathrm{Vect}}(v_2-v_1)\)</span> et <span
+class="math inline">\(\mathscr{D}&#39; =
+t_{v_1}(\mathop{\mathrm{Vect}}(v_2-v_1))\)</span>.</p>
+</div>
+<div class="wrem">
+<p>On se ramène à "une unique droite du plan passent par deux points
+distincts <span class="math inline">\(A,B\)</span>" en considérant <span
+class="math inline">\(v_1 = \overrightarrow{OA}\)</span> et <span
+class="math inline">\(v_2 = \overrightarrow{OB}\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(v_1,v_2,v_3 \in E\)</span> tels
+que <span class="math inline">\(v_2-v_1\)</span> et <span
+class="math inline">\(v_3-v_1\)</span> sont linéairement
+indépendants.</p>
+<p>La plan <span class="math inline">\(\mathscr{P}=
+t_{v_1}(\mathop{\mathrm{Vect}}(v_2-v_1,v_3-v_1))\)</span> est l’unique
+plan affine contenant <span class="math inline">\(v_1, v_2\)</span> et
+<span class="math inline">\(v_3\)</span>.</p>
+</div>
+<div class="wproof">
+<p>D’abord <span class="math inline">\(v_1 = 0_E+v_1\)</span>, <span
+class="math inline">\(v_2 = (v_2-v_1)+v_1\)</span> et <span
+class="math inline">\(v_3 = (v_3-v_1)+v_1\)</span> donc <span
+class="math inline">\(v_1,v_2,v_3 \in \mathscr{P}\)</span>.</p>
+<p>D’autre part, soit <span
+class="math inline">\(\mathscr{P}&#39;\)</span> une plan affine
+contenant <span class="math inline">\(v_1,v_2\)</span> et <span
+class="math inline">\(v_3\)</span> alors <span class="math inline">\(v_1
+\in \mathscr{P}&#39;\)</span>, <span class="math inline">\(v_2-v_1 \in
+\overrightarrow{\mathscr{D}&#39;}\)</span> et <span
+class="math inline">\(v_3-v_1 \in
+\overrightarrow{\mathscr{D}&#39;}\)</span> par la proposition <a
+href="#prop:unicite_direction" data-reference-type="ref"
+data-reference="prop:unicite_direction">[prop:unicite_direction]</a>.</p>
+<p>Or, <span class="math inline">\(v_2-v_1\)</span> et <span
+class="math inline">\(v_3-v_1\)</span> dont linéairement indépendants et
+<span class="math inline">\(\dim(\overrightarrow{\mathscr{P}&#39;}) =
+2\)</span> donc <span class="math inline">\(\mathscr{P}&#39;\)</span>
+est dirigé par <span
+class="math inline">\(\mathop{\mathrm{Vect}}(v_2-v_1,v_3-v_1)\)</span>
+et <span class="math inline">\(\mathscr{P}&#39; =
+t_{v_1}(\mathop{\mathrm{Vect}}(v_2-v_1,v_3-v_1))\)</span>.</p>
+</div>
+<h1 data-number="3" id="hyperplans-affines"><span
+class="header-section-number">3</span> Hyperplans affines</h1>
+<h2 data-number="3.1" id="définition-1"><span
+class="header-section-number">3.1</span> Définition</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geq 1\)</span>.</p>
+<p>Un hyperplan affine de <span class="math inline">\(E\)</span> est un
+sous-espace affine <span class="math inline">\(\mathscr{H}\)</span> de
+<span class="math inline">\(E\)</span> tel que <span
+class="math inline">\(\overrightarrow{\mathscr{H}}\)</span> est un
+hyperplan de <span class="math inline">\(E\)</span>.</p>
+</div>
+<div class="wrappel">
+<p>Soit <span class="math inline">\(H\)</span> un hyperplan d’un espace
+vectoriel <span class="math inline">\(E\)</span> de dimension <span
+class="math inline">\(n \geq 1\)</span>. Alors, il existe <span
+class="math inline">\(\varphi_0 \in E^\star\)</span> non nulle telle que
+<span class="math inline">\(H =
+\mathop{\mathrm{Ker}}\varphi_0\)</span>.</p>
+<p>De plus, soit <span class="math inline">\(\psi \in E^\star\)</span>
+non nulle telles que <span class="math inline">\(H =
+\mathop{\mathrm{Ker}}\psi\)</span>. Alors, il existe <span
+class="math inline">\(\lambda \in \mathbb{K}^\star\)</span> tel que
+<span class="math inline">\(\psi = \lambda \varphi_0\)</span>.</p>
+</div>
+<h2 data-number="3.2" id="equation-cartésienne-dun-hyperplan"><span
+class="header-section-number">3.2</span> Equation cartésienne d’un
+hyperplan</h2>
+<div class="wprop">
+<p><span id="prop:existence_forme_lin_hyper_affine"
+label="prop:existence_forme_lin_hyper_affine"></span> Soit <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geq 1\)</span> et <span
+class="math inline">\(\mathscr{H}\)</span> un hyperplan affine de <span
+class="math inline">\(E\)</span>.</p>
+<p>Alors, il existe <span class="math inline">\(\varphi\)</span> une
+forme linéaire non nulle sur <span class="math inline">\(E\)</span> et
+<span class="math inline">\(b \in \mathbb{K}\)</span> tels que <span
+class="math inline">\(\overrightarrow{\mathscr{H}} =
+\mathop{\mathrm{Ker}}\varphi\)</span> et <span
+class="math inline">\(\mathscr{H}= \left\{v \in E/ \varphi(v) =
+b\right\}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Comme <span
+class="math inline">\(\overrightarrow{\mathscr{H}}\)</span> est un
+hyperplan de <span class="math inline">\(E\)</span>, il existe <span
+class="math inline">\(\varphi\)</span> une forme linéaire non nulle sur
+<span class="math inline">\(E\)</span> tel que <span
+class="math inline">\(\overrightarrow{\mathscr{H}} =
+\mathop{\mathrm{Ker}}\varphi\)</span> (voir le rappel 3.2).</p>
+<p>De plus, soit <span class="math inline">\(v_0 \in
+\mathscr{H}\)</span>,</p>
+<p><span class="math display">\[\mathscr{H}=
+t_{v_0}\left(\overrightarrow{\mathscr{H}}\right) = \left\{v+v_0 / v \in
+\overrightarrow{\mathscr{H}}\right\} =  \left\{v+v_0 / \varphi(v) =
+0\right\}.\]</span></p>
+<p>Montrons que <span class="math inline">\(\mathscr{H}=  \left\{v \in
+E/ \varphi(v) = b\right\}\)</span> avec <span class="math inline">\(b =
+\varphi(v_0)\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(\mathscr{H}\subset \left\{v \in E/
+\varphi(v) = b\right\}\)</span> car pour <span class="math inline">\(v
+\in \overrightarrow{\mathscr{H}}\)</span>, <span
+class="math inline">\(\varphi(v+v_0) = 0+\varphi(v_0) =
+b\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathscr{H}\supset \left\{v \in E/
+\varphi(v) = b\right\}\)</span> car si <span
+class="math inline">\(\varphi(u) \in
+\overrightarrow{\mathscr{H}}\)</span>, <span
+class="math inline">\(\varphi(u-v_0) = b-\varphi(v_0) = 0\)</span> donc
+il existe <span class="math inline">\(v \in \mathop{\mathrm{Ker}}\varphi
+=\overrightarrow{\mathscr{H}}\)</span> tel que <span
+class="math inline">\(u-v_0 = v\)</span> et <span
+class="math inline">\(u = v+v_0 \in \mathscr{H}\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Réciproquement, soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geq 1\)</span>, <span
+class="math inline">\(\varphi\)</span> une forme linéaire non nulle sur
+<span class="math inline">\(E\)</span> et <span class="math inline">\(b
+\in \mathbb{K}\)</span>.</p>
+<p>Alors, <span class="math inline">\(\mathscr{H}= \left\{v \in E/
+\varphi(v) = b\right\}\)</span> est un hyperplan affine de <span
+class="math inline">\(E\)</span> avec <span
+class="math inline">\(\overrightarrow{\mathscr{H}} =
+\mathop{\mathrm{Ker}}\varphi\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\varphi\)</span> est non nulle donc elle
+est surjective et il existe <span class="math inline">\(v_0 \in
+E\)</span> tel que <span class="math inline">\(\varphi(v_0) =
+b\)</span>.</p>
+<p>Montrons alors <span class="math inline">\(\mathscr{H}=
+t_{v_0}(\mathop{\mathrm{Ker}}\varphi)\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\(\mathscr{H}\supset
+t_{v_0}(\mathop{\mathrm{Ker}}\varphi)\)</span>. Si <span
+class="math inline">\(v \in \mathop{\mathrm{Ker}}\varphi\)</span>, <span
+class="math inline">\(\varphi(v+v_0) = b+0=b\)</span> donc <span
+class="math inline">\(t_{v_0}(v) \in \mathscr{H}\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathscr{H}\subset
+t_{v_0}(\mathop{\mathrm{Ker}}\varphi)\)</span>. Si <span
+class="math inline">\(u \in \mathscr{H}\)</span>, <span
+class="math inline">\(u-v_0 \in \mathop{\mathrm{Ker}}\varphi\)</span>
+donc il existe <span class="math inline">\(v \in
+\mathop{\mathrm{Ker}}\varphi\)</span> tel que <span
+class="math inline">\(u-v_0 = v \iff u=v+v_0\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><span id="prop:ker_forme_line_egalite_affine"
+label="prop:ker_forme_line_egalite_affine"></span> Soit <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geq 1\)</span> et <span
+class="math inline">\(\mathscr{H}\)</span> un hyperplan affine de <span
+class="math inline">\(E\)</span>.</p>
+<p>Soient <span class="math inline">\(\varphi, \psi\)</span> formes
+linéaires non nulles sur <span class="math inline">\(E\)</span> et <span
+class="math inline">\(b,c \in \mathbb{K}\)</span> tels que <span
+class="math display">\[\mathscr{H}= \left\{v \in E/ \varphi(v) =
+b\right\} = \left\{v \in E/ \psi(v) = c\right\}.\]</span></p>
+<p>Alors, il existe <span class="math inline">\(\lambda \in
+\mathbb{K}\)</span> tel que <span class="math inline">\(\varphi =
+\lambda \psi\)</span> et <span class="math inline">\(b = \lambda
+c\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Par la proposition <a href="#prop:unicite_direction"
+data-reference-type="ref"
+data-reference="prop:unicite_direction">[prop:unicite_direction]</a>,
+<span class="math inline">\(\overrightarrow{\mathscr{H}} =
+\mathop{\mathrm{Ker}}\varphi = \mathop{\mathrm{Ker}}\psi\)</span> donc
+par le rappel <span>3.2</span>, il existe <span
+class="math inline">\(\lambda \in \mathbb{K}\)</span> tel que <span
+class="math inline">\(\varphi = \lambda \psi\)</span>.</p>
+<p>Alors, <span class="math inline">\(\left\{v \in E/ \varphi(v) =
+b\right\} =  \left\{v \in E/ \lambda \psi(v) = b\right\} = \left\{v \in
+E/ \psi(v) = c\right\}\)</span> implique <span class="math inline">\(b =
+\lambda c\)</span>.</p>
+</div>
+<div class="wcor">
+<p>Soient <span class="math inline">\(\mathscr{H}\)</span> un hyperplan
+affine d’un espace vectoriel <span class="math inline">\(E\)</span> de
+dimension <span class="math inline">\(n \geq 1\)</span> et <span
+class="math inline">\(\mathscr{B}=(e_1,\ldots,e_n)\)</span> une base de
+<span class="math inline">\(E\)</span>.</p>
+<p>Alors, il existe <span class="math inline">\(a_1,\ldots,a_n \in
+\mathbb{K}\)</span> et <span class="math inline">\(b \in
+\mathbb{K}\)</span> non tous nuls tels que pour tout <span
+class="math inline">\(v \in E\)</span> tel que pour <span
+class="math inline">\(v = \sum_{k=1}^n x_k e_k\)</span>,</p>
+<p><span class="math display">\[v \in \mathscr{H}\iff \sum_{k=1}^n a_k
+x_k = b.\]</span></p>
+<p>Ceci est appelé une équation cartésienne de <span
+class="math inline">\(\mathscr{H}\)</span> dans la base <span
+class="math inline">\(\mathscr{B}\)</span>.</p>
+<p>De plus, s’il existe <span class="math inline">\(c_1,\ldots,c_n \in
+\mathbb{K}\)</span> non tous nuls et <span class="math inline">\(c \in
+\mathbb{K}\)</span> tels que pour tout <span class="math inline">\(v \in
+E\)</span> tel que pour <span class="math inline">\(v = \sum_{k=1}^n x_k
+e_k\)</span>,</p>
+<p><span class="math display">\[v \in \mathscr{H}\iff \sum_{k=1}^n c_k
+x_k = c.\]</span> alors il existe <span class="math inline">\(\lambda
+\in \mathbb{K}^\star\)</span> tel que pour tout <span
+class="math inline">\(1 \leq k \leq n, c_k = \lambda a_k\)</span> et
+<span class="math inline">\(c = \lambda b\)</span>. Autrement dit, il y
+a unicité de l’équation cartésienne d’un hyperplan à multiplication par
+un scalaire près.</p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Par la proposition <a
+href="#prop:existence_forme_lin_hyper_affine" data-reference-type="ref"
+data-reference="prop:existence_forme_lin_hyper_affine">[prop:existence_forme_lin_hyper_affine]</a>,
+il existe <span class="math inline">\(\varphi \in E^\star\)</span> non
+nulle et <span class="math inline">\(b \in \mathbb{K}\)</span> tels que
+<span class="math inline">\(\mathscr{H}= \left\{v \in E/
+\varphi(v)=b\right\}\)</span>.</p>
+<p>Or, pour tout <span class="math inline">\(v \in E\)</span> tel que
+<span class="math inline">\(v = \sum_{k=1}^n x_k e_k\)</span>, <span
+class="math inline">\(\varphi(v) = \sum_{k=1}^n x_k
+\varphi(e_k)\)</span>.</p>
+<p>On a donc, en notant <span class="math inline">\(a_k =
+\varphi(e_k)\)</span> pour <span class="math inline">\(1 \leq k \leq
+n\)</span>,</p>
+<p><span class="math display">\[v \in \mathscr{H}\iff \varphi(v) = b
+\iff \sum_{k=1}^n x_k a_k = b.\]</span></p>
+<p>Les <span class="math inline">\(a_k\)</span> sont non tous nuls car
+<span class="math inline">\(\varphi \neq 0_{E^\star}\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(v \in \mathscr{H}\iff \sum_{k=1}^n
+c_k x_k = c.\)</span> alors <span class="math inline">\(\mathscr{H}=
+\left\{v/\psi(v) = c\right\}\)</span> avec <span
+class="math inline">\(\psi : \sum_{k=1}^n x_ke_k \mapsto  \sum_{k=1}^n
+c_k x_k\)</span>, qui est une forme linéaire non nulle.</p>
+<p>On a alors <span class="math inline">\(\psi(e_k) = c_k\)</span> pour
+tout <span class="math inline">\(1 \leq k \leq n\)</span> et par la
+proposition <a href="#prop:ker_forme_line_egalite_affine"
+data-reference-type="ref"
+data-reference="prop:ker_forme_line_egalite_affine">[prop:ker_forme_line_egalite_affine]</a>,il
+existe <span class="math inline">\(\lambda \in \mathbb{K}^\star\)</span>
+tel que pour tout <span class="math inline">\(1 \leq k \leq n, c_k =
+\psi(e_k) =\lambda \varphi(e_k) = \lambda a_k\)</span> et <span
+class="math inline">\(c = \lambda b\)</span>.</p></li>
+</ul>
+</div>
+<h2 data-number="3.3" id="hyperplan-dun-espace-euclidien"><span
+class="header-section-number">3.3</span> Hyperplan d’un espace
+euclidien</h2>
+<h3 data-number="3.3.1" id="vecteur-normal"><span
+class="header-section-number">3.3.1</span> Vecteur normal</h3>
+<div class="wdefi">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\((E,(\cdot \mid \cdot))\)</span> un
+<span class="math inline">\(\mathbb{R}\)</span>-espace euclidien
+dimension <span class="math inline">\(n \geq 1\)</span> et <span
+class="math inline">\(\mathscr{H}\)</span> un hyperplan affine de <span
+class="math inline">\(E\)</span>.</p>
+<p>Alors, <span class="math inline">\(\dim
+\overrightarrow{\mathscr{H}}^\perp = 1\)</span> et il existe <span
+class="math inline">\(u_0 \in E\)</span> tel que <span
+class="math inline">\(\overrightarrow{\mathscr{H}}^\perp =
+\mathop{\mathrm{Vect}}(u_0)\)</span>.</p>
+<p><span class="math inline">\(u_0\)</span> est appelé un vecteur normal
+à <span class="math inline">\(\mathscr{H}\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="normal_hyperplan.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wprop">
+<p><span id="prop:vecteur_normal_produit_scal"
+label="prop:vecteur_normal_produit_scal"></span> Soit <span
+class="math inline">\((E,(\cdot \mid \cdot))\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace euclidien dimension
+<span class="math inline">\(n \geq 1\)</span> et <span
+class="math inline">\(\mathscr{H}\)</span> un hyperplan affine de <span
+class="math inline">\(E\)</span>.</p>
+<p>Soit <span class="math inline">\(u_0\)</span> un vecteur normal à
+<span class="math inline">\(\mathscr{H}\)</span> alors il existe <span
+class="math inline">\(b \in \mathbb{R}\)</span> tel que pour <span
+class="math inline">\(v \in E\)</span>, <span class="math display">\[v
+\in \mathscr{H}\iff (v \mid u_0) = b.\]</span></p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\begin{array}{lllll}
+F &amp; : &amp; E &amp; \to &amp; E^\star \\
+   &amp;   &amp; v &amp; \mapsto &amp;
+\begin{array}{lllll}
+\varphi_v &amp; : &amp; E &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; u &amp; \mapsto &amp; (u \mid v)
+\end{array}
+
+\end{array}\)</span> est bijective.</p>
+<p>En effet, <span class="math inline">\(F\)</span> est linéaire, <span
+class="math inline">\(\dim E^\star = \dim E\)</span> et elle est
+injective car si <span class="math inline">\(\varphi_v =
+0_{E^\star}\)</span>, on a <span class="math inline">\(\varphi_v(v) =
+\left\|v\right\|^2 = 0\)</span> donc <span class="math inline">\(v =
+0_E\)</span>.</p>
+<p>Or, il existe <span class="math inline">\(\varphi \in
+E^\star\)</span> non nulle et <span class="math inline">\(c \in
+\mathbb{R}\)</span> tels que <span
+class="math inline">\(\overrightarrow{\mathscr{H}} =
+\mathop{\mathrm{Ker}}\varphi\)</span> et <span
+class="math inline">\(\mathscr{H}= \left\{v \in E/\varphi(v) =
+c\right\}\)</span>.</p>
+<p>En notant <span class="math inline">\(v_0 = F^{-1}(\varphi)\)</span>,
+on a <span class="math inline">\(v_0 \neq 0_E\)</span> et pour tout
+<span class="math inline">\(u \in E, \varphi(u) =(u \mid
+v_0)\)</span>.</p>
+<p>Donc <span class="math inline">\(v_0 \in \mathscr{H}^\perp\)</span>
+et <span class="math inline">\(\mathscr{H}=
+\mathop{\mathrm{Vect}}(v_0)\)</span> et <span
+class="math inline">\(\mathscr{H}= \left\{v \in E/(v\mid v_0) =
+c\right\}\)</span>.</p>
+<p>Comme <span class="math inline">\(u_0 \in \mathscr{H}^\perp\)</span>
+et <span class="math inline">\(u_0 \neq 0_E\)</span>, il existe <span
+class="math inline">\(\alpha \in \mathbb{R}\)</span> tel que <span
+class="math inline">\(v_0 = \alpha u_0\)</span> et alors <span
+class="math inline">\(\mathscr{H}= \left\{v \in E/(v\mid u_0) =
+b\right\}\)</span> avec <span class="math inline">\(b = \alpha
+c\)</span>.</p>
+</div>
+<div class="wrem">
+<p>Soit <span class="math inline">\((E,(\cdot \mid \cdot))\)</span> un
+<span class="math inline">\(\mathbb{R}\)</span>-espace euclidien
+dimension <span class="math inline">\(n \geq 1\)</span> et <span
+class="math inline">\(\mathscr{H}\)</span> un hyperplan affine de <span
+class="math inline">\(E\)</span>.</p>
+<p>Soit <span class="math inline">\(u_0\)</span> un vecteur normal à
+<span class="math inline">\(\mathscr{H}\)</span> et <span
+class="math inline">\(b \in \mathbb{R}\)</span> tels que <span
+class="math inline">\(v \in \mathscr{H}\iff (v \mid u_0) =
+b\)</span>.</p>
+<p>Alors, soit <span class="math inline">\(\mathscr{B}=
+(e_1,\ldots,e_n)\)</span> une base orthonormée de <span
+class="math inline">\(E\)</span> tel que <span class="math inline">\(u_0
+= \sum_{k=1}^n a_k e_k\)</span>, soit <span class="math inline">\(v \in
+E\)</span>, <span class="math inline">\((v\mid u_0) = \sum_{k=1}^n a_k
+x_k\)</span> donc <span class="math inline">\(\sum_{k=1}^n a_k x_k =
+b\)</span> est une équation cartésienne de <span
+class="math inline">\(\mathscr{H}\)</span> dans <span
+class="math inline">\(\mathscr{B}\)</span>.</p>
+<p>Réciproquement, un équation cartésienne de <span
+class="math inline">\(\mathscr{H}\)</span> dans une base orthonormée
+donne les coordonnées d’un vecteur normal.</p>
+</div>
+<h3 data-number="3.3.2" id="distance-à-un-hyperplan"><span
+class="header-section-number">3.3.2</span> Distance à un hyperplan</h3>
+<div class="wdefi">
+<p>Soit <span class="math inline">\((E,(\cdot \mid \cdot))\)</span> un
+<span class="math inline">\(\mathbb{R}\)</span>-espace euclidien
+dimension <span class="math inline">\(n \geq 1\)</span>.</p>
+<ul>
+<li><p>Soient <span class="math inline">\(v_1,v_2 \in E\)</span>.</p>
+<p>La distance de <span class="math inline">\(v_1\)</span> à <span
+class="math inline">\(v_2\)</span>, notée <span
+class="math inline">\(d(v_1,v_2)\)</span>, est <span
+class="math inline">\(\left\|v_1-v_2\right\|\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(\mathscr{F}\)</span> sous-espace
+affine de <span class="math inline">\(E\)</span> et <span
+class="math inline">\(v \in E\)</span>,</p>
+<p>la distance de <span class="math inline">\(v\)</span> à <span
+class="math inline">\(\mathscr{F}\)</span>, notée <span
+class="math inline">\(d(v,\mathscr{F})\)</span>, est <span
+class="math inline">\(\min_{w \in
+\mathscr{F}}\left\|v-w\right\|\)</span>.</p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>Pour rappel, soit <span class="math inline">\(\mathscr{B}=
+(e_1,\ldots,e_n)\)</span> une base orthonormée de <span
+class="math inline">\(E\)</span> telle que <span
+class="math inline">\(v_1 = \sum_{k=1}^n x_k e_k\)</span> et <span
+class="math inline">\(v_2 = \sum_{k=1}^n y_k e_k\)</span>.</p>
+<p>Alors, <span class="math inline">\(\left\|v_1-v_2\right\| =
+\sqrt{\sum_{k=1}^n (x_k-y_k)^2}\)</span>.</p>
+</div>
+<div class="wprop">
+<p><span id="prop:proj_ortho_hyper_affine"
+label="prop:proj_ortho_hyper_affine"></span></p>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\((E,(\cdot \mid \cdot))\)</span> un
+<span class="math inline">\(\mathbb{R}\)</span>-espace euclidien
+dimension <span class="math inline">\(n \geq 1\)</span> et <span
+class="math inline">\(\mathscr{H}\)</span> un hyperplan affine de <span
+class="math inline">\(E\)</span>.</p>
+<p>Soit <span class="math inline">\(v \in E\)</span>, il existe <span
+class="math inline">\(w \in \mathscr{H}\)</span> unique tel que <span
+class="math inline">\(w-v \in
+\overrightarrow{\mathscr{H}}^\perp\)</span>.</p>
+<p><span class="math inline">\(w\)</span> est appelé le projeté
+orthogonal de <span class="math inline">\(v\)</span> sur <span
+class="math inline">\(\mathscr{H}\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="normal_hyperplan_proj.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wproof">
+<p>Considérons <span class="math inline">\(u_0 \in E\)</span> et <span
+class="math inline">\(b \in \mathbb{R}\)</span>, donnés dans la
+proposition <a href="#prop:vecteur_normal_produit_scal"
+data-reference-type="ref"
+data-reference="prop:vecteur_normal_produit_scal">[prop:vecteur_normal_produit_scal]</a>,
+tels que <span class="math inline">\(\mathscr{H}= \left\{u \in E /
+(u\mid u_0) = b\right\}\)</span>.</p>
+<p>On cherche <span class="math inline">\(w \in \mathscr{H}\)</span> tel
+que <span class="math inline">\(w-v \in
+\overrightarrow{\mathscr{H}}^\perp\)</span> donc <span
+class="math inline">\(\alpha \in \mathbb{R}\)</span> tel que <span
+class="math inline">\(w-v =\alpha u_0 \iff w = v+\alpha
+u_0\)</span>.</p>
+<p>Or, <span class="math inline">\(w = v+\alpha u_0 \in \mathscr{H}\iff
+(u_0 \mid  v+\alpha u_0 ) = (u_0 \mid v)+\alpha \left\|u_0\right\|^2 = b
+\iff \alpha = \frac{b-(u_0 \mid v)}{\left\|u_0\right\|^2}.\)</span></p>
+<p>On a donc bien existence et unicité de <span
+class="math inline">\(w\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\((E,(\cdot \mid \cdot))\)</span> un
+<span class="math inline">\(\mathbb{R}\)</span>-espace euclidien
+dimension <span class="math inline">\(n \geq 1\)</span> et <span
+class="math inline">\(\mathscr{H}\)</span> un hyperplan affine de <span
+class="math inline">\(E\)</span>.</p>
+<p>Soit <span class="math inline">\(v \in E\)</span> et <span
+class="math inline">\(w \in \mathscr{H}\)</span> le projeté orthogonal
+de <span class="math inline">\(v\)</span> sur <span
+class="math inline">\(\mathscr{H}\)</span>.</p>
+<p>Alors <span class="math inline">\(d(v,\mathscr{H}) =
+\left\|v-w\right\|\)</span> et c’est l’unique point où cette distance
+est atteinte.</p>
+</div>
+<div class="wproof">
+<p>D’abord, <span class="math inline">\(w \in \mathscr{H}\)</span> donc
+<span class="math inline">\(\left\|v-w\right\| \geq \min_{w&#39; \in
+\mathscr{F}}\left\|v-w&#39;\right\| = d(v,\mathscr{H})\)</span>.</p>
+<p>Ensuite, soit <span class="math inline">\(w&#39; \in
+\mathscr{H}\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+        \left\|v-w&#39;\right\|^2
+        &amp; = \left\|v-w+w-w&#39;\right\|^2 \\
+        &amp; =
+\left\|v-w\right\|^2+\left\|w-w&#39;\right\|^2+2(\underbrace{v-w}_{\in
+\overrightarrow{\mathscr{H}}^\perp}\mid\underbrace{w-w&#39;}_{\in
+\overrightarrow{\mathscr{H}}}) \\
+        &amp; = \left\|v-w\right\|^2+\left\|w-w&#39;\right\|^2 \\
+        &amp; \geq \left\|v-w\right\|^2
+    \end{aligned}\]</span> avec égalité si et seulement si <span
+class="math inline">\(\left\|w-w&#39;\right\|^2 = 0\)</span> donc <span
+class="math inline">\(w&#39;=w\)</span>.</p>
+</div>
+<div class="wcor">
+<p>Soit <span class="math inline">\((E,(\cdot \mid \cdot))\)</span> un
+<span class="math inline">\(\mathbb{R}\)</span>-espace euclidien
+dimension <span class="math inline">\(n \geq 1\)</span> et <span
+class="math inline">\(\mathscr{H}\)</span> un hyperplan affine de <span
+class="math inline">\(E\)</span> d’équation <span
+class="math inline">\((u_0 \mid v) = b\)</span> avec <span
+class="math inline">\(u_0 \in E\)</span>, <span
+class="math inline">\(b\in \mathbb{R}\)</span>.</p>
+<p>Soit <span class="math inline">\(v \in E\)</span>,</p>
+<p><span class="math display">\[d(v,\mathscr{H}) = \left\|v-w\right\| =
+\frac{\left|b-(u_0 \mid v)\right|}{\left\|u_0\right\|}.\]</span></p>
+</div>
+<div class="wproof">
+<p>Dans la preuve de la proposition <a
+href="#prop:proj_ortho_hyper_affine" data-reference-type="ref"
+data-reference="prop:proj_ortho_hyper_affine">[prop:proj_ortho_hyper_affine]</a>,
+on a l’expression du projeté orthogonal de <span
+class="math inline">\(v\)</span> sur <span
+class="math inline">\(\mathscr{H}\)</span> qui est <span
+class="math inline">\(w = v+\alpha u_0\)</span> avec <span
+class="math inline">\(\alpha = \frac{b-(u_0 \mid
+v)}{\left\|u_0\right\|^2}\)</span>.</p>
+<p>On a donc <span class="math display">\[d(v,\mathscr{H}) =
+\left\|v-w\right\| = \left|\alpha\right|\left\|u_0\right\|
+=  \frac{\left|b-(u_0 \mid v)\right|}{\left\|u_0\right\|}.\]</span></p>
+</div>
+<div class="wex">
+<p>Soit <span class="math inline">\((E,(\cdot \mid \cdot))\)</span> un
+espace euclidien de dimension 3, <span
+class="math inline">\(\mathscr{B}=(e_1,e_2,e_3)\)</span> une base
+orthonormée de <span class="math inline">\(E\)</span> et <span
+class="math inline">\(\mathscr{P}\)</span> l’hyperplan d’équation <span
+class="math inline">\(2x-y+z=1\)</span> dans <span
+class="math inline">\(E\)</span>. Déterminons <span
+class="math inline">\(d(v,\mathscr{P})\)</span> avec <span
+class="math inline">\(v = e_1+3e_2-4e_3\)</span>.</p>
+<p><span class="math inline">\(u_0 = 2e_1-e_2+e_3\)</span> est un
+vecteur normal à <span class="math inline">\(\mathscr{H}\)</span> et
+<span class="math inline">\(u \in \mathscr{H}\iff (u \mid u_0) =
+1\)</span>.</p>
+<p>Donc <span class="math inline">\(d(v,\mathscr{P}) =
+\frac{\left|b-(u_0 \mid v)\right|}{\left\|u_0\right\|} =
+\frac{\left|1-(2-3-4)\right|}{\sqrt{2^2+1+1}} =
+\frac{6}{\sqrt{6}}=\sqrt{6}\)</span>.</p>
+</div>
+</body>
+</html>
+
+<script>
+
+const toggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Appliquer le thème au chargement
+const currentTheme = localStorage.getItem('theme') || 'default';
+body.setAttribute('data-md-color-scheme', currentTheme);
+
+toggle.addEventListener('click', () => {
+    let scheme = body.getAttribute('data-md-color-scheme');
+    let newScheme = (scheme === 'default') ? 'slate' : 'default';
+    
+    body.setAttribute('data-md-color-scheme', newScheme);
+    localStorage.setItem('theme', newScheme);
+});
+
+// 4. CONVERSION TIKZ POUR TIKZJAX
+    document.querySelectorAll('pre').forEach(pre => {
+        let code = pre.querySelector('code');
+        if (code && code.textContent.includes('\\begin{tikzpicture}')) {
+            let script = document.createElement('script');
+            script.type = 'text/tikz';
+            // On force le chargement des librairies nécessaires pour vos matrices
+            script.innerHTML = '\\usetikzlibrary{matrix, calc}\n' + code.textContent;
+            pre.replaceWith(script);
+        }
+    });
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    let secCount = -1;
+    let thmCount = -1;
+    let labels = {};
+
+    const noms = {
+        'wthm':'Théorème', 'wprop':'Proposition', 'wdefi':'Définition',
+        'wlem':'Lemme', 'wcor':'Corollaire', 'wappli':'Application',
+        'wrem':'Remarque', 'wrappel': 'Rappel', 'wex':'Exemple',
+        'wexs':'Exemples', 'wproof':'Preuve'
+    };
+
+    // Numérotation des environnements
+    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs, .wrappel,.wproof").forEach(el => {
+        if (el.tagName.toLowerCase() === "h1" && !el.closest("#TOC")) {
+            secCount++;
+            thmCount = 0;
+        } else if (noms[Array.from(el.classList).find(c => noms[c])]) {
+            let type = Array.from(el.classList).find(c => noms[c]);
+            if (type !== 'wproof') {
+                thmCount++;
+                let num = secCount + "." + thmCount;
+                let id = el.querySelector("span[id]") ? el.querySelector("span[id]").id : null;
+                if(id) labels[id] = { num: num, type: type.substring(1) };
+                
+                let p = el.querySelector("p");
+                if (p) {
+                    let strong = p.querySelector("strong");
+                    let title = (strong && strong.innerText.includes("(")) ? ` <span class="env-title">${strong.outerHTML}</span>` : "";
+                    if (title) strong.remove();
+                    p.innerHTML = `<strong class="env-header">${noms[type]} ${num}</strong>` + title + " — " + p.innerHTML;
+                }
+            } else {
+                let p = el.querySelector("p");
+                if (p) p.innerHTML = `<strong class="env-header">Preuve</strong> — ` + p.innerHTML;
+            }
+        }
+    });
+
+    // Fonction lancée une fois MathJax terminé
+    function executerApresMathJax() {
+        
+        // 1. Capture des équations
+        document.querySelectorAll("mjx-math[display='true']").forEach((el, index) => {
+            let num = el.querySelector(".mjx-eqn-number");
+            if (num) {
+                let val = num.innerText.replace(/[()]/g, '');
+                let id = el.id || "eq-" + index;
+                el.id = id;
+                labels[id] = { num: val, type: 'eq' };
+            }
+        });
+
+        // 2. TRACÉ DES LIGNES PARTIELLES
+        document.querySelectorAll("mjx-mtext").forEach(el => {
+            let text = el.textContent;
+            
+            // DÉCODAGE MAGIQUE : si MathJax cache le texte dans les classes CSS
+            if (!text || text.trim() === "") {
+                text = Array.from(el.children).map(c => {
+                    let cls = Array.from(c.classList).find(className => className.startsWith('mjx-c'));
+                    return cls ? String.fromCharCode(parseInt(cls.replace('mjx-c', ''), 16)) : '';
+                }).join('');
+            }
+
+            // Remplacement des \ref{type:id} à l'intérieur de \text{} en mode math
+            const refRegex = /\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g;
+
+            if (refRegex.test(text)) {
+                const nouveauTexte = text.replace(refRegex, (m, t, id) => {
+                    const f = t + ":" + id;
+                    return labels[f] ? labels[f].num : m;
+                });
+
+                if (nouveauTexte !== text) {
+                    el.textContent = nouveauTexte;
+                }
+            }
+
+            if (text.includes("CLINEX")) {
+                let regex = /CLINEX(\d+)X(\d+)X/g;
+                let match;
+                let row = el.closest("mjx-mtr");
+                let prevRow = row ? row.previousElementSibling : null;
+
+                while ((match = regex.exec(text)) !== null) {
+                    let start = parseInt(match[1]);
+                    let end = parseInt(match[2]);
+
+                    if (prevRow) {
+                        let cells = prevRow.querySelectorAll("mjx-mtd");
+                        for (let i = start - 1; i < end; i++) {
+                            if (cells[i]) {
+                                cells[i].style.borderBottom = "max(1px, 0.08em) solid currentColor";
+                                cells[i].style.paddingBottom = "0.2em";
+                            }
+                        }
+                    }
+                }
+                // On fait disparaître le marqueur texte
+                el.style.display = "none";
+            }
+        });
+
+       // 3. Remplacement des références
+        document.querySelectorAll("body *").forEach(el => {
+            if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
+                el.innerHTML = el.innerHTML
+                // Remplace les \eqref{...}
+                .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m)
+                // NOUVEAU : Remplace les \ref{...} classiques (souvent utilisés dans les \text{} de MathJax)
+                .replace(/\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g, (m, t, id) => {
+                    let f = t + ":" + id;
+                    return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
+                })
+                // Remplace ta syntaxe personnalisée entre crochets [...]
+                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => {
+                    let f = t + ":" + id;
+                    return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
+                });
+            }
+        });
+
+        // 3. Remplacement des références 
+        document.querySelectorAll("body *").forEach(el => { 
+            if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
+                 el.innerHTML = el.innerHTML 
+                 .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m) 
+                 .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => { 
+                    let f = t + ":" + id; 
+                    return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m; }); } }); } 
+
+    // Attente robuste de MathJax
+    function waitForMathJax() {
+        if (window.MathJax && window.MathJax.startup && window.MathJax.startup.promise) {
+            window.MathJax.startup.promise.then(() => {
+                setTimeout(executerApresMathJax, 50); 
+            }).catch(err => console.log('Erreur MathJax', err));
+        } else {
+            setTimeout(waitForMathJax, 100);
+        }
+    }
+
+    waitForMathJax();
+
+});
+</script>
+
