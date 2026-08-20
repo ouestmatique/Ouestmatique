@@ -122,10 +122,11 @@ récurrence</a></li>
 class="header-section-number">1</span> Ensembles usuels de nombres</h1>
 <p>On introduit</p>
 <ul>
-<li><p>Les entiers naturels <span class="math inline">\((\mathbb{N}) :
+<li><p>Les entiers naturels <span class="math inline">\(\mathbb{N}:
 0,1,2,3,\ldots\)</span> Pour exclure zéro, on note <span
 class="math inline">\(\mathbb{N}^\star\)</span>.</p></li>
-<li><p>Les entiers relatifs : <span
+<li><p>Les entiers relatifs <span
+class="math inline">\(\mathbb{Z}\)</span> : <span
 class="math inline">\(\ldots,-3,-2,-1,0,1,2,3,\ldots\)</span></p></li>
 <li><p>Les nombres rationnels <span
 class="math inline">\(\mathbb{Q}\)</span> : <span
@@ -148,27 +149,7 @@ class="math inline">\(r = \frac{p}{10^n}\)</span></p>
 <li><p><span class="math inline">\(\frac{1}{4} =
 \frac{25}{10^2}\)</span> est un rationnel décimal.</p></li>
 <li><p><span class="math inline">\(\frac{1}{3}\)</span> n’est pas un
-décimal.</p>
-<div class="wproof">
-<p>Par l’absurde, sinon on aurait <span class="math inline">\(10^n =
-3p\)</span> donc <span class="math inline">\(10^n\)</span> divisible par
-<span class="math inline">\(3\)</span>, ce qui est absurde.</p>
-<p>En effet, on peut montrer par récurrence que <span
-class="math inline">\(10^n = 3q_n +1\)</span> où <span
-class="math inline">\(q_n \in \mathbb{Z}\)</span></p>
-<p><u>Initialisation : </u> Pour <span
-class="math inline">\(n=0\)</span>, <span class="math inline">\(10^0 = 1
-= 3\times 0 +1\)</span></p>
-<p><u>Hérédité : </u> Supposons que <span class="math inline">\(10^n =
-q_n\times 3 +1\)</span> avec <span class="math inline">\(q_n \in
-\mathbb{Z}\)</span></p>
-<p>Alors <span class="math inline">\(10^{n+1} = 10 \times 10^n =
-10(q_n\times 3 +1) =  3\underbrace{(10q_n +1)}_{= q_{n+1}}
-+1\)</span></p>
-<p><u>Conclusion : </u> Pour tout <span class="math inline">\(n\)</span>
-entier, <span class="math inline">\(10^n\)</span> n’est pas divisible
-par <span class="math inline">\(3\)</span>.</p>
-</div></li>
+décimal.</p></li>
 </ul>
 </div></li>
 <li><p>Les réels <span
@@ -176,6 +157,14 @@ class="math inline">\((\mathbb{R})\)</span></p></li>
 <li><p>Les complexes <span
 class="math inline">\(\mathbb{C}\)</span></p></li>
 </ul>
+<p>Les entiers naturels pairs <span class="math inline">\(2 = 2\times
+1,4 = 2 \times 2,6 = 2\times 3,8=2\times 4, \ldots\)</span> s’écrivent
+<span class="math inline">\(2p\)</span> avec <span
+class="math inline">\(p \in \mathbb{N}^{\star}\)</span> tandis que les
+entiers naturels impairs <span class="math inline">\(1 = 2\times 0+1,3 =
+2 \times 1+1,5 = 2 \times 2+1,7 = 2\times 3+1, \ldots\)</span>
+s’écrivent <span class="math inline">\(2p+1\)</span> avec <span
+class="math inline">\(p \in \mathbb{N}^{\star}\)</span>.</p>
 <div class="wdefi">
 <p>Soit <span class="math inline">\(a\)</span> un élément de <span
 class="math inline">\(\mathbb{R}^+\)</span>, il existe <span
@@ -183,11 +172,11 @@ class="math inline">\(b\)</span> élément de <span
 class="math inline">\(\mathbb{R}^+\)</span> unique tel que <span
 class="math inline">\(b^2 = a\)</span>. On nomme <span
 class="math inline">\(b\)</span>, "la racine carrée de a", notée <span
-class="math inline">\(\sqrt{a}\)</span></p>
+class="math inline">\(\sqrt{a}\)</span>.</p>
 <p>Plus généralement, soit <span class="math inline">\(n\)</span> un
 élément de <span class="math inline">\(\mathbb{N}^\star\)</span>, il
 existe un unique élément <span class="math inline">\(c\)</span> de <span
-class="math inline">\(\mathbb{R}^+\)</span> unique tel que <span
+class="math inline">\(\mathbb{R}^+\)</span> tel que <span
 class="math inline">\(c^n = a\)</span>, on nomme <span
 class="math inline">\(c\)</span> "la racine n-ième de <span
 class="math inline">\(a\)</span>", noté <span
@@ -218,8 +207,8 @@ non vide, quelconque. Ecrire "<span class="math inline">\(x \in
 E\)</span>" signifie que <span class="math inline">\(x\)</span> est un
 élément de <span class="math inline">\(E\)</span>.</p>
 <p>Soit <span class="math inline">\(P\)</span> une proposition sur les
-éléments de <span class="math inline">\(E\)</span>, les sous-ensemble de
-<span class="math inline">\(E\)</span> formé des éléments de <span
+éléments de <span class="math inline">\(E\)</span>, les sous-ensembles
+de <span class="math inline">\(E\)</span> formés des éléments de <span
 class="math inline">\(E\)</span> possédant <span
 class="math inline">\(P\)</span> est noté <span
 class="math inline">\(\{x \in E, \underbrace{/}_{\text{remplace
@@ -342,7 +331,7 @@ Montrons non <span class="math inline">\(B \Rightarrow\)</span> non
 <span class="math inline">\(A\)</span><br />
 Soit <span class="math inline">\(p \in \mathbb{Z}\)</span> un entier
 impair, <span class="math inline">\(p =2q+1\)</span> avec <span
-class="math inline">\(q \in \mathbb{Z}\)</span> donc <span
+class="math inline">\(q \in \mathbb{Z}\)</span> alors <span
 class="math inline">\(p^2 = (2q+1)^2 = 2(2q^2+2q) +1\)</span> est
 impair.</p></li>
 <li><p>Soit <span class="math inline">\(x \in \mathbb{Q}\)</span>, <span
@@ -405,48 +394,56 @@ récurrence</h2>
 <p>On considère <span class="math inline">\(A(n)\)</span> énoncé
 dépendant d’un entier <span class="math inline">\(n\)</span></p>
 <p>On suppose <span class="math inline">\(A(n_0)\)</span> vrai et si
-<span class="math inline">\(A(n)\)</span> est vrai pour <span
+"<span class="math inline">\(A(n)\)</span> est vrai pour <span
 class="math inline">\(n\)</span> donné alors <span
-class="math inline">\(A(n+1)\)</span> est vrai ie <span
-class="math inline">\(A(n)\text{ vrai }\Rightarrow A(n+1)\)</span>.</p>
+class="math inline">\(A(n+1)\)</span> est vrai" ie "<span
+class="math inline">\(A(n)\text{ vrai }\Rightarrow A(n+1)\)</span>".</p>
 <p>Alors <span class="math inline">\(A(n)\)</span> est vrai pour tout
 entier <span class="math inline">\(n \geq n_0\)</span>.</p>
 <p>L’hypothèse "<span class="math inline">\(A(n)\)</span> est vrai pour
-<span class="math inline">\(n\)</span> donné" est appelé l’hypothèse de
+<span class="math inline">\(n\)</span> donné" est appelée l’hypothèse de
 récurrence.</p>
 <div class="wex">
 <p>Soit <span class="math inline">\((u_n)_{n \in \mathbb{N}}\)</span>
 définie par la donnée de <span class="math inline">\(u_0 \in
 \mathbb{R}^{+}\)</span> et <span class="math inline">\(\forall n \in
-\mathbb{N}, u_{n+1} = \frac{1}{1+u_n}\)</span></p>
+\mathbb{N}, u_{n+1} = \frac{1}{1+u_n}\)</span>.</p>
 <ul>
-<li><p>Montrons que pour tout <span class="math inline">\(\forall n \in
-\mathbb{N}\)</span>, <span class="math inline">\(u_n\)</span> est défini
-et <span class="math inline">\(u_n \in \mathbb{R}^{+}\)</span></p>
-<p><strong>INITIALISATION :</strong> Si <span class="math inline">\(n =
-0\)</span>, <span class="math inline">\(u_0\)</span> est donné tel que
-<span class="math inline">\(u_0 \in \mathbb{R}^{+}\)</span></p>
+<li><p>Montrons par récurrence que pour tout <span
+class="math inline">\(n \in \mathbb{N}\)</span>, <span
+class="math inline">\(u_n\)</span> est défini et <span
+class="math inline">\(u_n \in \mathbb{R}^{+}\)</span> par récurrence sur
+<span class="math inline">\(n\)</span>. (Il y a en effet un risque que
+<span class="math inline">\(u_n\)</span> ne soit pas définie pour tout
+<span class="math inline">\(n\)</span>. Par exemple, <span
+class="math inline">\(u_{n+1}\)</span> n’est pas défini si <span
+class="math inline">\(u_n = -1\)</span>) <strong>INITIALISATION
+:</strong> Si <span class="math inline">\(n = 0\)</span>, <span
+class="math inline">\(u_0\)</span> est donné tel que <span
+class="math inline">\(u_0 \in \mathbb{R}^{+}\)</span></p>
 <p><strong>HÉRÉDITÉ :</strong> Pour <span class="math inline">\(n\in
-\mathbb{N}\)</span> fixé, supposons <span
+\mathbb{N}\)</span> fixé, supposons que <span
 class="math inline">\(u_n\)</span> est défini et <span
 class="math inline">\(u_n \in \mathbb{R}^{+}\)</span>.</p>
 <p>On a alors <span class="math inline">\(u_{n+1} =
 \frac{1}{1+u_n}\)</span> qui est défini car <span
-class="math inline">\(1+u_n \neq 0\)</span></p>
+class="math inline">\(u_n \neq -1\)</span> car <span
+class="math inline">\(u_n \geq 0\)</span>. De plus, <span
+class="math inline">\(u_{n+1} \geq 0\)</span>.</p>
 <p><strong>CONCLUSION :</strong> <span class="math inline">\(\forall n
 \in \mathbb{N}\)</span>, <span class="math inline">\(u_n\)</span> est
 défini et <span class="math inline">\(u_n \in
 \mathbb{R}^{+}\)</span>.</p></li>
-<li><p>Montrons que pour <span class="math inline">\(u_0 = 0\)</span>,
-<span class="math inline">\(\forall n \in \mathbb{N}, u_{n+1} -
-u_n\)</span> est du signe de <span
+<li><p>Montrons par récurrence que pour <span class="math inline">\(u_0
+= 0\)</span>, <span class="math inline">\(\forall n \in \mathbb{N},
+u_{n+1} - u_n\)</span> est du signe de <span
 class="math inline">\((-1)^n\)</span></p>
 <p><strong>INITIALISATION :</strong> Pour <span class="math inline">\(n
-= 0\)</span>, <span class="math inline">\(u_1 - u_0 = 1\)</span> et
-<span class="math inline">\(u_1 \geq 0\)</span> qui est du signe de
-<span class="math inline">\((-1)^0 = 1\)</span></p>
+= 0\)</span>, <span class="math inline">\(u_1 = \frac{1}{1+0} =
+1\)</span> donc <span class="math inline">\(u_1 - u_0 = 1 \geq
+0\)</span> et <span class="math inline">\((-1)^0=1 \geq 0\)</span>.</p>
 <p><strong>HÉRÉDITÉ :</strong> Pour <span class="math inline">\(n \in
-\mathbb{R}\)</span>, on suppose que <span
+\mathbb{N}\)</span>, on suppose que <span
 class="math inline">\(u_{n+1}-u_n\)</span> est du signe de <span
 class="math inline">\((-1)^n\)</span>. Alors, <span
 class="math display">\[\begin{aligned}
@@ -455,15 +452,18 @@ class="math display">\[\begin{aligned}
         &amp; = \frac{u_n-u_{n+1}}{(u_n+1)(u_{n+1}+1)} \\
         &amp; = (-1)\frac{u_{n+1}-u_n}{(u_n+1)(u_{n+1}+1)}
     
-\end{aligned}\]</span> Or par hypothèse de récurrence, <span
+\end{aligned}\]</span> Or, par hypothèse de récurrence, <span
 class="math inline">\(u_{n+1}-u_n\)</span> est du signe de <span
 class="math inline">\((-1)^n\)</span> et de plus, <span
-class="math inline">\((u_n+1)(u_{n+1}+1) &gt; 0\)</span>.</p>
+class="math inline">\((u_n+1)(u_{n+1}+1) &gt; 0\)</span> (car <span
+class="math inline">\(u_n \geq 0\)</span> et <span
+class="math inline">\(u_{n+1} \geq 0\)</span> par la récurrence
+précédente).</p>
 <p>Donc <span class="math inline">\(u_{n+2}-u_{n+1}\)</span> est du
 signe de <span class="math inline">\((-1)^{n+1}\)</span>.</p>
-<p><strong>CONCLUSION :</strong> Donc : <span
-class="math inline">\(\forall n \in \mathbb{N}, u_{n+1} - u_n\)</span>
-est du signe de <span class="math inline">\((-1)^n\)</span></p></li>
+<p><strong>CONCLUSION :</strong> Donc pour tout <span
+class="math inline">\(n \in \mathbb{N}, u_{n+1} - u_n\)</span> est du
+signe de <span class="math inline">\((-1)^n\)</span></p></li>
 </ul>
 </div>
 <div class="wex">
@@ -472,7 +472,7 @@ l’hypothèse de récurrence est plus forte.<br />
 Soit <span class="math inline">\((u_n)_{n\in\mathbb{N}}\)</span> définie
 par <span class="math inline">\(u_0 = 1,u_1 = 2\)</span> et <span
 class="math inline">\(\forall n \in \mathbb{N}, u_{n+2} =
-\frac{3}{2}u_{n+1} + 2 u_n\)</span>. Montrons que <span
+\frac{3}{2}u_{n+1} + 2 u_n\)</span>. Montrons par récurrence que <span
 class="math inline">\(\forall n \in \mathbb{N}, u_n \geq
 2^n\)</span></p>
 <div class="wproof">
@@ -485,12 +485,14 @@ class="math inline">\(n = 0\)</span>, <span class="math inline">\(u_0 =
 <li><p><strong>HÉRÉDITÉ :</strong> Supposons <span
 class="math inline">\(u_n \geq 2^n\)</span> et <span
 class="math inline">\(u_{n+1} \geq 2^{n+1}\)</span> pour <span
-class="math inline">\(n \in \mathbb{N}\)</span> fixé.<br />
+class="math inline">\(n \in \mathbb{N}\)</span> fixé (c’est ici que
+l’hypothèse est plus forte, on inclut deux rangs).<br />
 Alors, <span class="math display">\[\begin{aligned}
         u_{n+2}
         &amp; = \frac{3}{2}u_{n+1} + 2 u_n \\
         &amp; \geq \frac{3}{2}\times 2^{n+1} + 2 \times 2^n \\
         &amp; \geq 2^{n+1}+2^{n+1}\\
+        &amp; = 2\times 2^{n+1}\\
         &amp; \geq 2^{n+2}.
     
 \end{aligned}\]</span></p></li>

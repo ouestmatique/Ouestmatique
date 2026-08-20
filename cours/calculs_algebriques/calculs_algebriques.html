@@ -96,35 +96,37 @@ color: var(--md-primary-bg-color);
 <li><a href="#calculs-de-sommes" id="toc-calculs-de-sommes"><span
 class="toc-section-number">1</span> Calculs de sommes</a>
 <ul>
+<li><a href="#préliminaires" id="toc-préliminaires"><span
+class="toc-section-number">1.1</span> Préliminaires</a></li>
 <li><a href="#sommes-télescopiques" id="toc-sommes-télescopiques"><span
-class="toc-section-number">1.1</span> Sommes télescopiques</a></li>
+class="toc-section-number">1.2</span> Sommes télescopiques</a></li>
 <li><a href="#sommes-géométriques" id="toc-sommes-géométriques"><span
-class="toc-section-number">1.2</span> Sommes géométriques</a></li>
+class="toc-section-number">1.3</span> Sommes géométriques</a></li>
 <li><a
 href="#calculs-des-sommes-classiques-displaystylesum_k0n-k-et-displaystylesum_k0n-k2"
 id="toc-calculs-des-sommes-classiques-displaystylesum_k0n-k-et-displaystylesum_k0n-k2"><span
-class="toc-section-number">1.3</span> Calculs des sommes classiques
+class="toc-section-number">1.4</span> Calculs des sommes classiques
 <span class="math inline">\(\displaystyle\sum_{k=0}^n k\)</span> et
 <span class="math inline">\(\displaystyle\sum_{k=0}^n k^2\)</span></a>
 <ul>
 <li><a href="#calcul-de-displaystylesum_k0n-k"
 id="toc-calcul-de-displaystylesum_k0n-k"><span
-class="toc-section-number">1.3.1</span> Calcul de <span
+class="toc-section-number">1.4.1</span> Calcul de <span
 class="math inline">\(\displaystyle\sum_{k=0}^n k\)</span></a></li>
 <li><a href="#calcul-de-displaystylesum_k0n-k2"
 id="toc-calcul-de-displaystylesum_k0n-k2"><span
-class="toc-section-number">1.3.2</span> Calcul de <span
+class="toc-section-number">1.4.2</span> Calcul de <span
 class="math inline">\(\displaystyle\sum_{k=0}^n k^2\)</span></a></li>
 </ul></li>
 <li><a href="#changement-dindice-dans-une-somme"
 id="toc-changement-dindice-dans-une-somme"><span
-class="toc-section-number">1.4</span> Changement d’indice dans une
+class="toc-section-number">1.5</span> Changement d’indice dans une
 somme</a></li>
 <li><a href="#sommes-doubles" id="toc-sommes-doubles"><span
-class="toc-section-number">1.5</span> Sommes doubles</a></li>
+class="toc-section-number">1.6</span> Sommes doubles</a></li>
 <li><a href="#factorisation-de-an-bn"
 id="toc-factorisation-de-an-bn"><span
-class="toc-section-number">1.6</span> Factorisation de <span
+class="toc-section-number">1.7</span> Factorisation de <span
 class="math inline">\(a^n-b^n\)</span></a></li>
 </ul></li>
 <li><a href="#calculs-de-produits" id="toc-calculs-de-produits"><span
@@ -178,23 +180,52 @@ class="toc-section-number">4.3</span> Système linéaire de trois
 </nav>
 <h1 data-number="1" id="calculs-de-sommes"><span
 class="header-section-number">1</span> Calculs de sommes</h1>
-<p>Soient <span class="math inline">\((a_k)_{k\in\mathbb{N}}\)</span> (
-ou <span class="math inline">\((a_k)_{k\geq k_0}\)</span>, avec <span
+<h2 data-number="1.1" id="préliminaires"><span
+class="header-section-number">1.1</span> Préliminaires</h2>
+<p>Soient <span class="math inline">\((a_k)_{k\in\mathbb{N}} =
+(a_0,a_1,\ldots,a_n,\ldots)\)</span> ( ou <span
+class="math inline">\((a_k)_{k\geq k_0} =  =
+(a_{k_0},a_{k_0+1},\ldots,a_n,\ldots)\)</span>, avec <span
 class="math inline">\(k_0 \in \mathbb{N}\)</span> ) une suite d’éléments
 de <span class="math inline">\(\mathbb{R}\)</span> ou <span
 class="math inline">\(\mathbb{C}\)</span>, <span class="math inline">\(n
 \in \mathbb{N}\)</span> (<span class="math inline">\(n\)</span>
 quelconque ou <span class="math inline">\(n \geq k_0\)</span> ). On
-considère <span class="math inline">\(u_0 + \ldots + u_n\)</span> (ou
-<span class="math inline">\(u_{k_0} + \ldots + u_n\)</span> ) que l’on
+considère <span class="math inline">\(a_0 + \ldots + a_n\)</span> (ou
+<span class="math inline">\(a_{k_0} + \ldots + a_n\)</span> ) que l’on
 note <span class="math inline">\(\sum_{k=0}^na_k\)</span> (ou <span
 class="math inline">\(\sum_{k=k_0}^n a_k\)</span> ).</p>
-<h2 data-number="1.1" id="sommes-télescopiques"><span
-class="header-section-number">1.1</span> Sommes télescopiques</h2>
 <div class="wprop">
-<p>Soit <span class="math inline">\((b_k)_{k \geq 0}\)</span> une suite
-de réels ou complexes et <span class="math inline">\((a_k)_{k \geq
-0}\)</span> tel que <span class="math inline">\(\forall k \in
+<p><span id="prop:prop_elementaires_sommes"
+label="prop:prop_elementaires_sommes"></span> Soient <span
+class="math inline">\((b_k)_{k \geq 0}\)</span> et <span
+class="math inline">\((a_k)_{k \geq 0}\)</span> deux suites de réels ou
+complexes, <span class="math inline">\(\alpha\)</span> réel ou complexe
+et <span class="math inline">\(n \in \mathbb{N}\)</span> alors</p>
+<ol>
+<li><p><span class="math inline">\(\sum_{k=0}^n a_k + \sum_{k=0}^n b_k =
+\sum_{k=0}^n (a_k+b_k)\)</span>,</p></li>
+<li><p><span class="math inline">\(\alpha \sum_{k=0}^n a_k =
+\sum_{k=0}^n \alpha a_k\)</span>.</p></li>
+</ol>
+</div>
+<div class="wproof">
+<ol>
+<li><p><span class="math inline">\(\sum_{k=0}^n a_k + \sum_{k=0}^n b_k =
+a_0+a_1+\ldots+a_n + b_0+b_1+\ldots+b_n =
+(a_0+b_0)+(a_1+b_1)+\ldots+(a_n+b_n) = \sum_{k=0}^n
+(a_k+b_k).\)</span></p></li>
+<li><p><span class="math inline">\(\alpha \sum_{k=0}^n a_k = \alpha
+\left( a_0+a_1+\ldots+a_n \right) = \alpha a_0+\alpha a_1+\ldots+\alpha
+a_n = \sum_{k=0}^n \alpha a_k\)</span>.</p></li>
+</ol>
+</div>
+<h2 data-number="1.2" id="sommes-télescopiques"><span
+class="header-section-number">1.2</span> Sommes télescopiques</h2>
+<div class="wprop">
+<p>Soient <span class="math inline">\((b_k)_{k \geq 0}\)</span> et <span
+class="math inline">\((a_k)_{k \geq 0}\)</span> deux suites de réels ou
+complexes telles que pour tout <span class="math inline">\(k \in
 \mathbb{N}, a_k = b_{k+1}-b_k\)</span> alors :</p>
 <p><span class="math display">\[\begin{aligned}
 \sum_{k=0}^na_k
@@ -209,8 +240,9 @@ de réels ou complexes et <span class="math inline">\((a_k)_{k \geq
 <div class="wex">
 <p><strong>Exercice</strong> —</p>
 <p>Soit <span class="math inline">\((u_n)_{n\geq 1}\)</span> définie par
-<span class="math inline">\(\forall n \in \mathbb{N}^\star,
-u_n=\sum_{k=1}^n \frac{1}{k^2}\)</span>. Etudier la convergence de <span
+<span class="math inline">\(u_n=\sum_{k=1}^n \frac{1}{k^2}\)</span> pour
+tout <span class="math inline">\(n \in \mathbb{N}^{\star}\)</span>.
+Etudier la convergence de <span
 class="math inline">\((u_n)\)</span>.</p>
 <p><strong>Corrigé</strong> — <strong><span
 class="math inline">\((u_n)\)</span> majorée ? ie existence de <span
@@ -229,19 +261,21 @@ M\)</span> ?</strong></p>
 2-\frac{1}{n} \leq 2.\]</span></p>
 <p><strong><span class="math inline">\((u_n)\)</span> croissante
 ?</strong></p>
-<p><span class="math inline">\(u_{n+1}-u_n = \frac{1}{(n+1)^2} &gt;
-0\)</span></p>
+<p><span class="math inline">\(u_{n+1}-u_n = \sum_{k=1}^{n+1}
+\frac{1}{k^2}-\sum_{k=1}^n \frac{1}{k^2} =
+\frac{1}{1^2}+\frac{1}{2^2}+\ldots+\frac{1}{n^2}+\frac{1}{(n+1)^2}-\left(\frac{1}{1^2}+\frac{1}{2^2}+\ldots+\frac{1}{n^2}\right)
+= \frac{1}{(n+1)^2} &gt; 0\)</span></p>
 <p>On en déduit que <span class="math inline">\((u_n)\)</span> est
 croissante et majorée donc convergente (Pour la culture, sa limite est
 <span class="math inline">\(\frac{\pi^2}{6}\)</span>).</p>
 </div>
-<h2 data-number="1.2" id="sommes-géométriques"><span
-class="header-section-number">1.2</span> Sommes géométriques</h2>
+<h2 data-number="1.3" id="sommes-géométriques"><span
+class="header-section-number">1.3</span> Sommes géométriques</h2>
 <div class="wprop">
-<p>Soit <span class="math inline">\(x \in \mathbb{C}, \neq 1\)</span>,
-<span class="math inline">\(n \in \mathbb{N}\)</span>, <span
+<p>Soient <span class="math inline">\(x \in \mathbb{C}, \neq 1\)</span>
+et <span class="math inline">\(n \in \mathbb{N}\)</span> alors <span
 class="math display">\[\sum_{k=0}^n x^k =
-\frac{x^{n+1}-1}{x-1}.\]</span> Une telle somme est appelée une suite
+\frac{x^{n+1}-1}{x-1}.\]</span> Une telle somme est appelée une somme
 géométrique.</p>
 </div>
 <div class="wproof">
@@ -249,25 +283,35 @@ géométrique.</p>
 et <span class="math inline">\(k \in \mathbb{N}\)</span>. <span
 class="math display">\[x^{k+1} - x^k = x^k\underbrace{(x-1)}_{\neq
 0}.\]</span> Donc <span class="math display">\[x^k =
-\frac{1}{x-1}(x^{k+1} - x^k)\]</span>.</p>
-<p>D’où, par télescopage, <span class="math display">\[\begin{aligned}
+\frac{1}{x-1}(x^{k+1} - x^k).\]</span></p>
+<p>D’où <span class="math display">\[\begin{aligned}
     \sum_{k=0}^n x^k
-    &amp; = \frac{1}{x-1}\sum_{k=0}^n(x^{k+1} - x^k) \\
-    &amp; = \frac{x^{n+1}-1}{x-1}.
+    &amp; = \sum_{k=0}^n\left( \frac{1}{x-1}(x^{k+1} - x^k)\right) \\
+    &amp; = \frac{1}{x-1}\sum_{k=0}^n(x^{k+1} - x^k) \text{ car
+$\frac{1}{x-1}$ ne dépend pas de $k$}\\
+    &amp; = \frac{x^{n+1}-1}{x-1} \text{ par télescopage.}
 \end{aligned}\]</span></p>
 </div>
 <div class="wrem">
 <p>Si <span class="math inline">\(x = 1\)</span>, <span
 class="math inline">\(\displaystyle\sum_{k=0}^n x^k = \sum_{k=0}^n 1 =
-n+1.\)</span></p>
+n+1.\)</span> En effet, comme on va de <span
+class="math inline">\(k=0\)</span> à <span
+class="math inline">\(k=n\)</span>, il y a <span
+class="math inline">\(n+1\)</span> termes et non <span
+class="math inline">\(n\)</span>.</p>
+<p>Par exemple, pour <span class="math inline">\(n=2\)</span>, <span
+class="math inline">\(\sum_{k=0}^2 1 =
+\underbrace{1}_{k=0}+\underbrace{1}_{k=1}+\underbrace{1}_{k=2} = 3 =
+n+1\)</span>.</p>
 </div>
-<h2 data-number="1.3"
+<h2 data-number="1.4"
 id="calculs-des-sommes-classiques-displaystylesum_k0n-k-et-displaystylesum_k0n-k2"><span
-class="header-section-number">1.3</span> Calculs des sommes classiques
+class="header-section-number">1.4</span> Calculs des sommes classiques
 <span class="math inline">\(\displaystyle\sum_{k=0}^n k\)</span> et
 <span class="math inline">\(\displaystyle\sum_{k=0}^n k^2\)</span></h2>
-<h3 data-number="1.3.1" id="calcul-de-displaystylesum_k0n-k"><span
-class="header-section-number">1.3.1</span> Calcul de <span
+<h3 data-number="1.4.1" id="calcul-de-displaystylesum_k0n-k"><span
+class="header-section-number">1.4.1</span> Calcul de <span
 class="math inline">\(\displaystyle\sum_{k=0}^n k\)</span></h3>
 <div class="wprop">
 <p>Soit <span class="math inline">\(n \in \mathbb{N}, S_n = \sum_{k=0}^n
@@ -388,7 +432,8 @@ class="math inline">\(\forall k \in \mathbb{N}, u_k = \alpha + k
 <p><span class="math display">\[\begin{aligned}
 \sum_{k=0}^nu_k
 &amp; = \sum_{k=0}^n \left(\alpha + k \beta\right) \\
-&amp; = \alpha \sum_{k=0}^n 1 + \beta \sum_{k=0}^n k \\
+&amp; = \alpha \sum_{k=0}^n 1 + \beta \sum_{k=0}^n k \text{ par le point
+2. de la proposition~\ref{prop:prop_elementaires_sommes}}\\
 &amp; = \alpha(n+1) + \beta\frac{n(n+1)}{2} \\
 &amp; = (n+1)\left(\alpha+\frac{n\beta}{2}\right) \\
 &amp; = (n+1)\left(\frac{2\alpha+n\beta}{2}\right) \\
@@ -396,8 +441,8 @@ class="math inline">\(\forall k \in \mathbb{N}, u_k = \alpha + k
 &amp; = (n+1)\frac{u_0+u_n}{2}.
 \end{aligned}\]</span></p>
 </div>
-<h3 data-number="1.3.2" id="calcul-de-displaystylesum_k0n-k2"><span
-class="header-section-number">1.3.2</span> Calcul de <span
+<h3 data-number="1.4.2" id="calcul-de-displaystylesum_k0n-k2"><span
+class="header-section-number">1.4.2</span> Calcul de <span
 class="math inline">\(\displaystyle\sum_{k=0}^n k^2\)</span></h3>
 <div class="wprop">
 <p>Pour <span class="math inline">\(n \in \mathbb{N}\)</span>, <span
@@ -415,6 +460,25 @@ ak^3+bk^2+ck\]</span></p>
 class="math display">\[\begin{aligned}
 u_{k+1} - u_k
     &amp; = a(k+1)^3+b(k+1)^2+c(k+1) - ak^3-bk^2-ck \\
+\end{aligned}\]</span> Or, <span class="math display">\[\begin{aligned}
+    (k+1)^2
+    &amp; = k^2+2k+1 \text{ par une identité remarquable} \\
+    \text{ et }(k+1)^3
+    &amp; = (k+1)^2(k+1) \\
+    &amp; =  (k^2+2k+1)(k+1) \\
+    &amp; = k^3+2k^2+k+k^2+2k+1 \\
+    &amp; = k^3+3k^2+3k+1.
+\end{aligned}\]</span> Donc <span class="math display">\[\begin{aligned}
+u_{k+1} - u_k
+    &amp; = a(k+1)^3+b(k+1)^2+c(k+1) - ak^3-bk^2-ck \\
+    &amp; = \begin{array}{llll}
+        ak^3 &amp; + 3ak^2 &amp; +3ak &amp; + a \\
+        &amp;+bk^2&amp;+2bk&amp;+b \\
+        &amp; &amp; +ck&amp;+c \\
+        -ak^3 &amp;&amp;&amp; \\
+        &amp;-bk^2 &amp;&amp; \\
+        &amp;&amp; -ck \\
+    \end{array}
     &amp; = 3ak^2 + (3a+2b)k + a+b+c
 \end{aligned}\]</span> D’où <span class="math inline">\(a,b,c\)</span>
 tels que : <span class="math display">\[\left\{
@@ -423,21 +487,26 @@ tels que : <span class="math display">\[\left\{
         3a+2b &amp; = 0 \\
         a+b+c &amp; = 0
     \end{array}
-\right.\]</span> conviennent ie <span class="math inline">\(a =
-\frac{1}{3}, b = -\frac{1}{2}, c = \frac{1}{6}\)</span>.</p>
-<p>On en déduit donc : <span class="math display">\[\begin{aligned}
+\right.\]</span> conviennent ie <span class="math display">\[\left\{
+    \begin{array}{ll}
+        a  &amp;= \tfrac{1}{3} \\
+        b &amp; = \tfrac{1}{2}(-3a) = -\tfrac{1}{2} \\
+        c &amp; = -a-b = -\tfrac{1}{3}+\tfrac{1}{2} = \tfrac{1}{6}.
+    \end{array}
+\right.\]</span> On en déduit donc : <span
+class="math display">\[\begin{aligned}
     \sum_{k=0}^nk^2
     &amp; = \sum_{k=0}^n (u_{k+1}-u_k) \\
-    &amp; = u_{n+1}-u_0 \\
-    &amp; = u_{n+1} \\
+    &amp; = u_{n+1}-u_0 \text{ par télescopage}\\
+    &amp; = u_{n+1} \text{ car $u_0 = 0$}\\
     &amp; = \frac{1}{3}(n+1)^3-\frac{1}{2}(n+1)^2 + \frac{1}{6}(n+1) \\
     &amp; = \frac{(n+1)}{6}(2(n+1)^2-3(n+1)+1) \\
     &amp; = \frac{(n+1)}{6}(2n^2+n) \\
-    &amp; = \frac{n(n+1)(2n+1)}{6}
+    &amp; = \frac{n(n+1)(2n+1)}{6}.
 \end{aligned}\]</span></p>
 </div>
-<h2 data-number="1.4" id="changement-dindice-dans-une-somme"><span
-class="header-section-number">1.4</span> Changement d’indice dans une
+<h2 data-number="1.5" id="changement-dindice-dans-une-somme"><span
+class="header-section-number">1.5</span> Changement d’indice dans une
 somme</h2>
 <p>Soient <span class="math inline">\(n\in \mathbb{N}\)</span> et <span
 class="math inline">\(a_0,\ldots,a_n \in \mathbb{C}\)</span>, remarquons
@@ -467,7 +536,8 @@ de réels ou complexes et <span class="math inline">\((a_k)_{k \geq
 <p><span class="math display">\[\begin{aligned}
 \sum_{k=0}^na_k
 &amp; = \sum_{k=0}^n b_{k+1}-b_k \\
-&amp; = \sum_{k=0}^n b_{k+1}- \sum_{k=0}^nb_k. \\
+&amp; = \sum_{k=0}^n b_{k+1}- \sum_{k=0}^nb_k  \text{ par le point 1. de
+la proposition~\ref{prop:prop_elementaires_sommes}}. \\
 \end{aligned}\]</span> En faisant le changement d’indice <span
 class="math inline">\(\ell = k+1\)</span> dans la première somme, on a
 <span class="math display">\[\sum_{k=0}^n b_{k+1} =
@@ -502,7 +572,8 @@ k=\ell+k_0\)</span>,</p>
     \sum_{k=k_0}^n x^k
     &amp; = \sum_{\ell=0}^{n-k_0} x^{\ell+k_0} \\
     &amp; = \sum_{\ell=0}^{n-k_0} x^{\ell}x^{k_0} \\
-    &amp; = x^{k_0} \sum_{\ell=0}^{n-k_0} x^{\ell} \\
+    &amp; = x^{k_0} \sum_{\ell=0}^{n-k_0} x^{\ell}  \text{ par le point
+2. de la proposition~\ref{prop:prop_elementaires_sommes}} \\
     &amp; = x^{k_0}\frac{x^{n-k_0+1}-1}{x-1} \\
     &amp; = \frac{x^{n+1}-x^{k_0}}{x-1}.
     \end{aligned}\]</span></p>
@@ -541,20 +612,21 @@ k=\ell+k_0\)</span>,</p>
 S_n&#39;
 &amp;= \sum_{k=k_0}^n k \\
 &amp;= \sum_{\ell=0}^{n-k_0} (\ell + k_0) \\
-&amp;= \sum_{\ell=0}^{n-k_0} \ell + k_0 \sum_{\ell=0}^{n-k_0} 1 \\
+&amp;= \sum_{\ell=0}^{n-k_0} \ell + k_0 \sum_{\ell=0}^{n-k_0} 1  \text{
+par la proposition~\ref{prop:prop_elementaires_sommes}} \\
 &amp;= \frac{(n-k_0)(n-k_0+1)}{2} + k_0(n-k_0+1) \\
 &amp;= \frac{(n-k_0+1)(n+k_0)}{2}
 \end{aligned}\]</span></p>
 </div>
-<h2 data-number="1.5" id="sommes-doubles"><span
-class="header-section-number">1.5</span> Sommes doubles</h2>
+<h2 data-number="1.6" id="sommes-doubles"><span
+class="header-section-number">1.6</span> Sommes doubles</h2>
 <div class="wprop">
 <p>Pour <span class="math inline">\(k,\ell \in \mathbb{N}\)</span>, on
-considère <span class="math inline">\(u_{k,\ell}\)</span> dans <span
-class="math inline">\(\mathbb{C}\)</span>.</p>
+considère <span class="math inline">\(u_{k,\ell}\in
+\mathbb{C}\)</span>.</p>
 <p>Soient <span class="math inline">\(n \in \mathbb{N},p \in
-\mathbb{N}\)</span>, on fixe <span class="math inline">\(k \in
-[\![0,\ldots,n]\!]\)</span> et on considère <span
+\mathbb{N}\)</span>, on fixe <span class="math inline">\(k \in [\![ 0,n
+]\!]\)</span> et on considère <span
 class="math inline">\(\displaystyle\sum_{\ell=0}^p u_{k,\ell}\)</span>
 qui dépend de <span class="math inline">\(k\)</span>.</p>
 <p>On fixe <span class="math inline">\(\ell \in
@@ -566,7 +638,9 @@ dépend de <span class="math inline">\(\ell\)</span>.</p>
 0}^p\left(\sum_{k=0}^n u_{k,\ell}\right)\]</span></p>
 </div>
 <div class="wproof">
-<p><span class="math inline">\(\quad\)</span></p>
+<p><span class="math inline">\(\quad\)</span> Ces deux sommes reviennent
+à sommer les termes dans un ordre ou dans l’autre comme illustré dans le
+tableau ci-dessous.</p>
 <div class="center">
 <p><img src="sommes_doubles-1.png" alt="image" /></p>
 </div>
@@ -593,10 +667,11 @@ class="math display">\[\begin{aligned}
 S
 &amp;= \sum_{\ell=0}^p\sum_{k=1}^n
 \left(\frac{1}{(k+1)^\ell}-\frac{1}{k^\ell}\right) \\
-&amp;= \sum_{\ell=0}^p \left(\frac{1}{(n+1)^\ell}-1\right) \\
+&amp;= \sum_{\ell=0}^p \left(\frac{1}{(n+1)^\ell}-1\right) \text{ par
+télescopage} \\
 &amp;= \sum_{\ell=0}^p \frac{1}{(n+1)^\ell}-(p+1) \\
 &amp;= \frac{1-\left(\frac{1}{n+1}\right)^{p+1}}{1-\frac{1}{n+1}}-(p+1)
-\\
+\text{ comme on a reconnu une somme géométrique} \\
 &amp;=
 \frac{n+1}{n}\left(1-\left(\frac{1}{n+1}\right)^{p+1}\right)-(p+1).
 \end{aligned}\]</span></p>
@@ -611,8 +686,8 @@ a_kb_\ell\)</span>,</p>
 général, <span class="math display">\[\sum_{k=0}^n a_kb_k \neq
 \left(\sum_{k=0}^n a_k\right)\left(\sum_{k=0}^n b_k\right).\]</span></p>
 </div>
-<h2 data-number="1.6" id="factorisation-de-an-bn"><span
-class="header-section-number">1.6</span> Factorisation de <span
+<h2 data-number="1.7" id="factorisation-de-an-bn"><span
+class="header-section-number">1.7</span> Factorisation de <span
 class="math inline">\(a^n-b^n\)</span></h2>
 <div class="wprop">
 <p>Soient <span class="math inline">\(a,b \in \mathbb{C}, n \in
@@ -632,7 +707,7 @@ en posant le changement d&#39;indice $\ell = k+1$,}\\
         &amp; =
 a^n+\sum_{k=1}^{n-1}a^{n-k}b^{k}-\sum_{\ell=1}^{n-1}a^{n-\ell}b^{\ell}-b^n
 \\
-        &amp; = a^b-b^n.
+        &amp; = a^n-b^n.
     \end{aligned}\]</span></p>
 </div>
 <h1 data-number="2" id="calculs-de-produits"><span
@@ -645,11 +720,12 @@ class="math inline">\(n \geq k_0\)</span> ), on considère <span
 class="math inline">\(a_0\times a_1 \ldots \times  a_n\)</span> ( ou
 <span class="math inline">\(a_{k_0}\times a_1 \ldots \times a_n\)</span>
 ) noté <span class="math inline">\(\prod_{k=0}^na_k\)</span> ( ou <span
-class="math inline">\(\prod_{k=k_0}^n a_k\)</span> )</p>
+class="math inline">\(\prod_{k=k_0}^n a_k\)</span> ).</p>
 <div class="wex">
 <ol>
 <li><p>Si <span class="math inline">\(a_k = \frac{b_{k+1}}{b_k}\)</span>
-où <span class="math inline">\(b_k \neq 0\)</span>, <span
+où <span class="math inline">\(b_k \neq 0\)</span> pour tout <span
+class="math inline">\(k\)</span>, <span
 class="math display">\[\prod_{k=0}^n a_k =
 \prod_{k=0}^n\frac{b_{k+1}}{b_k} =\frac{\prod_{k=0}^n
 b_{k+1}}{\prod_{k=0}^n b_k} = \frac{b_1 \ldots \times  b_n \times
@@ -661,13 +737,13 @@ a^{\displaystyle\sum_{k=0}^nk} = a^\frac{n(n+1)}{2}\]</span></p></li>
 <li><p>Si <span class="math inline">\(a_k =k\)</span>,<br />
 <span class="math inline">\(\prod_{k=0}^n a_k = 1\times 2 \times 3
 \ldots \times n\)</span> est la factorielle de <span
-class="math inline">\(n\)</span>, noté <span
+class="math inline">\(n\)</span>, notée <span
 class="math inline">\(n!\)</span></p></li>
-<li><p>Soient <span class="math inline">\(a_0,\ldots,a_n\)</span> réels,
-<span class="math display">\[e^{\sum_{k=0}^na_k} =
+<li><p>Soient <span class="math inline">\(a_0,\ldots,a_n\)</span> des
+réels, <span class="math display">\[e^{\sum_{k=0}^na_k} =
 \prod_{k=0}^ne^{a_k}\]</span></p></li>
-<li><p>Soient <span class="math inline">\(b_0,\ldots,b_n\)</span> réels
-strictement positifs, <span
+<li><p>Soient <span class="math inline">\(b_0,\ldots,b_n\)</span> des
+réels strictement positifs, <span
 class="math display">\[\ln\left(\prod_{k=0}^nb_k\right) =
 \sum_{k=0}^n\ln(b_k)\]</span></p></li>
 </ol>
@@ -676,8 +752,6 @@ class="math display">\[\ln\left(\prod_{k=0}^nb_k\right) =
 class="header-section-number">3</span> Formule du binôme de Newton</h1>
 <h2 data-number="3.1" id="coefficients-binomiaux"><span
 class="header-section-number">3.1</span> Coefficients binomiaux</h2>
-<p>Soient <span class="math inline">\(n,p\in \mathbb{N}\)</span> avec
-<span class="math inline">\(p\leq n\)</span>,</p>
 <div class="wdefi">
 <p>Soit <span class="math inline">\(n \in \mathbb{N}\)</span> et <span
 class="math inline">\(E\)</span> un ensemble fini à <span
@@ -748,10 +822,10 @@ d’éléments.</p>
 <h2 data-number="3.2" id="triangle-de-pascal"><span
 class="header-section-number">3.2</span> Triangle de Pascal</h2>
 <div class="wprop">
-<p><strong>(Formule du triangle)</strong> <span
-class="math inline">\(\forall n \geq 2, k \in [\![1,n-1]\!]\)</span>,
-<span class="math inline">\(\binom{n}{k} = \binom{n-1}{k} +
-\binom{n-1}{k-1}\)</span>.</p>
+<p><strong>(Formule du triangle)</strong> Soient <span
+class="math inline">\(n \geq 2\)</span> et <span class="math inline">\(k
+\in [\![1,n-1]\!]\)</span>, <span class="math inline">\(\binom{n}{k} =
+\binom{n-1}{k} + \binom{n-1}{k-1}\)</span>.</p>
 </div>
 <div class="webtextfigure">
 <div class="webtext">
@@ -791,7 +865,7 @@ class="math inline">\(B\)</span> possibles</p>
 <p>Donc il y a <span class="math inline">\(\binom{n-1}{k} +
 \binom{n-1}{k-1}\)</span> parties de <span
 class="math inline">\(E\)</span> à <span
-class="math inline">\(l\)</span> éléments.</p>
+class="math inline">\(k\)</span> éléments.</p>
 <p>Donc <span class="math inline">\(\binom{n}{k} = \binom{n-1}{k} +
 \binom{n-1}{k-1}\)</span></p>
 </div>
@@ -860,8 +934,9 @@ class="header-section-number">3.3</span> Formule du binôme de
 Newton</h2>
 <div class="wprop">
 <p><strong>(Formule du binôme de Newton)</strong> Soient <span
-class="math inline">\(a,b \in \mathbb{C}, n \in \mathbb{N}\)</span>, on
-a <span class="math display">\[(a+b)^n = \displaystyle\sum_{k=0}^n
+class="math inline">\(a,b \in \mathbb{C}\)</span> et <span
+class="math inline">\(n \in \mathbb{N}\)</span>, on a <span
+class="math display">\[(a+b)^n = \displaystyle\sum_{k=0}^n
 \binom{n}{k}a^kb^{n-k}.\]</span></p>
 </div>
 <div class="wproof">
@@ -869,7 +944,8 @@ a <span class="math display">\[(a+b)^n = \displaystyle\sum_{k=0}^n
 class="math inline">\(n\)</span> pour <span class="math inline">\(a,b
 \in \mathbb{C}\)</span> fixés.</p>
 <p><strong>INITIALISATION :</strong> Si <span class="math inline">\(n =
-0, (a+b)^0 = 1 = \sum_{k=0}^0 \binom{0}{k}a^kb^{0-k}\)</span></p>
+0, (a+b)^0 = 1 =\binom{0}{0}a^0b^{0-0} =\sum_{k=0}^0
+\binom{0}{k}a^kb^{0-k}\)</span></p>
 <p><strong>HÉRÉDITÉ :</strong> Supposons que pour <span
 class="math inline">\(n \in \mathbb{N}^\star\)</span> fixé,<span
 class="math inline">\((a+b)^n = \displaystyle\sum_{k=0}^n
@@ -911,7 +987,7 @@ Pascal.</p>
 </div>
 <div class="wex">
 <p><span class="math inline">\(\forall n \in \mathbb{N},
-\displaystyle\sum_{pk0}^n \binom{n}{k} = 2^n\)</span> .</p>
+\displaystyle\sum_{k=0}^n \binom{n}{k} = 2^n\)</span> .</p>
 </div>
 <div class="wex">
 <p><strong>Exercice</strong> — Soit <span class="math inline">\(n \in
@@ -940,17 +1016,17 @@ class="math display">\[\begin{aligned}
     &amp; =
 \sum_{k=0}^{\left\lfloor\frac{n}{2}\right\rfloor}\binom{n}{2k}-
 \sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\binom{n}{2k+1}
-\end{aligned}\]</span> Donc : <span class="math inline">\(\displaystyle
+\end{aligned}\]</span> Donc <span class="math inline">\(\displaystyle
 \sum_{k=0}^{\left\lfloor\frac{n}{2}\right\rfloor}\binom{n}{2k}
-=  \sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\binom{n}{2k+1}\)</span><br />
+=  \sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\binom{n}{2k+1}\)</span>.<br />
 De plus, <span
 class="math inline">\(\sum_{k=0}^{\left\lfloor\frac{n}{2}\right\rfloor}\binom{n}{2k}
 + \sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\binom{n}{2k+1} =
-\sum_{p=0}^n\binom{n}{p} = 2^n\)</span><br />
-Donc : <span class="math inline">\(\displaystyle
+\sum_{p=0}^n\binom{n}{p} = 2^n\)</span>.<br />
+Donc <span class="math inline">\(\displaystyle
 \sum_{k=0}^{\left\lfloor\frac{n}{2}\right\rfloor}\binom{n}{2k}
-=  \sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\binom{n}{2k+1} =
-2^{n-1}\)</span></p>
+=  \sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\binom{n}{2k+1}
+=\frac{2^n}{2} =2^{n-1}\)</span>.</p>
 </div>
 <h2 data-number="3.4"
 id="expression-des-coefficients-binomiaux-à-laide-de-factorielles"><span
@@ -958,7 +1034,7 @@ class="header-section-number">3.4</span> Expression des coefficients
 binomiaux à l’aide de factorielles</h2>
 <div class="wprop">
 <p>Soient <span class="math inline">\(n \in \mathbb{N}^\star\)</span> et
-<span class="math inline">\(k \in [\![1,n]\!]\)</span>, <span
+<span class="math inline">\(k \in [\![1,n]\!]\)</span>, alors <span
 class="math display">\[\binom{n}{k} = \frac{n!}{k!(n-k)!}\]</span></p>
 </div>
 <div class="wproof">
@@ -1103,7 +1179,7 @@ class="math display">\[(S)\begin{cases}
         &amp; a_1 x + b_1 y = \alpha \\
          &amp; a_2 x + b_2 y = \beta
 \end{cases}\]</span>. On définit le <u>déterminant</u> de <span
-class="math inline">\((S)\)</span>, noté <span
+class="math inline">\((S)\)</span> est <span
 class="math inline">\(\begin{vmatrix} a_1 &amp; b_1 \\ a_2 &amp; b_2
 \end{vmatrix} = a_1b_2 - b_1a_2\)</span>.</p>
 <ul>
@@ -1182,7 +1258,7 @@ b_1a_2\alpha}{a_1(a_1b_2 - b_1a_2)} \\
 \end{aligned}\]</span></p>
 <p>On obtient le même résultat avec <span class="math inline">\(a_1=0
 \text{ et }a_2 \neq 0\)</span> et en divisant par <span
-class="math inline">\(a_2\)</span>.</p></li>
+class="math inline">\(a_2\)</span> dans la première étape.</p></li>
 <li><p>Si <span class="math inline">\(\begin{vmatrix} a_1 &amp; b_1 \\
 a_2 &amp; b_2 \end{vmatrix} = a_1b_2 - b_1a_2 = 0\)</span>,</p>
 <ul>
@@ -1437,7 +1513,7 @@ convient.</p></li>
 <div class="wcor">
 <p>Si les droites <span class="math inline">\(\mathscr{D}_1\)</span> et
 <span class="math inline">\(\mathscr{D}_2\)</span> sont non parallèles,
-elles admettent un point d’intersection.</p>
+elles admettent un unique point d’intersection.</p>
 </div>
 <h3 data-number="4.2.2"
 id="intersection-de-deux-plans-non-parallèles-de-lespace"><span
