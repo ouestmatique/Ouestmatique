@@ -266,9 +266,9 @@ les propriétés :</p>
     &amp;\forall a,b,c,d \in \mathbb{R},
     &amp; a \leq c \text{ et }b \leq d \Longrightarrow a+b \leq c+d. \\
     &amp;\forall a,b,c\in \mathbb{R},
-    &amp; a \leq b, c \geq 0  \Longrightarrow ab \leq bc \\
+    &amp; a \leq b, c \geq 0  \Longrightarrow ac \leq bc \\
     &amp;\forall a,b,c\in \mathbb{R},
-    &amp; a \leq b, c \leq 0  \Longrightarrow ab \geq bc \\
+    &amp; a \leq b, c \leq 0  \Longrightarrow ac \geq bc \\
     &amp;\forall a,b\in \mathbb{R},
     &amp; 0 &lt; a \leq b  \Longrightarrow \frac{1}{a} \geq
 \frac{1}{b}\\
@@ -285,7 +285,7 @@ positifs,</p></li>
 \leq 0\}\)</span> est l’ensemble des réels négatifs,</p></li>
 <li><p><span class="math inline">\(\mathbb{R}^{-\star} = \{a \in
 \mathbb{R}, a &lt; 0\}\)</span> est l’ensemble des réels strictement
-négatifs,</p></li>
+négatifs.</p></li>
 </ul>
 <h2 data-number="1.2" id="valeur-absolue"><span
 class="header-section-number">1.2</span> Valeur absolue</h2>
@@ -329,6 +329,36 @@ a_k\right| \leq \sum_{k=1}^n |a_k|\)</span>,</p></li>
 </div>
 <div class="wproof">
 <ol>
+<li><p><span class="math inline">\(\left|a\right| = 0 \iff a \geq 0
+\text{ et }a=\left|a\right|=0\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(a \geq 0\)</span> et <span
+class="math inline">\(b \geq 0\)</span>, <span class="math inline">\(ab
+\geq 0\)</span> donc <span class="math inline">\(\left|ab\right| = ab =
+\left|a\right|\left|b\right|\)</span>,</p>
+<p>si <span class="math inline">\(a \geq 0\)</span> et <span
+class="math inline">\(b &lt; 0\)</span>, <span class="math inline">\(ab
+\leq 0\)</span> donc <span class="math inline">\(\left|ab\right| = -ab =
+a(-b) = \left|a\right|\left|b\right|\)</span>,</p>
+<p>si <span class="math inline">\(a &lt; 0\)</span> et <span
+class="math inline">\(b \geq 0\)</span>, <span class="math inline">\(ab
+\leq 0\)</span> donc <span class="math inline">\(\left|ab\right| = -ab =
+(-a)b = \left|a\right|\left|b\right|\)</span>,</p>
+<p>si <span class="math inline">\(a &lt; 0\)</span> et <span
+class="math inline">\(b &lt; 0\)</span>, <span class="math inline">\(ab
+&gt; 0\)</span> donc <span class="math inline">\(\left|ab\right| = ab =
+(-a)(-b) = \left|a\right|\left|b\right|\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(a \geq 0\)</span>, <span
+class="math inline">\(\left|a\right| = a \geq a\)</span> et si <span
+class="math inline">\(a &lt; 0\)</span>, <span
+class="math inline">\(\left|a\right|=-a &gt; 0 &gt; a\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(a &lt; 0\)</span>, <span
+class="math inline">\(\left|a\right| = -a \neq a\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(a \in \mathbb{R}\)</span>, la
+valeur absolue coïncide avec son module <span
+class="math inline">\(\sqrt{a^2+0^2} = \sqrt{a^2} =
+\left|a\right|\)</span> et donc cela a été prouvé dans le cours sur les
+complexes.</p></li>
+<li><p>Idem.</p></li>
 <li><p>Soient <span class="math inline">\(a,b \in
 \mathbb{R}\)</span>,</p>
 <p><span class="math inline">\(|a+b| \leq |a|+|b| \iff |(a+b)^2|=
@@ -408,13 +438,9 @@ class="math inline">\(h\)</span>, notée <span class="math inline">\(h
 h\circ f&amp; : &amp; \mathbb{R}&amp; \to &amp; \mathbb{R}\\
 &amp; &amp; x  &amp; \mapsto &amp;  h(f(x)) \\
 \end{array}.\]</span></p>
-<div class="webtextfigure">
-<div class="webtext">
 <p>On dessine parfois</p>
-</div>
-<div class="webimg">
+<div class="center">
 <p><img src="diagramme_compo.png" alt="image" /></p>
-</div>
 </div>
 <div class="wex">
 <p>Avec <span class="math inline">\(\begin{array}{lllll}
@@ -529,17 +555,17 @@ class="math inline">\(O\)</span>.</p>
 class="header-section-number">2.3</span> Fonctions périodiques</h2>
 <div class="wdefi">
 <p>Soit <span class="math inline">\(f \in
-\mathscr{F}(D,\mathbb{R})\)</span> et <span class="math inline">\(T \in
-\mathbb{R}^{+\star}\)</span> tel que pour tout <span
-class="math inline">\(x \in D, x+T \in D \text{ et }x-T \in D\)</span>.
-<span class="math inline">\(f\)</span> est dite <span
+\mathscr{F}(\mathbb{R},\mathbb{R})\)</span> et <span
+class="math inline">\(T \in \mathbb{R}^{+\star}\)</span> <span
+class="math inline">\(f\)</span> est dite <span
 class="math inline">\(T\)</span>-périodique si <span
-class="math display">\[\forall x \in D, f(X+T) = f(x).\]</span></p>
+class="math display">\[\forall x \in \mathbb{R}, f(x+T) =
+f(x).\]</span></p>
 </div>
 <div class="wrem">
 <p>Si <span class="math inline">\(f\)</span> est <span
 class="math inline">\(T\)</span>-périodique, on a : pour tout <span
-class="math inline">\(x \in D, f(x-T) = f(x)\)</span>.</p>
+class="math inline">\(x \in \mathbb{R}, f(x-T) = f(x)\)</span>.</p>
 <p>En effet, <span class="math inline">\(f(x) = f((x-T)+T) =
 f(x)\)</span>.</p>
 <p>On a même : pour tout <span class="math inline">\(k \in \mathbb{Z},
@@ -547,7 +573,8 @@ f(x+kT) = f(x)\)</span></p>
 </div>
 <div class="wprop">
 <p><strong>(Périodicité et opérations)</strong> Soient <span
-class="math inline">\(f,g \in \mathscr{F}(D,\mathbb{R})\)</span> <span
+class="math inline">\(f,g \in
+\mathscr{F}(\mathbb{R},\mathbb{R})\)</span> <span
 class="math inline">\(T\)</span>-périodiques et <span
 class="math inline">\(\alpha \in \mathbb{R}\)</span> alors <span
 class="math inline">\(\alpha f, f+g\)</span> et <span
@@ -555,7 +582,7 @@ class="math inline">\(fg\)</span> sont <span
 class="math inline">\(T\)</span>-périodiques.</p>
 </div>
 <div class="wproof">
-<p>Soit <span class="math inline">\(x \in D\)</span>,</p>
+<p>Soit <span class="math inline">\(x \in \mathbb{R}\)</span>,</p>
 <ul>
 <li><p><span class="math inline">\((\alpha f)(x+T) = \alpha f(x+T) =
 \alpha f(x) = (\alpha f)(x)\)</span>,</p></li>
@@ -610,7 +637,7 @@ class="math display">\[\forall x,y \in D, x \leq y \Longrightarrow f(x)
 <li><p><span class="math inline">\(f\)</span> est dite strictement
 décroissante sur <span class="math inline">\(D\)</span> si <span
 class="math display">\[\forall x,y \in D, x &lt; y \Longrightarrow f(x)
-&gt; f(y),\]</span></p></li>
+&gt; f(y).\]</span></p></li>
 </ul>
 </div>
 <div class="wprop">
@@ -688,7 +715,7 @@ class="math display">\[\forall x \in D, f(x) \leq M,\]</span></p></li>
 class="math inline">\(D\)</span> s’il existe <span
 class="math inline">\(m \in \mathbb{R}\)</span> tel que <span
 class="math display">\[\forall x \in D, f(x) \geq m,\]</span></p></li>
-<li><p><span class="math inline">\(f\)</span> est minorée sur <span
+<li><p><span class="math inline">\(f\)</span> est bornée sur <span
 class="math inline">\(D\)</span> si <span
 class="math inline">\(f\)</span> est majorée et minorée sur <span
 class="math inline">\(D\)</span> ie il existe <span
@@ -697,11 +724,13 @@ class="math display">\[\forall x \in D, m \leq f(x) \leq
 M.\]</span></p></li>
 </ul>
 </div>
-<div class="wrem">
-<p><span class="math inline">\(f\)</span> est bornée sur <span
-class="math inline">\(D\)</span> <span class="math inline">\(\iff
-\exists M_0 \in \mathbb{R}^+, \forall x \in D, |f(x)|\leq
-M_0\)</span>.</p>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f \in
+\mathscr{F}(D,\mathbb{R})\)</span>, <span
+class="math display">\[\text{$f$ est bornée sur $D$ $\iff \exists M_0
+\in \mathbb{R}^+, \forall x \in D, |f(x)|\leq M_0$}\]</span></p>
+</div>
+<div class="wproof">
 <ul>
 <li><p>s’il existe <span class="math inline">\(m,M \in
 \mathbb{R}\)</span> tel que <span class="math display">\[\forall x \in
@@ -760,6 +789,8 @@ class="math inline">\(I = [a,b[\)</span> ou <span
 class="math inline">\(I = ]a,b[\)</span> ou <span
 class="math inline">\(I = ]a,b]\)</span>.</p></li>
 </ul>
+<p>Un tel ensemble vérifie : si <span class="math inline">\(c,d \in
+I\)</span>, <span class="math inline">\([c,d] \subset I\)</span>.</p>
 </div>
 <div class="wdefi">
 <p><strong>(Dérivabilité en <span
@@ -794,6 +825,15 @@ class="math inline">\(\lim_{x \longrightarrow x_0}
 \frac{f(x)-f(x_0)}{x-x_0}\)</span> en posant <span
 class="math inline">\(h = x-x_0\)</span>.</p>
 </div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f : I \to \mathbb{R}\)</span> et
+<span class="math inline">\(x_0 \in I\)</span> tel que <span
+class="math inline">\(f\)</span> est dérivable en <span
+class="math inline">\(x_0\)</span>.</p>
+<p>Alors, <span class="math inline">\(f\)</span> est continue en <span
+class="math inline">\(x_0\)</span>.</p>
+</div>
+<div class="wproof">
 <p>Nous détaillerons ce point dans un prochain chapitre mais si <span
 class="math inline">\(f\)</span> est dérivable en <span
 class="math inline">\(x_0\)</span> alors <span
@@ -806,6 +846,7 @@ donc <span class="math inline">\(f(x_0+h)-f(x_0) \underset{h
 class="math inline">\(f(x_0+h) \underset{h \longrightarrow
 0}{\longrightarrow} f(x_0)\)</span>.</p>
 <p>En revanche, la réciproque est fausse.</p>
+</div>
 <div class="wex">
 <p><strong>(Fonction continue non dérivable en un point)</strong> <span
 id="ex:valeur_aboslue_non_derivable"
@@ -834,7 +875,7 @@ fonction dérivable en un point <span class="math inline">\(x_0 \in
 I\)</span>.</p>
 <p>Dans un repère orthonormé <span
 class="math inline">\((O,\vec{i},\vec{j})\)</span>, on considère <span
-class="math inline">\((C)=\{ M_x = (x,f(x)) \mid x \in I \}.\)</span> la
+class="math inline">\((C)=\{ M_x = (x,f(x)) / x \in I \}.\)</span> la
 courbe représentative de <span class="math inline">\(f\)</span>. Pour
 tout <span class="math inline">\(h \neq 0\)</span> tel que <span
 class="math inline">\(x_0+h \in I\)</span>, on note <span
@@ -887,10 +928,11 @@ dérivables</h3>
 <div class="wprop">
 <p><strong>(Opérations sur les fonctions dérivables)</strong> Soient
 <span class="math inline">\(u,v \in \mathscr{F}(I,\mathbb{R})\)</span>
-dérivables en <span class="math inline">\(x_0 \in I\)</span> et <span
-class="math inline">\(\alpha \in \mathbb{R}, n \in
-\mathbb{N}^\star\)</span> alors <span class="math inline">\(\alpha u,
-u+v\)</span>, <span class="math inline">\(uv\)</span> et <span
+dérivables en <span class="math inline">\(x_0 \in I\)</span> <span
+class="math inline">\(\alpha \in \mathbb{R}\)</span> et <span
+class="math inline">\(n \in \mathbb{N}^\star\)</span> alors <span
+class="math inline">\(\alpha u, u+v\)</span>, <span
+class="math inline">\(uv\)</span> et <span
 class="math inline">\(u^n\)</span> sont dérivables en <span
 class="math inline">\(x_0\)</span> avec</p>
 <ol>
@@ -980,7 +1022,6 @@ f &amp; : &amp; \mathbb{R}^\star &amp; \to &amp; \mathbb{R}\\
 où <span class="math inline">\(u(x) = x\)</span>. Donc <span
 class="math display">\[f&#39;(x_0) = \frac{-v&#39;(x_0)}{v(x_0)^2} =
 -n\frac{x_0^{n-1}}{x_0^{2n}} = -nx_0^{-n-1}.\]</span></p>
-<p>Remarque ?</p>
 </div>
 <h3 data-number="2.6.4" id="dérivabilité-de-gcirc-f"><span
 class="header-section-number">2.6.4</span> Dérivabilité de <span
@@ -1059,12 +1100,6 @@ g_1&#39;(f_1(x_0))f_1&#39;(x_0)v(x_0)+u(x_0)g_2&#39;(f_2(x_0))f_2&#39;(x_0)
             &amp; = \frac{2x}{x^2+1}\cos\left(\frac{1}{x}\right)
 +\ln(x^2+1)\frac{\sin\left(\frac{1}{x}\right)}{x^2}.
         \end{aligned}\]</span></p>
-<p><strong>Exercice</strong> — Calculer la dérivée de <span
-class="math inline">\(\begin{array}{lllll}
-h &amp; : &amp; \mathbb{R}&amp; \to &amp; \mathbb{R}\\
-&amp; &amp; x  &amp; \mapsto &amp; \frac{2x^2+1}{x^2+3} \\
-\end{array}\)</span> en tout point <span class="math inline">\(x_0 \in
-\mathbb{R}\)</span>.</p>
 </div>
 <h3 data-number="2.6.5"
 id="sens-de-variation-dune-fonction-dérivable"><span
@@ -1089,6 +1124,9 @@ class="math inline">\(\iff\)</span> <span class="math inline">\(\forall
 x \in I, f&#39;(x) = 0\)</span>,</p></li>
 </ul>
 </div>
+<div class="wproof">
+<p>Dans un chapitre ultérieur.</p>
+</div>
 <div class="wprop">
 <p><strong>(Stricte monotonie et dérivation)</strong> Soit <span
 class="math inline">\(f\)</span> une fonction dérivable sur <span
@@ -1102,12 +1140,18 @@ croissante sur <span class="math inline">\(I\)</span>,</p></li>
 décroissante sur <span class="math inline">\(I\)</span>.</p></li>
 </ul>
 </div>
+<div class="wproof">
+<p>Dans un chapitre ultérieur.</p>
+</div>
 <div class="wex">
 <p>On peut avoir <span class="math inline">\(f\)</span> dérivable
 strictement croissante sur <span class="math inline">\(I\)</span> mais
 <span class="math inline">\(f&#39;\)</span> s’annule sur <span
 class="math inline">\(I\)</span>. Par exemple <span
-class="math inline">\(f : x \in \mathbb{R}\mapsto x^3\)</span>.</p>
+class="math inline">\(f : x \in \mathbb{R}\mapsto x^3\)</span> est
+strictement croissante sur <span
+class="math inline">\(\mathbb{R}\)</span> mais <span
+class="math inline">\(f&#39;(0) = 0\)</span>.</p>
 </div>
 <div class="wrem">
 <p>Soit <span class="math inline">\(f : I:=I_1 \cup I_2 \to
@@ -1128,7 +1172,11 @@ class="math inline">\(I\)</span>.</p>
 <p>Pour <span class="math inline">\(f : x \in \mathbb{R}^{+\star} \cup
 \mathbb{R}^{-\star} \mapsto \frac{1}{x} \in \mathbb{R}\)</span>, <span
 class="math inline">\(\forall x \in \mathbb{R}^\star, f&#39;(x) =
--\frac{1}{x^2} &lt; 0\)</span>. En revanche, <span
+-\frac{1}{x^2} &lt; 0\)</span> et <span class="math inline">\(f\)</span>
+est bien strictement décroissante sur <span
+class="math inline">\(\mathbb{R}^{+\star}\)</span> et strictement
+décroissante sur <span
+class="math inline">\(\mathbb{R}^{-\star}\)</span>. En revanche, <span
 class="math inline">\(f\)</span> n’est pas strictement décroissante sur
 <span class="math inline">\(\mathbb{R}\)</span> car <span
 class="math inline">\(f(1) = 1 &gt; -1 = f(-1)\)</span>.</p>
@@ -1153,9 +1201,13 @@ y.\]</span></p>
 <li><p><span class="math inline">\(f : x \in \mathbb{R}\to x \in
 \mathbb{R}\)</span> est bijective,</p></li>
 <li><p><span class="math inline">\(f : x \in \mathbb{R}\to x^2 \in
-\mathbb{R}\)</span> n’est pas bijective,</p></li>
+\mathbb{R}\)</span> n’est pas bijective car <span
+class="math inline">\(f(1)=f(-1)\)</span>,</p></li>
 <li><p><span class="math inline">\(f : x \in \mathbb{R}^+ \to x^2 \in
-\mathbb{R}\)</span> n’est pas bijective,</p></li>
+\mathbb{R}\)</span> n’est pas bijective car <span
+class="math inline">\(-1 \in \mathbb{R}\)</span> mais il n’existe pas
+<span class="math inline">\(x_0 \in \mathbb{R}^{+}\)</span> tel que
+<span class="math inline">\(f(x_0) = -1\)</span>,</p></li>
 <li><p><span class="math inline">\(f : x \in \mathbb{R}^+ \to x^2 \in
 \mathbb{R}^+\)</span> est bijective.</p></li>
 </ul>
@@ -1170,8 +1222,12 @@ class="math inline">\(I\)</span> et <span
 class="math inline">\(J\)</span>.</p>
 </div>
 <div class="wproof">
-<p>Soit <span class="math inline">\(y \in f(I)\)</span>, supposons qu’il
-existe <span class="math inline">\(x,x&#39; \in I\)</span>,</p>
+<p>Soit <span class="math inline">\(y \in f(I)\)</span>, alors il existe
+<span class="math inline">\(x \in I\)</span> tel que <span
+class="math inline">\(y=f(x)\)</span>. Supposons <span
+class="math inline">\(x&#39; \in I\)</span> tel que <span
+class="math inline">\(x \neq x&#39;\)</span> et <span
+class="math inline">\(y=f(x&#39;)\)</span>,</p>
 <ul>
 <li><p>Si <span class="math inline">\(x &lt; x&#39;\)</span> alors <span
 class="math inline">\(f(x) &lt; f(x&#39;)\)</span> (ou <span
@@ -1187,13 +1243,17 @@ strictement décroissante), ce qui est contradictoire.</p></li>
 </div>
 <div class="wdefi">
 <p>Soit fonction <span class="math inline">\(f : I \to J\)</span>
-bijective, on définit ainsi sa fonction réciproque, notée <span
-class="math inline">\(f^{-1}\)</span> : <span
-class="math display">\[\begin{array}{lllll}
+bijective, on définit <span class="math inline">\(\begin{array}{lllll}
 f^{-1} &amp; : &amp; J &amp; \to &amp; I \\
 &amp; &amp; y  &amp; \mapsto &amp; \text{l&#39;unique $x \in I$ tel que
 $f(x) = y$} \\
-\end{array}.\]</span></p>
+\end{array}.\)</span> sa fonction réciproque.</p>
+</div>
+<div class="wrem">
+<p>On a alors pour tout <span class="math inline">\(x \in I\)</span>,
+<span class="math inline">\(f^{-1}(f(x)) = x\)</span> et pour tout <span
+class="math inline">\(y \in J\)</span>, <span
+class="math inline">\(f(f^{-1}(y)) = y\)</span>.</p>
 </div>
 <div class="wprop">
 <p>Soit <span class="math inline">\(f : I \to J\)</span> avec <u><span
@@ -1248,13 +1308,13 @@ class="math display">\[\left(f^{-1}\right)&#39;(f(x_0)) =
 \frac{1}{f&#39;(x_0))}.\]</span></p>
 </div>
 <div class="wproof">
-<p>La preuve que <span class="math inline">\(f^{-1}\)</span> est
-dérivable sera prouvé dans un chapitre ultérieur. Supposant cette
-dérivabilité, on peut tout de même prouver la formule :</p>
+<p>La fait que <span class="math inline">\(f^{-1}\)</span> est dérivable
+sera prouvé dans un chapitre ultérieur. Supposant cette dérivabilité, on
+peut tout de même prouver la formule :</p>
 <p><span class="math display">\[f^{-1}(f(x_0)) = x_0\]</span></p>
 <p>Donc en utilisant la formule de la dérivation de la composée,</p>
 <p><span
-class="math display">\[\left(f^{-1}\right)&#39;(f(x_0))f&#39;(x_0) = x_0
+class="math display">\[\left(f^{-1}\right)&#39;(f(x_0))f&#39;(x_0) = 1
 \iff \left(f^{-1}\right)&#39;(f(x_0)) =
 \frac{1}{f&#39;(x_0))}.\]</span></p>
 </div>
@@ -1272,6 +1332,13 @@ class="math inline">\(f^{-1}\)</span> est dérivable en <span
 class="math inline">\(y_0\)</span> et <span
 class="math display">\[\left(f^{-1}\right)&#39;(y_0) =
 \frac{1}{f&#39;(f^{-1}(y_0))}.\]</span></p>
+</div>
+<div class="wproof">
+<p>Il suffit de réécrire <span
+class="math inline">\(\left(f^{-1}\right)&#39;(f(x_0)) =
+\frac{1}{f&#39;(x_0))}\)</span>, avec <span class="math inline">\(y_0 =
+f(x_0)\)</span> et <span class="math inline">\(x_0 =
+f^{-1}(y_0)\)</span>.</p>
 </div>
 <div class="webtextfigure">
 <div class="webtext">
@@ -1376,15 +1443,16 @@ u(x)v&#39;(x)dx.
 <p><strong>Corrigé</strong> — <span class="math inline">\(A = \int_1^2
 u&#39;(x)v(x)dx\)</span> avec <span
 class="math inline">\(\left\{\begin{array}{ll}
-        u(x) &amp; = -\frac{1}{x} \\
+        u(x) &amp; = -\tfrac{1}{x} \\
         v(x) &amp; = \ln(x)
     \end{array}\right. \Rightarrow \left\{\begin{array}{ll}
-        u&#39;(x) &amp; = \frac{1}{x^2} \\
-        v&#39;(x) &amp; = \frac{1}{x}
+        u&#39;(x) &amp; = \tfrac{1}{x^2} \\
+        v&#39;(x) &amp; = \tfrac{1}{x}
     \end{array}\right.\)</span></p>
 <p>Donc par intégration par parties,</p>
 <p><span class="math display">\[A = \left[-\frac{\ln x}{x}\right]_1^2 +
-\int_1^2 \frac{1}{x^2}dx = \ln(1)-\frac{\ln(2)}{2} +[-\frac{1}{x}]_1^2 =
+\int_1^2 \frac{1}{x^2}dx = \ln(1)-\frac{\ln(2)}{2}
++\left[-\frac{1}{x}\right]_1^2 =
 -\frac{\ln(2)}{2}-\frac{1}{2}+1=-\frac{\ln(2)}{2}+\frac{1}{2}.\]</span></p>
 </div>
 <div class="wex">
@@ -1831,10 +1899,10 @@ class="math inline">\(f(x)-\alpha x \underset{x \longrightarrow
 \longrightarrow +\infty}{\longrightarrow} 0\)</span> alors <span
 class="math inline">\(\frac{f(x)}{x} = \frac{f(x)-\alpha x - \beta}{x}
 +\alpha +\frac{\beta}{x} \underset{x \longrightarrow
-+\infty}{\longrightarrow} \alpha\)</span>. De plus, <span
-class="math inline">\(f(x)-\alpha x =f(x) - \alpha x -\beta + \beta
++\infty}{\longrightarrow}0+ \alpha+0=\alpha\)</span>. De plus, <span
+class="math inline">\(f(x)-\alpha x =(f(x) - \alpha x -\beta) + \beta
 \underset{x \longrightarrow +\infty}{\longrightarrow}
-\beta\)</span>.</p></li>
+0+\beta=\beta\)</span>.</p></li>
 <li><p>Si <span class="math inline">\(f(x)-\alpha x \underset{x
 \longrightarrow +\infty}{\longrightarrow} \beta\)</span>, alors <span
 class="math inline">\(f(x) - \alpha x -\beta \underset{x \longrightarrow
@@ -1913,45 +1981,61 @@ class="math inline">\(\cos\)</span></td>
 <h3 data-number="3.1.2" id="tan"><span
 class="header-section-number">3.1.2</span> <span
 class="math inline">\(\tan\)</span></h3>
+<div class="wdefi">
 <p>En notant <span class="math inline">\(D_{\tan} = \{x \in \mathbb{R}/
 \cos x \neq 0\}=  \mathbb{R}\setminus \{\frac{\pi}{2} + 2k\pi / k \in
 \mathbb{Z}\}\)</span>, on définit pour <span class="math inline">\(x \in
 D_{\tan}\)</span>, <span class="math display">\[\tan x = \frac{\sin
 x}{\cos x}.\]</span></p>
-<ul>
+</div>
+<div class="wprop">
+<ol>
 <li><p><span class="math inline">\(\tan\left(\frac{\pi}{4}\right) = 1,
 \tan\left(\frac{\pi}{3}\right) = \sqrt{3},
 \tan\left(\frac{\pi}{6}\right) = \frac{1}{\sqrt{3}}\)</span>.</p></li>
-<li><p><span class="math inline">\(\tan\)</span> est impaire</p>
-<div class="wproof">
-<p>Pour <span class="math inline">\(x \in D_{\tan}\)</span>, <span
-class="math inline">\(\tan(-x) = \frac{\sin(-x)}{\cos(-x)} = \frac{-\sin
-x}{\cos x} =-\tan x\)</span></p>
-</div></li>
+<li><p><span class="math inline">\(\tan\)</span> est impaire.</p></li>
 <li><p><span class="math inline">\(\tan\)</span> est <span
-class="math inline">\(\pi\)</span>-périodique</p>
-<div class="wproof">
-<p>Pour <span class="math inline">\(x \in D_{\tan}\)</span>, <span
-class="math inline">\(\tan(x+\pi) = \frac{\sin(x+\pi)}{\cos(x+\pi)} =
-\frac{-\sin x}{-\cos x} =\tan x\)</span></p>
-</div></li>
+class="math inline">\(\pi\)</span>-périodique.</p></li>
 <li><p><span class="math inline">\(\tan\)</span> est dérivable sur <span
 class="math inline">\(D_{\tan}\)</span>, avec <span
 class="math inline">\(\tan&#39; = 1+\tan^2 =
-\frac{1}{\cos^2}\)</span>.</p>
+\frac{1}{\cos^2}\)</span>.</p></li>
+</ol>
+</div>
 <div class="wproof">
-<p><span class="math display">\[\begin{aligned}
+<ol>
+<li><p><span class="math display">\[\begin{aligned}
+        \tan\left(\frac{\pi}{4}\right)
+        &amp; =
+\frac{\cos\left(\frac{\pi}{4}\right)}{\sin\left(\frac{\pi}{4}\right)} =
+\frac{\frac{\sqrt{2}}{2}}{\frac{\sqrt{2}}{2}} = 1, \\
+        \tan\left(\frac{\pi}{3}\right)
+        &amp; =
+\frac{\cos\left(\frac{\pi}{3}\right)}{\sin\left(\frac{\pi}{3}\right)} =
+\frac{\frac{\sqrt{3}}{2}}{\frac{1}{2}} = \sqrt{3}, \\
+        \tan\left(\frac{\pi}{6}\right)
+        &amp; =
+\frac{\cos\left(\frac{\pi}{6}\right)}{\sin\left(\frac{\pi}{6}\right)} =
+\frac{\frac{1}{2}}{\frac{\sqrt{3}}{2}} = \frac{1}{\sqrt{3}}.
+    \end{aligned}\]</span></p></li>
+<li><p>Pour <span class="math inline">\(x \in D_{\tan}\)</span>, <span
+class="math inline">\(\tan(-x) = \frac{\sin(-x)}{\cos(-x)} = \frac{-\sin
+x}{\cos x} =-\tan x\)</span></p></li>
+<li><p>Pour <span class="math inline">\(x \in D_{\tan}\)</span>, <span
+class="math inline">\(\tan(x+\pi) = \frac{\sin(x+\pi)}{\cos(x+\pi)} =
+\frac{-\sin x}{-\cos x} =\tan x\)</span></p></li>
+<li><p><span class="math display">\[\begin{aligned}
         \forall x \in D_{\tan}, \tan&#39;(x) &amp;= \frac{\sin&#39; x
 \cos x - \sin x \cos&#39; x}{\cos^2 x} \\
         &amp;= \frac{\cos^2 x + \sin^2 x }{\cos^2 x}
 =\left\{\begin{array}{ll}
             &amp; \frac{1}{\cos^2 x} \\
-            &amp; \frac{\cos^2 x(1 + \frac{\sin^2 x}{\cos^2 x} }{\cos^2
-x} = 1+\tan^2 x
+            &amp; \frac{\cos^2 x\left(1 + \frac{\sin^2 x}{\cos^2
+x}\right) }{\cos^2 x} = 1+\tan^2 x
         \end{array}\right.
-                \end{aligned}\]</span>.</p>
-</div></li>
-</ul>
+                \end{aligned}\]</span>.</p></li>
+</ol>
+</div>
 <p><strong>Allure de la courbe.</strong> </p>
 <div class="center">
 <p><img src="tan.png" alt="image" /></p>
@@ -2091,6 +2175,15 @@ que pour <span class="math inline">\(y \in \left]-1,1\right[\)</span>,
 </div>
 <div class="wproof">
 <ol>
+<li><p><span class="math inline">\(\sin(0) = 0\)</span> avec <span
+class="math inline">\(0 \in
+\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span>, <span
+class="math inline">\(\sin\left(\frac{\pi}{2}\right) = 1\)</span> avec
+<span class="math inline">\(\frac{\pi}{2} \in
+\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span> et <span
+class="math inline">\(\sin\left(-\frac{\pi}{2}\right) = -1\)</span> avec
+<span class="math inline">\(-\frac{\pi}{2} \in
+\left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span>.</p></li>
 <li><p>Pour <span class="math inline">\(y \in [-1,1]\)</span>, notons
 <span class="math inline">\(x = \mathop{\mathrm{Arcsin}}(y) \in
 \left[-\frac{\pi}{2},\frac{\pi}{2}\right]\)</span>.</p>
@@ -2147,8 +2240,12 @@ class="math inline">\(\sin x \in [-1,1]\)</span> donc on peut considérer
 class="math inline">\(\mathop{\mathrm{Arcsin}}(\sin x) \neq
 x\)</span>.</p>
 <p>En revanche, <span class="math inline">\(f\)</span> est <span
-class="math inline">\(2\pi\)</span>-périodique, et il suffit donc de la
-déterminer sur <span
+class="math inline">\(2\pi\)</span>-périodique. En effet, pour <span
+class="math inline">\(x \in \mathbb{R}\)</span>, <span
+class="math inline">\(f(x+2\pi) = \mathop{\mathrm{Arcsin}}(\sin
+(x+2\pi)) = \mathop{\mathrm{Arcsin}}(\sin(x)) = f(x)\)</span>.</p>
+<p>Il suffit donc de la déterminer sur un intervalle de taille <span
+class="math inline">\(2\pi\)</span> comme <span
 class="math inline">\(\left[-\frac{\pi}{2},\frac{3\pi}{2}\right]\)</span>.</p>
 <ul>
 <li><p>Pour <span class="math inline">\(x \in
@@ -2271,6 +2368,12 @@ class="math display">\[\mathop{\mathrm{Arccos}}&#39;(y) =
 </div>
 <div class="wproof">
 <ol>
+<li><p><span class="math inline">\(\cos\left(\frac{\pi}{2}\right) =
+0\)</span> avec <span class="math inline">\(\frac{\pi}{2} \in
+[0,\pi]\)</span>, <span class="math inline">\(\cos\left(0\right) =
+1\)</span> avec <span class="math inline">\(1 \in [0,\pi]\)</span> et
+<span class="math inline">\(\cos\left(\pi\right) = -1\)</span> avec
+<span class="math inline">\(\pi \in [0,\pi]\)</span>.</p></li>
 <li><p>Pour <span class="math inline">\(y \in [-1,1],
 \mathop{\mathrm{Arccos}}(y)\)</span> est l’unique <span
 class="math inline">\(t \in [0,\pi]\)</span> tel que <span
@@ -2401,6 +2504,15 @@ class="math display">\[\mathop{\mathrm{Arctan}}&#39;(y) =
 </div>
 <div class="wproof">
 <ol>
+<li><p><span class="math inline">\(\tan(0) = 0\)</span> avec <span
+class="math inline">\(0 \in
+\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\)</span>, <span
+class="math inline">\(\tan\left(\frac{\pi}{4}\right) = 1\)</span> avec
+<span class="math inline">\(\frac{\pi}{4} \in
+\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\)</span> et <span
+class="math inline">\(\tan\left(-\frac{\pi}{4}\right) = -1\)</span> avec
+<span class="math inline">\(-\frac{\pi}{4} \in
+\left]-\frac{\pi}{2},\frac{\pi}{2}\right[\)</span>.</p></li>
 <li><p>Pour <span class="math inline">\(y \in \mathbb{R}\)</span>,
 notons <span class="math inline">\(x = \mathop{\mathrm{Arctan}}(y) \in
 \left]-\frac{\pi}{2},\frac{\pi}{2}\right[\)</span>.</p>
@@ -2508,8 +2620,8 @@ des primitives.</strong> </p>
 <p><strong>Exercice</strong> — Calculer les primitives de <span
 class="math inline">\(f: x &gt; 0 \mapsto
 \frac{x^2+2}{(x-2)(x^2+4)}\)</span>.</p>
-<p><em>Montrer qu’il existe <span class="math inline">\(a,b,c \in
-\mathbb{R}\)</span> tels que <span
+<p><em>Indication: Montrer qu’il existe <span
+class="math inline">\(a,b,c \in \mathbb{R}\)</span> tels que <span
 class="math inline">\(\frac{x^2+2}{(x-2)(x^2+4)} =
 \frac{a}{x-2}+\frac{bx+c}{x^2+4}\)</span>.</em></p>
 <p><strong>Corrigé</strong> — En suivant l’indication, après calculs, on
@@ -2586,9 +2698,9 @@ class="math inline">\(g_{x_0}&#39;(x) = \frac{x_0}{xx_0} =
 \mathbb{R}^{+\star}\)</span>, <span class="math inline">\(g_{x_0}(x) =
 \ln(x) + C\)</span> avec <span class="math inline">\(C \in
 \mathbb{R}\)</span>. De plus, <span class="math inline">\(g_{x_0}(1) =
-\ln(x_0) = \ln(1) + C = C\)</span> et <span
-class="math inline">\(g_{x_0}(x) = \ln(xx_0) =
-\ln(x)+\ln(x_0)\)</span>.</p></li>
+\ln(x_0) = \ln(1) + C = C\)</span> donc <span class="math inline">\(C =
+\ln(x_0)\)</span> et <span class="math inline">\(g_{x_0}(x) = \ln(xx_0)
+= \ln(x)+\ln(x_0)\)</span>.</p></li>
 </ol>
 </div>
 <div class="wcor">
@@ -2649,16 +2761,17 @@ class="math inline">\(+\infty\)</span>)</strong></p>
 <p>Comme nous le verrons dans un chapitre ultérieur, comme <span
 class="math inline">\(f\)</span> est strictement croissante sur <span
 class="math inline">\(\mathbb{R}^{+\star}\)</span>, elle admet des
-limites, finies ou non en <span class="math inline">\(0\)</span> et en
+limites, finies ou non, en <span class="math inline">\(0\)</span> et en
 <span class="math inline">\(+\infty\)</span>.</p>
 <ol>
 <li><p>Par l’absurde, si <span class="math inline">\(\ln\)</span> admet
 une limite finie <span class="math inline">\(\ell \in
 \mathbb{R}\)</span> en <span class="math inline">\(+\infty\)</span>
 alors comme <span class="math inline">\(\ln(2x) =
-\ln(2)+\ln(x)\)</span>, <span class="math inline">\(\ell = \ln(2)+\ell
-\iff \ell = 0\)</span>. Ce qui est absurde car <span
-class="math inline">\(\ell \geq \ln(2) &gt; 0\)</span>.</p></li>
+\ln(2)+\ln(x)\)</span>, en passant à la limite, <span
+class="math inline">\(\ell = \ln(2)+\ell \iff \ell = 0\)</span>. Ce qui
+est absurde car <span class="math inline">\(\ell \geq \ln(2) &gt;
+0\)</span>.</p></li>
 <li><p>Pour <span class="math inline">\(x \in
 \mathbb{R}^{+\star}\)</span>, <span
 class="math inline">\(\ln\left(\frac{1}{x}\right) = -\ln(x)\)</span>
@@ -2712,7 +2825,7 @@ class="math inline">\(\left\{\begin{array}{ll}
 \end{array}\right.\)</span>.</p>
 <p>De plus,</p>
 <p><span class="math display">\[\begin{aligned}
-    \ln 1 = 0 &amp; \iff e^0 = 1,
+    \ln 1 = 0 &amp; \iff \exp(0) = 1,
     \ln e = 1 &amp; \iff \exp(1) = e.
 \end{aligned}\]</span></p>
 <div class="wprop">
@@ -2727,7 +2840,7 @@ est l’unique réel <span class="math inline">\(t \in
 y+y&#39;\)</span>.</p>
 <p>Or,</p>
 <p><span class="math display">\[\ln((\exp y)(\exp y&#39;)) = \ln(\exp
-y)+\ln(exp y&#39;) = y+y&#39;.\]</span></p>
+y)+\ln(\exp y&#39;) = y+y&#39;.\]</span></p>
 <p>Donc <span class="math inline">\(\exp(y+y&#39;) = (\exp y)(\exp
 y&#39;)\)</span>.</p>
 </div>
@@ -2774,6 +2887,16 @@ précède, on a donc <span class="math inline">\(\left(\exp(y)\right)^{-n}
 class="math inline">\(\left(\exp(y)\right)^{-n} = \frac{1}{\exp(-ny)} =
 \exp(ny)\)</span>.</p></li>
 </ol>
+</div>
+<div class="wrem">
+<p><span class="math inline">\(\exp\)</span> vérifie des règles
+similaires aux puissances (<span
+class="math inline">\(\exp(0)=1,\exp(x+y) = \exp(x)\exp(y),
+\ldots\)</span>) En particulier, pour <span class="math inline">\(n \in
+\mathbb{Z}\)</span>, <span class="math inline">\(\exp(n) =\exp(1)^n =
+e^n\)</span>. Par conséquent, pour <span class="math inline">\(x \in
+\mathbb{R}\)</span>, on <u>définit</u> <span class="math inline">\(e^x
+:= \exp(x)\)</span>.</p>
 </div>
 <div class="wprop">
 <p><strong>(Dérivabilité de <span
@@ -2835,14 +2958,6 @@ rapide.</p>
 <p><strong>Représentation graphique.</strong> </p>
 <div class="center">
 <p><img src="exp.png" alt="image" /></p>
-</div>
-<div class="wrem">
-<p>Soit <span class="math inline">\(y\in \mathbb{R}, n \in \mathbb{Z},
-\exp(ny) = \left(\exp(y)\right)^n\)</span>.</p>
-<p>En particulier, pour <span class="math inline">\(y = 1, \exp(n)
-=e^n\)</span>. Par conséquent, pour <span class="math inline">\(x \in
-\mathbb{R}\)</span>, on <u>définit</u> <span class="math inline">\(e^x
-:= \exp(x)\)</span>.</p>
 </div>
 <h2 data-number="3.4"
 id="fonctions-hyperboliques-mathopmathrmchmathopmathrmshmathopmathrmth"><span
@@ -2978,9 +3093,9 @@ class="math display">\[\mathop{\mathrm{ch}}^2(x)-\mathop{\mathrm{sh}}^2(x)
 <p><img src="table_var_ch.png" alt="image" /></p>
 </div>
 <p><strong>Branches infinies.</strong> </p>
-<p>Comme, pour rappel, <span
+<p>On montrera plus tard <span
 class="math inline">\(\frac{e^x}{x}\underset{x\longrightarrow
-+\infty}{\longrightarrow} 0\)</span>,</p>
++\infty}{\longrightarrow} 0\)</span> et on a donc</p>
 <ul>
 <li><p><span class="math inline">\(\frac{\mathop{\mathrm{sh}}(x)}{x} =
 \frac{1}{2x}e^{x} -\frac{1}{2x}e^{-x} \underset{x\longrightarrow
@@ -3006,7 +3121,8 @@ d’asymptotes en <span class="math inline">\(\pm
 \mathbb{R}\mapsto \frac{e^x}{2}\)</span>, on a :</p>
 <ul>
 <li><p><span class="math inline">\(\forall x \in \mathbb{R},
-\mathop{\mathrm{sh}}x \leq f(x) \leq ch x\)</span>,</p></li>
+\mathop{\mathrm{sh}}x \leq f(x) \leq
+\mathop{\mathrm{ch}}x\)</span>,</p></li>
 <li><p><span class="math inline">\(f(x)-\mathop{\mathrm{sh}}x
 \underset{x\longrightarrow +\infty}{\longrightarrow}
 0\)</span>,</p></li>
@@ -3312,7 +3428,7 @@ class="math inline">\(\alpha-1 &gt; 0\)</span> et <span
 class="math inline">\(\frac{f_\alpha(x)}{x} \underset{x \longrightarrow
 0}{\longrightarrow} +\infty\)</span> donc la droite n’admet pas
 d’asymptote quand <span class="math inline">\(x\)</span> tend vers <span
-class="math inline">\(+\infty\)</span> : : sa croissance est trop
+class="math inline">\(+\infty\)</span> : sa croissance est trop
 rapide.</p></li>
 </ol>
 <p><strong>Allure des courbes.</strong> </p>
@@ -3365,218 +3481,95 @@ rapide.</p></li>
 </div>
 
     <script>
-    (function () {
+    import matplotlib.pyplot as plt
+import numpy as np
+from matplotlib.patches import FancyArrowPatch
 
-    const widget = document.querySelector(".alpha-widget");
+def point_tille(ax, start, end, color="#BDC3C7", lw=1.2):
+    arrow = FancyArrowPatch(
+        start, end,
+        arrowstyle='-',
+        linestyle='--', 
+        mutation_scale=15,
+        linewidth=lw,
+        color=color,
+        fill=False
+    )
+    ax.add_patch(arrow)
 
-    if (!widget) return;
+# Active LaTeX si disponible dans votre environnement
+# plt.rcParams["text.usetex"] = True
 
-    const slider = widget.querySelector(".alphaSlider");
-    const input  = widget.querySelector(".alphaInput");
-    const plot   = widget.querySelector(".plot");
+fig, ax = plt.subplots(figsize=(6, 6))
 
-    ////////////////////////////////////////////////////////////////////////////
-    // Fonction
-    ////////////////////////////////////////////////////////////////////////////
+# --- Palette de couleurs ---
+AXIS_COLOR = "#2C3E50"          # Couleur sobre pour les axes / repères 0 et 1
+GRID_COLOR = "#BDC3C7"          # Pointillés légers
+COLOR_ALPHA_GT_1   = "#27AE60"  # Vert : alpha > 1
+COLOR_ALPHA_EQ_1   = "#E67E22"  # Orange : alpha = 1
+COLOR_ALPHA_BETWEEN= "#8E44AD"  # Violet : 0 < alpha < 1
+COLOR_ALPHA_EQ_0   = "#E74C3C"  # Rouge : alpha = 0
+COLOR_ALPHA_LT_0   = "#2980B9"  # Bleu : alpha < 0
 
-    function f(x, a) {
+# --- Fonctions puissances x^alpha ---
+x = np.linspace(0.01, 5, 500)
+f_gt_1   = lambda x: x**3            # alpha > 1
+f_eq_1   = lambda x: x               # alpha = 1
+f_between= lambda x: x**(1/3)        # 0 < alpha < 1
+f_eq_0   = lambda x: np.ones_like(x) # alpha = 0
+f_lt_0   = lambda x: 1/x             # alpha < 0
 
-        return Math.pow(x, a);
-    }
+# --- Tracé des courbes ---
+ax.plot(x, f_gt_1(x),    color=COLOR_ALPHA_GT_1,    lw=2.2)
+ax.plot(x, f_eq_1(x),    color=COLOR_ALPHA_EQ_1,    lw=2.2)
+ax.plot(x, f_between(x), color=COLOR_ALPHA_BETWEEN, lw=2.2)
+ax.plot(x, f_eq_0(x),    color=COLOR_ALPHA_EQ_0,    lw=2.2)
+ax.plot(x, f_lt_0(x),    color=COLOR_ALPHA_LT_0,    lw=2.2)
 
-    ////////////////////////////////////////////////////////////////////////////
-    // Abscisses
-    ////////////////////////////////////////////////////////////////////////////
+# --- Axes (fléchés) ---
+ax.annotate('', xy=(3.8, 0), xytext=(-0.3, 0),
+            arrowprops=dict(arrowstyle="->", color=AXIS_COLOR, lw=1.5))
+ax.annotate('', xy=(0, 4.6), xytext=(0, -0.3),
+            arrowprops=dict(arrowstyle="->", color=AXIS_COLOR, lw=1.5))
 
-    const xs = [];
+# --- Pointillés au point (1, 1) ---
+point_tille(ax, [1, 0], [1, 1], color=GRID_COLOR, lw=1.2)
+point_tille(ax, [0, 1], [1, 1], color=GRID_COLOR, lw=1.2)
 
-    for (let x = 0.001; x <= 3.5; x += 0.01) {
-        xs.push(x);
-    }
+# --- Graduations et repères (0 et 1) ---
+ax.plot(0, 0, "+", color=AXIS_COLOR, markersize=8, mew=1.5)
+ax.text(-0.15, -0.22, r"$0$", fontsize=14, color=AXIS_COLOR)
 
-    ////////////////////////////////////////////////////////////////////////////
-    // Graphe
-    ////////////////////////////////////////////////////////////////////////////
+ax.plot(1, 0, "+", color=AXIS_COLOR, markersize=8, mew=1.5)
+ax.text(0.95, -0.25, r"$1$", fontsize=14, color=AXIS_COLOR)
 
-    function updatePlot(alpha) {
+ax.plot(0, 1, "+", color=AXIS_COLOR, markersize=8, mew=1.5)
+ax.text(-0.25, 0.95, r"$1$", fontsize=14, color=AXIS_COLOR)
 
-        alpha = parseFloat(alpha);
+# Point d'intersection (1, 1)
+ax.plot(1, 1, "o", color="#34495E", markersize=4)
 
-        const ys = xs.map(x => f(x, alpha));
+# --- Labels des courbes selon alpha ---
+ax.text(1.7,  4.20, r"$\alpha > 1$",       fontsize=15, color=COLOR_ALPHA_GT_1)
+ax.text(0.35, 4.20, r"$\alpha < 0$",       fontsize=15, color=COLOR_ALPHA_LT_0)
+ax.text(3.1,  2.90, r"$\alpha = 1$",       fontsize=15, color=COLOR_ALPHA_EQ_1)
+ax.text(2.6,  1.55, r"$0 < \alpha < 1$",   fontsize=15, color=COLOR_ALPHA_BETWEEN)
+ax.text(3.1,  0.75, r"$\alpha = 0$",       fontsize=15, color=COLOR_ALPHA_EQ_0)
 
-        ////////////////////////////////////////////////////////////////////////////
-        // Couleur selon alpha
-        ////////////////////////////////////////////////////////////////////////////
+# --- Mise en page & Export ---
+ax.set_xlim(-0.4, 3.8)
+ax.set_ylim(-0.4, 4.8)
+ax.set_aspect('equal', adjustable='box')
+plt.axis('off')
 
-        let curveColor;
-
-        if (alpha > 1) {
-            curveColor = '#2ca02c';   // tab:green
-        }
-        else if (alpha < 0) {
-            curveColor = '#1f77b4';   // tab:blue
-        }
-        else if (alpha === 1) {
-            curveColor = '#ff7f0e';   // tab:orange
-        }
-        else if (alpha > 0 && alpha < 1) {
-            curveColor = '#9467bd';   // tab:purple
-        }
-        else if (alpha === 0) {
-            curveColor = '#d62728';   // tab:red
-        }
-
-        Plotly.react(
-
-            plot,
-
-            [
-                ////////////////////////////////////////////////////////////////////////////
-                // Courbe principale
-                ////////////////////////////////////////////////////////////////////////////
-
-                {
-                    x: xs,
-                    y: ys,
-
-                    mode: "lines",
-                    type: "scatter",
-
-                    line: {
-                        color: curveColor,
-                        width: 3
-                    },
-
-                    showlegend: false
-
-                    
-                },
-
-                ////////////////////////////////////////////////////////////////////////////
-                // Ligne horizontale pointillée rouge
-                ////////////////////////////////////////////////////////////////////////////
-
-                {
-                    x: [0, 1],
-                    y: [1, 1],
-
-                    mode: "lines",
-                    type: "scatter",
-
-                    line: {
-                        color: '#d62728',   // tab:red
-                        dash: 'dash',
-                        width: 2
-                    },
-
-                    showlegend: false
-                },
-
-                ////////////////////////////////////////////////////////////////////////////
-                // Ligne verticale pointillée rouge
-                ////////////////////////////////////////////////////////////////////////////
-
-                {
-                    x: [1, 1],
-                    y: [0, 1],
-
-                    mode: "lines",
-                    type: "scatter",
-
-                    line: {
-                        color: '#d62728',   // tab:red
-                        dash: 'dash',
-                        width: 2
-                    },
-
-                    showlegend: false
-                }
-            ],
-
-            {
-                paper_bgcolor: 'rgba(0,0,0,0)',
-            
-                plot_bgcolor: 'rgba(0,0,0,0)',
-            
-                title: {
-            
-                    text: `f(x)=x<sup>${alpha}</sup>`,
-            
-                    font: {
-                        size: 24
-                    },
-                    color: window.matchMedia('(prefers-color-scheme: dark)').matches
-                        ? '#ffe0b3'
-                        : '#2d1b12'
-                },
-            
-                width: 600,
-                height: 600,
-            
-                margin: {
-                    t: 60
-                },
-            
-                xaxis: {
-            
-                    range: [0, 3.5],
-            
-                    scaleanchor: "y",
-            
-                    scaleratio: 1,
-            
-                    color: '#2d1b12',
-            
-                    gridcolor: 'rgba(0,0,0,0.08)',
-            
-                    zerolinecolor: 'rgba(0,0,0,0.2)'
-                },
-            
-                yaxis: {
-            
-                    range: [0, 3.5],
-            
-                    color: '#2d1b12',
-            
-                    gridcolor: 'rgba(0,0,0,0.08)',
-            
-                    zerolinecolor: 'rgba(0,0,0,0.2)'
-                }
-            }
-        );
-    }
-
-    ////////////////////////////////////////////////////////////////////////////
-    // Synchronisation
-    ////////////////////////////////////////////////////////////////////////////
-
-    function sync(alpha) {
-
-        slider.value = alpha;
-        input.value  = alpha;
-
-        updatePlot(alpha);
-    }
-
-    ////////////////////////////////////////////////////////////////////////////
-    // Events
-    ////////////////////////////////////////////////////////////////////////////
-
-    slider.addEventListener("input", () => {
-        sync(slider.value);
-    });
-
-    input.addEventListener("input", () => {
-        sync(input.value);
-    });
-
-    ////////////////////////////////////////////////////////////////////////////
-    // Initialisation
-    ////////////////////////////////////////////////////////////////////////////
-
-    sync(1);
-
-})();
+plt.savefig(
+    "puissances.png",
+    dpi=300,
+    bbox_inches="tight",
+    transparent=True,
+    pad_inches=0.05
+)
+plt.show()
     </script>
     </p>
 <p><strong>Règles de calculs.</strong> </p>
