@@ -314,15 +314,6 @@ class="math inline">\(\eqref{eq:edo_lin_ordre_un}\)</span></u>.</p>
     &amp; \iff \text{ $z := y-y_0$ solution
 de~$\eqref{eq:edo_lin_ordre_un_homogene}$sur $I$}.  
 \end{aligned}\]</span></p>
-<div class="wrem">
-<p>Si <span class="math inline">\(z\)</span> est solution de <span
-class="math inline">\(\eqref{eq:edo_lin_ordre_un_homogene}\)</span>sur
-<span class="math inline">\(I\)</span> alors <span
-class="math inline">\(z\)</span> est dérivable sur <span
-class="math inline">\(I\)</span> donc <span class="math inline">\(y =
-y_0+z\)</span> est dérivable sur <span
-class="math inline">\(I\)</span>.</p>
-</div>
 <div class="wprop">
 <p>En notant <span
 class="math inline">\(\mathcal{S}_\eqref{eq:edo_lin_ordre_un}\)</span>
@@ -597,7 +588,7 @@ y&#39;(t) = -\frac{1}{t}y(t)\)</span>.</p>
 \mathbb{R}^{+\star}\mapsto -\frac{1}{t}\)</span> est <span
 class="math inline">\(t \in \mathbb{R}^{+\star}\mapsto -\ln(t)\)</span>
 donc les solutions de l’équation homogène s’écrivent <span
-class="math inline">\(t \in \mathbb{R}^{+\star}\mapsto C^{-\ln(t)} =
+class="math inline">\(t \in \mathbb{R}^{+\star}\mapsto Ce^{-\ln(t)} =
 \frac{C}{t}\)</span> avec <span class="math inline">\(C \in
 \mathbb{R}\)</span>.</p></li>
 <li><p>Détermination d’une solution <span
@@ -697,7 +688,11 @@ data-reference="prop:unique_cond_init">[prop:unique_cond_init]</a>,
 <div class="webtext">
 <p>On illustre ci-contre quelques courbes intégrales de <span
 class="math inline">\(y&#39;(t) = y(t)\)</span> pour <span
-class="math inline">\(t \in \mathbb{R}\)</span>.</p>
+class="math inline">\(t \in \mathbb{R}\)</span>. Si on les affiche
+toutes, on ne voit plus rien car elles recouvrent alors tout le plan par
+la proposition <a href="#prop:unique_cond_init"
+data-reference-type="ref"
+data-reference="prop:unique_cond_init">[prop:unique_cond_init]</a>.</p>
 </div>
 <div class="webimg">
 <p><img src="courbes_integrales.png" alt="image" /></p>
@@ -712,16 +707,16 @@ id="continuité-et-dérivabilité-dune-fonction-à-valeurs-dans-mathbbc"><span
 class="header-section-number">1.6.1</span> Continuité et dérivabilité
 d’une fonction à valeurs dans <span
 class="math inline">\(\mathbb{C}\)</span></h3>
-<p>Soit <span class="math inline">\(f : I \to \mathbb{C}\)</span>. Pour
-<span class="math inline">\(t \in I\)</span>, on écrit <span
+<div class="wdefi">
+<p><strong>(Continuité et dérivabilité d’une fonction à valeurs dans
+<span class="math inline">\(\mathbb{C}\)</span>)</strong> Soit <span
+class="math inline">\(f : I \to \mathbb{C}\)</span>. Pour <span
+class="math inline">\(t \in I\)</span>, on écrit <span
 class="math inline">\(f(t) = f_1(t)+if_2(t)\)</span> avec <span
 class="math inline">\(f_1 : t \in I \mapsto \mathop{\mathrm{Re}}(f(t))
 \in \mathbb{R}\)</span> et <span class="math inline">\(f_2 : t \in I
 \mapsto \mathop{\mathrm{Im}}(f(t)) \in \mathbb{R}\)</span>.</p>
-<div class="wdefi">
-<p><strong>(Continuité et dérivabilité d’une fonction à valeurs dans
-<span class="math inline">\(\mathbb{C}\)</span>)</strong> Par
-définition,</p>
+<p>Par définition,</p>
 <ul>
 <li><p><span class="math inline">\(f\)</span> est dite continue sur
 <span class="math inline">\(I\)</span> si <span
@@ -732,7 +727,7 @@ class="math inline">\(I\)</span>,</p></li>
 <span class="math inline">\(I\)</span> si <span
 class="math inline">\(f_1\)</span> et <span
 class="math inline">\(f_2\)</span> sont dérivables sur <span
-class="math inline">\(I\)</span>. Dans ces cas, pour <span
+class="math inline">\(I\)</span>. Dans ce cas, pour <span
 class="math inline">\(t \in I\)</span>, la dérivée de <span
 class="math inline">\(f\)</span> en <span
 class="math inline">\(t\)</span> est <span
@@ -765,7 +760,7 @@ class="math display">\[\begin{aligned}
 +ibe^{at}\sin(bt) \\
         &amp; = af_1(t) -bf_2(t) + iaf_2(t) +ibf_1(t) \\
         &amp; = z(f_1(t)+if_2(t)) \\
-        &amp; = e^{tz}
+        &amp; = ze^{tz}
     \end{aligned}\]</span></p></li>
 </ol>
 </div>
@@ -1126,7 +1121,7 @@ r_1 e^{r_1t}+C_2 r_2^2 e^{r_2t} \\
         az&#39;&#39;(t) + bz&#39;(t) +cz(t)
         &amp; = C_1(c t+b(r_1t+1) + a(2r_1+tr_1^2) )e^{r_1t} +
 C_2[\underbrace{ar_2^2+br_2+c}_{=0}]e^{r_2t} = 0 \\
-        &amp; =  C_1(t\underbrace{(c+b+ar_1^2)}_{= 0} +
+        &amp; =  C_1(t\underbrace{(c+br_1+ar_1^2)}_{= 0} +
 \underbrace{(br_1+2ar_1)}_{=0 \text{ car $r_1 = -b/2a$}} )e^{r_1t} \\
         &amp; = 0.
     \end{aligned}\]</span></p></li>
@@ -1257,7 +1252,8 @@ class="math display">\[\mathcal{S}_\eqref{eq:edo_lin_ordre_deux_homogene_constan
 </div>
 <div class="wproof">
 <ul>
-<li><p>Si <span class="math inline">\(r_1 = r_2\)</span>,</p>
+<li><p>Si <span class="math inline">\(r_1 = r_2\)</span>, <span
+class="math inline">\(r_1 = -\frac{b}{2a} \in \mathbb{R}\)</span> et</p>
 <p><span class="math display">\[\begin{aligned}
         \mathcal{S}_\eqref{eq:edo_lin_ordre_deux_homogene_constantes_reelles},\mathbb{R}
         &amp;= \{z: t \in \mathbb{R}\mapsto
@@ -1306,7 +1302,7 @@ t}(A_1+A_2)\cos(\beta t)+ (B_2-B_1)\sin(\beta t) /  A_1,A_2,B_1,B_2 \in
          \end{aligned}\]</span></p>
 <p>L’égalité entre les deux derniers ensembles est moins évidente que
 dans les cas précédents.</p>
-<p>On a évidemment <span class="math inline">\(\subset\)</span> et on
+<p>On a évidemment <span class="math inline">\(\subset\)</span> et on a
 <span class="math inline">\(\supset\)</span> en prenant <span
 class="math inline">\(A_1 = A_2=\frac{K_1}{2}\)</span>, <span
 class="math inline">\(B_2 = \frac{K_2}{2}, B_1
@@ -1411,7 +1407,7 @@ class="math inline">\(\eqref{eq:edo_lin_ordre_deux_constantes}\)</span>et <span
 class="math inline">\(\eqref{eq:edo_lin_ordre_deux_homogene_constantes}\)</span>étudiée
 précédemment.</p>
 <p>On va trouver une solution particulière dans certains cas
-particulierS.</p>
+particuliers.</p>
 <h3 data-number="3.5.1" id="cas-dt-aealpha-t"><span
 class="header-section-number">3.5.1</span> Cas <span
 class="math inline">\(d(t) = Ae^{\alpha t}\)</span></h3>
@@ -1763,10 +1759,11 @@ nouveau <span class="math display">\[\tag{$E_{2,cste}$}
         az&#39;&#39;(t) + bz&#39;(t) +cz(t) = d(t).\]</span></p>
 <div class="wprop">
 <p><span id="prop:unique_cond_init_ordre_2"
-label="prop:unique_cond_init_ordre_2"></span> Soient <span
-class="math inline">\(t_0 \in \mathbb{R}\)</span>, <span
-class="math inline">\(u_0 \in \mathbb{C}, u_0&#39; \in
-\mathbb{C}\)</span>, il existe une unique solution <span
+label="prop:unique_cond_init_ordre_2"></span> On admet que <span
+class="math inline">\(\eqref{eq:edo_lin_ordre_deux_constantes}\)</span>admet
+une solution particulière. Soient <span class="math inline">\(t_0 \in
+\mathbb{R}\)</span>, <span class="math inline">\(u_0 \in \mathbb{C},
+u_0&#39; \in \mathbb{C}\)</span>, il existe une unique solution <span
 class="math inline">\(Y\)</span> de <span
 class="math inline">\(\eqref{eq:edo_lin_ordre_deux_constantes}\)</span>telle
 que <span class="math inline">\(\begin{cases}
