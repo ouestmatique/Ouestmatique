@@ -221,7 +221,6 @@ class="math inline">\(D\)</span>.</p></li>
 class="math display">\[\forall x \in D, f(x) \leq f(x_0)\]</span> alors
 <span class="math inline">\(f\)</span> présente un <u>maximum global en
 <span class="math inline">\(x_0\)</span></u>.</p></li>
-<li></li>
 <li><p>Soit <span class="math inline">\(x_1 \in D\)</span> tel que <span
 class="math display">\[\forall x \in D, f(x) \geq f(x_1)\]</span> alors
 <span class="math inline">\(f\)</span> présente un <u>minimum global en
@@ -242,7 +241,6 @@ class="math display">\[\forall x \in D, |x-x_0| \leq r \Longrightarrow
 f(x) \leq f(x_0)\]</span> alors <span class="math inline">\(f\)</span>
 présente un <u>maximum local en <span
 class="math inline">\(x_0\)</span></u>.</p></li>
-<li></li>
 <li><p>Soit <span class="math inline">\(x_1 \in D\)</span> tel qu’il
 existe <span class="math inline">\(r &gt; 0\)</span> tel que <span
 class="math display">\[\forall x \in D, |x-x_1| \leq r
@@ -386,10 +384,14 @@ class="math inline">\(x_0\)</span>.</p></li>
 </ul>
 </div>
 <div class="wex">
-<p><strong>(Un exemple de fonction à gauche en un point mais non
-continue en ce point)</strong></p>
-<div class="center">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Voici un exemple de fonction à gauche en un point mais non continue
+en ce point.</p>
+</div>
+<div class="webimg">
 <p><img src="continuite_gauche.png" alt="image" /></p>
+</div>
 </div>
 </div>
 <h2 data-number="2.2"
@@ -442,8 +444,8 @@ class="math inline">\(u_n \in I\)</span> tel que <span
 class="math display">\[|u_n-x_0| \leq \frac{1}{n} \text{ et
 }|f\left(u_n\right)-f(x_0)| &gt; \varepsilon_0.\]</span></p>
 <p>On a alors <span class="math inline">\(u_n \longrightarrow
-x_0\)</span> et <span class="math inline">\(f(u_n) \not\longrightarrow
-f(x_0)\)</span>.</p></li>
+x_0\)</span> et <span class="math inline">\(f(u_n)
+\centernot{\longrightarrow}  f(x_0)\)</span>.</p></li>
 </ul>
 </div>
 <div class="wex">
@@ -481,7 +483,7 @@ class="math inline">\(1\)</span>.</p>
 considérant <span class="math inline">\((u_n)\)</span> définie par <span
 class="math inline">\(u_n = 1+\frac{1}{n+1}\)</span> pour <span
 class="math inline">\(n \geq 0\)</span>, on a <span
-class="math inline">\(u_n \longrightarrow 1\)</span>et <span
+class="math inline">\(u_n \longrightarrow 1\)</span> et <span
 class="math inline">\(f(u_n) = 1+\frac{1}{n+1}-1 = \frac{1}{n+1}
 \longrightarrow 0\)</span>.</p>
 <p>Donc <span class="math inline">\(f\)</span> n’est pas continue en
@@ -508,11 +510,11 @@ class="math display">\[\exists r &gt; 0, M \geq 0 / \forall x \in I,
 |x-x_0| \leq r \Longrightarrow |f(x)| \leq M.\]</span></p>
 </div>
 <div class="wproof">
-<p>Avec <span class="math inline">\(\varepsilon=1\)</span>, il existe
-<span class="math inline">\(\eta &gt; 0\)</span> tel que pour tout <span
-class="math inline">\(x \in I\)</span>, <span
-class="math display">\[|x-x_0| \leq \eta \Longrightarrow |f(x)-f(x_0)|
-\leq 1.\]</span></p>
+<p>Avec <span class="math inline">\(\varepsilon=1\)</span> dans la
+définition de la continuité, il existe <span class="math inline">\(\eta
+&gt; 0\)</span> tel que pour tout <span class="math inline">\(x \in
+I\)</span>, <span class="math display">\[|x-x_0| \leq \eta
+\Longrightarrow |f(x)-f(x_0)| \leq 1.\]</span></p>
 <p>Donc, avec <span class="math inline">\(r = \eta\)</span> et <span
 class="math inline">\(M = 1+|f(x_0)|\)</span>, pour tout <span
 class="math inline">\(x\in I\)</span>, <span
@@ -536,6 +538,8 @@ class="math inline">\(|f(u_n)| \longrightarrow |f(x_0)|\)</span>.</p>
 continue en <span class="math inline">\(x_0\)</span>.</p>
 </div>
 <div class="wprop">
+<div class="webtextfigure">
+<div class="webtext">
 <p>Si <span class="math inline">\(f\)</span> est continue en <span
 class="math inline">\(x_0\)</span> avec <span
 class="math inline">\(f(x_0) &gt; 0\)</span>,</p>
@@ -545,8 +549,10 @@ class="math inline">\(x \in I\)</span>,</p>
 <p><span class="math display">\[|x-x_0| \leq r \Longrightarrow f(x) &gt;
 \alpha.\]</span></p>
 </div>
-<div class="center">
+<div class="webimg">
 <p><img src="positif.png" alt="image" /></p>
+</div>
+</div>
 </div>
 <div class="wproof">
 <p>Soit <span class="math inline">\(\beta \in ]0,f(x_0)[\)</span>, comme
@@ -627,9 +633,10 @@ class="math inline">\(I \cap ]x_0-r,x_0+r[\)</span> telle que <span
 class="math inline">\(u_n \longrightarrow x_0\)</span>.</p>
 <p>Alors, pour tout <span class="math inline">\(n\geq 0, f(u_n) \geq
 \alpha &gt; 0\)</span> et <span class="math inline">\(f(u_n)
-\longrightarrow f(x_0)\)</span>.</p>
-<p>Donc <span class="math inline">\(\frac{1}{f(u_n)} \longrightarrow
-f(x_0)\)</span>.</p>
+\longrightarrow f(x_0)\)</span> donc <span
+class="math inline">\(\left(\frac{1}{f(u_n)}\right)\)</span> est définie
+et <span class="math inline">\(\frac{1}{f(u_n)} \longrightarrow
+\frac{1}{f(x_0)}\)</span>.</p>
 </div>
 <div class="wprop">
 <p>Soit <span class="math inline">\(f \in
@@ -704,11 +711,11 @@ intervalle</h2>
 \mathscr{C}(I,\mathbb{R})\)</span>, <span
 class="math inline">\(f\)</span> est lipschitzienne sur <span
 class="math inline">\(I\)</span> s’il existe <span
-class="math inline">\(C \geq 0\)</span> tel que <span
+class="math inline">\(k \geq 0\)</span> tel que <span
 class="math display">\[\forall x,x&#39; \in I, |f(x)-f(x&#39;)| \leq
-C|x-x&#39;|.\]</span></p>
+k|x-x&#39;|.\]</span></p>
 <p>Dans ce cas, <span class="math inline">\(f\)</span> est dite <span
-class="math inline">\(C\)</span>-lipschitzienne sur <span
+class="math inline">\(k\)</span>-lipschitzienne sur <span
 class="math inline">\(I\)</span>.</p>
 </div>
 <div class="wprop">
@@ -719,22 +726,22 @@ class="math inline">\(I\)</span>.</p>
 <div class="wproof">
 <p><span class="math inline">\(f\)</span> est lipschitzienne sur <span
 class="math inline">\(I\)</span> donc il existe <span
-class="math inline">\(C \geq 0\)</span> tel que <span
+class="math inline">\(k \geq 0\)</span> tel que <span
 class="math display">\[\forall x,x&#39; \in I, |f(x)-f(x&#39;)| \leq
-C|x-x&#39;|.\]</span> Soit <span class="math inline">\(x_0 \in
+k|x-x&#39;|.\]</span> Soit <span class="math inline">\(x_0 \in
 I\)</span>.</p>
 <ul>
-<li><p>Si <span class="math inline">\(C = 0\)</span>, <span
+<li><p>Si <span class="math inline">\(k = 0\)</span>, <span
 class="math inline">\(\forall x \in I, |f(x)-f(x_0)| = 0 \iff f(x) =
 f(x_0)\)</span> donc <span class="math inline">\(f\)</span> est
 constante sur <span class="math inline">\(I\)</span> et donc
 continue.</p></li>
-<li><p>Si <span class="math inline">\(C &gt; 0\)</span>, soit <span
+<li><p>Si <span class="math inline">\(k &gt; 0\)</span>, soit <span
 class="math inline">\(\varepsilon &gt; 0\)</span>, on pose <span
-class="math inline">\(\eta = \frac{\varepsilon}{C}\)</span>. On a alors,
+class="math inline">\(\eta = \frac{\varepsilon}{k}\)</span>. On a alors,
 pour tout <span class="math inline">\(x \in I\)</span>,</p>
 <p><span class="math display">\[|x-x_0| \leq \eta \Longrightarrow
-|f(x)-f(x_0)| \leq C|x-x_0| \leq C\eta = \varepsilon.\]</span></p>
+|f(x)-f(x_0)| \leq k|x-x_0| \leq k\eta = \varepsilon.\]</span></p>
 <p>Donc <span class="math inline">\(f\)</span> est continue en <span
 class="math inline">\(x_0\)</span>.</p></li>
 </ul>
@@ -1272,7 +1279,9 @@ f(b_0) = \beta\)</span>,</p></li>
 0\)</span>.</p></li>
 </ol></li>
 <li><p><span class="math inline">\(\mathbf{(n=1)}.\)</span> On pose
-<span class="math inline">\(m_0 = \frac{a_0+b_0}{2}\)</span>.</p>
+<span class="math inline">\(m_0 = \frac{a_0+b_0}{2}\)</span>, le milieu
+de <span class="math inline">\(a\)</span> et <span
+class="math inline">\(b\)</span>.</p>
 <ul>
 <li><p>Si <span class="math inline">\(\gamma \leq f(m_0)\)</span>, on
 pose <span class="math inline">\(a_1 = a_0\)</span> et <span
@@ -1314,7 +1323,9 @@ f(b_n)\)</span>,</p></li>
 </ol>
 <p>Construisons <span class="math inline">\(a_{n+1}\)</span> et <span
 class="math inline">\(b_{n+1}\)</span>. On pose <span
-class="math inline">\(m_n = \frac{a_n+b_n}{2}\)</span>.</p>
+class="math inline">\(m_n = \frac{a_n+b_n}{2}\)</span>, le milieu de
+<span class="math inline">\(a_n\)</span> et <span
+class="math inline">\(b_n\)</span>.</p>
 <ul>
 <li><p>Si <span class="math inline">\(\gamma \leq f(m_n)\)</span>, on
 pose <span class="math inline">\(a_{n+1}= a_n\)</span> et <span
@@ -1358,8 +1369,6 @@ class="math inline">\((a_n)\)</span> croissante.</p></li>
 <p>En particulier, on a</p>
 <ol>
 <li><p><span class="math inline">\(\forall n \in \mathbb{N}\)</span>,
-<span class="math inline">\(a_n \leq b_n\)</span>,</p></li>
-<li><p><span class="math inline">\(\forall n \in \mathbb{N}\)</span>,
 <span class="math inline">\(b_n-a_n =\frac{b-a}{2^n} \longrightarrow
 0\)</span>,</p></li>
 <li><p><span class="math inline">\((b_n)\)</span> décroissante et <span
@@ -1380,12 +1389,25 @@ f(b_n)\]</span> que <span class="math inline">\(f(c) =
 \gamma\)</span>.</p>
 </div>
 <div class="wcor">
-<p>Soit <span class="math inline">\(f \in
-\mathscr{C}(I,\mathbb{R})\)</span> avec <span
-class="math inline">\(I\)</span> intervalle de <span
+<p><span id="cor:TVI_intervalle_f_de_I"
+label="cor:TVI_intervalle_f_de_I"></span> Soit <span
+class="math inline">\(f \in \mathscr{C}(I,\mathbb{R})\)</span> avec
+<span class="math inline">\(I\)</span> intervalle de <span
 class="math inline">\(\mathbb{R}\)</span> alors <span
 class="math inline">\(f(I)\)</span> est un intervalle de <span
 class="math inline">\(\mathbb{R}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soient <span class="math inline">\(\alpha = f(a), \beta = f(b) \in
+f(I)\)</span> avec <span class="math inline">\(a,b \in I\)</span>, alors
+on a bien <span class="math inline">\([\alpha,\beta] \subset
+f(I)\)</span>.</p>
+<p>En effet, soit <span class="math inline">\(\gamma \in
+[\alpha,\beta]\)</span>, par le théorème des valeurs intermédiaires il
+existe <span class="math inline">\(c \in [a,b] \subset I\)</span> (<span
+class="math inline">\(I\)</span> est un intervalle) tel que <span
+class="math inline">\(f(c) = \gamma\)</span> donc <span
+class="math inline">\(\gamma \in f(I)\)</span>.</p>
 </div>
 <div class="wex">
 <div class="webtextfigure">
@@ -1456,12 +1478,11 @@ class="math inline">\([a,b]\)</span>.</p>
 n’est pas bornée sur <span class="math inline">\([a,b]\)</span> et donc
 que <span class="math display">\[\forall M \in \mathbb{R}^+, \exists x_M
 \in [a,b] / |f(x_M)| &gt; M.\]</span></p>
-<p>Prenons <span class="math inline">\(M = n\)</span> et construisons
-<span class="math inline">\((u_n)\)</span> suite de <span
-class="math inline">\([a,b]\)</span> telle que <span
-class="math display">\[\forall n \geq 0, |f(x_n)| &gt; n.\]</span></p>
-<p>On a donc <span class="math inline">\(|f(u_n)| \longrightarrow +
-\infty\)</span>.</p>
+<p>Pour <span class="math inline">\(n\in \mathbb{N}\)</span>, prenons
+<span class="math inline">\(M = n\)</span> et considérons alors <span
+class="math inline">\(u_n \in [a,b]\)</span> tel que <span
+class="math inline">\(|f(u_n)| &gt; n.\)</span> On a donc <span
+class="math inline">\(|f(u_n)| \longrightarrow + \infty\)</span>.</p>
 <p>Or, <span class="math inline">\((u_n)\)</span> est une suite de <span
 class="math inline">\([a,b]\)</span>, elle est donc bornée et par
 théorème de Bolzano-Weierstrass, il existe <span
@@ -1469,12 +1490,13 @@ class="math inline">\(\varphi:\mathbb{N}\to \mathbb{N}\)</span> une
 extraction telle que <span
 class="math inline">\((u_{\varphi(n)})\)</span> converge vers un réel
 <span class="math inline">\(c \in \mathbb{R}\)</span>. De plus, <span
-class="math inline">\(|f(u_{\varphi(n)})| \longrightarrow +
-\infty\)</span> et comme <span class="math display">\[\forall n \in
-\mathbb{N}, a \leq u_{\varphi(n)}\leq b,\]</span> on a <span
-class="math inline">\(c \in [a,b]\)</span> et par continuité de <span
+class="math display">\[\forall n \in \mathbb{N}, a \leq
+u_{\varphi(n)}\leq b,\]</span> on a donc <span class="math inline">\(c
+\in [a,b]\)</span> et par continuité de <span
 class="math inline">\(f\)</span>, <span class="math inline">\(|f(u_n)|
-\longrightarrow |f(c)|\)</span>, ce qui est contradictoire.</p>
+\longrightarrow |f(c)|\)</span>, ce qui est contradictoire avec <span
+class="math inline">\(|f(u_{\varphi(n)})| \longrightarrow +
+\infty\)</span> et comme.</p>
 <p>Donc <span class="math inline">\(f\)</span> est bornée sur <span
 class="math inline">\([a,b]\)</span>.</p>
 </div>
@@ -1498,7 +1520,7 @@ class="math inline">\(f : x \in [0,1] \mapsto \begin{cases}
 <div class="wrem">
 <div class="webtextfigure">
 <div class="webtext">
-<p>Si <span class="math inline">\(f\)</span> est non continue sur <span
+<p>Si <span class="math inline">\(f\)</span> est continue sur <span
 class="math inline">\(]a,b]\)</span> , en général <span
 class="math inline">\(f\)</span> est non bornée sur <span
 class="math inline">\(]a,b]\)</span> comme l’illustre par exemple <span
@@ -1510,16 +1532,17 @@ class="math inline">\(f : x \in ]0,1] \mapsto  \frac{1}{x}\)</span>.</p>
 </div>
 </div>
 <div class="wprop">
-<p>Soit <span class="math inline">\(f : [a,b] \to \mathbb{R}\)</span>
-continue.</p>
+<p><span id="prop:continue_sur_seg_egal_bornee"
+label="prop:continue_sur_seg_egal_bornee"></span> Soit <span
+class="math inline">\(f : [a,b] \to \mathbb{R}\)</span> continue.</p>
 <p>Alors, <span class="math inline">\(f\)</span> est bornée et <span
 class="math inline">\(M = \sup_{x \in [a,b]} f(x)\)</span> et <span
-class="math inline">\(m = \inf_{x \in [a,b]} f(x)\)</span> existe.</p>
+class="math inline">\(m = \inf_{x \in [a,b]} f(x)\)</span> existent.</p>
 <p>De plus, <span class="math display">\[\begin{aligned}
-        \text{Il existe } x_0 \in [a,b] \text{ tel que }f(x_0) &amp; =
-M. \\
-        \text{Il existe } x_1 \in [a,b] \text{ tel que }f(x_1) &amp; =
-m.
+        \text{il existe } x_0 \in [a,b] \text{ tel que }f(x_0) &amp; =
+M, \\
+        \text{et il existe } x_1 \in [a,b] \text{ tel que }f(x_1) &amp;
+= m.
     \end{aligned}\]</span></p>
 <p>Donc, <span class="math inline">\(M = \max_{x \in [a,b]}
 f(x)\)</span> et <span class="math inline">\(m = \min_{x \in [a,b]}
@@ -1529,11 +1552,12 @@ f(x)\)</span>.</p>
 <p>Prouvons le résultat pour <span class="math inline">\(M = \sup_{x\in
 [a,b]} f(x)\)</span> et la preuve est identique pour la borne
 inférieure.</p>
-<p>Comme <span class="math inline">\(M = = \sup_{x\in [a,b]}
-f(x)\)</span>, par caractérisation de la borne supérieure, pour tout
-<span class="math inline">\(\varepsilon &gt; 0\)</span>, il existe <span
-class="math inline">\(x_\varepsilon \in [a,b]\)</span> tel que <span
-class="math inline">\(f(x_\varepsilon) &gt; M-\varepsilon\)</span>.</p>
+<p>Comme <span class="math inline">\(M = \sup_{x\in [a,b]} f(x) = \sup
+\left\{f(x)/x\in [a,b]\right\}\)</span>, par caractérisation de la borne
+supérieure, pour tout <span class="math inline">\(\varepsilon &gt;
+0\)</span>, il existe <span class="math inline">\(x_\varepsilon \in
+[a,b]\)</span> tel que <span class="math inline">\(f(x_\varepsilon) &gt;
+M-\varepsilon\)</span>.</p>
 <p>Pour <span class="math inline">\(n\in \mathbb{N}^{\star}\)</span>,
 prenons <span class="math inline">\(\varepsilon = \frac{1}{n}\)</span>
 et <span class="math inline">\(u_n \in [a,b]\)</span> tel que <span
@@ -1563,6 +1587,8 @@ continue comme l’illustre par exemple <span class="math inline">\(f : x
         x&amp; \mbox{ si $x \in ]0,1]$} \\
         \frac{1}{2} &amp; \mbox{ si $x=0$}.
     \end{cases}\)</span></p>
+<p>La borne supérieure <span class="math inline">\(1\)</span> est non
+atteinte.</p>
 </div>
 <div class="webimg">
 <p><img src="ex_nonc0nonborneatteinte.png" alt="image" /></p>
@@ -1588,6 +1614,18 @@ continue, alors <span class="math inline">\(f([a,b])\)</span> est un
 segment. On a <span class="math inline">\(f([a,b]) = [m,M]\)</span> avec
 <span class="math inline">\(M = \sup_{x \in [a,b]} f(x)\)</span> et
 <span class="math inline">\(m = \inf_{x \in [a,b]} f(x)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Par le corollaire <a href="#cor:TVI_intervalle_f_de_I"
+data-reference-type="ref"
+data-reference="cor:TVI_intervalle_f_de_I">[cor:TVI_intervalle_f_de_I]</a>,
+<span class="math inline">\(f([a,b])\)</span> est un intervalle et par
+la proposition <a href="#prop:continue_sur_seg_egal_bornee"
+data-reference-type="ref"
+data-reference="prop:continue_sur_seg_egal_bornee">[prop:continue_sur_seg_egal_bornee]</a>,
+<span class="math inline">\(f([a,b])\)</span> est fermé et borné.</p>
+<p>Donc <span class="math inline">\(f([a,b])\)</span> est un
+segment.</p>
 </div>
 <div class="wex">
 <p><strong>(Exemple d’utilisation)</strong></p>
@@ -1639,18 +1677,19 @@ class="math inline">\(I\)</span></h2>
 <p>Soit <span class="math inline">\(f : I \to \mathbb{R}\)</span>
 continue sur sur un intervalle <span class="math inline">\(I\)</span> de
 <span class="math inline">\(\mathbb{R}\)</span> et strictement monotone
-<span class="math inline">\(I\)</span>. Alors <span
+sur <span class="math inline">\(I\)</span>. Par ce qui précède, <span
 class="math inline">\(J = f(I)\)</span> est un intervalle. De plus, pour
 rappel, <span class="math inline">\(f\)</span> admet une fonction
 réciproque <span class="math inline">\(f^{-1} : J \to
-\mathbb{R}\)</span>.</p>
-<p>Alors, <span class="math inline">\(f^{-1}\)</span> est continue sur
-<span class="math inline">\(J\)</span>.</p>
+\mathbb{R}\)</span>. Alors, <span class="math inline">\(f^{-1}\)</span>
+est continue sur <span class="math inline">\(J\)</span>.</p>
 </div>
 <div class="wproof">
 <p>On prouve le résultat pour <span class="math inline">\(f\)</span>
 strictement croissante et la preuve s’adapte pour <span
-class="math inline">\(f\)</span> strictement décroissante. Soit <span
+class="math inline">\(f\)</span> strictement décroissante. Pour rappel,
+dans ce cas, <span class="math inline">\(f^{-1}\)</span> est strictement
+croissante (Cf cours sur les fonctions ususelles). Soit <span
 class="math inline">\(y_0 \in J\)</span>, <span
 class="math inline">\(x_0 = f^{-1}(y_0) \in I\)</span> et <span
 class="math inline">\(\varepsilon &gt; 0\)</span>.</p>
@@ -1660,14 +1699,18 @@ de <span class="math inline">\(I\)</span> alors <span
 class="math inline">\(y_0\)</span> n’est pas une borne de <span
 class="math inline">\(J\)</span> (par stricte croissance de <span
 class="math inline">\(f\)</span>).</p>
-<p>Le risque est que <span class="math inline">\(x_0-\varepsilon \notin
-I\)</span> pi <span class="math inline">\(x_0+\varepsilon \notin
+<p>Il y a un risque qui est que <span
+class="math inline">\(x_0-\varepsilon \notin I\)</span> ou <span
+class="math inline">\(x_0+\varepsilon \notin I\)</span> et on ne peut
+alors pas considérer <span class="math inline">\(f\)</span> en ces deux
+points.</p>
+<p>Comme <span class="math inline">\(I\)</span> est un intervalle et
+<span class="math inline">\(x_0\)</span> n’est pas une borne de <span
+class="math inline">\(I\)</span>, on peut considérer <span
+class="math inline">\(\varepsilon&#39; &lt; \varepsilon\)</span> tel que
+<span class="math inline">\(x_- = x_0-\varepsilon&#39; \in I\)</span> et
+<span class="math inline">\(x_+ = x_0+\varepsilon&#39; \in
 I\)</span>.</p>
-<p>Comme <span class="math inline">\(I\)</span> est un intervalle, on
-peut considérer <span class="math inline">\(\varepsilon&#39; &lt;
-\varepsilon\)</span> tel que <span class="math inline">\(x_- =
-x_0-\varepsilon&#39; \in I\)</span> et <span class="math inline">\(x_+ =
-x_0+\varepsilon&#39; \in I\)</span>.</p>
 <p>On note <span class="math inline">\(y_- = f(x_0-\varepsilon&#39;) \in
 J, y_+ = f(x_0+\varepsilon&#39;) \in J\)</span> et <span
 class="math inline">\(\eta = \min(y_0-y_-,y_+-y_0)\)</span>. Par stricte
@@ -1718,7 +1761,7 @@ peut considérer <span class="math inline">\(\varepsilon&#39; &lt;
 \varepsilon\)</span> tel que <span
 class="math inline">\(x_0+\varepsilon&#39; \in I\)</span>.</p>
 <p>On note <span class="math inline">\(y_+ = f(x_0+\varepsilon&#39;) \in
-J\)</span> et <span class="math inline">\(\eta = y_+-y_0\)</span>. Par
+J\)</span> et <span class="math inline">\(\eta = y_+-y_0\)</span> et par
 stricte croissance de <span class="math inline">\(f\)</span>, <span
 class="math inline">\(\eta &gt; 0\)</span>.</p>
 <p>On a alors <span class="math inline">\(y_+ = y_0+(y_+-y_0) \geq
@@ -1764,13 +1807,13 @@ l’illustre l’exemple ci-dessous.</p>
 <div class="wex">
 <p>En considérant <span class="math inline">\(f : x \in ]-\infty,0[ \cup
 [1,+\infty[ \mapsto \begin{cases}
-        x \mbox{ si $x &lt; 0$}
+        x \mbox{ si $x &lt; 0$} \\
         x-1 \mbox{ si $x \geq 1$}
-    \end{cases}\)</span> strictement monotone et continue sur <span
+    \end{cases}\)</span> strictement croissante et continue sur <span
 class="math inline">\(]-\infty,0[ \cup [1,+\infty[\)</span>, possède la
 réciproque <span class="math inline">\(f : x \in \mathbb{R}\mapsto
 \begin{cases}
-        y \mbox{ si $y \leq 0$}
+        y \mbox{ si $y \leq 0$} \\
         y+1 \mbox{ si $y &gt; 0$}
     \end{cases}\)</span> non continue sur <span
 class="math inline">\(\mathbb{R}\)</span>.</p>
@@ -1788,25 +1831,6 @@ alt="image" /></td>
 </div>
 </div>
 </div>
-<div class="wrem">
-<p>Soit <span class="math inline">\(f : I \to \mathbb{R}\)</span>
-continue sur sur un intervalle <span class="math inline">\(I\)</span> de
-<span class="math inline">\(\mathbb{R}\)</span> et strictement
-croissante <span class="math inline">\(I\)</span>. <span
-class="math inline">\(J\)</span> est un intervalle et</p>
-<ul>
-<li><p>soit <span class="math inline">\(I = [a,b], [a,b[, ]a,b] \text{
-ou }]a,b[\)</span> avec <span class="math inline">\(a &lt; b \in
-\mathbb{R}\)</span></p>
-<p>et <span class="math inline">\(J = [f(a),f(b)], [f(a),f(b)[,
-]f(a),f(b)] \text{ ou }]f(a),f(b)[\)</span>,</p></li>
-<li><p>soit <span class="math inline">\(I = [a,+\infty[,]a,+\infty[,
-]-\infty,b] \text{ ou }]-\infty,b[\)</span> avec <span
-class="math inline">\(a, b \in \mathbb{R}\)</span></p>
-<p>et <span class="math inline">\(J =  [f(a),+\infty[,]f(a),+\infty[,
-]-\infty,f(b)] \text{ ou }]-\infty,f(b)[\)</span>.</p></li>
-</ul>
-</div>
 <div class="wex">
 <p>Soit <span class="math inline">\(n \in \mathbb{N}^{\star}\)</span> et
 <span class="math inline">\(f_n : x \in \mathbb{R}^{+}\mapsto x^n \in
@@ -1815,10 +1839,10 @@ class="math inline">\(a, b \in \mathbb{R}\)</span></p>
 sur <span class="math inline">\(\mathbb{R}^{+}\)</span> avec <span
 class="math inline">\(f_n(0) =0\)</span>. De plus, <span
 class="math inline">\(f_n\)</span> est continue sur <span
-class="math inline">\(\mathbb{R}^p\)</span> et non majorée donc <span
-class="math inline">\(f(\mathbb{R}^p) = \mathbb{R}^p\)</span>.</p>
-<p><span class="math inline">\(f_n\)</span> est donc continue sur <span
-class="math inline">\(\mathbb{R}^{+}\)</span> et pour <span
+class="math inline">\(\mathbb{R}^{+}\)</span> et non majorée donc <span
+class="math inline">\(f(\mathbb{R}^{+}) = \mathbb{R}^{+}\)</span>.</p>
+<p><span class="math inline">\(f_n^{-1}\)</span> est donc continue sur
+<span class="math inline">\(\mathbb{R}^{+}\)</span> et pour <span
 class="math inline">\(y\in \mathbb{R}^{+}, f_n^{-1}(y)\)</span> est
 l’unique réel <span class="math inline">\(x\)</span> positif tel que
 <span class="math inline">\(x^n = y\)</span>, noté <span
@@ -1915,26 +1939,32 @@ class="math display">\[|x-x_0| \leq \eta_\varepsilon \Longrightarrow
 <p><span id="prop:continuite_lim" label="prop:continuite_lim"></span>
 Soit <span class="math inline">\(f \in
 \mathscr{F}(D,\mathbb{R})\)</span>, si <span class="math inline">\(D =
-I\)</span>, ie <span class="math inline">\(x_0 \in D\)</span>, alors
-s’il existe <span class="math inline">\(\ell \in \mathbb{R}\)</span> tel
-que <span class="math inline">\(f(x) \xrightarrow[x \to x_0]{}
-\ell\)</span>, <span class="math inline">\(\ell = f(x_0)\)</span> et
-<span class="math inline">\(f\)</span> est continue en <span
+I\)</span>, ie <span class="math inline">\(x_0 \in D\)</span>, tel qu’il
+existe <span class="math inline">\(\ell \in \mathbb{R}\)</span> tel que
+<span class="math inline">\(f(x) \xrightarrow[x \to x_0]{}
+\ell\)</span>.</p>
+<p>Alors, <span class="math inline">\(\ell = f(x_0)\)</span> et <span
+class="math inline">\(f\)</span> est continue en <span
 class="math inline">\(x_0\)</span>.</p>
 </div>
 <div class="wproof">
 <p>Par l’absurde, supposons <span class="math inline">\(\ell \neq
 f(x_0)\)</span>.</p>
-<p>On a alors <span class="math inline">\(\varepsilon =
-\frac{|f(x_0)-\ell|}{2} &gt; 0\)</span>.</p>
-<p>De plus, il existe <span class="math inline">\(\eta&gt; 0\)</span>
-tel que pour <span class="math inline">\(x \in I\)</span>, <span
-class="math display">\[|x-x_0| \leq \eta \Longrightarrow |f(x)-f(x_0)|
+<p>On pose alors <span class="math inline">\(\varepsilon =
+\frac{|f(x_0)-\ell|}{2} &gt; 0\)</span> et il existe <span
+class="math inline">\(\eta&gt; 0\)</span> tel que pour <span
+class="math inline">\(x \in I\)</span>, <span
+class="math display">\[|x-x_0| \leq \eta \Longrightarrow |f(x)-\ell|
 \leq \varepsilon.\]</span> En prenant <span class="math inline">\(x =
-x_0\)</span>, on a donc <span class="math display">\[|f(x)-f(x_0)| \leq
+x_0\)</span>, on a donc <span class="math display">\[|f(x_0)-\ell| \leq
 \varepsilon = \frac{|f(x_0)-\ell|}{2} \Longrightarrow
-\frac{|f(x_0)-\ell|}{2} \leq 0 \Longrightarrow |f(x)-f(x_0)|
+\frac{|f(x_0)-\ell|}{2} \leq 0 \Longrightarrow |f(x_0)-\ell|
 =0,\]</span> ce qui est absurde.</p>
+<p>On a donc <span class="math inline">\(f(x_0) = \ell\)</span> et <span
+class="math inline">\(f\)</span> est continue en <span
+class="math inline">\(x_0\)</span> comme alors <span
+class="math inline">\(f(x) \xrightarrow[x \to x_0]{}
+f(x_0)\)</span>.</p>
 </div>
 <div class="wcor">
 <p>Si <span class="math inline">\(D = I \setminus \{x_0\}\)</span>, ie
@@ -1961,7 +1991,7 @@ class="math display">\[\forall \varepsilon &gt; 0, \exists
 \eta_\varepsilon / x\in D, x \leq x_0 |x-x_0| \leq \eta_\varepsilon
 \Longrightarrow |f(x)-\ell_g| \leq \varepsilon.\]</span></p>
 <p>Dans ce cas, on écrit <span class="math inline">\(f(x) \xrightarrow[x
-\to x_0^-]{} \ell\)</span>.</p></li>
+\to x_0^-]{} \ell_g\)</span>.</p></li>
 <li><p><span class="math inline">\(f\)</span> admet <span
 class="math inline">\(\ell_d \in \mathbb{R}\)</span> pour limite à
 droite en <span class="math inline">\(x_0\)</span> si <span
@@ -1969,7 +1999,7 @@ class="math display">\[\forall \varepsilon &gt; 0, \exists
 \eta_\varepsilon / x\in D, x \geq x_0 |x-x_0| \leq \eta_\varepsilon
 \Longrightarrow |f(x)-\ell_d| \leq \varepsilon.\]</span></p>
 <p>Dans ce cas, on écrit <span class="math inline">\(f(x) \xrightarrow[x
-\to x_0^+]{} \ell\)</span>.</p></li>
+\to x_0^+]{} \ell_d\)</span>.</p></li>
 </ul>
 </div>
 <div class="wprop">
@@ -2059,10 +2089,10 @@ class="header-section-number">3.2</span> Premières propriétés</h2>
 \mathscr{F}(D,\mathbb{R})\)</span> tel que <span
 class="math inline">\(f(x) \xrightarrow[x \to x_0]{} \ell \in
 \mathbb{R}\)</span> alors <span class="math inline">\(f\)</span> est
-bornée au voisinage de <span class="math inline">\(x_0\)</span> ie, pour
-rappel, il existe <span class="math inline">\(r &gt; 0, M \in
-\mathbb{R}^+\)</span> tel que <span class="math display">\[x \in D,
-|x-x_0| \leq r \Longrightarrow |f(x)| \leq M\]</span></p>
+bornée au voisinage de <span class="math inline">\(x_0\)</span> ie il
+existe <span class="math inline">\(r &gt; 0, M \in \mathbb{R}^+\)</span>
+tel que <span class="math display">\[x \in D, |x-x_0| \leq r
+\Longrightarrow |f(x)| \leq M\]</span></p>
 </div>
 <div class="wproof">
 <p>Soit <span class="math inline">\(\varepsilon = 1 &gt; 0\)</span>, il
@@ -2073,13 +2103,6 @@ class="math display">\[x\in D, |x-x_0| \leq \eta \Longrightarrow
 <p>Donc avec <span class="math inline">\(M = 1+|\ell| \in \mathbb{R}^+,
 r = \eta\)</span>, <span class="math display">\[x \in D, |x-x_0| \leq r
 \Longrightarrow |f(x)| \leq M\]</span></p>
-</div>
-<div class="wrem">
-<p>La réciproque est fausse. Si on considère <span
-class="math inline">\(f : x \in \mathbb{R}^{+\star}\mapsto
-\frac{x}{|x|}\)</span> alors <span class="math inline">\(f\)</span> est
-bornée sur <span class="math inline">\(\mathbb{R}\)</span> mais n’admet
-pas de limite en <span class="math inline">\(1\)</span>.</p>
 </div>
 <div class="wprop">
 <p>Soit <span class="math inline">\(f \in
