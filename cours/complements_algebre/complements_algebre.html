@@ -482,7 +482,7 @@ class="math display">\[\forall x,y,z \in E, x(y+ z) = xy+xz \text{ et
 n’est pas distributive par rapport à <span
 class="math inline">\(\times\)</span> car on n’a pas en général pour
 <span class="math inline">\(x,y,z \in \mathbb{R}\)</span>, <span
-class="math display">\[x+(yz) = (x+y)(x+z)\]</span> Avec et <span
+class="math display">\[x+(yz) \neq (x+y)(x+z)\]</span> Avec et <span
 class="math inline">\(x=1,y=0,z=2\)</span> par exemple on a <span
 class="math inline">\(x+(yz) = 1 \neq 2 =  (x+y)(x+z)\)</span>.</p></li>
 <li><p>Dans <span
@@ -678,8 +678,9 @@ class="math inline">\((\mathbb{C}^\star,\times)\)</span>.</p>
 1\)</span> donc <span class="math inline">\(z_1z_2 \in
 \mathbb{U}\)</span>,</p></li>
 <li><p>Soit <span class="math inline">\(z_1 \in \mathbb{U}\)</span>,
-<span class="math inline">\(\left|\frac{1}{z_1}\right| = \frac{1}{|z_1|}
-= 1\)</span> donc <span class="math inline">\(\frac{1}{z_1} \in
+<span class="math inline">\(z_1 \neq 0\)</span> et <span
+class="math inline">\(\left|\frac{1}{z_1}\right| = \frac{1}{|z_1|} =
+1\)</span> donc <span class="math inline">\(\frac{1}{z_1} \in
 \mathbb{U}\)</span>.</p></li>
 </ol>
 </div></li>
@@ -696,9 +697,10 @@ class="math inline">\((\mathbb{C}^\star,\times)\)</span>.</p>
 z_1^nz_2^n = 1\)</span> donc <span class="math inline">\(z_1z_2 \in
 \mathbb{U}_n\)</span>,</p></li>
 <li><p>Soit <span class="math inline">\(z_1 \in \mathbb{U}_n\)</span>,
-<span class="math inline">\(\left(\frac{1}{z_1}\right)^n =
-\frac{1}{z_1^n} = 1\)</span> donc <span
-class="math inline">\(\frac{1}{z_1} \in \mathbb{U}_n\)</span>.</p></li>
+<span class="math inline">\(z_1 \neq 0\)</span> et <span
+class="math inline">\(\left(\frac{1}{z_1}\right)^n = \frac{1}{z_1^n} =
+1\)</span> donc <span class="math inline">\(\frac{1}{z_1} \in
+\mathbb{U}_n\)</span>.</p></li>
 </ol>
 </div></li>
 </ul>
@@ -849,6 +851,13 @@ class="math inline">\(y_2 = f(x_2)\)</span>.</p>
 <p>Donc <span class="math inline">\(y_1 \odot y_2 = f(x_1) \odot f(x_2)
 = f(\underbrace{x_1 \star x_2}_{\in G}) \in
 \mathop{\mathrm{Im}}f\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(y_1 \in
+\mathop{\mathrm{Im}}f\)</span>, il existe <span
+class="math inline">\(x_1 \in G\)</span> tel que <span
+class="math inline">\(y_1 = f(x_1)\)</span>.</p>
+<p>Donc <span class="math inline">\(y_1&#39; = \left(f(x_1)\right)&#39;=
+f(\underbrace{x_1&#39;}_{\in G})\in
+\mathop{\mathrm{Im}}f\)</span>.</p></li>
 </ol>
 </div>
 <div class="wdefi">
@@ -891,17 +900,16 @@ e_{G&#39;}\)</span> donc <span class="math inline">\(x&#39; \in
 <p>Pour <span class="math inline">\(f : t \in \mathbb{R} \mapsto e^{it}
 \in \mathbb{C}^\star\)</span>, <span
 class="math inline">\(\mathop{\mathrm{Ker}}f = \left\{2k\pi / k \in
-\mathbb{Z}\right\}\)</span>.</p>
+\mathbb{Z}\right\} = 2\pi\mathbb{Z}\)</span>.</p>
 </div>
 <div class="wprop">
 <p>Soient <span class="math inline">\((G,\star)\)</span> et <span
 class="math inline">\((G&#39;,\odot)\)</span> deux groupes et <span
 class="math inline">\(f \in \mathscr{F}(G,G&#39;)\)</span>, un morphisme
 de groupes de <span class="math inline">\(G\)</span> dans <span
-class="math inline">\(G&#39;\)</span>.</p>
-<p>Alors <span class="math inline">\(f\)</span> injective <span
-class="math inline">\(\iff \mathop{\mathrm{Ker}}f =
-\left\{e_G\right\}\)</span>.</p>
+class="math inline">\(G&#39;\)</span>. Alors, <span
+class="math display">\[\text{ $f$ injective $\iff \mathop{\mathrm{Ker}}f
+= \left\{e_G\right\}$.}\]</span></p>
 </div>
 <div class="wproof">
 <ul>
@@ -919,8 +927,8 @@ class="math inline">\(\mathop{\mathrm{Ker}}f =
 \Longrightarrow f(x_1) \odot f(x_2&#39;) = e_{G&#39;} \Longrightarrow
 f(x_1 \star x_2&#39;) = e_{G&#39;} \Longrightarrow x_1 \star x_2&#39;
 \in \mathop{\mathrm{Ker}}f\)</span>.</p>
-<p>Donc <span class="math inline">\(x_1 \star x_2&#39; =e_G \iff x_1 =
-x_2\)</span>.</p></li>
+<p>Donc <span class="math inline">\(x_1 \star x_2&#39; =e_G\)</span> et
+<span class="math inline">\(x_1 = x_2\)</span>.</p></li>
 </ul>
 </div>
 <h1 data-number="3" id="structure-danneau"><span
@@ -953,12 +961,12 @@ commutatif.</p>
 <ul>
 <li><p><span
 class="math inline">\((\mathbb{Z},+,\times),(\mathbb{Q},+,\times),
-(\mathbb{R},+,\times), (\mathbb{C},+,\times)\)</span> sont des
-anneaux,</p></li>
+(\mathbb{R},+,\times), (\mathbb{C},+,\times)\)</span> sont des anneaux
+commutatifs,</p></li>
 <li><p>Soit <span class="math inline">\(D \subset \mathbb{R}\)</span>
 non vide, <span
 class="math inline">\((\mathscr{F}(D,\mathbb{R}),+,\times)\)</span> est
-un anneau.</p></li>
+un anneau commutatif.</p></li>
 </ul>
 </div>
 <div class="wrem">
@@ -1151,7 +1159,7 @@ class="math inline">\(A\)</span>.</p></li>
 <li><p><span class="math inline">\((\mathbb{Q},+,\times),
 (\mathbb{R},+,\times), (\mathbb{C},+,\times)\)</span> sont des corps
 mais pas <span
-class="math inline">\((\mathbb{Z},+,\times)\)</span>/</p></li>
+class="math inline">\((\mathbb{Z},+,\times)\)</span>.</p></li>
 <li><p><span
 class="math inline">\((\mathscr{F}(\mathbb{R},\mathbb{R}),+,\times)\)</span>
 n’est pas un corps.</p></li>
