@@ -175,7 +175,7 @@ Fermat et d’autres problèmes de théorie des nombres</a></li>
 class="header-section-number">1</span> Division euclidienne dans <span
 class="math inline">\(\mathbb{Z}\)</span></h1>
 <div class="wthm">
-<p>Soient <span class="math inline">\(a \in \mathbb{Z}, b \in
+<p>Soient <span class="math inline">\(a \in \mathbb{Z}, \text{ et }b \in
 \mathbb{Z}^{\star}\)</span> alors il existe <span
 class="math inline">\(q \in \mathbb{Z}\)</span> et <span
 class="math inline">\(r \in \mathbb{Z}\)</span> uniques tels que <span
@@ -193,11 +193,12 @@ class="math inline">\(b\)</span>.</p>
 <li><p>Cas <span class="math inline">\(b \in \mathbb{N}^{\star}\)</span>
 :</p>
 <ul>
-<li><p>S’il existe <span class="math inline">\((q,r) \in
-\mathbb{Z}^2\)</span> et <span class="math inline">\((q&#39;,r&#39;) \in
-\mathbb{Z}^2\)</span> tels que <span class="math inline">\(a = bq+r
-\text{ avec }0 \leq r &lt; b\)</span> et <span class="math inline">\(a =
-bq&#39;+r&#39; \text{ avec }0 \leq r&#39; &lt; b\)</span>.</p>
+<li><p>(Unicité si existence) S’il existe <span
+class="math inline">\((q,r) \in \mathbb{Z}^2\)</span> et <span
+class="math inline">\((q&#39;,r&#39;) \in \mathbb{Z}^2\)</span> tels que
+<span class="math inline">\(a = bq+r \text{ avec }0 \leq r &lt;
+b\)</span> et <span class="math inline">\(a = bq&#39;+r&#39; \text{ avec
+}0 \leq r&#39; &lt; b\)</span>.</p>
 <p>Comme <span class="math inline">\(0 \leq r &lt; b\)</span> et <span
 class="math inline">\(0 \leq r&#39; &lt; b\)</span>, on a <span
 class="math inline">\(-b &lt; -r&#39; \leq 0\)</span> donc <span
@@ -213,8 +214,9 @@ class="math inline">\(|q-q&#39;| = \frac{|r-r&#39;|}{|b|} &lt;
 class="math inline">\(q=q&#39;\)</span> et par <span
 class="math inline">\(b(q-q&#39;) = r-r\)</span>, on a <span
 class="math inline">\(r=r&#39;\)</span>.</p></li>
-<li><p>Soit <span class="math inline">\(E = \left\{bk / k \in
-\mathbb{Z}\text{ et }bk \leq a\right\} \subset \mathbb{Z}\)</span>.</p>
+<li><p>(Existence) Soit <span class="math inline">\(E = \left\{bk / k
+\in \mathbb{Z}\text{ et }bk \leq a\right\} \subset
+\mathbb{Z}\)</span>.</p>
 <p>Cet ensemble est non vide car <span class="math inline">\(bk
 \xrightarrow[k \to -\infty]{} -\infty\)</span>.</p>
 <p>De plus, il est majoré (par <span class="math inline">\(a\)</span>)
@@ -436,7 +438,7 @@ class="math inline">\(a \wedge b = b \wedge d\)</span>.</p></li>
 <div class="wproof">
 <ul>
 <li><p>Si <span class="math inline">\(d = 0\)</span>, montrons que <span
-class="math inline">\(\mathscr{D}\left(a,b\right)=\mathscr{b}\)</span>,
+class="math inline">\(\mathscr{D}\left(a,b\right)=\mathscr{D}(b)\)</span>,
 les diviseurs de <span class="math inline">\(b\)</span> dans <span
 class="math inline">\(\mathbb{N}\)</span>.</p>
 <ul>
@@ -469,7 +471,10 @@ data-reference="prop:diviser">[prop:diviser]</a>.</p>
 \mathscr{D}\left(a,b\right)\)</span>, <span class="math inline">\(\delta
 \in \mathbb{N}\)</span>, <span class="math inline">\(\delta |a\)</span>
 et <span class="math inline">\(\delta|b\)</span>.</p>
-<p>Donc <span class="math inline">\(\delta | d=a-bc\)</span> et <span
+<p>Donc <span class="math inline">\(\delta | d=a-bc\)</span> (par les 1.
+et 2. de la proposition <a href="#prop:diviser"
+data-reference-type="ref"
+data-reference="prop:diviser">[prop:diviser]</a>) et <span
 class="math inline">\(\delta \in
 \mathscr{D}\left(b,d\right)\)</span>.</p></li>
 <li><p><span class="math inline">\(\left(\mathscr{D}\left(a,b\right)
@@ -478,7 +483,10 @@ class="math inline">\(\delta \in
 \mathscr{D}\left(b,d\right)\)</span>, <span class="math inline">\(\delta
 \in \mathbb{N}\)</span>, <span class="math inline">\(\delta |b\)</span>
 et <span class="math inline">\(\delta|d\)</span>.</p>
-<p>Donc <span class="math inline">\(\delta | a = bc+d\)</span> et <span
+<p>Donc <span class="math inline">\(\delta | a = bc+d\)</span> (par les
+1. et 2. de la proposition <a href="#prop:diviser"
+data-reference-type="ref"
+data-reference="prop:diviser">[prop:diviser]</a>) et <span
 class="math inline">\(\delta \in
 \mathscr{D}\left(a,b\right)\)</span>.</p></li>
 </ul>
@@ -504,8 +512,8 @@ data-reference="lem:div_eucl">[lem:div_eucl]</a>.</p></li>
 <li><p>Sinon, <span class="math inline">\(r_0 \neq 0\)</span> et par le
 lemme <a href="#lem:div_eucl" data-reference-type="ref"
 data-reference="lem:div_eucl">[lem:div_eucl]</a>, <span
-class="math inline">\(a \wedge b = b \wedge r_0\)</span> et on poursuit
-avec <span class="math inline">\((b,r_0)\)</span>. On effectue la
+class="math inline">\(a \wedge b = b \wedge r_0\)</span>. On poursuit
+alors avec <span class="math inline">\((b,r_0)\)</span>. On effectue la
 division euclidienne de <span class="math inline">\(b\)</span> par <span
 class="math inline">\(r_0\)</span> telle que <span
 class="math display">\[b = r_0q_1+r_1, \quad 0 \leq r_1 &lt;
@@ -516,9 +524,9 @@ data-reference="lem:div_eucl">[lem:div_eucl]</a>.</p></li>
 <li><p>Sinon, <span class="math inline">\(r_1 \neq 0\)</span> et par le
 lemme <a href="#lem:div_eucl" data-reference-type="ref"
 data-reference="lem:div_eucl">[lem:div_eucl]</a>, <span
-class="math inline">\(a \wedge b = b \wedge r_0=r_0 \wedge r_1\)</span>
-et on poursuit avec <span class="math inline">\((r_0,r_1)\)</span>. On
-effectue la division euclidienne de <span
+class="math inline">\(a \wedge b = b \wedge r_0=r_0 \wedge r_1\)</span>.
+On poursuit alors avec <span class="math inline">\((r_0,r_1)\)</span>.
+On effectue la division euclidienne de <span
 class="math inline">\(r_0\)</span> par <span
 class="math inline">\(r_1\)</span> telle que <span
 class="math display">\[r_0 = r_1q_2+r_2, \quad 0 \leq r_2 &lt;
@@ -549,7 +557,7 @@ obtenant des restes <span class="math inline">\(\left(r_k\right)_{k\in
 \mathbb{N}}\)</span> est une suite d’entiers, strictement décroissante
 (car pour chaque <span class="math inline">\(k\)</span>, <span
 class="math inline">\(r_{k+1} &lt; r_k\)</span>).</p>
-<p>Ce qui est absurde car par décroissance, <span
+<p>Ce qui est absurde car <span
 class="math inline">\(\left(r_k\right)_{k\in \mathbb{N}}\)</span> prend
 ses valeurs dans <span class="math inline">\([\![ 0, r_0 ]\!]\)</span>,
 qui est fini.</p>
@@ -615,10 +623,16 @@ class="math inline">\(v_1 = 1-q_1v_0\)</span>.</p></li>
 bv_{k-2}\)</span> et <span class="math inline">\(r_{k-1} = au_{k-1} +
 bv_{k-1}\)</span> avec <span class="math inline">\(u_{k-2}, v_{k-2},
 u_{k-1}, v_{k-1} \in \mathbb{Z}\)</span>.</p>
-<p>On a alors <span class="math inline">\(r_{k} = r_{k-2}-r_{k-1}q_k =
-a(u_{k-2}-q_ku_{k-1})+b(v_{k-2}-q_kv_{k-1}) = au_k + bv_k\)</span> donc
-<span class="math inline">\(u_k = u_{k-2}-q_ku_{k-1}\)</span> et <span
-class="math inline">\(v_k = v_{k-2}-q_kv_{k-1}\)</span>.</p></li>
+<p>On a alors <span class="math display">\[\begin{aligned}
+        r_{k}
+        &amp; = r_{k-2}-r_{k-1}q_k \\
+        &amp; = au_{k-2} + bv_{k-2}-q_k\left(au_{k-1} + bv_{k-1}\right)
+\\
+        &amp; = a(u_{k-2}-q_ku_{k-1})+b(v_{k-2}-q_kv_{k-1}) \\
+        &amp; = au_k + bv_k
+        \end{aligned}\]</span></p>
+<p>avec <span class="math inline">\(u_k = u_{k-2}-q_ku_{k-1}\)</span> et
+<span class="math inline">\(v_k = v_{k-2}-q_kv_{k-1}\)</span>.</p></li>
 <li><p><span class="math inline">\(\vdots\)</span></p></li>
 </ul>
 <p>On obtient ainsi par "récurrence finie", l’existence de <span
@@ -640,8 +654,8 @@ class="math inline">\(r_1 = 8 \neq 0\)</span>.</p></li>
 <span class="math inline">\(q_2 = 2\)</span> et <span
 class="math inline">\(r_2 = 0\)</span>.</p></li>
 </ol>
-<p>Donc <span class="math inline">\(a \wedge b = 8\)</span>. En
-appliquant la preuve précédente,</p>
+<p>Donc <span class="math inline">\(a \wedge b = 8\)</span>. On
+aussi</p>
 <ol>
 <li><p><span class="math inline">\(8 = 24-16 =24 + 16 \times
 (-1)\)</span>,</p></li>
@@ -654,10 +668,9 @@ conviennent.</p>
 <div class="wcor">
 <p>Soient <span class="math inline">\(a \in Z, b \in
 \mathbb{Z}^{\star}\)</span> et <span class="math inline">\(d = a \wedge
-b\)</span>.</p>
-<p>Soit <span class="math inline">\(\delta \in
-\mathscr{D}\left(a,b\right)\)</span>, <span class="math inline">\(\delta
-| d\)</span></p>
+b\)</span>. Soit <span class="math inline">\(\delta \in
+\mathscr{D}\left(a,b\right)\)</span> alors <span
+class="math inline">\(\delta | d\)</span></p>
 </div>
 <div class="wproof">
 <p>Par relation de Bézout, il existe <span class="math inline">\(u,v \in
@@ -668,10 +681,10 @@ au+bv\)</span>.</p>
 | au+bv = d\)</span>.</p>
 </div>
 <div class="wcor">
-<p>Soient <span class="math inline">\(a \in \mathbb{Z}, b \in
-\mathbb{Z}^{\star}, k \in \mathbb{N}^{\star}\)</span>,</p>
-<p>alors <span class="math inline">\((ka) \wedge (kb) = ka \wedge
-b\)</span>.</p>
+<p><span id="cor:multiplier_pgcd" label="cor:multiplier_pgcd"></span>
+Soient <span class="math inline">\(a \in \mathbb{Z}, b \in
+\mathbb{Z}^{\star}, k \in \mathbb{N}^{\star}\)</span> alors <span
+class="math inline">\((ka) \wedge (kb) = ka \wedge b\)</span>.</p>
 </div>
 <div class="wproof">
 <p>Posons <span class="math inline">\(d = a \wedge b\)</span> et
@@ -689,7 +702,7 @@ class="math inline">\(\delta \leq kd\)</span>.</p>
 au+bv\)</span>.</p>
 <p>Donc <span class="math inline">\(kd = kau+kbv\)</span>.</p>
 <p>Or, <span class="math inline">\(\delta | ka\)</span> et <span
-class="math inline">\(\delta |bb\)</span> donc <span
+class="math inline">\(\delta |kb\)</span> donc <span
 class="math inline">\(\delta |kau+kbv = kd\)</span> et <span
 class="math inline">\(\delta =|\delta| \leq kd\)</span>.</p>
 </div>
@@ -785,7 +798,7 @@ class="math inline">\(ab\centernot{|} c\)</span>.</p>
 <p>Par relation de Bézout, il existe <span class="math inline">\(u,v \in
 \mathbb{Z}\)</span> tels que <span
 class="math inline">\(1=au+bv\)</span> donc <span
-class="math inline">\(c = auc+bvc\)</span></p>
+class="math inline">\(c = auc+bvc\)</span>.</p>
 <p>Soit <span class="math inline">\(\delta \in
 \mathscr{D}\left(a,bc\right)\)</span>, <span
 class="math inline">\(\delta | a\)</span> et <span
@@ -820,10 +833,12 @@ b^n=1\)</span>.</p></li>
 </ul>
 </div>
 <div class="wprop">
-<p><strong>(Caractérisation du PGCD)</strong> Soient <span
-class="math inline">\(a \in \mathbb{Z}\)</span> et <span
+<p><strong>(Caractérisation du PGCD)</strong> <span
+id="prop:cracterisation_pgcd" label="prop:cracterisation_pgcd"></span>
+Soient <span class="math inline">\(a \in \mathbb{Z}\)</span> et <span
 class="math inline">\(b \in \mathbb{Z}^{\star}\)</span> et <span
-class="math inline">\(\delta \mathscr{D}\left(a,b\right)\)</span>.</p>
+class="math inline">\(\delta \in
+\mathscr{D}\left(a,b\right)\)</span>.</p>
 <p>Comme <span class="math inline">\(\delta |a\)</span> et <span
 class="math inline">\(\delta | b\)</span>, il existe <span
 class="math inline">\(a&#39;,b&#39;\in \mathbb{Z}\)</span> tels que
@@ -834,8 +849,10 @@ a&#39; \wedge b&#39; = 1.\]</span></p>
 </div>
 <div class="wproof">
 <p>On a <span class="math inline">\(a \wedge b = a&#39;\delta \wedge
-b&#39;\delta = \delta a&#39; \wedge b&#39;\)</span>. De plus, <span
-class="math inline">\(\delta \neq 0\)</span> car <span
+b&#39;\delta = \delta a&#39; \wedge b&#39;\)</span> par le corollaire <a
+href="#cor:multiplier_pgcd" data-reference-type="ref"
+data-reference="cor:multiplier_pgcd">[cor:multiplier_pgcd]</a>. De plus,
+<span class="math inline">\(\delta \neq 0\)</span> car <span
 class="math inline">\(b \neq 0\)</span>. Donc <span
 class="math display">\[\delta = a \wedge b \iff \delta a&#39; \wedge
 b&#39; = \delta \iff a&#39; \wedge b&#39; = 1.\]</span></p>
@@ -877,10 +894,13 @@ class="math inline">\(r\)</span>.</p>
 \mathbb{N}, q \in \mathbb{Z}^{\star}\)</span> tels que <span
 class="math inline">\(r = \frac{p}{q}\)</span>.</p>
 <p>De plus, en notant <span class="math inline">\(d = p \wedge
-q\)</span>, il existe <span class="math inline">\((p_0,q_0)\)</span> tel
-que <span class="math inline">\(p = dp_0\)</span>, <span
-class="math inline">\(q = dq_0\)</span> et <span
-class="math inline">\(p_0 \wedge q_0 = 1\)</span>.</p>
+q\)</span>, par la proposition <a href="#prop:cracterisation_pgcd"
+data-reference-type="ref"
+data-reference="prop:cracterisation_pgcd">[prop:cracterisation_pgcd]</a>,
+il existe <span class="math inline">\((p_0,q_0)\)</span> tel que <span
+class="math inline">\(p = dp_0\)</span>, <span class="math inline">\(q =
+dq_0\)</span> et <span class="math inline">\(p_0 \wedge q_0 =
+1\)</span>.</p>
 <p>De plus, <span class="math inline">\(d \geq 0\)</span> donc <span
 class="math inline">\(p_0 \in \mathbb{N}\)</span> et <span
 class="math inline">\(q \neq 0\)</span> donc <span
@@ -1068,7 +1088,7 @@ a_1u_1+\ldots+a_ru_r\)</span>.</p>
 class="math inline">\(r\)</span>.</p>
 <ul>
 <li><p><strong>INITIALISATION :</strong> Pour <span
-class="math inline">\(r=2\)</span>, 1. est évidente et 2. a déjà été
+class="math inline">\(r=2\)</span>, le résultat a déjà été
 montré.</p></li>
 <li><p><strong>HÉRÉDITÉ :</strong> Soit <span class="math inline">\(r
 \in \mathbb{N}, \geq 2\)</span> fixé, supposons que la proposition est
@@ -1182,10 +1202,13 @@ class="math inline">\(m = a \vee b\)</span>.</p>
 <p>Alors <span class="math inline">\(md = |ab|\)</span>.</p>
 </div>
 <div class="wproof">
-<p>Par caractérisation du pgcd, il existe <span
-class="math inline">\(a&#39;,b&#39; \in \mathbb{Z}^{\star}\)</span> tels
-que <span class="math inline">\(a&#39; \wedge b&#39;=1\)</span> et <span
-class="math inline">\(a = da&#39;, b=db&#39;\)</span>.</p>
+<p>Par la proposition <a href="#prop:cracterisation_pgcd"
+data-reference-type="ref"
+data-reference="prop:cracterisation_pgcd">[prop:cracterisation_pgcd]</a>,
+il existe <span class="math inline">\(a&#39;,b&#39; \in
+\mathbb{Z}^{\star}\)</span> tels que <span class="math inline">\(a&#39;
+\wedge b&#39;=1\)</span> et <span class="math inline">\(a = da&#39;,
+b=db&#39;\)</span>.</p>
 <p>Montrons que <span class="math inline">\(\mathscr{M}\left(a,b\right)
 = \left\{dk|a&#39;b&#39;|/k\in \mathbb{N}^{\star}\right\}\)</span>.</p>
 <ul>
@@ -1245,10 +1268,11 @@ class="math inline">\(m|\mu\)</span>.</p>
 </div>
 <div class="wproof">
 <p>Soit <span class="math inline">\(\mu \in
-\mathscr{M}\left(a,b\right)\)</span>, par la preuve précédente, il
-existe <span class="math inline">\(k \in \mathbb{N}^{\star}\)</span> tel
-que <span class="math inline">\(\mu = kd|a&#39;b&#39;|\)</span> donc
-<span class="math inline">\(m = d|a&#39;b&#39;|\)</span> divise <span
+\mathscr{M}\left(a,b\right)\)</span>, en reprenant les notations de la
+preuve précédente, il existe <span class="math inline">\(k \in
+\mathbb{N}^{\star}\)</span> tel que <span class="math inline">\(\mu =
+kd|a&#39;b&#39;|\)</span> donc <span class="math inline">\(m =
+d|a&#39;b&#39;|\)</span> divise <span
 class="math inline">\(\mu\)</span>.</p>
 </div>
 <h2 data-number="3.2" id="extension-de-la-notion-de-ppcm"><span
@@ -1286,7 +1310,7 @@ minimum.</p>
 \vee \ldots \vee a_{r-1}\right) \vee a_r\)</span>.</p></li>
 <li><p>Si <span class="math inline">\(\mu \in
 \mathscr{M}\left(a_1,\ldots,a_r\right)\)</span>, <span
-class="math inline">\(\mu| a_1 \vee \ldots \vee a_r\)</span>.</p></li>
+class="math inline">\(a_1 \vee \ldots \vee a_r|\mu\)</span>.</p></li>
 </ol>
 </div>
 <div class="wproof">
@@ -1415,8 +1439,9 @@ class="math inline">\(p\)</span> tel que <span class="math inline">\(q
 \neq 1\)</span>. Alors, par transitivité, <span class="math inline">\(q
 |n\)</span> donc <span class="math inline">\(q \in
 \mathscr{D}(n)\)</span>.</p>
-<p>De plus, <span class="math inline">\(q \leq p\)</span> donc <span
-class="math inline">\(q = \min \mathscr{D}(n) = p\)</span>.</p>
+<p>De plus, <span class="math inline">\(q \leq p \min
+\mathscr{D}(n)\)</span> donc <span class="math inline">\(q = \min
+\mathscr{D}(n) = p\)</span>.</p>
 <p>On en déduit que <span class="math inline">\(p\)</span> est
 effectivement premier.</p>
 </div>
@@ -1439,24 +1464,23 @@ précédent, il existe <span class="math inline">\(p \in
 class="math inline">\(p|a\)</span>.</p>
 <p>Autrement dit, il existe <span class="math inline">\(1 \leq i \leq
 N\)</span> tel que <span class="math inline">\(p_i |a\)</span>.</p>
-<p>Or, <span class="math inline">\(p_i | p_1 \times \ldots \times
-p_N\)</span> donc <span class="math inline">\(p_i | a-p_1 \times \ldots
-\times p_N = 1\)</span> et <span class="math inline">\(p_i = 1\)</span>,
-ce qui est absurde.</p>
+<p>Or, <span class="math inline">\(p_i | p_1 \times \ldots\times p_i
+\times \ldots \times p_N\)</span> donc <span class="math inline">\(p_i |
+a-p_1 \times \ldots \times p_N = 1\)</span> et <span
+class="math inline">\(p_i = 1\)</span>, ce qui est absurde.</p>
 </div>
 <h2 data-number="4.2" id="propriétés"><span
 class="header-section-number">4.2</span> Propriétés</h2>
 <div class="wprop">
 <p>Soit <span class="math inline">\(p \in \mathscr{P}\)</span> et <span
 class="math inline">\(a \in \mathbb{Z}\)</span> tel que <span
-class="math inline">\(p \centernot{|} a\)</span>.</p>
-<p>Alors, <span class="math inline">\(p \wedge a = 1\)</span>.</p>
+class="math inline">\(p \centernot{|} a\)</span> alors <span
+class="math inline">\(p \wedge a = 1\)</span>.</p>
 </div>
 <div class="wproof">
-<p>Soit <span class="math inline">\(d = p \wedge a\)</span>.</p>
-<p><span class="math inline">\(d| p\)</span> donc <span
-class="math inline">\(d = p\)</span> ou <span
-class="math inline">\(d=1\)</span>.</p>
+<p>Soit <span class="math inline">\(d = p \wedge a\)</span>, <span
+class="math inline">\(d| p\)</span> donc <span class="math inline">\(d =
+p\)</span> ou <span class="math inline">\(d=1\)</span>.</p>
 <p>De plus, <span class="math inline">\(d|a\)</span> donc <span
 class="math inline">\(d \neq p\)</span> et <span
 class="math inline">\(d=1\)</span>.</p>
@@ -1551,9 +1575,9 @@ class="math inline">\(\alpha_1 = \max \left\{\ell \in
 class="math inline">\(m \in \mathbb{N}^{\star}\)</span> tel que <span
 class="math inline">\(n = p_1^{\alpha_1}m\)</span>.</p>
 <ul>
-<li><p>Soit <span class="math inline">\(m=1\)</span> et <span
-class="math inline">\(n =\)</span> <span class="math inline">\(r=1, p_1
-= p_1^{\alpha_1}\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(m=1\)</span>, <span
+class="math inline">\(\alpha_1 = r=1\)</span> et <span
+class="math inline">\(n = p_1^{\alpha_1}\)</span>.</p></li>
 <li><p>Soit <span class="math inline">\(m \neq 1\)</span> donc <span
 class="math inline">\(m \geq 2\)</span>. On a alors <span
 class="math inline">\(m &lt; n+1\)</span>.</p>
@@ -1787,7 +1811,7 @@ soit <span class="math inline">\(\delta \in
 \mathscr{D}\left(a,b\right)\)</span>. Supposons par l’absurde que <span
 class="math inline">\(\delta \geq 2\)</span>.</p>
 <p>Alors, <span class="math inline">\(\delta|a\)</span> et <span
-class="math inline">\(\delta |b\)</span> par l’application précédente,
+class="math inline">\(\delta |b\)</span> par l’application précédente et
 les facteurs premiers de <span class="math inline">\(\delta\)</span>
 sont parmi les facteurs premiers de <span
 class="math inline">\(a\)</span> et <span
@@ -1943,11 +1967,11 @@ class="math inline">\(a \equiv b [n]\)</span>.</p>
 <div class="wproof">
 <p><span class="math inline">\(\quad\)</span></p>
 <ul>
-<li><p><span class="math inline">\(\forall a \in \mathbb{Z},
-n|a-a=0\)</span>.</p></li>
-<li><p><span class="math inline">\(\forall a,b \in \mathbb{Z}, n|b-a
-\iff n|a-b\)</span>.</p></li>
-<li><p><span class="math inline">\(\forall a,b,c \in
+<li><p>(Réflexivité) <span class="math inline">\(\forall a \in
+\mathbb{Z}, n|a-a=0\)</span>.</p></li>
+<li><p>(Symétrie) <span class="math inline">\(\forall a,b \in
+\mathbb{Z}, n|b-a \iff n|a-b\)</span>.</p></li>
+<li><p>(Transitivité) <span class="math inline">\(\forall a,b,c \in
 \mathbb{Z}\)</span>, <span class="math inline">\(n|b-a \text{ et }n|c-b
 \Longrightarrow n|c-b +b-a = c-a\)</span>.</p></li>
 </ul>
@@ -2058,10 +2082,10 @@ ou }4 \left[3\right]\)</span> et <span class="math inline">\(r^2 \equiv
 <p>On en déduit <span class="math inline">\(p^2+q^2+r^2 \equiv 0
 \left[3\right]\)</span> donc <span
 class="math inline">\(3|p^2+q^2+r^2\)</span> et donc comme <span
-class="math inline">\(p^2+q^2+r^2 &gt; 3\)</span>, ce nombre n’est pas
-premier.</p>
-<p><strong>Exercice</strong> — <span class="math inline">\(\forall n \in
-\mathbb{N}\)</span>, <span
+class="math inline">\(p^2+q^2+r^2 &gt; 3\)</span>, ce nombre n’est pas 3
+donc n’est pas premier.</p>
+<p><strong>Exercice</strong> — Montrer : <span
+class="math inline">\(\forall n \in \mathbb{N}\)</span>, <span
 class="math inline">\(8^{12n}-3^{12n}\)</span> est divisible par
 143.</p>
 <p><strong>Corrigé</strong> — On a <span class="math inline">\(143 =
@@ -2107,16 +2131,14 @@ class="math inline">\(p | \binom{p}{k}\)</span>.</p>
 class="math inline">\(\binom{p}{k} = \frac{p!}{k!(p-k)!} =
 \frac{p(p-1)\ldots (p-k+1)}{k!}\Longrightarrow p| k!\binom{p}{k} =
 p(p-1)\ldots (p-k+1)\)</span>.</p>
-<p>Donc <span class="math inline">\(p\centernot{|}k! \Longrightarrow p |
-\binom{p}{k}\)</span> car ainsi <span class="math inline">\(p \wedge
-k!=1\)</span> et par lemme de Gauss, on a bien <span
-class="math inline">\(p| k!\binom{p}{k} \Longrightarrow
-p|\binom{p}{k}\)</span>.</p>
 <p>Or, <span class="math inline">\(k! = k(k-1)\ldots 2\)</span>. Donc,
 par l’absurde, si <span class="math inline">\(p | k!\)</span>, il existe
 <span class="math inline">\(2 \leq \ell \leq k\)</span> tel que <span
 class="math inline">\(p |\ell\)</span>. Or, <span
 class="math inline">\(k &lt; p\)</span> donc c’est impossible.</p>
+<p>Donc <span class="math inline">\(p \wedge k!=1\)</span> et par lemme
+de Gauss, on a bien <span class="math inline">\(p| k!\binom{p}{k}
+\Longrightarrow p|\binom{p}{k}\)</span>.</p>
 </div>
 <div class="wproof">
 <p>On prouve ce résultat pour <span class="math inline">\(x \in
@@ -2148,11 +2170,11 @@ class="math inline">\(x^p \equiv x \left[p\right]\)</span>.</p></li>
 précède, <span class="math inline">\((-x)^p \equiv -x
 \left[p\right]\)</span> donc <span
 class="math inline">\(p|(-x)^p+x\)</span></p>
-<p>Alors, soit <span class="math inline">\(p=2\)</span> et alors <span
+<p>Alors, soit <span class="math inline">\(p=2\)</span> et <span
 class="math inline">\(x^2-x = x(x-1)\)</span> est divisible par <span
 class="math inline">\(2\)</span> car l’un des deux est pair comme ils
 sont consécutifs, soit <span class="math inline">\(p\)</span> est impair
-et <span class="math inline">\(p|-x^p-x\)</span> donc <span
+et <span class="math inline">\(p|-x^p+x\)</span> donc <span
 class="math inline">\(p|x^p-x\)</span>.</p>
 </div>
 <div class="wcor">

@@ -180,9 +180,25 @@ d’ordre dans un ensemble</a>
 class="toc-section-number">3.1</span> Relation binaire</a></li>
 <li><a href="#relation-déquivalence"
 id="toc-relation-déquivalence"><span
-class="toc-section-number">3.2</span> Relation d’équivalence</a></li>
+class="toc-section-number">3.2</span> Relation d’équivalence</a>
+<ul>
+<li><a href="#définition-1" id="toc-définition-1"><span
+class="toc-section-number">3.2.1</span> Définition</a></li>
+<li><a href="#classes-déquivalence-de-x_0-in-e"
+id="toc-classes-déquivalence-de-x_0-in-e"><span
+class="toc-section-number">3.2.2</span> Classes d’équivalence de <span
+class="math inline">\(x_0 \in E\)</span></a></li>
+</ul></li>
 <li><a href="#relation-dordre" id="toc-relation-dordre"><span
-class="toc-section-number">3.3</span> Relation d’ordre</a></li>
+class="toc-section-number">3.3</span> Relation d’ordre</a>
+<ul>
+<li><a href="#définition-2" id="toc-définition-2"><span
+class="toc-section-number">3.3.1</span> Définition</a></li>
+<li><a href="#drelation-dordre-totalpartiel"
+id="toc-drelation-dordre-totalpartiel"><span
+class="toc-section-number">3.3.2</span> DRelation d’ordre
+total/partiel</a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -368,7 +384,7 @@ partie</h2>
 dans <span class="math inline">\(E\)</span> est <span
 class="math display">\[\{x \in E / x \notin A\},\]</span></p>
 <p>notée <span class="math inline">\(\overline{A}\)</span> ou <span
-class="math inline">\(E \setminus A\)</span> ou .</p>
+class="math inline">\(E \setminus A\)</span>.</p>
 </div>
 <div class="webimg">
 <p><img src="compl_A.png" alt="image" /></p>
@@ -589,20 +605,22 @@ de $M$ sur $\mathscr{D}$.}
 </div></li>
 <li><p>Avec <span
 class="math inline">\(\overrightarrow{\mathscr{P}}\)</span> l’ensemble
-des vecteurs du plans, <span class="math display">\[\begin{array}{lllll}
+des vecteurs du plan, <span class="math display">\[\begin{array}{lllll}
 f &amp; : &amp;
 \overrightarrow{\mathscr{P}}\times\overrightarrow{\mathscr{P}} &amp; \to
 &amp; \mathbb{R} \\
    &amp;   &amp; (\overrightarrow{u},\overrightarrow{v}) &amp; \mapsto
 &amp; \overrightarrow{u}.\overrightarrow{v},\text{ produit scalaire
 usuel de $\overrightarrow{u}$ et $\overrightarrow{v}$.}
-\end{array}\]</span>,</p></li>
+\end{array}
+,\]</span></p></li>
 <li><p>Soit <span class="math inline">\(E\)</span> ensemble quelconque
 et <span class="math inline">\(A \in \mathscr{P}(E)\)</span>,</p>
 <p><span class="math display">\[\begin{array}{lllll}
 f &amp; : &amp; \mathscr{P}(E) &amp; \to &amp; \mathscr{P}(E) \\
    &amp;   &amp; X &amp; \mapsto &amp; A \cap X
-\end{array}\]</span></p></li>
+\end{array}
+,\]</span></p></li>
 <li><p>Avec <span class="math inline">\(E =
 \mathscr{F}(\mathbb{R},\mathbb{R})\)</span>, <span
 class="math display">\[\begin{array}{lllll}
@@ -625,7 +643,7 @@ class="math inline">\(g\)</span> ont</p>
 class="math inline">\(E\)</span>,</p></li>
 <li><p>même ensemble d’arrivée <span
 class="math inline">\(F\)</span>,</p></li>
-<li><p><span class="math inline">\(\forall x,y \in E,
+<li><p><span class="math inline">\(\forall x \in E,
 f(x)=g(x)\)</span>.</p></li>
 </ul>
 </div>
@@ -652,16 +670,15 @@ définit l’image directe de <span class="math inline">\(A\)</span>, notée
 class="math display">\[f(A) := \left\{f(x) / x \in A\right\}.\]</span>
 Si <span class="math inline">\(A = \emptyset\)</span>, on pose <span
 class="math inline">\(f(A) = \emptyset\)</span>.</p>
+<p>Si <span class="math inline">\(A = E\)</span>, <span
+class="math inline">\(f(E)\)</span> est l’image de <span
+class="math inline">\(f\)</span>, notée <span
+class="math inline">\(\mathop{\mathrm{Im}}f\)</span>.</p>
 </div>
 <div class="webimg">
 <p><img src="image_d_un_ensemble.png" alt="image" /></p>
 </div>
 </div>
-<p>Si <span class="math inline">\(A = E\)</span>, <span
-class="math inline">\(f(E)\)</span> est l’image de <span
-class="math inline">\(f\)</span>, notée <span
-class="math inline">\(\mathop{\mathrm{Im}}f = \left\{f(x) \in F / x \in
-E\right\}\)</span>.</p>
 </div>
 <div class="wex">
 <ul>
@@ -816,7 +833,7 @@ perpendiculaire à $\mathscr{D}$ passant par $M_0$.}\)</span></p></li>
 </div>
 <div class="wex">
 <p><strong>Exercice</strong> — Soit <span
-class="math inline">\((0,\overrightarrow{i},\overrightarrow{j})\)</span>
+class="math inline">\((O,\overrightarrow{i},\overrightarrow{j})\)</span>
 repère de <span class="math inline">\(\mathscr{P}\)</span> et <span
 class="math inline">\(\begin{array}{lllll}
 f &amp; : &amp; \mathscr{P} &amp; \to &amp; \mathbb{R} \\
@@ -868,14 +885,22 @@ antécédent.</p>
 dans $E$.}\)</span></p>
 </div>
 <div class="wproof">
+<p><span class="math inline">\(\quad\)</span></p>
 <ul>
 <li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
 class="math inline">\(f\)</span> est injective, soit <span
-class="math inline">\(b \in F\)</span>, supposons que l’équation <span
-class="math inline">\(f(x)=b\)</span> admet <span
-class="math inline">\(x_1,x_2 \in E\)</span> comme solution.</p>
+class="math inline">\(b \in F\)</span>.</p>
+<ul>
+<li><p>Soit l’équation <span class="math inline">\(f(x)=b\)</span>
+n’admet pas de solution.</p></li>
+<li><p>Soit l’équation <span class="math inline">\(f(x)=b\)</span> admet
+une solution <span class="math inline">\(x_1 \in E\)</span>. Supposons
+qu’elle admette aussi <span class="math inline">\(x_2 \in E\)</span>
+comme solution.</p>
 <p>Alors, <span class="math inline">\(f(x_1) = f(x_2) = b\)</span> donc
-<span class="math inline">\(x_1=x_2\)</span>.</p></li>
+<span class="math inline">\(x_1=x_2\)</span> et <span
+class="math inline">\(x_1\)</span> est l’unique solution.</p></li>
+</ul></li>
 <li><p><span class="math inline">\((\Longleftarrow)\)</span> Soient
 <span class="math inline">\(x_1,x_2 \in E\)</span> tels que <span
 class="math inline">\(f(x_1) = f(x_2) \in F\)</span>.</p>
@@ -931,11 +956,9 @@ class="header-section-number">2.3.2</span> Fonction surjective</h3>
 <span class="math inline">\(f\)</span> est surjective (ou une surjection
 de <span class="math inline">\(E\)</span> dans <span
 class="math inline">\(F\)</span>) si <span
-class="math display">\[\begin{aligned}
-    f \text{ surjective}
-    &amp; \iff \mathop{\mathrm{Im}}f  = F \\
-    &amp; \iff \forall y \in F, \exists x \in E / f(x) = y.
-    \end{aligned}\]</span></p>
+class="math inline">\(\mathop{\mathrm{Im}}f  = F\)</span>, ce qui
+équivaut à <span class="math display">\[\forall y \in F, \exists x \in E
+/ f(x) = y.\]</span></p>
 </div>
 <div class="wrem">
 <p>Autrement dit, chaque élément de <span
@@ -943,7 +966,7 @@ class="math inline">\(F\)</span> admet au moins un antécédent.</p>
 </div>
 <div class="wprop">
 <p><span class="math inline">\(f\)</span> surjective si et seulement si
-Pour tout <span class="math inline">\(b \in F\)</span>, l’équation <span
+pour tout <span class="math inline">\(b \in F\)</span>, l’équation <span
 class="math inline">\(f(x)=b\)</span> admet au moins une solution dans
 <span class="math inline">\(E\)</span>.</p>
 </div>
@@ -978,10 +1001,10 @@ class="math inline">\(\begin{array}{lllll}
 est injective car pour <span class="math inline">\(\alpha \in
 \mathbb{R}\)</span>, <span class="math inline">\(\alpha =
 \varphi\left(f_\alpha\right) \text{ avec }f_\alpha : x \in \mathbb{R}
-\mapsto \alpha \in \mathbb{R}\)</span>. Soient <span
-class="math inline">\(E\)</span> ensemble quelconque et <span
-class="math inline">\(A \in \mathscr{P}(E)\)</span> tel que <span
-class="math inline">\(A \neq E\)</span> et <span
+\mapsto \alpha \in \mathbb{R}\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(E\)</span> ensemble quelconque
+et <span class="math inline">\(A \in \mathscr{P}(E)\)</span> tel que
+<span class="math inline">\(A \neq E\)</span> et <span
 class="math inline">\(\begin{array}{lllll}
 f &amp; : &amp; \mathscr{P}(E) &amp; \to &amp; \mathscr{P}(E) \\
    &amp;   &amp; X &amp; \mapsto &amp; A \cap X
@@ -999,8 +1022,8 @@ class="header-section-number">2.3.3</span> Fonction bijective</h3>
 de <span class="math inline">\(E\)</span> dans <span
 class="math inline">\(F\)</span>) si elle est injective et surjective.
 Autrement dit, <span class="math display">\[\forall y \in F, \exists! x
-\in E, f(x)=y.\]</span> On note <span
-class="math inline">\(\mathcal{B}(E,R)\)</span> l’ensemble des fonctions
+\in E/ f(x)=y.\]</span> On note <span
+class="math inline">\(\mathcal{B}(E,F)\)</span> l’ensemble des fonctions
 bijectives de <span class="math inline">\(E\)</span> dans <span
 class="math inline">\(F\)</span>.</p>
 </div>
@@ -1095,9 +1118,9 @@ g\circ f &amp; : &amp; E &amp; \to &amp; G \\
 </div>
 <div class="wprop">
 <p>Soient <span class="math inline">\(f \in \mathscr{F}(E,F), g \in
-\mathscr{F}(F,G), h \in \mathscr{F}(G,H)\)</span> telles que <span
+\mathscr{F}(F,G), h \in \mathscr{F}(G,H)\)</span> telles que pour <span
 class="math inline">\(x\in E\)</span>, <span class="math inline">\(f(x)
-\in F\)</span> et pour tout <span class="math inline">\(y\in F, g(y) \in
+\in F\)</span> et pour <span class="math inline">\(y\in F, g(y) \in
 G\)</span>.</p>
 <p>On peut considérer <span class="math inline">\(g\circ f \in
 \mathscr{F}(E,G)\)</span>, <span class="math inline">\(h \circ (g\circ
@@ -1105,7 +1128,8 @@ f) \in \mathscr{F}(E,H)\)</span>, <span class="math inline">\(h\circ g
 \in \mathscr{F}(G,H)\)</span> et <span class="math inline">\((h \circ
 g)\circ f \in \mathscr{F}(E,H)\)</span>.</p>
 <p>Alors <span class="math inline">\(h\circ(g \circ f) = (h\circ g)
-\circ f\)</span>. On note alors simplement, sans ambiguïté, <span
+\circ f\)</span>.</p>
+<p>On note alors simplement, sans ambiguïté, <span
 class="math inline">\(h \circ g \circ f\)</span>.</p>
 </div>
 <div class="wproof">
@@ -1211,9 +1235,8 @@ f^{-1} &amp; : &amp; F &amp; \to &amp; E \\
 </div>
 <div class="wprop">
 <p>Soit <span class="math inline">\(f \in \mathscr{F}(E,F)\)</span>
-bijective,</p>
-<p><span class="math inline">\(f \circ f^{-1} = \mathrm{id}_{F}\)</span>
-et <span class="math inline">\(f^{-1} \circ f =
+bijective, alors <span class="math inline">\(f \circ f^{-1} =
+\mathrm{id}_{F}\)</span> et <span class="math inline">\(f^{-1} \circ f =
 \mathrm{id}_{E}\)</span>.</p>
 </div>
 <div class="wproof">
@@ -1222,16 +1245,17 @@ class="math inline">\(x_y \in E\)</span>, l’unique antécédent de <span
 class="math inline">\(y\)</span> par <span
 class="math inline">\(f\)</span>.</p>
 <p>Alors, <span class="math inline">\(f \circ f^{-1} (y) =
-f\left(f^{-1}(y)\right) = f\left(x_y\right) = y\)</span>.</p>
+f\left(f^{-1}(y)\right) = f\left(x_y\right) = y =
+\mathop{\mathrm{Id}}_F(y)\)</span>.</p>
 <p>Soit <span class="math inline">\(x \in E\)</span>, et <span
 class="math inline">\(y = f(x) \in F\)</span> tel que <span
 class="math inline">\(x = x_y\)</span>,</p>
 <p>Alors <span class="math inline">\(f^{-1} \circ f(x) = f^{-1}(f(x_y))
-= f^{-1}(y) = x_y = x\)</span>.</p>
+= f^{-1}(y) = x_y = x= \mathop{\mathrm{Id}}_E(x)\)</span>.</p>
 </div>
 <div class="wcor">
 <p>Soit <span class="math inline">\(f \in \mathscr{F}(E,F)\)</span>
-bijective, <span class="math inline">\(f^{-1}\)</span> est
+bijective alors <span class="math inline">\(f^{-1}\)</span> est
 bijective.</p>
 </div>
 <div class="wproof">
@@ -1248,9 +1272,8 @@ surjective donc bijective.</p>
 <p>Dans le cas où <span class="math inline">\(f\)</span> est bijective,
 la préimage d’un ensemble <span class="math inline">\(A \in
 \mathscr{P}(E)\)</span> coincide avec l’image directe de cet ensemble
-par <span class="math inline">\(f^{-1}\)</span>. En particulier, on a
-bien <span class="math inline">\(f\left(f^{-1}\right)(A) =
-A.\)</span></p>
+par <span class="math inline">\(f^{-1}\)</span>. On a aussi <span
+class="math inline">\(f\left(f^{-1}\right)(A) = A.\)</span></p>
 </div>
 <h2 data-number="2.6" id="restrictionprolongement-dune-fonction"><span
 class="header-section-number">2.6</span> Restriction/Prolongement d’une
@@ -1292,11 +1315,11 @@ g_2 &amp; : &amp; \mathbb{R}&amp; \to &amp; \mathbb{R}\\
   &amp;   &amp; 0 &amp; \mapsto &amp;  \frac{\pi^2}{6}
 \end{array}.\)</span></p>
 <p>Alors, <span class="math inline">\(g_1,g_2\)</span> sont des
-prolongements de <span class="math inline">\(g\)</span>.</p>
+prolongements de <span class="math inline">\(f\)</span>.</p>
 <div class="wrem">
-<p><span class="math inline">\(g\)</span> n’admet pas de prolongement
-continu à <span class="math inline">\(\mathbb{R}\)</span> car <span
-class="math inline">\(g(x) \xrightarrow[x \to 0^+]{}
+<p><span class="math inline">\(f\)</span> n’admet pas de prolongement
+continu sur <span class="math inline">\(\mathbb{R}\)</span> car <span
+class="math inline">\(f(x) \xrightarrow[x \to 0^+]{}
 +\infty\)</span>.</p>
 </div></li>
 </ul>
@@ -1305,21 +1328,24 @@ class="math inline">\(g(x) \xrightarrow[x \to 0^+]{}
 class="header-section-number">2.7</span> Famille d’éléments de <span
 class="math inline">\(E\)</span></h2>
 <div class="wdefi">
-<p>Soit <span class="math inline">\(E\)</span> un ensemble non vide. Une
-suite d’éléments de <span class="math inline">\(E\)</span> est indexée
-par <span class="math inline">\(\mathbb{N}\)</span> est une fonction
-<span class="math inline">\(u \in \mathscr{F}(\mathbb{N},E)\)</span>
-notée <span class="math inline">\(\left(u_n\right)_{n\in
-\mathbb{N}}\)</span>.</p>
-<p>Pour <span class="math inline">\(I\)</span> un ensemble quelconque
-d’indices, une famille d’éléments de <span
+<p>Soit <span class="math inline">\(E\)</span> un ensemble non vide.</p>
+<ul>
+<li><p>Une suite d’éléments de <span class="math inline">\(E\)</span>
+est indexée par <span class="math inline">\(\mathbb{N}\)</span> est une
+fonction <span class="math inline">\(u \in
+\mathscr{F}(\mathbb{N},E)\)</span> notée <span
+class="math inline">\(\left(u_n\right)_{n\in
+\mathbb{N}}\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(I\)</span> un ensemble
+quelconque d’indices, une famille d’éléments de <span
 class="math inline">\(E\)</span> est une fonction <span
 class="math inline">\(\begin{array}{lllll}
 x &amp; : &amp; I &amp; \to &amp; E \\
    &amp;   &amp; i &amp; \mapsto &amp; x(i)
 \end{array}\)</span>. <span class="math inline">\(x(i)\)</span> est
-alors noté <span class="math inline">\(x_i\)</span> est la famille <span
-class="math inline">\(\left(x_i\right)_{i\in I}\)</span>.</p>
+alors noté <span class="math inline">\(x_i\)</span> et la famille <span
+class="math inline">\(\left(x_i\right)_{i\in I}\)</span></p></li>
+</ul>
 </div>
 <div class="wex">
 <p>Pour <span class="math inline">\(E =
@@ -1401,7 +1427,7 @@ B\)</span>.</p></li>
 <li><p><span class="math inline">\(\mathscr{R}\)</span> la relation de
 divisibilité dans <span class="math inline">\(\mathbb{N}\)</span> est
 définie par <span class="math inline">\(x\mathscr{R}y \iff \exists z \in
-N/ y=xy\)</span>.</p></li>
+\mathbb{N}/ y=xz\)</span>.</p></li>
 <li><p>Soit <span class="math inline">\(n \in \mathbb{N}\)</span>, <span
 class="math inline">\(\mathscr{R}_n\)</span> la relation de congruence
 modulo <span class="math inline">\(n\)</span> dans <span
@@ -1412,13 +1438,14 @@ x-y=nz\)</span>.</p></li>
 </div>
 <h2 data-number="3.2" id="relation-déquivalence"><span
 class="header-section-number">3.2</span> Relation d’équivalence</h2>
+<h3 data-number="3.2.1" id="définition-1"><span
+class="header-section-number">3.2.1</span> Définition</h3>
 <div class="wdefi">
 <p>Soit <span class="math inline">\(\mathscr{R}\)</span> une relation
 binaire de <span class="math inline">\(E\)</span>, <span
 class="math inline">\(\mathscr{R}\)</span> est dite d’équivalence dans
 <span class="math inline">\(E\)</span> si elle vérifie les trois
-propriétés suivantes</p>
-<p><span class="math display">\[\begin{aligned}
+propriétés suivantes <span class="math display">\[\begin{array}{llr}
         \text{(Réflexivité)}\quad &amp;\forall x \in E, x\mathscr{R}x
 &amp; \\
         \text{(Symétrie)}\quad &amp; \forall x,y \in E, x\mathscr{R}y
@@ -1426,8 +1453,7 @@ propriétés suivantes</p>
         \text{(Transitivité)}\quad &amp;\forall x,y,z \in E,
 x\mathscr{R}y \text{ et }y\mathscr{R}z  &amp;\Longrightarrow
 x\mathscr{R}z.
-    
-\end{aligned}\]</span></p>
+    \end{array}\]</span></p>
 </div>
 <div class="wexs">
 <ul>
@@ -1475,42 +1501,45 @@ avec <span class="math inline">\((w_n)\)</span> la suite constante égale
 class="math inline">\(1\)</span>.</p></li>
 <li><p>Soient <span class="math inline">\((u_n), (v_n) \in E\)</span>,
 telles que <span class="math inline">\((u_n)\mathscr{R}(v_n)\)</span>.
-Il existe <span class="math inline">\((w_n) \in E\)</span> telles que
+Il existe <span class="math inline">\((w_n) \in E\)</span> telle que
 <span class="math inline">\(w_n \xrightarrow[n \to +\infty]{} 1\)</span>
-et <span class="math inline">\(\forall n \in \mathbb{N}, u_n = v_n
-w_n\)</span>.</p>
+et <span class="math inline">\(N\in \mathbb{N}\)</span> tel que <span
+class="math inline">\(\forall n \geq N, u_n = v_n w_n\)</span>.</p>
 <p>Comme <span class="math inline">\((w_n)\)</span> a une limite
-strictement positive, il existe <span class="math inline">\(N \in
-\mathbb{N}\)</span> tel que <span class="math inline">\(\forall n \geq
-N, w_n &gt; 0\)</span>. <span
-class="math inline">\(\left(\frac{1}{w_n}\right)_{n \geq N}\)</span> est
-donc définie, <span class="math inline">\(\frac{1}{w_n} \xrightarrow[n
-\to +\infty]{} 1\)</span> et <span class="math inline">\(\forall n \geq
-N\)</span>, <span class="math inline">\(v_n =
+strictement positive, il existe <span class="math inline">\(N&#39; \geq
+N\)</span> tel que <span class="math inline">\(\forall n \geq N&#39;,
+w_n &gt; 0\)</span>. <span
+class="math inline">\(\left(\frac{1}{w_n}\right)_{n \geq
+N&#39;}\)</span> est donc définie, <span
+class="math inline">\(\frac{1}{w_n} \xrightarrow[n \to +\infty]{}
+1\)</span> et <span class="math inline">\(\forall n \geq
+N&#39;\)</span>, <span class="math inline">\(v_n =
 v_n\frac{1}{w_n}\)</span>.</p></li>
 <li><p>Soient <span class="math inline">\((u_n), (v_n), (r_n) \in
 E\)</span>. Si <span
 class="math inline">\((u_n)\mathscr{R}(v_n)\)</span>, il existe <span
-class="math inline">\((w_n) \in E\)</span> telles que <span
+class="math inline">\((w_n) \in E\)</span> telle que <span
 class="math inline">\(w_n \xrightarrow[n \to +\infty]{} 1\)</span> et
-<span class="math inline">\(\forall n \in \mathbb{N}, u_n = v_n
-w_n\)</span>.</p>
+<span class="math inline">\(N \in \mathbb{N}\)</span> tel que <span
+class="math inline">\(\forall n \geq N, u_n = v_n w_n\)</span>.</p>
 <p>Si <span class="math inline">\((v_n)\mathscr{R}(r_n)\)</span>, il
-existe <span class="math inline">\((w&#39;_n) \in E\)</span> telles que
+existe <span class="math inline">\((w&#39;_n) \in E\)</span> telle que
 <span class="math inline">\(w&#39;_n \xrightarrow[n \to +\infty]{}
-1\)</span> et <span class="math inline">\(\forall n \in \mathbb{N}, v_n
-= r_n w&#39;_n\)</span>.</p>
-<p>Et alors <span class="math inline">\(w_nw&#39;_n \xrightarrow[n \to
-+\infty]{} 1\)</span> et <span class="math inline">\(\forall n \in
-\mathbb{N}, u_n = r_n w&#39;_n w_n\)</span>.</p></li>
+1\)</span> et <span class="math inline">\(N&#39;\in \mathbb{N}\)</span>
+tel que <span class="math inline">\(\forall n \geq N&#39;, v_n = r_n
+w&#39;_n\)</span>.</p>
+<p>Alors <span class="math inline">\(w_nw&#39;_n \xrightarrow[n \to
++\infty]{} 1\)</span> et <span class="math inline">\(\forall n \geq
+\max(N,N&#39;), u_n = r_n w&#39;_n w_n\)</span>.</p></li>
 </ul>
 </div></li>
 </ul>
 </div>
-<p><strong>Classe d’équivalence de <span class="math inline">\(x_0 \in
-E\)</span>.</strong> <span class="math inline">\(\quad\)</span></p>
+<h3 data-number="3.2.2" id="classes-déquivalence-de-x_0-in-e"><span
+class="header-section-number">3.2.2</span> Classes d’équivalence de
+<span class="math inline">\(x_0 \in E\)</span></h3>
 <div class="wdefi">
-<p>Soit <span class="math inline">\(\mathscr{R}\)</span> relation
+<p>Soit <span class="math inline">\(\mathscr{R}\)</span> une relation
 d’équivalence dans <span class="math inline">\(E\)</span> et <span
 class="math inline">\(x_0 \in E\)</span>.</p>
 <p>La classe d’équivalence de <span class="math inline">\(x_0\)</span>
@@ -1522,7 +1551,7 @@ class="math display">\[{\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right) =
 </div>
 <div class="wrem">
 <p><span class="math inline">\(\mathscr{R}\)</span> est réflexive donc
-<span class="math inline">\(x_0\mathscr{R}x_0\)</span> donc <span
+<span class="math inline">\(x_0\mathscr{R}x_0\)</span> et <span
 class="math inline">\(x_0 \in
 {\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right)\)</span>.</p>
 </div>
@@ -1550,8 +1579,9 @@ class="math inline">\({\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right) =
 aurait <span
 class="math inline">\({\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right)
 \cap {\mathrm{C}\ell}_{\mathscr{R}}\left(x_1\right) =
-{\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right) \neq
-\emptyset\)</span>.</p></li>
+{\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right) \neq \emptyset\)</span>
+(<span class="math inline">\(x_0 \in
+{\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right)\)</span>).</p></li>
 <li><p>Si <span
 class="math inline">\({\mathrm{C}\ell}_{\mathscr{R}}\left(x_0\right)
 \cap {\mathrm{C}\ell}_{\mathscr{R}}\left(x_1\right) \neq
@@ -1605,13 +1635,15 @@ impairs.</p>
 </div>
 <h2 data-number="3.3" id="relation-dordre"><span
 class="header-section-number">3.3</span> Relation d’ordre</h2>
+<h3 data-number="3.3.1" id="définition-2"><span
+class="header-section-number">3.3.1</span> Définition</h3>
 <div class="wdefi">
 <p>Soit <span class="math inline">\(\mathscr{R}\)</span> une relation
 binaire de <span class="math inline">\(E\)</span>, <span
 class="math inline">\(\mathscr{R}\)</span> est une relation d’ordre dans
 <span class="math inline">\(E\)</span> si elle vérifie les trois
 propriétés suivantes</p>
-<p><span class="math display">\[\begin{aligned}
+<p><span class="math display">\[\begin{array}{llr}
         \text{(Réflexivité)}\quad &amp; \forall x \in E, x\mathscr{R}x
 &amp; \\
         \text{(Antisymétrie)}\quad &amp; \forall x,y \in E,
@@ -1619,8 +1651,7 @@ x\mathscr{R}y \text{ et }y\mathscr{R}x &amp;\iff x=y  \\
         \text{(Transitivité)}\quad &amp;\forall x,y,z \in E,
 x\mathscr{R}y \text{ et }y\mathscr{R}z  &amp;\Longrightarrow
 x\mathscr{R}z.
-    
-\end{aligned}\]</span></p>
+    \end{array}\]</span></p>
 </div>
 <div class="wexs">
 <ul>
@@ -1656,12 +1687,13 @@ class="math inline">\(y = kx\)</span> et si <span
 class="math inline">\(y\mathscr{R}x\)</span>, il existe <span
 class="math inline">\(k&#39; \in \mathbb{N}\)</span> tel que <span
 class="math inline">\(x = k&#39;y\)</span>. Donc <span
-class="math inline">\(y=kk&#39;y\)</span> donc si <span
-class="math inline">\(y \neq 0\)</span>, <span
+class="math inline">\(y=kk&#39;y\)</span>.</p>
+<p>Si <span class="math inline">\(y \neq 0\)</span>, <span
 class="math inline">\(kk&#39; = 1\)</span> donc <span
-class="math inline">\(k=k&#39;\)</span> et <span
-class="math inline">\(x=y\)</span> et si <span class="math inline">\(y =
-0\)</span>, <span class="math inline">\(x=0=y\)</span>.</p></li>
+class="math inline">\(k=k&#39;=1\)</span> (car ce sont des entiers
+naturels) et <span class="math inline">\(x=y\)</span>.</p>
+<p>Si <span class="math inline">\(y = 0\)</span>, <span
+class="math inline">\(x=0=y\)</span>.</p></li>
 <li><p>Soient <span class="math inline">\(x,y,z \in \mathbb{N}\)</span>,
 si <span class="math inline">\(x\mathscr{R}y\)</span>, il existe <span
 class="math inline">\(k \in \mathbb{N}\)</span> tel que <span
@@ -1683,8 +1715,9 @@ class="math inline">\(-1 = (-1)1\)</span> mais <span
 class="math inline">\(1 \neq -1\)</span>.</p>
 </div>
 </div>
-<p><strong>Relation d’ordre total/partiel.</strong> <span
-class="math inline">\(\quad\)</span></p>
+<h3 data-number="3.3.2" id="drelation-dordre-totalpartiel"><span
+class="header-section-number">3.3.2</span> DRelation d’ordre
+total/partiel</h3>
 <div class="wdefi">
 <p>Soit <span class="math inline">\(\mathscr{R}\)</span> relation
 d’ordre dans <span class="math inline">\(E\)</span>. <span
@@ -1701,7 +1734,7 @@ sur <span class="math inline">\(\mathbb{R}\)</span> est totale.</p>
 d’ordre dans <span class="math inline">\(E\)</span>. <span
 class="math inline">\(\mathscr{R}\)</span> est dite partielle si elle
 n’est pas totale. C’est-à-dire s’il existe <span
-class="math inline">\(x_0,y_0 \in E\)</span> tels qu’on n’a <span
+class="math inline">\(x_0,y_0 \in E\)</span> tels qu’on n’ait <span
 class="math inline">\(\text{ni } x_0\mathscr{R}y_0, \text{ ni
 }  y_0\mathscr{R}x_0.\)</span></p>
 </div>
