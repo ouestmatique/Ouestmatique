@@ -2130,24 +2130,21 @@ l’existence d’une limite</h2>
 <div class="wprop">
 <p>Soit <span class="math inline">\(f \in
 \mathscr{F}(D,\mathbb{R})\)</span>. Soit <span
-class="math inline">\(\ell \in \mathbb{R}\)</span>, <span
-class="math inline">\(f(x) \xrightarrow[x \to x_0]{} \ell \iff\)</span>
-Pour tout suite <span class="math inline">\((u_n)\)</span> d’éléments de
-<span class="math inline">\(D\)</span> telle que <span
+class="math inline">\(\ell \in \mathbb{R}\)</span>,</p>
+<p><span class="math inline">\(f(x) \xrightarrow[x \to x_0]{} \ell
+\iff\)</span> Pour tout suite <span class="math inline">\((u_n)\)</span>
+d’éléments de <span class="math inline">\(D\)</span> telle que <span
 class="math inline">\(u_n \xrightarrow[n \to +\infty]{} \ell\)</span>,
 <span class="math inline">\(f(u_n) \xrightarrow[n \to +\infty]{}
 \ell\)</span>.</p>
 </div>
 <div class="wproof">
 <ul>
-<li><p>(<span class="math inline">\(\Longrightarrow\)</span>) Soit <span
-class="math inline">\((u_n)\)</span> d’éléments de <span
-class="math inline">\(D\)</span> telle que <span
-class="math inline">\(u_n \xrightarrow[n \to +\infty]{}
-\ell\)</span>.</p>
-<p>Soit <span class="math inline">\(\varepsilon &gt; 0\)</span>, il
-existe <span class="math inline">\(\eta &gt; 0\)</span> tel que pour
-<span class="math inline">\(x \in D\)</span>, <span
+<li><p>(<span class="math inline">\(\Longrightarrow\)</span>) Comme
+<span class="math inline">\(f(x) \xrightarrow[x \to x_0]{}
+\ell\)</span>, soit <span class="math inline">\(\varepsilon &gt;
+0\)</span>, il existe <span class="math inline">\(\eta &gt; 0\)</span>
+tel que pour <span class="math inline">\(x \in D\)</span>, <span
 class="math display">\[|x-x_0| \leq \eta \Longrightarrow |f(x)-\ell|
 \leq \varepsilon.\]</span></p>
 <p>Or, soit <span class="math inline">\((u_n)\)</span> d’éléments de
@@ -2162,9 +2159,10 @@ class="math display">\[n\geq N \Longrightarrow |u_n-x_0| \leq
 <p>Donc <span class="math inline">\(f(u_n) \xrightarrow[n \to +\infty]{}
 \ell\)</span>.</p></li>
 <li><p>(<span class="math inline">\(\Longleftarrow\)</span>) Par
-contraposée, on veut montrer <span class="math inline">\(f(x)\)</span>
-ne tend pas vers <span class="math inline">\(\ell\)</span> quand <span
-class="math inline">\(x \longrightarrow x_0\)</span> <span
+contraposée, on veut montrer que <span
+class="math inline">\(f(x)\)</span> ne tend pas vers <span
+class="math inline">\(\ell\)</span> quand <span class="math inline">\(x
+\longrightarrow x_0\)</span> <span
 class="math inline">\(\Longrightarrow\)</span> Il existe une suite <span
 class="math inline">\((u_n)\)</span> d’éléments de <span
 class="math inline">\(D\)</span> telle que <span
@@ -2282,13 +2280,6 @@ alors <span class="math inline">\(f(u_n) \xrightarrow[x \to x_0]{}
 \ell\)</span> donc <span class="math inline">\(|f(u_n)| \xrightarrow[n
 \to +\infty]{} |\ell|\)</span> donc <span class="math inline">\(|f(x)|
 \xrightarrow[x \to x_0]{} |\ell|\)</span>.</p>
-</div>
-<div class="wrem">
-<p>La réciproque est fausse. Si on considère <span
-class="math inline">\(f : x \in \mathbb{R}^{+\star}\mapsto
-\frac{x}{|x|}\)</span> alors <span class="math inline">\(f\)</span> n’a
-pas de limite en <span class="math inline">\(1\)</span> mais <span
-class="math inline">\(|f|\)</span>, oui.</p>
 </div>
 <div class="wprop">
 <p>Soit <span class="math inline">\(f \in
@@ -2519,8 +2510,8 @@ admet-elle une limite en <span class="math inline">\(0\)</span> ?</p>
 1+x\sin\left(\frac{1}{x}\right) \leq 1+x.\]</span></p>
 <p>On en déduit que pour <span class="math inline">\(x \in
 \mathbb{R}^{+\star}\)</span>, <span class="math inline">\(1-2x \leq f(x)
-\leq 1+x\)</span> et donc par encadrement, <span class="math inline">\(f
-\xrightarrow[x \to 0]{} 1\)</span>.</p>
+\leq 1+x\)</span> et donc par encadrement, <span
+class="math inline">\(f(x) \xrightarrow[x \to 0]{} 1\)</span>.</p>
 <div class="center">
 <p><img src="exencadrement.png" alt="image" /></p>
 </div>
@@ -2541,8 +2532,8 @@ f(x)\)</span>.</p>
 <div class="webtext">
 <p><span class="math inline">\(f\)</span> est majorée donc <span
 class="math inline">\(\ell\)</span> existe bien.</p>
-<p>De plus, soit <span class="math inline">\(\varepsilon &gt;
-0\)</span>, par caractérisation de la borne supérieure, il existe <span
+<p>Soit <span class="math inline">\(\varepsilon &gt; 0\)</span>, par
+caractérisation de la borne supérieure, il existe <span
 class="math inline">\(x_\varepsilon \in [a,b[\)</span> tel que <span
 class="math display">\[f(x_\varepsilon) &gt;
 \ell-\varepsilon.\]</span></p>
@@ -2712,12 +2703,12 @@ croissante avec <span class="math inline">\(b \in \mathbb{R}\text{ ou }b
 = +\infty\)</span> alors</p>
 <ul>
 <li><p>Si <span class="math inline">\(f\)</span> est majorée alors <span
-class="math display">\[f(x) \xrightarrow[x \to b]{} \ell\]</span> avec
+class="math inline">\(f(x) \xrightarrow[x \to b]{} \ell\)</span> avec
 <span class="math inline">\(\ell = \sup_{x\in
 [a,b[}f(x)\)</span>.</p></li>
 <li><p>Si <span class="math inline">\(f\)</span> est non majorée alors
-<span class="math display">\[f(x) \xrightarrow[x \to b]{}
-+\infty\]</span> avec <span class="math inline">\(\ell = \sup_{x\in
+<span class="math inline">\(f(x) \xrightarrow[x \to b]{}
++\infty\)</span> avec <span class="math inline">\(\ell = \sup_{x\in
 [a,b[}f(x)\)</span>.</p></li>
 </ul>
 </div>
@@ -2834,14 +2825,14 @@ class="math inline">\(a + (-\infty) = -\infty.\)</span></p>
 <p>On ne définit pas la somme <span class="math inline">\((+\infty) +
 (-\infty)\)</span> (parce que c’est une forme indéterminée).</p>
 <p>Avec ces définitions, si <span class="math inline">\((u_n)\)</span>
-tend vers <span class="math inline">\(l\)</span> et si <span
+tend vers <span class="math inline">\(\ell\)</span> et si <span
 class="math inline">\((v_n)\)</span> tend vers <span
-class="math inline">\(l&#39;\)</span>, la suite <span
+class="math inline">\(\ell&#39;\)</span>, la suite <span
 class="math inline">\((u_n + v_n)\)</span> tend dans <span
 class="math inline">\(\overline{\mathbb{R}}\)</span> vers <span
-class="math inline">\(l + l&#39;\)</span> pourvu que la somme <span
-class="math inline">\(l + l&#39;\)</span> soit définie dans <span
-class="math inline">\(\overline{\mathbb{R}}\)</span>.</p>
+class="math inline">\(\ell + \ell&#39;\)</span> pourvu que la somme
+<span class="math inline">\(\ell + \ell&#39;\)</span> soit définie dans
+<span class="math inline">\(\overline{\mathbb{R}}\)</span>.</p>
 <p>De même pour les limites de fonctions.</p>
 <p><strong>Multiplication dans <span
 class="math inline">\(\overline{\mathbb{R}.}\ \)</span></strong></p>
