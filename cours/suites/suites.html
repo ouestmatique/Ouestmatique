@@ -301,7 +301,10 @@ class="math inline">\(h = \frac{b-a}{2}\)</span>,</p>
         x \in ]a,b[ &amp; \iff d(x,c) &lt; h.
     \end{aligned}\]</span></p>
 <div class="wproof">
-<p><span class="math display">\[\begin{aligned}
+<p>Notons que <span class="math inline">\(a-c = a-\frac{a+b}{2} =
+\frac{2a-a-b}{2} = \frac{a-b}{2}=-h\)</span> et de même, <span
+class="math inline">\(b-c = h\)</span>. <span
+class="math display">\[\begin{aligned}
         x \in [a,b]
         &amp; \iff a \leq x \leq b \\
         &amp; \iff a-c \leq x-c \leq b-c \\
@@ -355,33 +358,19 @@ id="majorantminorant-dune-partie-de-mathbbr"><span
 class="header-section-number">1.2.1</span> Majorant/minorant d’une
 partie de <span class="math inline">\(\mathbb{R}\)</span></h3>
 <div class="wdefi">
-<p><strong>(Majorant/minorant d’une partie de <span
-class="math inline">\(\mathbb{R}\)</span>)</strong> Soit <span
-class="math inline">\(A\)</span> une partie de <span
+<p>Soit <span class="math inline">\(A\)</span> une partie de <span
 class="math inline">\(\mathbb{R}\)</span>, non vide.</p>
 <ul>
 <li><p>Soit <span class="math inline">\(M \in \mathbb{R}\)</span>, on
 dit que <span class="math inline">\(M\)</span> est un majorant de <span
 class="math inline">\(A\)</span> si : <span
-class="math inline">\(\forall a \in A, a \leq M\)</span>,</p></li>
+class="math inline">\(\forall a \in A, a \leq M\)</span>, on dit alors
+que <span class="math inline">\(A\)</span> est majorée.</p></li>
 <li><p>Soit <span class="math inline">\(m \in \mathbb{R}\)</span>, on
 dit que <span class="math inline">\(m\)</span> est un minorant de <span
 class="math inline">\(A\)</span> si : <span
-class="math inline">\(\forall a \in A, m \leq a\)</span>.</p></li>
-</ul>
-</div>
-<div class="wdefi">
-<p><strong>(Partie majorée/minorée d’une partie de <span
-class="math inline">\(\mathbb{R}\)</span>)</strong> Soit <span
-class="math inline">\(A\)</span> une partie de <span
-class="math inline">\(\mathbb{R}\)</span>, non vide.</p>
-<ul>
-<li><p>On dit que <span class="math inline">\(A\)</span> est majorée
-s’il existe <span class="math inline">\(M \in \mathbb{R}\)</span>
-majorant de <span class="math inline">\(A\)</span>,</p></li>
-<li><p>On dit que <span class="math inline">\(A\)</span> est minorée
-s’il existe <span class="math inline">\(m \in \mathbb{R}\)</span>
-minorant de <span class="math inline">\(A\)</span>,</p></li>
+class="math inline">\(\forall a \in A, m \leq a\)</span>, on dit alors
+que <span class="math inline">\(B\)</span> est minorée.</p></li>
 <li><p>On dit que <span class="math inline">\(A\)</span> est bornée si
 elle est minorée et majorée.</p></li>
 </ul>
@@ -394,22 +383,20 @@ class="math display">\[A \text{ est bornée } \iff \exists M_0 \in
 </div>
 <div class="wproof">
 <ul>
-<li><p><span class="math display">\[\forall a \in A, |a| \leq M_0 \iff
--M_0 \leq a \leq M_0 \iff m \leq a \leq M\]</span> avec <span
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> <span
+class="math display">\[\forall a \in A, |a| \leq M_0 \iff -M_0 \leq a
+\leq M_0 \iff m \leq a \leq M\]</span> avec <span
 class="math inline">\(m =-M_0, M = M_0\)</span>.</p></li>
-<li><p>Soit <span class="math inline">\(M\)</span> majorant de <span
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Soit <span
+class="math inline">\(M\)</span> majorant de <span
 class="math inline">\(A\)</span> et <span
 class="math inline">\(m\)</span> minorant de <span
 class="math inline">\(A\)</span> et <span class="math inline">\(M_0 =
-\max(|m|,|M|)\)</span>,</p>
-<p><span class="math display">\[\forall a \in A, -M_0 \leq -|m| \leq m
-\leq a\]</span></p>
-<p>et</p>
-<p><span class="math display">\[\forall a \in A,  a \leq M \leq |M| \leq
-M_0\]</span></p>
-<p>Donc</p>
-<p><span class="math display">\[\forall a \in A, -M_0 \leq a \leq M_0
-\iff |a| \leq M_0.\]</span></p></li>
+\max(|m|,|M|)\)</span>, <span class="math display">\[\forall a \in A,
+-M_0 \leq -|m| \leq m \leq a\]</span> et <span
+class="math display">\[\forall a \in A,  a \leq M \leq |M| \leq
+M_0\]</span> donc <span class="math display">\[\forall a \in A, -M_0
+\leq a \leq M_0 \iff |a| \leq M_0.\]</span></p></li>
 </ul>
 </div>
 <h3 data-number="1.2.2" id="maximumminimum-dune-partie-de-mathbbr"><span
@@ -434,7 +421,7 @@ class="math inline">\(\forall a \in A, a_0 \leq a\)</span>, et on note
 </ul>
 </div>
 <div class="wrem">
-<p>Si existence, on a bien unicité du plus maximum/minimum de <span
+<p>Si existence, on a bien unicité du maximum/minimum de <span
 class="math inline">\(A\)</span>.</p>
 <p>En effet, supposons <span class="math inline">\(b_0\)</span> et <span
 class="math inline">\(b_1\)</span> maxima de <span
@@ -496,22 +483,32 @@ class="math inline">\(A = \{a_1,\ldots, a_{n+1}\}\)</span>. Par
 hypothèse de récurrence, <span class="math inline">\(A&#39; =
 \{a_1,\ldots, a_{n}\}\)</span> admet un minimum et un maximum.</p>
 <ul>
-<li><p>Soit <span class="math inline">\(a_{n+1} &gt; \max
-A&#39;\)</span> et <span class="math inline">\(A\)</span> admet un
-maximum qui est <span class="math inline">\(a_{n+1}\)</span>,</p></li>
-<li><p>Soit <span class="math inline">\(a_{n+1} \leq \max
-A&#39;\)</span> et <span class="math inline">\(A\)</span> admet un
-maximum qui est <span class="math inline">\(\max
-A&#39;\)</span>,</p></li>
-</ul>
+<li><p>Soit <span class="math inline">\(i_M \in [\![ 1,n ]\!]\)</span>
+tel que <span class="math inline">\(a_{i_M} = \max(A&#39;)\)</span>.</p>
 <ul>
-<li><p>Soit <span class="math inline">\(a_{n+1} &lt; \min
-A&#39;\)</span> et <span class="math inline">\(A\)</span> admet un
-minimum qui est <span class="math inline">\(a_{n+1}\)</span>,</p></li>
-<li><p>Soit <span class="math inline">\(a_{n+1} \geq \min
-A&#39;\)</span> et <span class="math inline">\(A\)</span> admet un
-minimum qui est <span class="math inline">\(\min
-A&#39;\)</span>,</p></li>
+<li><p>Si <span class="math inline">\(a_{n+1} \geq a_i\)</span> pour
+tout <span class="math inline">\(i=1,\ldots,n\)</span> alors <span
+class="math inline">\(\max A = a_{n+1}\)</span>,</p></li>
+<li><p>Sinon, il existe <span class="math inline">\(i \in [\![ 1,n
+]\!]\)</span> tel que <span class="math inline">\(a_{n+1} &lt;
+a_i\)</span> et donc <span class="math inline">\(a_{n+1} &lt; a_i \leq
+a_{i_M} = \max(A&#39;)\)</span>. On a donc <span
+class="math inline">\(\max A = \max A&#39; \in A&#39; \subset
+A\)</span>.</p></li>
+</ul></li>
+<li><p>Soit <span class="math inline">\(i_m \in [\![ 1,n ]\!]\)</span>
+tel que <span class="math inline">\(a_{i_m} = \min(A&#39;)\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(a_{n+1} \leq a_i\)</span> pour
+tout <span class="math inline">\(i=1,\ldots,n\)</span> alors <span
+class="math inline">\(\min A = a_{n+1}\)</span>,</p></li>
+<li><p>Sinon, il existe <span class="math inline">\(i \in [\![ 1,n
+]\!]\)</span> tel que <span class="math inline">\(a_{n+1} &gt;
+a_i\)</span> et donc <span class="math inline">\(a_{n+1} &gt; a_i \geq
+a_{i_M} = \min(A&#39;)\)</span>. On a donc <span
+class="math inline">\(\min A = \min A&#39; \in A&#39; \subset
+A\)</span>.</p></li>
+</ul></li>
 </ul></li>
 <li><p><strong>CONCLUSION :</strong> Toute partie finie non vide de
 <span class="math inline">\(\mathbb{R}\)</span> admet un maximum et
@@ -519,7 +516,7 @@ minimum.</p></li>
 </ul>
 </div>
 <div class="wthm">
-<p><strong>(Principe du bon ordre, admis)</strong> Soit <span
+<p><strong>(Principe du bon ordre)</strong> Soit <span
 class="math inline">\(A\)</span>, partie de <span
 class="math inline">\(\mathbb{Z}\)</span>.</p>
 <ul>
@@ -529,6 +526,9 @@ class="math inline">\(A\)</span> admet un maximum,</p></li>
 class="math inline">\(A\)</span> admet un minimum.</p></li>
 </ul>
 </div>
+<div class="wproof">
+<p>Admis.</p>
+</div>
 <h3 data-number="1.2.3"
 id="borne-supérieureinférieure-dune-partie-de-mathbbr"><span
 class="header-section-number">1.2.3</span> Borne supérieure/inférieure
@@ -537,9 +537,7 @@ d’une partie de <span class="math inline">\(\mathbb{R}\)</span></h3>
 class="math inline">\(A\)</span> partie de <span
 class="math inline">\(\mathbb{R}\)</span> non vide et majorée. En
 général, comme illustré par l’exemple précédent, <span
-class="math inline">\(A\)</span> n’admet pas de maximum. On note <span
-class="math inline">\(\mathcal{M}(A)\)</span> l’ensemble des majorants
-de <span class="math inline">\(A\)</span>.</p>
+class="math inline">\(A\)</span> n’admet pas de maximum.</p>
 <div class="wdefi">
 <p><strong>(Borne supérieure d’une partie de <span
 class="math inline">\(\mathbb{R}\)</span>)</strong> Soit <span
@@ -570,18 +568,20 @@ A\)</span>.</p>
 class="math inline">\(1-\frac{1}{n_0} &gt; x\)</span>.</p>
 <p><span class="math display">\[1-\frac{1}{n_0} &gt; x \iff n_0 &gt;
 \frac{1}{1-x}\]</span> et un tel <span
-class="math inline">\(n_0\)</span> existe car <span
-class="math inline">\(\mathbb{N}^{\star}\)</span> est non majoré.</p>
+class="math inline">\(n_0\)</span> existe.</p>
 <p>On en déduit <span class="math inline">\(x \notin
 \mathcal{M}(A)\)</span> donc en effet, <span
 class="math inline">\(\mathcal{M}(A) = [1,+\infty[\)</span> et <span
 class="math inline">\(\sup A = 1\)</span>.</p>
 </div>
 <div class="wthm">
-<p><strong>(Existence d’une borne supérieure (admis))</strong> Soit
-<span class="math inline">\(A\)</span> partie de <span
+<p><strong>(Existence d’une borne supérieure)</strong> Soit <span
+class="math inline">\(A\)</span> partie de <span
 class="math inline">\(\mathbb{R}\)</span> non vide et majorée alors
 <span class="math inline">\(A\)</span> possède une borne supérieure.</p>
+</div>
+<div class="wproof">
+<p>Admis.</p>
 </div>
 <div class="wrem">
 <p>Soit <span class="math inline">\(A\)</span> partie de <span
@@ -590,23 +590,25 @@ class="math inline">\(\sup A \in \mathcal{M}(A)\)</span>.</p>
 </div>
 <div class="wprop">
 <p><strong>(Lien entre <span class="math inline">\(\max\)</span> et
-<span class="math inline">\(\sup\)</span>)</strong> Soit <span
-class="math inline">\(A\)</span> partie de <span
+<span class="math inline">\(\sup\)</span>)</strong> <span
+id="prop:sup_in_eqgal_max" label="prop:sup_in_eqgal_max"></span> Soit
+<span class="math inline">\(A\)</span> partie de <span
 class="math inline">\(\mathbb{R}\)</span> non vide et majorée, <span
-class="math inline">\(\sup A \in A \iff A\text{ possède un maximum et
-$\max A = \sup A$.}\)</span></p>
+class="math display">\[\sup A \in A \iff A\text{ possède un maximum et
+$\max A = \sup A$.}\]</span></p>
 </div>
 <div class="wproof">
 <ul>
-<li><p>Si <span class="math inline">\(\sup A \in A\)</span>, <span
-class="math inline">\(\sup A \in A\)</span> et <span
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
+class="math inline">\(\sup A \in A\)</span>, comme <span
 class="math inline">\(\sup A \in \mathcal{M}(A)\)</span> donc <span
 class="math inline">\(\forall a \in A, a \leq \sup A\)</span> donc <span
 class="math inline">\(A = \max A\)</span>.</p></li>
-<li><p><span class="math inline">\(A\)</span> possède un maximum alors
-<span class="math inline">\(\max A \in \mathcal{M}(A)\)</span> et de
-plus, <span class="math inline">\(\forall M \in \mathcal{M}(A), M \geq
-\max A \in A\)</span>. Donc <span class="math inline">\(\max A = \min
+<li><p>(<span class="math inline">\(\Longleftarrow\)</span>) <span
+class="math inline">\(A\)</span> possède un maximum alors <span
+class="math inline">\(\max A \in \mathcal{M}(A)\)</span> et de plus,
+<span class="math inline">\(\forall M \in \mathcal{M}(A), M \geq \max A
+\in A\)</span>. Donc <span class="math inline">\(\max A = \min
 \mathcal{M}(A) = \sup A\)</span>.</p></li>
 </ul>
 </div>
@@ -621,16 +623,18 @@ class="math display">\[M = \sup A \iff M \in \mathcal{M}(A) \text{ et
 </div>
 <div class="wproof">
 <ul>
-<li><p>Si <span class="math inline">\(M = \sup A\)</span> et <span
+<li><p>(<span class="math inline">\(\Longrightarrow\)</span>) Si <span
+class="math inline">\(M = \sup A\)</span> et <span
 class="math inline">\(\varepsilon &gt; 0\)</span>, <span
 class="math inline">\(M = \min \mathcal{M}(A)\)</span> donc <span
 class="math inline">\(M-\varepsilon \notin \mathcal{M}(A)\)</span>. On
 en déduit qu’on n’a pas <span class="math display">\[\forall a \in A, a
 \leq M-\varepsilon\]</span> donc qu’il existe <span
-class="math inline">\(a_{\varepsilon} &gt;
+class="math inline">\(a_{\varepsilon}\in A\)</span> tel que <span
+class="math inline">\(a_\varepsilon &gt;
 M-\varepsilon\)</span>.</p></li>
-<li><p>Montrons que <span class="math inline">\(M = \min
-\mathcal{M}(A)\)</span>.</p>
+<li><p>(<span class="math inline">\(\Longleftarrow\)</span>) Montrons
+que <span class="math inline">\(M = \min \mathcal{M}(A)\)</span>.</p>
 <p>Soit <span class="math inline">\(x \in \mathbb{R}\)</span> tel que
 <span class="math inline">\(x &lt; M\)</span>. Alors, en prenant <span
 class="math inline">\(\varepsilon = M-x &gt; 0\)</span>, il existe <span
@@ -650,14 +654,13 @@ donc <span class="math inline">\(M = \min
 class="math inline">\(\mathbb{R}\)</span>)</strong> Soit <span
 class="math inline">\(A\)</span> partie de <span
 class="math inline">\(\mathbb{R}\)</span> non vide et minorée, on note
-<span class="math inline">\(\mathcal{m}(A)\)</span> l’ensemble des
-minorants de <span class="math inline">\(A\)</span>. <span
+<span class="math inline">\(m(A)\)</span> l’ensemble des minorants de
+<span class="math inline">\(A\)</span>. <span
 class="math inline">\(A\)</span> possède une borne inférieure si <span
-class="math inline">\(\mathcal{m}(A)\)</span> possède un maximum. Dans
-ce cas, la borne inférieure de <span class="math inline">\(A\)</span>
-est définie comme <span class="math inline">\(\max
-\mathcal{m}(A)\)</span>, notée <span class="math inline">\(\inf
-A\)</span>.</p>
+class="math inline">\(m(A)\)</span> possède un maximum. Dans ce cas, la
+borne inférieure de <span class="math inline">\(A\)</span> est définie
+comme <span class="math inline">\(\max (m(A))\)</span>, notée <span
+class="math inline">\(\inf A\)</span>.</p>
 </div>
 <div class="wthm">
 <p><strong>(Existence d’une borne inférieure)</strong> Soit <span
@@ -668,26 +671,28 @@ class="math inline">\(\mathbb{R}\)</span> non vide et minorée alors
 <div class="wproof">
 <p>Soit <span class="math inline">\(A\)</span> partie de <span
 class="math inline">\(\mathbb{R}\)</span> non vide et minorée. Alors
-<span class="math inline">\(B = \mathcal{m}(A)\)</span> est une partie
-non vide et majorée de <span class="math inline">\(\mathbb{R}\)</span>
-car pour un élément <span class="math inline">\(a \in A\)</span> et pour
-tout <span class="math inline">\(b \in B\)</span>, <span
-class="math inline">\(b \leq a\)</span>.</p>
-<p>On peut donc considérer <span class="math inline">\(m = \sup
-B\)</span>. Il reste à montrer qu’en réalité <span
-class="math inline">\(m = \max B\)</span>. Il suffit donc de montrer
-<span class="math inline">\(m \in B\)</span>.</p>
+<span class="math inline">\(B = m(A)\)</span> est une partie non vide et
+majorée de <span class="math inline">\(\mathbb{R}\)</span> car pour un
+élément <span class="math inline">\(a \in A\)</span> et pour tout <span
+class="math inline">\(b \in B\)</span>, <span class="math inline">\(b
+\leq a\)</span>.</p>
+<p>On peut donc considérer <span class="math inline">\(m = \sup B = \min
+\mathcal{M}(B)\)</span>. Il reste à montrer qu’en réalité <span
+class="math inline">\(m = \max B\)</span>, ce qui revient à montrer
+<span class="math inline">\(m \in B\)</span> par la proposition <a
+href="#prop:sup_in_eqgal_max" data-reference-type="ref"
+data-reference="prop:sup_in_eqgal_max">[prop:sup_in_eqgal_max]</a>.</p>
 <p>Or, pour tout <span class="math inline">\(a \in A, a \in
 \mathcal{M}(B)\)</span>.</p>
 <p>Donc, pour tout <span class="math inline">\(a \in A, m = \min
 \mathcal{M}(B) \leq a\)</span>.</p>
-<p>Donc, pour tout <span class="math inline">\(m \in \mathcal{m}(A) =
-B\)</span> et <span class="math inline">\(m =\max B\)</span>.</p>
+<p>Donc, <span class="math inline">\(m \in m(A) = B\)</span> et <span
+class="math inline">\(m =\max B\)</span>.</p>
 </div>
 <div class="wprop">
 <p>Soient <span class="math inline">\(A,B\)</span> parties de <span
 class="math inline">\(\mathbb{R}\)</span>, non vides et bornées telles
-que <span class="math inline">\(A = \subset B\)</span> alors <span
+que <span class="math inline">\(A\subset B\)</span> alors <span
 class="math display">\[\begin{aligned}
         \sup A &amp; \leq \sup B \\
         \inf A &amp; \geq \inf B.
@@ -699,9 +704,8 @@ pour tout <span class="math inline">\(a \in A, a \leq \sup B\)</span> et
 <span class="math inline">\(\sup B \in \mathcal{M}(A)\)</span> donc
 <span class="math inline">\(\sup A \leq \sup B\)</span>.</p>
 <p>De même, pour tout <span class="math inline">\(a \in A, a \geq \inf
-B\)</span> et <span class="math inline">\(\inf B \in
-\mathcal{m}(A)\)</span> donc <span class="math inline">\(\inf A \geq
-\inf B\)</span>.</p>
+B\)</span> et <span class="math inline">\(\inf B \in m(A)\)</span> donc
+<span class="math inline">\(\inf A \geq \inf B\)</span>.</p>
 </div>
 <h2 data-number="1.3"
 id="partie-entière-dun-réel-et-valeurs-décimales-approchées-par-défaut-ou-excès"><span
@@ -709,9 +713,6 @@ class="header-section-number">1.3</span> Partie entière d’un réel et
 valeurs décimales approchées par défaut ou excès</h2>
 <h3 data-number="1.3.1" id="partie-entière"><span
 class="header-section-number">1.3.1</span> Partie entière</h3>
-<p>Commençons par remarquer que toute partie majorée de <span
-class="math inline">\(\mathbb{Z}\)</span> admet un maximum dans <span
-class="math inline">\(\mathbb{Z}\)</span> (principe du bon ordre).</p>
 <div class="wprop">
 <p><strong>(Existence et unicité de la partie entière)</strong> Soit
 <span class="math inline">\(a \in \mathbb{R}\)</span>, il existe <span
@@ -719,34 +720,30 @@ class="math inline">\(k_a \in \mathbb{Z}\)</span> unique tel que <span
 class="math inline">\(k_a \leq x \leq k_a+1\)</span>.</p>
 </div>
 <div class="wproof">
-<ul>
-<li><p>(Existence) Soit <span class="math inline">\(E =\{k\in
-\mathbb{Z}/ k \leq a \}\)</span>.</p>
-<p><span class="math inline">\(E\)</span> est une partie non vide et
-majorée de <span class="math inline">\(\mathbb{Z}\)</span> donc elle
-admet un maximum.</p>
-<p>Soit <span class="math inline">\(k_a = \max E\)</span> alors <span
-class="math inline">\(k_a \in E\)</span> donc <span
-class="math inline">\(k_a \leq x\)</span> et <span
-class="math inline">\(k_a +1 \notin E\)</span> donc <span
-class="math inline">\(k_a+1 &gt; x\)</span>.</p></li>
-<li><p>(Unicité) Si <span class="math inline">\(k_a \in
-\mathbb{Z}\)</span> et <span class="math inline">\(k_a&#39; \in
-\mathbb{Z}\)</span> vérifient <span class="math inline">\(k_a \leq x
-\leq k_a+1\)</span> et <span class="math inline">\(k&#39;_a \leq x \leq
-k&#39;_a+1\)</span> alors <span class="math display">\[k_a &lt;
-k&#39;_a+1 \text{ et }k&#39;_a &lt; k_a+1\]</span> Donc <span
-class="math inline">\(k&#39;_a -1 &lt; k_a &lt; k_a+1\)</span> et <span
-class="math inline">\(k_a = k&#39;_a\)</span>.</p></li>
-</ul>
+<p>Soit <span class="math inline">\(E =\{k\in \mathbb{Z}/ k \leq a
+\}\)</span>, <span class="math inline">\(k_a = \max E\)</span>. Donc
+<span class="math inline">\(k_a\)</span> existe par principe du bon
+ordre et est unique par unicité du maximum.</p>
 </div>
 <div class="wdefi">
-<p><strong>(Partie entière d’un réel)</strong> <span
-class="math inline">\(k_a\)</span>, défini dans la proposition
-précédente, est appelée la <u> partie entière de <span
+<p><strong>(Partie entière d’un réel)</strong> Soit <span
+class="math inline">\(a \in \mathbb{R}\)</span>, <span
+class="math inline">\(k_a\in \mathbb{Z}\)</span>, défini dans la
+proposition précédente, est appelée la <u> partie entière de <span
 class="math inline">\(a\)</span></u>, notée <span
 class="math inline">\(E(a)\)</span> ou <span
 class="math inline">\(\lfloor a \rfloor\)</span>.</p>
+</div>
+<div class="wrem">
+<p>En fait, soit <span class="math inline">\(a \in \mathbb{R}\)</span>,
+<span class="math inline">\(\lfloor a \rfloor\)</span> est <span
+class="math inline">\(a\)</span> arrondi à l’entier inférieur si <span
+class="math inline">\(a\)</span>.</p>
+<p>Par exemple, <span class="math inline">\(\lfloor 10,1234 \rfloor =
+10\)</span>, <span class="math inline">\(\lfloor -10,1234 \rfloor =
+-11\)</span>, <span class="math inline">\(\lfloor \pi \rfloor =
+3\)</span> et <span class="math inline">\(\lfloor -e \rfloor =
+-3\)</span>.</p>
 </div>
 <h3 data-number="1.3.2"
 id="valeurs-décimales-approchées-à-frac110n-près"><span
@@ -762,9 +759,9 @@ class="math display">\[\frac{p_n}{10^n} \leq a &lt;
 \frac{p_n}{10^n}+\frac{1}{10^n}.\]</span></p>
 </div>
 <div class="wproof">
-<p><span class="math display">\[\frac{p_n}{10^n} \leq 10^n a &lt;
+<p><span class="math display">\[\frac{p_n}{10^n} \leq a &lt;
 \frac{p_n}{10^n}+\frac{1}{10^n}
-    \iff p_n \leq a &lt; p_n+1\]</span> Donc <span
+    \iff p_n \leq 10^n  a &lt; p_n+1\]</span> Donc <span
 class="math inline">\(p_n = \left\lfloor 10^n a
 \right\rfloor\)</span>.</p>
 </div>
@@ -800,25 +797,27 @@ class="header-section-number">2</span> Suite de réels</h1>
 <h2 data-number="2.1" id="définition"><span
 class="header-section-number">2.1</span> Définition</h2>
 <div class="wdefi">
-<p><strong>(Suite de réels)</strong> Une suite de réels indexés par
+<p><strong>(Suite de réels)</strong> Une suite de réels indexée par
 <span class="math inline">\(\mathbb{N}\)</span> est une fonction <span
-class="math inline">\(u\)</span> de <span
-class="math inline">\(\mathbb{N}\)</span> dans <span
-class="math inline">\(\mathbb{R}\)</span></p>
-<p><span class="math display">\[\begin{array}{lllll}
+class="math inline">\(\begin{array}{lllll}
 u &amp; : &amp; \mathbb{N}&amp; \to &amp; \mathbb{R}\\
 &amp; &amp; n  &amp; \mapsto &amp; u(n) \\
-\end{array}.\]</span></p>
+\end{array}.\)</span></p>
 <ul>
 <li><p><span class="math inline">\(u\)</span> est notée <span
 class="math inline">\((u_n)_{n\in \mathbb{N}}\)</span> ou <span
 class="math inline">\((u_n)_{n\geq 0}\)</span> ou <span
 class="math inline">\((u_n)\)</span>.</p></li>
 <li><p>Pour <span class="math inline">\(n \in \mathbb{N}\)</span>, <span
-class="math inline">\(u_n\)</span> est le terme de <span
+class="math inline">\(u(n)\)</span> est le terme de <span
 class="math inline">\(u\)</span> d’indice <span
-class="math inline">\(n\)</span>.</p></li>
+class="math inline">\(n\)</span> noté <span
+class="math inline">\(u_n\)</span>.</p></li>
 </ul>
+<p>On note <span
+class="math inline">\(\mathscr{F}(\mathbb{N},\mathbb{R})\)</span>
+l’ensemble des suites de réels indexées par <span
+class="math inline">\(\mathbb{N}\)</span>.</p>
 </div>
 <div class="wrem">
 <p>On peut étendre la définition en considérant une partie <span
@@ -839,10 +838,6 @@ définie par <span class="math inline">\(\forall n \in \mathbb{N}, u_n =
 <li><p><span class="math inline">\((u_n)_{n \geq 3}\)</span> définie par
 <span class="math inline">\(\forall n \geq 3, u_n =
 \frac{1}{\sqrt{n-2}}\)</span>,</p></li>
-<li><p>On note <span
-class="math inline">\(\mathscr{F}(\mathbb{N},\mathbb{R})\)</span>
-l’ensemble des suites de réels indexées par <span
-class="math inline">\(\mathbb{N}\)</span>.</p></li>
 </ul>
 </div>
 <div class="wdefi">
@@ -896,19 +891,21 @@ bornée.</p></li>
 </div>
 <div class="wproof">
 <p>Soient <span class="math inline">\(M_0,M_1 \in \mathbb{R}^+\)</span>
-tels que <span class="math inline">\(\begin{cases}
-            \forall n \in \mathbb{N}, u_n &amp; \leq M_0 \\
-            v_n &amp; \leq M_1
-        \end{cases}\)</span></p>
+tels que <span class="math inline">\(\left\{\begin{array}{lll}
+            \forall n \in \mathbb{N},&amp; \left|u_n\right| &amp; \leq
+M_0 \\
+            &amp; \left|v_n\right| &amp; \leq M_1
+        \end{array}\right.\)</span></p>
 <ol>
-<li><p>Alors, <span class="math display">\[\forall n \in \mathbb{N},
-|u_n + v_n| \leq |u_n|+|v_n| \leq M_0+M_1.\]</span></p></li>
+<li><p>Alors, par inégalité triangulaire, <span
+class="math display">\[\forall n \in \mathbb{N}, |u_n + v_n| \leq
+|u_n|+|v_n| \leq M_0+M_1.\]</span></p></li>
 <li><p>Alors, <span class="math display">\[\forall n \in \mathbb{N},
 |u_n v_n| = |u_n|\underbrace{|v_n|}_{\geq 0} \leq \underbrace{M_0}_{\geq
 0}|v_n| \leq M_0M_1.\]</span></p></li>
 </ol>
 </div>
-<div class="wrem">
+<div class="wdefi">
 <p>Soit <span class="math inline">\((u_n) \in
 \mathscr{F}(\mathbb{N},\mathbb{R})\)</span> majorée. <span
 class="math inline">\(A = \{u_n / n\in \mathbb{N}\}\)</span> est une
@@ -935,7 +932,7 @@ class="header-section-number">2.3.1</span> Definition</h3>
 class="math inline">\((u_n) \in
 \mathscr{F}(\mathbb{N},\mathbb{R})\)</span> et <span
 class="math inline">\(\ell \in \mathbb{R}\)</span>. On dit que <span
-class="math inline">\(u_n\)</span> converge vers <span
+class="math inline">\((u_n)\)</span> converge vers <span
 class="math inline">\(\ell\)</span> ou tend vers <span
 class="math inline">\(\ell\)</span> ou admet <span
 class="math inline">\(\ell\)</span> comme limite quand <span
@@ -943,14 +940,15 @@ class="math inline">\(n\)</span> tend vers <span
 class="math inline">\(+\infty\)</span> si <span
 class="math display">\[\forall \varepsilon &gt; 0, \exists N_\varepsilon
 &gt; 0 / \forall n \geq N_\varepsilon, |u_n-\ell| \leq
-\varepsilon\]</span> et cette formulation sera préférée dans la suite.
-Dans ce cas, on écrit <span class="math inline">\(u_n \underset{n
-\rightarrow +\infty}{\longrightarrow} \ell\)</span>.</p>
+\varepsilon.\]</span> Dans ce cas, on écrit <span
+class="math inline">\(u_n \underset{n \rightarrow
++\infty}{\longrightarrow} \ell\)</span>.</p>
 </div>
 <p>Soit <span class="math inline">\(n \in \mathbb{N}, \varepsilon &gt;
 0\)</span>, pour rappel, <span class="math inline">\(|u_n-\ell| \leq
 \varepsilon
-\iff u_n \in [\ell - \varepsilon, \ell + \varepsilon]\)</span>.</p>
+\iff u_n \in [\ell - \varepsilon, \ell + \varepsilon]\)</span> et on
+peut illustrer la définition de la convergence comme ci-dessous.</p>
 <div class="center">
 <p><img src="limite_suite_2.png" alt="image" /></p>
 </div>
@@ -974,17 +972,18 @@ class="math inline">\(\frac{1}{2}\varepsilon\)</span> au lieu de <span
 class="math inline">\(\varepsilon\)</span>.</p>
 <div class="wproof">
 <ul>
-<li><p>Si pour tout <span class="math inline">\(\varepsilon &gt; 0,
-\exists N_\varepsilon &gt; 0 / \forall n \geq N_\varepsilon, |u_n-\ell|
-\leq \varepsilon\)</span>,</p>
+<li><p>(<span class="math inline">\(\Longrightarrow\)</span>) Si pour
+tout <span class="math inline">\(\varepsilon &gt; 0, \exists
+N_\varepsilon &gt; 0 / \forall n \geq N_\varepsilon, |u_n-\ell| \leq
+\varepsilon\)</span>,</p>
 <p>alors pour tout <span class="math inline">\(\alpha &gt; 0\)</span>,
 en prenant <span class="math inline">\(\varepsilon = C \alpha &gt;
 0\)</span> et <span class="math inline">\(N_\alpha =
 N_\varepsilon\)</span>, <span class="math display">\[\forall n \geq
 N_\alpha, |u_n-\ell| \leq C\alpha.\]</span></p></li>
-<li><p>Si pour tout <span class="math inline">\(\alpha &gt; 0, \exists
-N_\alpha &gt; 0 / \forall n \geq N_\alpha, |u_n-\ell| \leq
-C\alpha\)</span>,</p>
+<li><p>(<span class="math inline">\(\Longleftarrow\)</span>) Si pour
+tout <span class="math inline">\(\alpha &gt; 0, \exists N_\alpha &gt; 0
+/ \forall n \geq N_\alpha, |u_n-\ell| \leq C\alpha\)</span>,</p>
 <p>alors pour tout <span class="math inline">\(\varepsilon &gt;
 0\)</span>, en prenant <span class="math inline">\(\alpha =
 \frac{\varepsilon}{C} &gt; 0\)</span> et <span
@@ -1097,7 +1096,9 @@ class="math inline">\((u_n)\)</span> tend vers <span
 class="math inline">\(0\)</span>.</p>
 <ul>
 <li><p>Si <span class="math inline">\(q=0\)</span>, <span
-class="math inline">\((u_n)\)</span> est stationnaire.</p></li>
+class="math inline">\((u_n)\)</span> est stationnaire à <span
+class="math inline">\(0\)</span> à partir de <span
+class="math inline">\(n=1\)</span>.</p></li>
 <li><p>Si <span class="math inline">\(q \neq 0\)</span>, <span
 class="math inline">\(\frac{1}{|q|} &gt; 1\)</span> donc <span
 class="math inline">\(\frac{1}{|q|} = 1+\alpha\)</span> avec <span
@@ -1138,17 +1139,19 @@ class="math inline">\(\varepsilon=1 &gt; 0\)</span>, il existe <span
 class="math inline">\(N \in \mathbb{N}\)</span> tel que pour tout <span
 class="math inline">\(n\geq N\)</span>, <span
 class="math display">\[|u_n-\ell| \leq \varepsilon \Longrightarrow
-u_n-\ell \leq 1 \Longrightarrow u_n \leq \ell +1.\]</span></p>
+\left|u_n\right| = \left|u_n-\ell+\ell\right|
+\leq\left|u_n-\ell\right|+\left|\ell\right| \leq
+1+\left|\ell\right|.\]</span></p>
 <ul>
 <li><p>Soit <span class="math inline">\(N = 0\)</span> et alors <span
 class="math inline">\(\forall n \geq N, u_n \leq
-\ell+1\)</span>.</p></li>
+1+\left|\ell\right|\)</span>.</p></li>
 <li><p>Soit <span class="math inline">\(N &gt; 0\)</span> et alors la
 partie non vide et finie de <span
 class="math inline">\(\mathbb{R}\)</span> <span
-class="math inline">\(A:=\{|u_n| / n &lt; N\}\)</span> admet un maximum.
+class="math inline">\(A:=\{|u_n| / n &lt; N\}\)</span> admet un maximum
 et on a alors <span class="math display">\[\forall n \geq 0, |u_n| \leq
-\max(\max A,\ell+1).\]</span></p></li>
+\max(\max A,1+\left|\ell\right|).\]</span></p></li>
 </ul>
 </div>
 <div class="wrem">
@@ -1202,7 +1205,7 @@ class="math display">\[|a-b| \geq \left||a|-|b|\right|\]</span></p>
 <p><span class="math display">\[|a| = |a-b+b| \leq |a-b|+|b| \iff
 |a|-|b| \leq |a-b|.\]</span></p>
 <p>D’autre part, <span class="math display">\[|b| = |b-a+a| \leq
-|b-a|+|a| = |a-b|+|a| \iff |b|-|a| \leq |a-b| \iff |b|-|a| \geq
+|b-a|+|a| = |a-b|+|a| \iff |b|-|a| \leq |a-b| \iff |a|-|b| \geq
 -|a-b|.\]</span></p>
 </div>
 <p>Poursuivons donc la preuve de la proposition.<span
@@ -1319,7 +1322,7 @@ N\)</span>,</p>
 \ell_1(v_n-\ell_2)| \leq |v_n|
 |u_n-\ell_1|+|\ell_1||v_n-\ell_2|.\]</span></p>
 <p>Or comme <span class="math inline">\((v_n)\)</span> est convergente,
-elle est bornée et donc il existe <span class="math inline">\(M_1 \in
+elle est bornée et donc il existe <span class="math inline">\(M_0 \in
 \mathbb{R}^+\)</span> tel que pour tout <span
 class="math inline">\(n\geq 0, |v_n| \leq M_0\)</span>.</p>
 <p>On en déduit pour pour <span class="math inline">\(n \geq
@@ -1350,7 +1353,7 @@ tel que <span class="math display">\[\forall n \geq N_\varepsilon, |u_n|
 <p>On a donc</p>
 <p><span class="math display">\[\forall n \geq N_\varepsilon, |u_nv_n| =
 |u_n|\underbrace{|v_n|}_{\geq 0} \leq \underbrace{\varepsilon}_{\geq
-0}|v_n| \geq \varepsilon M_0.\]</span> Donc <span
+0}|v_n| \leq \varepsilon M_0.\]</span> Donc <span
 class="math inline">\((u_nv_n)\)</span> tend vers <span
 class="math inline">\(0\)</span>.</p>
 </div>
@@ -1399,8 +1402,7 @@ respectives <span
 class="math inline">\(\ell_1,\ell_2\in\mathbb{R}\)</span>.</p>
 <p>On suppose qu’il existe <span class="math inline">\(N \geq 0\)</span>
 tel que <span class="math display">\[\forall n \geq N, u_n \leq
-v_n\]</span></p>
-<p>et on a alors <span class="math display">\[\ell_1 \leq
+v_n.\]</span> Alors, <span class="math display">\[\ell_1 \leq
 \ell_2.\]</span></p>
 </div>
 <div class="wproof">
@@ -1463,30 +1465,6 @@ v_n-\ell \leq \varepsilon \Longrightarrow |v_n-\ell| \leq
 <p>Donc <span class="math inline">\((v_n)\)</span> est convergente de
 limite <span class="math inline">\(\ell\)</span>.</p>
 </div>
-<div class="wprop">
-<p>Soit <span class="math inline">\(a \in \mathbb{R}\)</span>, il existe
-<span class="math inline">\((r_n)\)</span> suite à valeurs dans <span
-class="math inline">\(\mathbb{Q}\)</span> telles que <span
-class="math inline">\((r_n)\)</span> tend vers <span
-class="math inline">\(a\)</span>. On dit que <span
-class="math inline">\(\mathbb{Q}\)</span> est dense dans <span
-class="math inline">\(\mathbb{R}\)</span>.</p>
-</div>
-<div class="wproof">
-<p>Soit <span class="math inline">\(n \geq 0\)</span>, il existe <span
-class="math inline">\(p_n \in \mathbb{Z}\)</span> tel que <span
-class="math display">\[\frac{p_n}{10^n} \leq a &lt;
-\frac{p_n}{10^n}+\frac{1}{10^n}.\]</span></p>
-<p>En posant <span class="math inline">\(r_n = \frac{p_n}{10^n}\)</span>
-pour <span class="math inline">\(n \in \mathbb{N}\)</span>, <span
-class="math inline">\(r_n \in \mathbb{Q}\)</span> et pour tout <span
-class="math inline">\(n \in \mathbb{N}\)</span>, <span
-class="math display">\[0 \leq a-r_n \leq \frac{1}{10^n}\]</span> On en
-déduit que <span class="math inline">\((r_n-a)\)</span> tend vers <span
-class="math inline">\(0\)</span> donc <span
-class="math inline">\(r_n\)</span> tend vers <span
-class="math inline">\(a\)</span>.</p>
-</div>
 <div class="wex">
 <p><strong>(Limite par encadrement)</strong></p>
 <p><strong>Exercice</strong> — Soit <span
@@ -1501,7 +1479,8 @@ convergence de <span class="math inline">\((u_n)\)</span>.</p>
 ]\!]\)</span>,</p>
 <p><span class="math display">\[\begin{aligned}
         1 \leq k \leq 3n
-        &amp; \iff n^2 \leq k+n^2 \leq n^2+3n \\
+        &amp; \Longrightarrow 0 \leq k \leq 3n  \\
+        &amp; \Longrightarrow n^2 \leq k+n^2 \leq n^2+3n \\
         &amp; \Longrightarrow n^2 \leq k+n^2  \leq n^2+4n+4\\
         &amp;  \Longrightarrow  n^2 \leq k+n^2  \leq(n+2)^2 \\
         &amp; \Longrightarrow n \leq \sqrt{n^2+k} \leq n+2 \\
@@ -1543,7 +1522,7 @@ out <span class="math inline">\(n\geq 1\)</span>, <span
 class="math inline">\(|a_n| \leq 1\)</span>.</p>
 <p>et pour <span class="math inline">\(n\geq 1\)</span>, <span
 class="math display">\[\begin{aligned}
-    |sin^2 n| \geq 1
+    |\sin^2 n| \geq 1
     &amp; \Longrightarrow n^2-1 \leq n^2+\sin^2 n \leq n^2+1 \\
     &amp; \Longrightarrow \sqrt{n^2-1} \leq \sqrt{n^2+\sin^2 n} \leq
 \sqrt{n^2+1} \text{ par croissance de $\sqrt{\cdot}$,} \\
@@ -1568,6 +1547,30 @@ class="math inline">\(\frac{1}{n}\frac{1}{\sqrt{1\pm\frac{1}{n^2}}+1 }
 \underset{n\longrightarrow+\infty}{\longrightarrow} 0\)</span> et donc
 <span class="math inline">\(u_n
 \underset{n\longrightarrow+\infty}{\longrightarrow} 0\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(a \in \mathbb{R}\)</span>, il existe
+<span class="math inline">\((r_n)\)</span> suite à valeurs dans <span
+class="math inline">\(\mathbb{Q}\)</span> telles que <span
+class="math inline">\((r_n)\)</span> tend vers <span
+class="math inline">\(a\)</span>. On dit que <span
+class="math inline">\(\mathbb{Q}\)</span> est dense dans <span
+class="math inline">\(\mathbb{R}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(n \geq 0\)</span>, il existe <span
+class="math inline">\(p_n \in \mathbb{Z}\)</span> tel que <span
+class="math display">\[\frac{p_n}{10^n} \leq a &lt;
+\frac{p_n}{10^n}+\frac{1}{10^n}.\]</span></p>
+<p>En posant <span class="math inline">\(r_n = \frac{p_n}{10^n}\)</span>
+pour <span class="math inline">\(n \in \mathbb{N}\)</span>, <span
+class="math inline">\(r_n \in \mathbb{Q}\)</span> et pour tout <span
+class="math inline">\(n \in \mathbb{N}\)</span>, <span
+class="math display">\[0 \leq a-r_n \leq \frac{1}{10^n}\]</span> On en
+déduit que <span class="math inline">\((r_n-a)\)</span> tend vers <span
+class="math inline">\(0\)</span> donc <span
+class="math inline">\(r_n\)</span> tend vers <span
+class="math inline">\(a\)</span>.</p>
 </div>
 <h2 data-number="2.7" id="convergence-des-suites-monotones"><span
 class="header-section-number">2.7</span> Convergence des suites
@@ -1617,9 +1620,10 @@ et de plus <span class="math inline">\(u_{N_\varepsilon} \leq
 <p>On a donc</p>
 <p><span class="math display">\[u_{N_\varepsilon} \leq \ell &lt;
 u_{N_\varepsilon}+ \varepsilon.\]</span></p>
-<p>De plus, comme <span class="math inline">\((u_n)\)</span> est
-croissante, pour tout <span class="math inline">\(n \geq
-N_\varepsilon\)</span>,</p>
+<p>Enfin, pour tout <span class="math inline">\(n \geq 0\)</span>, <span
+class="math inline">\(u_n \leq \ell\)</span> et comme <span
+class="math inline">\((u_n)\)</span> est croissante, pour tout <span
+class="math inline">\(n \geq N_\varepsilon\)</span>,</p>
 <p><span class="math display">\[u_{n} \leq \ell &lt; u_{N_\varepsilon}+
 \varepsilon \leq u_n + \varepsilon \Longrightarrow u_{n}-\varepsilon
 \leq \ell \leq u_n + \varepsilon \Longrightarrow |u_n - \ell| \leq
@@ -1664,7 +1668,7 @@ class="math inline">\((v_n)\)</span> sont dites adjacentes si</p>
 croissante,</p></li>
 <li><p><span class="math inline">\((v_n)\)</span> est
 décroissante,</p></li>
-<li><p><span class="math inline">\(u_n-v_n \underset{n
+<li><p><span class="math inline">\(v_n-u_n \underset{n
 \rightarrow+\infty}{\longrightarrow} 0\)</span>.</p></li>
 </ol>
 </div>
@@ -1691,18 +1695,17 @@ N\)</span>, <span class="math display">\[u_n - v_n \leq 1
 en exploitant la décroissance de <span
 class="math inline">\((v_n)\)</span>. Donc <span
 class="math inline">\((u_n)\)</span> est une suite croissante et majorée
-par <span class="math inline">\(\max (u_0, \ldots, u_{N-1},
-v_N+1)\)</span> et admet une limite <span class="math inline">\(\ell \in
-\mathbb{R}\)</span>.</p>
+par <span class="math inline">\(v_N+1\)</span> et admet une limite <span
+class="math inline">\(\ell \in \mathbb{R}\)</span>.</p>
 <p>D’autre part, <span class="math display">\[u_n - v_n \leq 1
 \Longrightarrow v_n \geq u_n-1 \Longrightarrow v_n \geq
 u_N-1\]</span></p>
 <p>en exploitant la croissance de <span
 class="math inline">\((u_n)\)</span>. Donc <span
 class="math inline">\((v_n)\)</span> est une suite décroissante et
-minorée par <span class="math inline">\(\min (v_0, \ldots, v_{N-1},
-u_N-1)\)</span> et admet une limite <span
-class="math inline">\(\ell&#39; \in \mathbb{R}\)</span>.</p>
+minorée par <span class="math inline">\(u_N-1\)</span> et admet une
+limite <span class="math inline">\(\ell&#39; \in
+\mathbb{R}\)</span>.</p>
 <p>On en déduit <span class="math inline">\(u_n-v_n \underset{n
 \rightarrow+\infty}{\longrightarrow} \ell-\ell&#39;\)</span> et par
 unicité de la limite, <span class="math inline">\(\ell-\ell&#39; = 0
@@ -1805,20 +1808,34 @@ class="math inline">\(\varphi(n) \geq N_\varepsilon\)</span> par le
 lemme <a href="#lem:extractrice" data-reference-type="ref"
 data-reference="lem:extractrice">[lem:extractrice]</a> donc pour <span
 class="math inline">\(n \geq N_\varepsilon\)</span>, <span
-class="math display">\[|u_{\varphi{n}} - \ell| \leq
+class="math display">\[|u_{\varphi(n)} - \ell| \leq
 \varepsilon.\]</span> Donc <span
 class="math inline">\((u_{\varphi(n)})\)</span> converge vers <span
 class="math inline">\(\ell\)</span>.</p>
 </div>
 <div class="wex">
-<p>Soit <span class="math inline">\((u_n)\)</span> définie par <span
+<ul>
+<li><p>Soit <span class="math inline">\((u_n)\)</span> définie par <span
 class="math inline">\(\forall k \geq 0, \begin{cases}
         u_{2k} &amp;=\frac{1}{2k+1} \\
         u_{2k+1} &amp; = k
     \end{cases}\)</span>,</p>
 <p><span class="math inline">\(\left(u_{2k+1}\right)\)</span> est non
 convergente car non bornée donc <span
-class="math inline">\((u_k)\)</span> est divergente.</p>
+class="math inline">\((u_k)\)</span> est divergente.</p></li>
+<li><p>On peut retrouver que <span class="math inline">\((u_n)\)</span>
+définie par <span class="math inline">\(u_n = (-1)^n\)</span> pour tout
+<span class="math inline">\(n \geq 0\)</span> est divergente.</p>
+<p>En effet, la suite extraite <span
+class="math inline">\(\left(u_{2n}\right)\)</span> est constante égale à
+<span class="math inline">\(1\)</span> et converge donc vers <span
+class="math inline">\(1\)</span> tandis que la suite extraite <span
+class="math inline">\(\left(u_{2n+1}\right)\)</span> est constante égale
+à <span class="math inline">\(-1\)</span> et converge donc vers <span
+class="math inline">\(-1\)</span>.</p>
+<p>Or, par l’absurde, si cette suite était convergente, toute suite
+extraite aurait même limite.</p></li>
+</ul>
 </div>
 <h3 data-number="2.9.2" id="théorème-de-bolzano-weierstrass"><span
 class="header-section-number">2.9.2</span> Théorème de
@@ -1897,16 +1914,16 @@ class="math inline">\(\varphi\)</span> ainsi.</p>
 <ul>
 <li><ul>
 <li><p>Si <span class="math inline">\(E\)</span> est fini non vide, on
-pose <span class="math inline">\(\varphi(0) =
-\max(E)+1\)</span></p></li>
+pose <span class="math inline">\(\varphi(0) = n_0= \max(E)+1 \notin
+E\)</span>.</p></li>
 <li><p>Si <span class="math inline">\(E\)</span> est vide, on pose <span
-class="math inline">\(n_0 = 0\)</span>.</p></li>
+class="math inline">\(\varphi(0) = n_0 = 0 \notin E\)</span>.</p></li>
 </ul></li>
 <li><p><span class="math inline">\(\varphi(0) \notin E\)</span>. donc il
 existe <span class="math inline">\(n_1 &gt; \varphi(0)\)</span> tel que
-<span class="math inline">\(u_{n_1} &lt; u_{n_0}\)</span>. De plus,
-<span class="math inline">\(\varphi(0) &gt; \max E\)</span> si <span
-class="math inline">\(E\)</span> est non vide donc <span
+<span class="math inline">\(u_{n_1} &lt; u_{\varphi(0)}\)</span>. De
+plus, <span class="math inline">\(\varphi(0) &gt; \max E\)</span> si
+<span class="math inline">\(E\)</span> est non vide donc <span
 class="math inline">\(n_1 \notin E\)</span>. On pose <span
 class="math inline">\(\varphi(1) = n_1\)</span>. On a alors <span
 class="math inline">\(\varphi(1) &gt; \varphi(0)\)</span>, <span
@@ -1987,6 +2004,12 @@ class="math display">\[\forall A \in \mathbb{R}, \exists N_A \in
 \rightarrow+\infty}{\longrightarrow}-\infty\)</span>.</p></li>
 </ul>
 </div>
+<div class="wrem">
+<p>Comme pour les <span class="math inline">\(\varepsilon\)</span> avec
+la définition de la convergence, on peut remplacer <span
+class="math inline">\(A\)</span> par <span class="math inline">\(\alpha
+A\)</span>.</p>
+</div>
 <div class="wprop">
 <p>Soient <span class="math inline">\((u_n),(v_n) \in
 \mathscr{F}(\mathbb{N},\mathbb{R})\)</span> telles que <span
@@ -2004,11 +2027,11 @@ class="math display">\[\forall n \geq 0, v_n \leq m.\]</span></p>
 \rightarrow+\infty}{\longrightarrow}+\infty\)</span> donc pour <span
 class="math inline">\(A \in \mathbb{R}\)</span>, il existe <span
 class="math inline">\(N_A \in \mathbb{R}\)</span> tel que pour <span
-class="math inline">\(n \geq N_A\)</span>,</p>
-<p><span class="math display">\[u_n \geq A.\]</span></p>
-<p>On en déduit que pour <span class="math inline">\(n \geq
-N_A\)</span>, <span class="math display">\[u_n + v_n \geq m+A\]</span>
-donc <span class="math display">\[u_n+v_n \underset{n
+class="math inline">\(n \geq N_A\)</span>, <span
+class="math inline">\(u_n \geq A.\)</span> On en déduit que pour <span
+class="math inline">\(n \geq N_A\)</span>, <span
+class="math display">\[u_n + v_n \geq m+A\]</span> donc <span
+class="math display">\[u_n+v_n \underset{n
 \rightarrow+\infty}{\longrightarrow}+\infty.\]</span></p>
 </div>
 <div class="wcor">
@@ -2039,11 +2062,11 @@ class="math display">\[\exists N \geq 0, \forall n \geq N, v_n \geq
 \rightarrow+\infty}{\longrightarrow}+\infty\)</span> donc pour <span
 class="math inline">\(A \in \mathbb{R}\)</span>, il existe <span
 class="math inline">\(N_A \in \mathbb{R}\)</span> tel que pour <span
-class="math inline">\(n \geq N_A\)</span>,</p>
-<p><span class="math display">\[u_n \geq A.\]</span></p>
+class="math inline">\(n \geq N_A\)</span>, <span
+class="math inline">\(u_n \geq A.\)</span></p>
 <p>On en déduit que pour <span class="math inline">\(n \geq
-\max(N_A,N)\)</span>, <span class="math display">\[u_n v_n \geq \alpha
-A\]</span> donc <span class="math display">\[u_nv_n \underset{n
+\max(N_A,N)\)</span>, <span class="math inline">\(u_n v_n \geq \alpha
+A\)</span> donc <span class="math display">\[u_nv_n \underset{n
 \rightarrow+\infty}{\longrightarrow}+\infty.\]</span></p>
 </div>
 <div class="wcor">
@@ -2062,10 +2085,10 @@ class="math display">\[u_nv_n \underset{n
 <p>Soit <span class="math inline">\((u_n) \in
 \mathscr{F}(\mathbb{N},\mathbb{R})\)</span> telles que <span
 class="math inline">\(u_n \underset{n
-\rightarrow+\infty}{\longrightarrow}+\infty\)</span> et il existe <span
-class="math inline">\(N \geq 0\)</span> tel que <span
-class="math display">\[\exists N \geq 0, \forall n \geq N, u_n  &gt;
-0.\]</span> Alors, <span class="math display">\[\frac{1}{u_n}\underset{n
+\rightarrow+\infty}{\longrightarrow}+\infty\)</span>. Alors, il existe
+<span class="math inline">\(N \geq 0\)</span> tel que <span
+class="math display">\[\forall n \geq N, u_n  &gt; 0.\]</span> Alors,
+<span class="math display">\[\frac{1}{u_n}\underset{n
 \rightarrow+\infty}{\longrightarrow}0.\]</span></p>
 </div>
 <div class="wproof">
@@ -2073,14 +2096,21 @@ class="math display">\[\exists N \geq 0, \forall n \geq N, u_n  &gt;
 \rightarrow+\infty}{\longrightarrow}+\infty\)</span> donc pour <span
 class="math inline">\(A \in \mathbb{R}\)</span>, il existe <span
 class="math inline">\(N_A \in \mathbb{R}\)</span> tel que pour <span
-class="math inline">\(n \geq N_A\)</span>,</p>
-<p><span class="math display">\[u_n \geq A.\]</span></p>
-<p>En prenant <span class="math inline">\(A =
+class="math inline">\(n \geq N_A\)</span>, <span
+class="math inline">\(u_n \geq A.\)</span> En prenant <span
+class="math inline">\(A=1\)</span>, il existe <span
+class="math inline">\(N \in \mathbb{N}\)</span> tel que pour tout <span
+class="math inline">\(n \geq N\)</span>, <span class="math inline">\(u_n
+\geq 1 &gt; 0\)</span>.</p>
+<p>Ensuite, en prenant <span class="math inline">\(A =
 \frac{1}{\varepsilon}\)</span> avec <span
 class="math inline">\(\varepsilon &gt; 0\)</span> alors pour <span
 class="math inline">\(n \geq \max(N_{\frac{1}{\varepsilon}},N)\)</span>,
-<span class="math display">\[-\varepsilon &lt; 0 &lt; \frac{1}{u_n} \leq
-\varepsilon,\]</span> donc <span
+<span class="math display">\[u_n \geq \frac{1}{\varepsilon}
+\Longrightarrow
+     0 &lt; \frac{1}{u_n} \leq \varepsilon\Longrightarrow
+     -\varepsilon \leq \frac{1}{u_n} \leq \varepsilon \Longrightarrow
+     \left|\frac{1}{u_n}\right| \leq \varepsilon\]</span> donc <span
 class="math display">\[\frac{1}{u_n}\underset{n
 \rightarrow+\infty}{\longrightarrow}0.\]</span></p>
 </div>
@@ -2089,7 +2119,9 @@ class="math display">\[\frac{1}{u_n}\underset{n
 = \frac{(-1)^n}{n+1}\)</span> alors <span class="math inline">\(u_n
 \underset{n \rightarrow+\infty}{\longrightarrow}0\)</span> mais <span
 class="math inline">\(\left(\frac{1}{u_n}\right)\)</span> n’admet pas de
-limite.</p>
+limite car <span class="math inline">\(u_{2n} \xrightarrow[n \to
++\infty]{}+\infty\)</span> et <span class="math inline">\(u_{2n+1}
+\xrightarrow[n \to +\infty]{}-\infty\)</span>.</p>
 </div>
 <div class="wrem">
 <p><strong>(Formes indéterminées)</strong> Soient <span
@@ -2125,10 +2157,10 @@ alors <span class="math inline">\(u_n \underset{n
 <p><span class="math inline">\((u_n)\)</span> est non majorée donc soit
 <span class="math inline">\(A \in \mathbb{R}\)</span>, il existe <span
 class="math inline">\(N_A \in \mathbb{N}\)</span> tel que <span
-class="math display">\[u_n &gt; A.\]</span> De plus, <span
-class="math inline">\((u_n)\)</span> est croissante donc pour tout <span
-class="math inline">\(n \geq N_A\)</span>, <span
-class="math display">\[u_n &gt; A.\]</span></p>
+class="math inline">\(u_n &gt; A.\)</span></p>
+<p>De plus, <span class="math inline">\((u_n)\)</span> est croissante
+donc pour tout <span class="math inline">\(n \geq N_A\)</span>, <span
+class="math inline">\(u_n &gt; A.\)</span></p>
 </div>
 <div class="wex">
 <p><span id="ex:suite_harmonique"
@@ -2149,9 +2181,18 @@ class="math display">\[u_{2n}-u_n =
 \displaystyle\sum_{k=n+1}^{2n}\frac{1}{k} \leq
 \sum_{k=n+1}^{2n}\frac{1}{2n} \geq \frac{2n-(n+1)+1}{2n} = \frac{1}{2}
 &gt; 0,\]</span> ce qui est contradictoire.</p>
+<p>On a donc <span class="math inline">\(u_n \xrightarrow[n \to
++\infty]{}+\infty\)</span>.</p>
 <p>On a donc un exemple tel que <span class="math inline">\(u_{n+1}-u_n
 \longrightarrow 0\)</span> mais <span
 class="math inline">\((u_n)\)</span> ne converge pas.</p>
+</div>
+<div class="wrem">
+<p>Les résultats présentés pour <span class="math inline">\(u_n
+\xrightarrow[n \to +\infty]{} +\infty\)</span> s’adapte à <span
+class="math inline">\(u_n \xrightarrow[n \to +\infty]{} -\infty\)</span>
+à quelques modifications près en remplaçant "minorée" par "majorée" par
+exemple.</p>
 </div>
 <h2 data-number="2.11" id="comparaison-de-suites"><span
 class="header-section-number">2.11</span> Comparaison de suites</h2>
@@ -2269,7 +2310,7 @@ autre</h3>
 <div class="wdefi">
 <p>Soient <span class="math inline">\((u_n), (v_n)\in
 \mathscr{F}(\mathbb{N},\mathbb{R})\)</span>. On dit que <span
-class="math inline">\((u_n)\)</span> est dominée <span
+class="math inline">\((u_n)\)</span> est équivalente à <span
 class="math inline">\((v_n)\)</span> quand <span
 class="math inline">\(n\)</span> tend vers <span
 class="math inline">\(+\infty\)</span> s’il existe <span
@@ -2283,13 +2324,6 @@ v_n\)</span> ou plus simplement <span class="math inline">\(u_n = \sim
 v_n\)</span>.</p>
 </div>
 <div class="wrem">
-<p>Maintenant, cette définition dépend aussi du signe de <span
-class="math inline">\((u_n)\)</span> et <span
-class="math inline">\((v_n)\)</span>. Par exemple, <span
-class="math inline">\(1+\frac{1}{n} \sim 1\)</span> mais <span
-class="math inline">\(1+\frac{1}{n} \not\sim -1\)</span>.</p>
-</div>
-<div class="wrem">
 <p>S’il existe <span class="math inline">\(N&#39; \geq 0\)</span> tel
 que pour tout <span class="math inline">\(n \geq N&#39;\)</span>, <span
 class="math inline">\(v_n &gt; 0\)</span> alors <span
@@ -2297,8 +2331,15 @@ class="math display">\[u_n \sim v_n \iff \frac{u_n}{v_n} \longrightarrow
 1.\]</span></p>
 </div>
 <div class="wrem">
-<p><span class="math inline">\(u_n \sim v_n \iff v_n \sim
-u_n\)</span>.</p>
+<p>Maintenant, cette définition dépend aussi du signe de <span
+class="math inline">\((u_n)\)</span> et <span
+class="math inline">\((v_n)\)</span>. Par exemple, <span
+class="math inline">\(1+\frac{1}{n} \sim 1\)</span> mais <span
+class="math inline">\(1+\frac{1}{n} \not\sim -1\)</span>.</p>
+</div>
+<div class="wrem">
+<p><span class="math display">\[u_n \sim v_n \iff v_n \sim
+u_n.\]</span></p>
 <div class="wproof">
 <p>Si <span class="math inline">\(u_n \sim v_n\)</span>, il existe <span
 class="math inline">\(N \in \mathbb{N}\)</span> et <span
@@ -2334,28 +2375,29 @@ u_n = v_n + t_n \text{ et }t_n = o(v_n).\]</span></p>
 </div>
 <div class="wproof">
 <ul>
-<li><p><span class="math inline">\(\Longrightarrow\)</span> Si <span
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
 class="math inline">\(u_n \sim v_n\)</span>, il existe <span
 class="math inline">\(N \in \mathbb{N}\)</span>, <span
 class="math inline">\((w_n) \in
 \mathscr{F}(\mathbb{N},\mathbb{R})\)</span> telle que <span
 class="math inline">\(w_n \longrightarrow 1\)</span> et <span
 class="math display">\[\forall n \geq N, u_n = v_n w_n.\]</span> Donc
-<span class="math display">\[\forall n \geq N, u_n = v_n+ v_n
-(w_n-1).\]</span> et <span class="math inline">\(v_n (w_n-1) =
+<span class="math display">\[\forall n \geq N, u_n = v_n (w_n-1+1)=v_n+
+v_n (w_n-1).\]</span> et <span class="math inline">\(v_n (w_n-1) =
 o(v_n)\)</span> car <span class="math inline">\(w_n-1 \longrightarrow
 0\)</span>.</p></li>
-<li><p><span class="math inline">\(\Longleftarrow\)</span> S’il existe
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> S’il existe
 <span class="math inline">\(N \in \mathbb{N}\)</span> et <span
 class="math inline">\((t_n)\in
 \mathscr{F}(\mathbb{N},\mathbb{R})\)</span> telle que <span
 class="math inline">\(\forall n \geq N, u_n = v_n + t_n \text{ et }t_n =
 o(v_n)\)</span>, alors <span class="math inline">\(u_n - v_n =
-o(v_n)\)</span> Donc il existe <span class="math inline">\((w_n) \in
+o(v_n)\)</span> donc il existe <span class="math inline">\((w_n) \in
 \mathscr{F}(\mathbb{N},\mathbb{R})\)</span> telle que <span
 class="math inline">\(w_n \longrightarrow 0\)</span> et <span
+class="math inline">\(N \in \mathbb{N}\)</span> tel que <span
 class="math display">\[\forall n \geq N, u_n -v_n= v_n w_n \iff u_n =
-v_n(1+w_n).\]</span> avec <span class="math inline">\(1+w_n
+v_n(1+w_n)\]</span> avec <span class="math inline">\(1+w_n
 \longrightarrow 1\)</span>.</p></li>
 </ul>
 </div>
@@ -2364,13 +2406,24 @@ v_n(1+w_n).\]</span> avec <span class="math inline">\(1+w_n
 \mathscr{F}(\mathbb{N},\mathbb{R})\)</span>, <span
 class="math display">\[u_n \sim v_n \iff \exists N \in \mathbb{N},
 \exists (t_n)\in \mathscr{F}(\mathbb{N},\mathbb{R}) / \forall n \geq N,
-u_n = v_n + t_n \text{ et }t_n = o(u_n)\]</span>.</p>
+u_n = v_n + t_n \text{ et }t_n = o(u_n).\]</span></p>
 </div>
 <div class="wproof">
-<p><span class="math display">\[u_n \sim v_n \iff v_n \sim u_n \iff
-\exists N \in \mathbb{N}, \exists (t_n)\in
+<p><span class="math display">\[\begin{aligned}
+    u_n \sim v_n
+    &amp; \iff v_n \sim u_n \\
+    &amp; \iff \exists N \in \mathbb{N}, \exists (t_n)\in
+\mathscr{F}(\mathbb{N},\mathbb{R}) / \forall n \geq N, v_n = u_n +
+t&#39;_n \text{ et }t&#39;_n = o(u_n) \\
+    &amp; \iff \exists N \in \mathbb{N}, \exists (t_n)\in
+\mathscr{F}(\mathbb{N},\mathbb{R}) / \forall n \geq N, u_n = v_n -
+t&#39;_n \text{ et }t&#39;_n = o(u_n) \\
+    &amp; \iff \exists N \in \mathbb{N}, \exists (t_n)\in
 \mathscr{F}(\mathbb{N},\mathbb{R}) / \forall n \geq N, u_n = v_n + t_n
-\text{ et }t_n = o(u_n).\]</span></p>
+\text{ et }t_n = o(u_n)
+    \end{aligned}\]</span> car si <span class="math inline">\(t&#39;_n =
+o(u_n)\)</span>, <span class="math inline">\(t_n = -t&#39;_n =
+o(u_n)\)</span>.</p>
 </div>
 </body>
 </html>
