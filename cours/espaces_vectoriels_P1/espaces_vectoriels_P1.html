@@ -292,7 +292,7 @@ x \in F, \alpha \in A, \alpha.x \in F.\]</span></p>
 class="math inline">\(A =\mathbb{R}\)</span> et <span
 class="math inline">\(.\)</span> tel que pour tout <span
 class="math inline">\(f \in E, \alpha \in \mathbb{R}, x \in \mathbb{R},
-(\alpha.f)(x) = \alpha x\)</span> alors <span
+(\alpha.f)(x) = \alpha f(x)\)</span> alors <span
 class="math inline">\(.\)</span> est une loi de composition externe dans
 <span class="math inline">\(E\)</span> à domaine d’opérations <span
 class="math inline">\(A\)</span>.</p>
@@ -450,9 +450,7 @@ class="math inline">\(n\)</span> <span
 class="math inline">\(\mathbb{K}\)</span>-espace vectoriel. On note en
 général sans ambiguité, <span class="math inline">\(+\)</span>, <span
 class="math inline">\(.\)</span> et <span
-class="math inline">\(-\)</span> au lieu de <span
-class="math inline">\(+_{E^n},._{E^n},-_{E^n},
-+_{E},._{E},-_{E^n}\)</span></p></li>
+class="math inline">\(-\)</span>.</p></li>
 </ul>
 </div>
 <h2 data-number="2.3"
@@ -506,11 +504,11 @@ class="math inline">\(\alpha.(-v) = -(\alpha.v)\)</span>.</p></li>
 \alpha.0_{E}+\alpha.0_{E}\)</span> par le point 2. de la définition <a
 href="#def:ev" data-reference-type="ref"
 data-reference="def:ev">[def:ev]</a>. Donc <span
-class="math inline">\(\alpha.0_{E} = \alpha.0_{E}+(-\alpha.0_{E}) =
-0_{E}\)</span>.</p></li>
+class="math inline">\(0_{E}= \alpha.0_{E}+(-\alpha.0_{E}) =
+\alpha.0_{E}\)</span>.</p></li>
 <li><p>Soient <span class="math inline">\(v \in E\)</span>, <span
 class="math inline">\(\alpha \in \mathbb{K}\)</span>, <span
-class="math inline">\(0_{E} = \alpha.(v-v) = \alpha.v +
+class="math inline">\(0_{E} = \alpha.0_{E}= \alpha.(v-v) = \alpha.v +
 \alpha.(-v)\)</span> par le point 2. de la définition <a href="#def:ev"
 data-reference-type="ref" data-reference="def:ev">[def:ev]</a>. Donc
 <span class="math inline">\(\alpha.(-v) = -(\alpha.v)\)</span>.</p></li>
@@ -537,7 +535,7 @@ class="math inline">\(\frac{1}{\alpha}\)</span>.</p>
 <p>De plus, par le point 4. de la définition <a href="#def:ev"
 data-reference-type="ref" data-reference="def:ev">[def:ev]</a>, <span
 class="math inline">\(\frac{1}{\alpha}.(\alpha.v ) =
-\frac{\alpha}{alpha}.v = 1.v = v\)</span> par le point 5. de la
+\frac{\alpha}{\alpha}.v = 1.v = v\)</span> par le point 5. de la
 définition <a href="#def:ev" data-reference-type="ref"
 data-reference="def:ev">[def:ev]</a>.</p>
 <p>Donc <span class="math inline">\(v = 0_{E}\)</span>.</p></li>
@@ -661,9 +659,9 @@ soient <span class="math inline">\(v_0,v \in E\)</span>. S’il existe
 class="math inline">\(v = \lambda v_0\)</span>, on dit que <span
 class="math inline">\(v\)</span> est <u>colinéaire</u> à <span
 class="math inline">\(v_0\)</span>.</p>
-<p>Définissons <span class="math inline">\(D_{v_0} = \left\{\alpha v_0 /
-\alpha \in \mathbb{K}\right\}\)</span> qui est un sous-espace vectoriel
-de <span class="math inline">\(E\)</span> comme montré dans l’exemple
+<p><span class="math inline">\(D_{v_0} = \left\{\alpha v_0 / \alpha \in
+\mathbb{K}\right\}\)</span> est un sous-espace vectoriel de <span
+class="math inline">\(E\)</span> comme montré dans l’exemple
 précédent.</p>
 <ul>
 <li><p>Si <span class="math inline">\(v_0 = 0_{E}, D_{v_0} =
@@ -690,8 +688,8 @@ class="math inline">\(\begin{array}{lllll}
 \end{array}\)</span>.</p>
 <p>Alors, de nouveau avec <span class="math inline">\(D_{v_0} =
 \left\{\alpha v_0 / \alpha \in \mathbb{K}\right\}\)</span> et en notant
-<span class="math inline">\(M_0 = \varphi(v_0)\)</span>,</p>
-<p><span class="math display">\[\begin{aligned}
+<span class="math inline">\(M_0 = \varphi(v_0)\)</span>, <span
+class="math display">\[\begin{aligned}
         &amp;M \in \varphi(D_{v_0}) \\
          &amp; \iff \exists (x,y) \in D_{v_0} / M = \varphi(x,y) \\
         &amp; \iff \exists \alpha \in \mathbb{R}/ M = (\alpha x_0,
@@ -787,7 +785,7 @@ class="math inline">\(v_1,\ldots,v_n\)</span>.</p>
 G\)</span>.</p></li>
 <li><p>De plus, en tant que sous-espace vectoriel de <span
 class="math inline">\(E\)</span>, <span class="math inline">\(G\)</span>
-est stable par <span class="math inline">\(+\)</span> donc pour tout
+est stable par <span class="math inline">\(.\)</span> donc pour tout
 <span class="math inline">\(i \in [\![ 1,n ]\!]\)</span>, pour tout
 <span class="math inline">\(\alpha_i \in \mathbb{K}\)</span>, <span
 class="math inline">\(\alpha_i v_i \in G\)</span>.</p></li>
@@ -953,14 +951,8 @@ class="math inline">\(E\)</span>, on cherche le plus petit sous-espace
 vectoriel de <span class="math inline">\(E\)</span> qui contient <span
 class="math inline">\(F\)</span> et <span
 class="math inline">\(G\)</span>. Une piste envisageable est <span
-class="math inline">\(F \cup G\)</span>. On a bien <span
-class="math inline">\(0_{E} \in F\cup G\)</span>. De plus, si <span
-class="math inline">\(u \in F \cup G\)</span>, si <span
-class="math inline">\(u \in F\)</span> donc pour tout <span
-class="math inline">\(\alpha \in \mathbb{K}\)</span>, <span
-class="math inline">\(\alpha u \in F \subset F \cup G\)</span> et de
-même si <span class="math inline">\(u \in G\)</span>. En revanche,
-montrons sur un exemple qu’on a en général pas la stabilité par ".".</p>
+class="math inline">\(F \cup G\)</span> mais ce n’est en général pas un
+espace vectoriel comme illustré ci-dessous.</p>
 <div class="wex">
 <div class="webtextfigure">
 <div class="webtext">
@@ -1233,7 +1225,8 @@ class="math inline">\(u\)</span>, <span class="math inline">\(u =
 \left\{0_{E}\right\}\)</span>.</p>
 <p>De plus, comme <span class="math inline">\(F \cap G\)</span> est un
 sous-espace vectoriel de <span class="math inline">\(E\)</span>, <span
-class="math inline">\(F \cap G \supset
+class="math inline">\(F \cap G \supset \left\{0_{E}\right\}\)</span> et
+<span class="math inline">\(F \cap G =
 \left\{0_{E}\right\}\)</span>.</p></li>
 <li><p><span class="math inline">\((\Longleftarrow)\)</span> Si <span
 class="math inline">\(F \cap G = \left\{0_{E}\right\}\)</span>, soit
@@ -1391,8 +1384,8 @@ class="math inline">\(x \in \mathbb{R}\)</span>, <span
 class="math inline">\((\alpha f_1+f_2)(-x) = \alpha f_1(-x) + f_2(-x) =
 \alpha f_1(x) + f_2(x) = (\alpha f_1+f_2)(x)\)</span>. Donc <span
 class="math inline">\(\alpha f_1+f_2 \in P\)</span>.</p></li>
-</ul></li>
-<li><p>Montrons que <span class="math inline">\(I\)</span> est un
+</ul>
+<p>Montrons que <span class="math inline">\(I\)</span> est un
 sous-espace vectoriel de <span class="math inline">\(E\)</span>.</p>
 <ul>
 <li><p>La fonction nulle est impaire donc <span
@@ -1410,8 +1403,8 @@ class="math inline">\(\alpha f_1+f_2 \in I\)</span>.</p></li>
 <span class="math inline">\(h = f+g\)</span>. Procédons par
 analyse-synthèse.</p>
 <ul>
-<li><p>Si <span class="math inline">\(h = f+g\)</span> avec <span
-class="math inline">\(f \in P,g \in I\)</span> alors pour <span
+<li><p>(Analyse) Si <span class="math inline">\(h = f+g\)</span> avec
+<span class="math inline">\(f \in P,g \in I\)</span> alors pour <span
 class="math inline">\(x \in \mathbb{R}\)</span>,</p>
 <p><span class="math display">\[\begin{aligned}
                 \begin{cases}
@@ -1429,9 +1422,9 @@ class="math inline">\(x \in \mathbb{R}\)</span>,</p>
                 \end{aligned}\]</span> Donc <span
 class="math inline">\(f\)</span> et <span
 class="math inline">\(g\)</span> sont uniques.</p></li>
-<li><p>Vérifions que <span class="math inline">\(f,g\)</span> tels que
-pour tout <span class="math inline">\(x \in \mathbb{R}\)</span>, <span
-class="math inline">\(\begin{cases}
+<li><p>(Synthèse) Vérifions que <span class="math inline">\(f,g\)</span>
+tels que pour tout <span class="math inline">\(x \in
+\mathbb{R}\)</span>, <span class="math inline">\(\begin{cases}
                     f(x) &amp; = \frac{h(x)+h(-x)}{2} \\
                     g(x) &amp; = \frac{h(x)-h(-x)}{2}.
                 \end{cases}\)</span> conviennent.</p>
@@ -1497,10 +1490,9 @@ class="math inline">\(v\in E, f(-v) = -f(v)\)</span>.</p>
 <p>Soient <span class="math inline">\(E,F\)</span> deux <span
 class="math inline">\(\mathbb{K}\)</span>-espaces vectoriels et <span
 class="math inline">\(f \in \mathscr{F}(E,F)\)</span>.</p>
-<p><span class="math inline">\(f\)</span> est linéaire <span
-class="math inline">\(\iff\)</span> <span class="math inline">\(\forall
-u,v \in E, \lambda \in \mathbb{K}\)</span>, <span
-class="math inline">\(f(u+\lambda v) = f(u) + \lambda f(v)\)</span>.</p>
+<p><span class="math display">\[\text{$f$ est linéaire $\iff$ $\forall
+u,v \in E, \lambda \in \mathbb{K}$, $f(u+\lambda v) = f(u) + \lambda
+f(v)$.}\]</span></p>
 </div>
 <div class="wproof">
 <ul>
@@ -1730,7 +1722,7 @@ class="math inline">\(f_{|S} \in \mathscr{L}(S,F)\)</span>.</p>
 <h2 data-number="3.5" id="noyau-dune-application-linéaire"><span
 class="header-section-number">3.5</span> Noyau d’une application
 linéaire</h2>
-<div class="wprop">
+<div class="wdefi">
 <p>Soient <span class="math inline">\(E,F\)</span> deux <span
 class="math inline">\(\mathbb{K}\)</span>-espace vectoriels et <span
 class="math inline">\(f \in \mathscr{L}(E,F)\)</span>.</p>
@@ -1738,12 +1730,16 @@ class="math inline">\(f \in \mathscr{L}(E,F)\)</span>.</p>
 son noyau en tant que morphisme de groupes de <span
 class="math inline">\((E,+)\)</span> dans <span
 class="math inline">\((F,+)\)</span> et on le note <span
-class="math inline">\(\mathop{\mathrm{Ker}}f\)</span>.</p>
-<p>On rappelle <span class="math inline">\(\mathop{\mathrm{Ker}}f =
-\left\{x \in E / f(x) = 0_{F}\right\}\)</span>.</p>
-<p>Alors, <span class="math inline">\(\mathop{\mathrm{Ker}}f\)</span>
-est un sous-espace vectoriel de <span
-class="math inline">\(E\)</span>.</p>
+class="math inline">\(\mathop{\mathrm{Ker}}f\)</span> ie <span
+class="math inline">\(\mathop{\mathrm{Ker}}f = \left\{x \in E / f(x) =
+0_{F}\right\}\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(E,F\)</span> deux <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriels et <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span>. Alors, <span
+class="math inline">\(\mathop{\mathrm{Ker}}f\)</span> est un sous-espace
+vectoriel de <span class="math inline">\(E\)</span>.</p>
 </div>
 <div class="wproof">
 <ol>
@@ -1754,7 +1750,7 @@ class="math inline">\(E\)</span>.</p>
 \mathop{\mathrm{Ker}}f\)</span> et <span class="math inline">\(\lambda
 \in \mathbb{K}\)</span>,</p>
 <p>alors <span class="math inline">\(f(u+\lambda v) = f(u) + \lambda
-f(v) = 0_{E} + \lambda 0_{E} = 0_{E}\)</span> donc <span
+f(v) = 0_{F} + \lambda 0_{F} = 0_{F}\)</span> donc <span
 class="math inline">\(u+\lambda v \in
 \mathop{\mathrm{Ker}}f\)</span>.</p></li>
 </ol>
@@ -1779,11 +1775,9 @@ x\right\}\)</span>.</p>
 <div class="wprop">
 <p>Soient <span class="math inline">\(E,F\)</span> deux <span
 class="math inline">\(\mathbb{K}\)</span>-espace vectoriels et <span
-class="math inline">\(f \in \mathscr{L}(E,F)\)</span>.</p>
-<p>Alors, <span class="math inline">\(f\)</span> injective <span
-class="math inline">\(\iff\)</span> <span
-class="math inline">\(\mathop{\mathrm{Ker}}f =
-\left\{0_{E}\right\}\)</span>.</p>
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span>. Alors, <span
+class="math display">\[\text{$f$ injective $\iff $
+$\mathop{\mathrm{Ker}}f = \left\{0_{E}\right\}$.}\]</span></p>
 </div>
 <div class="wproof">
 <p>On rappelle la preuve dans le cas d’un morphisme de groupes.</p>
@@ -1801,8 +1795,8 @@ class="math inline">\(u_1,u_2 \in E\)</span> alors <span
 class="math inline">\(f(u_1) = f(u_2) \Longrightarrow f(u_1) - f(u_2) =
 0_{F} \Longrightarrow f(u_1-u_2) = 0_{F} \Longrightarrow  u_1 - u_2 \in
 \mathop{\mathrm{Ker}}f\)</span>.</p>
-<p>Donc <span class="math inline">\(u_1 - u_2 = 0_{E} \iff u_1 =
-u_2\)</span>.</p></li>
+<p>Donc <span class="math inline">\(u_1 - u_2 = 0_{E}\)</span> et <span
+class="math inline">\(u_1 = u_2\)</span>.</p></li>
 </ul>
 </div>
 <h2 data-number="3.6" id="espace-vectoriel-mathscrlef"><span
@@ -1891,9 +1885,9 @@ class="header-section-number">3.7</span> L’anneau <span
 class="math inline">\((\mathscr{L}(E),+,\circ)\)</span></h2>
 <div class="wprop">
 <p>Soit <span class="math inline">\(E\)</span> un <span
-class="math inline">\(\mathbb{K}\)</span>-espace vectoriel.</p>
-<p>Alors <span class="math inline">\((\mathscr{L}(E),+,\circ)\)</span>
-est un anneau.</p>
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel. Alors <span
+class="math inline">\((\mathscr{L}(E),+,\circ)\)</span> est un
+anneau.</p>
 </div>
 <div class="wproof">
 <ol>
@@ -2001,10 +1995,9 @@ deux éléments qui commutent. Pour <span class="math inline">\(n \in
 <p>Soient <span class="math inline">\(E\)</span> un <span
 class="math inline">\(\mathbb{K}\)</span>-espace vectoriel, <span
 class="math inline">\(\alpha \in \mathbb{K}\)</span>, <span
-class="math inline">\(f \in \mathscr{L}(E), g\in
-\mathscr{L}(E)\)</span></p>
-<p>Alors <span class="math inline">\(\alpha (f \circ g) = (\alpha f
-)\circ g = f \circ (\alpha g)\)</span>.</p>
+class="math inline">\(f \in \mathscr{L}(E), g\in \mathscr{L}(E)\)</span>
+alors <span class="math inline">\(\alpha (f \circ g) = (\alpha f )\circ
+g = f \circ (\alpha g)\)</span>.</p>
 </div>
 <div class="wproof">
 <p>Soit <span class="math inline">\(u \in E\)</span>, <span
@@ -2032,11 +2025,9 @@ class="math inline">\(f \circ g = g\circ f =
 \mathop{\mathrm{Id}}_{E}\)</span>.</p>
 </div>
 <div class="wprop">
-<p>Soit <span class="math inline">\(f \in \mathscr{L}(E)\)</span>,</p>
-<p><span class="math inline">\(f\)</span> est inversible pour <span
-class="math inline">\(\circ\)</span> <span
-class="math inline">\(\iff\)</span> <span
-class="math inline">\(f\)</span> est bijective.</p>
+<p>Soit <span class="math inline">\(f \in \mathscr{L}(E)\)</span>, <span
+class="math display">\[\text{$f$ est inversible pour $\circ$ $\iff$ $f$
+est bijective.}\]</span></p>
 </div>
 <div class="wproof">
 <ul>
@@ -2050,7 +2041,7 @@ class="math inline">\(f \circ g = g\circ f =
 <span class="math inline">\(f\)</span> est surjective et <span
 class="math inline">\(g \circ f\)</span> est donc injective et <span
 class="math inline">\(f\)</span> est injective.</p>
-<p>Donc <span class="math inline">\(f\)</span> est surjective.</p></li>
+<p>Donc <span class="math inline">\(f\)</span> est bijective.</p></li>
 <li><p><span class="math inline">\((\Longleftarrow)\)</span> Si <span
 class="math inline">\(f\)</span> est bijective, comme démontré avant,
 <span class="math inline">\(f^{-1} \in \mathscr{L}(E)\)</span> et de
@@ -2064,8 +2055,8 @@ plus, <span class="math inline">\(f \circ f^{-1} = f^{-1}\circ f =
 <span class="math inline">\(\mathscr{L}(E)\)</span>.</p>
 <p><span class="math inline">\(GL(E)\)</span> est stable par <span
 class="math inline">\(\circ\)</span> et <span
-class="math inline">\((GL(E),\circ)\)</span> est alors un groupe, appelé
-le groupe linéaire.</p>
+class="math inline">\((GL(E),\circ)\)</span> est un groupe appelé le
+groupe linéaire.</p>
 <p>Les éléments de <span class="math inline">\(E\)</span> sont appelés
 les <u>automorphismes</u> de <span class="math inline">\(E\)</span>.</p>
 </div>
@@ -2226,7 +2217,7 @@ class="math inline">\(\mathop{\mathrm{Im}}p \supset F\)</span>.</p></li>
 <ul>
 <li><p>D’abord, <span class="math inline">\(G \subset
 \mathop{\mathrm{Ker}}p\)</span>. En effet, si <span
-class="math inline">\(v \in G, \underbrace{0_{E}}_{\in F} +
+class="math inline">\(v \in G, v=\underbrace{0_{E}}_{\in F} +
 \underbrace{v}_{\in G}\)</span> donc <span class="math inline">\(p(v) =
 0_{E}\)</span> et <span class="math inline">\(v \in
 \mathop{\mathrm{Ker}}p\)</span>.</p></li>
@@ -2466,7 +2457,7 @@ class="math inline">\(\mathop{\mathrm{Ker}}(s+\mathop{\mathrm{Id}}_E) =
 class="math inline">\(w \in E\)</span> tel que <span
 class="math inline">\(w=\underbrace{u}_{\in F} + \underbrace{v}_{\in
 G}\)</span>, <span class="math display">\[w \in
-\mathop{\mathrm{Ker}}(s-\mathop{\mathrm{Id}}_E) \iff s(w) = -w \iff u+v
+\mathop{\mathrm{Ker}}(s+\mathop{\mathrm{Id}}_E) \iff s(w) = -w \iff u+v
 = -u+v \iff u=0_{E} \iff w=v \in G.\]</span></p></li>
 </ul>
 </div>
