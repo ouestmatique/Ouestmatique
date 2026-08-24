@@ -925,10 +925,16 @@ alt="image" /></td>
 </tbody>
 </table>
 </div>
-<p>que l’on peut étendre et dessiner simplement</p>
-<div class="center">
-<p><img src="triangle_9.png" alt="image" /></p>
-</div>
+<p>que l’on peut étendre et dessiner simplement <span
+class="math display">\[\begin{array}{lllllll}
+1 &amp;&amp;&amp;&amp;&amp;&amp; \\
+1 &amp; 1&amp;&amp;&amp;&amp;&amp; \\
+1 &amp;2 &amp; 1&amp;&amp;&amp;&amp; \\
+1 &amp;3 &amp;3&amp;1&amp;&amp;&amp; \\
+1 &amp;4&amp;6&amp;4&amp;1&amp;&amp; \\
+1 &amp;5&amp;10&amp;10&amp;5&amp;1&amp; \\
+1 &amp;6&amp;15&amp;20&amp;15&amp;6&amp;1 \\
+\end{array}\]</span></p>
 <h2 data-number="3.3" id="formule-du-binôme-de-newton-1"><span
 class="header-section-number">3.3</span> Formule du binôme de
 Newton</h2>
@@ -980,11 +986,27 @@ class="math inline">\(\forall n \in \mathbb{N}\)</span>, on a <span
 class="math inline">\((a+b)^n = \displaystyle\sum_{k=0}^n
 \binom{n}{k}a^kb^{n-k}\)</span></p>
 </div>
-<p>Pour retrouver ces formules, on peut dessiner le triangle de
-Pascal.</p>
-<div class="center">
-<p><img src="triangle_binome.png" alt="image" /></p>
-</div>
+<p>Pour retrouver ces formules, on peut dessiner le triangle de Pascal.
+<span class="math display">\[\begin{array}{lllllllll}
+(a+b)^0=&amp;{\color{blue}1 }a^0b^0&amp;&amp;&amp;&amp;&amp;&amp;
+&amp;=1  \\
+(a+b)^1=&amp;{\color{blue}1 }a^1b^0 &amp; {\color{blue}1
+}a^0b^1&amp;&amp;&amp;&amp;&amp; &amp;= a+b\\
+(a+b)^2=&amp;{\color{blue}1 }a^2b^0 &amp;{\color{blue}2  }a^1b^1&amp;
+{\color{blue}1 }a^0b^2&amp;&amp;&amp;&amp;&amp;=a^2+2ab+b^2\\
+(a+b)^3=&amp;{\color{blue}1 }a^3b^0
+&amp;{\color{blue}3  }a^2b^1&amp;{\color{blue}3
+}a^1b^2&amp;{\color{blue}1 } a^0b^3&amp;&amp;&amp;
+&amp;=a^3+3a^2b+3ab^2+b^3\\
+(a+b)^4=&amp;{\color{blue}1 }a^4b^0 &amp;{\color{blue}4 }
+a^3b^1&amp;{\color{blue}6 }a^2b^2&amp;{\color{blue}4
+}a^1b^3&amp;{\color{blue}1 }a^0b^4&amp;&amp;
+&amp;=a^4+4a^3b+6a^2b^2+4ab^3+b^4\\
+(a+b)^5=&amp;{\color{blue}1 }a^5b^0&amp;{\color{blue}5
+}a^4b^1&amp;{\color{blue}10 }a^3b^2&amp;{\color{blue}10
+}a^2b^3&amp;{\color{blue}5 }a^1b^4&amp;{\color{blue}1
+}a^0b^5&amp;&amp;=a^5+5a^4b+10a^3b^2+10a^2b^3+5ab^4+b^5\\
+\end{array}\]</span></p>
 <div class="wex">
 <p><span class="math inline">\(\forall n \in \mathbb{N},
 \displaystyle\sum_{k=0}^n \binom{n}{k} = 2^n\)</span> .</p>
