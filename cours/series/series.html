@@ -216,7 +216,8 @@ class="math inline">\((u_n)\)</span> converge.</p>
 <p>En cas de convergence, en notat <span
 class="math inline">\(\ell\)</span> la limite de <span
 class="math inline">\((u_n)\)</span>, <span
-class="math inline">\(\sum_{n\geq 0}^{+\infty} = \ell-u_0\)</span>.</p>
+class="math inline">\(\sum_{n\geq 0}^{+\infty} v_n =
+\ell-u_0\)</span>.</p>
 </div>
 <div class="wproof">
 <p>En notant <span class="math inline">\(\left(S_n\right)\)</span> la
@@ -228,7 +229,8 @@ v_n\)</span>, on a pour <span class="math inline">\(n \geq 0\)</span>,
 si et seulement si <span class="math inline">\(\left(u_n\right)\)</span>
 converge et en notant <span class="math inline">\(\ell\)</span> la
 limite de <span class="math inline">\((u_n)\)</span>, on a bien <span
-class="math inline">\(\sum_{n\geq 0}^{+\infty} = \ell-u_0\)</span>.</p>
+class="math inline">\(\sum_{n\geq 0}^{+\infty} v_n=
+\ell-u_0\)</span>.</p>
 </div>
 <h3 data-number="1.2.2" id="les-séries-géométriques"><span
 class="header-section-number">1.2.2</span> Les séries géométriques</h3>
@@ -480,9 +482,10 @@ class="math inline">\(u_n = w_n v_n\)</span>.</p>
 \geq 0\)</span>, <span class="math inline">\(\left|w_n\right| \leq
 M\)</span>.</p>
 <p>On a donc pour tout <span class="math inline">\(n \geq N\)</span>,
-<span class="math inline">\(u_n = \left|u_n\right| \leq
-\left|w_n\right|\left|v_n\right|\leq M v_n\)</span> et la proposition <a
-href="#prop:premiere_comp_series" data-reference-type="ref"
+<span class="math inline">\(u_n = \left|u_n\right| =
+\left|w_n\right|\left|v_n\right|=\left|w_n\right|v_n\leq M v_n\)</span>
+et la proposition <a href="#prop:premiere_comp_series"
+data-reference-type="ref"
 data-reference="prop:premiere_comp_series">[prop:premiere_comp_series]</a>.</p>
 </div>
 <div class="wcor">
@@ -607,7 +610,7 @@ croissante et il suffit donc que la fonction soit majorée pour être
 convergente en <span class="math inline">\(+\infty\)</span>.</p>
 <p>Soit <span class="math inline">\(x \in [a,+\infty[\)</span>, il
 existe <span class="math inline">\(n \in \mathbb{N}\)</span> tel que
-<span class="math inline">\(n \geq N\)</span> tel que <span
+<span class="math inline">\(n \geq N\)</span> et <span
 class="math inline">\(n \geq x\)</span> (par exemple, <span
 class="math inline">\(n = \lfloor x\rfloor +1\)</span>) et donc <span
 class="math display">\[\begin{aligned}
@@ -687,9 +690,9 @@ seulement si <span class="math inline">\(\alpha &gt;1\)</span>.</p></li>
 <li><p><span class="math inline">\(\sum \frac{\ln n}{n^2}\)</span>
 converge.</p>
 <p>En effet, <span class="math inline">\(\frac{n^{3/2}\ln n}{n^2} =
-\frac{\ln n}{\sqrt{n}}\)</span> donc <span
-class="math inline">\(\frac{\ln n}{n^2} =\underset{n\to +\infty}{o}
-\left(\frac{1}{n^{3/2}}\right)\)</span> et <span
+\frac{\ln n}{\sqrt{n}} \xrightarrow[n \to +\infty]{} 0\)</span> donc
+<span class="math inline">\(\frac{\ln n}{n^2} =\underset{n\to
++\infty}{o} \left(\frac{1}{n^{3/2}}\right)\)</span> et <span
 class="math inline">\(3/2 &gt; 1\)</span> donc <span
 class="math inline">\(\sum \frac{\ln n}{n^2}\)</span> converge.</p></li>
 <li><p>Plus généralement, soit <span class="math inline">\(\beta \in
@@ -700,7 +703,7 @@ class="math inline">\(\beta &gt;1\)</span>.</p>
 <ul>
 <li><p>Si <span class="math inline">\(\beta \leq 1\)</span>, pour <span
 class="math inline">\(n \geq e\)</span>, <span
-class="math inline">\(\frac{\ln n}{n^\beta} \leq
+class="math inline">\(\frac{\ln n}{n^\beta} \geq
 \frac{1}{n^\beta}\)</span> et <span class="math inline">\(\sum
 \frac{1}{n^\beta}\)</span> diverge donc <span class="math inline">\(\sum
 \frac{\ln n}{n^\beta}\)</span> aussi.</p></li>
@@ -847,8 +850,9 @@ class="math inline">\(\sum_{n=1}^{+\infty} \frac{\alpha_n}{10^n} \in
 termes positifs et pour tout <span class="math inline">\(n \geq
 1\)</span>, <span class="math inline">\(\left|
 \frac{\alpha_n}{10^n}\right| \leq \frac{9}{10^n} =
-9\frac{1}{10^{n}}\)</span> qui est le terme d’une série convergente car
-<span class="math inline">\(\frac{1}{10} &lt; 1\)</span>.</p>
+9\left(\frac{1}{10}\right)^n\)</span> qui est le terme d’une série
+convergente car <span class="math inline">\(\frac{1}{10} &lt;
+1\)</span>.</p>
 <p>De plus, <span class="math inline">\(\sum_{n=1}^{+\infty}
 \frac{\alpha_n}{10^n} \leq \sum_{n=1}^{+\infty} \frac{9}{10^{n}} =
 \frac{9}{10}\sum_{n=0}^{+\infty} \frac{1}{10^{n}}=

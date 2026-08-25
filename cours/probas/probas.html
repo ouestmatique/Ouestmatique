@@ -235,8 +235,6 @@ class="math inline">\(Y\)</span></a>
 class="toc-section-number">4.7.1</span> Définition</a></li>
 <li><a href="#propriétés-4" id="toc-propriétés-4"><span
 class="toc-section-number">4.7.2</span> Propriétés</a></li>
-<li><a href="#propriétés-5" id="toc-propriétés-5"><span
-class="toc-section-number">4.7.3</span> Propriétés</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -271,7 +269,7 @@ f &amp; : &amp; [\![ 1,n ]\!] &amp; \to &amp; E \\
    &amp;   &amp; k &amp; \mapsto &amp; x_k
 \end{array}\)</span> est une bijection.</p>
 <p>En effet, elle est injective car pour <span class="math inline">\(k
-\leq \ell, x_k \leq x_\ell\)</span> et elle est surjective.</p></li>
+\leq \ell, x_k \neq x_\ell\)</span> et elle est surjective.</p></li>
 <li><p><span class="math inline">\((\Longleftarrow)\)</span> Si il
 existe une bijection <span class="math inline">\(f : [\![ 1,n ]\!] \to
 E\)</span> alors par surjectivité de <span
@@ -405,7 +403,7 @@ href="#prop:cardinal_union" data-reference-type="ref"
 data-reference="prop:cardinal_union">[prop:cardinal_union]</a>,</p>
 <p><span class="math inline">\(\mathop{\mathrm{card}}\left(\left(A\cup
 B\right)\cap C\right) = \mathop{\mathrm{card}}\left(A \cap C\right) +
-\mathop{\mathrm{card}}\left(C \cap C\right)
+\mathop{\mathrm{card}}\left(B \cap C\right)
 -\mathop{\mathrm{card}}\left(\underbrace{A \cap C\cap B \cap C}_{=A\cap
 B \cap C}\right)\)</span>.</p>
 <p>Finalement, on a donc</p>
@@ -435,8 +433,9 @@ F\right) =
 \left(\mathop{\mathrm{card}}E\right)\left(\mathop{\mathrm{card}}F\right)\)</span>.</p>
 </div>
 <div class="wproof">
-<p>Soit <span class="math inline">\(n =
-\mathop{\mathrm{card}}E\)</span>, alors <span
+<p>Soit <span class="math inline">\(n = \mathop{\mathrm{card}}E\)</span>
+et <span class="math inline">\(E =
+\left\{x_1,\ldots,x_n\right\}\)</span>, alors <span
 class="math inline">\(E\times F = \bigcup_{i=1}^n A_i\)</span> avec
 <span class="math inline">\(A_i=\left\{(x_i,y) / y \in
 F\right\}\)</span>.</p>
@@ -651,7 +650,7 @@ class="math inline">\(\mathop{\mathrm{card}}\mathop{\mathrm{Im}}f =
 <p>Or, <span class="math inline">\(\mathop{\mathrm{card}}E =
 \mathop{\mathrm{card}}F\)</span> donc <span
 class="math inline">\(\mathop{\mathrm{card}}\mathop{\mathrm{Im}}f =
-\mathop{\mathrm{card}}E\)</span> et par la proposition <a
+\mathop{\mathrm{card}}F\)</span> et par la proposition <a
 href="#prop:card_Imf_card_E" data-reference-type="ref"
 data-reference="prop:card_Imf_card_E">[prop:card_Imf_card_E]</a>, <span
 class="math inline">\(f\)</span> est injective.</p></li>
@@ -773,7 +772,7 @@ modélisant l’expérience considérée.</p>
 <li><p>On lance un dé à <span class="math inline">\(6\)</span> faces et
 on observe le résultat obtenu,</p></li>
 <li><p>On tire une boule dans une urne contenant des boules blanches et
-noire et on observe la couleur de la boule tirée,</p></li>
+noires et on observe la couleur de la boule tirée,</p></li>
 <li><p>On lance une pièce <span class="math inline">\(N\)</span> fois et
 on observe la suite de piles et de faces obtenues.</p></li>
 </ul>
@@ -964,16 +963,15 @@ $\left\{2,4\right\}\cap\left\{6\right\} = \emptyset$} \\
     &amp; =
 \mathbb{P}\left(\left\{2\right\}\right)+\mathbb{P}\left(\left\{4\right\}\right)
 + \mathbb{P}\left(\left\{6\right\}\right)  \text{ car
-$\left\{2\right\}\cap\left\{3\right\} = \emptyset$.} \\
+$\left\{2\right\}\cap\left\{4\right\} = \emptyset$.} \\
     \end{aligned}\]</span></p>
 </div>
 <h2 data-number="2.5" id="propriétés"><span
 class="header-section-number">2.5</span> Propriétés</h2>
 <div class="wprop">
 <p>Soit <span class="math inline">\((\Omega,\mathbb{P})\)</span> un
-espace probabilisé.</p>
-<p>Alors, <span class="math inline">\(\mathbb{P}\left(\emptyset\right) =
-0\)</span>.</p>
+espace probabilisé. Alors, <span
+class="math inline">\(\mathbb{P}\left(\emptyset\right) = 0\)</span>.</p>
 </div>
 <div class="wproof">
 <p><span class="math inline">\(\mathbb{P}(\Omega) = \mathbb{P}(\Omega
@@ -985,9 +983,9 @@ class="math inline">\(\Omega \cap \emptyset = \emptyset\)</span> donc
 </div>
 <div class="wprop">
 <p>Soit <span class="math inline">\((\Omega,\mathbb{P})\)</span> un
-espace probabilisé.</p>
-<p>Soit <span class="math inline">\(A \in \mathscr{P}(\Omega)\)</span>,
-alors <span class="math inline">\(\mathbb{P}(\overline{A}) =
+espace probabilisé. Soit <span class="math inline">\(A \in
+\mathscr{P}(\Omega)\)</span>, alors <span
+class="math inline">\(\mathbb{P}(\overline{A}) =
 1-\mathbb{P}(A)\)</span>.</p>
 </div>
 <div class="wproof">
@@ -1045,7 +1043,7 @@ label="prop:proba_union_disjointe"></span> Soient <span
 class="math inline">\((\Omega,\mathbb{P})\)</span> un espace
 probabilisé, <span class="math inline">\(n \in \mathbb{N}^{\star}, \geq
 2\)</span> et <span class="math inline">\(A_1,\ldots,A_n \in
-\mathscr{P}(Omega)\)</span> deux à deux disjointes. Alors,</p>
+\mathscr{P}(\Omega)\)</span> deux à deux disjointes. Alors,</p>
 <p><span class="math display">\[\mathbb{P}\left(\bigcup_{i=1}^n
 A_i\right)= \sum_{i=1}^n \mathbb{P}\left(A_i\right).\]</span></p>
 </div>
@@ -1126,15 +1124,15 @@ espace probabilisé et <span class="math inline">\(A,B \in
 <p>On a <span class="math inline">\(B = (B \setminus A) \cup A\)</span>
 avec <span class="math inline">\((B \setminus A) \cap A =
 \emptyset\)</span>.</p>
-<p>Donc <span class="math inline">\(\mathbb{P}(B) = \mathbb{P}((B
-\setminus A)) + \mathbb{P}(A) \iff \mathbb{P}(B \setminus A)
+<p>Donc <span class="math inline">\(\mathbb{P}(B) = \mathbb{P}(B
+\setminus A) + \mathbb{P}(A) \iff \mathbb{P}(B \setminus A)
 =\mathbb{P}(B) - \mathbb{P}(A)\)</span>.</p>
 <p>On a aussi <span class="math inline">\(\mathbb{P}(B \setminus
 A)  \geq 0\)</span> donc <span class="math inline">\(\mathbb{P}(A) \leq
 \mathbb{P}(B)\)</span>.</p>
 </div>
 <div class="wrem">
-<p>En revanche, dans le contexte de la question précédente, on a</p>
+<p>En revanche, dans le contexte de la proposition précédente, on a</p>
 <p><span class="math display">\[\mathbb{P}(A) = \mathbb{P}(B)
 \centernot{\Longrightarrow} A = B.\]</span></p>
 <p>Si on reconsidère le lancé de dé à <span
@@ -1535,15 +1533,15 @@ urne.</p>
 <p>Quelle est la probabilité que la boule provienne de l’urne <span
 class="math inline">\(U_1\)</span> sachant qu’elle est noire ?</p>
 <p><strong>Corrigé</strong> — On est typiquement dans une situation où
-la formule de Bayes. Déterminer la probabilité qu’une boule soit noire
-sachant l’urne est tout à fait accessible mais le contraire est bien
-plus délicat.</p>
+la formule de Bayes est bien utile. Déterminer la probabilité qu’une
+boule soit noire sachant l’urne est tout à fait accessible mais le
+contraire est bien plus délicat.</p>
 <p>On note <span class="math display">\[\begin{array}{lll}
             \text{Pour $1 \leq i \leq 3$}, &amp; A_i &amp; \text{«~on a
 choisi l&#39;urne $U_i$ ~»}, \\
             &amp; N &amp; \text{«~La boule tirée est noire ~»}.
         \end{array}\]</span> et la question est de déterminer <span
-class="math inline">\(\mathbb{P}(A_i \mid N)\)</span>.</p>
+class="math inline">\(\mathbb{P}(A_1 \mid N)\)</span>.</p>
 <p>Or, par formule de Bayes,</p>
 <p><span class="math display">\[\mathbb{P}(A_1\mid N) =
 \frac{\mathbb{P}(N \mid A_1) \mathbb{P}(A_1)}{\sum_{k=1}^3 \mathbb{P}(N
@@ -1624,8 +1622,7 @@ remarque que cela induit <span
 class="math inline">\(\frac{\mathbb{P}(A\cap B)}{\mathbb{P}(A)} =
 \mathbb{P}(B) \iff \mathbb{P}(A\cap B) =
 \mathbb{P}(B)\mathbb{P}(A)\)</span> et que cette définition est possible
-même quand <span class="math inline">\(\mathbb{P}(A) \neq
-0\)</span>.</p>
+même quand <span class="math inline">\(\mathbb{P}(A) =0\)</span>.</p>
 <div class="wdefi">
 <p>Soient <span class="math inline">\((\Omega,\mathbb{P})\)</span> un
 espace probabilisé et <span class="math inline">\(A,B \in
@@ -1737,7 +1734,7 @@ class="math display">\[\begin{array}{ll}
 deux indépendants mais pas mutuellement indépendants.</p>
 <p>Remarquons d’abord <span class="math inline">\(\mathbb{P}(A) =
 \frac{\mathop{\mathrm{card}}A}{\mathop{\mathrm{card}}\Omega} =
-\frac{3\times}{6^2} = \frac{1}{2}\)</span>, <span
+\frac{3\times 6}{6^2} = \frac{1}{2}\)</span>, <span
 class="math inline">\(\mathbb{P}(B) = \frac{1}{2}\)</span> et <span
 class="math inline">\(\mathbb{P}(C) = \frac{3\times 3+3\times 3}{6^2} =
 \frac{1}{2}\)</span>.</p>
@@ -1822,8 +1819,8 @@ E&#39;)\)</span> l’événement <span
 class="math inline">\(X^{-1}\left(E&#39;\right) = \left\{\omega \in
 \Omega / X(\omega)\in E&#39;\right\} \in
 \mathscr{P}(\Omega)\)</span>,</p></li>
-<li><p>Si <span class="math inline">\(E = R\)</span>, soit <span
-class="math inline">\(x \in \mathbb{R}\)</span>, on note <span
+<li><p>Si <span class="math inline">\(E = \mathbb{R}\)</span>, soit
+<span class="math inline">\(x \in \mathbb{R}\)</span>, on note <span
 class="math inline">\((X \leq x) =
 X^{-1}\left(]-\infty,x]\right)\)</span> et <span
 class="math inline">\((X \geq x) =
@@ -1869,6 +1866,7 @@ E&#39;)+\mathbb{P}(X\in E&#39;&#39;) =
 \mathbb{P}_X(E&#39;)+\mathbb{P}_X(E&#39;&#39;)\)</span>.</p></li>
 </ul>
 </div>
+<div class="wrem">
 <p>En songeant au théorème <a href="#thm:construction_proba"
 data-reference-type="ref"
 data-reference="thm:construction_proba">[thm:construction_proba]</a> et
@@ -1879,6 +1877,7 @@ déterminée par <span
 class="math inline">\(\mathscr{P}_X(\left\{x_k\right\}) =
 \mathbb{P}(X=x_k)\)</span> pour <span class="math inline">\(1 \leq k
 \leq n\)</span>.</p>
+</div>
 <div class="wex">
 <p><strong>Exercice</strong> — Une urne contient <span
 class="math inline">\(9\)</span> jetons numérotés de <span
@@ -1910,7 +1909,7 @@ class="math inline">\(9\)</span>.</p>
 \in \Omega / \text{ un des entiers } i_1,i_2,i_3\text{ est pair et les
 deux autres impairs}\right\}.\)</span></p>
 <p>Il y a <span class="math inline">\(4\)</span> choix pour l’entier
-pair puis <span class="math inline">\(\binom{2}{5}\)</span> choix pour
+pair puis <span class="math inline">\(\binom{5}{2}\)</span> choix pour
 les impairs.</p>
 <p>Donc <span class="math inline">\(\mathbb{P}(X=1) = \frac{
 4\binom{5}{2}}{ \binom{9}{3}}\)</span>.</p></li>
@@ -1949,7 +1948,7 @@ class="math inline">\(f\)</span>.</p>
 <div class="wprop">
 <p>Soient <span class="math inline">\((\Omega,\mathbb{P})\)</span> un
 espace probabilisé, <span class="math inline">\(E,E&#39;\)</span> des
-ensembles non vides, <span class="math inline">\(f = E \to
+ensembles non vides, <span class="math inline">\(f: E \to
 E&#39;\)</span>, <span class="math inline">\(X\)</span> une variable
 aléatoire sur <span class="math inline">\(\Omega\)</span>, à valeurs
 dans <span class="math inline">\(E\)</span> et <span
@@ -2134,9 +2133,9 @@ class="math display">\[\begin{aligned}
 \mathbb{P}(X=0) = 1\)</span>.</p>
 </div>
 <div class="wrem">
-<p>Les propriétés précédents sont les mêmes que celles de l’intégrale et
-ce n’est pas un hasard. Nous n’avons pas les outils nécessaires pour le
-montrer mais une espérance est effectivement une intégrale.</p>
+<p>Les propriétés précédentes sont les mêmes que celles de l’intégrale
+et ce n’est pas un hasard. Nous n’avons pas les outils nécessaires pour
+le montrer mais une espérance est effectivement une intégrale.</p>
 </div>
 <div class="wprop">
 <p>Soient <span class="math inline">\((\Omega,\mathbb{P})\)</span> un
@@ -2313,7 +2312,7 @@ variable aléatoire à valeurs réelles.</p>
 <div class="wproof">
 <p><span class="math inline">\(\left(X-\mathbb{E}(X)\right)^2 =
 X^2+\left(\mathbb{E}(X)\right)^2-2X\mathbb{E}(X)\)</span> donc, par
-linéarité de l’intégrale,</p>
+linéarité de l’espérance,</p>
 <p><span class="math display">\[V(X) =
 \mathbb{E}\left[\left(X-\mathbb{E}(X)\right)^2\right] = \mathbb{E}(X^2)
 +\mathbb{E}\left[\left(\mathbb{E}(X)\right)^2\right]-2\mathbb{E}\left[X\mathbb{E}(X)\right].\]</span></p>
@@ -2534,7 +2533,8 @@ class="header-section-number">4.3</span> Loi binomiale</h2>
     \text{ et }\text{Face } &amp; \text{avec la probabilité $q=1-p$} \\
 \end{array}.\)</span></p>
 <p>Soit <span class="math inline">\(n \in \mathbb{N}^{\star}\)</span>,
-on lance la pièce tel que</p>
+on lance la pièce <span class="math inline">\(n\)</span> fois tel
+que</p>
 <p><span class="math inline">\(\Omega = \left\{(L_1,\ldots,L_n)/
 \text{pour tout $1 \leq i \leq n$,} L_i =\text{Pile} \text{ ou
 }L_i=\text{Face}\right\}\)</span>.</p>
@@ -3239,8 +3239,6 @@ class="math inline">\((X_i \in E&#39;_i)\)</span> sont mutuellement
 indépendants.</p></li>
 </ul>
 </div>
-<h3 data-number="4.7.3" id="propriétés-5"><span
-class="header-section-number">4.7.3</span> Propriétés</h3>
 <div class="wprop">
 <p>Soient <span class="math inline">\((\Omega,\mathbb{P})\)</span> un
 espace probabilisé, <span class="math inline">\(n \in

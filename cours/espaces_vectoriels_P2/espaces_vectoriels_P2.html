@@ -247,10 +247,9 @@ f(x)\)</span>.</p>
 une famille génératrice de <span class="math inline">\(E\)</span> donc
 il existe <span class="math inline">\(\alpha_1,\ldots,\alpha_n \in
 \mathbb{K}\)</span> tels que <span class="math inline">\(x =
-\sum_{k=1}^n \alpha_k v_k\)</span>.</p>
-<p>On a alors <span class="math inline">\(y = f(x) = \sum_{k=1}^n
-\alpha_k f(v_k)\)</span> donc <span
-class="math inline">\(\mathop{\mathrm{Im}}f \subset
+\sum_{k=1}^n \alpha_k v_k\)</span>. On a alors <span
+class="math inline">\(y = f(x) = \sum_{k=1}^n \alpha_k f(v_k)\)</span>
+donc <span class="math inline">\(\mathop{\mathrm{Im}}f \subset
 \mathop{\mathrm{Vect}}(f(v_),\ldots,f(v_n))\)</span>.</p>
 <p>Comme on a clairement aussi <span
 class="math inline">\(\mathop{\mathrm{Im}}f \supset
@@ -287,11 +286,9 @@ g(v_k)\)</span> alors <span class="math inline">\(f=g\)</span>.</p>
 <p>Soit <span class="math inline">\(v \in E\)</span>, il existe <span
 class="math inline">\(\alpha_1,\ldots,\alpha_n \in \mathbb{K}\)</span>
 tels que <span class="math inline">\(v = \sum_{k=1}^n \alpha_k
-v_k\)</span>.</p>
-<p>Donc <span class="math inline">\(f(v) =  \sum_{k=1}^n \alpha_k
-\underbrace{f(v_k)}_{ = g(v_k)} = \sum_{k=1}^n \alpha_k g(v_k) =
-g(v)\)</span>.</p>
-<p>Donc <span class="math inline">\(f=g\)</span>.</p>
+v_k\)</span>. Donc <span class="math inline">\(f(v) =  \sum_{k=1}^n
+\alpha_k \underbrace{f(v_k)}_{ = g(v_k)} = \sum_{k=1}^n \alpha_k g(v_k)
+= g(v)\)</span>. Donc <span class="math inline">\(f=g\)</span>.</p>
 </div>
 <div class="wdefi">
 <p><span class="math inline">\(E\)</span> est de dit de dimension finie
@@ -385,7 +382,7 @@ class="math inline">\(\alpha_1,\ldots,\alpha_n \in \mathbb{K}\)</span>
 \alpha_k v_k\)</span>.</p>
 <p>Dans ce cas, <span
 class="math inline">\((\alpha_1,\ldots,\alpha_n)\)</span> sont les
-composantes de <span class="math inline">\(v\)</span> sur la base <span
+composantes de <span class="math inline">\(v\)</span> dans la base <span
 class="math inline">\((v_1,\ldots,v_n)\)</span>.</p>
 </div>
 <div class="wex">
@@ -397,7 +394,7 @@ class="math inline">\(v_2 = (0,2)\)</span> et <span
 class="math inline">\(v_3 = (1,1)\)</span>.</p>
 <p><span class="math inline">\((v_1,v_2,v_3)\)</span> est une famille
 génératrice de <span class="math inline">\(E\)</span> car pour tout
-<span class="math inline">\((x,y) \in \mathbb{R}^2\)</span>n <span
+<span class="math inline">\((x,y) \in \mathbb{R}^2\)</span>, <span
 class="math inline">\((x,y) = xv_1+\frac{y}{2} v_2 \in
 \mathop{\mathrm{Vect}}(v_1,v_2,v_3)\)</span>.</p>
 <p>En revanche, ce n’est pas une base de <span
@@ -513,8 +510,8 @@ n\)</span>. Soit <span class="math inline">\(v \in E\)</span>, comme
 class="math inline">\(\alpha_1,\dots,\alpha_n\)</span> uniques tels que
 <span class="math inline">\(v = \sum_{k=1}^n \alpha_k e_k\)</span>. On a
 donc, par linéarité de <span class="math inline">\(f\)</span>, <span
-class="math inline">\(f(v) = \sum_{k=1}^n \alpha_k f(e_k) = \sum_{k=1}^n
-v_k\)</span>.</p>
+class="math inline">\(f(v) = \sum_{k=1}^n \alpha_k f(e_k) =
+\sum_{k=1}^n\alpha_k  v_k\)</span>.</p>
 <p><span class="math inline">\(f\)</span> s’écrit donc <span
 class="math inline">\(\begin{array}{lllll}
 f &amp; : &amp; E &amp; \to &amp; F \\
@@ -548,12 +545,12 @@ class="math inline">\(f\)</span> est bien linéaire.</p></li>
 <li><p><span class="math inline">\((\Longrightarrow)\)</span> Soient
 <span class="math inline">\(\alpha_1,\ldots,\alpha_n \in
 \mathbb{K}\)</span> tels que <span class="math inline">\(\sum_{k=1}^n
-v_k = 0_E\)</span>.</p>
-<p>Alors, <span class="math inline">\(\sum_{k=1}^n v_k =
-f\left(\sum_{k=1}^n e_k\right) = 0_E\)</span> donc <span
-class="math inline">\(\sum_{k=1}^n e_k \in \mathop{\mathrm{Ker}}f =
-\left(0_E\right)\)</span> (car <span class="math inline">\(f\)</span>
-est injective).</p>
+\alpha_k v_k = 0_E\)</span>.</p>
+<p>Alors, <span class="math inline">\(\sum_{k=1}^n \alpha_kv_k =
+f\left(\sum_{k=1}^n \alpha_k e_k\right) = 0_E\)</span> donc <span
+class="math inline">\(\sum_{k=1}^n \alpha_k e_k \in
+\mathop{\mathrm{Ker}}f = \left(0_E\right)\)</span> (car <span
+class="math inline">\(f\)</span> est injective).</p>
 <p>Or, <span class="math inline">\((e_1,\ldots,e_n)\)</span> est une
 base donc est libre et donc <span class="math inline">\(\alpha_1 =
 \ldots = \alpha_n = 0\)</span> et <span
@@ -592,7 +589,7 @@ tels que <span class="math inline">\(y = \sum_{k=1}^n \alpha_k
 v_k\)</span>.</p>
 <p>On a donc <span class="math inline">\(y = f\left( \sum_{k=1}^n
 \alpha_k e_k\right)\)</span>, ce qui donne <span
-class="math inline">\(\mathop{\mathrm{Im}}f = F\)</span> ou <span
+class="math inline">\(\mathop{\mathrm{Im}}f = F\)</span> ie <span
 class="math inline">\(f\)</span> surjective.</p></li>
 </ul></li>
 <li><p>Montrons <span class="math inline">\(f \text{ bijective } \iff
@@ -607,9 +604,10 @@ $F$ (par ce qui précède)} \\
 </ul>
 </div>
 <div class="wex">
-<p>Pour <span class="math inline">\(E = F = \mathbb{R}^3\)</span> et
-<span class="math inline">\((e_1,e_2,e_3) \in \mathbb{R}^3\)</span> et
-<span class="math inline">\(v_1 = (1,0,-1), v_2=(0,1,2), v_3 =
+<p>Pour <span class="math inline">\(E = F = \mathbb{R}^3\)</span>, <span
+class="math inline">\((e_1,e_2,e_3) \in \mathbb{R}^3\)</span> base
+canonique de <span class="math inline">\(\mathbb{R}^3\)</span> et <span
+class="math inline">\(v_1 = (1,0,-1), v_2=(0,1,2), v_3 =
 (1,1,1)\)</span>.</p>
 <p>On peut considérer <span class="math inline">\(f \in
 \mathscr{L}(E)\)</span> tel que pour tout <span class="math inline">\(1
@@ -635,7 +633,8 @@ dimension finie et <span class="math inline">\((v_1,\ldots,v_n)\)</span>
 une famille génératrice de <span class="math inline">\(E\)</span>.</p>
 <p>Alors, il existe <span class="math inline">\(k_1,\ldots,k_r \in [\![
 1,n]\!]\)</span> tels que <span
-class="math inline">\((v_{k_1},\ldots,v_{k_r})\)</span>.</p>
+class="math inline">\((v_{k_1},\ldots,v_{k_r})\)</span> est une base de
+<span class="math inline">\(E\)</span>.</p>
 </div>
 <div class="wproof">
 <p>On propose un algorithme pour construire une base issue de de la
@@ -644,9 +643,8 @@ famille <span class="math inline">\((v_1,\ldots,v_n)\)</span>.</p>
 <li><p>Comme <span class="math inline">\(E \neq
 \left\{0_E\right\}\)</span>, il existe <span class="math inline">\(k_1
 \in [\![ 1,n ]\!]\)</span> tel que <span class="math inline">\(v_{k_1}
-\neq \left\{0_E\right\}\)</span>. Donc <span
-class="math inline">\((v_{k_1})\)</span> est libre dans <span
-class="math inline">\(E\)</span>.</p></li>
+\neq 0_E\)</span>. Donc <span class="math inline">\((v_{k_1})\)</span>
+est libre dans <span class="math inline">\(E\)</span>.</p></li>
 <li><p>Supposons que l’on ait construit <span
 class="math inline">\((v_{k_1},\ldots,v_{k_r})\)</span> une famille
 libre de <span class="math inline">\(E\)</span> avec <span
@@ -670,8 +668,7 @@ class="math inline">\(E = \mathop{\mathrm{Vect}}(v_{1},\ldots,v_{n})
 \subset \mathop{\mathrm{Vect}}(v_{k_1},\ldots,v_{k_{r}})\)</span> et
 <span class="math inline">\((v_{k_1},\ldots,v_{k_r})\)</span> serait
 génératrice de <span class="math inline">\(E\)</span> en plus d’être
-libre et serait une base de <span class="math inline">\(E\)</span>, ce
-qui contredit <span class="math inline">\(\mathscr{P}(r-1)\)</span>.</p>
+libre et serait une base de <span class="math inline">\(E\)</span>.</p>
 <p>Comme, <span class="math inline">\(v_{k_{r+1}} \notin
 \mathop{\mathrm{Vect}}(v_{k_1},\ldots,v_{k_{r}})\)</span>, <span
 class="math inline">\((v_{k_1},\ldots,v_{k_r},v_{k_{r+1}})\)</span> est
@@ -750,7 +747,7 @@ class="math inline">\(n\)</span>.</p>
 <ul>
 <li><p><strong>Initialisation.</strong> Si <span
 class="math inline">\(n=1\)</span> et <span
-class="math inline">\((u_1,u_2) \in E^n\)</span>. Alors, si <span
+class="math inline">\((u_1,u_2) \in E^2\)</span>. Alors, si <span
 class="math inline">\(u_1,u_2 \in \mathop{\mathrm{Vect}}(v_1)\)</span>,
 il existe <span class="math inline">\(\lambda_1, \lambda_2 \in
 \mathbb{K}\)</span> tels que <span class="math inline">\(u_1 = \lambda_1
@@ -772,7 +769,7 @@ pour tout <span class="math inline">\(k \in [\![ 1,n+2 ]\!], u_k \in
 ]\!]\)</span>, il existe <span class="math inline">\(u&#39;_k \in
 \mathop{\mathrm{Vect}}(v_1,\ldots,v_n)\)</span> et <span
 class="math inline">\(\alpha_k \in \mathbb{K}\)</span> tels que <span
-class="math inline">\(u_k = u&#39;_k + \alpha_K v_{n+1}\)</span>.</p>
+class="math inline">\(u_k = u&#39;_k + \alpha_k v_{n+1}\)</span>.</p>
 <ul>
 <li><p><strong>Premier cas.</strong> Si pour tout <span
 class="math inline">\(k \in [\![ 1,n+2 ]\!]\)</span>, <span
@@ -827,8 +824,8 @@ class="math inline">\(\mathbb{K}\)</span>-espace vectoriel, <span
 class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> famille
 génératrice de <span class="math inline">\(E\)</span> et <span
 class="math inline">\((u_1,\ldots,u_p)\)</span> libre de <span
-class="math inline">\(E\)</span>.</p>
-<p>Aors, <span class="math inline">\(p \leq n\)</span>.</p>
+class="math inline">\(E\)</span>. Alors, <span class="math inline">\(p
+\leq n\)</span>.</p>
 </div>
 <div class="wproof">
 <p>Par l’absurde, si <span class="math inline">\(p &gt; n\)</span>, ie
@@ -848,8 +845,8 @@ absurde.</p>
 class="math inline">\((e_1,\ldots,e_n)\)</span> et <span
 class="math inline">\((e&#39;_1,\ldots,e&#39;_p)\)</span> deux bases
 d’un <span class="math inline">\(\mathbb{K}\)</span>-espace vectoriel
-<span class="math inline">\(E\)</span>.</p>
-<p>Alors, <span class="math inline">\(p=n\)</span>.</p>
+<span class="math inline">\(E\)</span>. Alors, <span
+class="math inline">\(p=n\)</span>.</p>
 </div>
 <div class="wproof">
 <ul>
@@ -903,7 +900,7 @@ base de <span class="math inline">\(\vec{\mathscr{E}}\)</span>.</p></li>
 </ul>
 </div>
 <div class="wrem">
-<p>On observera cela de façon marginale dans l’exercice mais la
+<p>On observera cela de façon marginale dans les exercices mais la
 dimension d’un espace vectoriel dépend de <span
 class="math inline">\(\mathbb{K}\)</span> (d’où la notation <span
 class="math inline">\(\dim_\mathbb{K}E\)</span>).</p>
@@ -1024,7 +1021,7 @@ class="math inline">\(F =
 base de <span class="math inline">\(F\)</span> et <span
 class="math inline">\(\dim F = p \leq \dim E\)</span>.</p></li>
 </ul>
-<p>De plus, Si <span class="math inline">\(\dim F = \dim E = n\)</span>,
+<p>De plus, si <span class="math inline">\(\dim F = \dim E = n\)</span>,
 <span class="math inline">\((v_1,\ldots,v_n)\)</span> est une famille
 libre de <span class="math inline">\(F\)</span>, donc de <span
 class="math inline">\(E\)</span>, de cardinal <span
@@ -1163,11 +1160,11 @@ class="math inline">\(E\)</span>, c’est une famille génératrice de <span
 class="math inline">\(E\)</span> donc par la proposition <a
 href="#prop:image_gene_donne_gene_im" data-reference-type="ref"
 data-reference="prop:image_gene_donne_gene_im">[prop:image_gene_donne_gene_im]</a>,
-<span class="math inline">\((f(e_1),\ldots,f(e_p))\)</span>.</p>
-<p>Par la proposition <a href="#prop:card_dim_gene"
-data-reference-type="ref"
-data-reference="prop:card_dim_gene">[prop:card_dim_gene]</a>, <span
-class="math inline">\(\dim \mathop{\mathrm{Im}}f \leq
+<span class="math inline">\((f(e_1),\ldots,f(e_p))\)</span> génère <span
+class="math inline">\(\mathop{\mathrm{Im}}f\)</span>. Par la
+proposition <a href="#prop:card_dim_gene" data-reference-type="ref"
+data-reference="prop:card_dim_gene">[prop:card_dim_gene]</a>, on a donc
+<span class="math inline">\(\dim \mathop{\mathrm{Im}}f \leq
 p\)</span>.</p></li>
 </ul>
 </div>
@@ -1257,8 +1254,8 @@ effet, soit <span class="math inline">\(v \in E&#39;\)</span>,</p>
 class="math inline">\(E&#39;\)</span> et <span
 class="math inline">\(\mathop{\mathrm{Ker}}f\)</span> sont en somme
 directe.</p></li>
-<li><p>Ensuite, <span class="math inline">\(g\)</span> est injective. En
-effet, soit <span class="math inline">\(y \in
+<li><p>Ensuite, <span class="math inline">\(g\)</span> est surjective.
+En effet, soit <span class="math inline">\(y \in
 \mathop{\mathrm{Im}}f\)</span>, il existe <span class="math inline">\(x
 \in E\)</span> tel que <span class="math inline">\(f(x) =
 y\)</span>.</p>
@@ -1287,7 +1284,7 @@ existe <span class="math inline">\(E&#39;\)</span> sous-espace vectoriel
 de <span class="math inline">\(E\)</span> tel que <span
 class="math inline">\(E = E&#39;\oplus
 \mathop{\mathrm{Ker}}f\)</span>.</p>
-<p>Donc <span class="math inline">\(E = \dim E&#39;+\dim
+<p>Donc <span class="math inline">\(\dim E = \dim E&#39;+\dim
 \mathop{\mathrm{Ker}}f\)</span>.</p>
 <p>Or, par le lemme <a href="#lem:theoreme_du_rang"
 data-reference-type="ref"
@@ -1575,9 +1572,8 @@ sous-espaces vectoriels de <span class="math inline">\(E\)</span>.</p>
 <li><p><span class="math inline">\((\Longrightarrow)\)</span> a déjà été
 démontré avant.</p></li>
 <li><p><span class="math inline">\((\Longleftarrow)\)</span> D’abord, si
-<span class="math inline">\(\mathscr{F}\cap G =
-\left\{0_E\right\}\)</span>, <span class="math inline">\(F+G\)</span>
-est directe.</p>
+<span class="math inline">\(F\cap G = \left\{0_E\right\}\)</span>, <span
+class="math inline">\(F+G\)</span> est directe.</p>
 <p>Ensuite, <span class="math inline">\(F+G \subset E\)</span> et par la
 formule de Grassmann, <span class="math inline">\(\dim (F+G) = \dim F
 +\dim G - \dim F \cap G = \dim F+\dim G = \dim E\)</span>.</p>
@@ -1769,10 +1765,10 @@ class="math inline">\(E_{\mathbb{N},2} = \left\{(u_n)_{n \geq 0} /
 <div class="wproof">
 <ul>
 <li><p>Si <span class="math inline">\(q_1 \neq q_2\)</span>,</p>
-<p>De plus, soit <span class="math inline">\(i \in
-\left\{1,2\right\}\)</span>, <span class="math inline">\(aq_i^2+bq_i+c =
-0\)</span> donc pour tout <span class="math inline">\(n \geq 0\)</span>,
-<span class="math inline">\(aq_i^{n+2}+bq_i^{n+1}+cq_i^n =
+<p>soit <span class="math inline">\(i \in \left\{1,2\right\}\)</span>,
+<span class="math inline">\(aq_i^2+bq_i+c = 0\)</span> donc pour tout
+<span class="math inline">\(n \geq 0\)</span>, <span
+class="math inline">\(aq_i^{n+2}+bq_i^{n+1}+cq_i^n =
 \left(aq_i^2+bq_i+c\right)q_i^n = 0\)</span> donc <span
 class="math inline">\((q_i^n)_{n \geq 0} \in
 E_{\mathbb{N},2}\)</span></p>
@@ -2040,9 +2036,9 @@ class="math inline">\(v_0^\star(v_0) = 1\)</span>).</p>
 <p>En effet, pour tout <span class="math inline">\(v \in E\)</span>, il
 existe <span class="math inline">\(u \in H\)</span> unique et <span
 class="math inline">\(\alpha_{v} \in \mathbb{K}\)</span> unique tel que
-<span class="math inline">\(v = u+\alpha_v v_0\)</span>.</p>
-<p>De plus, <span class="math inline">\(v \in H \iff \alpha_v = 0 \iff
-v_0^\star(v) = \alpha_v = 0\)</span>.</p>
+<span class="math inline">\(v = u+\alpha_v v_0\)</span> et <span
+class="math inline">\(v \in H \iff \alpha_v = 0 \iff v_0^\star(v) =
+\alpha_v = 0\)</span>.</p>
 </div>
 <div class="wprop">
 <p><span id="prop:unicite_forme_line_hyper"

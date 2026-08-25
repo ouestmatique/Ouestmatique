@@ -254,15 +254,15 @@ et est uniforme sur <span class="math inline">\(I\)</span>.</p>
 lipschitzienne sur <span class="math inline">\(I\)</span> alors <span
 class="math inline">\(f\)</span> est uniformément continue sur <span
 class="math inline">\(I\)</span>.</p>
-<p>En effet, il existe <span class="math inline">\(C \in
+<p>En effet, il existe <span class="math inline">\(k \in
 \mathbb{R}^{+\star}\)</span> tel que</p>
 <p><span class="math display">\[\forall x,x&#39; \in I,
-\left|f(x)-f(x&#39;)\right| \leq C\left|x-x&#39;\right|.\]</span></p>
+\left|f(x)-f(x&#39;)\right| \leq k\left|x-x&#39;\right|.\]</span></p>
 <p>On a donc pour tout <span class="math inline">\(\varepsilon &gt;
 0\)</span>, avec <span class="math inline">\(\eta =
-\frac{\varepsilon}{C}\)</span>,</p>
+\frac{\varepsilon}{k}\)</span>,</p>
 <p><span class="math display">\[|x-x&#39;| \leq \eta \Longrightarrow
-\left|f(x)-f(x&#39;)\right| \leq C\eta = \varepsilon.\]</span></p></li>
+\left|f(x)-f(x&#39;)\right| \leq k\eta = \varepsilon.\]</span></p></li>
 <li><p><span class="math inline">\(\begin{array}{lllll}
 f &amp; : &amp; \mathbb{R}^{+} &amp; \to &amp; \mathbb{R} \\
    &amp;   &amp; x &amp; \mapsto &amp; x^2
@@ -389,13 +389,13 @@ class="math inline">\([a,b]\)</span> est une suite finie strictement
 croissante <span class="math inline">\((a_0,\ldots,a_p)\)</span> de
 points de <span class="math inline">\([a,b]\)</span> telle que <span
 class="math inline">\(a_0 = a\)</span> et <span
-class="math inline">\(a_p = a\)</span>.</p>
+class="math inline">\(a_p = b\)</span>.</p>
 <div class="center">
 <p><img src="subdivision_anarchie.png" alt="image" /></p>
 </div>
 <p>Le pas de <span class="math inline">\(\sigma\)</span> désigne alors
 <span class="math inline">\(\max_{k \in [\![ 0, p-1]\!] }
-a_{k+1-a_k}\)</span>, noté <span
+a_{k+1}-a_k\)</span>, noté <span
 class="math inline">\(p(\sigma)\)</span>.</p>
 </div>
 <div class="wex">
@@ -541,9 +541,9 @@ class="math inline">\(\varphi\)</span>, que l’on noterait <span
 class="math inline">\(\int_a^b \varphi(t)dt\)</span> mais cette aire
 algébrique semble a priori dépendre de la subdivision <span
 class="math inline">\(\sigma\)</span> (et pas seulement de <span
-class="math inline">\(\sigma\)</span>). Montrons que ce n’est pas le cas
-pur pouvoir définir formellement <span class="math inline">\(\int_a^b
-\varphi(t)dt\)</span>.</p>
+class="math inline">\(\varphi\)</span>). Montrons que ce n’est pas le
+cas pour pouvoir définir formellement <span
+class="math inline">\(\int_a^b \varphi(t)dt\)</span>.</p>
 <div class="wprop">
 <p>Soit <span class="math inline">\(\varphi \in
 \mathscr{E}([a,b])\)</span> et <span
@@ -1215,7 +1215,7 @@ par linéarité de l&#39;intégrale.}\]</span></p>
 +(b-a)\varepsilon_n\geq \int_a^b \varphi  &gt; I-\alpha\)</span> donc
 <span class="math inline">\(I_n &gt;
 I-\alpha-(b-a)\varepsilon_n\)</span>.</p>
-<p>OR, <span class="math inline">\(\varepsilon_n \xrightarrow[n \to
+<p>Or, <span class="math inline">\(\varepsilon_n \xrightarrow[n \to
 +\infty]{} 0\)</span> donc il existe <span class="math inline">\(N \in
 \mathbb{N}\)</span> tel que pour tout <span class="math inline">\(n \geq
 N\)</span>, <span class="math inline">\(\varepsilon_n \leq
@@ -2443,12 +2443,12 @@ f&#39;(a)(b-a)+\ldots+\frac{f^{(n)}(a)}{n!}(b-a)^n + \int_a^b
         &amp; = \left[-\frac{(b-t)^{n+1}}{(n+1)!}f^{(n+1)}(t)\right]_a^b
 +\int_a^b\frac{(b-t)^{n+1}}{(n+1)!} f^{(n+2)}(t)dt \\
         &amp; =
-\frac{(a-t)^{n+1}}{(n+1)!}f^{(n+1)}(t)+\int_a^b\frac{(b-t)^{n+1}}{(n+1)!}
+\frac{(b-a)^{n+1}}{(n+1)!}f^{(n+1)}(a)+\int_a^b\frac{(b-t)^{n+1}}{(n+1)!}
 f^{(n+2)}(t)dt.
     \end{aligned}\]</span></p>
 <p>Donc <span class="math display">\[f(b) = f(a) +
 f&#39;(a)(b-a)+\ldots+\frac{f^{(n)}(a)}{n!}(b-a)^n
-+\frac{(a-t)^{n+1}}{(n+1)!}f^{(n+1)}(t)+\int_a^b\frac{(b-t)^{n+1}}{(n+1)!}
++\frac{(b-a)^{n+1}}{(n+1)!}f^{(n+1)}(a)+\int_a^b\frac{(b-t)^{n+1}}{(n+1)!}
 f^{(n+2)}(t)dt,\]</span> ce qui est l’égalité à <span
 class="math inline">\(n+1\)</span>.</p></li>
 </ul>
@@ -2568,13 +2568,13 @@ class="math inline">\(a=0, b=x \in \mathbb{R}\)</span>.</p>
 class="math inline">\(\exp\)</span>,</p>
 <p><span class="math display">\[\begin{aligned}
         &amp;\mbox{ si $x &gt; 0$,}  \\
-        \forall t \in [0,x], \left|e^t\right| = e^t \leq e^x \\
+        &amp;\forall t \in [0,x], \left|e^t\right| = e^t \leq e^x \\
         &amp;\mbox{et si $x &lt; 0$,}  \\
-        \forall t \in [x,0], \left|e^t\right| = e^t \leq 1 \\
+        &amp;\forall t \in [x,0], \left|e^t\right| = e^t \leq 1 \\
     \end{aligned}\]</span></p>
-<p><span class="math inline">\(M_x\)</span> est donc un majorant de
-<span class="math inline">\(\left|f^{(n+1)}\right|\)</span> sur <span
-class="math inline">\([0,x]\)</span>.</p>
+<p><span class="math inline">\(M_x = \max(e^x,1)\)</span> est donc un
+majorant de <span class="math inline">\(\left|f^{(n+1)}\right|\)</span>
+sur <span class="math inline">\([0,x]\)</span>.</p>
 <p>On a donc, en appliquant l’inégalité de Taylor-Lagrange, pour tout
 <span class="math inline">\(n \in \mathbb{N}\)</span>,</p>
 <p><span class="math display">\[\left|e^x - \sum_{k=0}^n

@@ -291,7 +291,7 @@ class="math inline">\(\begin{array}{ll}
     \end{array}\)</span></p>
 <p><span class="math inline">\(\sigma\)</span>, qui échange <span
 class="math inline">\(i\)</span> et <span
-class="math inline">\(j\)</span>, est alors noté <span
+class="math inline">\(j\)</span>, est alors notée <span
 class="math inline">\(\sigma=\begin{pmatrix}
         i &amp; j
     \end{pmatrix}\)</span>.</p>
@@ -658,7 +658,7 @@ parité de <span class="math inline">\(r\)</span> est bien
 déterminée.</p>
 <p>Autrement dit, toute autre décomposition de <span
 class="math inline">\(\sigma\)</span> en transpositions admet un nombre
-de transposition de même parité que <span
+de transpositions de même parité que <span
 class="math inline">\(r\)</span>.</p>
 </div>
 <div class="wdefi">
@@ -809,7 +809,7 @@ soient <span class="math inline">\(\sigma,\sigma&#39; \in
 <p><span class="math inline">\(f(\sigma) = f(\sigma&#39;) \iff \tau
 \circ \sigma = \tau \circ \sigma&#39; \iff \tau \circ\tau \circ \sigma =
 \tau \circ\tau \circ \sigma&#39; \iff
-\sigma=\sigma&#39;\)</span>.</p></li>
+\sigma=\sigma&#39;.\)</span></p></li>
 </ul>
 <p>On en déduit <span
 class="math inline">\(\mathop{\mathrm{card}}\mathcal{A}_n=
@@ -1124,9 +1124,9 @@ fonction <span class="math inline">\(f:\begin{array}{rl}
 \mathscr{F}([\![ 1, 3]\!],[\![ 1, 3]\!])\)</span>, <span
 class="math inline">\(\varphi(v_1,v_2,v_3) = \sum_{f \in \mathscr{F}_3}
 a_{f(1)1}a_{f(2)2}a_{f(3)3}  \varphi\left(e_{f(1)},e_{f(2)},e_{f(3)}\right).\)</span></p>
-<p>De plus, <span class="math inline">\(\varphi\)</span> est non
-alternée donc quand <span class="math inline">\(f\)</span> est non
-injective, <span
+<p>De plus, <span class="math inline">\(\varphi\)</span> est alternée
+donc quand <span class="math inline">\(f\)</span> est non injective,
+<span
 class="math inline">\(\varphi\left(e_{f(1)},e_{f(2)},e_{f(3)}\right) =
 0\)</span>.</p>
 <p>Donc, en retirant les termes nuls il ne reste plus que les fonctions
@@ -1261,8 +1261,8 @@ class="math inline">\(i \in [\![ 1,n ]\!]\)</span>.</p>
         \end{aligned}\]</span> Or, <span
 class="math inline">\(a_{\sigma(\ell)k} = a_{\sigma(\ell)\ell}\)</span>
 et <span class="math inline">\(a_{\sigma(k)\ell} =
-a_{\sigma(k)k}\)</span> donc <span
-class="math display">\[\begin{aligned}
+a_{\sigma(k)k}\)</span> car <span class="math inline">\(v_k =
+v_\ell\)</span> donc <span class="math display">\[\begin{aligned}
     \varepsilon(\sigma \circ \tau ) a_{\left(\sigma \circ \tau\right)(1)
 1}\ldots a_{\left(\sigma \circ \tau\right)(k) k} \ldots a_{\left(\sigma
 \circ \tau\right)(\ell) \ell} \ldots a_{\left(\sigma \circ
@@ -1356,8 +1356,8 @@ class="math inline">\(\varphi_\mathscr{B}(v_1,\ldots,v_n)\)</span> est
 appelé le déterminant de <span
 class="math inline">\((v_1,\ldots,v_n)\)</span> dans <span
 class="math inline">\(\mathscr{B}\)</span> et est noté <span
-class="math inline">\({\det}_\mathscr{B}\)</span>. <span
-class="math inline">\(\varphi_\mathscr{B}\)</span> est alor noté <span
+class="math inline">\({\det}_\mathscr{B}(v_1,\ldots,v_n)\)</span>. <span
+class="math inline">\(\varphi_\mathscr{B}\)</span> est alors noté <span
 class="math inline">\({\det}_\mathscr{B}\)</span>.</p>
 </div>
 <p>On a donc, pour rappel, <span
@@ -1500,12 +1500,12 @@ Or, <span class="math display">\[\begin{aligned}
         &amp; = {\det}_\mathscr{B}(v_1,e_2+3e_3, (e_2+3e_3)-4e_3 ) \\
         &amp; = {\det}_\mathscr{B}(v_1,v_2, v_2-4e_3 ) \\
         &amp; =  {\det}_\mathscr{B}(v_1,v_2,-4e_3) \text{ par le
-quatrième point de la proposition~\ref{prop:rappels_pptes_anE_K}} \\
+quatrième point de la proposition~{2.13}} \\
         &amp; =  {\det}_\mathscr{B}(2e_1-e_2+e_3,e_2+3e_3,-4e_3) \\
         &amp; = {\det}_\mathscr{B}(2e_1-e_2,e_2,-4e_3)\text{ par le
-quatrième point de la proposition~\ref{prop:rappels_pptes_anE_K}} \\
+quatrième point de la proposition~{2.13}} \\
         &amp; = {\det}_\mathscr{B}(2e_1,e_2,-4e_3)\text{ par le
-quatrième point de la proposition~\ref{prop:rappels_pptes_anE_K}} \\
+quatrième point de la proposition~{2.13}} \\
         &amp; = 2\times (-4) \times
 {\det}_\mathscr{B}(e_1,e_2,e_3)\text{ par $n$-linéarité} \\
         &amp; = -8 \neq 0.
@@ -1598,8 +1598,8 @@ class="math inline">\(\varphi_0 \neq 0\)</span>, <span
 class="math inline">\(\alpha_f \varphi = \beta_f \varphi \iff (\alpha_f
 - \beta_f)\varphi_0\)</span>.</p>
 <p>Or, <span class="math inline">\(\varphi_0 \neq 0\)</span> donc <span
-class="math inline">\(\alpha_f - \beta_f = 0 \iff \alpha_f =
-\beta_f\)</span>.</p></li>
+class="math inline">\((\alpha_f - \beta_f)\varphi_0\iff \alpha_f -
+\beta_f = 0 \iff \alpha_f = \beta_f\)</span>.</p></li>
 <li><p>(Existence). Soit <span class="math inline">\(\varphi_0 \in
 \mathcal{A}_n(E,\mathbb{K})\)</span> telle que <span
 class="math inline">\(\varphi_0 \neq 0\)</span>.</p>
@@ -2625,7 +2625,7 @@ a(b&#39;c&#39;&#39;-c&#39;b&#39;&#39;)+b(a&#39;c&#39;&#39;-a&#39;&#39;c&#39;)+c(
             &amp; =
 ab&#39;c&#39;&#39;+a&#39;b&#39;&#39;c+a&#39;&#39;bc&#39;-a&#39;&#39;b&#39;c-a&#39;bc&#39;&#39;-ab&#39;&#39;c&#39;.
         \end{aligned}\]</span> Un moyen de retenir ce calcul est la
-règle de Sarrus. En réécrivant les deux première colonnes à la suite du
+règle de Sarrus. En réécrivant les deux premières colonnes à la suite du
 déterminant,</p>
 <pre><code>\begin{tikzpicture}[&gt;=stealth, every node/.style={font=\Large}]
 
@@ -2694,8 +2694,15 @@ class="math display">\[D_\alpha=  \alpha(-1)^2\underbrace{\begin{vmatrix}
   2 &amp; -2 &amp; 3 \\
 0 &amp; 6 &amp; -4
 \end{vmatrix} \\
-&amp; = (\alpha+2)(8-18) - 2(4-18) \quad\substack{\text{ en développant
-par rapport}\\\text{  à la première colonne}} \\
+&amp; = (\alpha+2)\begin{vmatrix}
+-2 &amp; 3 \\
+6 &amp; -4
+\end{vmatrix} - 2\begin{vmatrix}
+-1 &amp; 3 \\
+6 &amp; -4
+\end{vmatrix} \quad\substack{\text{ en développant par
+rapport}\\\text{  à la première colonne}} \\
+&amp; = (\alpha+2)(8-18) - 2(4-18) \\
 &amp; = -10\alpha+8.
 \end{aligned}\]</span> et <span class="math display">\[\begin{aligned}
 \Delta_2
@@ -2704,8 +2711,15 @@ par rapport}\\\text{  à la première colonne}} \\
      \alpha+2 &amp; -1 &amp; 3 \\
     2 &amp; 4 &amp; -1
 \end{vmatrix} \\
-&amp; = -(\alpha+2)(-3-4)+2(9+1) \quad\substack{\text{ en développant
-par rapport}\\\text{  à la première colonne}} \\
+&amp; = -(\alpha+2)\begin{vmatrix}
+3 &amp; 1 \\
+4 &amp; -1
+\end{vmatrix}+2\begin{vmatrix}
+3 &amp; 1 \\
+-1 &amp; 3 \\
+\end{vmatrix} \quad\substack{\text{ en développant par
+rapport}\\\text{  à la première colonne}} \\
+&amp; = -(\alpha+2)(-3-4)+2(9+1) \\
 &amp; = 7\alpha+34
 \end{aligned}\]</span> Donc <span class="math display">\[\Delta =
 -10^2\alpha+15\alpha+34.\]</span></p></li>
@@ -2779,7 +2793,7 @@ A{}^t\left(\mathop{\mathrm{Com}}(A)\right)= \det(A) I_n\)</span>.</p>
 </div>
 <div class="wproof">
 <p>Le coefficient <span class="math inline">\((k,j)\)</span> de <span
-class="math inline">\({}^t\left(\mathop{\mathrm{Com}}(A)\right)\)</span>
+class="math inline">\(A{}^t\left(\mathop{\mathrm{Com}}(A)\right)\)</span>
 est <span class="math display">\[\sum_{i=1}^n
 (-1)^{k+i}a_{ij}\det(A_{ik}).\]</span></p>
 <p>Si <span class="math inline">\(k=j\)</span>, on a alors <span
@@ -2818,7 +2832,7 @@ class="math inline">\(a_{ij}\)</span> en position <span
 class="math inline">\((i,k)\)</span> pour tout <span
 class="math inline">\(i \in [\![ 1,n ]\!]\)</span>.</p>
 <p>On a donc <span
-class="math display">\[{}^t\left(\mathop{\mathrm{Com}}(A)\right) =
+class="math display">\[A{}^t\left(\mathop{\mathrm{Com}}(A)\right) =
 \begin{pmatrix}
     \det(A) &amp;  &amp; &amp;  &amp;  \\
      &amp; \ddots &amp;  &amp; (0) &amp;  \\
@@ -2943,7 +2957,7 @@ class="math inline">\(V_n(\alpha_1,\ldots,\alpha_n)x^n\)</span> (le
 déterminant auquel on a retiré la dernière ligne et la dernière
 colonne).</p>
 <p>Donc <span class="math inline">\(P\)</span> est un polynôme de degré
-<span class="math inline">\(\leq n\)</span>, de coefficient domin ant
+<span class="math inline">\(\leq n\)</span>, de coefficient dominant
 <span class="math inline">\(V_n(\alpha_1,\ldots,\alpha_n)\)</span>. De
 plus, pour tout <span class="math inline">\(1 \leq i \leq n\)</span>,
 <span class="math inline">\(P(\alpha_i) = \begin{vmatrix}
@@ -3048,9 +3062,9 @@ class="math inline">\(i \in [\![ 1,n ]\!]\)</span>.</p>
 1 &amp; \alpha_2 &amp; \alpha_2^2 &amp; \cdots &amp; \alpha_2^{n-1} \\
 \vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
 1 &amp; \alpha_n &amp; \alpha_n^2 &amp; \cdots &amp; \alpha_n^{n-1}
-\end{pmatrix}\)</span> est inversible déterminant <span
-class="math inline">\(V_n(\alpha_1,\ldots,\alpha_n) \neq 0\)</span> donc
-<span class="math display">\[\begin{aligned}
+\end{pmatrix}\)</span> est inversible (car de déterminant <span
+class="math inline">\(V_n(\alpha_1,\ldots,\alpha_n) \neq 0\)</span>)
+donc <span class="math display">\[\begin{aligned}
         &amp; \text{$P(\alpha_i) = \beta_i$ pour tout $i \in [\![ 1,n
 ]\!]$} \\
         &amp; \iff

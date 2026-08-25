@@ -757,7 +757,7 @@ class="math inline">\(\left\|u+t_0v\right\|^2 = 0\)</span>. On a donc
 </ul>
 </div>
 <div class="wrem">
-<p>Pour rappel, on n’a pas</p>
+<p>Pour rappel, on a</p>
 <p><span class="math display">\[(u,v) \text{ liée } \iff
 \left\{\begin{array}{ll}
         &amp; u=0_E \\
@@ -834,9 +834,14 @@ que $v = \lambda u$.}
 </div>
 <div class="wproof">
 <ul>
-<li><p><span class="math inline">\((\Longleftarrow)\)</span> S’il existe
-<span class="math inline">\(\lambda \in \mathbb{R}^{+}\)</span> tel que
-<span class="math inline">\(v = \lambda u\)</span>,</p>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span></p>
+<ul>
+<li><p>Si <span class="math inline">\(u=0_E\)</span>, <span
+class="math inline">\(\left\|u+v\right\| = \left\|v\right\| =
+\left\|u\right\|+\left\|v\right\|\)</span>.</p></li>
+<li><p>S’il existe <span class="math inline">\(\lambda \in
+\mathbb{R}^{+}\)</span> tel que <span class="math inline">\(v = \lambda
+u\)</span>,</p>
 <p><span class="math inline">\(\left\|u+v\right\| =
 \left\|\left(1+\lambda\right)u\right\| =
 \left|\underbrace{1+\lambda}_{\geq 0}\right|\left\|u\right\| =
@@ -845,6 +850,7 @@ que $v = \lambda u$.}
 \left\|u\right\|+\left|\lambda\right|\left\|u\right\| =
 \left\|u\right\|+\left\|\lambda u\right\| =
 \left\|u\right\|+\left\|v\right\|\)</span>.</p></li>
+</ul></li>
 <li><p><span class="math inline">\((\Longleftarrow)\)</span> En
 reprenant la preuve de l’inégalité triangulaire, <span
 class="math inline">\(\left\|u+v\right\| =
@@ -995,8 +1001,8 @@ vecteurs</h3>
 <p>Soit <span class="math inline">\(E\)</span> un <span
 class="math inline">\(\mathbb{R}\)</span>-espace vectoriel muni du
 produit scalaire <span class="math inline">\(\left(\cdot \mid
-\cdot\right)\)</span>. Soient <span
-class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> alors <span
+\cdot\right)\)</span>. Soit <span class="math inline">\((v_1,\ldots,v_n)
+\in E^n\)</span> alors <span
 class="math inline">\((v_1,\ldots,v_n)\)</span> est une famille
 orthogonale si <span class="math inline">\(n=1\)</span> ou <span
 class="math inline">\(n \geq 2\)</span> et pour tout <span
@@ -1010,11 +1016,10 @@ label="prop:orthogonale_non_nuls_libre"></span> Soit <span
 class="math inline">\(E\)</span> un <span
 class="math inline">\(\mathbb{R}\)</span>-espace vectoriel muni du
 produit scalaire <span class="math inline">\(\left(\cdot \mid
-\cdot\right)\)</span>. Soient <span
-class="math inline">\((v_1,\ldots,v_n) \in E^n\)</span> une famille
-orthogonale de <span class="math inline">\(E\)</span> telle que pour
-tout <span class="math inline">\(i \in [\![ 1,n ]\!], v_i \neq
-0_E\)</span>.</p>
+\cdot\right)\)</span>. Soit <span class="math inline">\((v_1,\ldots,v_n)
+\in E^n\)</span> une famille orthogonale de <span
+class="math inline">\(E\)</span> telle que pour tout <span
+class="math inline">\(i \in [\![ 1,n ]\!], v_i \neq 0_E\)</span>.</p>
 <p>Alors, <span class="math inline">\((v_1,\ldots,v_n)\)</span> est
 libre.</p>
 </div>
@@ -1287,11 +1292,11 @@ sous-espace vectoriel de <span class="math inline">\(E\)</span>.</p>
 class="math inline">\((e_1,\ldots,e_p)\)</span> une base orthonormée de
 <span class="math inline">\(F\)</span>. Soit <span
 class="math inline">\(v \in E\)</span>, montrons qu’il existe <span
-class="math inline">\(u \in F, u&#39; \in F\)</span> uniques tels que
-<span class="math inline">\(v = u+u&#39;\)</span>.</p>
+class="math inline">\(u \in F, u&#39; \in F^\perp\)</span> uniques tels
+que <span class="math inline">\(v = u+u&#39;\)</span>.</p>
 <ul>
 <li><p><u>Analyse.</u> Si <span class="math inline">\(u,u&#39;\)</span>
-existe alors il existe <span
+existent alors il existe <span
 class="math inline">\(\lambda_1,\ldots,\lambda_p \in \mathbb{R}\)</span>
 tels que <span class="math inline">\(u = \sum_{i=1}^p \lambda_i
 e_i\)</span>.</p>
@@ -1356,7 +1361,7 @@ en <span class="math inline">\(w=p_F(v)\)</span>.</p>
 </div>
 </div>
 <div class="wproof">
-<p>D’abord, <span class="math inline">\(\left\|v-p_F(v)\right\| \leq
+<p>D’abord, <span class="math inline">\(\left\|v-p_F(v)\right\| \geq
 \min_{w \in F} \left\|v-w\right\|\)</span> car <span
 class="math inline">\(p_F(v) \in F\)</span>.</p>
 <p>Ensuite, <span class="math inline">\(v = \underbrace{p_F(v)}_{\in
@@ -1409,18 +1414,19 @@ class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_k) =
 <div class="wproof">
 <p>Construisons pas à pas <span
 class="math inline">\((v_1,\ldots,v_n)\)</span>.</p>
-<ol>
-<li><p>Pour <span class="math inline">\(v_1\)</span>, il suffit de
+<ul>
+<li><p>(1) Pour <span class="math inline">\(v_1\)</span>, il suffit de
 prendre <span class="math inline">\(v_1 =
 \frac{1}{\left\|e_1\right\|}e_1\)</span>, de sorte que <span
 class="math inline">\(\left(v_1\right)\)</span> est orthonormée et <span
 class="math inline">\(\mathop{\mathrm{Vect}}(e_1) =
 \mathop{\mathrm{Vect}}(v_1)\)</span>.</p></li>
-<li></li>
-<li><p>Supposons que l’on a construit <span
-class="math inline">\((v_1,\ldots,v_k)\)</span> famille orthonormée
-telle que pour <span class="math inline">\(1 \leq i \leq k\)</span>,
-<span class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_i) =
+<li><p>⋮</p></li>
+<li><p><span class="math inline">\((k+1).\)</span> Supposons que l’on a
+construit <span class="math inline">\((v_1,\ldots,v_k)\)</span> famille
+orthonormée telle que pour <span class="math inline">\(1 \leq i \leq
+k\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_i) =
 \mathop{\mathrm{Vect}}(v_1,\ldots,v_i)\)</span>.</p>
 <p>On pose <span class="math inline">\(F_k =
 \mathop{\mathrm{Vect}}(v_1,\ldots,v_k)\)</span> et on considère <span
@@ -1458,12 +1464,13 @@ class="math inline">\((v_1,\ldots,v_k)\)</span> est orthonormée, <span
 class="math inline">\(p_{F_k}(v) = \sum_{i=1}^k (v \mid
 v_i)v_i\)</span>.</p>
 </div></li>
-<li></li>
-<li><p>A l’étape <span class="math inline">\(n\)</span>, on a construit
-une famille orthonormée de cardinal <span
-class="math inline">\(n\)</span> qui convient donc une base orthonormée
-de <span class="math inline">\(E\)</span> qui convient.</p></li>
-</ol>
+<li><p>⋮</p></li>
+<li><p>(<span class="math inline">\(n\)</span>) A l’étape <span
+class="math inline">\(n\)</span>, on a construit une famille orthonormée
+de cardinal <span class="math inline">\(n\)</span> qui convient donc une
+base orthonormée de <span class="math inline">\(E\)</span> qui
+convient.</p></li>
+</ul>
 </div>
 <div class="wex">
 <p>Dans <span class="math inline">\(E = \mathbb{R}_2[X]\)</span>, <span
@@ -1698,15 +1705,15 @@ class="math inline">\(\left\|f(e_i)\right\| = \left\|e_i\right\| =
 class="math inline">\(( f(e_i) \mid f(e_j)) = (e_i \mid e_j) =
 0\)</span>.</p></li>
 <li><p>(<span class="math inline">\(\Longleftarrow\)</span>) Soit <span
-class="math inline">\(v \in E\)</span>, <span
+class="math inline">\(v \in E\)</span>, <span class="math inline">\(f(v)
+= f\left(\sum_{i=1}^n (v \mid e_i)e_i\right) = \sum_{i=1}^n (v \mid
+e_i)f(e_i)\)</span>.</p>
+<p>Or, <span class="math inline">\((f(e_1,\ldots,f(e_n))\)</span> est
+une base orthnormée de <span class="math inline">\(E\)</span> donc <span
 class="math display">\[\begin{aligned}
-            \left\|v\right\|^2
-            &amp; = \sum_{i=1}^n (v \mid e_i)^2 \text{ car $\mathscr{B}$
-est une base orthnormée de $E$} \\
-            &amp; =  \sum_{i=1}^n (f(v) \mid f(e_i))^2 \text{ car $f \in
-\mathcal{O}(E)$} \\
-            &amp; = \left\|f(v)\right\|^2 \text{ car
-$\left(f(e_1),\ldots,f(e_n)\right)$ est une base orthonormée de $E$.}
+            \left\|f(v)\right\|^2
+            &amp; = \sum_{i=1}^n (v \mid e_i)^2 \\
+            &amp; = \left\|v\right\|^2.
         \end{aligned}\]</span></p></li>
 </ul>
 </div>
@@ -2551,7 +2558,7 @@ class="math inline">\(\mathscr{M}_{\mathscr{B}&#39;&#39;}(f) =
 R_{\theta}\)</span> puis <span class="math display">\[\begin{aligned}
                 \mathscr{M}_{\mathscr{B}&#39;}(f)
                 &amp; =
-P&#39;\mathscr{M}_{\mathscr{B}&#39;}(f)\left(P&#39;\right)^{-1} \\
+P&#39;\mathscr{M}_{\mathscr{B}&#39;&#39;}(f)\left(P&#39;\right)^{-1} \\
                 &amp; = \begin{pmatrix}
                 1 &amp; 0 \\
                 0 &amp; -1

@@ -96,14 +96,14 @@ color: var(--md-primary-bg-color);
 <li><a href="#généralités" id="toc-généralités"><span
 class="toc-section-number">1</span> Généralités</a>
 <ul>
-<li><a href="#représentation-du-corps-des-fractions-rationnelles"
-id="toc-représentation-du-corps-des-fractions-rationnelles"><span
-class="toc-section-number">1.1</span> Représentation du corps des
+<li><a href="#introduction-du-corps-des-fractions-rationnelles"
+id="toc-introduction-du-corps-des-fractions-rationnelles"><span
+class="toc-section-number">1.1</span> Introduction du corps des
 fractions rationnelles</a></li>
-<li><a href="#représentation-irréductible-de-f-in-mathbbkx"
-id="toc-représentation-irréductible-de-f-in-mathbbkx"><span
-class="toc-section-number">1.2</span> Représentation irréductible de
-<span class="math inline">\(F \in \mathbb{K}(X)\)</span></a></li>
+<li><a href="#représentant-irréductible-de-f-in-mathbbkx"
+id="toc-représentant-irréductible-de-f-in-mathbbkx"><span
+class="toc-section-number">1.2</span> Représentant irréductible de <span
+class="math inline">\(F \in \mathbb{K}(X)\)</span></a></li>
 <li><a href="#racine-et-pôle-de-f-in-kx"
 id="toc-racine-et-pôle-de-f-in-kx"><span
 class="toc-section-number">1.3</span> Racine et pôle de <span
@@ -153,8 +153,8 @@ class="toc-section-number">2.5</span> Fraction paire ou impaire</a></li>
 <h1 data-number="1" id="généralités"><span
 class="header-section-number">1</span> Généralités</h1>
 <h2 data-number="1.1"
-id="représentation-du-corps-des-fractions-rationnelles"><span
-class="header-section-number">1.1</span> Représentation du corps des
+id="introduction-du-corps-des-fractions-rationnelles"><span
+class="header-section-number">1.1</span> Introduction du corps des
 fractions rationnelles</h2>
 <div class="wdefi">
 <p>Soit <span class="math inline">\(\mathbb{K}\)</span> un sous-corps de
@@ -189,8 +189,8 @@ class="math inline">\(\frac{X^2+i}{X^2+X+1} \in
 <div class="wrem">
 <p><span class="math inline">\(\mathbb{Q}\)</span> agit de la même façon
 avec <span class="math inline">\(\mathbb{Z}\)</span>, on a <span
-class="math inline">\(Q = \left\{\frac{a}{b} / a \in \mathbb{Z}, b \in
-\mathbb{Z}^{\star}\right\}\)</span>.</p>
+class="math inline">\(\mathbb{Q}= \left\{\frac{a}{b} / a \in \mathbb{Z},
+b \in \mathbb{Z}^{\star}\right\}\)</span>.</p>
 </div>
 <div class="wprop">
 <p>Soient <span class="math inline">\(A,B \in \mathbb{K}[X]\)</span> et
@@ -250,8 +250,8 @@ class="math inline">\(\mathbb{Q}\)</span> ou <span
 class="math inline">\(\mathbb{R}\)</span>.</p>
 </div>
 <h2 data-number="1.2"
-id="représentation-irréductible-de-f-in-mathbbkx"><span
-class="header-section-number">1.2</span> Représentation irréductible de
+id="représentant-irréductible-de-f-in-mathbbkx"><span
+class="header-section-number">1.2</span> Représentant irréductible de
 <span class="math inline">\(F \in \mathbb{K}(X)\)</span></h2>
 <div class="wprop">
 <p>Soit <span class="math inline">\(F \in \mathbb{K}(X)\)</span>, il
@@ -271,7 +271,7 @@ class="math inline">\(A\)</span> et <span
 class="math inline">\(B\)</span>, il existe <span
 class="math inline">\(A_1,B_1 \in \mathbb{K}[X] \times \mathbb{K}[X]
 \setminus\left\{0\right\}\)</span> tels que <span
-class="math inline">\(A_1,B_1 \wedge = 1\)</span> et <span
+class="math inline">\(A_1 \wedge B_1 = 1\)</span>, <span
 class="math inline">\(A=DA_1\)</span> et <span class="math inline">\(B =
 DB_1\)</span>.</p>
 <p>On a donc <span class="math inline">\(F = \frac{A}{B} =
@@ -408,14 +408,14 @@ pas du choix du représentant de <span
 class="math inline">\(F\)</span>.</p>
 </div>
 <div class="wproof">
-<p>Soit <span class="math inline">\((C,D)\)</span> un autre représentant
-de <span class="math inline">\(F\)</span>, alors il existe <span
-class="math inline">\(Q \in \mathbb{K}[X]\)</span> tel que <span
-class="math inline">\(C=QA\)</span> et <span class="math inline">\(D =
-QB\)</span>.</p>
-<p>On a donc <span class="math inline">\(\deg(C)- \deg(D) =
-\left(\deg(A)+\deg(Q)\right)-\left(\deg(B)+\deg(Q)\right) =
-\deg(A)-\deg(B)\)</span>.</p>
+<p>Soit <span class="math inline">\((C,D)\)</span> un représentant
+irreductible de <span class="math inline">\(F\)</span>, alors il existe
+<span class="math inline">\(Q \in \mathbb{K}[X]\)</span> tel que <span
+class="math inline">\(A=QC\)</span> et <span class="math inline">\(B =
+QQ\)</span>.</p>
+<p>On a donc <span class="math inline">\(\deg(A)- \deg(B) =
+\left(\deg(C)+\deg(Q)\right)-\left(\deg(D)+\deg(Q)\right) =
+\deg(C)-\deg(D)\)</span>.</p>
 </div>
 <p>Pour cette raison, on pose sans ambiguïté la définition suivante.</p>
 <div class="wdefi">
@@ -650,11 +650,11 @@ class="math inline">\(R = \sum_{k=0}^{r-1}
 \frac{R^{(k)}(\alpha)}{k!}\frac{(X-\alpha)^k}{(X-\alpha)^{r-1}} =
 \frac{AU+QC}{C}+ \sum_{\ell=1}^r \frac{\lambda_k
 }{(X-\lambda)^\ell}\]</span></p>
-<p>avec <span class="math inline">\(lambda_k =
+<p>avec <span class="math inline">\(\lambda_k =
 \frac{R^{(r-k)}(\alpha)}{(r-k)!}\)</span> pour <span
 class="math inline">\(1 \leq k \leq r\)</span>.</p>
-<p>On a donc l’existence voulue avec <span class="math inline">\(D =
-AU+QC\)</span>.</p></li>
+<p>On a donc l’existence voulue avec aussi <span class="math inline">\(D
+= AU+QC\)</span>.</p></li>
 </ul>
 </div>
 <p>La preuve de l’unicité des <span
@@ -733,8 +733,8 @@ e^{\frac{2ik\pi}{n}} / 0 \leq k \leq n-1\right\}\)</span> et <span
 class="math inline">\(F =
 \frac{1}{\prod_{k=0}^{n-1}(X-\alpha_k)}.\)</span></p>
 <p>Pour chaque <span class="math inline">\(0 \leq k \leq n-1\)</span>,
-il existe donc <span class="math inline">\(\mu_k \in \mathbb{C},
-\mathbb{D}_k \in \mathbb{C}[X]\)</span> tel que</p>
+il existe donc <span class="math inline">\(\mu_k \in \mathbb{C}, D_k \in
+\mathbb{C}[X]\)</span> tel que</p>
 <p><span class="math display">\[F =
 \frac{\mu_k}{X-\omega_k}+\frac{D_k}{C_k}\]</span></p>
 <p>avec <span class="math inline">\(C_k = \prod_{\substack{0 \leq \ell
@@ -783,7 +783,7 @@ class="math inline">\(\lambda = B&#39;(\alpha)\)</span>.</p>
 =  \frac{\omega_k}{n\omega_k^{n}}= \frac{\omega_k}{n}\)</span>.</p>
 <p>(Au passage, on a donc montrer <span
 class="math inline">\(\prod_{\substack{0 \leq \ell \leq n-1 \\ \ell \neq
-k}}(\omega_k-\omega_\ell) = \frac{n}{\omega_k}\)</span>.</p></li>
+k}}(\omega_k-\omega_\ell) = \frac{n}{\omega_k}\)</span>).</p></li>
 </ul>
 </div>
 <h2 data-number="2.3"
@@ -854,25 +854,25 @@ class="math inline">\(\alpha \in \mathbb{R}\)</span> et <span
 class="math inline">\(A_2 \in \mathbb{R}[X]\)</span> tels que <span
 class="math display">\[\frac{A_1}{(X+2)(X-3)^2} = \frac{\alpha}{X+2} +
 \frac{A_2}{(X-3)^2}\]</span> donc <span class="math display">\[F =
-\frac{\lambda_1}{X-1}+\frac{\lambda_2}{(X-1)^2}+\frac{\alpha}{X+2} +
-\frac{A_2}{(X-3)^2}.\]</span></p></li>
+\frac{\lambda_1}{X-1}+\frac{\lambda_2}{(X-1)^2}+\frac{\lambda_3}{(X-1)^3}+\frac{\alpha}{X+2}
++ \frac{A_2}{(X-3)^2}.\]</span></p></li>
 <li><p>Enfin, en considérant la partie polaire de <span
 class="math inline">\(\frac{A_2}{(X-3)^2}\)</span> relative à <span
 class="math inline">\(2\)</span>, on a l’existence de <span
 class="math inline">\(\beta_1,\beta_2 \in \mathbb{R}\)</span> et <span
 class="math inline">\(A_3 \in \mathbb{R}[X]\)</span> tels que <span
 class="math display">\[\frac{A_2}{(X-3)^2} =
-\frac{\beta_1}{X-3}+\frac{\beta_2}{(X_3)^2} + \frac{A_3}{1}\]</span>
+\frac{\beta_1}{X-3}+\frac{\beta_2}{(X-3)^2} + \frac{A_3}{1}\]</span>
 donc <span class="math display">\[F =
-\frac{\lambda_1}{X-1}+\frac{\lambda_2}{(X-1)^2}+\frac{\alpha}{X+2}
-\frac{\beta_1}{X-3}+\frac{\beta_2}{(X_3)^2} + A_3.\]</span></p></li>
+\frac{\lambda_1}{X-1}+\frac{\lambda_2}{(X-1)^2}+\frac{\lambda_3}{(X-1)^3}+\frac{\alpha}{X+2}+
+\frac{\beta_1}{X-3}+\frac{\beta_2}{(X-3)^2} + A_3.\]</span></p></li>
 <li><p>Il reste à vérifier qu’on a bien <span
 class="math inline">\(A_3\)</span> qui est la partie entière de <span
 class="math inline">\(F\)</span>.</p>
 <p>Or,</p>
 <p><span class="math display">\[F-A_3
-=  \frac{\lambda_1}{X-1}+\frac{\lambda_2}{(X-1)^2}+\frac{\alpha}{X+2}
-\frac{\beta_1}{X-3}+\frac{\beta_2}{(X_3)^2} =
+=  \frac{\lambda_1}{X-1}+\frac{\lambda_2}{(X-1)^2}+\frac{\lambda_3}{(X-1)^3}+\frac{\alpha}{X+2}
++\frac{\beta_1}{X-3}+\frac{\beta_2}{(X-3)^2} =
 \frac{R}{(X-1)^3(X+2)(X-3)^2}\]</span> avec <span
 class="math inline">\(\deg(R) \leq 5\)</span>, en réunissant les
 fractions donc <span
@@ -1001,9 +1001,7 @@ les <span class="math inline">\(P_j\)</span> tous distincts et <span
 class="math inline">\(s_1,\ldots,s_p \in
 \mathbb{N}^{\star}\)</span>,</p></li>
 </ul>
-<p><span class="math inline">\(n \in \mathbb{N}^{\star}\)</span>, <span
-class="math inline">\(\beta \in \mathbb{R}^{\star}\)</span>, Alors, en
-notant</p>
+<p>Alors, en notant</p>
 <ul>
 <li><p><span class="math inline">\(E\)</span> la partie entière de <span
 class="math inline">\(F\)</span>,</p></li>
@@ -1016,7 +1014,7 @@ class="math inline">\(1 \leq k \leq n\)</span>,</p></li>
         R_{11},\ldots,R_{1s_1} \\
         \ldots, \\
         R_{p1},\ldots,R_{ps_p} \\
-    \end{array}\)</span> polynôme de <span
+    \end{array}\)</span> polynômes de <span
 class="math inline">\(\mathbb{R}[X]\)</span> de degré <span
 class="math inline">\(\leq 1\)</span>, uniques, ne dépendant que de
 <span class="math inline">\(F\)</span> tels que</p>
@@ -1063,7 +1061,7 @@ class="math inline">\(X^2+X+1\)</span>, on a l’existence de <span
 class="math inline">\(Q_1,R_1 \in \mathbb{R}[X]\)</span> tels que <span
 class="math inline">\(\deg(R_1) &lt; 2\)</span> donc <span
 class="math inline">\(\deg(R_1) \leq 1\)</span> et</p>
-<p><span class="math display">\[R = Q_1(X^2+X+1)^2 + R_1.\]</span></p>
+<p><span class="math display">\[R = Q_1(X^2+X+1) + R_1.\]</span></p>
 <p>On remarque que <span class="math inline">\(\deg(Q_1) \leq \deg(R)-2
 \leq 3\)</span> et donc <span class="math display">\[F =
 \frac{\lambda_1}{X-1}+\frac{\lambda_2}{(X-1)^2}+

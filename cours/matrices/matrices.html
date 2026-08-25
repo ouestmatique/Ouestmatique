@@ -368,7 +368,7 @@ class="math inline">\(\mathbb{K}\)</span> un sous-corps de <span
 class="math inline">\(\mathbb{C}\)</span>.</p>
 <p>Une matrice à <span class="math inline">\(n\)</span> lignes et <span
 class="math inline">\(p\)</span> colonnes à coefficients dans <span
-class="math inline">\(\mathscr{L}\)</span> est une famille d’éléments de
+class="math inline">\(\mathbb{K}\)</span> est une famille d’éléments de
 <span class="math inline">\(\mathbb{K}\)</span> indexée par <span
 class="math inline">\([\![ 1,n]\!] \times [\![ 1,p ]\!]\)</span>.</p>
 <p><span class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span>
@@ -410,7 +410,7 @@ a_{n1} &amp; \cdots &amp; a_{nj}&amp; \cdots &amp; a_{np} \\
 \draw[-&gt;] ($(M-1-3.north)+(0,1)$) -- node[pos=0.1,above]{$j$} (M-1-3.north);
 \end{tikzpicture}</code></pre>
 </div>
-<p><strong>Matrice carrée..</strong> </p>
+<p><strong>Matrice carrée.</strong> </p>
 <p>Si <span class="math inline">\(p= n\)</span>, on note <span
 class="math inline">\(\mathscr{M}_n(\mathbb{K})\)</span> au lieu de
 <span class="math inline">\(\mathscr{M}_{n,n}(\mathbb{K})\)</span> et on
@@ -720,7 +720,7 @@ data-reference="def:def_matrices">[def:def_matrices]</a>, soit <span
 class="math inline">\(A \in \mathscr{M}_{n,p}(\mathbb{K})\)</span> il
 existe <span class="math inline">\(f \in \mathscr{L}(E,F)\)</span>
 unique tel que <span
-class="math inline">\(\mathscr{M}_{[}(\mathscr{B})\mathscr{C}]{f} =
+class="math inline">\(\mathscr{M}_{\mathscr{B},\mathscr{C}}(\mathbb{K})[f]=
 A\)</span>.</p>
 <p>En effet, avec <span class="math inline">\(A = (a_{ij})\)</span>,</p>
 <p><span class="math display">\[A =
@@ -950,7 +950,7 @@ libre et génératrice.</p>
 <li><p><span class="math inline">\(\mathscr{F}\)</span> est une famille
 génératrice de <span
 class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span>.</p>
-<p>En effet, soi <span class="math inline">\(A = (a_{ij}) \in
+<p>En effet, soit <span class="math inline">\(A = (a_{ij}) \in
 \mathscr{M}_{n,p}(\mathbb{K})\)</span> alors <span
 class="math inline">\(A = \sum_{\substack{1 \leq i \leq p \\ 1 \leq j
 \leq n}} a_{ij}E_{ij}\)</span>.</p></li>
@@ -1023,7 +1023,7 @@ class="math inline">\(\mathbb{K}^p \overset{g}{\longrightarrow}
 <li><p><span class="math inline">\(g\in
 \mathscr{L}(\mathbb{K}^p,\mathbb{K}^n)\)</span> canoniquement associée à
 <span class="math inline">\(B\)</span>,</p></li>
-<li><p>ainsi que <span class="math inline">\(\mathscr{B}_m = =
+<li><p>ainsi que <span class="math inline">\(\mathscr{B}_m =
 (e&#39;&#39;_1,\ldots,e&#39;&#39;_m),\mathscr{B}_n   =
 (e&#39;_1,\ldots,e&#39;_n)\)</span> et <span
 class="math inline">\(\mathscr{B}_p = (e_1,\ldots,e_p)\)</span> les
@@ -1885,17 +1885,6 @@ b_{ii} = \mathop{\mathrm{Tr}}(A) +\lambda
 \mathop{\mathrm{Tr}}(B).\]</span></p>
 </div>
 <div class="wprop">
-<p>Soient <span class="math inline">\(A \in
-\mathscr{M}_{n}(\mathbb{K})\)</span>, alors <span
-class="math inline">\(\mathop{\mathrm{Tr}}\left({}^tA\right) =
-\mathop{\mathrm{Tr}}(A)\)</span>.</p>
-</div>
-<div class="wproof">
-<p>Les coefficients diagonaux de <span
-class="math inline">\({}^tA\)</span> sont les mêmes que ceux de <span
-class="math inline">\(A\)</span>.</p>
-</div>
-<div class="wprop">
 <p>Soient <span class="math inline">\(A,B \in
 \mathscr{M}_{n}(\mathbb{K})\)</span>, alors <span
 class="math inline">\(\mathop{\mathrm{Tr}}(AB) =
@@ -2127,10 +2116,9 @@ data-reference-type="ref"
 data-reference="prop:Chasles_matrices_applis">[prop:Chasles_matrices_applis]</a>,
 on a</p>
 <p><span class="math display">\[I_n =
-\mathscr{M}_{\mathscr{B},\mathscr{B}}(\mathbb{K})(\mathop{\mathrm{Id}}_E)
-=
-\mathscr{M}_{\mathscr{B}&#39;,\mathscr{B}}(\mathbb{K})(\mathop{\mathrm{Id}}_E)\mathscr{M}_{\mathscr{B},\mathscr{B}&#39;}(\mathbb{K})(\mathop{\mathrm{Id}}_E)
-=
+\mathscr{M}_{\mathscr{B},\mathscr{B}}(\mathop{\mathrm{Id}}_E)
+=  \mathscr{M}_{\mathscr{B}&#39;,\mathscr{B}}(\mathop{\mathrm{Id}}_E)
+\mathscr{M}_{\mathscr{B},\mathscr{B}&#39;}(\mathop{\mathrm{Id}}_E) =
 P_{\mathscr{B},\mathscr{B}&#39;}P_{\mathscr{B}&#39;,\mathscr{B}}.\]</span></p>
 <p>Donc <span class="math inline">\(P_{\mathscr{B},\mathscr{B}&#39;} \in
 GL_n(\mathbb{K})\)</span> et <span
@@ -2468,8 +2456,9 @@ class="math inline">\(F\)</span> tel que <span class="math inline">\(Q =
 P_{\mathscr{C},\mathscr{C}&#39;}\)</span>.</p>
 <p>On a alors <span class="math inline">\(B = Q^{-1}AP =
 P_{\mathscr{C},\mathscr{C}&#39;}^{-1}
-\mathscr{M}_{\mathscr{B},\mathbb{C}}(f) P_{\mathscr{B},\mathscr{B}&#39;}
-= \mathscr{M}_{\mathscr{B}&#39;,\mathscr{C}&#39;}(f)\)</span>.</p></li>
+\mathscr{M}_{\mathscr{B},\mathscr{C}}(f)
+P_{\mathscr{B},\mathscr{B}&#39;} =
+\mathscr{M}_{\mathscr{B}&#39;,\mathscr{C}&#39;}(f)\)</span>.</p></li>
 </ul>
 </div>
 <h3 data-number="6.3.2" id="matrices-semblables"><span
@@ -2527,8 +2516,7 @@ telle que <span class="math inline">\(A =P^{-1}AP\)</span>.</p>
 <p>De plus, <span class="math inline">\(Tr(CD) =
 \mathop{\mathrm{Tr}}(DC)\)</span> pour toute matrice <span
 class="math inline">\(C,D \in \mathscr{M}_{n}(\mathbb{K})\)</span>.</p>
-<p>Donc</p>
-<p><span class="math display">\[\mathop{\mathrm{Tr}}(B) =
+<p>Donc <span class="math display">\[\mathop{\mathrm{Tr}}(B) =
 \mathop{\mathrm{Tr}}\left(P^{-1}AP\right)
 =\mathop{\mathrm{Tr}}\left(\left(P^{-1}A\right)P\right) =
 \mathop{\mathrm{Tr}}\left(P\left(P^{-1}A\right)\right) =
@@ -2783,7 +2771,7 @@ sont les colonnes de <span class="math inline">\(A\)</span>.</p>
             \vdots \\
             0
         \end{pmatrix}\)</span> de sorte que la <span
-class="math inline">\(j\)</span>-ième coordonnée vale <span
+class="math inline">\(j\)</span>-ième coordonnée vaut <span
 class="math inline">\(1\)</span>. On a alors <span
 class="math inline">\((E_1,\ldots,E_n)\)</span> qui est une base de
 <span class="math inline">\(\mathscr{M}_{n,1}(\mathbb{K})\)</span> et
@@ -3240,6 +3228,17 @@ avec <span class="math inline">\(\left({}^tA\right)^{-1} =
 {}^t\left(A^{-1}\right)\)</span>.</p>
 </div>
 <div class="wprop">
+<p>Soient <span class="math inline">\(A \in
+\mathscr{M}_{n}(\mathbb{K})\)</span>, alors <span
+class="math inline">\(\mathop{\mathrm{Tr}}\left({}^tA\right) =
+\mathop{\mathrm{Tr}}(A)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Les coefficients diagonaux de <span
+class="math inline">\({}^tA\)</span> sont les mêmes que ceux de <span
+class="math inline">\(A\)</span>.</p>
+</div>
+<div class="wprop">
 <p>Soit <span class="math inline">\(A \in
 \mathscr{M}_{n,p}(\mathbb{K})\)</span> alors <span
 class="math inline">\(\mathop{\mathrm{rg}}(^tA) =
@@ -3348,8 +3347,7 @@ donc <span
 class="math inline">\(\dim\mathop{\mathrm{Vect}}(v_1,\ldots,v_i,\ldots,v_k,\ldots,v_p)
 =
 \dim\mathop{\mathrm{Vect}}(v_1,\ldots,v_k,\ldots,v_i,\ldots,v_p)\)</span>
-et finalement,</p>
-<p><span
+et finalement, <span
 class="math display">\[\mathop{\mathrm{rg}}(v_1,\ldots,v_i,\ldots,v_k,\ldots,v_p)
 =
 \mathop{\mathrm{rg}}(v_1,\ldots,v_k,\ldots,v_i,\ldots,v_p).\]</span></p></li>
@@ -3446,7 +3444,7 @@ data-reference="lem:operations_vecteurs_qui_conservent_le_rang_dune_famille">[le
 les opérations élémentaires conservent le rang.</p>
 </div>
 <p>On définit de même les opérations élémentaires sur les colonnes (en
-remplaçant ligne par colonne).</p>
+remplaçant "ligne" par "colonne").</p>
 <h3 data-number="7.8.2"
 id="application-au-calcul-du-rang-dune-matrice"><span
 class="header-section-number">7.8.2</span> Application au calcul du rang
@@ -3582,9 +3580,8 @@ class="math inline">\(\mathop{\mathrm{rg}}A =
          3 &amp; \alpha  \\
         4 &amp; 2\alpha  \\
     \end{pmatrix}.\)</span></p>
-<p>Enfin, <span class="math inline">\(\mathop{\mathrm{rg}}A =
-\overset{L_2 \leftarrow L_2-2L_1}{=}
-2+\mathop{\mathrm{rg}}\begin{pmatrix}
+<p>Enfin, <span class="math inline">\(\mathop{\mathrm{rg}}A \overset{L_2
+\leftarrow L_2-2L_1}{=} 2+\mathop{\mathrm{rg}}\begin{pmatrix}
          3 &amp; \alpha  \\
         -2 &amp; 0  \\
     \end{pmatrix}.\)</span></p>
@@ -3991,18 +3988,18 @@ vectoriels sur <span class="math inline">\(\mathbb{K}\)</span>.</p>
 <p>Soient <span class="math inline">\(f \in \mathscr{L}(E,F)\)</span> et
 <span class="math inline">\(b \in F\)</span>.</p>
 <p>L’équation linéaire associée à <span class="math inline">\(f\)</span>
-et <span class="math inline">\(b\)</span> est</p>
-<p><span class="math display">\[\label{eq:equation_lin}
+et <span class="math inline">\(b\)</span> est <span
+class="math display">\[\label{eq:equation_lin}
         \tag{$e$}
         f(v) = b\]</span> d’inconnue <span
 class="math inline">\(v\)</span> dans <span
-class="math inline">\(E\)</span>.</p>
-<p><span class="math inline">\(\eqref{eq:equation_lin}\)</span>est dite
+class="math inline">\(E\)</span>. <span
+class="math inline">\(\eqref{eq:equation_lin}\)</span>est dite
 <u>compatible</u> si<span
 class="math inline">\(\eqref{eq:equation_lin}\)</span>possède au moins
-une solution.</p>
-<p>L’équation <span class="math display">\[\label{eq:equation_lin_homo}
-        \tag{$e&#39;$}
+une solution. L’équation <span
+class="math display">\[\label{eq:equation_lin_homo}
+        \tag{$h$}
         f(v) = 0\]</span> d’inconnue <span
 class="math inline">\(v\)</span> dans <span
 class="math inline">\(E\)</span> est appelée l’équation homogène
@@ -4071,8 +4068,8 @@ class="math inline">\(I\)</span>.</p>
 <p>Alors, en considérant l’équation <span
 class="math display">\[\label{eq:ex_deo_lin_comme_equation_lin}
             \tag{E}
-            \varphi(y) = b,\]</span></p>
-<p><span class="math display">\[\begin{aligned}
+            \varphi(y) = b,\]</span> <span
+class="math display">\[\begin{aligned}
             y \text{ solution
 de~$\eqref{eq:ex_deo_lin_comme_equation_lin}$}
             &amp; \iff y&#39;-ay = b \\
@@ -4115,8 +4112,8 @@ class="math inline">\(x_1,\ldots,x_p\)</span>) s’écrit</p>
     \end{array}\right..\]</span></p>
 <p>Le système linéaire <span
 class="math display">\[\label{eq:defi_syst_lin_homo}
-    \tag{L&#39;}
-            AX=b \iff \left\{\begin{array}{lllll}
+    \tag{H}
+            AX=0 \iff \left\{\begin{array}{lllll}
         a_{11}x_1 &amp; +a_{12}x_2 &amp; +\ldots &amp; +a_{1p}x_p &amp;
 = 0\\
         \vdots &amp; \vdots &amp; \ldots &amp; \vdots &amp; = \vdots \\
@@ -4172,7 +4169,9 @@ class="math inline">\(\eqref{eq:defi_syst_lin}\)</span>admet</p>
 b\)</span> donc le système n’admet pas de solution,</p></li>
 <li><p>Soit il existe <span class="math inline">\(X_0 \in
 \mathbb{K}^p\)</span> tel que <span class="math inline">\(AX_0 =
-b\)</span>. Alors,</p>
+b\)</span>. Alors, sachant <span
+class="math inline">\(\mathcal{S}_{\text{$\eqref{eq:defi_syst_lin}$}}
+=\mathop{\mathrm{Ker}}A\)</span>,</p>
 <ul>
 <li><p>Soit <span class="math inline">\(\dim \mathop{\mathrm{Ker}}A =
 0\)</span> donc <span
@@ -4181,9 +4180,9 @@ class="math inline">\(\mathcal{S}_{\text{$\eqref{eq:defi_syst_lin}$}} =
 <li><p>Soit <span class="math inline">\(\dim \mathop{\mathrm{Ker}}A &gt;
 0\)</span> et <span
 class="math inline">\(\mathcal{S}_{\text{$\eqref{eq:defi_syst_lin}$}} =
-\left\{X_0 + U/ U \in \mathop{\mathrm{Ker}}A\right\}.\)</span> est
-infini car <span class="math inline">\(\mathop{\mathrm{Ker}}A\)</span>
-est infini, comme espace vectoriel de dimension strictement
+\left\{X_0 + U/ U \in \mathop{\mathrm{Ker}}A\right\}\)</span> est infini
+car <span class="math inline">\(\mathop{\mathrm{Ker}}A\)</span> est
+infini, comme espace vectoriel de dimension strictement
 positive.</p></li>
 </ul></li>
 </ul>
@@ -4196,10 +4195,9 @@ Cramer par la méthode du pivot de Gauss</h3>
 <p>Soit <span
 class="math inline">\(\eqref{eq:defi_syst_lin}\)</span>associé à <span
 class="math inline">\(A \in \mathscr{M}_{n}(\mathbb{K})\)</span> et
-<span class="math inline">\(b \in \mathbb{K}^n\)</span>.</p>
-<p><span class="math inline">\(\eqref{eq:defi_syst_lin}\)</span>est dit
-de Cramer si <span class="math inline">\(A \in
-GL_n(\mathbb{K})\)</span>.</p>
+<span class="math inline">\(b \in \mathbb{K}^n\)</span>.<span
+class="math inline">\(\eqref{eq:defi_syst_lin}\)</span>est dit de Cramer
+si <span class="math inline">\(A \in GL_n(\mathbb{K})\)</span>.</p>
 <p>Dans ce cas,<span
 class="math inline">\(\eqref{eq:defi_syst_lin}\)</span>admet une unique
 solution.</p>
