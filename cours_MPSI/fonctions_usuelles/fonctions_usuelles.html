@@ -3487,95 +3487,104 @@ rapide.</p></li>
 </div>
 
     <script>
-    import matplotlib.pyplot as plt
-import numpy as np
-from matplotlib.patches import FancyArrowPatch
+    (function () {
+    const widget = document.querySelector(".alpha-widget");
+    if (!widget) return;
 
-def point_tille(ax, start, end, color="#BDC3C7", lw=1.2):
-    arrow = FancyArrowPatch(
-        start, end,
-        arrowstyle='-',
-        linestyle='--', 
-        mutation_scale=15,
-        linewidth=lw,
-        color=color,
-        fill=False
-    )
-    ax.add_patch(arrow)
+    const slider = widget.querySelector(".alphaSlider");
+    const input  = widget.querySelector(".alphaInput");
+    const plot   = widget.querySelector(".plot");
 
-# Active LaTeX si disponible dans votre environnement
-# plt.rcParams["text.usetex"] = True
+    function f(x, a) {
+        const val = Math.pow(x, a);
+        // Évite les valeurs infinies qui font planter le moteur de rendu Plotly
+        if (!isFinite(val) || val > 100) return null;
+        return val;
+    }
 
-fig, ax = plt.subplots(figsize=(6, 6))
+    const xs = [];
+    for (let x = 0.01; x <= 3.5; x += 0.01) {
+        xs.push(parseFloat(x.toFixed(2)));
+    }
 
-# --- Palette de couleurs ---
-AXIS_COLOR = "#2C3E50"          # Couleur sobre pour les axes / repères 0 et 1
-GRID_COLOR = "#BDC3C7"          # Pointillés légers
-COLOR_ALPHA_GT_1   = "#27AE60"  # Vert : alpha > 1
-COLOR_ALPHA_EQ_1   = "#E67E22"  # Orange : alpha = 1
-COLOR_ALPHA_BETWEEN= "#8E44AD"  # Violet : 0 < alpha < 1
-COLOR_ALPHA_EQ_0   = "#E74C3C"  # Rouge : alpha = 0
-COLOR_ALPHA_LT_0   = "#2980B9"  # Bleu : alpha < 0
+    function updatePlot(alpha) {
+        alpha = parseFloat(alpha);
+        const ys = xs.map(x => f(x, alpha));
 
-# --- Fonctions puissances x^alpha ---
-x = np.linspace(0.01, 5, 500)
-f_gt_1   = lambda x: x**3            # alpha > 1
-f_eq_1   = lambda x: x               # alpha = 1
-f_between= lambda x: x**(1/3)        # 0 < alpha < 1
-f_eq_0   = lambda x: np.ones_like(x) # alpha = 0
-f_lt_0   = lambda x: 1/x             # alpha < 0
+        let curveColor = '#2ca02c';
+        if (alpha < 0) curveColor = '#1f77b4';
+        else if (alpha === 1) curveColor = '#ff7f0e';
+        else if (alpha > 0 && alpha < 1) curveColor = '#9467bd';
+        else if (alpha === 0) curveColor = '#d62728';
 
-# --- Tracé des courbes ---
-ax.plot(x, f_gt_1(x),    color=COLOR_ALPHA_GT_1,    lw=2.2)
-ax.plot(x, f_eq_1(x),    color=COLOR_ALPHA_EQ_1,    lw=2.2)
-ax.plot(x, f_between(x), color=COLOR_ALPHA_BETWEEN, lw=2.2)
-ax.plot(x, f_eq_0(x),    color=COLOR_ALPHA_EQ_0,    lw=2.2)
-ax.plot(x, f_lt_0(x),    color=COLOR_ALPHA_LT_0,    lw=2.2)
+        const traces = [
+            {
+                x: xs,
+                y: ys,
+                mode: "lines",
+                type: "scatter",
+                line: { color: curveColor, width: 3 },
+                showlegend: false
+            },
+            {
+                x: [0, 1],
+                y: [1, 1],
+                mode: "lines",
+                type: "scatter",
+                line: { color: '#d62728', dash: 'dash', width: 2 },
+                showlegend: false
+            },
+            {
+                x: [1, 1],
+                y: [0, 1],
+                mode: "lines",
+                type: "scatter",
+                line: { color: '#d62728', dash: 'dash', width: 2 },
+                showlegend: false
+            }
+        ];
 
-# --- Axes (fléchés) ---
-ax.annotate('', xy=(3.8, 0), xytext=(-0.3, 0),
-            arrowprops=dict(arrowstyle="->", color=AXIS_COLOR, lw=1.5))
-ax.annotate('', xy=(0, 4.6), xytext=(0, -0.3),
-            arrowprops=dict(arrowstyle="->", color=AXIS_COLOR, lw=1.5))
+        const layout = {
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
+            title: {
+                text: `f(x)=x<sup>${alpha}</sup>`,
+                font: { size: 24 },
+                color: window.matchMedia('(prefers-color-scheme: dark)').matches ? '#ffe0b3' : '#2d1b12'
+            },
+            width: 600,
+            height: 600,
+            margin: { t: 60 },
+            xaxis: {
+                range: [0, 3.5],
+                scaleanchor: "y",
+                scaleratio: 1,
+                color: '#2d1b12',
+                gridcolor: 'rgba(0,0,0,0.08)',
+                zerolinecolor: 'rgba(0,0,0,0.2)'
+            },
+            yaxis: {
+                range: [0, 3.5],
+                color: '#2d1b12',
+                gridcolor: 'rgba(0,0,0,0.08)',
+                zerolinecolor: 'rgba(0,0,0,0.2)'
+            }
+        };
 
-# --- Pointillés au point (1, 1) ---
-point_tille(ax, [1, 0], [1, 1], color=GRID_COLOR, lw=1.2)
-point_tille(ax, [0, 1], [1, 1], color=GRID_COLOR, lw=1.2)
+        Plotly.react(plot, traces, layout);
+    }
 
-# --- Graduations et repères (0 et 1) ---
-ax.plot(0, 0, "+", color=AXIS_COLOR, markersize=8, mew=1.5)
-ax.text(-0.15, -0.22, r"$0$", fontsize=14, color=AXIS_COLOR)
+    function sync(alpha) {
+        slider.value = alpha;
+        input.value  = alpha;
+        updatePlot(alpha);
+    }
 
-ax.plot(1, 0, "+", color=AXIS_COLOR, markersize=8, mew=1.5)
-ax.text(0.95, -0.25, r"$1$", fontsize=14, color=AXIS_COLOR)
+    slider.addEventListener("input", () => sync(slider.value));
+    input.addEventListener("input", () => sync(input.value));
 
-ax.plot(0, 1, "+", color=AXIS_COLOR, markersize=8, mew=1.5)
-ax.text(-0.25, 0.95, r"$1$", fontsize=14, color=AXIS_COLOR)
-
-# Point d'intersection (1, 1)
-ax.plot(1, 1, "o", color="#34495E", markersize=4)
-
-# --- Labels des courbes selon alpha ---
-ax.text(1.7,  4.20, r"$\alpha > 1$",       fontsize=15, color=COLOR_ALPHA_GT_1)
-ax.text(0.35, 4.20, r"$\alpha < 0$",       fontsize=15, color=COLOR_ALPHA_LT_0)
-ax.text(3.1,  2.90, r"$\alpha = 1$",       fontsize=15, color=COLOR_ALPHA_EQ_1)
-ax.text(2.6,  1.55, r"$0 < \alpha < 1$",   fontsize=15, color=COLOR_ALPHA_BETWEEN)
-ax.text(3.1,  0.75, r"$\alpha = 0$",       fontsize=15, color=COLOR_ALPHA_EQ_0)
-
-# --- Mise en page & Export ---
-ax.set_xlim(-0.4, 3.8)
-ax.set_ylim(-0.4, 4.8)
-ax.set_aspect('equal', adjustable='box')
-plt.axis('off')
-
-plt.savefig(
-    "puissances.png",
-    dpi=300,
-    bbox_inches="tight",
-    transparent=True,
-    pad_inches=0.05
-)
-plt.show()
+    sync(1);
+})();
     </script>
     </p>
 <p><strong>Règles de calculs.</strong> </p>
