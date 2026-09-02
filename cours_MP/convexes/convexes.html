@@ -116,9 +116,9 @@ id="toc-les-fonctions-puissances"><span
 class="toc-section-number">4.3</span> Les fonctions puissances</a></li>
 <li><a href="#la-fonction-sinus" id="toc-la-fonction-sinus"><span
 class="toc-section-number">4.4</span> La fonction sinus</a></li>
-<li><a href="#quelques-exercices" id="toc-quelques-exercices"><span
-class="toc-section-number">4.5</span> Quelques exercices</a></li>
 </ul></li>
+<li><a href="#quelques-exercices" id="toc-quelques-exercices"><span
+class="toc-section-number">5</span> Quelques exercices</a></li>
 </ul>
 </nav>
 <p>Dans tout le cours, <span class="math inline">\((E,+,.)\)</span>
@@ -182,7 +182,7 @@ class="math inline">\(g_\lambda = \lambda a + \mu b = \lambda a +
 \overrightarrow{ab}\)</span>.</p>
 <ul>
 <li><p>Si <span class="math inline">\(a=b\)</span>, <span
-class="math inline">\(g = a\)</span>.</p></li>
+class="math inline">\(g_\lambda = a\)</span>.</p></li>
 <li><div class="webtextfigure">
 <div class="webtext">
 <p>Si <span class="math inline">\(a\neq b\)</span>, <span
@@ -617,8 +617,8 @@ class="math inline">\(a,b,c\)</span>.</p>
 </ul>
 </div>
 <div class="wprop">
-<p>Soit <span class="math inline">\(F\)</span> un <span
-class="math inline">\(\mathbb{R}\)</span>-espace vectoriel et <span
+<p>Soient <span class="math inline">\(F\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel, <span
 class="math inline">\(f \in \mathscr{L}(E,F)\)</span> et <span
 class="math inline">\(g =
 \mathrm{bar}\left(\left(a_i,\mu_i\right)\right)_{i \in I}\)</span> un
@@ -723,9 +723,9 @@ class="math inline">\(g =
 \frac{a+b}{2}\)</span>. Alors, on a <span class="math inline">\(g
 =  \mathrm{bar}\left(\left(g_1,2\right),\left(c,1\right)\right) =
 \frac{2g_1+c}{3} = g_1+\frac{1}{3}\overrightarrow{g_1c}\)</span>.</p>
-<p>De même, avec <span class="math inline">\(g_1=
+<p>De même, avec <span class="math inline">\(g_2=
 \mathrm{bar}\left(\left(a,1\right),\left(c,1\right)\right) =
-\frac{a+c}{2}\)</span> et <span class="math inline">\(g_1=
+\frac{a+c}{2}\)</span> et <span class="math inline">\(g_3=
 \mathrm{bar}\left(\left(b,1\right),\left(c,1\right)\right) =
 \frac{b+c}{2}\)</span>, on a <span class="math inline">\(g=
 g_2+\frac{1}{3}\overrightarrow{g_2b}=
@@ -829,7 +829,7 @@ class="math inline">\(n\)</span> points. Soient <span
 class="math inline">\(a_1,\ldots,a_n,a_{n+1} \in A\)</span> et <span
 class="math inline">\(\lambda_1,\ldots,\lambda_n,\lambda_{n+1} \in
 \mathbb{R}\)</span> tels que <span class="math inline">\(\lambda_1 \geq
-0, \ldots,\lambda_n,\lambda_{n+1} \geq 0\)</span> et <span
+0, \ldots,\lambda_n \geq 0,\lambda_{n+1} \geq 0\)</span> et <span
 class="math inline">\(\lambda_1+\ldots+\lambda_n+\lambda_{n+1} =
 1\)</span>.</p>
 <p>Posons <span class="math inline">\(g = \sum_{i=1}^{n+1} \lambda_i
@@ -916,7 +916,7 @@ concave si <span class="math display">\[\forall x,y \in I, \forall
 class="math inline">\(a,b \in I\)</span>, la corde reliant les points
 d’abscisses <span class="math inline">\(a\)</span> et <span
 class="math inline">\(b\)</span> de la courbe représentative de <span
-class="math inline">\(f\)</span> est le segment reliant les points <span
+class="math inline">\(f\)</span> est le segment reliant <span
 class="math inline">\((a,f(a))\)</span> à <span
 class="math inline">\((b,f(b))\)</span>. On dit alors que <span
 class="math inline">\(f\)</span> est au-dessus (si <span
@@ -927,9 +927,16 @@ class="math inline">\(f\)</span> est concave) de ses cordes.</p>
 </div>
 <div class="wrem">
 <ul>
+<li><p>L’inégalité de convexité est évidente pour <span
+class="math inline">\(x=y\)</span> ou <span
+class="math inline">\(\lambda = 0\)</span> ou <span
+class="math inline">\(\lambda = 1\)</span>. Pour cette raison, on
+traitera uniquement <span class="math inline">\(x &lt; y\)</span> et
+<span class="math inline">\(\lambda \in ]0,1[\)</span> dans certaines
+preuves.</p></li>
 <li><p><span class="math inline">\(f\)</span> convexe <span
 class="math inline">\(\iff\)</span> <span
-class="math inline">\(f\)</span> concave.</p></li>
+class="math inline">\(-f\)</span> concave.</p></li>
 <li><p>On peut étendre la définition de la convexité à une fonction
 <span class="math inline">\(f: A \to \mathbb{R}\)</span> avec <span
 class="math inline">\(A \subset E\)</span> un ensemble convexe.</p></li>
@@ -989,7 +996,7 @@ class="math inline">\(n\)</span>.</p>
 class="math inline">\(n=1\)</span>, avec <span class="math inline">\(x_1
 \in I\)</span> et <span class="math inline">\(\lambda \in
 \mathbb{R}^{+}\)</span> tel que <span class="math inline">\(\lambda =
-1\)</span>, on a <span class="math inline">\(\lambda_1 x_1 x_1\)</span>
+1\)</span>, on a <span class="math inline">\(\lambda_1 x_1 =x_1\)</span>
 donc <span class="math inline">\(f(\lambda_1 x_1) =
 f(x_1)\)</span>.</p></li>
 <li><p><u>Hérédité.</u> Soient <span class="math inline">\(n \in
@@ -998,7 +1005,7 @@ class="math inline">\(n\)</span> points. Soient <span
 class="math inline">\(x_1,\ldots,x_n,x_{n+1} \in I\)</span> et <span
 class="math inline">\(\lambda_1,\ldots,\lambda_n,\lambda_{n+1} \in
 \mathbb{R}\)</span> tels que <span class="math inline">\(\lambda_1 \geq
-0, \ldots,\lambda_n,\lambda_{n+1} \geq 0\)</span> et <span
+0, \ldots,\lambda_n \geq 0,\lambda_{n+1} \geq 0\)</span> et <span
 class="math inline">\(\lambda_1+\ldots+\lambda_{n+1} = 1\)</span>.</p>
 <p>Posons <span class="math inline">\(g = \sum_{i=1}^{n+1} \lambda_i
 x_i\)</span>.</p>
@@ -1022,6 +1029,9 @@ class="math inline">\(f\)</span>, on a <span class="math display">\[f(g)
 (1-\lambda_{n+1})f(g&#39;)+\lambda_{n+1}f(x_{n+1}).\]</span></p>
 <p>Or, on a <span class="math inline">\(g&#39; =
 \sum_{i=1}^{n}\lambda_i&#39; x_i\)</span> avec <span
+class="math inline">\(\lambda_i&#39; =
+\frac{\lambda_i}{1-\lambda_{n+1}}\)</span> pour <span
+class="math inline">\(1 \leq i \leq n\)</span> et <span
 class="math inline">\(\sum_{i=1}^n \lambda&#39;_i = \sum_{i=1}^n
 \frac{\lambda_i}{1-\lambda_{n+1}} =  \frac{\sum_{i=1}^n
 \lambda_i}{1-\lambda_{n+1}}=1\)</span> et les <span
@@ -1146,7 +1156,7 @@ car $y-x &gt; 0$} \\
         \end{aligned}\]</span></p>
 <p>Or, en écrivant <span class="math inline">\(\lambda =
 \frac{y-x}{z-x}\)</span>, on a <span class="math inline">\(\lambda &gt;
-0\)</span>, <span class="math inline">\(\lambda \geq \frac{z-x}{z-x} =
+0\)</span>, <span class="math inline">\(\lambda \leq \frac{z-x}{z-x} =
 1\)</span>, <span class="math inline">\(1-\lambda =
 \frac{z-y}{z-x}\)</span> puis <span
 class="math inline">\((1-\lambda)x+\lambda z = x+\lambda(z-x) =
@@ -1299,7 +1309,7 @@ class="math inline">\(x \in I \setminus [a,b]\)</span>.</p>
 corde reliant <span class="math inline">\(a\)</span> à <span
 class="math inline">\(b\)</span> de la courbe représentative de <span
 class="math inline">\(f\)</span>. Si la courbe de <span
-class="math inline">\(f\)</span> se trouve bien sous ses cordes. La
+class="math inline">\(f\)</span> se trouve bien sous ses cordes, la
 proposition dit qu’en les points hors du segment <span
 class="math inline">\([a,b]\)</span>, la courbe de <span
 class="math inline">\(f\)</span> se trouve du-dessus de cette
@@ -1342,19 +1352,10 @@ f&#39;&#39; \text{ est positive.}\]</span></p>
 <li><p><span class="math inline">\((\Longleftarrow)\)</span> Soient
 <span class="math inline">\(x &lt; z \in I\)</span> et <span
 class="math inline">\(\lambda \in ]0,1[\)</span> tel que <span
-class="math inline">\(y = (1-\lambda)x+\lambda z \in ]x,y[\)</span>. On
+class="math inline">\(y = (1-\lambda)x+\lambda z \in ]x,z[\)</span>. On
 a alors <span class="math inline">\(\lambda = \frac{y-x}{z-x}\)</span>
-et <span class="math inline">\(1-\lambda = \frac{z-y}{z-x}\)</span>.</p>
-<p>On a alors <span class="math display">\[\begin{aligned}
-        &amp; f((1-\lambda)x+\lambda z)
-        \leq (1-\lambda)f(x)+\lambda f(z) \\
-        &amp; \iff  f(y) \leq  \left(1-\frac{y-x}{z-x}\right)f(x)+
-\frac{y-x}{z-x} f(z) \\
-        &amp; \iff f(y)-f(x) \leq  \frac{y-x}{z-x}(f(z)-f(x)) \\
-        &amp; \iff \frac{f(y)-f(x)}{y-x} \leq
-\frac{f(z)-f(x)}{z-x}\text{ car $y-x &gt; 0$.}
-        \end{aligned}\]</span></p>
-<p>On a alors <span class="math display">\[\begin{aligned}
+et <span class="math inline">\(1-\lambda = \frac{z-y}{z-x}\)</span> et
+<span class="math display">\[\begin{aligned}
         &amp; f(\underbrace{(1-\lambda)x+\lambda z}_{=y})
         \leq (1-\lambda)f(x)+\lambda f(z) \\
         &amp; \iff  \left(1-\lambda+\lambda\right)f(y) \leq
@@ -1872,8 +1873,8 @@ class="math inline">\(y = 0\)</span>, on a <span
 class="math inline">\(\left|\sin(x)-\sin(y)\right|=
 \left|\sin(x)\right|\)</span> puis <span
 class="math inline">\(\left|x-y\right| = \left|y\right|\)</span> donc
-<span class="math display">\[\text{\ovalbox{$\forall x \in \mathbb{R},
-\left|\sin(x)\right| \leq \left|x\right|$.}}\]</span></p>
+<span class="math display">\[\enclose{roundedbox}{\forall x \in
+\mathbb{R}, \left|\sin(x)\right| \leq \left|x\right|.}\]</span></p>
 <div class="webtextfigure">
 <div class="webtext">
 <p>Une inégalité utile est la suivante : La corde entre <span
@@ -1901,8 +1902,8 @@ class="math display">\[\enclose{roundedbox}{\forall x \in
 <p><img src="concavite_sinus_corde_jordan.png" alt="image" /></p>
 </div>
 </div>
-<h2 data-number="4.5" id="quelques-exercices"><span
-class="header-section-number">4.5</span> Quelques exercices</h2>
+<h1 data-number="5" id="quelques-exercices"><span
+class="header-section-number">5</span> Quelques exercices</h1>
 <p><strong>Exercice</strong> — Soit <span class="math inline">\(f : I
 \to \mathbb{R}\)</span> une fonction convexe avec <span
 class="math inline">\(I\)</span> non majoré (donc de la forme <span
@@ -2050,7 +2051,7 @@ class="math inline">\(\lambda_k = \frac{x_k^p}{\sum_{j=1}^p
 x_j^p}\)</span> pour <span class="math inline">\(1 \leq k \leq
 n\)</span>, on a <span class="math inline">\(\lambda_1,\ldots, \lambda_n
 \geq 0\)</span> et <span class="math inline">\(\sum_{k=1}^n \lambda_k =
-1\)</span> donc l’inégalité est vraie pas concavité de <span
+1\)</span> donc l’inégalité est vraie par concavité de <span
 class="math inline">\(f\)</span>.</p></li>
 <li><p>Sinon, soit <span class="math inline">\(\varepsilon &gt;
 0\)</span>, le cas précédent s’applique à <span
