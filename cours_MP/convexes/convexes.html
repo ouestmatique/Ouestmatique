@@ -1,0 +1,2248 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Parties convexes et fonctions convexes</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+
+<link rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+
+
+
+<style>
+  /* Correctif MathJax : fusion des bordures pour les divisions de polynômes (array + cline) */
+  mjx-container mjx-mtable {
+    border-collapse: collapse !important;
+  }
+  mjx-container mjx-mtd {
+    padding-top: 0.25em !important;
+    padding-bottom: 0.25em !important;
+  }
+
+  body[data-md-color-scheme="slate"] svg {
+    filter: invert(1) hue-rotate(180deg);
+  }
+  body[data-md-color-scheme="slate"] .site-logo {
+    filter: none;
+  }
+  
+</style>
+
+<header class="site-header">
+
+   <div class="site-header-left">
+      <a href="../../index.html">
+        <img src="../../assets/logo.svg"
+             class="site-logo"
+             alt="Logo">
+      </a>
+    </div>
+
+<div class="site-header-right">
+   <button id="theme-toggle"
+style="
+margin-right: 15px;
+cursor: pointer;
+background: transparent;
+border: none;
+font-size: 1.1rem;
+color: var(--md-primary-bg-color);
+">
+🌙 / ☀️
+</button>
+
+<a href="../../index.html" class="home-link">
+   Retour à l’accueil
+ </a>
+</div>
+
+</header>
+
+
+<header id="title-block-header">
+
+<h1 class="title">Parties convexes et fonctions convexes</h1>
+<p class="pdf-link">
+<a href="convexes.pdf" target="_blank">[PDF]</a>
+</p>
+
+</header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#barycentres" id="toc-barycentres"><span
+class="toc-section-number">1</span> Barycentres</a></li>
+<li><a href="#parties-convexes" id="toc-parties-convexes"><span
+class="toc-section-number">2</span> Parties convexes</a></li>
+<li><a href="#fonctions-convexes" id="toc-fonctions-convexes"><span
+class="toc-section-number">3</span> Fonctions convexes</a></li>
+<li><a
+href="#exemples-de-fonctions-convexes-usuelles-et-dinégalités-très-utiles"
+id="toc-exemples-de-fonctions-convexes-usuelles-et-dinégalités-très-utiles"><span
+class="toc-section-number">4</span> Exemples de fonctions convexes
+usuelles et d’inégalités très utiles</a>
+<ul>
+<li><a href="#la-fonction-exponentielle"
+id="toc-la-fonction-exponentielle"><span
+class="toc-section-number">4.1</span> La fonction exponentielle</a></li>
+<li><a href="#la-fonction-ln" id="toc-la-fonction-ln"><span
+class="toc-section-number">4.2</span> La fonction <span
+class="math inline">\(\ln\)</span></a></li>
+<li><a href="#les-fonctions-puissances"
+id="toc-les-fonctions-puissances"><span
+class="toc-section-number">4.3</span> Les fonctions puissances</a></li>
+<li><a href="#la-fonction-sinus" id="toc-la-fonction-sinus"><span
+class="toc-section-number">4.4</span> La fonction sinus</a></li>
+<li><a href="#quelques-exercices" id="toc-quelques-exercices"><span
+class="toc-section-number">4.5</span> Quelques exercices</a></li>
+</ul></li>
+</ul>
+</nav>
+<p>Dans tout le cours, <span class="math inline">\((E,+,.)\)</span>
+désigne un <span class="math inline">\(\mathbb{R}\)</span>-espace
+vectoriel.</p>
+<h1 data-number="1" id="barycentres"><span
+class="header-section-number">1</span> Barycentres</h1>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(\left(a_i\right)_{i \in I}\)</span>
+une famille de <span class="math inline">\(E\)</span> avec <span
+class="math inline">\(I\)</span> fini.</p>
+<p>Soit <span class="math inline">\(\left(\mu_i\right)_{i \in
+I}\)</span> une famille de <span
+class="math inline">\(\mathbb{R}\)</span> telle que <span
+class="math inline">\(\sum_{i \in I}\mu_i \neq 0\)</span>.</p>
+<p>On appelle barycentre de <span
+class="math inline">\(\left(\left(a_i\right),\left(\mu_i\right)\right)_{i
+\in I}\)</span> l’élément <span class="math display">\[g =
+\frac{1}{\sum_{i \in I}\mu_i}\sum_{i \in I}\mu_i a_i.\]</span> On le
+note <span
+class="math inline">\(\mathrm{bar}\left(\left(a_i\right),\left(\mu_i\right)\right)_{i
+\in I}\)</span>.</p>
+</div>
+<div class="wrem">
+<ul>
+<li><p><span class="math inline">\(g = \sum_{i \in
+I}\frac{\mu_i}{\sum_{i \in I}\mu_i} a_i = \sum_{i \in I} \lambda_i
+a_i\)</span> avec <span class="math inline">\(\left(\lambda_i\right)_{i
+\in I}\)</span> qui vérifie <span class="math inline">\(\sum_{i \in I}
+\lambda_i = 1\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(\alpha \in
+\mathbb{R}^{\star}\)</span>, <span
+class="math inline">\(\mathrm{bar}\left(\left(a_i\right),\left(\mu_i\right)\right)_{i
+\in
+I}=\mathrm{bar}\left(\left(a_i\right),\left(\alpha\mu_i\right)\right)_{i
+\in I}\)</span>.</p></li>
+</ul>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(\left(a_i\right)_{i \in I}\)</span>
+une famille de <span class="math inline">\(E\)</span> avec <span
+class="math inline">\(I\)</span> fini.</p>
+<p>L’isobarycentre de <span class="math inline">\(\left(a_i\right)_{i
+\in I}\)</span> est <span
+class="math inline">\(\mathrm{bar}\left(\left(a_i\right),1\right)_{i \in
+I}\)</span> (ou <span
+class="math inline">\(\mathrm{bar}\left(\left(a_i\right),\alpha\right)_{i
+\in I}\)</span> avec <span class="math inline">\(\alpha \in
+\mathbb{R}^{\star}\)</span>) tel que <span
+class="math display">\[\mathrm{bar}\left(\left(a_i\right),1\right)_{i
+\in I} = \frac{1}{n}\sum_{i\in I} a_i.\]</span></p>
+</div>
+<div class="wex">
+<ul>
+<li><p>Pour <span class="math inline">\(a,b \in E\)</span> et <span
+class="math inline">\(\lambda,\mu \in \mathbb{R}\)</span> tels que <span
+class="math inline">\(\lambda+\mu=1\)</span> alors <span
+class="math inline">\(\mu = 1-\lambda\)</span> et <span
+class="math inline">\(g_\lambda = \lambda a + \mu b = \lambda a +
+(1-\lambda )b = a + \lambda (b-a) = a+\lambda
+\overrightarrow{ab}\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(a=b\)</span>, <span
+class="math inline">\(g = a\)</span>.</p></li>
+<li><div class="webtextfigure">
+<div class="webtext">
+<p>Si <span class="math inline">\(a\neq b\)</span>, <span
+class="math inline">\(\left\{g_\lambda / \lambda \in
+\mathbb{R}\right\}\)</span> est la droite affine passant par <span
+class="math inline">\(a\)</span>, dirigée par <span
+class="math inline">\(\overrightarrow{ab}\)</span>, autrement dit :
+<span
+class="math inline">\(a+\mathop{\mathrm{Vect}}{\overrightarrow{ab}}\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="droite_affine_a_b.png" alt="image" /></p>
+</div>
+</div>
+<p>L’isobarycentre de <span class="math inline">\(a,b\)</span> est leur
+milieu <span class="math inline">\(g_{\frac{1}{2}} =
+\frac{a+b}{2}\)</span>.</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(a,b \in E\)</span>, on appelle
+segment d’extrémités <span class="math inline">\(a\)</span> et <span
+class="math inline">\(b\)</span>, noté <span
+class="math inline">\([a,b]\)</span>, l’ensemble <span
+class="math inline">\(\left\{\lambda a + \mu b/ \lambda+\mu =1, \lambda
+\geq 0, \mu \geq 0\right\} = \left\{a + \lambda (b-a)/ \lambda \in
+[0,1]\right\}\)</span>.</p>
+</div>
+<p>
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+
+    <style>
+    .lambdaSlider {
+    width: 600px;
+}
+
+.segment_convexe-widget {
+    background: transparent !important;
+}
+    </style>
+
+    <div class="segment_convexe-widget">
+    <p>
+        λ :
+        <input
+            type="range"
+            class="lambdaSlider"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.5"
+        >
+
+        <input
+            type="number"
+            class="lambdaInput"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.5"
+        >
+    </p>
+
+    <div class="plot"></div>
+</div>
+
+    <script>
+    (function () {
+    const widget = document.querySelector(".segment_convexe-widget");
+    if (!widget) return;
+
+    const slider = widget.querySelector(".lambdaSlider");
+    const input  = widget.querySelector(".lambdaInput");
+    const plot   = widget.querySelector(".plot");
+
+    const dark_brown = "#82411E";
+
+    // Coordonnées des points fixes a et b
+    const a = { x: 0, y: 0 };
+    const b = { x: 1, y: 1 };
+
+    function updatePlot(lambda) {
+        lambda = parseFloat(lambda);
+
+        // Calcul du point g_lambda = a + lambda * (b - a)
+        const gx = a.x + lambda * (b.x - a.x);
+        const gy = a.y + lambda * (b.y - a.y);
+
+        const traces = [
+            // Segment reliant a et b
+            {
+                x: [a.x, b.x],
+                y: [a.y, b.y],
+                mode: "lines",
+                type: "scatter",
+                line: { color: "#1f77b4", width: 3 },
+                name: "Segment [a, b]",
+                showlegend: false
+            },
+            // Points fixes a et b avec la couleur dark_brown
+            {
+                x: [a.x, b.x],
+                y: [a.y, b.y],
+                mode: "markers+text",
+                type: "scatter",
+                marker: { 
+                    size: 10, 
+                    color: dark_brown 
+                },
+                textfont: {
+                    color: dark_brown,
+                    size: 14
+                },
+                text: ["a", "b"],
+                textposition: ["bottom right", "top left"],
+                showlegend: false
+            },
+            // Point mobile g_lambda
+            {
+                x: [gx],
+                y: [gy],
+                mode: "markers+text",
+                type: "scatter",
+                marker: { size: 12, color: "#d62728" },
+                textfont: { color: "#d62728", size: 14 },
+                text: [`g<sub>λ</sub>`],
+                textposition: "top left",
+                showlegend: false
+            }
+        ];
+
+        const layout = {
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
+            title: {
+                text: `g<sub>λ</sub> = a + λ(b - a)  (λ = ${lambda.toFixed(2)})`,
+                font: { size: 22 },
+                color: window.matchMedia('(prefers-color-scheme: dark)').matches ? '#ffe0b3' : dark_brown
+            },
+            width: 600,
+            height: 600,
+            margin: { t: 60, b: 20, l: 20, r: 20 },
+            xaxis: {
+                visible: false,
+                range: [-0.2, 1.2],
+                scaleanchor: "y",
+                scaleratio: 1
+            },
+            yaxis: {
+                visible: false,
+                range: [-0.2, 1.2]
+            }
+        };
+
+        Plotly.react(plot, traces, layout);
+    }
+
+    function sync(lambda) {
+        slider.value = lambda;
+        input.value  = lambda;
+        updatePlot(lambda);
+    }
+
+    slider.addEventListener("input", () => sync(slider.value));
+    input.addEventListener("input", () => sync(input.value));
+
+    // Valeur initiale λ = 0.5
+    sync(0.5);
+})();
+    </script>
+    </p>
+<div class="wex">
+<ul>
+<li><p>Si <span class="math inline">\(a=b\)</span>, <span
+class="math inline">\(\left[a,b\right] =
+\left\{a\right\}\)</span>.</p></li>
+<li><p><span class="math inline">\(\left[a,b\right] =
+\left[b,a\right]\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(a,b \in \mathbb{R}\)</span> tels
+que <span class="math inline">\(a\leq b\)</span>, <span
+class="math inline">\([a,b] = \left\{x \in \mathbb{R}/ a \leq x \leq
+b\right\}.\)</span> En effet,</p>
+<ul>
+<li><p>Si <span class="math inline">\(t = a+\lambda(b-a)\)</span> avec
+<span class="math inline">\(\lambda \in [0,1]\)</span> alors <span
+class="math inline">\(t \leq a+b-a = b\)</span> et <span
+class="math inline">\(t \geq a\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(a \leq t \leq b\)</span>, <span
+class="math inline">\(\lambda = \frac{t-a}{b-a}\)</span> vérifie <span
+class="math inline">\(0 \leq \lambda \leq 1\)</span> et <span
+class="math inline">\(a+\lambda(b-a) = t-a+a = t\)</span>.</p></li>
+</ul>
+<div class="wrem">
+<p>Cela redonne le changement de variable très pratique <span
+class="math inline">\(u = \frac{t-a}{b-a}\)</span> pour passer d’une
+intégrale avec <span class="math inline">\(t \in [a,b]\)</span> à une
+intégrale avec <span class="math inline">\(u \in [0,1]\)</span>.</p>
+</div></li>
+<li><p>Et si on considère trois points ? L’ensemble des barycentres à
+coefficients positifs de <span class="math inline">\(a,b,c \in
+        E\)</span> est <span class="math display">\[\begin{aligned}
+        &amp; \left\{\lambda_1 a + \lambda_2 b + \lambda_3 c /
+\begin{array}{ll}
+         &amp; \lambda_1 +\lambda_2 +\lambda_3=1, \\
+            &amp; \lambda_1 \geq 0, \lambda_2 \geq 0, \lambda_3 \geq 0.
+        \end{array}\right\} \\
+         =&amp; \left\{(1-\lambda_2-\lambda_3)a + \lambda_2 b +
+\lambda_3 c / \begin{array}{ll}
+         &amp; \lambda_1 +\lambda_2 +\lambda_3=1, \\
+            &amp; \lambda_1 \geq 0, \lambda_2 \geq 0, \lambda_3 \geq 0.
+            \end{array}\right\} \\
+         = &amp;\left\{a + \lambda_2 (b-a) + \lambda_3(c-a) /
+\begin{array}{ll}
+         &amp; \lambda_2 +\lambda_3 \leq =1, \\
+            &amp; \lambda_2 \geq 0, \lambda_3 \geq 0.
+            \end{array}\right\} \\
+            = &amp;\left\{a + \lambda_2 \overrightarrow{ab} +
+\lambda_3\overrightarrow{ac} / \begin{array}{ll}
+         &amp; \lambda_2 +\lambda_3 \leq 1, \\
+            &amp; \lambda_2 \geq 0, \lambda_3 \geq 0.
+            \end{array}\right\}.
+        \end{aligned}\]</span></p>
+<p>Il s’agit donc du triangle formé de <span
+class="math inline">\(a,b,c\)</span>.</p>
+<p>
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+
+    <style>
+    .triangle_convexe-widget {
+    background: transparent !important;
+}
+
+.lambdaSlider,
+.muSlider {
+    width: 600px;
+}
+    </style>
+
+    <div class="triangle_convexe-widget">
+    <p>
+        λ :
+        <input
+            type="range"
+            class="lambdaSlider"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.3"
+        >
+        <input
+            type="number"
+            class="lambdaInput"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.3"
+        >
+    </p>
+
+    <p>
+        μ :
+        <input
+            type="range"
+            class="muSlider"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.4"
+        >
+        <input
+            type="number"
+            class="muInput"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.4"
+        >
+    </p>
+
+    <div class="plot"></div>
+</div>
+
+    <script>
+    (function () {
+    const widget = document.querySelector(".triangle_convexe-widget");
+    if (!widget) return;
+
+    const lambdaSlider = widget.querySelector(".lambdaSlider");
+    const lambdaInput  = widget.querySelector(".lambdaInput");
+    const muSlider     = widget.querySelector(".muSlider");
+    const muInput      = widget.querySelector(".muInput");
+    const plot         = widget.querySelector(".plot");
+
+    const dark_brown = "#82411E";
+
+    // Coordonnées des points fixes a, b et c
+    const a = { x: 0, y: 0 };
+    const b = { x: 1, y: 1 };
+    const c = { x: 1, y: 0 };
+
+    function updatePlot(lambda, mu) {
+        lambda = parseFloat(lambda);
+        mu = parseFloat(mu);
+
+        // g_(lambda, mu) = a + lambda*(b - a) + mu*(c - a)
+        const gx = a.x + lambda * (b.x - a.x) + mu * (c.x - a.x);
+        const gy = a.y + lambda * (b.y - a.y) + mu * (c.y - a.y);
+
+        const traces = [
+            // Triangle plein en fond
+            {
+                x: [a.x, b.x, c.x, a.x],
+                y: [a.y, b.y, c.y, a.y],
+                fill: 'toself',
+                fillcolor: 'rgba(31, 119, 180, 0.15)',
+                mode: 'lines',
+                line: { color: '#1f77b4', width: 2 },
+                showlegend: false,
+                hoverinfo: 'skip'
+            },
+            // Points fixes a, b, c
+            {
+                x: [a.x, b.x, c.x],
+                y: [a.y, b.y, c.y],
+                mode: "markers+text",
+                type: "scatter",
+                marker: { 
+                    size: 10, 
+                    color: dark_brown 
+                },
+                textfont: { 
+                    color: dark_brown, 
+                    size: 14 
+                },
+                text: ["a", "b", "c"],
+                textposition: ["bottom left", "top center", "bottom right"],
+                showlegend: false
+            },
+            // Point mobile g_(lambda, mu)
+            {
+                x: [gx],
+                y: [gy],
+                mode: "markers+text",
+                type: "scatter",
+                marker: { size: 12, color: "#d62728" },
+                textfont: { color: "#d62728", size: 14 },
+                text: [`g<sub>λ,μ</sub>`],
+                textposition: "top left",
+                showlegend: false
+            }
+        ];
+
+        const layout = {
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
+            title: {
+                text: `g<sub>λ,μ</sub> = a + λ(b-a) + μ(c-a) , (λ+μ = ${(lambda + mu).toFixed(2)}))`,
+                font: { size: 20 },
+                color: window.matchMedia('(prefers-color-scheme: dark)').matches ? '#ffe0b3' : dark_brown
+            },
+            width: 600,
+            height: 600,
+            margin: { t: 60, b: 20, l: 20, r: 20 },
+            xaxis: {
+                visible: false,
+                range: [-0.2, 1.3],
+                scaleanchor: "y",
+                scaleratio: 1
+            },
+            yaxis: {
+                visible: false,
+                range: [-0.2, 1.3]
+            }
+        };
+
+        Plotly.react(plot, traces, layout);
+    }
+
+    // Gestion de la contrainte lambda + mu <= 1
+    function onLambdaChange(val) {
+        let l = parseFloat(val);
+        let m = parseFloat(muSlider.value);
+
+        if (l + m > 1) {
+            m = parseFloat((1 - l).toFixed(2));
+            muSlider.value = m;
+            muInput.value = m;
+        }
+
+        lambdaSlider.value = l;
+        lambdaInput.value = l;
+        updatePlot(l, m);
+    }
+
+    function onMuChange(val) {
+        let m = parseFloat(val);
+        let l = parseFloat(lambdaSlider.value);
+
+        if (l + m > 1) {
+            l = parseFloat((1 - m).toFixed(2));
+            lambdaSlider.value = l;
+            lambdaInput.value = l;
+        }
+
+        muSlider.value = m;
+        muInput.value = m;
+        updatePlot(l, m);
+    }
+
+    lambdaSlider.addEventListener("input", (e) => onLambdaChange(e.target.value));
+    lambdaInput.addEventListener("input", (e) => onLambdaChange(e.target.value));
+
+    muSlider.addEventListener("input", (e) => onMuChange(e.target.value));
+    muInput.addEventListener("input", (e) => onMuChange(e.target.value));
+
+    // Valeurs initiales respectant lambda + mu <= 1
+    lambdaSlider.value = 0.3;
+    lambdaInput.value = 0.3;
+    muSlider.value = 0.4;
+    muInput.value = 0.4;
+    updatePlot(0.3, 0.4);
+})();
+    </script>
+    </p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(F\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel et <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span> et <span
+class="math inline">\(g =
+\mathrm{bar}\left(\left(a_i,\mu_i\right)\right)_{i \in I}\)</span> un
+barycentre de <span class="math inline">\(E\)</span>.</p>
+<p>Alors, <span class="math inline">\(f(g) =
+\mathrm{bar}\left(\left(f(a_i),\mu_i\right)\right)_{i \in
+I}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Par linéarité de <span class="math inline">\(f\)</span>, <span
+class="math display">\[f(g) = f\left( \frac{1}{\sum_{i \in
+I}\mu_i}\sum_{i \in I}\mu_i a_i\right) =  \frac{1}{\sum_{i \in
+I}\mu_i}\sum_{i \in I}\mu_i f\left( a_i\right).\]</span></p>
+</div>
+<div class="wprop">
+<p><strong>(Associativité des barycentres)</strong> Soit <span
+class="math inline">\(\left(a_i\right)_{i \in I}\)</span> une famille de
+<span class="math inline">\(E\)</span> avec <span
+class="math inline">\(I\)</span> fini.</p>
+<p>Soient <span class="math inline">\(I_1,I_2\)</span> des ensembles
+finis tels que <span class="math inline">\(I = I_1 \cup I_2\)</span> et
+<span class="math inline">\(I_1 \cap I_2 = \emptyset\)</span>.</p>
+<p>Soit <span class="math inline">\(\left(\mu_i\right)_{i \in
+I}\)</span> une famille de <span
+class="math inline">\(\mathbb{R}\)</span> telle que <span
+class="math inline">\(\sum_{i \in I}\mu_i \neq 0, \sum_{i \in I_1}\mu_i
+\neq 0\)</span> et <span class="math inline">\(\sum_{i \in I_2}\mu_i
+\neq 0\)</span>.</p>
+<p>Alors, avec <span class="math inline">\(g_1 =
+\mathrm{bar}\left(\left(a_i\right),\left(\mu_i\right)\right)_{i \in
+I_1}\)</span> et <span class="math inline">\(g_2 =
+\mathrm{bar}\left(\left(a_i\right),\left(\mu_i\right)\right)_{i \in
+I_2}\)</span>, <span
+class="math display">\[\mathrm{bar}\left(\left(a_i\right),\left(\mu_i\right)\right)_{i
+\in I}
+    = \mathrm{bar}\left(\left(g_1,\sum_{i \in
+I_1}\mu_i\right),\left(g_2,\sum_{i \in
+I_1}\mu_2\right)\right).\]</span></p>
+</div>
+<div class="wproof">
+<p>On a <span class="math display">\[\begin{aligned}
+    \mathrm{bar}\left(\left(a_i\right),\left(\mu_i\right)\right)_{i \in
+I}
+    &amp; = \frac{1}{\sum_{i \in I}\mu_i}\sum_{i \in I}\mu_i a_i \\
+    &amp; = \frac{1}{\sum_{i \in I}\mu_i}\sum_{i \in I_1}\mu_i
+a_i+\frac{1}{\sum_{i \in I}\mu_i}\sum_{i \in I_2}\mu_i a_i \\
+    &amp; = \frac{1}{\sum_{i \in I}\mu_i}\frac{\sum_{i \in
+I_1}\mu_i}{\sum_{i \in I_1}\mu_i}\sum_{i \in I_1}\mu_i
+a_i+\frac{1}{\sum_{i \in I}\mu_i}\frac{\sum_{i \in I_2}\mu_i}{\sum_{i
+\in I_2}\mu_i}\sum_{i \in I_2}\mu_i a_i \\
+    &amp; = \frac{1}{\sum_{i \in I}\mu_i}\left(\sum_{i \in
+I_1}\mu_i\right)g_1+\frac{1}{\sum_{i \in I}\mu_i}\left(\sum_{i \in
+I_2}\mu_i\right)g_2 \\
+    &amp; = \frac{1}{\sum_{i \in I_1}\mu_i+\sum_{i \in
+I_2}\mu_i}\left(\sum_{i \in I_1}\mu_i\right)g_1+\frac{1}{\sum_{i \in
+I_1}\mu_i+\sum_{i \in I_2}\mu_i}\left(\sum_{i \in I_2}\mu_i\right)g_2.
+    \end{aligned}\]</span></p>
+</div>
+<div class="wex">
+<p>Soient <span class="math inline">\(a_1,a_2,a_3,a_4,a_5 \in
+E\)</span>, avec <span class="math inline">\(g =
+\frac{a_1+a_2+a_3+a_4+a_5}{5}\)</span>, <span class="math inline">\(g_1
+= \frac{a_1+a_2+a_3}{3}\)</span> et <span class="math inline">\(g_2 =
+\frac{a_4+a_5}{2}\)</span>, <span class="math inline">\(g =
+\frac{3g_1+2g_2}{5} = \frac{3}{5}g_1+\frac{2}{5}g_2 =
+g_1+\frac{2}{5}(g_2-g_1)\)</span>.</p>
+</div>
+<div class="wprop">
+<p><strong>(Associativité des barycentres,suite)</strong> Soit <span
+class="math inline">\(\left(a_i\right)_{i \in I}\)</span> une famille de
+<span class="math inline">\(E\)</span> avec <span
+class="math inline">\(I\)</span> fini.</p>
+<p>Soient <span class="math inline">\(\left(I_j\right)_{1 \leq j \leq
+p}\)</span> des ensembles finis tels que <span class="math inline">\(I =
+\bigcup_{j=1}^p I_j\)</span> et <span class="math inline">\(I_i  \cap
+I_j = \emptyset\)</span> pour <span class="math inline">\(i \neq
+j\)</span>.</p>
+<p>Soit <span class="math inline">\(\left(\mu_i\right)_{i \in
+I}\)</span> une famille de <span
+class="math inline">\(\mathbb{R}\)</span> telle que <span
+class="math inline">\(\sum_{i \in I}\mu_i \neq 0\)</span> et <span
+class="math inline">\(\sum_{i \in I_j}\mu_i \neq 0\)</span> pour <span
+class="math inline">\(1 \leq j \leq p\)</span>.</p>
+<p>Alors, avec <span class="math inline">\(g_j =
+\mathrm{bar}\left(\left(a_i\right),\left(\mu_i\right)\right)_{i \in
+I_j}\)</span> pour <span class="math inline">\(1 \leq j \leq p\)</span>,
+on a <span
+class="math display">\[\mathrm{bar}\left(\left(a_i\right),\left(\mu_i\right)\right)_{i
+\in I}
+    = \mathrm{bar}\left(\left(g_j,\sum_{i \in I_j}\mu_i\right)\right)_{1
+\leq j \leq p}.\]</span></p>
+</div>
+<div class="wex">
+<ul>
+<li><div class="webtextfigure">
+<div class="webtext">
+<p>Soient <span class="math inline">\(a,b,c \in E\)</span>, <span
+class="math inline">\(g =
+\mathrm{bar}\left(\left(a,1\right),\left(b,1\right),\left(c,1\right)\right)
+= \frac{a+b+c}{3}\)</span> et <span class="math inline">\(g_1=
+\mathrm{bar}\left(\left(a,1\right),\left(b,1\right)\right) =
+\frac{a+b}{2}\)</span>. Alors, on a <span class="math inline">\(g
+=  \mathrm{bar}\left(\left(g_1,2\right),\left(c,1\right)\right) =
+\frac{2g_1+c}{3} = g_1+\frac{1}{3}\overrightarrow{g_1c}\)</span>.</p>
+<p>De même, avec <span class="math inline">\(g_1=
+\mathrm{bar}\left(\left(a,1\right),\left(c,1\right)\right) =
+\frac{a+c}{2}\)</span> et <span class="math inline">\(g_1=
+\mathrm{bar}\left(\left(b,1\right),\left(c,1\right)\right) =
+\frac{b+c}{2}\)</span>, on a <span class="math inline">\(g=
+g_2+\frac{1}{3}\overrightarrow{g_2b}=
+g_3+\frac{1}{3}\overrightarrow{g_3a}\)</span>.</p>
+<p>On a donc <span class="math inline">\(g\)</span> qui est point
+d’intersection des trois médianes.</p>
+</div>
+<div class="webimg">
+<p><img src="ilus_associativite_trois_bary.png" alt="image" /></p>
+</div>
+</div></li>
+<li><div class="webtextfigure">
+<div class="webtext">
+<p>Soient <span class="math inline">\(a,b,c,d \in E\)</span>, <span
+class="math inline">\(g =
+\mathrm{bar}\left(\left(a,1\right),\left(b,1\right),\left(c,1\right),\left(d,1\right)\right)
+= \frac{a+b+c+d}{4}\)</span> et <span class="math inline">\(g_1=
+\mathrm{bar}\left(\left(a,1\right),\left(b,1\right),\left(c,1\right)\right)
+= \frac{a+b+c}{3}\)</span>. Alors, on a <span class="math inline">\(g
+=  \mathrm{bar}\left(\left(g_1,3\right),\left(c,1\right)\right) =
+\frac{3g_1+d}{4} = g_1+\frac{1}{4}\overrightarrow{g_1d}\)</span>.</p>
+<p>On peut aussi faire d’autres groupements comme avec <span
+class="math inline">\(g&#39;_1=
+\mathrm{bar}\left(\left(a,1\right),\left(b,1\right)\right) =
+\frac{a+b}{2}\)</span> et <span class="math inline">\(g&#39;_2=
+\mathrm{bar}\left(\left(c,1\right),\left(d,1\right)\right) =
+\frac{c+d}{2}\)</span> tels que <span class="math inline">\(g=
+\mathrm{bar}\left(\left(g&#39;_1,2\right),\left(g&#39;_2,2\right)\right)
+= \frac{g&#39;_1+g&#39;_2}{4}\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="ilus_associativite_quatre_bary.png" alt="image" /></p>
+</div>
+</div></li>
+</ul>
+</div>
+<h1 data-number="2" id="parties-convexes"><span
+class="header-section-number">2</span> Parties convexes</h1>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(A \subset E\)</span>.</p>
+<p><span class="math inline">\(A\)</span> est convexe si pour tout <span
+class="math inline">\(x,y \in A\)</span>, <span
+class="math inline">\(\left[x,y\right] \subset A\)</span></p>
+<p>ie pour tout <span class="math inline">\(x,y \in A\)</span>, pour
+tout <span class="math inline">\(\lambda \in [0,1]\)</span>, <span
+class="math inline">\((1-\lambda)x+\lambda y \in A\)</span>.</p>
+</div>
+<div class="center">
+<p><img src="convexe_non_convexe.png" alt="image" /></p>
+</div>
+<div class="wex">
+<ul>
+<li><p>Tout intervalle de <span
+class="math inline">\(\mathbb{R}\)</span> est convexe et on a même <span
+class="math inline">\(I\)</span> intervalle de <span
+class="math inline">\(\mathbb{R}\)</span> <span
+class="math inline">\(\iff\)</span> <span
+class="math inline">\(I\)</span> est convexe.</p></li>
+<li><p>Un disque dans <span class="math inline">\(\mathbb{R}^2\)</span>
+est convexe.</p></li>
+<li><p>Tout sous-espace vectoriel ou sous-espace affine de <span
+class="math inline">\(E\)</span> est convexe.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(A \subset E\)</span>. <span
+class="math display">\[\text{$A$ convexe}
+    \iff \begin{array}{l}
+        \text{Tout barycentre à coefficients positifs de points de $A$
+est encore dans $A$} \\
+        \text{ie } \forall n \geq 1,\forall a_1,\ldots,a_n \in A \\
+        \forall \lambda_1,\ldots,\lambda_n \in \mathbb{R}\text{ tels que
+$\lambda_1 \geq 0, \ldots,\lambda_n \geq 0$ et
+$\lambda_1+\ldots+\lambda_n = 1$, alors} \\
+    \lambda_1 a_1+\ldots+\lambda_n a_n \in A.
+    \end{array}\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Soient
+<span class="math inline">\(x,y \in A\)</span> et <span
+class="math inline">\(\lambda \in [0,1]\)</span>.</p>
+<p>Pour <span class="math inline">\(n=2\)</span>, <span
+class="math inline">\(a_1=x, a_2 = y\)</span>, <span
+class="math inline">\(\lambda_1=1-\lambda, \lambda_2 = \lambda\)</span>,
+on a bien <span class="math inline">\(\lambda_1 a_1+\lambda_2 a_2 =
+(1-\lambda)x+ \lambda y \in A\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Montrons
+ce résultat par récurrence sur <span
+class="math inline">\(n\)</span>.</p>
+<ul>
+<li><p><u>Initialisation.</u> Pour <span
+class="math inline">\(n=1\)</span>, avec <span class="math inline">\(a_1
+\in A\)</span> et <span class="math inline">\(\lambda_1 \in
+\mathbb{R}^{+}\)</span> tel que <span class="math inline">\(\lambda_1 =
+1\)</span>, on a <span class="math inline">\(\lambda_1 a_1=a_1\in
+A\)</span>.</p></li>
+<li><p><u>Hérédité.</u> Soient <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span>, supposons le résultat vrai pour <span
+class="math inline">\(n\)</span> points. Soient <span
+class="math inline">\(a_1,\ldots,a_n,a_{n+1} \in A\)</span> et <span
+class="math inline">\(\lambda_1,\ldots,\lambda_n,\lambda_{n+1} \in
+\mathbb{R}\)</span> tels que <span class="math inline">\(\lambda_1 \geq
+0, \ldots,\lambda_n,\lambda_{n+1} \geq 0\)</span> et <span
+class="math inline">\(\lambda_1+\ldots+\lambda_n+\lambda_{n+1} =
+1\)</span>.</p>
+<p>Posons <span class="math inline">\(g = \sum_{i=1}^{n+1} \lambda_i
+a_i\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(\lambda_{n+1}=1\)</span>, <span
+class="math inline">\(\lambda_1=\ldots=\lambda_n=0\)</span> donc <span
+class="math inline">\(g = a_{n+1} \in A\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\lambda_{n+1} \neq 1\)</span>, on
+a <span class="math inline">\(1-\lambda_{n+1} = \sum_{i=1}^n
+\lambda_i\)</span> et <span class="math display">\[\begin{aligned}
+            g&amp;= \sum_{i=1}^{n+1} \lambda_i a_i = \sum_{i=1}^{n}
+\lambda_i a_i+\lambda_{n+1}a_{n+1} = (1-\lambda_{n+1})\sum_{i=1}^{n}
+\frac{\lambda_i}{1-\lambda_{n+1}} a_i+\lambda_{n+1}a_{n+1}.
+         \end{aligned}\]</span></p>
+<p>Or, avec <span class="math inline">\(g&#39; = \sum_{i=1}^{n}
+\frac{\lambda_i}{1-\lambda_{n+1}} a_i\)</span>, on a <span
+class="math inline">\(g&#39; = \sum_{i=1}^{n}\lambda_i&#39; a_i\)</span>
+avec <span class="math inline">\(\sum_{i=1}^n \lambda&#39;_i =
+\sum_{i=1}^n \frac{\lambda_i}{1-\lambda_{n+1}} =  \frac{\sum_{i=1}^n
+\lambda_i}{1-\lambda_{n+1}}=1\)</span> et les <span
+class="math inline">\(\lambda&#39;_i\)</span> positifs.</p>
+<p>C’est donc un barycentres à coefficients positifs de <span
+class="math inline">\(n\)</span> éléments et par hypothèse de
+récurrence, <span class="math inline">\(g&#39; \in A\)</span>.</p>
+<p>De plus, on a alors <span class="math inline">\(g =
+(1-\lambda_{n+1})g&#39;+\lambda_{n+1} a_{n+1} \in A\)</span> par
+convexité de <span class="math inline">\(A\)</span>.</p></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(F\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel et <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span>.</p>
+<ul>
+<li><p>Soit <span class="math inline">\(A\subset E\)</span> convexe
+alors <span class="math inline">\(f(A)\)</span> est convexe,</p></li>
+<li><p>Soit <span class="math inline">\(B\subset F\)</span> convexe
+alors <span class="math inline">\(f^{-1}(B)\)</span> est
+convexe.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Soient <span class="math inline">\(y_1,y_2 \in f(A)\)</span> et
+<span class="math inline">\(\lambda \in [0,1]\)</span>.</p>
+<p>Il existe <span class="math inline">\(x_1,x_2 \in A\)</span> tels que
+<span class="math inline">\(y_1 = f(x_1)\)</span> et <span
+class="math inline">\(y_2 = f(x_2)\)</span>.</p>
+<p>Par linéarité de <span class="math inline">\(f\)</span>, on a <span
+class="math display">\[\lambda y_1+(1-\lambda)y_2 = \lambda
+f(x_1)+(1-\lambda)f(x_2) = f(\underbrace{\lambda
+x_1+(1-\lambda)x_2}_{\substack{\in A \\ \text{car $A$ convexe}}}) \in
+f(A).\]</span></p></li>
+<li><p>Soient <span class="math inline">\(x_1,x_2 \in f^{-1}(B)\)</span>
+alors <span class="math inline">\(f(x_1)\in B\)</span> et <span
+class="math inline">\(f(x_2) \in B\)</span>. Par linéarité de <span
+class="math inline">\(f\)</span>, on a</p>
+<p><span class="math display">\[f(\lambda x_1+(1-\lambda)x_2) = \lambda
+f(x_1)+(1-\lambda)f(x_2) \in B \text{ par convexité de
+$B$.}\]</span></p>
+<p>Donc <span class="math inline">\(\lambda x_1+(1-\lambda)x_2 \in
+B\)</span>.</p></li>
+</ul>
+</div>
+<h1 data-number="3" id="fonctions-convexes"><span
+class="header-section-number">3</span> Fonctions convexes</h1>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(I\)</span> un intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>. Soit <span
+class="math inline">\(f: I \to \mathbb{R}\)</span>.</p>
+<p>On dit que <span class="math inline">\(f\)</span> est convexe si
+<span class="math display">\[\forall x,y \in I, \forall \lambda \in
+[0,1], f\left((1-\lambda)x+\lambda y\right) \leq (1-\lambda)f(x)+\lambda
+f(y).\]</span> On dit que <span class="math inline">\(f\)</span> est
+concave si <span class="math display">\[\forall x,y \in I, \forall
+\lambda \in [0,1], f\left((1-\lambda)x+\lambda y\right) \geq
+(1-\lambda)f(x)+\lambda f(y).\]</span></p>
+</div>
+<p>Ci-dessous, on illustre les conséquences géométriques de la convexité
+(à gauche) ou la concavité (à droite) d’une fonction. Soient <span
+class="math inline">\(a,b \in I\)</span>, la corde reliant les points
+d’abscisses <span class="math inline">\(a\)</span> et <span
+class="math inline">\(b\)</span> de la courbe représentative de <span
+class="math inline">\(f\)</span> est le segment reliant les points <span
+class="math inline">\((a,f(a))\)</span> à <span
+class="math inline">\((b,f(b))\)</span>. On dit alors que <span
+class="math inline">\(f\)</span> est au-dessus (si <span
+class="math inline">\(f\)</span> est convexe) ou en-dessous (si <span
+class="math inline">\(f\)</span> est concave) de ses cordes.</p>
+<div class="center">
+<p><img src="convexite_concavite.png" alt="image" /></p>
+</div>
+<div class="wrem">
+<ul>
+<li><p><span class="math inline">\(f\)</span> convexe <span
+class="math inline">\(\iff\)</span> <span
+class="math inline">\(f\)</span> concave.</p></li>
+<li><p>On peut étendre la définition de la convexité à une fonction
+<span class="math inline">\(f: A \to \mathbb{R}\)</span> avec <span
+class="math inline">\(A \subset E\)</span> un ensemble convexe.</p></li>
+<li><p>On dit que <span class="math inline">\(f\)</span> est strictement
+convexe si</p>
+<p><span class="math display">\[\forall x \neq y \in I, \forall \lambda
+\in ]0,1[, f\left((1-\lambda)x+\lambda y\right) &lt;
+(1-\lambda)f(x)+\lambda f(y).\]</span></p></li>
+</ul>
+</div>
+<div class="wex">
+<p><span id="ex:affine_est_convexe_concave"
+label="ex:affine_est_convexe_concave"></span> Si <span
+class="math inline">\(f\)</span> est affine, ie il existe <span
+class="math inline">\(\alpha, \beta \in \mathbb{R}\)</span> tels que
+<span class="math inline">\(f: x \mapsto \alpha x+\beta\)</span>, alors
+pour <span class="math inline">\(x,y \in I\)</span>, <span
+class="math inline">\(\lambda \in [0,1]\)</span>, <span
+class="math display">\[\begin{aligned}
+    f\left((1-\lambda)x+\lambda y\right)
+&amp; = \alpha\left((1-\lambda)x+\lambda y\right)+\beta \\
+&amp; = (1-\lambda)(\alpha x)+\lambda (\alpha y) +
+(1-\lambda+\lambda)\beta \\
+&amp; = (1-\lambda)(\alpha x+\beta)+\lambda(\alpha y + \beta) \\
+&amp; = (1-\lambda)f(x)+\lambda f(y).
+    \end{aligned}\]</span> Donc <span class="math inline">\(f\)</span>
+est à la fois convexe et concave. Nous discuterons de la réciproque dans
+la suite.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f : I \to \mathbb{R}\)</span>, avec
+<span class="math inline">\(I\)</span> un intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>.</p>
+<p><span class="math display">\[f \text{ convexe} \iff
+    \begin{array}{l}
+        \forall n \geq 1,\forall x_1,\ldots,x_n \in I \\
+        \forall \lambda_1,\ldots,\lambda_n \in \mathbb{R}\text{ tels que
+$\lambda_1 \geq 0, \ldots,\lambda_n \geq 0$ et
+$\lambda_1+\ldots+\lambda_n = 1$, alors} \\
+    \qquad f\left(\lambda_1 x_1+\ldots+\lambda_n x_n\right)\leq
+\lambda_1 f(x_1)+\ldots+\lambda_n f(x_n).
+    \end{array}\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Avec <span
+class="math inline">\(n=2\)</span>, on retrouve la définition d’une
+fonction convexe (avec <span class="math inline">\(\lambda_2 = \lambda
+\in [0,1]\)</span>, <span class="math inline">\(\lambda_1 =
+1-\lambda\)</span>, <span class="math inline">\(x_1 = x\)</span> et
+<span class="math inline">\(x_2 = y\)</span>).</p></li>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Montrons
+ce résultat par récurrence sur <span
+class="math inline">\(n\)</span>.</p>
+<ul>
+<li><p><u>Initialisation.</u> Pour <span
+class="math inline">\(n=1\)</span>, avec <span class="math inline">\(x_1
+\in I\)</span> et <span class="math inline">\(\lambda \in
+\mathbb{R}^{+}\)</span> tel que <span class="math inline">\(\lambda =
+1\)</span>, on a <span class="math inline">\(\lambda_1 x_1 x_1\)</span>
+donc <span class="math inline">\(f(\lambda_1 x_1) =
+f(x_1)\)</span>.</p></li>
+<li><p><u>Hérédité.</u> Soient <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span>, supposons le résultat vrai pour <span
+class="math inline">\(n\)</span> points. Soient <span
+class="math inline">\(x_1,\ldots,x_n,x_{n+1} \in I\)</span> et <span
+class="math inline">\(\lambda_1,\ldots,\lambda_n,\lambda_{n+1} \in
+\mathbb{R}\)</span> tels que <span class="math inline">\(\lambda_1 \geq
+0, \ldots,\lambda_n,\lambda_{n+1} \geq 0\)</span> et <span
+class="math inline">\(\lambda_1+\ldots+\lambda_{n+1} = 1\)</span>.</p>
+<p>Posons <span class="math inline">\(g = \sum_{i=1}^{n+1} \lambda_i
+x_i\)</span>.</p>
+<ul>
+<li><p>Si <span class="math inline">\(\lambda_{n+1}=1\)</span>, <span
+class="math inline">\(\lambda_1=\ldots=\lambda_n=0\)</span> donc <span
+class="math inline">\(g = x_{n+1}\)</span> et <span
+class="math inline">\(f\left( \sum_{i=1}^{n+1} \lambda_i x_i\right) =
+f(x_{n+1}) = \sum_{i=1}^{n+1} \lambda_i f(x_i)\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\lambda_{n+1} \neq 1\)</span>, on
+a <span class="math inline">\(1-\lambda_{n+1} = \sum_{i=1}^n
+\lambda_i\)</span> et <span class="math display">\[\begin{aligned}
+            g&amp;= \sum_{i=1}^{n+1} \lambda_i x_i = \sum_{i=1}^{n}
+\lambda_i x_i+\lambda_{n+1}x_{n+1} = (1-\lambda_{n+1})\sum_{i=1}^{n}
+\frac{\lambda_i}{1-\lambda_{n+1}} x_i+\lambda_{n+1}x_{n+1}.
+         \end{aligned}\]</span></p>
+<p>avec <span class="math inline">\(g&#39; = \sum_{i=1}^{n}
+\frac{\lambda_i}{1-\lambda_{n+1}} x_i\)</span>, par convexité de <span
+class="math inline">\(f\)</span>, on a <span class="math display">\[f(g)
+= f((1-\lambda_{n+1})g&#39;+\lambda_{n+1}x_{n+1}) \leq
+(1-\lambda_{n+1})f(g&#39;)+\lambda_{n+1}f(x_{n+1}).\]</span></p>
+<p>Or, on a <span class="math inline">\(g&#39; =
+\sum_{i=1}^{n}\lambda_i&#39; x_i\)</span> avec <span
+class="math inline">\(\sum_{i=1}^n \lambda&#39;_i = \sum_{i=1}^n
+\frac{\lambda_i}{1-\lambda_{n+1}} =  \frac{\sum_{i=1}^n
+\lambda_i}{1-\lambda_{n+1}}=1\)</span> et les <span
+class="math inline">\(\lambda&#39;_i\)</span> positifs.</p>
+<p>C’est donc un barycentres à coefficients positifs de <span
+class="math inline">\(n\)</span> éléments et par hypothèse de
+récurrence, <span class="math display">\[f(g&#39;) \leq
+\sum_{i=1}^{n}\lambda_i&#39;f(x_i) = \sum_{i=1}^{n}
+\frac{\lambda_i}{1-\lambda_{n+1}}f(x_i).\]</span></p>
+<p>On a donc <span class="math display">\[f(g)  \leq (1-\lambda_{n+1})
+\sum_{i=1}^{n}
+\frac{\lambda_i}{1-\lambda_{n+1}}f(x_i)+\lambda_{n+1}f(x_{n+1}) =
+\sum_{i=1}^{n+1} \lambda_i f(x_i).\]</span></p></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<div class="wdefi">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\(f : I \to \mathbb{R}\)</span>, avec
+<span class="math inline">\(I\)</span> un intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>. <span
+class="math display">\[\mathrm{epi}(f) = \left\{(x,y) \in \mathbb{R}^2 /
+y \geq f(x)\right\}\]</span> est appelé l’épigraphe de <span
+class="math inline">\(f\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="epigraphe.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f : I \to \mathbb{R}\)</span>, avec
+<span class="math inline">\(I\)</span> un intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>.</p>
+<p><span class="math display">\[f \text{ est convexe} \iff
+\mathrm{epi}(f) \text{ est convexe}.\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Soient
+<span class="math inline">\((x_1,y_1),(x_2,y_2) \in
+\mathrm{epi}(f)\)</span> et <span class="math inline">\(\lambda \in
+[0,1]\)</span>.</p>
+<p>Alors, <span class="math inline">\(y_1 \geq f(x_1)\)</span> et <span
+class="math inline">\(y_2 \geq f(x_2)\)</span>. De plus, pour <span
+class="math inline">\(\lambda \in [0,1]\)</span>, par convexité de <span
+class="math inline">\(f\)</span>, <span
+class="math display">\[(1-\lambda)y_1 + \lambda y_2 \geq
+(1-\lambda)f(x_1) + \lambda f(x_2) \geq f\left((1-\lambda)x_1+\lambda
+x_2\right).\]</span></p>
+<p>Donc <span
+class="math inline">\((1-\lambda)(x_1,y_1)+\lambda(x_2,y_2) =
+\left((1-\lambda)x_1+\lambda x_2,(1-\lambda)y_1+\lambda y_2 \right) \in
+\mathrm{epi}(f)\)</span> et <span
+class="math inline">\(\mathrm{epi}(f)\)</span> est convexe.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Soient
+<span class="math inline">\(x,y \in I\)</span> et <span
+class="math inline">\(\lambda \in [0,1]\)</span>. Alors, <span
+class="math inline">\((x,f(x)) \in \mathrm{epi}(f)\)</span> et <span
+class="math inline">\((y,f(y)) \in \mathrm{epi}(f)\)</span>.</p>
+<p>Or, <span class="math inline">\(\mathrm{epi}(f)\)</span> est convexe
+donc <span class="math inline">\((1-\lambda)(x,f(x))+\lambda (y,f(y)) =
+\left((1-\lambda)x+\lambda y, (1-\lambda)f(x)+\lambda f(y)\right) \in
+\mathrm{epi}(f)\)</span>, ce qui signifie <span
+class="math inline">\(f((1-\lambda)x+\lambda y) \leq
+(1-\lambda)f(x)+\lambda f(y)\)</span> donc <span
+class="math inline">\(f\)</span> est convexe.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><span id="prop:convexe_trois_pentes"
+label="prop:convexe_trois_pentes"></span> Soit <span
+class="math inline">\(f : I \to \mathbb{R}\)</span>, avec <span
+class="math inline">\(I\)</span> un intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>.</p>
+<p>Alors, <span class="math display">\[\begin{aligned}
+        1.\text{ } f \text{ est convexe}
+         \iff &amp; 2.\text{ }\forall x &lt; y &lt; z \in I, \\
+        &amp; \frac{f(y)-f(x)}{y-x} \leq \frac{f(z)-f(x)}{z-x} \leq
+\frac{f(z)-f(y)}{z-y} \\
+        \iff &amp; 3.\text{ }\forall a \in I, \\
+        &amp;  \varphi_a : x \in I\setminus\left\{a\right\} \mapsto
+\frac{f(x)-f(a)}{x-a} \text{ est croissante.}
+    \end{aligned}\]</span></p>
+</div>
+<div class="wrem">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Les quantités <span
+class="math inline">\(\frac{f(y)-f(x)}{y-x}\)</span>, <span
+class="math inline">\(\frac{f(z)-f(x)}{z-x}\)</span> et <span
+class="math inline">\(\frac{f(z)-f(y)}{z-y}\)</span> sont trois pentes
+de cordes.</p>
+<p>En les notant respectivement <span
+class="math inline">\(P_1,P_2,P_3\)</span>, l’inégalité <span
+class="math inline">\(P_1 \leq P_2 \leq P_3\)</span> est illustrée
+ci-contre.</p>
+</div>
+<div class="webimg">
+<p><img src="convexite_lemme_trois_pentes.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wproof">
+<p>Montrons <span class="math inline">\(1. \Longrightarrow 2.\)</span>,
+<span class="math inline">\(2. \Longrightarrow 3.\)</span> puis <span
+class="math inline">\(3. \Longrightarrow 1.\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\((1. \Longrightarrow 2.)\)</span> Soit
+<span class="math inline">\(f\)</span> convexe et <span
+class="math inline">\(x &lt; y &lt; z \in I\)</span>.</p>
+<p>Alors, <span class="math display">\[\begin{aligned}
+            \frac{f(y)-f(x)}{y-x} \leq \frac{f(z)-f(x)}{z-x}
+            &amp; \iff f(y)-f(x) \leq (y-x)\frac{f(z)-f(x)}{z-x} \text{
+car $y-x &gt; 0$} \\
+            &amp; \iff  f(y) \leq
+\frac{y-x}{z-x}f(z)+\left(1-\frac{y-x}{z-x}\right)f(x) \\
+            &amp; \iff  f(y) \leq
+\frac{y-x}{z-x}f(z)+\frac{z-y}{z-x}f(x).
+        \end{aligned}\]</span></p>
+<p>Or, en écrivant <span class="math inline">\(\lambda =
+\frac{y-x}{z-x}\)</span>, on a <span class="math inline">\(\lambda &gt;
+0\)</span>, <span class="math inline">\(\lambda \geq \frac{z-x}{z-x} =
+1\)</span>, <span class="math inline">\(1-\lambda =
+\frac{z-y}{z-x}\)</span> puis <span
+class="math inline">\((1-\lambda)x+\lambda z = x+\lambda(z-x) =
+x+y-x=y\)</span>.</p>
+<p>Donc, par convexité de <span class="math inline">\(f\)</span>, on a
+bien <span class="math display">\[f(y) \leq \lambda f(z)+(1-\lambda)f(x)
+= \frac{y-x}{z-x}f(z)+\frac{z-y}{z-x}f(x)\]</span> donc l’inégalité
+voulue.</p>
+<p>On peut obtenir de même <span
+class="math inline">\(\frac{f(z)-f(x)}{z-x} \leq
+\frac{f(z)-f(y)}{z-y}\)</span>.</p></li>
+<li><p><span class="math inline">\((2. \Longrightarrow 3.)\)</span></p>
+<p>Soient <span class="math inline">\(x &lt; y \in I \setminus
+\left\{a\right\}\)</span>.</p>
+<ul>
+<li><div class="webtextfigure">
+<div class="webtext">
+<p>Si <span class="math inline">\(x &lt; y &lt; a\)</span>, alors par
+<span class="math inline">\(P_2 \leq P_3\)</span>, on a</p>
+<p><span
+class="math inline">\(\frac{f(x)-f(a)}{x-a}=\frac{f(a)-f(x)}{a-x} \leq
+\frac{f(a)-f(y)}{a-y}=\frac{f(y)-f(a)}{y-a}.\)</span></p>
+<p>Donc <span class="math inline">\(\varphi_a(x) \leq
+\varphi_a(y)\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="convexite_lemme_trois_pentes_preuve_cas_1.png"
+alt="image" /></p>
+</div>
+</div></li>
+<li><div class="webtextfigure">
+<div class="webtext">
+<p>Si <span class="math inline">\(x &lt; a &lt; y\)</span>, alors par
+<span class="math inline">\(P_1 \leq P_3\)</span>, on a</p>
+<p><span
+class="math inline">\(\frac{f(x)-f(a)}{x-a}=\frac{f(a)-f(x)}{a-x} \leq
+\frac{f(y)-f(a)}{y-a}.\)</span></p>
+<p>Donc <span class="math inline">\(\varphi_a(x) \leq
+\varphi_a(y)\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="convexite_lemme_trois_pentes_preuve_cas_2.png"
+alt="image" /></p>
+</div>
+</div></li>
+<li><div class="webtextfigure">
+<div class="webtext">
+<p>Si <span class="math inline">\(a&lt;x &lt; y\)</span>, alors par
+<span class="math inline">\(P_1 \leq P_2\)</span>, on a</p>
+<p><span class="math inline">\(\frac{f(x)-f(a)}{x-a} \leq
+\frac{f(y)-f(a)}{y-a}.\)</span></p>
+<p>Donc <span class="math inline">\(\varphi_a(x) \leq
+\varphi_a(y)\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="convexite_lemme_trois_pentes_preuve_cas_3.png"
+alt="image" /></p>
+</div>
+</div></li>
+</ul></li>
+<li><p><span class="math inline">\((3. \Longrightarrow 1.)\)</span>
+Soient <span class="math inline">\(x &lt; z \in I\)</span>, <span
+class="math inline">\(\lambda \in ]0,1[\)</span> et <span
+class="math inline">\(y = (1-\lambda)x+\lambda z \in ]x,z[\)</span>.</p>
+<p>On a alors <span class="math inline">\(\lambda =
+\frac{y-x}{z-x}\)</span>.</p>
+<p>De plus, par croissance de <span
+class="math inline">\(\varphi_x\)</span>, on a <span
+class="math display">\[\begin{aligned}
+            \varphi_x(y) \leq \varphi_x(z)
+            &amp; \iff \frac{f(x)-f(y)}{x-y} \leq \frac{f(x)-f(z)}{x-z}
+\\
+            &amp; \iff  \frac{f(y)-f(x)}{y-x} \leq \frac{f(z)-f(x)}{z-x}
+\text{ par égalité des termes respectifs}\\
+            &amp; \iff f(y) \leq
+\frac{y-x}{z-x}f(z)+\left(1-\frac{y-x}{z-x}\right)f(x) \text{ car $z-x
+&gt; 0$} \\
+            &amp; \iff f(t) \leq \lambda f(z)+(1-\lambda)f(x).
+        \end{aligned}\]</span> L’inégalité de convexité étant évidente
+pour <span class="math inline">\(\lambda = 0\)</span>, <span
+class="math inline">\(\lambda = 1\)</span> ou <span
+class="math inline">\(x=z\)</span>, on a <span
+class="math inline">\(f\)</span> qui est convexe.</p></li>
+</ul>
+</div>
+<div class="wrem">
+<p>On a en fait <span class="math inline">\(P_1 \leq P_2 \iff P_2 \leq
+P_3 \iff P_1 \leq P_3\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f : I \to \mathbb{R}\)</span>, avec
+<span class="math inline">\(I\)</span> un intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>.</p>
+<p><span class="math display">\[f \text{ est convexe et concave } \iff f
+\text{ est affine}.\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> a été
+montré dans l’exemple <a href="#ex:affine_est_convexe_concave"
+data-reference-type="ref"
+data-reference="ex:affine_est_convexe_concave">[ex:affine_est_convexe_concave]</a>.</p></li>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Soit <span
+class="math inline">\(a \in I\)</span>, Comme <span
+class="math inline">\(f\)</span> est convexe, par le 3. de la
+proposition <a href="#prop:convexe_trois_pentes"
+data-reference-type="ref"
+data-reference="prop:convexe_trois_pentes">[prop:convexe_trois_pentes]</a>,
+<span class="math inline">\(\varphi_a\)</span> est croissante.</p>
+<p>De plus, comme <span class="math inline">\(f\)</span> est concave,
+<span class="math inline">\(-f\)</span> est convexe donc <span
+class="math inline">\(-\varphi_a\)</span> est croissante et <span
+class="math inline">\(\varphi_a\)</span> est donc aussi
+décroissante.</p>
+<p>On en déduit que <span class="math inline">\(\varphi_a\)</span> est
+constante et qu’il existe <span class="math inline">\(\alpha \in
+\mathbb{R}\)</span> tel que pour tout <span class="math inline">\(x \in
+I \setminus\left\{a\right\}\)</span>, <span
+class="math inline">\(\varphi_a(x) = \alpha\)</span>.</p>
+<p>On a donc pour tout <span class="math inline">\(x \in I
+\setminus\left\{a\right\}\)</span>, <span
+class="math inline">\(\frac{f(x)-f(a)}{x-a} = \alpha \iff f(x) =
+\alpha(x-a)+f(a)\)</span>.</p>
+<p>Cette relation reste vrai en <span class="math inline">\(x=a\)</span>
+et donc pour tout <span class="math inline">\(x \in I\)</span>, <span
+class="math inline">\(f(x) = \alpha x +\left(f(a)-\alpha
+a\right)\)</span> et <span class="math inline">\(f\)</span> est
+affine.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\(f : I \to \mathbb{R}\)</span>
+convexe, avec <span class="math inline">\(I\)</span> un intervalle de
+<span class="math inline">\(\mathbb{R}\)</span>.</p>
+<p>Soient <span class="math inline">\(a &lt; b \in I\)</span> et <span
+class="math inline">\(x \in I \setminus [a,b]\)</span>.</p>
+<p>Alors, <span class="math inline">\(f(x) \geq
+\frac{f(b)-f(a)}{b-a}(x-a)+f(a).\)</span></p>
+</div>
+<div class="webimg">
+<p><img src="convexite_secante_x_sup_b.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wrem">
+<p><span class="math inline">\(y=
+\frac{f(b)-f(a)}{b-a}(x-a)+f(a)\)</span> est la droite prolongeant la
+corde reliant <span class="math inline">\(a\)</span> à <span
+class="math inline">\(b\)</span> de la courbe représentative de <span
+class="math inline">\(f\)</span>. Si la courbe de <span
+class="math inline">\(f\)</span> se trouve bien sous ses cordes. La
+proposition dit qu’en les points hors du segment <span
+class="math inline">\([a,b]\)</span>, la courbe de <span
+class="math inline">\(f\)</span> se trouve du-dessus de cette
+droite.</p>
+</div>
+<div class="wproof">
+<p>Comme <span class="math inline">\(f\)</span> est convexe, par le 3.
+de la proposition <a href="#prop:convexe_trois_pentes"
+data-reference-type="ref"
+data-reference="prop:convexe_trois_pentes">[prop:convexe_trois_pentes]</a>,
+<span class="math inline">\(\varphi_a\)</span> est croissante.</p>
+<ul>
+<li><p>Si <span class="math inline">\(x &lt; a\)</span>, on a donc <span
+class="math inline">\(\frac{f(x)-f(a)}{x-a} = \varphi_a(x) \leq
+\varphi_a(b) = \frac{f(b)-f(a)}{b-a} \iff f(x)\geq
+\frac{f(b)-f(a)}{b-a}(x-a)+f(a)\)</span> (car <span
+class="math inline">\(x -a&lt; 0\)</span>).</p></li>
+<li><p>Si <span class="math inline">\(x &gt; b\)</span>, on a donc <span
+class="math inline">\(\frac{f(x)-f(a)}{x-a} = \varphi_a(x) \geq
+\varphi_a(b) = \frac{f(b)-f(a)}{b-a} \iff f(x)\geq
+\frac{f(b)-f(a)}{b-a}(x-a)+f(a)\)</span> (car <span
+class="math inline">\(x -a&gt; 0\)</span>).</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><span id="prop:convexe_a_derivee_croissante"
+label="prop:convexe_a_derivee_croissante"></span> Soit <span
+class="math inline">\(f : I \to \mathbb{R}\)</span> convexe, avec <span
+class="math inline">\(I\)</span> un intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>.</p>
+<p>Alors, si <span class="math inline">\(f\)</span> est dérivable, <span
+class="math display">\[f \text{ est convexe } \iff f&#39; \text{ est
+croissante}\]</span> donc si <span class="math inline">\(f\)</span> est
+deux fois dérivable, comme <span class="math inline">\(I\)</span> est un
+intervalle, <span class="math display">\[f \text{ est convexe } \iff
+f&#39;&#39; \text{ est positive.}\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Soient
+<span class="math inline">\(x &lt; z \in I\)</span> et <span
+class="math inline">\(\lambda \in ]0,1[\)</span> tel que <span
+class="math inline">\(y = (1-\lambda)x+\lambda z \in ]x,y[\)</span>. On
+a alors <span class="math inline">\(\lambda = \frac{y-x}{z-x}\)</span>
+et <span class="math inline">\(1-\lambda = \frac{z-y}{z-x}\)</span>.</p>
+<p>On a alors <span class="math display">\[\begin{aligned}
+        &amp; f((1-\lambda)x+\lambda z)
+        \leq (1-\lambda)f(x)+\lambda f(z) \\
+        &amp; \iff  f(y) \leq  \left(1-\frac{y-x}{z-x}\right)f(x)+
+\frac{y-x}{z-x} f(z) \\
+        &amp; \iff f(y)-f(x) \leq  \frac{y-x}{z-x}(f(z)-f(x)) \\
+        &amp; \iff \frac{f(y)-f(x)}{y-x} \leq
+\frac{f(z)-f(x)}{z-x}\text{ car $y-x &gt; 0$.}
+        \end{aligned}\]</span></p>
+<p>On a alors <span class="math display">\[\begin{aligned}
+        &amp; f(\underbrace{(1-\lambda)x+\lambda z}_{=y})
+        \leq (1-\lambda)f(x)+\lambda f(z) \\
+        &amp; \iff  \left(1-\lambda+\lambda\right)f(y) \leq
+(1-\lambda)f(x)+ \lambda f(z) \\
+        &amp; \iff  \left(1-\lambda\right)\left(f(y)-f(x)\right)
+\leq\lambda (f(z)-f(y)) \\
+        &amp; \iff   \frac{z-y}{z-x}\left(f(y)-f(x)\right) \leq
+\frac{y-x}{z-x}(f(z)-f(y)) \\
+        &amp; \iff (z-y)(f(y)-f(x)) \leq (y-x)(f(z)-f(y))\text{ car $z-x
+&gt; 0$.} \\
+        &amp; \iff\frac{f(y)-f(x)}{y-x} \leq \frac{f(z)-f(y)}{z-y}\text{
+en divisant par $y-x &gt;0$ puis $z-y &gt;0$.}
+        \end{aligned}\]</span></p>
+<p>Or, <span class="math inline">\(f\)</span> est dérivable sur <span
+class="math inline">\(]x,y[\)</span> et continue sur <span
+class="math inline">\([x,y]\)</span> (car dérivable aussi) donc par
+l’égalité des accroissements finis, il existe <span
+class="math inline">\(c_{xy} \in ]x,y[\)</span> tel que <span
+class="math inline">\(\frac{f(y)-f(x)}{y-x} =
+f&#39;(c_{xy})\)</span>.</p>
+<p>De même, il existe <span class="math inline">\(c_{yz} \in
+]y,z[\)</span> tel que <span class="math inline">\(\frac{f(z)-f(y)}{z-y}
+= f&#39;(c_{yz})\)</span>.</p>
+<p>Or, <span class="math inline">\(f&#39;\)</span> est croissante et
+<span class="math inline">\(c_{xy} &lt; y &lt; c_{yz}\)</span>.</p>
+<p>Donc <span class="math inline">\(f&#39;(c_{xy}) \leq
+f&#39;(c_{yz})\)</span> puis <span
+class="math inline">\(\frac{f(y)-f(x)}{y-x} \leq
+\frac{f(z)-f(y)}{z-y}\)</span>.</p></li>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> Soient
+<span class="math inline">\(a &lt; b \in I\)</span>. Soient <span
+class="math inline">\(h_a,h_b \in \mathbb{R}^{+\star}\)</span> avec
+<span class="math inline">\(h_a\)</span> assez petit tel que <span
+class="math inline">\(a &lt; a+h_a &lt; b &lt; b+h_b\)</span>.</p>
+<p>Par le 2. de la proposition <a href="#prop:convexe_trois_pentes"
+data-reference-type="ref"
+data-reference="prop:convexe_trois_pentes">[prop:convexe_trois_pentes]</a>,
+on a avec <span class="math inline">\(x = a, y = a+h_a, z = b\)</span>
+et en ne gardant que <span class="math inline">\(P_1 \leq P_2\)</span>,
+<span class="math display">\[\frac{f(a+h_a)-f(a)}{h_a} \leq
+\frac{f(b)-f(a)}{b-a}\]</span> Puis, toujours par le 2. de la
+proposition <a href="#prop:convexe_trois_pentes"
+data-reference-type="ref"
+data-reference="prop:convexe_trois_pentes">[prop:convexe_trois_pentes]</a>,
+on a avec <span class="math inline">\(x = a, y = b, z = b+h_b\)</span>
+et en ne gardant que <span class="math inline">\(P_1 \leq P_3\)</span>,
+<span class="math display">\[\frac{f(b)-f(a)}{b-a} \leq
+\frac{f(b+h_b)-f(b)}{h_b}\]</span></p>
+<p>On en déduit <span class="math display">\[\frac{f(a+h_a)-f(a)}{h_a}
+\leq \frac{f(b)-f(a)}{b-a}\leq \frac{f(b+h_b)-f(b)}{h_b}.\]</span></p>
+<p>En faisant <span class="math inline">\(h_a \longrightarrow
+0^+\)</span>, on a <span class="math display">\[f&#39;(a) \leq
+\frac{f(b)-f(a)}{b-a}\leq \frac{f(b+h_b)-f(b)}{h_b}.\]</span> Puis, en
+faisant <span class="math inline">\(h_b \longrightarrow 0^+\)</span>, on
+a <span class="math display">\[f&#39;(a) \leq \frac{f(b)-f(a)}{b-a}\leq
+f&#39;(b).\]</span></p>
+<p>Donc <span class="math inline">\(f&#39;(a) \leq f&#39;(b)\)</span> et
+<span class="math inline">\(f&#39;\)</span> est croissante.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><span id="prop:convexe_Est_Derivee_adroite_et_a_gauche"
+label="prop:convexe_Est_Derivee_adroite_et_a_gauche"></span> Soit <span
+class="math inline">\(f: I \to \mathbb{R}\)</span> convexe avec <span
+class="math inline">\(I\)</span> intervalle de <span
+class="math inline">\(\mathbb{R}\)</span> et <span
+class="math inline">\(a \in I\)</span>. Alors, <span
+class="math inline">\(f\)</span> est dérivable à gauche et à droite de
+<span class="math inline">\(a\)</span> avec <span
+class="math inline">\(f_g&#39;(a) \leq f_d&#39;(a)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Par le 3. de la proposition <a href="#prop:convexe_trois_pentes"
+data-reference-type="ref"
+data-reference="prop:convexe_trois_pentes">[prop:convexe_trois_pentes]</a>,
+<span class="math inline">\(\varphi_a\)</span> est une fonction
+croissante. Elle admet donc une limite, finie ou non en <span
+class="math inline">\(a^+\)</span> et <span
+class="math inline">\(a^-\)</span>.</p>
+<p>Or, soient <span class="math inline">\(h_+,h_- \in
+\mathbb{R}^{+\star}\)</span> assez petits tels que <span
+class="math inline">\(a-h_-, a+h_+ \in I\)</span> (<span
+class="math inline">\(a\)</span> n’est pas une borne de <span
+class="math inline">\(I\)</span>).</p>
+<p><span class="math inline">\(\varphi_a\)</span> est majorée sur <span
+class="math inline">\(I \cap ]-\infty,a[\)</span> par <span
+class="math inline">\(\varphi_a(a+h_+)\)</span> donc la limite en <span
+class="math inline">\(a^-\)</span> est finie et on la note <span
+class="math inline">\(\ell_g\)</span>.</p>
+<p>De même, <span class="math inline">\(\varphi_a\)</span> est minorée
+sur <span class="math inline">\(I \cap ]a,+\infty[\)</span> par <span
+class="math inline">\(\varphi_a(a-h_-)\)</span> donc la limite en <span
+class="math inline">\(a^+\)</span> est finie et on la note <span
+class="math inline">\(\ell_d\)</span>.</p>
+<p>Ensuite, <span class="math display">\[\begin{aligned}
+    \varphi_a(a-h_-) \leq \varphi_a(a+h_+)
+    &amp; \iff \frac{f(a-h_-)-f(a)}{-h_-} \leq
+\frac{f(a)-f(a+h_+)}{-h_+} \\
+    &amp; \iff \frac{f(a+(-h_-))-f(a)}{-h_-} \leq
+\frac{f(a+h_+)-f(a)}{h_+}.
+    \end{aligned}\]</span> En faisant <span class="math inline">\(h_-
+\longrightarrow 0^+\)</span>, on a <span class="math display">\[\ell_g =
+f_g&#39;(a) \leq \frac{f(a+h_+)-f(a)}{h_+}.\]</span> Puis en faisant
+<span class="math inline">\(h_- \longrightarrow 0^+\)</span>, on a <span
+class="math display">\[f_g&#39;(a) \leq \ell_d =
+f_d&#39;(a).\]</span></p>
+</div>
+<div class="wrem">
+<p>En reprenant des techniques similaires à la preuve précédente, on
+peut montrer que <span class="math inline">\(f_g&#39;\)</span> et <span
+class="math inline">\(f_d&#39;\)</span> sont croissantes.</p>
+</div>
+<div class="wcor">
+<p>Soit <span class="math inline">\(f: I \to \mathbb{R}\)</span> convexe
+avec <span class="math inline">\(I\)</span> intervalle de <span
+class="math inline">\(\mathbb{R}\)</span>.</p>
+<p>En notant <span class="math inline">\(\mathring{I}\)</span>
+l’intervalle <span class="math inline">\(I\)</span> privé de ses bornes,
+<span class="math inline">\(f\)</span> est continue sur <span
+class="math inline">\(\mathring{I}\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(a \in \mathring{I}\)</span>, par la
+proposition <a href="#prop:convexe_Est_Derivee_adroite_et_a_gauche"
+data-reference-type="ref"
+data-reference="prop:convexe_Est_Derivee_adroite_et_a_gauche">[prop:convexe_Est_Derivee_adroite_et_a_gauche]</a>,
+<span class="math inline">\(f\)</span> est dérivable à droite et à
+gauche en <span class="math inline">\(a\)</span>.</p>
+<p>On a donc <span class="math inline">\(\frac{f(a+h)-f(a)}{h}
+\xrightarrow[h \to 0^-]{} f_g&#39;(a) \Longrightarrow f(a+h)-f(a)
+\xrightarrow[h \to 0^-]{} 0 \Longrightarrow f(a+h) \xrightarrow[h \to
+0^-]{} f(a)\)</span></p>
+<p>puis <span class="math inline">\(\frac{f(a+h)-f(a)}{h} \xrightarrow[h
+\to 0^+]{} f_d&#39;(a) \Longrightarrow f(a+h)-f(a) \xrightarrow[h \to
+0^+]{} 0 \Longrightarrow f(a+h) \xrightarrow[h \to 0^+]{}
+f(a)\)</span>.</p>
+<p>Donc <span class="math inline">\(f(a+h) \xrightarrow[h \to 0]{}
+f(a)\)</span> et <span class="math inline">\(f\)</span> est continue en
+<span class="math inline">\(a\)</span>.</p>
+</div>
+<div class="wex">
+<div class="webtextfigure">
+<div class="webtext">
+<p>En général <span class="math inline">\(f\)</span> n’est pas continue
+sur <span class="math inline">\(I\)</span>, comme le démontre le graphe
+ci-contre.</p>
+</div>
+<div class="webimg">
+<p><img src="contrex_convexe_c0.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wprop">
+<p><span id="prop:convexe_est_au_dessus_de_ses_tangentes"
+label="prop:convexe_est_au_dessus_de_ses_tangentes"></span></p>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\(f : I \to \mathbb{R}\)</span>
+convexe, avec <span class="math inline">\(I\)</span> un intervalle de
+<span class="math inline">\(\mathbb{R}\)</span>. Soit <span
+class="math inline">\(a \in I\)</span> tel que <span
+class="math inline">\(f\)</span> est dérivable en <span
+class="math inline">\(a\)</span>.</p>
+<p>Alors, la courbe de <span class="math inline">\(f\)</span> se situe
+au-dessus de sa tangente au point d’abscisse <span
+class="math inline">\(a\)</span>, ie</p>
+<p><span class="math display">\[\forall x \in I, f(x) \geq
+f&#39;(a)(x-a)+f(a).\]</span></p>
+</div>
+<div class="webimg">
+<p><img src="convexite_courbe_au_dessus_tangente.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<ul>
+<li><p>Si <span class="math inline">\(x=a\)</span>, on a
+égalité.</p></li>
+<li><p>Si <span class="math inline">\(x &gt; a\)</span>, soit <span
+class="math inline">\(h \in \mathbb{R}^{+\star}\)</span> assez petit tel
+que <span class="math inline">\(a &lt; a+h &lt; x\)</span>, alors on a
+par le 2. de la proposition <a href="#prop:convexe_trois_pentes"
+data-reference-type="ref"
+data-reference="prop:convexe_trois_pentes">[prop:convexe_trois_pentes]</a>,
+en gardant <span class="math inline">\(P_1 \leq P_2\)</span>, on a <span
+class="math inline">\(\frac{f(a+h)-f(a)}{h} \leq
+\frac{f(x)-f(a)}{x-a}\)</span>. Comme <span class="math inline">\(x-a
+&gt; 0\)</span>, on en déduit <span class="math inline">\(f(x) \geq
+(x-a)\frac{f(a+h)-f(a)}{h}+f(a)\)</span> puis en faisant <span
+class="math inline">\(h \longrightarrow 0^+\)</span>, on a bien <span
+class="math inline">\(f(x) \geq f&#39;(a)(x-a)+f(a).\)</span></p></li>
+<li><p>Si <span class="math inline">\(x &lt; a\)</span>, soit <span
+class="math inline">\(h \in \mathbb{R}^{+\star}\)</span> assez petit tel
+que <span class="math inline">\(x &lt; a-h &lt; a\)</span>, alors on a
+par le 2. de la proposition <a href="#prop:convexe_trois_pentes"
+data-reference-type="ref"
+data-reference="prop:convexe_trois_pentes">[prop:convexe_trois_pentes]</a>,
+en gardant <span class="math inline">\(P_2 \leq P_3\)</span>, on a <span
+class="math inline">\(\frac{f(a)-f(x)}{a-x} \leq
+\frac{f(a)-f(a-h)}{h}\)</span>. Comme <span class="math inline">\(a-x
+&gt; 0\)</span>, on en déduit <span class="math inline">\(f(x) \geq
+-(a-x)\frac{f(a)-f(a-h)}{h}+f(a)= (x-a)\frac{f(a)-f(a-h)}{h}+f(a) =
+(x-a)\frac{f(a-h)-f(a)}{-h}+f(a)\)</span> puis en faisant <span
+class="math inline">\(h \longrightarrow 0^+\)</span>, on a bien <span
+class="math inline">\(f(x) \geq f&#39;(a)(x-a)+f(a).\)</span></p></li>
+</ul>
+<div class="wprop">
+<p>Soit <span class="math inline">\(f : I \to \mathbb{R}\)</span>
+dérivable, avec <span class="math inline">\(I\)</span> un intervalle de
+<span class="math inline">\(\mathbb{R}\)</span>. Alors, <span
+class="math display">\[f \text{ convexe } \iff \text{$f$ se trouve
+au-dessus de ses tangentes.}\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> a été
+prouvée dans la proposition <a
+href="#prop:convexe_est_au_dessus_de_ses_tangentes"
+data-reference-type="ref"
+data-reference="prop:convexe_est_au_dessus_de_ses_tangentes">[prop:convexe_est_au_dessus_de_ses_tangentes]</a>.</p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Soient
+<span class="math inline">\(x &lt; y &lt; z \in I\)</span>. Alors, avec
+<span class="math inline">\(\lambda = \frac{y-x}{z-x} \in ]0,1[\)</span>
+tel que <span class="math inline">\(1-\lambda =
+\frac{z-y}{z-x}\)</span>, on a <span class="math inline">\(y =
+(1-\lambda)x+\lambda z\)</span>.</p>
+<p>On a alors, par hypothèse, <span
+class="math display">\[\begin{aligned}
+    &amp; f(x) \geq f&#39;(y)(x-y)+f(y) \iff f&#39;(y) \geq
+\frac{f(x)-f(y)}{x-y} =\frac{f(y)-f(x)}{y-x}  \text{ car $x-y &lt; 0$}\\
+    \text{et } &amp; f(z) \geq f&#39;(y)(z-y)+f(y) \iff f&#39;(y) \leq
+\frac{f(z)-f(y)}{z-y} \text{ car $z-y &gt; 0$}. \\
+\end{aligned}\]</span></p>
+<p>On a donc <span class="math display">\[\begin{aligned}
+    &amp; \frac{f(y)-f(x)}{y-x} \leq \frac{f(z)-f(y)}{z-y} \\
+    \iff &amp; f(y)\left(\frac{1}{y-x}+\frac{1}{z-y}\right) \leq
+\frac{f(x)}{y-x}-\frac{f(z)}{z-y} \\
+    \iff &amp; f(y)\frac{z-x}{(y-x)(z-y)} \leq
+\frac{f(x)}{y-x}-\frac{f(z)}{z-y} \\
+    \iff &amp; f(y) \leq \frac{z-y}{z-x}f(x)+f(z)\frac{y-x}{z-x} \text{
+car $z-x &gt; 0$, $y-x&gt;0$ et $z-y &gt; 0$} \\
+    \iff &amp; f(y) \leq (1-\lambda)f(x)+\lambda f(z).
+\end{aligned}\]</span> Donc <span class="math inline">\(f\)</span> est
+convexe.</p></li>
+</ul>
+</div>
+<h1 data-number="4"
+id="exemples-de-fonctions-convexes-usuelles-et-dinégalités-très-utiles"><span
+class="header-section-number">4</span> Exemples de fonctions convexes
+usuelles et d’inégalités très utiles</h1>
+<h2 data-number="4.1" id="la-fonction-exponentielle"><span
+class="header-section-number">4.1</span> La fonction exponentielle</h2>
+<div class="webtextfigure">
+<div class="webtext">
+<p><span class="math inline">\(\quad\)</span></p>
+<p>Avec <span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; e^x
+\end{array}\)</span>, on a <span class="math inline">\(f\)</span> qui
+est deux fois dérivables sur <span
+class="math inline">\(\mathbb{R}\)</span> avec <span
+class="math inline">\(\begin{array}{lllll}
+f&#39;&#39; &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; e^x
+\end{array}\)</span> qui est positive. <span
+class="math inline">\(\exp\)</span> est donc convexe.</p>
+<p>En examinant la tangente en <span class="math inline">\(0\)</span>
+d’équation <span class="math inline">\(y=e^0(x-0)+e^0 = x+1\)</span>, on
+tombe sur l’inégalité <span
+class="math display">\[\enclose{roundedbox}{\forall x \in \mathbb{R},
+e^x \geq x+1.}\]</span></p>
+</div>
+<div class="webimg">
+<p><img src="convexite_exponentielle_tangente_en_0.png"
+alt="image" /></p>
+</div>
+</div>
+<h2 data-number="4.2" id="la-fonction-ln"><span
+class="header-section-number">4.2</span> La fonction <span
+class="math inline">\(\ln\)</span></h2>
+<div class="webtextfigure">
+<div class="webtext">
+<p><span class="math inline">\(\quad\)</span></p>
+<p>Avec <span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \ln(x)
+\end{array}\)</span>, on a <span class="math inline">\(f\)</span> qui
+est deux fois dérivables sur <span
+class="math inline">\(\mathbb{R}^{+\star}\)</span> avec <span
+class="math inline">\(\begin{array}{lllll}
+f&#39;&#39; &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; -\frac{1}{x^2}
+\end{array}\)</span> qui est négative. <span
+class="math inline">\(\ln\)</span> est donc concave.</p>
+<p>En examinant la tangente en <span class="math inline">\(1\)</span>
+d’équation <span class="math inline">\(y=\frac{1}{1}(x-1)+\ln(1) =
+x-1\)</span>, on tombe sur l’inégalité <span
+class="math display">\[\enclose{roundedbox}{\forall x \in
+\mathbb{R}^{+\star}, \ln(x) \leq x-1.}\]</span> On la préfèrera souvent
+sous la forme <span class="math display">\[\enclose{roundedbox}{\forall
+x &gt; -1, \ln(1+x) \leq x.}\]</span></p>
+</div>
+<div class="webimg">
+<p><img src="concavite_logarithme_tangente_en_1.png" alt="image" /></p>
+</div>
+</div>
+<h2 data-number="4.3" id="les-fonctions-puissances"><span
+class="header-section-number">4.3</span> Les fonctions puissances</h2>
+<div class="webtextfigure">
+<div class="webtext">
+<p><span class="math inline">\(\quad\)</span></p>
+<p>Soient <span class="math inline">\(\alpha \in \mathbb{R}\)</span> et
+<span class="math inline">\(\begin{array}{lllll}
+f_\alpha &amp; : &amp; \mathbb{R}^{+\star} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; x^\alpha = e^{\alpha \ln(x)}
+\end{array}\)</span>, on a <span class="math inline">\(f\)</span> qui
+est deux fois dérivables sur <span
+class="math inline">\(\mathbb{R}^{+\star}\)</span> avec <span
+class="math inline">\(\begin{array}{lllll}
+f_\alpha&#39; &amp; : &amp; \mathbb{R}^{+\star} &amp; \to &amp;
+\mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \alpha x^{\alpha-1}
+\end{array}\)</span> puis <span
+class="math inline">\(\begin{array}{lllll}
+f_\alpha&#39;&#39; &amp; : &amp; \mathbb{R}^{+\star} &amp; \to &amp;
+\mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \alpha(\alpha-1) x^{\alpha-2}
+\end{array}\)</span> qui est du signe de <span
+class="math inline">\(\alpha(\alpha-1)\)</span>.</p>
+<p>Donc</p>
+<ul>
+<li><p>si <span class="math inline">\(\alpha &lt; 0\)</span>, <span
+class="math inline">\(f_\alpha\)</span> est convexe,</p></li>
+<li><p>si <span class="math inline">\(\alpha = 0\)</span>, <span
+class="math inline">\(f_\alpha\)</span> est constante (donc convexe et
+concave),</p></li>
+<li><p>si <span class="math inline">\(0 &lt; \alpha &lt; 1\)</span>,
+<span class="math inline">\(f_\alpha\)</span> est concave,</p></li>
+<li><p>si <span class="math inline">\(\alpha = 1\)</span>, <span
+class="math inline">\(f_\alpha\)</span> est affine (donc convexe et
+concave),</p></li>
+<li><p>si <span class="math inline">\(\alpha &gt; 1\)</span>, <span
+class="math inline">\(f_\alpha\)</span> est convexe.</p></li>
+</ul>
+</div>
+<div class="webimg">
+<p><img src="puissances.png" alt="image" /></p>
+</div>
+</div>
+<p>
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+
+    <style>
+    .alphaSlider {
+    width: 600px;
+}
+
+.alpha-widget {
+
+    background: transparent !important;
+}
+    </style>
+
+    <div class="alpha-widget">
+
+    <p>
+        α :
+
+        <input
+            type="range"
+            class="alphaSlider"
+            min="-5"
+            max="5"
+            step="0.01"
+            value="1"
+        >
+
+        <input
+            type="number"
+            class="alphaInput"
+            min="-5"
+            max="5"
+            step="0.01"
+            value="1"
+        >
+    </p>
+
+    <div class="plot"></div>
+
+</div>
+
+    <script>
+    (function () {
+    const widget = document.querySelector(".alpha-widget");
+    if (!widget) return;
+
+    const slider = widget.querySelector(".alphaSlider");
+    const input  = widget.querySelector(".alphaInput");
+    const plot   = widget.querySelector(".plot");
+
+    function f(x, a) {
+        const val = Math.pow(x, a);
+        // Évite les valeurs infinies qui font planter le moteur de rendu Plotly
+        if (!isFinite(val) || val > 100) return null;
+        return val;
+    }
+
+    const xs = [];
+    for (let x = 0.01; x <= 3.5; x += 0.01) {
+        xs.push(parseFloat(x.toFixed(2)));
+    }
+
+    function updatePlot(alpha) {
+        alpha = parseFloat(alpha);
+        const ys = xs.map(x => f(x, alpha));
+
+        let curveColor = '#2ca02c';
+        if (alpha < 0) curveColor = '#1f77b4';
+        else if (alpha === 1) curveColor = '#ff7f0e';
+        else if (alpha > 0 && alpha < 1) curveColor = '#9467bd';
+        else if (alpha === 0) curveColor = '#d62728';
+
+        const traces = [
+            {
+                x: xs,
+                y: ys,
+                mode: "lines",
+                type: "scatter",
+                line: { color: curveColor, width: 3 },
+                showlegend: false
+            },
+            {
+                x: [0, 1],
+                y: [1, 1],
+                mode: "lines",
+                type: "scatter",
+                line: { color: '#d62728', dash: 'dash', width: 2 },
+                showlegend: false
+            },
+            {
+                x: [1, 1],
+                y: [0, 1],
+                mode: "lines",
+                type: "scatter",
+                line: { color: '#d62728', dash: 'dash', width: 2 },
+                showlegend: false
+            }
+        ];
+
+        const layout = {
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
+            title: {
+                text: `f(x)=x<sup>${alpha}</sup>`,
+                font: { size: 24 },
+                color: window.matchMedia('(prefers-color-scheme: dark)').matches ? '#ffe0b3' : '#2d1b12'
+            },
+            width: 600,
+            height: 600,
+            margin: { t: 60 },
+            xaxis: {
+                range: [0, 3.5],
+                scaleanchor: "y",
+                scaleratio: 1,
+                color: '#2d1b12',
+                gridcolor: 'rgba(0,0,0,0.08)',
+                zerolinecolor: 'rgba(0,0,0,0.2)'
+            },
+            yaxis: {
+                range: [0, 3.5],
+                color: '#2d1b12',
+                gridcolor: 'rgba(0,0,0,0.08)',
+                zerolinecolor: 'rgba(0,0,0,0.2)'
+            }
+        };
+
+        Plotly.react(plot, traces, layout);
+    }
+
+    function sync(alpha) {
+        slider.value = alpha;
+        input.value  = alpha;
+        updatePlot(alpha);
+    }
+
+    slider.addEventListener("input", () => sync(slider.value));
+    input.addEventListener("input", () => sync(input.value));
+
+    sync(1);
+})();
+    </script>
+    </p>
+<h2 data-number="4.4" id="la-fonction-sinus"><span
+class="header-section-number">4.4</span> La fonction sinus</h2>
+<p>La fonction <span class="math inline">\(\sin\)</span> est deux fois
+dérivables de dérivées seconde <span
+class="math inline">\(-\sin\)</span>.</p>
+<p>Elle est donc concave sur <span
+class="math inline">\([0,\pi]\)</span> et convexe sur <span
+class="math inline">\([-\pi,0]\)</span>.</p>
+<p>Si on observe sa tangente en <span class="math inline">\(0\)</span>
+d’équation <span class="math inline">\(y = \cos(0)(x-0)+\sin(0) =
+x\)</span>, on a pour tout <span class="math inline">\(x \in
+\mathbb{R}\)</span>, <span class="math inline">\(\sin(x) \leq
+x\)</span>.</p>
+<p>Mais en fait, on a plus efficace, comme elle est de dérivée <span
+class="math inline">\(\cos\)</span> qui est bornée en valeur absolue par
+<span class="math inline">\(1\)</span>, <span
+class="math inline">\(\sin\)</span> est <span
+class="math inline">\(1\)</span>-lipshitzienne et en prenant <span
+class="math inline">\(x \in \mathbb{R}\)</span>, <span
+class="math inline">\(y = 0\)</span>, on a <span
+class="math inline">\(\left|\sin(x)-\sin(y)\right|=
+\left|\sin(x)\right|\)</span> puis <span
+class="math inline">\(\left|x-y\right| = \left|y\right|\)</span> donc
+<span class="math display">\[\text{\ovalbox{$\forall x \in \mathbb{R},
+\left|\sin(x)\right| \leq \left|x\right|$.}}\]</span></p>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Une inégalité utile est la suivante : La corde entre <span
+class="math inline">\((0,0)\)</span> et <span
+class="math inline">\((\frac{\pi}{2},\sin\left(\frac{\pi}{2}\right)) =
+\left(\frac{\pi}{2},1\right)\)</span> est le segment entre <span
+class="math inline">\(x=0\)</span> et <span
+class="math inline">\(x=1\)</span> de la droite <span
+class="math inline">\(\frac{1-0}{\frac{\pi}{2}-0}x =
+\frac{2}{\pi}x\)</span>.</p>
+<p>Par concavité de <span class="math inline">\(\sin\)</span> sur <span
+class="math inline">\(\left[0,\frac{\pi}{2}\right]\)</span>, on en
+déduit <span class="math display">\[\forall x \in
+\left[0,\frac{\pi}{2}\right], \sin(x) \geq \frac{2}{\pi}x.\]</span> De
+même, par convexité de <span class="math inline">\(\sin\)</span> sur
+<span class="math inline">\(\left[-\frac{\pi}{2},0\right]\)</span>, on
+en déduit <span class="math display">\[\forall x \in
+\left[-\frac{\pi}{2},0\right], \sin(x) \leq \frac{2}{\pi}x.\]</span>
+Donc, finalement, <span
+class="math display">\[\enclose{roundedbox}{\forall x \in
+\left[-\frac{\pi}{2},\frac{\pi}{2}\right], \left|\sin(x)\right| \geq
+\frac{2}{\pi}\left|x\right|.}\]</span></p>
+</div>
+<div class="webimg">
+<p><img src="concavite_sinus_corde_jordan.png" alt="image" /></p>
+</div>
+</div>
+<h2 data-number="4.5" id="quelques-exercices"><span
+class="header-section-number">4.5</span> Quelques exercices</h2>
+<p><strong>Exercice</strong> — Soit <span class="math inline">\(f : I
+\to \mathbb{R}\)</span> une fonction convexe avec <span
+class="math inline">\(I\)</span> non majoré (donc de la forme <span
+class="math inline">\([a,+\infty[\)</span>, <span
+class="math inline">\(]a,+\infty[\)</span> our <span
+class="math inline">\(\mathbb{R}\)</span>).</p>
+<ol>
+<li><p>Montrer que <span class="math inline">\(x \in I \cap
+\mathbb{R}^{+\star}\mapsto \frac{f(x)}{x}\)</span> admet une limite
+<span class="math inline">\(\ell \in \overline{\mathbb{R}}\)</span> en
+<span class="math inline">\(+\infty\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(\ell\)</span> est finie, montrer
+que <span class="math inline">\(x \in I \cap \mathbb{R}^{+\star}\mapsto
+\frac{f(x)}{x}-\ell x\)</span> admet une limite <span
+class="math inline">\(\ell&#39; \in \overline{\mathbb{R}}\)</span> en
+<span class="math inline">\(+\infty\)</span>.</p></li>
+</ol>
+<p><strong>Corrigé</strong> —</p>
+<ol>
+<li><p>Soit <span class="math inline">\(a \in I\)</span>, on sait par le
+3. de la proposition <a href="#prop:convexe_trois_pentes"
+data-reference-type="ref"
+data-reference="prop:convexe_trois_pentes">[prop:convexe_trois_pentes]</a>
+que <span class="math inline">\(\varphi_a : x \in I \setminus
+\left\{a\right\} \mapsto \frac{f(x)-f(a)}{x-a}\)</span> est croissante
+et elle admet donc une limite <span class="math inline">\(\ell_a \in
+\overline{\mathbb{R}}\)</span> en <span
+class="math inline">\(+\infty\)</span>.</p>
+<p>De plus, pour <span class="math inline">\(x \in I\)</span> tel que
+<span class="math inline">\(x &gt; 0\)</span>, <span
+class="math inline">\(\frac{f(x)}{x} =
+\frac{1}{x}\left(f(x)-f(a)+f(a)\right) =
+\frac{1}{x}(f(x)-f(a))+\frac{f(a)}{x}  =
+\frac{x-a}{x}\frac{f(x)-f(a)}{x-a}+\frac{f(a)}{x}\)</span>.</p>
+<p>Or, <span class="math inline">\(\frac{x-a}{x} \xrightarrow[x \to
++\infty]{} 1\)</span> et <span
+class="math inline">\(\frac{f(a)}{x}\xrightarrow[x \to +\infty]{}
+0\)</span>.</p>
+<p>Donc <span class="math inline">\(\frac{f(x)}{x} \xrightarrow[x \to
++\infty]{} \ell_a\)</span>. On a montré par la même occasion que <span
+class="math inline">\(\ell_a\)</span> ne dépend pas de <span
+class="math inline">\(a\)</span>.</p></li>
+<li><p>Montrons que <span class="math inline">\(g : x \in I \cap
+\mathbb{R}^{+\star}\mapsto f(x)-\ell x\)</span> est croissante ce qui
+conclura. Soient <span class="math inline">\(x &lt; y \in I\)</span>,
+<span class="math display">\[g(y)-g(x) = f(y)-\ell y-\left(f(x)-\ell
+x\right) = f(y)-f(x)+\ell(y-x) =
+(y-x)\left(\frac{f(y)-f(x)}{y-x}-\ell\right).\]</span></p>
+<p>Or, <span class="math inline">\(y-x &gt; 0\)</span> et d’après la
+question précédente, <span class="math inline">\(\ell\)</span> est la
+limite croissante de <span class="math inline">\(x \mapsto
+\frac{f(y)-f(x)}{y-x}\)</span> en <span
+class="math inline">\(+\infty\)</span>. Donc <span
+class="math inline">\(\frac{f(y)-f(x)}{y-x}-\ell \geq 0\)</span> donc
+<span class="math inline">\(g(y) \geq g(x)\)</span> et <span
+class="math inline">\(g\)</span> est croissante. Elle admet donc une
+limite dans <span class="math inline">\(\overline{\mathbb{R}}\)</span>
+en <span class="math inline">\(+\infty\)</span>.</p></li>
+</ol>
+<div class="wrem">
+<p>Donc dans le cas où <span class="math inline">\(\ell,
+\ell&#39;\)</span> sont finies, <span class="math inline">\(f\)</span>
+admet l’asymptote oblique <span class="math inline">\(y = \ell x
++\ell&#39;\)</span> en <span class="math inline">\(+\infty\)</span>.</p>
+</div>
+<p><strong>Exercice</strong> — Soit <span class="math inline">\(p \in
+[1,+\infty[\)</span>.</p>
+<ol>
+<li><p>Montrer que <span class="math inline">\(\begin{array}{lllll}
+f &amp; : &amp; \mathbb{R}^{+\star} &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; t &amp; \mapsto &amp; \left(1+t^{\frac{1}{p}}\right)^p
+\end{array}\)</span> est concave.</p></li>
+<li><p>Soit <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span>. En déduire <span
+class="math display">\[\begin{array}{l}
+         \forall x_1,\ldots,x_n \geq 0, \\
+         \forall y_1,\ldots,y_n \geq 0,
+    \end{array}
+    \left(\sum_{k=1}^n (x_k+y_k)^p\right)^{\frac{1}{p}} \leq
+\left(\sum_{k=1}^n x_k^p\right)^{\frac{1}{p}}+\left(\sum_{k=1}^n
+y_k^p\right)^{\frac{1}{p}}\]</span></p></li>
+</ol>
+<p><strong>Corrigé</strong> —</p>
+<ol>
+<li><p><span class="math inline">\(f\)</span> est dérivable sur <span
+class="math inline">\(\mathbb{R}^{+\star}\)</span> avec pour tout <span
+class="math inline">\(t &gt; 0\)</span>, <span
+class="math display">\[f&#39;(t) = p
+\frac{1}{p}t^{\frac{1}{p}-1}\left(1+t^{\frac{1}{p}}\right)^{p-1}=t^{\frac{1}{p}-1}\left(1+t^{\frac{1}{p}}\right)^{p-1}.\]</span>
+<span class="math inline">\(f&#39;\)</span> est alors dérivable sur
+<span class="math inline">\(\mathbb{R}^{+\star}\)</span> avec pour tout
+<span class="math inline">\(t &gt; 0\)</span>, <span
+class="math display">\[\begin{aligned}
+        f&#39;&#39;(t)
+        &amp;
+=\left(\frac{1}{p}-1\right)t^{\frac{1}{p}-2}\left(1+t^{\frac{1}{p}}\right)^{p-1}+(p-1)t^{\frac{1}{p}-1}
+\frac{1}{p}t^{\frac{1}{p}-1}\left(1+t^{\frac{1}{p}}\right)^{p-2} \\
+        &amp; =
+\left(\frac{1}{p}-1\right)t^{\frac{1}{p}-2}\left(1+t^{\frac{1}{p}}\right)^{p-2}\left(1+t^{\frac{1}{p}}-t^{\frac{1}{p}}\right)
+\\
+        &amp; =
+\frac{1-p}{p}t^{\frac{1}{p}-2}\left(1+t^{\frac{1}{p}}\right)^{p-2} \geq
+0 \text{ car $1-p \geq 0$.}
+        \end{aligned}\]</span> Donc <span
+class="math inline">\(f\)</span> est concave.</p></li>
+<li><ul>
+<li><p>Commençons par supposer <span
+class="math inline">\(x_1,\ldots,x_n &gt; 0\)</span> et <span
+class="math inline">\(y_1,\ldots,y_n &gt; 0\)</span>. On a alors <span
+class="math display">\[\begin{aligned}
+                &amp; \left(\sum_{k=1}^n
+(x_k+y_k)^p\right)^{\frac{1}{p}} \leq \left(\sum_{k=1}^n
+x_k^p\right)^{\frac{1}{p}}+\left(\sum_{k=1}^n y_k^p\right)^{\frac{1}{p}}
+\\
+                \iff &amp; \sum_{k=1}^n (x_k+y_k)^p \leq
+\left(\left(\sum_{k=1}^n x_k^p\right)^{\frac{1}{p}}+\left(\sum_{k=1}^n
+y_k^p\right)^{\frac{1}{p}} \right)^p\\
+                \iff &amp; \sum_{k=1}^n (x_k+y_k)^p \leq
+\left(\left(\sum_{j=1}^n x_j^p\right)^{\frac{1}{p}}+\left(\sum_{k=1}^n
+y_k^p\right)^{\frac{1}{p}} \right)^p \begin{array}{l}
+                    \text{(un changement d&#39;écriture pour} \\
+                    \text{faciliter la lecture dans la suite)}
+                \end{array}\\
+                \iff &amp; \sum_{k=1}^n
+x_k^p\left(1+\frac{y_k}{x_k}\right)^p \leq \left(\sum_{j=1}^n
+x_j^p\right)\left(1+\frac{\left(\sum_{k=1}^n
+y_k^p\right)^{\frac{1}{p}}}{\left(\sum_{j=1}^n
+x_j^p\right)^{\frac{1}{p}}} \right)^p\\
+                \iff &amp; \sum_{k=1}^n
+x_k^p\left(1+\left(\frac{y^p_k}{x^p_k}\right)^{\frac{1}{p}}\right)^p
+\leq \left(\sum_{j=1}^n x_j^p\right)\left(1+\left(\frac{\sum_{k=1}^n
+y_k^p}{\sum_{j=1}^n x_j^p}\right)^{\frac{1}{p}}\right)^p\\
+                \iff &amp; \sum_{k=1}^n
+x_k^pf\left(\frac{y^p_k}{x^p_k}\right) \leq \left(\sum_{j=1}^n
+x_j^p\right) f\left(\frac{\sum_{k=1}^n y_k^p}{\sum_{j=1}^n
+x_j^p}\right)\\
+                \iff &amp; \sum_{k=1}^n \frac{x_k^p}{\sum_{j=1}^n
+x_j^p}f\left(\frac{y^p_k}{x^p_k}\right) \leq  f\left(\sum_{k=1}^n
+\frac{y_k^p}{\sum_{j=1}^n x_j^p}\right)\\
+                \iff &amp; \sum_{k=1}^n \frac{x_k^p}{\sum_{j=1}^n
+x_j^p}f\left(\frac{y^p_k}{x^p_k}\right) \leq  f\left(\sum_{k=1}^n
+\frac{x_k^p}{\sum_{j=1}^n x_j^p}\frac{y_k^p}{x_k^p}\right)\\
+            \end{aligned}\]</span> En posant <span
+class="math inline">\(\lambda_k = \frac{x_k^p}{\sum_{j=1}^p
+x_j^p}\)</span> pour <span class="math inline">\(1 \leq k \leq
+n\)</span>, on a <span class="math inline">\(\lambda_1,\ldots, \lambda_n
+\geq 0\)</span> et <span class="math inline">\(\sum_{k=1}^n \lambda_k =
+1\)</span> donc l’inégalité est vraie pas concavité de <span
+class="math inline">\(f\)</span>.</p></li>
+<li><p>Sinon, soit <span class="math inline">\(\varepsilon &gt;
+0\)</span>, le cas précédent s’applique à <span
+class="math inline">\(x_1+\varepsilon,\ldots,x_n+\varepsilon &gt;
+0\)</span> et <span class="math inline">\(y_1+\varepsilon,\ldots,y_n
++\varepsilon&gt; 0\)</span>.</p>
+<p>On a donc <span class="math display">\[\left(\sum_{k=1}^n
+(x_k+y_k+2\varepsilon)^p\right)^{\frac{1}{p}} \leq \left(\sum_{k=1}^n
+\left(x_k+\varepsilon\right)^p\right)^{\frac{1}{p}}+\left(\sum_{k=1}^n
+\left(y_k+\varepsilon\right)^p\right)^{\frac{1}{p}}.\]</span></p>
+<p>Puis en faisant <span class="math inline">\(\varepsilon
+\longrightarrow 0^+\)</span>, on a le résultat.</p></li>
+</ul></li>
+</ol>
+</body>
+</html>
+
+<script>
+
+const toggle = document.getElementById('theme-toggle');
+const body = document.body;
+
+// Appliquer le thème au chargement
+const currentTheme = localStorage.getItem('theme') || 'default';
+body.setAttribute('data-md-color-scheme', currentTheme);
+
+toggle.addEventListener('click', () => {
+    let scheme = body.getAttribute('data-md-color-scheme');
+    let newScheme = (scheme === 'default') ? 'slate' : 'default';
+    
+    body.setAttribute('data-md-color-scheme', newScheme);
+    localStorage.setItem('theme', newScheme);
+});
+
+// 4. CONVERSION TIKZ POUR TIKZJAX
+    document.querySelectorAll('pre').forEach(pre => {
+        let code = pre.querySelector('code');
+        if (code && code.textContent.includes('\\begin{tikzpicture}')) {
+            let script = document.createElement('script');
+            script.type = 'text/tikz';
+            // On force le chargement des librairies nécessaires pour vos matrices
+            script.innerHTML = '\\usetikzlibrary{matrix, calc}\n' + code.textContent;
+            pre.replaceWith(script);
+        }
+    });
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    let secCount = -1;
+    let thmCount = -1;
+    let labels = {};
+
+    const noms = {
+        'wthm':'Théorème', 'wprop':'Proposition', 'wdefi':'Définition',
+        'wlem':'Lemme', 'wcor':'Corollaire', 'wappli':'Application',
+        'wrem':'Remarque', 'wrappel': 'Rappel', 'wex':'Exemple',
+        'wexs':'Exemples', 'wproof':'Preuve'
+    };
+
+    // Numérotation des environnements
+    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs, .wrappel,.wproof").forEach(el => {
+        if (el.tagName.toLowerCase() === "h1" && !el.closest("#TOC")) {
+            secCount++;
+            thmCount = 0;
+        } else if (noms[Array.from(el.classList).find(c => noms[c])]) {
+            let type = Array.from(el.classList).find(c => noms[c]);
+            if (type !== 'wproof') {
+                thmCount++;
+                let num = secCount + "." + thmCount;
+                let id = el.querySelector("span[id]") ? el.querySelector("span[id]").id : null;
+                if(id) labels[id] = { num: num, type: type.substring(1) };
+                
+                let p = el.querySelector("p");
+                if (p) {
+                    let strong = p.querySelector("strong");
+                    let title = (strong && strong.innerText.includes("(")) ? ` <span class="env-title">${strong.outerHTML}</span>` : "";
+                    if (title) strong.remove();
+                    p.innerHTML = `<strong class="env-header">${noms[type]} ${num}</strong>` + title + " — " + p.innerHTML;
+                }
+            } else {
+                let p = el.querySelector("p");
+                if (p) p.innerHTML = `<strong class="env-header">Preuve</strong> — ` + p.innerHTML;
+            }
+        }
+    });
+
+    // Fonction lancée une fois MathJax terminé
+    function executerApresMathJax() {
+        
+        // 1. Capture des équations
+        document.querySelectorAll("mjx-math[display='true']").forEach((el, index) => {
+            let num = el.querySelector(".mjx-eqn-number");
+            if (num) {
+                let val = num.innerText.replace(/[()]/g, '');
+                let id = el.id || "eq-" + index;
+                el.id = id;
+                labels[id] = { num: val, type: 'eq' };
+            }
+        });
+
+        // 2. TRACÉ DES LIGNES PARTIELLES
+        document.querySelectorAll("mjx-mtext").forEach(el => {
+            let text = el.textContent;
+            
+            // DÉCODAGE MAGIQUE : si MathJax cache le texte dans les classes CSS
+            if (!text || text.trim() === "") {
+                text = Array.from(el.children).map(c => {
+                    let cls = Array.from(c.classList).find(className => className.startsWith('mjx-c'));
+                    return cls ? String.fromCharCode(parseInt(cls.replace('mjx-c', ''), 16)) : '';
+                }).join('');
+            }
+
+            // Remplacement des \ref{type:id} à l'intérieur de \text{} en mode math
+            const refRegex = /\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g;
+
+            if (refRegex.test(text)) {
+                const nouveauTexte = text.replace(refRegex, (m, t, id) => {
+                    const f = t + ":" + id;
+                    return labels[f] ? labels[f].num : m;
+                });
+
+                if (nouveauTexte !== text) {
+                    el.textContent = nouveauTexte;
+                }
+            }
+
+            if (text.includes("CLINEX")) {
+                let regex = /CLINEX(\d+)X(\d+)X/g;
+                let match;
+                let row = el.closest("mjx-mtr");
+                let prevRow = row ? row.previousElementSibling : null;
+
+                while ((match = regex.exec(text)) !== null) {
+                    let start = parseInt(match[1]);
+                    let end = parseInt(match[2]);
+
+                    if (prevRow) {
+                        let cells = prevRow.querySelectorAll("mjx-mtd");
+                        for (let i = start - 1; i < end; i++) {
+                            if (cells[i]) {
+                                cells[i].style.borderBottom = "max(1px, 0.08em) solid currentColor";
+                                cells[i].style.paddingBottom = "0.2em";
+                            }
+                        }
+                    }
+                }
+                // On fait disparaître le marqueur texte
+                el.style.display = "none";
+            }
+        });
+
+       // 3. Remplacement des références
+        document.querySelectorAll("body *").forEach(el => {
+            if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
+                el.innerHTML = el.innerHTML
+                // Remplace les \eqref{...}
+                .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m)
+                // NOUVEAU : Remplace les \ref{...} classiques (souvent utilisés dans les \text{} de MathJax)
+                .replace(/\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g, (m, t, id) => {
+                    let f = t + ":" + id;
+                    return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
+                })
+                // Remplace ta syntaxe personnalisée entre crochets [...]
+                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => {
+                    let f = t + ":" + id;
+                    return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
+                });
+            }
+        });
+
+        // 3. Remplacement des références 
+        document.querySelectorAll("body *").forEach(el => { 
+            if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
+                 el.innerHTML = el.innerHTML 
+                 .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m) 
+                 .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => { 
+                    let f = t + ":" + id; 
+                    return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m; }); } }); } 
+
+    // Attente robuste de MathJax
+    function waitForMathJax() {
+        if (window.MathJax && window.MathJax.startup && window.MathJax.startup.promise) {
+            window.MathJax.startup.promise.then(() => {
+                setTimeout(executerApresMathJax, 50); 
+            }).catch(err => console.log('Erreur MathJax', err));
+        } else {
+            setTimeout(waitForMathJax, 100);
+        }
+    }
+
+    waitForMathJax();
+
+});
+</script>
+
