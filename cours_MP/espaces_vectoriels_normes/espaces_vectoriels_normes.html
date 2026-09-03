@@ -22,6 +22,9 @@
     }
   </style>
   <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
 </head>
 <body>
 
@@ -88,7 +91,154 @@ color: var(--md-primary-bg-color);
 </p>
 
 </header>
-
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#norme" id="toc-norme"><span
+class="toc-section-number">1</span> Norme</a>
+<ul>
+<li><a href="#distance" id="toc-distance"><span
+class="toc-section-number">1.1</span> Distance</a></li>
+<li><a href="#norme-1" id="toc-norme-1"><span
+class="toc-section-number">1.2</span> Norme</a></li>
+</ul></li>
+</ul>
+</nav>
+<p>Dans tout le cours, <span
+class="math inline">\(\mathbb{K}=\mathbb{R}\text{ ou
+}\mathbb{C}\)</span>.</p>
+<h1 data-number="1" id="norme"><span
+class="header-section-number">1</span> Norme</h1>
+<h2 data-number="1.1" id="distance"><span
+class="header-section-number">1.1</span> Distance</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un ensemble non vide. On
+appelle distance sur <span class="math inline">\(E\)</span>, toute
+application <span class="math inline">\(\begin{array}{lllll}
+d &amp; : &amp; E\times E &amp; \to &amp; \mathbb{R}^{+} \\
+   &amp;   &amp; (x,y) &amp; \mapsto &amp; d(x,y)
+\end{array}\)</span> qui vérifie</p>
+<ul>
+<li><p>(Symétrie) <span class="math inline">\(\forall x,y \in E, d(x,y)
+= d(y,x)\)</span></p></li>
+<li><p><span class="math inline">\(\forall x,y \in E\)</span>, <span
+class="math inline">\(d(x,y) = 0 \iff x=y\)</span></p></li>
+<li><p>(Inégalité triangulaire) <span class="math inline">\(\forall
+x,y,z \in E, d(x,y) \leq d(x,z)+d(y,z)\)</span>.</p></li>
+</ul>
+<p><span class="math inline">\((E,d)\)</span> est alors appelé un espace
+métrique.</p>
+</div>
+<div class="wrem">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Pour la distance euclidienne usuelle du plan, l’inégalité
+triangulaire s’interprète comme "la ligne droite est le chemin le plus
+rapide".</p>
+</div>
+<div class="webimg">
+<p><img src="inegalite_triangulaire_distance.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wex">
+<ul>
+<li><p>Pour <span class="math inline">\(E = \mathbb{C}\)</span>, <span
+class="math inline">\((x,y) \in E \mapsto \left|x-y\right|\)</span> est
+une distance.</p></li>
+<li><p>Pour <span class="math inline">\(E\)</span> un ensemble
+quelconque, <span class="math inline">\(d(x,y) \in E \mapsto
+\left\{\begin{array}{ll}
+            1 &amp; \mbox{ si $x \neq y$} \\
+            0 &amp; \mbox{ si $x=y$}
+        \end{array}\right..\)</span></p></li>
+<li><p>Si <span class="math inline">\(E = E_1 \times E_2 \times \ldots
+\times E_n\)</span>, <span class="math inline">\(d: (x,y) \in E \mapsto
+\mathop{\mathrm{card}}\left\{i / x_i \neq y_i\right\}\)</span> est une
+distance sur <span class="math inline">\(E\)</span>.</p>
+<div class="wproof">
+<p>D’abord, <span class="math inline">\(d\)</span> est bien à distance
+dans <span class="math inline">\(\mathbb{R}^{+}\)</span>. Puis, soient
+<span class="math inline">\(x,y,z \in E\)</span>,</p>
+<ol>
+<li><p>On a clairement <span class="math inline">\(d(x,y) =
+d(y,x)\)</span>.</p></li>
+<li><p>On a aussi clairement <span class="math inline">\(d(x,y) = 0 \iff
+x=y\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(1 \leq i \leq n\)</span> tel que
+<span class="math inline">\(x_i\neq y_i\)</span> alors nécessairement
+<span class="math inline">\(x_i\neq z_i\)</span> ou <span
+class="math inline">\(y_i\neq z_i\)</span>. Ainsi, <span
+class="math inline">\(\left\{i\mid x_i\neq
+y_i\right\}\subset\left\{i\mid x_i\neq z_i\right\}\cup\left\{i\mid
+y_i\neq z_i\right\}\)</span>. Par conséquent, <span
+class="math display">\[d(x,y)
+\leq \mathop{\mathrm{card}}\left\{i\mid x_i\neq z_i\right\}
++\mathop{\mathrm{card}}\left\{i\mid y_i\neq z_i\right\}
+=d(x,z)+d(z,y).\]</span> Donc <span class="math inline">\(d\)</span>
+vérifie l’inégalité triangulaire.</p></li>
+</ol>
+</div></li>
+</ul>
+</div>
+<div class="wrem">
+<ul>
+<li><p>Soient <span class="math inline">\(x_1,\ldots,x_n \in E\)</span>,
+<span class="math inline">\(d(x_1,x_n) \leq
+\sum_{j=1}^{n-1}d(x_j,x_{j+1})\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(A \subset E\)</span> et <span
+class="math inline">\(\begin{array}{lllll}
+d_A &amp; : &amp; A\times A &amp; \to &amp; \mathbb{R}^{+} \\
+   &amp;   &amp; (x,y) &amp; \mapsto &amp; d(x,y)
+\end{array}\)</span> est une distance et <span
+class="math inline">\((A,d_A)\)</span> est un espace métrique.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\((E,d)\)</span> un espace métrique
+et <span class="math inline">\(x,y,z \in E\)</span> alors <span
+class="math display">\[d(x,y) \geq
+\left|d(x,z)-d(y,z)\right|.\]</span></p>
+</div>
+<div class="wproof">
+<p>Par inégalité triangulaire, on a <span class="math inline">\(d(x,z)
+\leq d(x,y)+d(y,z)\)</span> donc <span class="math inline">\(d(x,y) \geq
+d(x,z)-d(y,z)\)</span>.</p>
+<p>De même, <span class="math inline">\(d(y,z) \leq d(y,x)+d(x,z) =
+d(x,y)+d(x,z)\)</span> donc <span class="math inline">\(d(x,y) \geq
+d(y,z)-d(x,z)\)</span>.</p>
+<p>Donc <span class="math inline">\(d(x,y) \geq
+\left|d(x,z)-d(y,z)\right|.\)</span></p>
+</div>
+<h2 data-number="1.2" id="norme-1"><span
+class="header-section-number">1.2</span> Norme</h2>
+<div class="wdefi">
+<p>Soit <span class="math inline">\((E+,.)\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel. On appelle
+norme sur <span class="math inline">\(E\)</span>, toute application
+<span class="math inline">\(\begin{array}{lllll}
+N &amp; : &amp; E &amp; \to &amp; \mathbb{R}^{+} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \left\|x\right\|
+\end{array}\)</span> qui vérifie</p>
+<ul>
+<li><p>(Définie positive) <span class="math inline">\(\forall x \in E,
+N(x) = 0 \Longleftarrow x=0_E\)</span>,</p></li>
+<li><p>(Homogénéité) <span class="math inline">\(\forall x \in E,
+\lambda\in \mathbb{K}, N(\lambda x) =
+\left|\lambda\right|N(x)\)</span>,</p></li>
+<li><p>(Inégalité triangulaire) <span class="math inline">\(\forall x,y
+\in E, N(x+y) \leq N(x)+N(y)\)</span>.</p></li>
+</ul>
+<p>On note usuellement <span
+class="math inline">\(\left\|x\right\|\)</span> au lieu de <span
+class="math inline">\(N(x)\)</span> et <span
+class="math inline">\((E,\left\|\cdot\right\|)\)</span> est appelé un
+espace vectoriel normé.</p>
+</div>
+<div class="wex">
+<p>Sur <span class="math inline">\(E = \mathbb{R}\text{ ou
+}\mathbb{C}\)</span>, <span class="math inline">\(N(x) =
+\left|x\right|\)</span> est une norme.</p>
+</div>
 </body>
 </html>
 

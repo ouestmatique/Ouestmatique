@@ -1860,15 +1860,18 @@ class="math inline">\([0,\pi]\)</span> et convexe sur <span
 class="math inline">\([-\pi,0]\)</span>.</p>
 <p>Si on observe sa tangente en <span class="math inline">\(0\)</span>
 d’équation <span class="math inline">\(y = \cos(0)(x-0)+\sin(0) =
-x\)</span>, on a pour tout <span class="math inline">\(x \in
-\mathbb{R}\)</span>, <span class="math inline">\(\sin(x) \leq
-x\)</span>.</p>
-<p>Mais en fait, on a plus efficace, comme elle est de dérivée <span
+x\)</span>, on a pour tout <span class="math display">\[\begin{aligned}
+    &amp; \forall x \in [0,\pi], \sin(x) \leq x \\
+    \text{ et }&amp; \forall x \in [-\pi,0], \sin(x) \geq x \\
+    \text{donc } &amp; \forall x \in [-\pi,\pi], \left|\sin(x)\right|
+\leq \left|x\right|.
+\end{aligned}\]</span></p>
+<p>Mais en fait, comme elle est de dérivée <span
 class="math inline">\(\cos\)</span> qui est bornée en valeur absolue par
-<span class="math inline">\(1\)</span>, <span
+<span class="math inline">\(1\)</span>, on avait déjà que <span
 class="math inline">\(\sin\)</span> est <span
 class="math inline">\(1\)</span>-lipshitzienne et en prenant <span
-class="math inline">\(x \in \mathbb{R}\)</span>, <span
+class="math inline">\(x \in \mathbb{R}\)</span> et <span
 class="math inline">\(y = 0\)</span>, on a <span
 class="math inline">\(\left|\sin(x)-\sin(y)\right|=
 \left|\sin(x)\right|\)</span> puis <span
