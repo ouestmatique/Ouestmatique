@@ -476,12 +476,12 @@ que <span class="math inline">\(z = a+ib\)</span>,</p>
 <div class="wex">
 <p>Les points 3. et 4. de la proposition précédente sont
 particulièrement pratique pour certaines exercices. Par exemple,</p>
-<p><strong>Exercice</strong> — Déterminer les complexes <span
-class="math inline">\(z\)</span> tels que <span
-class="math inline">\(Z=\frac{\overline{z}-i}{iz+2}\)</span> soit
-imaginaire pur.</p>
-<p><strong>Corrigé</strong> — <span
-class="math display">\[\begin{aligned}
+<div class="wexoc">
+<p>Déterminer les complexes <span class="math inline">\(z\)</span> tels
+que <span class="math inline">\(Z=\frac{\overline{z}-i}{iz+2}\)</span>
+soit imaginaire pur.</p>
+<details><summary>Corrigé</summary>
+<p><span class="math display">\[\begin{aligned}
     Z \in i\mathbb{R}
     &amp; \iff Z=-\overline{Z}
      \iff \frac{\overline{z}-i}{iz+2} = -\frac{z+i}{-i\overline{z}+2} \\
@@ -498,6 +498,8 @@ class="math display">\[\begin{aligned}
     &amp; \iff z \in i\mathbb{R}\text{ ou }\mathop{\mathrm{Im}}(z) =
 \frac{1}{2}.
 \end{aligned}\]</span></p>
+</details>
+</div>
 </div>
 <div class="wprop">
 <p><strong>(Conjugué et opérations)</strong> Pour tout <span
@@ -644,10 +646,14 @@ class="math inline">\(\frac{1}{z} =
 <p><strong>(Utilisation de la multiplication par le conjugué)</strong>
 La propriété précédente est très pratique pour écrire l’inverse d’un
 nombre complexe sous forme algébrique. Par exemple,</p>
-<p><strong>Exercice</strong> — Ecrire <span
-class="math inline">\(\frac{1}{1+i}\)</span> sous forme algébrique.</p>
-<p><strong>Corrigé</strong> — <span class="math inline">\(\frac{1}{1+i}
-= \frac{1-i}{|1+i|^2} = \frac{1}{2} -\frac{1}{2}i\)</span>.</p>
+<div class="wexoc">
+<p>Ecrire <span class="math inline">\(\frac{1}{1+i}\)</span> sous forme
+algébrique.</p>
+<details><summary>Corrigé</summary>
+<p><span class="math inline">\(\frac{1}{1+i} = \frac{1-i}{|1+i|^2} =
+\frac{1}{2} -\frac{1}{2}i\)</span>.</p>
+</details>
+</div>
 </div>
 <p>Avant de prouver la célèbre inégalité triangulaire, nous avons besoin
 du lemme suivant.</p>
@@ -1121,16 +1127,18 @@ précède, on a donc <span class="math inline">\(e^{-nz} = (e^{z})^{-n}
 précédente fait de la forme exponentielle particulièrement adaptée pour
 des produits, inverses, puissances de nombres complexes. Au contraire,
 pour sommer, la forme algébrique est préférable. Par exemple,</p>
-<p><strong>Exercice</strong> — Pour <span class="math inline">\(n\in
-\mathbb{N}^\star\)</span>, calculer <span
-class="math inline">\((1+i)^n\)</span>.</p>
-<p><strong>Corrigé</strong> — En écrivant <span
-class="math inline">\(1+i\)</span> sous forme exponentielle, on obtient
-<span class="math inline">\(1+i =
+<div class="wexoc">
+<p>Pour <span class="math inline">\(n\in \mathbb{N}^\star\)</span>,
+calculer <span class="math inline">\((1+i)^n\)</span>.</p>
+<details><summary>Corrigé</summary>
+<p>En écrivant <span class="math inline">\(1+i\)</span> sous forme
+exponentielle, on obtient <span class="math inline">\(1+i =
 \sqrt{2}\left(\frac{1}{\sqrt{2}}+\frac{i}{\sqrt{2}}\right) =
 \sqrt{2}e^{i\frac{\pi}{4}}\)</span> et on en déduit <span
 class="math inline">\((1+i)^n =
 (\sqrt{2})^ne^{i\frac{n\pi}{4}}\)</span>.</p>
+</details>
+</div>
 </div>
 <div class="wcor">
 <p><strong>(Formule de Moivre)</strong> Pour <span
@@ -1146,13 +1154,13 @@ e^{in\theta}\)</span>.</p>
 <h2 data-number="1.8" id="utilisation-de-langle-moitié"><span
 class="header-section-number">1.8</span> Utilisation de l’angle
 moitié</h2>
-<p><strong>Exercice</strong> — Soit <span class="math inline">\(\theta
-\in \mathbb{R}\)</span> tel que <span
-class="math inline">\(1+e^{i\theta} \neq 0\)</span>, calculer <span
-class="math inline">\(|1+e^{i\theta}|\)</span> et <span
+<div class="wexoc">
+<p>Soit <span class="math inline">\(\theta \in \mathbb{R}\)</span> tel
+que <span class="math inline">\(1+e^{i\theta} \neq 0\)</span>, calculer
+<span class="math inline">\(|1+e^{i\theta}|\)</span> et <span
 class="math inline">\(\arg(1+e^{i\theta})\)</span>.</p>
-<p><strong>Corrigé</strong> — <span
-class="math display">\[\begin{aligned}
+<details><summary>Corrigé</summary>
+<p><span class="math display">\[\begin{aligned}
     1+e^{i\theta}
     &amp; = e^{i0}+e^{i\theta} \\
     &amp; = e^{i\tfrac{\theta}{2}-\tfrac{\theta}{2}}
@@ -1184,14 +1192,17 @@ d’après ce qui précède <span class="math inline">\(1+e^{i\theta} =
 et <span class="math inline">\(\arg(1+e^{i\theta}) =
 \pi+\theta/2\)</span>.</p></li>
 </ul>
-<p><strong>Exercice</strong> — Soit <span
-class="math inline">\(\theta,\theta&#39; \in \mathbb{R}\)</span> tel que
-<span class="math inline">\(e^{i\theta}+e^{i\theta&#39;} \neq
-0\)</span>, calculer <span
+</details>
+</div>
+<div class="wexoc">
+<p>Soit <span class="math inline">\(\theta,\theta&#39; \in
+\mathbb{R}\)</span> tel que <span
+class="math inline">\(e^{i\theta}+e^{i\theta&#39;} \neq 0\)</span>,
+calculer <span
 class="math inline">\(|e^{i\theta}+e^{i\theta&#39;}|\)</span> et <span
 class="math inline">\(\arg(e^{i\theta}+e^{i\theta&#39;})\)</span>.</p>
-<p><strong>Corrigé</strong> — Remarquons que <span
-class="math display">\[\begin{aligned}
+<details><summary>Corrigé</summary>
+<p>Remarquons que <span class="math display">\[\begin{aligned}
         \theta &amp;=
 \frac{\theta+\theta&#39;}{2}+\frac{\theta-\theta&#39;}{2} \\
         \theta&#39;&amp;=
@@ -1224,6 +1235,8 @@ class="math inline">\(\cos\left(\frac{\theta-\theta&#39;}{2}\right) &lt;
 class="math inline">\(\arg(e^{i\theta}+e^{i\theta&#39;}) =
 \pi+\frac{\theta-\theta&#39;}{2}\)</span>.</p></li>
 </ul>
+</details>
+</div>
 <div class="wcor">
 <p>Pour <span class="math inline">\(\theta, \theta&#39;\in
 \mathbb{R}\)</span>, <span class="math display">\[\begin{aligned}
@@ -1635,14 +1648,13 @@ class="math inline">\(+\sqrt{\frac{a+|Z|}{2}}-i\sqrt{\frac{|Z|-a}{2}}\)</span>
 et <span
 class="math inline">\(-\sqrt{\frac{a+|Z|}{2}}+i\sqrt{\frac{|Z|-a}{2}}\)</span>.</p></li>
 </ul>
-<div class="wex">
-<p><strong>(Calcul de racine carrée complexe)</strong></p>
-<p><strong>Exercice</strong> — Calculer les racines carrées complexes de
-<span class="math inline">\(1-2i\)</span>.</p>
-<p><strong>Corrigé</strong> — Cherchons <span class="math inline">\(z =
-x+iy\)</span> avec <span class="math inline">\(x,y \in
-\mathbb{R}\)</span> tel que <span class="math inline">\(z^2 =
-1-2i\)</span>.</p>
+<div class="wexoc">
+<p>Calculer les racines carrées complexes de <span
+class="math inline">\(1-2i\)</span>.</p>
+<details><summary>Corrigé</summary>
+<p>Cherchons <span class="math inline">\(z = x+iy\)</span> avec <span
+class="math inline">\(x,y \in \mathbb{R}\)</span> tel que <span
+class="math inline">\(z^2 = 1-2i\)</span>.</p>
 <p>Alors, <span class="math display">\[\begin{aligned}
         z^2 = 1-2i
         &amp; \iff \left\{
@@ -1678,19 +1690,16 @@ class="math inline">\(\sqrt{\frac{1+ \sqrt{5}}{2}} -
 \sqrt{\frac{\sqrt{5} -1}{2}}\)</span> et <span
 class="math inline">\(-\sqrt{\frac{1+ \sqrt{5}}{2}} +
 \sqrt{\frac{\sqrt{5} -1}{2}}\)</span>.</p>
+</details>
 </div>
-<div class="wex">
-<p><strong>(Résolution d’une équation du second degré dans <span
-class="math inline">\(\mathbb{C}\)</span>)</strong> Traitons un exemple
-de résolution concrète d’une équation du second degré.</p>
-<p><strong>Exercice</strong> — Résoudre dans <span
-class="math inline">\(\mathbb{C}\)</span>, l’équation <span
-class="math display">\[\mathrm{(E)} \quad z^2 - (5-4i)z+1-13i =
-0\]</span> d’inconnue <span class="math inline">\(z \in
+<div class="wexoc">
+<p>Résoudre dans <span class="math inline">\(\mathbb{C}\)</span>,
+l’équation <span class="math display">\[\mathrm{(E)} \quad z^2 -
+(5-4i)z+1-13i = 0\]</span> d’inconnue <span class="math inline">\(z \in
 \mathbb{C}\)</span>.</p>
-<p><strong>Corrigé</strong> — Le discriminant vaut <span
-class="math inline">\(\Delta = ( - (5-4i))^2 - 4 \times 1 \times(1-13i)
-= 5+12i\)</span>.</p>
+<details><summary>Corrigé</summary>
+<p>Le discriminant vaut <span class="math inline">\(\Delta = ( -
+(5-4i))^2 - 4 \times 1 \times(1-13i) = 5+12i\)</span>.</p>
 <p>Exercice à la maison: montrer que les racines carrées de <span
 class="math inline">\(\Delta\)</span> sont <span
 class="math inline">\(\pm (3+2i)\)</span>.</p>
@@ -1699,6 +1708,7 @@ class="math inline">\(\pm (3+2i)\)</span>.</p>
             \frac{5-4i+3+2i}{2} &amp; = 4-i\\
              \frac{5-4i-3-2i}{2} &amp; = 1-3i
         \end{array}\right..\]</span></p>
+</details>
 </div>
 <h1 data-number="4"
 id="etude-de-fonctions-beginarraylllll-f-mathbbc-to-mathbbc-z-mapsto-azb-endarray"><span
@@ -1866,15 +1876,14 @@ class="math inline">\(|a|\)</span>.</p>
 <p><img src="similitude.png" alt="image" /></p>
 </div>
 </div>
-<div class="wex">
-<p><strong>(Etude d’une simulitude directe)</strong></p>
-<p><strong>Exercice</strong> — Etudier <span
-class="math display">\[\begin{array}{lllll}
+<div class="wexoc">
+<p>Etudier <span class="math display">\[\begin{array}{lllll}
 f &amp; : &amp; \mathbb{C}&amp; \to &amp; \mathbb{C}\\
 &amp; &amp; z  &amp; \mapsto &amp; (1-i\sqrt{3})z+\sqrt{3}(1-2i) \\
 \end{array}.\]</span></p>
-<p><strong>Corrigé</strong> — Notons que <span class="math inline">\(a =
-(1-i\sqrt{3}) \neq 1\)</span>.</p>
+<details><summary>Corrigé</summary>
+<p>Notons que <span class="math inline">\(a = (1-i\sqrt{3}) \neq
+1\)</span>.</p>
 <p>On a donc <span class="math inline">\(z_0 = \frac{b}{1-a} =
 i+2\)</span>.</p>
 <p>De plus, <span class="math inline">\(a = 1-i\sqrt{3} =
@@ -1891,6 +1900,7 @@ class="math inline">\(2\)</span>.</p>
 <p><img src="similitude_ex.png" alt="image" /></p>
 </div>
 </div>
+</details>
 </div>
 <div class="wrem">
 <p><strong>(Isométries du plan)</strong> Soient <span
@@ -1951,11 +1961,11 @@ document.addEventListener("DOMContentLoaded", function() {
         'wthm':'Théorème', 'wprop':'Proposition', 'wdefi':'Définition',
         'wlem':'Lemme', 'wcor':'Corollaire', 'wappli':'Application',
         'wrem':'Remarque', 'wrappel': 'Rappel', 'wex':'Exemple',
-        'wexs':'Exemples', 'wproof':'Preuve'
+        'wexs':'Exemples', 'wproof':'Preuve', 'wexoc':'Exercice','wcorrc':'Corrigé'
     };
 
     // Numérotation des environnements
-    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs, .wrappel,.wproof").forEach(el => {
+    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs,.wexoc,.wcorrc, .wrappel,.wproof").forEach(el => {
         if (el.tagName.toLowerCase() === "h1" && !el.closest("#TOC")) {
             secCount++;
             thmCount = 0;
@@ -2008,7 +2018,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             // Remplacement des \ref{type:id} à l'intérieur de \text{} en mode math
-            const refRegex = /\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g;
+            const refRegex = /\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\}/g;
 
             if (refRegex.test(text)) {
                 const nouveauTexte = text.replace(refRegex, (m, t, id) => {
@@ -2053,12 +2063,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Remplace les \eqref{...}
                 .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m)
                 // NOUVEAU : Remplace les \ref{...} classiques (souvent utilisés dans les \text{} de MathJax)
-                .replace(/\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g, (m, t, id) => {
+                .replace(/\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\}/g, (m, t, id) => {
                     let f = t + ":" + id;
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
                 })
                 // Remplace ta syntaxe personnalisée entre crochets [...]
-                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => {
+                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\]/g, (m, t, id) => {
                     let f = t + ":" + id;
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
                 });
@@ -2070,7 +2080,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
                  el.innerHTML = el.innerHTML 
                  .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m) 
-                 .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => { 
+                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\]/g, (m, t, id) => { 
                     let f = t + ":" + id; 
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m; }); } }); } 
 

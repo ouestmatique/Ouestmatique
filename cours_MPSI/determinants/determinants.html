@@ -1472,14 +1472,13 @@ de <span class="math inline">\(E\)</span>.</p>
 href="#prop:detecteur_de_base" data-reference-type="ref"
 data-reference="prop:detecteur_de_base">[prop:detecteur_de_base]</a>.</p>
 </div>
-<div class="wex">
 <p>La proposition <a href="#prop:detecteur_de_base"
 data-reference-type="ref"
 data-reference="prop:detecteur_de_base">[prop:detecteur_de_base]</a>
 fait du déterminant un vrai détecteur de base. Voyons comment
 l’utiliser.</p>
-<p><strong>Exercice</strong> — Soit <span
-class="math inline">\(E\)</span> un <span
+<div class="wexoc">
+<p>Soit <span class="math inline">\(E\)</span> un <span
 class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
 <span class="math inline">\(3\)</span> et <span
 class="math inline">\(\mathscr{B}= (e_1,e_2,e_3)\)</span> une base de
@@ -1492,7 +1491,8 @@ class="math inline">\(\left\{\begin{array}{ll}
         \end{array}\right..\)</span></p>
 <p>Montrer que <span class="math inline">\((v_1,v_2,v_3)\)</span> est
 une base de <span class="math inline">\(E\)</span>.</p>
-<p><strong>Corrigé</strong> — Il suffit de montrer que <span
+<details><summary>Corrigé</summary>
+<p>Il suffit de montrer que <span
 class="math inline">\({\det}_\mathscr{B}(v_1,v_2,v_3) \neq 0\)</span>.
 Or, <span class="math display">\[\begin{aligned}
         {\det}_\mathscr{B}(v_1,v_2,v_3)
@@ -1510,6 +1510,7 @@ quatrième point de la proposition~{2.13}} \\
 {\det}_\mathscr{B}(e_1,e_2,e_3)\text{ par $n$-linéarité} \\
         &amp; = -8 \neq 0.
     \end{aligned}\]</span></p>
+</details>
 </div>
 <h2 data-number="2.4" id="déterminant-de-f-in-mathscrle"><span
 class="header-section-number">2.4</span> Déterminant de <span
@@ -2089,19 +2090,17 @@ class="math inline">\(A\)</span> deviennent les colonnes de <span
 class="math inline">\(^t A\)</span> et que <span
 class="math inline">\(\det A = \det\left(^t A\right)\)</span>.</p>
 </div>
-<div class="wex">
-<ul>
-<li><p><strong>Exercice</strong> — Soient <span
-class="math inline">\(a,b,c \in \mathbb{K}\)</span> et <span
-class="math inline">\(A = \begin{pmatrix}
+<div class="wexoc">
+<p>Soient <span class="math inline">\(a,b,c \in \mathbb{K}\)</span> et
+<span class="math inline">\(A = \begin{pmatrix}
             1 &amp; a &amp; b \\
             0 &amp; 1 &amp; c \\
             0 &amp; 0 &amp; 2
         \end{pmatrix}\)</span>. Calculer <span
 class="math inline">\(\det A\)</span>.</p>
-<p><strong>Corrigé</strong> — En notant <span
-class="math inline">\(C_1,C_2,C_3\)</span> les colonnes de <span
-class="math inline">\(A\)</span> ainsi que <span
+<details><summary>Corrigé</summary>
+<p>En notant <span class="math inline">\(C_1,C_2,C_3\)</span> les
+colonnes de <span class="math inline">\(A\)</span> ainsi que <span
 class="math inline">\(\mathscr{B}= (E_1,E_2,E_3)\)</span> base de <span
 class="math inline">\(\mathscr{M}_{3}(\mathbb{K})\)</span> avec <span
 class="math inline">\(E_1 = \begin{pmatrix}
@@ -2143,16 +2142,19 @@ class="math display">\[\begin{aligned}
             0 &amp; 1 &amp; 0 \\
             0 &amp; 0 &amp; 1
         \end{vmatrix} = 2.
-    \end{aligned}\]</span></p></li>
-<li><p><strong>Exercice</strong> — Soient <span
-class="math inline">\(\alpha, \beta, \gamma \in \mathbb{K}\)</span>,
-calculer <span class="math inline">\(D= \begin{vmatrix}
+    \end{aligned}\]</span></p>
+</details>
+</div>
+<div class="wexoc">
+<p>Soient <span class="math inline">\(\alpha, \beta, \gamma \in
+\mathbb{K}\)</span>, calculer <span class="math inline">\(D=
+\begin{vmatrix}
             \alpha &amp; \beta &amp; \gamma \\
             \beta&amp; \alpha &amp; \gamma \\
             \alpha &amp; \gamma &amp; \beta
         \end{vmatrix}\)</span>.</p>
-<p><strong>Corrigé</strong> — <span
-class="math display">\[\begin{aligned}
+<details><summary>Corrigé</summary>
+<p><span class="math display">\[\begin{aligned}
             \begin{vmatrix}
             \alpha &amp; \beta &amp; \gamma \\
             \beta&amp; \alpha &amp; \gamma \\
@@ -2205,8 +2207,8 @@ C_2-(\beta+\gamma)C_1\\C_3 \leftarrow C_3-\gamma C_1}}{=}
             0 &amp;0 &amp; 1
         \end{vmatrix}\\
         &amp;  =  -(\alpha+\beta+\gamma)(\gamma-\beta)(\alpha-\beta ).
-        \end{aligned}\]</span></p></li>
-</ul>
+        \end{aligned}\]</span></p>
+</details>
 </div>
 <div class="wprop">
 <p>Soient <span class="math inline">\(A\in
@@ -3330,11 +3332,11 @@ document.addEventListener("DOMContentLoaded", function() {
         'wthm':'Théorème', 'wprop':'Proposition', 'wdefi':'Définition',
         'wlem':'Lemme', 'wcor':'Corollaire', 'wappli':'Application',
         'wrem':'Remarque', 'wrappel': 'Rappel', 'wex':'Exemple',
-        'wexs':'Exemples', 'wproof':'Preuve'
+        'wexs':'Exemples', 'wproof':'Preuve', 'wexoc':'Exercice','wcorrc':'Corrigé'
     };
 
     // Numérotation des environnements
-    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs, .wrappel,.wproof").forEach(el => {
+    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs,.wexoc,.wcorrc, .wrappel,.wproof").forEach(el => {
         if (el.tagName.toLowerCase() === "h1" && !el.closest("#TOC")) {
             secCount++;
             thmCount = 0;
@@ -3387,7 +3389,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             // Remplacement des \ref{type:id} à l'intérieur de \text{} en mode math
-            const refRegex = /\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g;
+            const refRegex = /\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\}/g;
 
             if (refRegex.test(text)) {
                 const nouveauTexte = text.replace(refRegex, (m, t, id) => {
@@ -3432,12 +3434,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Remplace les \eqref{...}
                 .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m)
                 // NOUVEAU : Remplace les \ref{...} classiques (souvent utilisés dans les \text{} de MathJax)
-                .replace(/\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g, (m, t, id) => {
+                .replace(/\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\}/g, (m, t, id) => {
                     let f = t + ":" + id;
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
                 })
                 // Remplace ta syntaxe personnalisée entre crochets [...]
-                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => {
+                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\]/g, (m, t, id) => {
                     let f = t + ":" + id;
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
                 });
@@ -3449,7 +3451,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
                  el.innerHTML = el.innerHTML 
                  .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m) 
-                 .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => { 
+                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\]/g, (m, t, id) => { 
                     let f = t + ":" + id; 
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m; }); } }); } 
 

@@ -47,7 +47,7 @@ h1.title, h1, h2, h3, h4 { color: var(--h-color) !important; }
 #TOC a { color: var(--link); font-weight: bold; text-decoration: none; }
 
 /* VOS BLOCS ORIGINAUX (Gardent vos couleurs de texte/bordures) */
-.wthm, .wdefi, .wprop, .wappli, .wcor, .wlem, .wrem,.wrappel, .wex, .wexs { 
+.wthm, .wdefi, .wprop, .wappli, .wcor, .wlem, .wrem,.wrappel, .wex, .wexs, .wexoc, .wcorrc { 
     border-radius: 6px; padding: 16px; margin: 20px 0; border-left: 6px solid; display: block; 
 }
 .wthm { background-color: rgba(130, 45, 65, 0.05); border-left-color: rgb(130, 45, 65); } 
@@ -67,6 +67,38 @@ h1.title, h1, h2, h3, h4 { color: var(--h-color) !important; }
 
 .wrappel, .wex, .wexs { background-color: rgba(110, 75, 40, 0.05); border-left-color: rgb(110, 75, 40); } 
 .wrappel .env-header, .wrappel .env-title, .wex .env-header, .wex .env-title,.wexs .env-header, .wexs .env-title  { color: rgb(110, 75, 40); }
+/* Exercices : Aubergine */
+/*.wexoc { 
+  background-color: rgba(95, 45, 95, 0.05); 
+  border-left-color: rgb(95, 45, 95); 
+} 
+.wexoc .env-header, .wexoc .env-title { 
+  color: rgb(95, 45, 95); 
+  .wexoc { 
+  background-color: rgba(115, 80, 110, 0.05); 
+  border-left-color: rgb(115, 80, 110); 
+} 
+.wexoc .env-header, .wexoc .env-title { 
+  color: rgb(115, 80, 110); 
+}
+} */
+
+.wexoc { 
+  background-color: rgba(115, 80, 110, 0.05); 
+  border-left-color: rgb(115, 80, 110); 
+} 
+.wexoc .env-header, .wexoc .env-title { 
+  color: rgb(115, 80, 110); 
+}
+
+/* Corrigés : Mauve */
+.wcorrc { 
+  background-color: rgba(115, 80, 110, 0.05); 
+  border-left-color: rgb(115, 80, 110); 
+} 
+.wcorrc .env-header, .wcorrc .env-title { 
+  color: rgb(115, 80, 110); 
+}
 
 /* Liens et Header */
 a { color: var(--link) !important; }
@@ -85,6 +117,11 @@ a.ref-ex { color: rgb(110, 75, 40) !important; }
 a.ref-exs { color: rgb(110, 75, 40) !important; }
 
 a.ref-rem { color: rgb(110, 75, 40) !important; }
+/* 
+a.ref-exoc { color: rgb(95, 45, 95) !important; }
+ */
+a.ref-exoc { color: rgb(115, 80, 110) !important; }
+a.ref-corrc { color: rgb(115, 80, 110) !important; }
 .site-header { 
     position: sticky;
     top: 0;
@@ -169,5 +206,43 @@ main {
     width: 100%;
     height: 80vh;
     border: none;
+}
+
+/*.wexoc { 
+  background-color: rgba(95, 45, 95, 0.05); 
+  border-left-color: rgb(95, 45, 95); 
+} 
+.wexoc .env-header, .wexoc .env-title { 
+  color: rgb(95, 45, 95); 
+  .wexoc { 
+  background-color: rgba(115, 80, 110, 0.05); 
+  border-left-color: rgb(115, 80, 110); 
+} 
+.wexoc .env-header, .wexoc .env-title { 
+  color: rgb(115, 80, 110); 
+}
+} */
+
+details {
+  background: rgba(115, 80, 110, 0.05);
+  border-left: 4px solid rgb(115, 80, 110);
+  padding: 0.75rem 1rem;
+  margin: 1.25rem 0;
+  border-radius: 4px;
+}
+
+summary {
+  font-weight: bold;
+  cursor: pointer;
+  color: rgb(115, 80, 110);
+  user-select: none;
+}
+
+summary:hover {
+  text-decoration: underline;
+}
+
+details[open] summary {
+  margin-bottom: 0.75rem;
 }
 

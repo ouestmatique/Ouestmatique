@@ -100,6 +100,17 @@ class="toc-section-number">1</span> Norme</a>
 class="toc-section-number">1.1</span> Distance</a></li>
 <li><a href="#norme-1" id="toc-norme-1"><span
 class="toc-section-number">1.2</span> Norme</a></li>
+<li><a href="#exemples-de-normes-usuelles"
+id="toc-exemples-de-normes-usuelles"><span
+class="toc-section-number">1.3</span> Exemples de normes
+usuelles</a></li>
+<li><a href="#normes-préhilbertiennes"
+id="toc-normes-préhilbertiennes"><span
+class="toc-section-number">1.4</span> Normes préhilbertiennes</a></li>
+<li><a href="#boules-et-sphères-dun-espace-vectoriel-normé"
+id="toc-boules-et-sphères-dun-espace-vectoriel-normé"><span
+class="toc-section-number">1.5</span> Boules et sphères d’un espace
+vectoriel normé</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -189,7 +200,8 @@ vérifie l’inégalité triangulaire.</p></li>
 class="math inline">\(\begin{array}{lllll}
 d_A &amp; : &amp; A\times A &amp; \to &amp; \mathbb{R}^{+} \\
    &amp;   &amp; (x,y) &amp; \mapsto &amp; d(x,y)
-\end{array}\)</span> est une distance et <span
+\end{array}\)</span> est une distance sur <span
+class="math inline">\(A\)</span> et <span
 class="math inline">\((A,d_A)\)</span> est un espace métrique.</p></li>
 </ul>
 </div>
@@ -216,28 +228,1064 @@ class="header-section-number">1.2</span> Norme</h2>
 class="math inline">\(\mathbb{K}\)</span>-espace vectoriel. On appelle
 norme sur <span class="math inline">\(E\)</span>, toute application
 <span class="math inline">\(\begin{array}{lllll}
-N &amp; : &amp; E &amp; \to &amp; \mathbb{R}^{+} \\
+\left\|\cdot\right\| &amp; : &amp; E &amp; \to &amp; \mathbb{R}^{+} \\
    &amp;   &amp; x &amp; \mapsto &amp; \left\|x\right\|
 \end{array}\)</span> qui vérifie</p>
-<ul>
+<ol>
 <li><p>(Définie positive) <span class="math inline">\(\forall x \in E,
-N(x) = 0 \Longleftarrow x=0_E\)</span>,</p></li>
+\left\|x\right\| = 0 \Longrightarrow x=0_E\)</span>,</p></li>
 <li><p>(Homogénéité) <span class="math inline">\(\forall x \in E,
-\lambda\in \mathbb{K}, N(\lambda x) =
-\left|\lambda\right|N(x)\)</span>,</p></li>
+\lambda\in \mathbb{K}, \left\|\lambda x\right\| =
+\left|\lambda\right|\left\|x\right\|\)</span>,</p></li>
 <li><p>(Inégalité triangulaire) <span class="math inline">\(\forall x,y
-\in E, N(x+y) \leq N(x)+N(y)\)</span>.</p></li>
-</ul>
-<p>On note usuellement <span
-class="math inline">\(\left\|x\right\|\)</span> au lieu de <span
-class="math inline">\(N(x)\)</span> et <span
-class="math inline">\((E,\left\|\cdot\right\|)\)</span> est appelé un
-espace vectoriel normé.</p>
+\in E, \left\|x+y\right\| \leq
+\left\|x\right\|+\left\|y\right\|\)</span>.</p></li>
+</ol>
+<p>Alors, <span class="math inline">\((E,\left\|\cdot\right\|)\)</span>
+est appelé un espace vectoriel normé.</p>
 </div>
 <div class="wex">
 <p>Sur <span class="math inline">\(E = \mathbb{R}\text{ ou
 }\mathbb{C}\)</span>, <span class="math inline">\(N(x) =
 \left|x\right|\)</span> est une norme.</p>
+</div>
+<div class="wrem">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Pour les vecteurs du plan muni de la norme euclidienne usuelle,
+l’inégalité triangulaire s’interprète encore de la même façon. On
+l’lillustre ici pour deux vecteurs <span
+class="math inline">\(\overrightarrow{u},\overrightarrow{v}\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="inegalite_triangulaire_norme.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wrem">
+<ul>
+<li><p>Par le 1. et le 2., on a <span
+class="math inline">\(\left\|x\right\| = 0 \iff x=0_E\)</span> donc
+<span class="math inline">\(\left\|x\right\| &gt; 0 \iff x \neq
+0_E\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(x \neq 0\)</span>, par le 2.,
+<span class="math inline">\(v = \pm\frac{1}{\left\|x\right\|}.x\)</span>
+est de norme <span class="math inline">\(1\)</span>. On dit alors que
+<span class="math inline">\(v\)</span> est un vecteur unitaire ou
+normé.</p></li>
+<li><p>Soit <span class="math inline">\(F\)</span> un sous-espace
+vectoriel de <span class="math inline">\(E\)</span> alors <span
+class="math inline">\(\begin{array}{lllll}
+\left\|\cdot\right\|_F &amp; : &amp; F &amp; \to &amp; \mathbb{R}^{+} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \left\|x\right\|
+\end{array}\)</span> est une norme sur <span
+class="math inline">\(F\)</span> et <span
+class="math inline">\((F,\left\|\cdot\right\|_F)\)</span> est un espace
+normé.</p></li>
+<li><p>Si <span class="math inline">\(\left\|\cdot\right\|\)</span> ne
+vérifie que les 2. et 3., on dit que c’est une semi-norme.</p></li>
+<li><p><span class="math inline">\(\left\|\cdot\right\|\)</span> est une
+fonction convexe sur <span class="math inline">\(E\)</span> car pour
+tout <span class="math inline">\(x,y \in E\)</span>, <span
+class="math inline">\(\left\|(1-\lambda)x+\lambda y\right\|
+\underbrace{\leq}_{\substack{\text{par inégalité} \\
+\text{triangulaire}}} \left\|(1-\lambda)x\right\|+\left\|\lambda
+y\right\| \underbrace{=}_{\text{par homogénéité}}
+\underbrace{(1-\lambda)}_{\geq
+0}\left\|x\right\|+\underbrace{\lambda}_{\geq
+0}\left\|y\right\|.\)</span></p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\((E,\left\|\cdot\right\|)\)</span> un
+<span class="math inline">\(\mathbb{K}\)</span>-espace vectoriel
+normé.</p>
+<p>Alors, <span class="math inline">\(\begin{array}{lllll}
+d &amp; : &amp; E\times E &amp; \to &amp; \mathbb{R}^{+} \\
+   &amp;   &amp; (x,y) &amp; \mapsto &amp; \left\|x-y\right\|
+\end{array}\)</span> est une distance sur <span
+class="math inline">\(E\)</span> qui est appelée la distance associée à
+<span class="math inline">\(\left\|\cdot\right\|\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(d\)</span> est effectivement à valeurs
+dans <span class="math inline">\(\mathbb{R}^{+}\)</span>. De plus,
+soient <span class="math inline">\(x,y,z \in E\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(d(x,y) = \left\|x-y\right\| =
+\left\|(-1)(y-x)\right\|=\left|-1\right|\left\|y-x\right\|=\left\|y-x\right\|=d(y,x)\)</span>,</p></li>
+<li><p><span class="math inline">\(d(x,y)=0 \iff \left\|x-y\right\|=0
+\iff x-y=0_E \iff x=y\)</span>,</p></li>
+<li><p><span class="math inline">\(d(x,y) = \left\|x-y\right\| =
+\left\|x-z+z-y\right\| \leq \left\|x-z\right\|+\left\|z-y\right\| =
+d(x,z)+d(z,y)\)</span>.</p></li>
+</ol>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\((E,\left\|\cdot\right\|)\)</span> un
+<span class="math inline">\(\mathbb{K}\)</span>-espace vectoriel normé
+et <span class="math inline">\(d\)</span> la distance associée à <span
+class="math inline">\(\left\|\cdot\right\|\)</span>. Alors, pour tout
+<span class="math inline">\(x,y,v \in E\)</span> et <span
+class="math inline">\(\lambda \in \mathbb{K}\)</span>,</p>
+<ul>
+<li><p><span class="math inline">\(d(x,0_E) =
+\left\|x\right\|\)</span>,</p></li>
+<li><p><span class="math inline">\(d(x+v,y+v) =
+d(x,y)\)</span>,</p></li>
+<li><p><span class="math inline">\(d(\lambda x, \lambda y) =
+\left|\lambda\right| d(x,y)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\(d(x,0) = \left\|x-0_E\right\|=
+\left\|x\right\|\)</span>,</p></li>
+<li><p><span class="math inline">\(d(x+v,y+v) =
+\left\|x+v-(y+v)\right\|=\left\|x-y\right\|=d(x,y)\)</span>,</p></li>
+<li><p><span class="math inline">\(d(\lambda x, \lambda y) =
+\left\|\lambda(x-y)\right\| =
+\left|\lambda\right|\left\|x-y\right\|=\left|\lambda\right|
+d(x,y)\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><span id="prop:inegalite_triangulaire_inverse"
+label="prop:inegalite_triangulaire_inverse"></span> Soit <span
+class="math inline">\((E,\left\|\cdot\right\|)\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel normé. Soient
+<span class="math inline">\(x,y \in E\)</span> alors <span
+class="math display">\[\left\|x-y\right\| \geq
+\left|\left\|x\right\|-\left\|y\right\|\right|.\]</span></p>
+</div>
+<div class="wproof">
+<p>Par l’inégalité triangulaire, <span
+class="math inline">\(\left\|x\right\| = \left\|x-y+y\right\|\leq
+\left\|x-y\right\|+\left\|y\right\|\)</span> donc <span
+class="math inline">\(\left\|x-y\right\| \geq
+\left\|y\right\|-\left\|x\right\|\)</span>. De même, <span
+class="math inline">\(\left\|y\right\| = \left\|y-x+x\right\|\leq
+\left\|y-x\right\|+\left\|x\right\| =
+\left\|x-y\right\|+\left\|x\right\|\)</span> donc <span
+class="math inline">\(\left\|x-y\right\| \geq
+\left\|y\right\|-\left\|x\right\|\)</span>.</p>
+<p>On a donc <span class="math inline">\(\left\|x-y\right\| \geq
+\pm\left(\left\|y\right\|-\left\|x\right\|\right)\)</span> donc <span
+class="math inline">\(\left\|x-y\right\| \geq
+\left|\left\|x\right\|-\left\|y\right\|\right|.\)</span></p>
+</div>
+<div class="wrem">
+<p><span id="rem:prop:inegalite_triangulaire_inverse"
+label="rem:prop:inegalite_triangulaire_inverse"></span> On a donc aussi
+<span class="math inline">\(\left\|x+y\right\| \geq
+\left|\left\|x\right\|-\left\|y\right\|\right|\)</span>.</p>
+</div>
+<div class="wex">
+<p>Soient <span class="math inline">\(x,y \in E\)</span> tels que <span
+class="math inline">\(\left\|x\right\| = 2\)</span> et <span
+class="math inline">\(\left\|y\right\| \leq \frac{1}{2}\)</span>, que
+peut-on dire de <span class="math inline">\(\left\|x+y\right\|\)</span>
+?</p>
+<p>Par l’inégalité triangulaire, <span
+class="math inline">\(\left\|x+y\right\| \leq
+\left\|x\right\|+\left\|y\right\| \leq 2+\frac{1}{2} =
+\frac{5}{2}\)</span>.</p>
+<p>D’autre par, par la proposition <a
+href="#prop:inegalite_triangulaire_inverse" data-reference-type="ref"
+data-reference="prop:inegalite_triangulaire_inverse">[prop:inegalite_triangulaire_inverse]</a>
+(et la remarque <a href="#rem:prop:inegalite_triangulaire_inverse"
+data-reference-type="ref"
+data-reference="rem:prop:inegalite_triangulaire_inverse">[rem:prop:inegalite_triangulaire_inverse]</a>),
+on a <span class="math inline">\(\left\|x+y\right\| \geq
+\left\|x\right\|-\left\|y\right\| \geq
+2-\frac{1}{2}=\frac{3}{2}\)</span>.</p>
+<p>Donc <span class="math inline">\(\frac{3}{2} \leq \left\|x+y\right\|
+\leq \frac{5}{2}\)</span>.</p>
+</div>
+<h2 data-number="1.3" id="exemples-de-normes-usuelles"><span
+class="header-section-number">1.3</span> Exemples de normes
+usuelles</h2>
+<ul>
+<li><p>Sur <span class="math inline">\(E = \mathbb{K}^n\)</span>, en
+posant <span class="math inline">\(\left\|\cdot\right\|_1\)</span> tel
+que <span class="math inline">\(\left\|x\right\|_1= \sum_{j=1}^n
+\left|x_j\right|\)</span> pour <span class="math inline">\(x =
+(x_1,\ldots,x_n) \in \mathbb{K}^n\)</span>, constitue une norme sur
+<span class="math inline">\(E\)</span>.</p>
+<div class="wproof">
+<p><span class="math inline">\(\left\|\cdot\right\|_1\)</span> est à
+valeurs dans <span class="math inline">\(\mathbb{R}^{+}\)</span>. De
+plus, pour <span class="math inline">\(x,y \in
+\mathbb{K}^n\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(\left\|x\right\|_1= \sum_{j=1}^n
+\left|x_j\right| = 0 \Longrightarrow \forall 1 \leq j \leq n,
+\left|x_j\right| = 0\)</span> car tous les termes sont positifs.</p>
+<p>Cela implique donc <span class="math inline">\(x_j = 0\)</span> pour
+<span class="math inline">\(1 \leq j \leq n\)</span> et <span
+class="math inline">\(x=0\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(\lambda \in \mathbb{K}\)</span>,
+<span class="math inline">\(\left\|\lambda x\right\|_1 = \sum_{j=1}^n
+\left|\lambda x_j\right| = \sum_{j=1}^n
+\left|\lambda\right|\left|x_j\right| = \left|\lambda\right|\sum_{j=1}^n
+\left|x_j\right| =
+\left|\lambda\right|\left\|x\right\|_1\)</span>.</p></li>
+<li><p><span class="math inline">\(\left\|x+y\right\|_1= \sum_{j=1}^n
+\left|x_j+y_j\right| \underbrace{\leq}_{\substack{\text{par
+l&#39;inégalité }\\\text{triangulaire}\\\text{ dans
+$\mathbb{C}$}}}  \sum_{j=1}^n
+\left|x_j\right|+\left|y_j\right|=   \sum_{j=1}^n
+\left|x_j\right|+\sum_{j=1}^n \left|y_j\right| =
+\left\|x\right\|_1+\left\|y\right\|_1\)</span>.</p></li>
+</ol>
+</div></li>
+<li><p>Sur <span class="math inline">\(E = \mathbb{K}^n\)</span>, en
+posant <span class="math inline">\(\left\|\cdot\right\|_\infty\)</span>
+tel que <span class="math inline">\(\left\|x\right\|_\infty= \max_{1\leq
+j \leq n}\left|x_j\right|\)</span> pour <span class="math inline">\(x =
+(x_1,\ldots,x_n) \in \mathbb{K}^n\)</span>, constitue une norme sur
+<span class="math inline">\(E\)</span>.</p>
+<div class="wproof">
+<p><span class="math inline">\(\left\|\cdot\right\|_\infty\)</span> est
+à valeurs dans <span class="math inline">\(\mathbb{R}^{+}\)</span>. De
+plus, pour <span class="math inline">\(x,y \in
+\mathbb{K}^n\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(\left\|x\right\|_\infty= \max_{1 \leq
+j \leq n} \left|x_j\right| = 0 \Longrightarrow \forall 1 \leq j \leq n,
+\left|x_j\right| \leq 0\)</span> donc <span class="math inline">\(x_j =
+0\)</span> pour <span class="math inline">\(1 \leq j \leq n\)</span> et
+<span class="math inline">\(x=0\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(\lambda \in \mathbb{K}\)</span>,
+<span class="math inline">\(\left\|\lambda x\right\|_\infty = \max_{1
+\leq j \leq n} \left|\lambda x_j\right| = \max_{1 \leq j \leq n}
+\left|\lambda\right|\left|x_j\right|
+\underbrace{=}_{\substack{\text{car}\\ \left|\lambda\right|\geq 0}}
+\left|\lambda\right|\max_{1 \leq j \leq n} \left|x_j\right| =
+\left|\lambda\right|\left\|x\right\|_\infty\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(1 \leq i \leq n\)</span>, <span
+class="math inline">\(\left|x_i+y_i\right| \leq
+\left|x_i\right|+\left|y_i\right| \leq   \max_{1 \leq j \leq n}
+\left|x_j\right|+\max_{1 \leq j \leq n} \left|y_j\right| =
+\left\|x\right\|_\infty+\left\|y\right\|_\infty\)</span>.</p>
+<p>Donc <span class="math inline">\(\left\|x+y\right\|_\infty=
+\max_{1\leq i \leq n}\left|x_i+y_i\right| \leq
+\left\|x\right\|_\infty+\left\|y\right\|_\infty\)</span>.</p></li>
+</ol>
+</div></li>
+<li><p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(\mathscr{B}= (e_i)_{i \in I}\)</span> une base de
+<span class="math inline">\(E\)</span> avec <span
+class="math inline">\(I\)</span> fini ou non. Alors, en posant <span
+class="math inline">\(\left\|x\right\|_{1,\mathscr{B}} = \sum_{j\in I}
+\left|x_j\right|\)</span> et <span
+class="math inline">\(\left\|x\right\|_{\infty,\mathscr{B}} = \max_{j\in
+I}\left|x_j\right|\)</span> pour <span class="math inline">\(x \in
+E\)</span> tel que <span class="math inline">\(x = \sum_{j\in
+I}x_je_j\)</span>, on a <span
+class="math inline">\(\left\|\cdot\right\|_{1,\mathscr{B}}\)</span> et
+<span
+class="math inline">\(\left\|\cdot\right\|_{\infty,\mathscr{B}}\)</span>
+qui sont des normes sur <span class="math inline">\(E\)</span>.</p>
+<p>Par exemple, dans <span
+class="math inline">\(\mathscr{M}_{n}(\mathbb{K})\)</span>, on peut
+poser pour <span class="math inline">\(A = \left(a_{ij}\right) \in
+\mathscr{M}_{n}(\mathbb{K})\)</span>, <span
+class="math inline">\(\left\|A\right\|_1 = \sum_{1 \leq i,j \leq n}
+\left|a_{ij}\right|\)</span> et <span
+class="math inline">\(\left\|A\right\|_\infty = \max_{1 \leq i,j \leq n}
+\left|a_{ij}\right|\)</span>.</p>
+<p>Dans <span class="math inline">\(P \in \mathbb{K}[X]\)</span>, pour
+<span class="math inline">\(P= \sum_{n \geq 0} a_n X^n\)</span>, on peut
+poser <span class="math inline">\(\left\|P\right\|_1 = \sum_{i \geq 0}
+\left|a_{i}\right|\)</span> et <span
+class="math inline">\(\left\|P\right\|_\infty = \max_{i \geq 0}
+\left|a_{i}\right|\)</span>.</p></li>
+<li><p>Soient <span class="math inline">\(a,b \in \mathbb{R}\)</span>
+tels que <span class="math inline">\(a&lt;b\)</span> et <span
+class="math inline">\(E = \mathscr{C}([a,b],\mathbb{R})\)</span>. En
+posant <span class="math inline">\(\left\|\cdot\right\|_1\)</span> tel
+que <span class="math inline">\(\left\|f\right\|_1 = \int_a^b
+\left|f\right|\)</span> pour <span class="math inline">\(f \in
+E\)</span>, <span class="math inline">\(\left\|\cdot\right\|_1\)</span>
+est une norme sur <span class="math inline">\(E\)</span>.</p>
+<div class="wproof">
+<p><span class="math inline">\(\left\|\cdot\right\|_1\)</span> est à
+valeurs dans <span class="math inline">\(\mathbb{R}^{+}\)</span>.
+Ensuite, soient <span class="math inline">\(f,g \in
+\mathscr{C}([a,b],\mathbb{R})\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(\left\|f\right\|_1 = 0
+\Longrightarrow \int_a^b \left|f\right|=0\)</span>. Or, <span
+class="math inline">\(\left|f\right|\)</span> est une fonction positive
+et continue donc <span class="math inline">\(\left|f\right| = 0\)</span>
+et <span class="math inline">\(f = 0\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(\lambda \in \mathbb{R}\)</span>,
+<span class="math inline">\(\left\|\lambda f\right\|_1 = \int_a^b
+\left|\lambda f\right| = \left|\lambda\right|\int_a^b \left|f\right| =
+\left|\lambda\right|\left\|f\right\|_1\)</span>.</p></li>
+<li><p>Pour tout <span class="math inline">\(x \in [a,b]\)</span>, <span
+class="math inline">\(\left|f(x)+g(x)\right| \leq
+\left|f(x)\right|+\left|g(x)\right|\)</span> donc <span
+class="math inline">\(\left\|f+g\right\|_1\leq
+\left\|f\right\|_1+\left\|g\right\|_1\)</span>.</p></li>
+</ol>
+<div class="wrem">
+<p>Sur <span
+class="math inline">\(\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>,
+<span class="math inline">\(\left\|\cdot\right\|_1\)</span> n’est pas
+une norme mais une semi-norme.</p>
+</div>
+</div></li>
+<li><p>Soient <span class="math inline">\(a,b \in \mathbb{R}\)</span>
+tels que <span class="math inline">\(a&lt;b\)</span> et <span
+class="math inline">\(E = \mathscr{C}([a,b],\mathbb{R})\)</span>. En
+posant <span class="math inline">\(\left\|\cdot\right\|_\infty\)</span>
+tel que <span class="math inline">\(\left\|f\right\|_\infty = \sup_{x
+\in [a,b]}\left|f(x)\right|\)</span> pour <span class="math inline">\(f
+\in E\)</span>, <span
+class="math inline">\(\left\|\cdot\right\|_\infty\)</span> est une norme
+sur <span class="math inline">\(E\)</span>.</p>
+<div class="wproof">
+<p>D’abord, <span
+class="math inline">\(\left\|\cdot\right\|_\infty\)</span> est bien
+définie car toute fonction de <span
+class="math inline">\(\mathscr{C}([a,b],\mathbb{R})\)</span> est bornée,
+comme fonction continue sur un segment. On a même <span
+class="math inline">\(\left\|f\right\|_\infty = \max_{x \in
+[a,b]}\left|f(x)\right|\)</span>. Ensuite, soient <span
+class="math inline">\(f,g \in
+\mathscr{C}([a,b],\mathbb{R})\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(\left\|f\right\|_\infty = 0
+\Longrightarrow \sup_{x \in [a,b]}f(x)=0\)</span>. Donc pour tout <span
+class="math inline">\(x \in [a,b], \left|f(x)\right| \leq 0\)</span> et
+<span class="math inline">\(\left|f\right| = 0\)</span> et <span
+class="math inline">\(f=0\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(\lambda \in
+\mathbb{R}\)</span>,</p>
+<p><span class="math inline">\(\left\|\lambda f\right\|_\infty = \sup_{x
+\in [a,b]}\left|\lambda f(x)\right| =\sup_{x \in
+[a,b]}\left|\lambda\right|\left|f(x)\right| \underbrace{=}_{\text{car
+$\left|\lambda\right|\geq 0$}} \left|\lambda\right|\sup_{x \in
+[a,b]}\left|f(x)\right|=
+\left|\lambda\right|\left\|f\right\|_\infty\)</span>.</p></li>
+<li><p>Pour tout <span class="math inline">\(x \in [a,b]\)</span>, <span
+class="math inline">\(\left|f(x)+g(x)\right| \leq
+\left|f(x)\right|+\left|g(x)\right| \leq
+\left\|f\right\|_\infty+\left\|g\right\|_\infty\)</span></p>
+<p>donc <span class="math inline">\(\left\|f+g\right\|_\infty=\sup_{x\in
+[a,b]}\left|f(x)+g(x)\right|\leq
+\left\|f\right\|_\infty+\left\|g\right\|_\infty\)</span>.</p></li>
+</ol>
+<div class="wrem">
+<p>Sur <span
+class="math inline">\(\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>,
+<span class="math inline">\(\left\|\cdot\right\|_\infty\)</span> est
+aussi une norme mais pas sur <span
+class="math inline">\(\mathscr{C}(]a,b[,\mathbb{R})\)</span>.</p>
+</div>
+</div></li>
+</ul>
+<h2 data-number="1.4" id="normes-préhilbertiennes"><span
+class="header-section-number">1.4</span> Normes préhilbertiennes</h2>
+<p>Les rappels sont relatifs au cours sur les espaces euclidiens de
+première année.</p>
+<div class="wrappel">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel et <span
+class="math inline">\(\varphi : E\times E \to \mathbb{R}\)</span>.</p>
+<p><span class="math inline">\(\varphi\)</span> est un produit scalaire
+sur <span class="math inline">\(E\)</span> si</p>
+<ol>
+<li><p><span class="math inline">\(\varphi\)</span> est bilinéaire ie
+<span class="math inline">\(\varphi\)</span> est linéaire par rapport à
+chacune des variables, ou encore pour tout <span
+class="math inline">\(u,v \in E\)</span>, <span
+class="math inline">\(\begin{array}{lllll}
+\varphi_1 &amp; : &amp; E &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \varphi(x,v)
+\end{array}\)</span> est linéaire (linéarité à gauche) et <span
+class="math inline">\(\begin{array}{lllll}
+\varphi_2 &amp; : &amp; E &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; y &amp; \mapsto &amp; \varphi(u,y)
+\end{array}\)</span> est linéaire (linéarité à droite).</p></li>
+<li><p><span class="math inline">\(\varphi\)</span> est symétrique ie
+pour tout <span class="math inline">\(u,v \in E\)</span>, <span
+class="math inline">\(\varphi(u,v) = \varphi(v,u)\)</span></p></li>
+<li><p><span class="math inline">\(\varphi\)</span> est définie positive
+ie pour tout <span class="math inline">\(v \in E\)</span>, <span
+class="math inline">\(\varphi(v,v) \geq 0\)</span> (<span
+class="math inline">\(\varphi\)</span> est positive) et <span
+class="math inline">\(\varphi(v,v) = 0 \iff v = 0_E\)</span> (<span
+class="math inline">\(\varphi\)</span> est <u>définie</u>
+positive).</p></li>
+</ol>
+<p><span class="math inline">\(\varphi(u,v)\)</span> est alors
+généralement noté <span class="math inline">\(\langle u,v
+\rangle\)</span>, <span class="math inline">\(\left(u \mid
+v\right)\)</span> ou <span
+class="math inline">\(\left[u,v\right]\)</span>.</p>
+</div>
+<div class="wex">
+<ul>
+<li><p>Sur <span class="math inline">\(\mathbb{R}^n\)</span>, <span
+class="math inline">\(x = (x_1,\ldots,x_n)\)</span> et <span
+class="math inline">\(y=(y_1,\ldots,y_n)\)</span>, le produit scalaire
+usuel est <span class="math inline">\(\langle x,y \rangle = \sum_{i=1}^n
+x_iy_i\)</span>. En notant <span class="math inline">\(X =
+\begin{pmatrix}
+        x_1 \\ x_2 \\ \vdots \\ x_n
+    \end{pmatrix},Y = \begin{pmatrix}
+        y_1 \\ y_2 \\ \vdots \\ y_n
+    \end{pmatrix} \in \mathscr{M}_{n,1}(\mathbb{R})\)</span>, on a <span
+class="math inline">\(\langle x,y \rangle = {}^tXY =
+^{t}YX\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel et <span
+class="math inline">\(\left(e_i\right)_{i\in I}\)</span> une base de
+<span class="math inline">\(E\)</span> (avec <span
+class="math inline">\(I\)</span> fini ou non) alors on a le produit
+scalaire <span class="math inline">\(\langle \cdot,\cdot
+\rangle\)</span> tel que <span class="math inline">\(\langle x,y\rangle
+= \sum_{i \in I} x_i y_i\)</span> pour <span class="math inline">\(x =
+\sum_{i \in I} x_i e_i \in E\)</span> et <span class="math inline">\(y =
+\sum_{i \in I} y_i e_i \in E\)</span>.</p>
+<div class="wappli">
+<ul>
+<li><p>Sur <span class="math inline">\(E = \mathbb{R}[X]\)</span>, on a
+<span class="math inline">\(\langle P,Q \rangle= \sum_{n \geq 0} a_n
+b_n\)</span> pour <span class="math inline">\(P = \sum_{n\geq 0} a_n
+X^n\)</span> et <span class="math inline">\(Q = \sum_{n\geq 0} b_n
+X^n\)</span>.</p></li>
+<li><p>Sur <span class="math inline">\(E
+=\mathscr{M}_{n}(\mathbb{R})\)</span>, on a <span
+class="math inline">\(\langle A,B \rangle = \sum_{1 \leq i,j \leq
+n}a_{ij}b_{ij} = \mathop{\mathrm{Tr}}({}^t AB)\)</span> pour <span
+class="math inline">\(A = \left(a_{ij}\right), B = \left(b_{ij}\right)
+\in \mathscr{M}_{n}(\mathbb{R})\)</span>.</p></li>
+</ul>
+</div></li>
+<li><p>Sur <span
+class="math inline">\(\mathscr{C}([a,b],\mathbb{R})\)</span>, on a le
+produit scalaire <span class="math inline">\(\langle \cdot,\cdot
+\rangle\)</span> tel que <span class="math inline">\(\langle f,g\rangle
+= \int_a^b fg\)</span> pour <span class="math inline">\(f,g \in
+\mathscr{C}([a,b],\mathbb{R})\)</span>.</p>
+<div class="wrem">
+<div class="webtextfigure">
+<div class="webtext">
+<p>En revanche, <span class="math inline">\(\langle \cdot,\cdot
+\rangle\)</span> est bien bilinéaire symétrique positive mais pas
+définie positive sur <span
+class="math inline">\(\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>.
+La fonction <span class="math inline">\(f\)</span> représentée ci-contre
+est continue par morceaux sur <span class="math inline">\([0,1]\)</span>
+et vérifie <span class="math inline">\(\int_0^1 f^2=\int_0^1 f =
+0\)</span> sans qu’on ait <span class="math inline">\(f =
+0\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="ex_cm_non_def_pos.png" alt="image" /></p>
+</div>
+</div>
+</div></li>
+</ul>
+</div>
+<div class="wprop">
+<p><strong>(Inégalité de Cauchy-Schwarz)</strong> Soit <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel et <span
+class="math inline">\(\varphi: E\times E \to \mathbb{R}\)</span> une
+fonction bilinéaire symétrique et positive (pas forcément définie
+positive).</p>
+<p>Soient <span class="math inline">\(u,v \in E\)</span> alors <span
+class="math display">\[\left|\varphi(u,v)\right| \leq
+\sqrt{\varphi(u,u)}\sqrt{\varphi(v,v)}.\]</span> De plus, il y a égalité
+dans l’inégalité si <span class="math inline">\((u,v)\)</span> est liée.
+Si de plus, <span class="math inline">\(\varphi\)</span> est définie
+positive, il y a égalité dans l’inégalité si et seulement <span
+class="math inline">\((u,v)\)</span> est liée.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(t \in \mathbb{R}\)</span> alors, par
+bilinéarité et symétrie de <span class="math inline">\(\varphi\)</span>,
+<span class="math inline">\(\varphi(u+tv,u+tv) =
+\varphi(u,u)+t^2\varphi(v,v)+2t\varphi(u,v)\)</span> et pour <span
+class="math inline">\(\left\|u+tv\right\|^2 \geq 0\)</span> et <span
+class="math inline">\(t \in \mathbb{R}\mapsto
+\varphi(u,u)+t^2\varphi(v,v)+2t\varphi(u,v)\)</span> est donc un
+polynôme toujours positif.</p>
+<ul>
+<li><p>Soit <span class="math inline">\(\sqrt{\varphi(v,v)} = 0\)</span>
+et dans ce cas ce polynôme est une fonction affine toujours positive
+donc on a aussi <span class="math inline">\(\varphi(u,v) = 0\)</span>
+donc <span class="math inline">\(0=\left|\varphi(u,v)\right| \leq
+\sqrt{\varphi(u,u)}\sqrt{\varphi(v,v)} = 0\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(\sqrt{\varphi(v,v)} \neq
+0\)</span> et dans ce cas, <span class="math inline">\(t \in
+\mathbb{R}\mapsto \varphi(u,u)+t^2\varphi(v,v)+2t\varphi(u,v)\)</span>
+est un polynôme du second degré avec au plus une racine.</p>
+<p>Son discriminant est alors négatif, ce qui donne</p>
+<p><span class="math inline">\(4\varphi(u,v)^2-4\varphi(u,u)\varphi(v,v)
+\leq 0 \iff \varphi(u,v)^2 \leq \varphi(u,u)\varphi(v,v) \iff
+\left|\varphi(u,v)\right| \leq
+\sqrt{\varphi(u,u)}\sqrt{\varphi(v,v)}\)</span>.</p></li>
+</ul>
+<p>Traitons le cas d’égalité.</p>
+<ul>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Si <span
+class="math inline">\((u,v)\)</span> est liée, alors</p>
+<ul>
+<li><p>soit <span class="math inline">\(v=0_E\)</span> et <span
+class="math inline">\(\left|\varphi(u,v)\right|
+=\sqrt{\varphi(u,u)}\sqrt{\varphi(v,v)}=0\)</span>,</p></li>
+<li><p>soit <span class="math inline">\(v \neq 0_E\)</span> et il existe
+<span class="math inline">\(\lambda \in \mathbb{R}\)</span> tel que
+<span class="math inline">\(u = \lambda v\)</span>.</p>
+<p>On a alors <span class="math inline">\(\left|\varphi(u,v)\right| =
+\left|\varphi(\lambda v, v)\right| =  \left|\lambda\varphi\left(v,
+v\right)\right| = \left|\lambda\right|\varphi(v,v)=
+\sqrt{\varphi\left(\lambda v,\lambda v\right)}\sqrt{\varphi(v,v)}
+=\sqrt{\varphi(u,u)}\sqrt{\varphi(v,v)}\)</span>.</p></li>
+</ul></li>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> En cas
+d’égalité de l’inégalité de Cauchy-Schwarz,</p>
+<ul>
+<li><p>soit <span class="math inline">\(v=0_E\)</span> et <span
+class="math inline">\(\left|\varphi(u,v)\right|
+=\sqrt{\varphi(u,u)}\sqrt{\varphi(v,v)}=0\)</span>,</p></li>
+<li><p>soit <span class="math inline">\(v \neq 0_E\)</span> et en
+reprenant la preuve de l’inégalité de Cauchy-Schwarz, le polynôme <span
+class="math inline">\(t \in \mathbb{R}\mapsto \left\|u+tv\right\|^2=
+\varphi(u,u)+t^2\varphi(v,v)+2t\varphi(u,v)\)</span> du second degré
+admet le discriminant <span
+class="math inline">\(4\varphi(u,v)^2-4\varphi(u,u)\varphi(v,v)
+=0\)</span>.</p>
+<p>Il admet donc une racine <span class="math inline">\(t_0 \in
+\mathbb{R}\)</span> tel que <span
+class="math inline">\(\varphi\left(u+t_0v,u+t_0v\right) = 0\)</span>.
+Comme <span class="math inline">\(\varphi\)</span> est définie positive,
+on a <span class="math inline">\(u+t_0v = 0_E \iff u=-t_0v\)</span> donc
+<span class="math inline">\((u,v)\)</span> est liée.</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="wex">
+<p>Pour <span class="math inline">\(f,g \in
+\mathscr{C}_{\mathrm{m}}\left([a,b]\right)\)</span>, on a <span
+class="math inline">\(\left|\int_a^b fg\right| \leq \sqrt{\int_a^b
+f^2}\sqrt{\int_a^b g^2}\)</span>. Si de plus, <span
+class="math inline">\(f\)</span> et <span
+class="math inline">\(g\)</span> sont continues, on a égalité si et
+seulement si <span class="math inline">\((f,g)\)</span> est liée.</p>
+</div>
+<div class="wex">
+<p>Soit <span class="math inline">\((x_1,\ldots,x_n) \in
+\mathbb{R}^n\)</span>, en appliquant l’inégalité de Cauchy-Schwarz avec
+<span class="math inline">\(y = (1,\ldots,1)\)</span>, on a <span
+class="math display">\[\left|\sum_{i=1}^n x_i\right| \leq
+\sqrt{\sum_{i=1}^n x_i^2}\sqrt{n}\]</span> avec égalité si et seulement
+si <span class="math inline">\(x_1=\ldots=x_n\)</span>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel, muni d’un
+produit scalaire <span class="math inline">\(\langle \cdot, \cdot
+\rangle\)</span>, on pose <span class="math inline">\(\left\|x\right\|_2
+= \sqrt{\langle x,x\rangle}\)</span> pour <span class="math inline">\(x
+\in E\)</span>. Alors, <span
+class="math inline">\(\left\|\cdot\right\|_2\)</span> est une norme dite
+associée au produit scalaire <span class="math inline">\(\langle \cdot,
+\cdot \rangle\)</span> et est appelée préhilbertienne. <span
+class="math inline">\(\left(E,\langle \cdot, \cdot
+\rangle\right)\)</span> est appelé un espace préhilbertien et s’il est
+de plus de dimension finie, il est appelée espace euclidien.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(\left\|\cdot\right\|_2\)</span> est à
+valeurs dans <span class="math inline">\(\mathbb{R}^{+}\)</span>. De
+plus, soient <span class="math inline">\(x,y \in E\)</span>,</p>
+<ol>
+<li><p><span class="math inline">\(\left\|x\right\|_2 = 0 \iff \langle
+x,x \rangle = 0 \iff x=0\)</span>,</p></li>
+<li><p>Soit <span class="math inline">\(\lambda \in \mathbb{R}\)</span>,
+<span class="math inline">\(\left\|\lambda x\right\|_2 = \sqrt{\langle
+\lambda x, \lambda x \rangle} = \sqrt{\lambda^2 \langle x,x \rangle} =
+\left|\lambda\right|\left\|x\right\|_2\)</span>,</p></li>
+<li><p><span class="math display">\[\begin{aligned}
+            \left\|x+y\right\|_2^2
+            &amp; = \langle x+y,x+y \rangle \\
+            &amp; = \langle x,x \rangle+ \langle x,y \rangle +\langle
+y,x \rangle +\langle y,y \rangle \text{ par bilinéarité du produit
+scalaire}\\
+            &amp; = \langle x,x \rangle+\langle y,y \rangle+ 2\langle
+x,y \rangle \text{ par symétrie du produit scalaire}\\
+            &amp; = \left\|x\right\|_2^2+\left\|y\right\|_2^2+2\langle
+x,y \rangle \\
+            &amp; \leq
+\left\|x\right\|_2^2+\left\|y\right\|_2^2+2\left|\langle x,y
+\rangle\right| \\
+            &amp; \leq
+\left\|x\right\|_2^2+\left\|y\right\|_2^2+2\left\|x\right\|\left\|y\right\|\text{
+par inégalité de Cauchy-Schwarz} \\
+            &amp; =
+\left(\left\|x\right\|_2+\left\|y\right\|_2\right)^2.
+        \end{aligned}\]</span></p>
+<p>Donc <span class="math inline">\(\left\|x+y\right\|_2 \leq
+\left\|x\right\|_2+\left\|y\right\|_2\)</span>.</p></li>
+</ol>
+</div>
+<div class="wrem">
+<p>Si on remplace <span class="math inline">\(\langle \cdot, \cdot
+\rangle\)</span> par une fonction bilinéaire, symétrique, positive mais
+pas définie positive, on obtient une semi-norme.</p>
+</div>
+<div class="wrappel">
+<p>Soit <span class="math inline">\(\left(E,\langle \cdot, \cdot
+\rangle\right)\)</span> un espace préhilbertien et <span
+class="math inline">\(\left\|\cdot\right\|_2\)</span> la norme
+préhilbertienne associée,</p>
+<p>Alors, soient <span class="math inline">\(x,y \in E\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+        \left\|x+y\right\|_2^2 &amp;
+=\left\|x\right\|_2^2+\left\|y\right\|_2^2+2\langle x,y \rangle\\
+        \left\|x-y\right\|_2^2 &amp;
+=\left\|x\right\|_2^2+\left\|y\right\|_2^2-2\langle x,y \rangle\\
+         \langle x,y
+\rangle&amp;=\frac{1}{4}\left(\left\|x+y\right\|_2^2-\left\|x-y\right\|_2^2\right)\\
+         \left\|x+y\right\|_2^2+\left\|x-y\right\|_2^2&amp;=2\left\|x\right\|_2^2+2\left\|y\right\|_2^2.
+    \end{aligned}\]</span></p>
+</div>
+<div class="wrem">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soient <span class="math inline">\(a,b,c \in E\)</span>, en
+considérant <span class="math inline">\(x=a-b\)</span> et <span
+class="math inline">\(y=a-c\)</span>, on a <span
+class="math display">\[\begin{aligned}
+        \left\|x+y\right\|_2^2+\left\|x-y\right\|_2^2
+        &amp; =
+\left\|2a-\left(b+c\right)\right\|_2^2+\left\|b-c\right\|_2^2 \\
+        &amp; = 2\left\|x\right\|_2^2+2\left\|y\right\|_2^2 \\
+        &amp; = 2\left\|a-b\right\|_2^2+2\left\|a-c\right\|_2^2.
+    \end{aligned}\]</span> Donc en divisant par <span
+class="math inline">\(4\)</span>, on obtient <span
+class="math display">\[\left\|a-\frac{b+c}{2}\right\|_2^2 =
+\frac{1}{2}\left\|a-b\right\|_2^2+\frac{1}{2}\left\|a-c\right\|_2^2-\frac{1}{4}\left\|b-c\right\|_2^2\]</span>
+ce qui constitue l’égalité de la médiane.</p>
+</div>
+<div class="webimg">
+<p><img src="theoreme_mediane_triangle.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wprop">
+<p><strong>(cas d’égalité de l’inégalité triangulaire)</strong> Soit
+<span class="math inline">\((E,\langle \cdot, \cdot\rangle)\)</span> un
+espace préhilbertien et <span
+class="math inline">\(\left\|\cdot\right\|\)</span> la norme
+préhilbertienne associée.</p>
+<p>Alors, soient <span class="math inline">\(x,y \in E\)</span>,</p>
+<p><span class="math display">\[\left\|x+y\right\| =
+\left\|x\right\|+\left\|y\right\| \iff \left\{\begin{array}{ll}
+    &amp; x = 0_E \\
+    \text{ ou }&amp; \text{ il existe $\lambda \in \mathbb{R}^{+}$ tel
+que $y = \lambda x$.}
+    \end{array}\right.\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span></p>
+<ul>
+<li><p>Si <span class="math inline">\(x=0_E\)</span>, <span
+class="math inline">\(\left\|x+y\right\| = \left\|y\right\| =
+\left\|x\right\|+\left\|y\right\|\)</span>.</p></li>
+<li><p>S’il existe <span class="math inline">\(\lambda \in
+\mathbb{R}^{+}\)</span> tel que <span class="math inline">\(v = \lambda
+u\)</span>,</p>
+<p><span class="math inline">\(\left\|x+y\right\| =
+\left\|\left(1+\lambda\right)x\right\| = |\underbrace{1+\lambda}_{\geq
+0}|\left\|x\right\| = \left(1+\lambda\right)\left\|x\right\| =
+\left\|x\right\|+\lambda\left\|x\right\| =
+\left\|x\right\|+\left|\lambda\right|\left\|x\right\| =
+\left\|x\right\|+\left\|\lambda x\right\| =
+\left\|x\right\|+\left\|y\right\|\)</span>.</p></li>
+</ul></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> En
+reprenant la preuve de l’inégalité triangulaire, <span
+class="math inline">\(\left\|x+y\right\| =
+\left\|x\right\|+\left\|y\right\|\)</span> donne <span
+class="math inline">\(\langle
+x,y\rangle=\left\|x\right\|\left\|y\right\|\)</span>.</p>
+<p>Cela impose <span class="math inline">\(\langle x,y\rangle \geq
+0\)</span> et donc <span class="math inline">\(\left|\langle
+x,y\rangle\right| = \langle x,y\rangle =
+\left\|x\right\|\left\|y\right\|\)</span>.</p>
+<p>On est dans le cas d’égalité de l’inégalité de Cauchy-Schwarz donc
+<span class="math inline">\((u,v)\)</span> est liée et</p>
+<ul>
+<li><p>soit <span class="math inline">\(u=0_E\)</span>,</p></li>
+<li><p>soit <span class="math inline">\(u \neq 0_E\)</span> et il existe
+<span class="math inline">\(\lambda \in \mathbb{R}\)</span> tel que
+<span class="math inline">\(v = \lambda u\)</span>. De plus, <span
+class="math inline">\(\langle x,y\rangle \geq 0\)</span> impose <span
+class="math inline">\(\langle x,y\rangle = \lambda
+\underbrace{\left(u\mid u\right)}_{&gt; 0} \geq 0\)</span> donc <span
+class="math inline">\(\lambda \geq 0\)</span>.</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="wex">
+<p>Pour <span class="math inline">\(f,g \in
+\mathscr{C}([a,b],\mathbb{R})\)</span>, on a <span
+class="math inline">\(\sqrt{\int_a^b \left(f+g\right)^2} \leq
+\sqrt{\int_a^b f^2}+\sqrt{\int_a^b g^2}\)</span> avec égalité si et
+seulement si <span class="math inline">\(f\)</span> et <span
+class="math inline">\(g\)</span> sont positivement linéaires.</p>
+</div>
+<div class="wrem">
+<ul>
+<li><p>Pour rappel, <span class="math inline">\((x,y)\)</span> liée (ou
+<span class="math inline">\(x,y\)</span> colinéaires) <span
+class="math inline">\(\iff \left\{\begin{array}{ll}
+    &amp; x = 0_E \\
+    \text{ ou }&amp; \text{ il existe $\lambda \in \mathbb{R}$ tel que
+$y = \lambda x$.}
+    \end{array}\right.\)</span>. On peut donc lire la propriété comme
+<span class="math inline">\(x\)</span> et <span
+class="math inline">\(y\)</span> positivement colinéaires.</p></li>
+<li><div class="webtextfigure">
+<div class="webtext">
+<p>En replongeant dans <span class="math inline">\(E =
+\mathbb{R}^2\)</span>, on retrouve l’égalité de l’inégalité triangulaire
+avec les dessins ci-contre. On comprend aussi pourquoi il est nécessaire
+que <span class="math inline">\(\lambda \geq 0\)</span>.</p>
+</div>
+<div class="webimg">
+<p><img src="egalite_inegalite_triangulaire.png" alt="image" /></p>
+</div>
+</div></li>
+<li><p>Cette proposition donne un moyen de détecter si une norme n’est
+pas préhilbertienne. Précisément, dans le cas où une norme vérifie une
+égalité de l’inégalité triangulaire sans que les deux vecteurs soient
+positivement colinéaires, on peut affirmer qu’elle n’est pas
+préhilbertienne.</p>
+<div class="wex">
+<ul>
+<li><p>Dans <span class="math inline">\(\mathbb{R}^n\)</span>, <span
+class="math inline">\(\left\|.\right\|_1\)</span> n’est pas
+préhilbertienne car avec <span class="math inline">\(x =
+(1,0,\ldots,0)\)</span> et <span class="math inline">\(y =
+(0,\ldots,0,-1)\)</span>, on a <span class="math inline">\(x+y =
+(1,0,\ldots,0,-1)\)</span> et <span
+class="math inline">\(\left\|x\right\|_1 +\left\|y\right\|_1= 1+1=2 =
+\left\|x+y\right\|_1\)</span> mais <span
+class="math inline">\(x\)</span> et <span
+class="math inline">\(y\)</span> sont non colinéaires.</p></li>
+<li><p>Dans <span class="math inline">\(\mathbb{R}^n\)</span>, <span
+class="math inline">\(\left\|.\right\|_\infty\)</span> n’est pas
+préhilbertienne car avec <span
+class="math inline">\(x  (0,\ldots,0,1)\)</span> et <span
+class="math inline">\(y = (-1,0,\ldots,0,1)\)</span>, on a <span
+class="math inline">\(x+y = (-1,0,\ldots,0,2)\)</span> et <span
+class="math inline">\(\left\|x\right\|_\infty +\left\|y\right\|_\infty=
+1+1=2 = \left\|x+y\right\|_\infty\)</span> mais <span
+class="math inline">\(x\)</span> et <span
+class="math inline">\(y\)</span> sont non colinéaires.</p></li>
+</ul>
+</div></li>
+</ul>
+</div>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(\left(E,\langle \cdot, \cdot
+\rangle\right)\)</span> un espace préhilbertien et <span
+class="math inline">\(x,y \in E\)</span>.</p>
+<p>On dit que <span class="math inline">\(x\)</span> et <span
+class="math inline">\(y\)</span> sont orthogonaux si <span
+class="math inline">\(\langle x,y \rangle = 0\)</span> et l’on note
+<span class="math inline">\(x \perp y\)</span>.</p>
+</div>
+<div class="wrem">
+<ul>
+<li><p><span class="math inline">\(x \perp x \iff x =
+0\)</span>,</p></li>
+<li><p><span class="math inline">\(y \perp x\)</span> pour tout <span
+class="math inline">\(x \in E\)</span> <span
+class="math inline">\(\iff\)</span> <span class="math inline">\(y =
+0\)</span>,</p></li>
+<li><p><span class="math inline">\(\left.\begin{array}{l}
+            x \perp y_1 \\
+            x \perp y_2
+        \end{array}\right\} \Longrightarrow \forall \alpha, \beta \in
+\mathbb{R}, x\perp \alpha y_1 + \beta y_2\)</span>.</p></li>
+</ul>
+</div>
+<div class="wthm">
+<p><strong>(Théorème de Pythagore)</strong> Soient <span
+class="math inline">\(\left(E,\langle \cdot, \cdot
+\rangle\right)\)</span> un espace préhilbertien et <span
+class="math inline">\(x_1,\ldots,x_n \in E\)</span> deux à deux
+orthogonaux (ie pour tout <span class="math inline">\(i \neq j\)</span>,
+<span class="math inline">\(\langle x_i, x_j\rangle = 0\)</span>).
+Alors, <span class="math display">\[\left\|x_1+\ldots+x_n\right\|^2 =
+\left\|x_1\right\|^2+\ldots+\left\|x_n\right\|^2.\]</span></p>
+</div>
+<div class="wproof">
+<p><span class="math display">\[\begin{aligned}
+        \left\|x_1+\ldots+x_n\right\|^2
+        &amp; = \langle \sum_{i=1}^n x_i, \sum_{j=1}^n x_j \rangle \\
+        &amp; = \sum_{1 \leq i,j \leq n} \langle x_i, x_j \rangle \\
+        &amp; = \sum_{1 \leq i=j \leq n} \langle x_i, x_j \rangle
++\sum_{1 \leq i\neq j \leq n} \langle x_i, x_j \rangle \\
+        &amp; = \sum_{i=1}^n \left\|x_i\right\|^2+2\sum_{1 \leq i &lt; j
+\leq n} \underbrace{\langle x_i,x_j\rangle}_{=0} \\
+        &amp; = \sum_{i=1}^n \left\|x_i\right\|^2.
+    \end{aligned}\]</span></p>
+</div>
+<div class="wrem">
+<p><strong>(Cas des <span
+class="math inline">\(\mathbb{C}\)</span>-espaces vectoriels)</strong>
+Sur <span class="math inline">\(\mathbb{C}^n\)</span>, <span
+class="math inline">\(\begin{array}{lllll}
+N &amp; : &amp; \mathbb{C}^n &amp; \to &amp; \mathbb{C} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \sum_{i=1}^n x_i^2
+\end{array}\)</span> n’est pas une norme (elle n’est même pas à valeurs
+dans <span class="math inline">\(\mathbb{R}\)</span>) mais on peut
+considérer <span class="math inline">\(\left\|x\right\|_2 = \sum_{i=1}^n
+\left|x_i\right|^2\)</span> qui prolonge la norme sur <span
+class="math inline">\(\mathbb{R}^n\)</span> (car pour <span
+class="math inline">\(x_i \in \mathbb{R}\)</span>, <span
+class="math inline">\(x_i^2 = \left|x_i\right|^2\)</span>). De même, on
+peut considérer <span class="math inline">\(\left\|f\right\|_2 =
+\int_a^b \left|f\right|^2\)</span> pour <span class="math inline">\(f
+\in \mathscr{C}([a,b],\mathbb{C})\)</span>.</p>
+</div>
+<div class="wexoc">
+<p>Soient <span class="math inline">\(p,q \in \mathbb{R}\)</span> tels
+que <span class="math inline">\(p &gt; 1, q &gt; 1\)</span> et <span
+class="math inline">\(\frac{1}{p}+\frac{1}{q}=1\)</span> (ie <span
+class="math inline">\(q = \frac{1}{p-1}\)</span>).</p>
+<ol>
+<li><p>Prouver le lemme suivant.</p>
+<div class="wlem">
+<p><span id="lem:pour_holder" label="lem:pour_holder"></span> Pour <span
+class="math inline">\(a,b \in \mathbb{R}^{+}\)</span>, <span
+class="math inline">\(ab \leq \frac{1}{p}a^p +
+\frac{1}{q}b^q\)</span>.</p>
+</div></li>
+<li><p>Montrer l’inégalité d’Hölder : pour tout <span
+class="math inline">\(x,y \in \mathbb{K}^n\)</span>, <span
+class="math display">\[\left|\sum_{j=1}^n x_j y_j\right| \leq
+\sum_{j=1}^n \left|x_j\right|\left|y_j\right| \leq  \left(\sum_{j=1}^n
+\left|x_j\right|^p\right)^{\tfrac{1}{p}}\left(\sum_{j=1}^n
+\left|y_j\right|^q\right)^{\tfrac{1}{q}}\]</span></p></li>
+<li><p>En déduire qu’en posant <span
+class="math inline">\(\left\|x\right\|_p = \left(\sum_{j=1}^p
+\left|x_j\right|^p\right)^{\tfrac{1}{p}}\)</span>, on définit une norme
+sur <span class="math inline">\(\mathbb{K}^n\)</span>.</p></li>
+</ol>
+<details><summary>Corrigé</summary>
+<ol>
+<li><ul>
+<li><p>Si <span class="math inline">\(a=0\)</span> ou <span
+class="math inline">\(b=0\)</span>, l’inégalité est évidente.</p></li>
+<li><p>Si <span class="math inline">\(a &gt; 0\)</span> et <span
+class="math inline">\(b &gt; 0\)</span>, remarquons que <span
+class="math display">\[ab \leq \frac{1}{p}a^p + \frac{1}{q}b^q \iff
+\ln(ab) \leq \ln\left(\frac{1}{p}a^p +
+\frac{1}{q}b^q\right).\]</span></p>
+<p>Or, <span class="math inline">\(\ln(ab) = \ln(a)+\ln(b) =
+\frac{p}{p}\ln(a)+\frac{q}{q}\ln(b) = \frac{1}{p}\ln\left(a^p\right) +
+\frac{1}{q}\ln\left(b^q\right)\)</span>.</p>
+<p>L’inégalité recherchée devient donc <span
+class="math display">\[\begin{aligned}
+                &amp; \frac{1}{p}\ln\left(a^p\right) +
+\frac{1}{q}\ln\left(b^q\right) \leq \ln\left(\frac{1}{p}a^p +
+\frac{1}{q}b^q\right) \\
+                &amp; \iff \lambda
+\ln\left(a^p\right)+(1-\lambda)\ln\left(b^q\right)\leq \ln\left(\lambda
+a^p + (1-\lambda)b^q\right)\text{ avec }\lambda = \frac{1}{p} \in [0,1]
+            \end{aligned}\]</span> et cette inégalité est vérifiée par
+concavité de <span class="math inline">\(\ln\)</span>.</p></li>
+</ul></li>
+<li><p>La première inégalité s’obtient par inégalité triangulaire dans
+<span class="math inline">\(\mathbb{K}\)</span>.</p>
+<p>Posons <span class="math inline">\(\left\|x\right\|_p =
+\left(\sum_{j=1}^n \left|x_j\right|^p\right)^{\tfrac{1}{p}}\)</span> et
+<span class="math inline">\(\left\|y\right\|_q = \left(\sum_{j=1}^n
+\left|y_j\right|^q\right)^{\tfrac{1}{q}}\)</span>. On cherche alors à
+montrer <span class="math display">\[\sum_{j=1}^n
+\left|x_j\right|\left|y_j\right|
+\leq  \left\|x\right\|_p\left\|y\right\|_q.\]</span></p>
+<ul>
+<li><p>Commençons par le cas particulier où <span
+class="math inline">\(\left\|x\right\|_p=\left\|y\right\|_q=1\)</span>.</p>
+<p>On cherche alors à montrer <span class="math inline">\(\sum_{j=1}^n
+\left|x_j\right|\left|y_j\right| \leq 1\)</span>.</p>
+<p>En utilisant le lemme <a href="#lem:pour_holder"
+data-reference-type="ref"
+data-reference="lem:pour_holder">[lem:pour_holder]</a>, on a <span
+class="math display">\[\begin{aligned}
+                \sum_{j=1}^n \left|x_j\right|\left|y_j\right|
+                &amp; \leq \sum_{j=1}^n
+\left(\frac{1}{p}\left|x_j\right|^p+\frac{1}{q}\left|y_j\right|^\frac{1}{q}\right)
+\\
+                &amp; = \frac{1}{p}\sum_{j=1}^n
+\left|x_j\right|^p+\frac{1}{q}\sum_{j=1}^n\left|y_j\right|^\frac{1}{q}
+\\
+                &amp; = \frac{1}{p}+\frac{1}{q}=1
+            \end{aligned}\]</span> et l’inégalité est donc
+vérifiée.</p></li>
+<li><p>Sinon,</p>
+<ul>
+<li><p>Si <span class="math inline">\(\left\|x\right\|_p = 0\)</span>,
+on a <span class="math inline">\(\sum_{j=1}^n
+\underbrace{\left|x_j\right|^p}_{\geq 0} = 0\)</span> donc <span
+class="math inline">\(\left|x_1\right|=\ldots=\left|x_n\right| =
+0\)</span> et <span class="math inline">\(x_1=\ldots=x_n = 0\)</span>
+puis l’inégalité est évidente,</p></li>
+<li><p>Si <span class="math inline">\(\left\|y\right\|_q = 0\)</span>,
+de même, on a <span class="math inline">\(y_1=\ldots=y_n = 0\)</span>
+donc l’inégalité est évidente,</p></li>
+<li><p>Si <span class="math inline">\(\left\|x\right\|_p &gt; 0\)</span>
+et <span class="math inline">\(\left\|y\right\|_q &gt; 0\)</span>,</p>
+<p>alors <span class="math inline">\(x&#39; =
+\frac{1}{\left\|x\right\|_p}x\)</span> vérifie <span
+class="math display">\[\begin{aligned}
+            \left\|x&#39;\right\|_p
+            &amp; = \left(\sum_{j=1}^n
+\left|x&#39;_j\right|^p\right)^{\frac{1}{p}}\\
+            &amp; = \left(\sum_{j=1}^n
+\frac{\left|x_j\right|^p}{\left\|x\right\|_p^p}\right)^{\frac{1}{p}} \\
+            &amp; = \left(\frac{1}{\left\|x\right\|_p^p}\sum_{j=1}^n
+\left|x_j\right|^p\right)^{\frac{1}{p}} \\
+            &amp; = \frac{1}{\left\|x\right\|_p}\left(\sum_{j=1}^n
+\left|x_j\right|^p\right)^{\frac{1}{p}} \\
+            &amp; = \frac{\left\|x\right\|_p}{\left\|x\right\|_p}=1.
+            \end{aligned}\]</span> De même, <span
+class="math inline">\(y&#39; = \frac{1}{\left\|y\right\|_q}y\)</span>
+vérifie <span class="math inline">\(\left\|y&#39;\right\|_q =
+1\)</span>.</p>
+<p>On a donc, par le cas précédent, <span
+class="math display">\[\begin{aligned}
+                &amp; \sum_{j=1}^n
+\left|x&#39;_j\right|\left|y&#39;_j\right| \leq 1 \\
+                 \iff &amp; \sum_{j=1}^n
+\frac{\left|x_j\right|}{\left\|x\right\|_p}\frac{\left|y_j\right|}{\left\|x\right\|_q}\leq
+1 \\
+                 \iff &amp; \sum_{j=1}^n
+\left|x_j\right|\left|y_j\right|
+\leq  \left\|x\right\|_p\left\|y\right\|_q
+            \end{aligned}\]</span></p></li>
+</ul></li>
+</ul></li>
+<li><p>Il ne reste qu’à démontrer l’inégalité triangulaire,
+l’homogénéité et le caractère défini positif ayant été démontrés au
+détour de la question précédente. Soient <span class="math inline">\(x,y
+\in \mathbb{K}^n\)</span>,</p>
+<ul>
+<li><p>Si <span class="math inline">\(x=0\)</span> ou <span
+class="math inline">\(y=0\)</span>, l’inégalité triangulaire est
+évidente.</p></li>
+<li><p>Sinon, <span class="math inline">\(\left\|x\right\|_p &gt;
+0\)</span> et <span class="math inline">\(\left\|y\right\|_p &gt;
+0\)</span>.</p>
+<p>On a alors <span class="math display">\[\begin{aligned}
+                \left\|x+y\right\|_p^p
+                &amp; = \sum_{j=1}^n \left|x_j+y_j\right|^p \\
+                &amp; = \sum_{j=1}^n
+\left|x_j+y_j\right|\left|x_j+y_j\right|^{p-1} \\
+                &amp; \leq \sum_{j=1}^n
+\left|x_j\right|\left|x_j+y_j\right|^{p-1}+\sum_{j=1}^n
+\left|y_j\right|\left|x_j+y_j\right|^{p-1}
+            \end{aligned}\]</span></p>
+<p>Alors, en utilisant l’inégalité d’Hölder sur chaque somme, on en
+déduit <span class="math display">\[\begin{aligned}
+                \left\|x+y\right\|_p^p
+                 \leq &amp; \left(\sum_{j=1}^n
+\left|x_j\right|^p\right)^{\frac{1}{p}}
+\left(\sum_{j=1}^n\left|x_j+y_j\right|^{(p-1)q}\right)^{\tfrac{1}{q}} \\
+                 + &amp; \left(\sum_{j=1}^n
+\left|y_j\right|^p\right)^{\frac{1}{p}}
+\left(\sum_{j=1}^n\left|x_j+y_j\right|^{(p-1)q}\right)^{\tfrac{1}{q}} \\
+                 &amp; =
+\left(\left\|x\right\|_p+\left\|y\right\|_p\right)\left(\sum_{j=1}^n\left|x_j+y_j\right|^{(p-1)q}\right)^{\tfrac{1}{q}}
+            \end{aligned}\]</span> Or, <span
+class="math inline">\((p-1)q=\frac{(p-1)p}{p-1}=p\)</span> donc <span
+class="math display">\[\begin{aligned}
+                \left\|x+y\right\|_p^p
+                 &amp; \leq
+\left(\left\|x\right\|_p+\left\|y\right\|_p\right)\left(\sum_{j=1}^n\left|x_j+y_j\right|^{p}\right)^{\tfrac{1}{q}}
+\\
+                 &amp; =
+\left(\left\|x\right\|_p+\left\|y\right\|_p\right)\left\|x+y\right\|_p^{\frac{q}{p}}.
+            \end{aligned}\]</span> On en déduit <span
+class="math display">\[\begin{aligned}
+            \left\|x+y\right\|_p^p
+\leq  \left(\left\|x\right\|_p+\left\|y\right\|_p\right)\left\|x+y\right\|_p^{\frac{q}{p}}
+            &amp; \iff \left\|x+y\right\|_p^{p-\frac{q}{p}} \leq
+\left\|x\right\|_p+\left\|y\right\|_p \\
+            &amp; \iff
+\left\|x+y\right\|_p^{p\left(1-\frac{1}{q}\right)} \leq
+\left\|x\right\|_p+\left\|y\right\|_p \\
+            &amp; \iff \left\|x+y\right\|_p \leq
+\left\|x\right\|_p+\left\|y\right\|_p.
+            \end{aligned}\]</span></p></li>
+</ul></li>
+</ol>
+</details>
+</div>
+<div class="wrem">
+<p>De même, on a la norme <span class="math inline">\(\left\|f\right\|_p
+=\left(\int_a^b \left|f\right|^p\right)^\frac{1}{p}\)</span> sur <span
+class="math inline">\(\mathscr{C}([a,b],\mathbb{K})\)</span>.</p>
+</div>
+<h2 data-number="1.5"
+id="boules-et-sphères-dun-espace-vectoriel-normé"><span
+class="header-section-number">1.5</span> Boules et sphères d’un espace
+vectoriel normé</h2>
+<div class="wdefi">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span
+class="math inline">\(\left(E,\left\|\cdot\right\|\right)\)</span> un
+espace vectoriel normé, <span class="math inline">\(a \in E\)</span> et
+<span class="math inline">\(r \in \mathbb{R}^{+}\)</span>.</p>
+<ul>
+<li><p>On définit la boule ouverte de centre <span
+class="math inline">\(a\)</span> et de rayon <span
+class="math inline">\(r\)</span> comme <span
+class="math inline">\(B(a,r) = \left\{x \in E/ \left\|x-a\right\|&lt;
+r\right\}\)</span>.</p></li>
+<li><p>On définit la boule fermée de centre <span
+class="math inline">\(a\)</span> et de rayon <span
+class="math inline">\(r\)</span> comme <span
+class="math inline">\(\overline{B}(a,r) = \left\{x \in E/
+\left\|x-a\right\|\leq r\right\}\)</span>.</p></li>
+<li><p>On définit la sphère de centre <span
+class="math inline">\(a\)</span> et de rayon <span
+class="math inline">\(r\)</span> comme <span
+class="math inline">\(S(a,r) = \left\{x \in E/ \left\|x-a\right\|=
+r\right\}\)</span>.</p></li>
+</ul>
+</div>
+<div class="webimg">
+<p><img src="boule_sphere_adherence.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wex">
+<p>Dans <span
+class="math inline">\(\left(\mathbb{R},\left|\cdot\right|\right)\)</span>,</p>
+<ul>
+<li><p><span class="math inline">\(B(a,r) = ]a-r,a+r[\)</span>,</p></li>
+<li><p><span class="math inline">\(\overline{B}(a,r) =
+[a-r,a+r]\)</span>,</p></li>
+<li><p><span class="math inline">\(S(a,r) =
+\left\{a-r,a+r\right\}\)</span>.</p></li>
+</ul>
 </div>
 </body>
 </html>
@@ -281,11 +1329,11 @@ document.addEventListener("DOMContentLoaded", function() {
         'wthm':'Théorème', 'wprop':'Proposition', 'wdefi':'Définition',
         'wlem':'Lemme', 'wcor':'Corollaire', 'wappli':'Application',
         'wrem':'Remarque', 'wrappel': 'Rappel', 'wex':'Exemple',
-        'wexs':'Exemples', 'wproof':'Preuve'
+        'wexs':'Exemples', 'wproof':'Preuve', 'wexoc':'Exercice','wcorrc':'Corrigé'
     };
 
     // Numérotation des environnements
-    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs, .wrappel,.wproof").forEach(el => {
+    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs,.wexoc,.wcorrc, .wrappel,.wproof").forEach(el => {
         if (el.tagName.toLowerCase() === "h1" && !el.closest("#TOC")) {
             secCount++;
             thmCount = 0;
@@ -338,7 +1386,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             // Remplacement des \ref{type:id} à l'intérieur de \text{} en mode math
-            const refRegex = /\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g;
+            const refRegex = /\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\}/g;
 
             if (refRegex.test(text)) {
                 const nouveauTexte = text.replace(refRegex, (m, t, id) => {
@@ -383,12 +1431,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Remplace les \eqref{...}
                 .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m)
                 // NOUVEAU : Remplace les \ref{...} classiques (souvent utilisés dans les \text{} de MathJax)
-                .replace(/\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g, (m, t, id) => {
+                .replace(/\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\}/g, (m, t, id) => {
                     let f = t + ":" + id;
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
                 })
                 // Remplace ta syntaxe personnalisée entre crochets [...]
-                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => {
+                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\]/g, (m, t, id) => {
                     let f = t + ":" + id;
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
                 });
@@ -400,7 +1448,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
                  el.innerHTML = el.innerHTML 
                  .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m) 
-                 .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => { 
+                 .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\]/g, (m, t, id) => { 
                     let f = t + ":" + id; 
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m; }); } }); } 
 

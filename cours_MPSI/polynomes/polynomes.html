@@ -1194,12 +1194,12 @@ class="math inline">\(P\)</span>.</p></li>
 </ul></li>
 </ul>
 </div>
-<div class="wex">
-<p><strong>Exercice</strong> — Soit <span class="math inline">\(P =
-X^4-X^3-3X^2+5X-2 \in \mathbb{R}[X]\)</span>. De quel ordre est la
-racine <span class="math inline">\(1\)</span> de <span
+<div class="wexoc">
+<p>Soit <span class="math inline">\(P = X^4-X^3-3X^2+5X-2 \in
+\mathbb{R}[X]\)</span>. De quel ordre est la racine <span
+class="math inline">\(1\)</span> de <span
 class="math inline">\(P\)</span> ?</p>
-<p><strong>Corrigé</strong> —</p>
+<details><summary>Corrigé</summary>
 <ul>
 <li><p><span class="math inline">\(P&#39; = 4X^3-3X^2-6X+5\)</span> et
 <span class="math inline">\(P&#39;(1) = 0\)</span>,</p></li>
@@ -1211,6 +1211,7 @@ class="math inline">\(P^{(3)}(1) = 18 \neq 0\)</span>.</p></li>
 <p>Donc <span class="math inline">\(1\)</span> est racine d’ordre <span
 class="math inline">\(3\)</span> de <span
 class="math inline">\(P\)</span>.</p>
+</details>
 </div>
 <h3 data-number="3.6.3" id="identité-de-taylor"><span
 class="header-section-number">3.6.3</span> Identité de Taylor</h3>
@@ -1398,12 +1399,12 @@ class="math inline">\(P\)</span>,</p>
         \alpha_1+\alpha_2+\alpha_3 &amp; = -\frac{a_2}{a_3}
     \end{array}
     \right.\]</span></p>
-<div class="wappli">
-<p><strong>Exercice</strong> — Soit <span class="math inline">\(P \in
-\mathbb{K}[X]\)</span> de degré <span class="math inline">\(3\)</span>
-tel que <span class="math inline">\(P = X^3+bX^2+cX+d\)</span> avec
-<span class="math inline">\(a,b,c \in \mathbb{K}\)</span>, scindé dans
-<span class="math inline">\(\mathbb{K}[X]\)</span> de racines <span
+<div class="wexoc">
+<p>Soit <span class="math inline">\(P \in \mathbb{K}[X]\)</span> de
+degré <span class="math inline">\(3\)</span> tel que <span
+class="math inline">\(P = X^3+bX^2+cX+d\)</span> avec <span
+class="math inline">\(a,b,c \in \mathbb{K}\)</span>, scindé dans <span
+class="math inline">\(\mathbb{K}[X]\)</span> de racines <span
 class="math inline">\(\alpha, \beta, \gamma \in \mathbb{K}\)</span>.</p>
 <ol>
 <li><p>Calculer <span
@@ -1412,7 +1413,7 @@ class="math inline">\(\alpha^2+\beta^2+\gamma^2\)</span>.</p></li>
 Calculer <span
 class="math inline">\(\frac{1}{\alpha}+\frac{1}{\beta}+\frac{1}{\gamma}\)</span>.</p></li>
 </ol>
-<p><strong>Corrigé</strong> —</p>
+<details><summary>Corrigé</summary>
 <ol>
 <li><p><span class="math inline">\((\alpha+\beta+\gamma)^2 =
 \alpha^2+\beta^2+\gamma^2+2(\alpha\beta+\alpha\gamma+\beta\gamma)\)</span>.</p>
@@ -1427,6 +1428,7 @@ class="math inline">\(\frac{1}{\alpha}+\frac{1}{\beta}+\frac{1}{\gamma}
 class="math inline">\(\frac{1}{\alpha}+\frac{1}{\beta}+\frac{1}{\gamma}
 = -\frac{c}{d}\)</span></p></li>
 </ol>
+</details>
 </div>
 <p><strong>Cas général.</strong> </p>
 <p>Soit <span class="math inline">\(P = a_nX^n+\ldots+a_1X+a_0\in
@@ -1820,14 +1822,14 @@ class="math inline">\(CD\)</span> et <span class="math inline">\(AC
 \wedge BC\)</span> sont associés et comme ils sont unitaires, ils sont
 égaux.</p>
 </div>
-<div class="wex">
-<p><strong>Exercice</strong> — Calculer <span class="math inline">\(P
-\wedge Q\)</span> avec <span
+<div class="wexoc">
+<p>Calculer <span class="math inline">\(P \wedge Q\)</span> avec <span
 class="math inline">\(P=X^4+X^3-3X^2-4X-1\)</span> et <span
 class="math inline">\(Q=X^3+ X^2-X-1\)</span> et déterminer <span
 class="math inline">\(U,V \in \mathbb{R}[X]\)</span> tels que <span
 class="math inline">\(P \wedge Q = UP+VQ\)</span>.</p>
-<p><strong>Corrigé</strong> — On déroule l’algorithme d’Euclide.</p>
+<details><summary>Corrigé</summary>
+<p>On déroule l’algorithme d’Euclide.</p>
 <ol>
 <li><p><span class="math display">\[\begin{array}{rrrrrr|rrrr}
       &amp;X^4 &amp; +X^3 &amp; -3X^2 &amp; -4X &amp; -1   &amp; X^3
@@ -1944,6 +1946,7 @@ X+1
 &amp; =
 \left(-\tfrac{4}{3}-\tfrac{1}{3}X+\tfrac{2}{3}X^2\right)Q+(-\tfrac{2}{3}X+\tfrac{1}{3})P
 \end{aligned}\]</span></p>
+</details>
 </div>
 <h2 data-number="4.3" id="polynômes-premiers-entre-eux"><span
 class="header-section-number">4.3</span> Polynômes premiers entre
@@ -2741,11 +2744,11 @@ document.addEventListener("DOMContentLoaded", function() {
         'wthm':'Théorème', 'wprop':'Proposition', 'wdefi':'Définition',
         'wlem':'Lemme', 'wcor':'Corollaire', 'wappli':'Application',
         'wrem':'Remarque', 'wrappel': 'Rappel', 'wex':'Exemple',
-        'wexs':'Exemples', 'wproof':'Preuve'
+        'wexs':'Exemples', 'wproof':'Preuve', 'wexoc':'Exercice','wcorrc':'Corrigé'
     };
 
     // Numérotation des environnements
-    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs, .wrappel,.wproof").forEach(el => {
+    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs,.wexoc,.wcorrc, .wrappel,.wproof").forEach(el => {
         if (el.tagName.toLowerCase() === "h1" && !el.closest("#TOC")) {
             secCount++;
             thmCount = 0;
@@ -2798,7 +2801,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             // Remplacement des \ref{type:id} à l'intérieur de \text{} en mode math
-            const refRegex = /\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g;
+            const refRegex = /\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\}/g;
 
             if (refRegex.test(text)) {
                 const nouveauTexte = text.replace(refRegex, (m, t, id) => {
@@ -2843,12 +2846,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Remplace les \eqref{...}
                 .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m)
                 // NOUVEAU : Remplace les \ref{...} classiques (souvent utilisés dans les \text{} de MathJax)
-                .replace(/\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g, (m, t, id) => {
+                .replace(/\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\}/g, (m, t, id) => {
                     let f = t + ":" + id;
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
                 })
                 // Remplace ta syntaxe personnalisée entre crochets [...]
-                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => {
+                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\]/g, (m, t, id) => {
                     let f = t + ":" + id;
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
                 });
@@ -2860,7 +2863,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
                  el.innerHTML = el.innerHTML 
                  .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m) 
-                 .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => { 
+                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\]/g, (m, t, id) => { 
                     let f = t + ":" + id; 
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m; }); } }); } 
 

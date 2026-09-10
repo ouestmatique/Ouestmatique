@@ -1228,8 +1228,7 @@ pour tout <span class="math inline">\(1 \leq k \leq n\)</span>.</p></li>
 </ul>
 </div>
 <div class="wex">
-<ul>
-<li><p>La probabilité uniforme sur <span
+<p>La probabilité uniforme sur <span
 class="math inline">\(\Omega\)</span> est la probabilité <span
 class="math inline">\(\mathbb{P}\)</span> telle que pour tout <span
 class="math inline">\(\omega \in \Omega\)</span>, <span
@@ -1245,10 +1244,12 @@ class="math inline">\(p=\frac{1}{n}\)</span>.</p>
 \mathscr{P}(\Omega)\)</span>, on a <span
 class="math inline">\(\mathbb{P}(A) =
 \left(\mathop{\mathrm{card}}A\right)p =
-\frac{\mathop{\mathrm{card}}A}{n}=\frac{\mathop{\mathrm{card}}A}{\mathop{\mathrm{card}}\Omega}\)</span>.</p></li>
-<li><p><strong>Exercice</strong> — On lance un dé à <span
-class="math inline">\(6\)</span> faces et on considère <span
-class="math inline">\(\Omega = [\![ 1,6 ]\!]\)</span>.</p>
+\frac{\mathop{\mathrm{card}}A}{n}=\frac{\mathop{\mathrm{card}}A}{\mathop{\mathrm{card}}\Omega}\)</span>.</p>
+</div>
+<div class="wexoc">
+<p>On lance un dé à <span class="math inline">\(6\)</span> faces et on
+considère <span class="math inline">\(\Omega = [\![ 1,6
+]\!]\)</span>.</p>
 <p>De plus, on suppose qu’il existe <span class="math inline">\(\alpha
 \in \mathbb{R}\)</span> tel que pour tout <span class="math inline">\(1
 \leq k \leq 6\)</span>, <span
@@ -1257,7 +1258,8 @@ k\)</span>.</p>
 <p>Soit <span class="math inline">\(A\)</span> l’événement "le numéro
 obtenu est pair", calculer <span
 class="math inline">\(\mathbb{P}(A)\)</span>.</p>
-<p><strong>Corrigé</strong> — Commençons par déterminer <span
+<details><summary>Corrigé</summary>
+<p>Commençons par déterminer <span
 class="math inline">\(\alpha\)</span>.</p>
 <p>On a <span class="math inline">\(1 = \sum_{k=1}^6 \alpha k = \alpha
 \frac{6\times 7}{2} = 21\alpha\)</span> donc <span
@@ -1266,8 +1268,8 @@ class="math inline">\(\alpha = \frac{1}{21}\)</span>.</p>
 \mathbb{P}\left(\left\{2\right\}\right)+
 \mathbb{P}\left(\left\{4\right\}\right)+
 \mathbb{P}\left(\left\{6\right\}\right) = \alpha(2+4+6) = \frac{12}{21}
-= \frac{4}{7}.\)</span></p></li>
-</ul>
+= \frac{4}{7}.\)</span></p>
+</details>
 </div>
 <h2 data-number="2.7" id="probabilité-conditionnelle"><span
 class="header-section-number">2.7</span> Probabilité conditionnelle</h2>
@@ -1413,10 +1415,9 @@ class="math display">\[\begin{aligned}
         \end{aligned}\]</span></p></li>
 </ul>
 </div>
-<div class="wex">
-<p><strong>Exercice</strong> — Une urne contient <span
-class="math inline">\(n\)</span> boules noire et <span
-class="math inline">\(b\)</span> boules blanches (avec <span
+<div class="wexoc">
+<p>Une urne contient <span class="math inline">\(n\)</span> boules noire
+et <span class="math inline">\(b\)</span> boules blanches (avec <span
 class="math inline">\(n,b \geq 1\)</span>).</p>
 <p>On tire <span class="math inline">\(2\)</span> boules successivement
 sans remise et on considère les deux événements <span
@@ -1428,7 +1429,7 @@ tirage ~»}
     \end{array}\)</span>.</p>
 <p>Calculer <span class="math inline">\(\mathbb{P}(B\mid
 A)\)</span>.</p>
-<p><strong>Corrigé</strong> —</p>
+<details><summary>Corrigé</summary>
 <ul>
 <li><p><strong>Première méthode:</strong> Après le premier tirage, il
 reste <span class="math inline">\(n+b-1\)</span> boules dans l’urne.
@@ -1467,6 +1468,7 @@ class="math inline">\(\mathbb{P}(A \cap B ) =
 <p>Finalement, on a donc <span class="math inline">\(\mathbb{P}(B\mid A)
 = \frac{b}{n+b-1}\)</span>.</p></li>
 </ul>
+</details>
 </div>
 <h3 data-number="2.7.3" id="formule-de-bayes"><span
 class="header-section-number">2.7.3</span> Formule de Bayes</h3>
@@ -1517,8 +1519,8 @@ A_i) \mathbb{P}(A_i)}{\mathbb{P}(A)}\)</span></p>
 \frac{\mathbb{P}(A \mid A_i) \mathbb{P}(A_i)}{\sum_{k=1}^n \mathbb{P}(A
 \mid A_k) \mathbb{P}(A_k)}.\]</span></p>
 </div>
-<div class="wex">
-<p><strong>Exercice</strong> — On considère trois urnes <span
+<div class="wexoc">
+<p>On considère trois urnes <span
 class="math inline">\(U_1,U_2,U_3\)</span> telles que <span
 class="math display">\[\begin{array}{lll}
             U_1 \text{ contient } &amp; 3 \text{ boules noires} &amp;
@@ -1532,10 +1534,10 @@ class="math display">\[\begin{array}{lll}
 urne.</p>
 <p>Quelle est la probabilité que la boule provienne de l’urne <span
 class="math inline">\(U_1\)</span> sachant qu’elle est noire ?</p>
-<p><strong>Corrigé</strong> — On est typiquement dans une situation où
-la formule de Bayes est bien utile. Déterminer la probabilité qu’une
-boule soit noire sachant l’urne est tout à fait accessible mais le
-contraire est bien plus délicat.</p>
+<details><summary>Corrigé</summary>
+<p>On est typiquement dans une situation où la formule de Bayes est bien
+utile. Déterminer la probabilité qu’une boule soit noire sachant l’urne
+est tout à fait accessible mais le contraire est bien plus délicat.</p>
 <p>On note <span class="math display">\[\begin{array}{lll}
             \text{Pour $1 \leq i \leq 3$}, &amp; A_i &amp; \text{«~on a
 choisi l&#39;urne $U_i$ ~»}, \\
@@ -1562,10 +1564,11 @@ class="math inline">\(1 \leq k \leq 3\)</span>,</p></li>
 \frac{\frac{3}{8}\times \frac{1}{3}}{\frac{3}{8}\times
 \frac{1}{3}+\frac{5}{8}\times \frac{1}{3}+\frac{7}{8}\times \frac{1}{3}}
 = \frac{3}{15} = \frac{1}{5}.\]</span></p>
+</details>
 </div>
-<div class="wex">
-<p><strong>Exercice</strong> — On considère une usine fabriquant des
-appareils pouvant devenir défectueux au bout de quelques années.</p>
+<div class="wexoc">
+<p>On considère une usine fabriquant des appareils pouvant devenir
+défectueux au bout de quelques années.</p>
 <p>On suppose qu’on dispose d’un test rapide permettant de détecter les
 appareils pouvant devenir défectueux.</p>
 <p>On choisit un appareil et on note <span
@@ -1581,7 +1584,7 @@ class="math inline">\(\mathbb{P}(T\mid \overline{D}) = 10^{-2}\)</span>
 déclarés positifs).</p>
 <p>Calculer <span class="math inline">\(\mathbb{P}(D \mid
 T)\)</span>.</p>
-<p><strong>Corrigé</strong> —</p>
+<details><summary>Corrigé</summary>
 <p><span class="math display">\[\mathbb{P}(D \mid T) =
 \frac{\mathbb{P}(D)\mathbb{P}(T\mid D)}{\mathbb{P}(D)\mathbb{P}(T\mid
 D)+\mathbb{P}(\overline{D})\mathbb{P}(T\mid \overline{D})} =
@@ -1600,6 +1603,7 @@ défectueux. Ce résultat est souvent très surprenant lors d’une première
 lecture. Il s’explique par le fait que les appareils défectueux sont
 extrêmement rares : les faux positifs sont donc beaucoup plus nombreux
 que les vrais positifs.</p>
+</details>
 </div>
 <div class="wrem">
 <p>Dans les deux exemples précédents, il est un peu artificiel de poser
@@ -1878,10 +1882,9 @@ class="math inline">\(\mathscr{P}_X(\left\{x_k\right\}) =
 \mathbb{P}(X=x_k)\)</span> pour <span class="math inline">\(1 \leq k
 \leq n\)</span>.</p>
 </div>
-<div class="wex">
-<p><strong>Exercice</strong> — Une urne contient <span
-class="math inline">\(9\)</span> jetons numérotés de <span
-class="math inline">\(1\)</span> à <span
+<div class="wexoc">
+<p>Une urne contient <span class="math inline">\(9\)</span> jetons
+numérotés de <span class="math inline">\(1\)</span> à <span
 class="math inline">\(9\)</span>. On tire simultanément <span
 class="math inline">\(3\)</span> jetons dans l’urne tel que <span
 class="math inline">\(\Omega = \mathscr{P}_3([\![ 1,9]\!])\)</span> et
@@ -1890,9 +1893,10 @@ class="math inline">\(\Omega = \mathscr{P}_3([\![ 1,9]\!])\)</span> et
 <p>Soit <span class="math inline">\(X\)</span> la variable aléatoire
 égale au nombre d’entiers pairs obtenus, déterminer la loi de <span
 class="math inline">\(X\)</span>.</p>
-<p><strong>Corrigé</strong> — Notons que <span
-class="math inline">\(X(\Omega) = [\![ 0,3]\!]\)</span>. On cherche
-alors <span class="math inline">\(\mathbb{P}(X=k)\)</span> pour <span
+<details><summary>Corrigé</summary>
+<p>Notons que <span class="math inline">\(X(\Omega) = [\![
+0,3]\!]\)</span>. On cherche alors <span
+class="math inline">\(\mathbb{P}(X=k)\)</span> pour <span
 class="math inline">\(k \in \left\{0,1,2,3\right\}\)</span>.</p>
 <ul>
 <li><p>Pour <span class="math inline">\(k = 0\)</span>, <span
@@ -1928,6 +1932,7 @@ l’impair.</p>
 <p>Donc <span class="math inline">\(\mathbb{P}(X=3) = \frac{
 \binom{4}{3}}{ \binom{9}{3}}\)</span>.</p></li>
 </ul>
+</details>
 </div>
 <h2 data-number="3.3" id="variable-aléatoire-image"><span
 class="header-section-number">3.3</span> Variable aléatoire image</h2>
@@ -2263,22 +2268,24 @@ finalement,</p>
 <p><span class="math display">\[E(Y) =  \sum_{k=1}^n
 f(x_k)\mathbb{P}(X=x_k).\]</span></p>
 </div>
-<div class="wex">
-<p><strong>Exercice</strong> — Soit <span class="math inline">\(X :
-\Omega \to \mathbb{R}\)</span> telle que <span
-class="math inline">\(X(\Omega) = [\![ -n,n ]\!]\)</span> avec <span
-class="math inline">\(n \in \mathbb{N}^{\star}\)</span> avec <span
+<div class="wexoc">
+<p>Soit <span class="math inline">\(X : \Omega \to \mathbb{R}\)</span>
+telle que <span class="math inline">\(X(\Omega) = [\![ -n,n
+]\!]\)</span> avec <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span> avec <span
 class="math inline">\(\mathbb{P}_X\)</span> la probabilité uniforme sur
 <span class="math inline">\([\![ -n,n]\!]\)</span>.</p>
 <p>Calculer <span class="math inline">\(\mathbb{E}(X^2)\)</span>.</p>
-<p><strong>Corrigé</strong> — <span class="math inline">\(X^2 =
-f(X)\)</span> avec <span class="math inline">\(\begin{array}{lllll}
+<details><summary>Corrigé</summary>
+<p><span class="math inline">\(X^2 = f(X)\)</span> avec <span
+class="math inline">\(\begin{array}{lllll}
 f &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R} \\
    &amp;   &amp; x &amp; \mapsto &amp; x^2
 \end{array}\)</span> donc par théorème de transfert,</p>
 <p><span class="math display">\[\mathbb{E}(X^2) = \sum_{k=-n}^n k^2
 \mathbb{P}(X=k) =  \sum_{k=-n}^n k^2 \frac{1}{2n+1} =
 \frac{2}{2n+1}\sum_{k=1}^n k^2 = \frac{n(n+1)}{3}.\]</span></p>
+</details>
 </div>
 <h2 data-number="3.5"
 id="variance-et-écart-type-dune-variable-aléatoire"><span
@@ -2782,9 +2789,9 @@ individuelles de <span class="math inline">\(X\)</span> et <span
 class="math inline">\(Y\)</span> mais aussi de leur dépendance (via
 <span class="math inline">\(P_{k\ell} = \mathbb{P}((X=x_k)\cap
 (Y=y_\ell))\)</span>).</p>
-<div class="wex">
-<p><strong>Exercice</strong> — On considère une urne contenant des
-boules numérotées de <span class="math inline">\(1\)</span> à <span
+<div class="wexoc">
+<p>On considère une urne contenant des boules numérotées de <span
+class="math inline">\(1\)</span> à <span
 class="math inline">\(4\)</span>. On tire successivement deux boules
 dans l’une avec remise. On considère</p>
 <ul>
@@ -2800,9 +2807,9 @@ on le munit de <span class="math inline">\(\mathbb{P}\)</span> la loi
 uniforme sur <span class="math inline">\(\Omega\)</span>.</p>
 <p>Calculer la loi de <span class="math inline">\((X,Y)\)</span> puis
 celle de <span class="math inline">\((X,Z)\)</span>.</p>
-<p><strong>Corrigé</strong> — On a <span
-class="math inline">\(X(\Omega)= Y(\Omega)= Z(\Omega) = [\![ 1,
-4]\!]\)</span>.</p>
+<details><summary>Corrigé</summary>
+<p>On a <span class="math inline">\(X(\Omega)= Y(\Omega)= Z(\Omega) =
+[\![ 1, 4]\!]\)</span>.</p>
 <ul>
 <li><p>De plus, pour <span class="math inline">\(k, \ell\in [\![ 1,4
 ]\!]\)</span>, <span class="math display">\[\begin{aligned}
@@ -2856,6 +2863,7 @@ X \setminus Z &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; \text{Loi de }  X \\
 \hline
 \end{array}\]</span></p></li>
 </ul>
+</details>
 </div>
 <h2 data-number="4.5" id="loi-conditionnelle-de-y-sachant-xx"><span
 class="header-section-number">4.5</span> Loi conditionnelle de <span
@@ -3373,11 +3381,11 @@ document.addEventListener("DOMContentLoaded", function() {
         'wthm':'Théorème', 'wprop':'Proposition', 'wdefi':'Définition',
         'wlem':'Lemme', 'wcor':'Corollaire', 'wappli':'Application',
         'wrem':'Remarque', 'wrappel': 'Rappel', 'wex':'Exemple',
-        'wexs':'Exemples', 'wproof':'Preuve'
+        'wexs':'Exemples', 'wproof':'Preuve', 'wexoc':'Exercice','wcorrc':'Corrigé'
     };
 
     // Numérotation des environnements
-    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs, .wrappel,.wproof").forEach(el => {
+    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs,.wexoc,.wcorrc, .wrappel,.wproof").forEach(el => {
         if (el.tagName.toLowerCase() === "h1" && !el.closest("#TOC")) {
             secCount++;
             thmCount = 0;
@@ -3430,7 +3438,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             // Remplacement des \ref{type:id} à l'intérieur de \text{} en mode math
-            const refRegex = /\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g;
+            const refRegex = /\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\}/g;
 
             if (refRegex.test(text)) {
                 const nouveauTexte = text.replace(refRegex, (m, t, id) => {
@@ -3475,12 +3483,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Remplace les \eqref{...}
                 .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m)
                 // NOUVEAU : Remplace les \ref{...} classiques (souvent utilisés dans les \text{} de MathJax)
-                .replace(/\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g, (m, t, id) => {
+                .replace(/\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\}/g, (m, t, id) => {
                     let f = t + ":" + id;
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
                 })
                 // Remplace ta syntaxe personnalisée entre crochets [...]
-                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => {
+                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\]/g, (m, t, id) => {
                     let f = t + ":" + id;
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
                 });
@@ -3492,7 +3500,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
                  el.innerHTML = el.innerHTML 
                  .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m) 
-                 .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => { 
+                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\]/g, (m, t, id) => { 
                     let f = t + ":" + id; 
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m; }); } }); } 
 

@@ -1907,11 +1907,11 @@ class="math display">\[\enclose{roundedbox}{\forall x \in
 </div>
 <h1 data-number="5" id="quelques-exercices"><span
 class="header-section-number">5</span> Quelques exercices</h1>
-<p><strong>Exercice</strong> — Soit <span class="math inline">\(f : I
-\to \mathbb{R}\)</span> une fonction convexe avec <span
-class="math inline">\(I\)</span> non majoré (donc de la forme <span
-class="math inline">\([a,+\infty[\)</span>, <span
-class="math inline">\(]a,+\infty[\)</span> our <span
+<div class="wexoc">
+<p>Soit <span class="math inline">\(f : I \to \mathbb{R}\)</span> une
+fonction convexe avec <span class="math inline">\(I\)</span> non majoré
+(donc de la forme <span class="math inline">\([a,+\infty[\)</span>,
+<span class="math inline">\(]a,+\infty[\)</span> our <span
 class="math inline">\(\mathbb{R}\)</span>).</p>
 <ol>
 <li><p>Montrer que <span class="math inline">\(x \in I \cap
@@ -1924,7 +1924,7 @@ que <span class="math inline">\(x \in I \cap \mathbb{R}^{+\star}\mapsto
 class="math inline">\(\ell&#39; \in \overline{\mathbb{R}}\)</span> en
 <span class="math inline">\(+\infty\)</span>.</p></li>
 </ol>
-<p><strong>Corrigé</strong> —</p>
+<details><summary>Corrigé</summary>
 <ol>
 <li><p>Soit <span class="math inline">\(a \in I\)</span>, on sait par le
 3. de la proposition <a href="#prop:convexe_trois_pentes"
@@ -1966,14 +1966,16 @@ class="math inline">\(g\)</span> est croissante. Elle admet donc une
 limite dans <span class="math inline">\(\overline{\mathbb{R}}\)</span>
 en <span class="math inline">\(+\infty\)</span>.</p></li>
 </ol>
+</details>
+</div>
 <div class="wrem">
 <p>Donc dans le cas où <span class="math inline">\(\ell,
 \ell&#39;\)</span> sont finies, <span class="math inline">\(f\)</span>
 admet l’asymptote oblique <span class="math inline">\(y = \ell x
 +\ell&#39;\)</span> en <span class="math inline">\(+\infty\)</span>.</p>
 </div>
-<p><strong>Exercice</strong> — Soit <span class="math inline">\(p \in
-[1,+\infty[\)</span>.</p>
+<div class="wexoc">
+<p>Soit <span class="math inline">\(p \in [1,+\infty[\)</span>.</p>
 <ol>
 <li><p>Montrer que <span class="math inline">\(\begin{array}{lllll}
 f &amp; : &amp; \mathbb{R}^{+\star} &amp; \to &amp; \mathbb{R} \\
@@ -1989,7 +1991,7 @@ class="math display">\[\begin{array}{l}
 \left(\sum_{k=1}^n x_k^p\right)^{\frac{1}{p}}+\left(\sum_{k=1}^n
 y_k^p\right)^{\frac{1}{p}}\]</span></p></li>
 </ol>
-<p><strong>Corrigé</strong> —</p>
+<details><summary>Corrigé</summary>
 <ol>
 <li><p><span class="math inline">\(f\)</span> est dérivable sur <span
 class="math inline">\(\mathbb{R}^{+\star}\)</span> avec pour tout <span
@@ -2069,6 +2071,8 @@ class="math inline">\(x_1+\varepsilon,\ldots,x_n+\varepsilon &gt;
 \longrightarrow 0^+\)</span>, on a le résultat.</p></li>
 </ul></li>
 </ol>
+</details>
+</div>
 </body>
 </html>
 
@@ -2111,11 +2115,11 @@ document.addEventListener("DOMContentLoaded", function() {
         'wthm':'Théorème', 'wprop':'Proposition', 'wdefi':'Définition',
         'wlem':'Lemme', 'wcor':'Corollaire', 'wappli':'Application',
         'wrem':'Remarque', 'wrappel': 'Rappel', 'wex':'Exemple',
-        'wexs':'Exemples', 'wproof':'Preuve'
+        'wexs':'Exemples', 'wproof':'Preuve', 'wexoc':'Exercice','wcorrc':'Corrigé'
     };
 
     // Numérotation des environnements
-    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs, .wrappel,.wproof").forEach(el => {
+    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs,.wexoc,.wcorrc, .wrappel,.wproof").forEach(el => {
         if (el.tagName.toLowerCase() === "h1" && !el.closest("#TOC")) {
             secCount++;
             thmCount = 0;
@@ -2168,7 +2172,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             // Remplacement des \ref{type:id} à l'intérieur de \text{} en mode math
-            const refRegex = /\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g;
+            const refRegex = /\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\}/g;
 
             if (refRegex.test(text)) {
                 const nouveauTexte = text.replace(refRegex, (m, t, id) => {
@@ -2213,12 +2217,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Remplace les \eqref{...}
                 .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m)
                 // NOUVEAU : Remplace les \ref{...} classiques (souvent utilisés dans les \text{} de MathJax)
-                .replace(/\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g, (m, t, id) => {
+                .replace(/\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\}/g, (m, t, id) => {
                     let f = t + ":" + id;
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
                 })
                 // Remplace ta syntaxe personnalisée entre crochets [...]
-                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => {
+                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\]/g, (m, t, id) => {
                     let f = t + ":" + id;
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
                 });
@@ -2230,7 +2234,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
                  el.innerHTML = el.innerHTML 
                  .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m) 
-                 .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => { 
+                 .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\]/g, (m, t, id) => { 
                     let f = t + ":" + id; 
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m; }); } }); } 
 

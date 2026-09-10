@@ -907,13 +907,12 @@ class="math inline">\(\deg F = -n &lt; 0\)</span>.</p>
 <p>Donc <span class="math inline">\(F = \frac{1}{n}\sum_{k=0}^{n-1}
 \frac{1}{X-\omega_k}\)</span>.</p>
 </div>
-<div class="wappli">
-<p><strong>Exercice</strong> — Calculer une primitive de <span
-class="math inline">\(f: x \mapsto
+<div class="wexoc">
+<p>Calculer une primitive de <span class="math inline">\(f: x \mapsto
 \frac{x}{x^3+7x^2+8x-16}\)</span>.</p>
-<p><strong>Corrigé</strong> — Commençons par décomposer <span
-class="math inline">\(F =  \frac{X}{X^3+7X^2+8X+6}\)</span> en éléments
-simples.</p>
+<details><summary>Corrigé</summary>
+<p>Commençons par décomposer <span class="math inline">\(F
+=  \frac{X}{X^3+7X^2+8X+6}\)</span> en éléments simples.</p>
 <p>D’abord, la partie entière de <span class="math inline">\(F\)</span>
 vaut <span class="math inline">\(0\)</span> car <span
 class="math inline">\(\deg(F) = -2 &lt; 0\)</span>.</p>
@@ -960,6 +959,7 @@ sorte qu’un primitive de <span class="math inline">\(f\)</span> est</p>
 \mathbb{R}\setminus\left\{-4,1\right\} \mapsto
 \frac{1}{25}\ln\left|x-1\right| -\frac{1}{25}\ln \left|x+4\right| -
 \frac{4}{5(x+4)}.\]</span></p>
+</details>
 </div>
 <h2 data-number="2.4"
 id="décomposition-de-f-in-mathbbrx-si-le-dénominateur-nest-pas-scindé-dans-mathbbrx"><span
@@ -1135,13 +1135,12 @@ class="math inline">\(\lambda_1 = 0\)</span>.</p></li>
 <p><span class="math display">\[F = \frac{1}{2(X-1)^2} -
 \frac{1}{X^2+1}.\]</span></p>
 </div>
-<div class="wappli">
-<p><strong>Exercice</strong> — Déterminer une primitive de <span
-class="math inline">\(f : x \mapsto
+<div class="wexoc">
+<p>Déterminer une primitive de <span class="math inline">\(f : x \mapsto
 \frac{x}{(x-1)(x^2+1)^2}\)</span>.</p>
-<p><strong>Corrigé</strong> — Commençons par décomposer <span
-class="math inline">\(F =  \frac{X}{(X-1)(X^2+1)^2}\)</span> en éléments
-simples.</p>
+<details><summary>Corrigé</summary>
+<p>Commençons par décomposer <span class="math inline">\(F
+=  \frac{X}{(X-1)(X^2+1)^2}\)</span> en éléments simples.</p>
 <p>D’abord, la partie entière de <span class="math inline">\(F\)</span>
 vaut <span class="math inline">\(0\)</span> car <span
 class="math inline">\(\deg(F) = -3 &lt; 0\)</span>.</p>
@@ -1235,6 +1234,7 @@ primitive <span class="math display">\[x \in \mathbb{R}\setminus
 class="math display">\[x \in \mathbb{R}\setminus \left\{1\right\}
 \mapsto \frac{1}{4}\ln \left|x-1\right|
 -\frac{1}{8}\ln\left(x^2+1\right)+\frac{x+1}{4(x^2+1)}.\]</span></p>
+</details>
 </div>
 <h2 data-number="2.5" id="fraction-paire-ou-impaire"><span
 class="header-section-number">2.5</span> Fraction paire ou impaire</h2>
@@ -1256,11 +1256,12 @@ class="math inline">\(F(-X) = -F\)</span>.</p></li>
 </div>
 <p>Cela permet quelques simplifications parfois, comme illustré par
 l’exemple ci-dessous.</p>
-<div class="wex">
-<p><strong>Exercice</strong> — Calculer une primitive de <span
-class="math inline">\(f : x \mapsto \frac{1}{(x^3-x)^2}\)</span>.</p>
-<p><strong>Corrigé</strong> — On s’intéresse alors à <span
-class="math inline">\(F = \frac{1}{(X^3-X)^2} = \frac{1}{X^2(X^2-1)^2} =
+<div class="wexoc">
+<p>Calculer une primitive de <span class="math inline">\(f : x \mapsto
+\frac{1}{(x^3-x)^2}\)</span>.</p>
+<details><summary>Corrigé</summary>
+<p>On s’intéresse alors à <span class="math inline">\(F =
+\frac{1}{(X^3-X)^2} = \frac{1}{X^2(X^2-1)^2} =
 \frac{1}{X^2(X-1)^2(X+1)^2}\)</span>.</p>
 <p>D’abord, la partie entière de <span class="math inline">\(F\)</span>
 est nulle car <span class="math inline">\(\deg F = -6 &lt;
@@ -1313,6 +1314,7 @@ class="math inline">\(2\)</span>, on a</p>
 1\right\} \mapsto -\frac{1}{x} +\frac{3}{4}\ln \left|x-1\right| -
 \frac{1}{4(x-1)}-\frac{3}{4}\ln \left|x+1\right| -
 \frac{1}{4(x+1)}.\]</span></p>
+</details>
 </div>
 </body>
 </html>
@@ -1356,11 +1358,11 @@ document.addEventListener("DOMContentLoaded", function() {
         'wthm':'Théorème', 'wprop':'Proposition', 'wdefi':'Définition',
         'wlem':'Lemme', 'wcor':'Corollaire', 'wappli':'Application',
         'wrem':'Remarque', 'wrappel': 'Rappel', 'wex':'Exemple',
-        'wexs':'Exemples', 'wproof':'Preuve'
+        'wexs':'Exemples', 'wproof':'Preuve', 'wexoc':'Exercice','wcorrc':'Corrigé'
     };
 
     // Numérotation des environnements
-    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs, .wrappel,.wproof").forEach(el => {
+    document.querySelectorAll("h1, .wthm, .wprop, .wdefi, .wlem, .wcor, .wappli, .wrem, .wex,.wexs,.wexoc,.wcorrc, .wrappel,.wproof").forEach(el => {
         if (el.tagName.toLowerCase() === "h1" && !el.closest("#TOC")) {
             secCount++;
             thmCount = 0;
@@ -1413,7 +1415,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
 
             // Remplacement des \ref{type:id} à l'intérieur de \text{} en mode math
-            const refRegex = /\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g;
+            const refRegex = /\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\}/g;
 
             if (refRegex.test(text)) {
                 const nouveauTexte = text.replace(refRegex, (m, t, id) => {
@@ -1458,12 +1460,12 @@ document.addEventListener("DOMContentLoaded", function() {
                 // Remplace les \eqref{...}
                 .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m)
                 // NOUVEAU : Remplace les \ref{...} classiques (souvent utilisés dans les \text{} de MathJax)
-                .replace(/\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\}/g, (m, t, id) => {
+                .replace(/\\ref\{(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\}/g, (m, t, id) => {
                     let f = t + ":" + id;
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
                 })
                 // Remplace ta syntaxe personnalisée entre crochets [...]
-                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => {
+                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\]/g, (m, t, id) => {
                     let f = t + ":" + id;
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m;
                 });
@@ -1475,7 +1477,7 @@ document.addEventListener("DOMContentLoaded", function() {
             if (el.childNodes.length === 1 && el.childNodes[0].nodeType === Node.TEXT_NODE) {
                  el.innerHTML = el.innerHTML 
                  .replace(/\\eqref\{(.*?)\}/g, (m, id) => labels[id] ? `<a href="#${id}">(${labels[id].num})</a>` : m) 
-                 .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs):(.*?)\]/g, (m, t, id) => { 
+                .replace(/\[(prop|thm|def|cor|lem|appli|rem|rappel|ex|exs|exoc|corrc):(.*?)\]/g, (m, t, id) => { 
                     let f = t + ":" + id; 
                     return labels[f] ? `<a href="#${f}" class="ref-${t}">${labels[f].num}</a>` : m; }); } }); } 
 
