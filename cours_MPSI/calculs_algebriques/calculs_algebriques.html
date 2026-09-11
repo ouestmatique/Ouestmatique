@@ -1014,41 +1014,34 @@ a^3b^1&amp;{\color{blue}6 }a^2b^2&amp;{\color{blue}4
 </div>
 <div class="wexoc">
 <p>Soit <span class="math inline">\(n \in \mathbb{N}^\star\)</span>, on
-considère les entiers <span class="math inline">\(\binom{n}{2k}\)</span>
-si <span class="math inline">\(2k \leq n\iff k \leq \frac{n}{2}\)</span>
-donc <span class="math inline">\(k \in
-[\![0,\left\lfloor\frac{n}{2}\right\rfloor]\!]\)</span> et de même <span
-class="math inline">\(\binom{n}{2k+1}\)</span> pour <span
-class="math inline">\(k \in
-[\![0,\left\lfloor\frac{n-1}{2}\right\rfloor]\!]\)</span>.</p>
+considère les entiers <span
+class="math inline">\(\binom{2n}{2k}\)</span> si <span
+class="math inline">\(2k \leq 2n\iff k \leq n\)</span> donc <span
+class="math inline">\(k \in [\![ 0,n ]\!]\)</span> et de même <span
+class="math inline">\(\binom{2n}{2k+1}\)</span> pour <span
+class="math inline">\(k \in [\![ 0, n-1]\!]\)</span>.</p>
 <p>Calculer <span
-class="math inline">\(\displaystyle\sum_{k=0}^{\left\lfloor\frac{n}{2}\right\rfloor}\binom{n}{2k}\)</span>
+class="math inline">\(\displaystyle\sum_{k=0}^{n}\binom{2n}{2k}\)</span>
 et <span
-class="math inline">\(\displaystyle\sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\binom{n}{2k+1}\)</span>.</p>
+class="math inline">\(\displaystyle\sum_{k=0}^{n-1}\binom{2n}{2k+1}\)</span>.</p>
 <details><summary>Corrigé</summary>
 <p>Avec <span class="math inline">\(a=-1,b=1\)</span>, <span
 class="math display">\[\begin{aligned}
-    0
-    &amp; = \sum_{p=0}^n\binom{n}{p}(-1)^p \\
-    &amp; =
-\sum_{k=0}^{\left\lfloor\frac{n}{2}\right\rfloor}\binom{n}{2k}(-1)^{2k}
-+
-\sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\binom{n}{2k+1}(-1)^{2k+1}
-\\
-    &amp; =
-\sum_{k=0}^{\left\lfloor\frac{n}{2}\right\rfloor}\binom{n}{2k}-
-\sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\binom{n}{2k+1}
+    0 = (1-1)^{2n}
+    &amp; = \sum_{p=0}^{2n}\binom{2n}{p}(-1)^p \\
+    &amp; = \sum_{k=0}^{n}\binom{2n}{2k}(-1)^{2k} +
+\sum_{k=0}^{n-1}\binom{2n}{2k+1}(-1)^{2k+1} \\
+    &amp; = \sum_{k=0}^{n}\binom{2n}{2k}-
+\sum_{k=0}^{n-1}\binom{2n}{2k+1}
 \end{aligned}\]</span> Donc <span class="math inline">\(\displaystyle
-\sum_{k=0}^{\left\lfloor\frac{n}{2}\right\rfloor}\binom{n}{2k}
-=  \sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\binom{n}{2k+1}\)</span>.<br />
-De plus, <span
-class="math inline">\(\sum_{k=0}^{\left\lfloor\frac{n}{2}\right\rfloor}\binom{n}{2k}
-+ \sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\binom{n}{2k+1} =
-\sum_{p=0}^n\binom{n}{p} = 2^n\)</span>.<br />
+\sum_{k=0}^{n}\binom{2n}{2k}
+=  \sum_{k=0}^{n-1}\binom{2n}{2k+1}\)</span>.<br />
+De plus, <span class="math inline">\(\sum_{k=0}^{n}\binom{2n}{2k} +
+\sum_{k=0}^{n-1}\binom{2n}{2k+1} = \sum_{p=0}^{2n}\binom{2n}{p}
+=(1+1)^{2n}= 2^{2n}\)</span>.<br />
 Donc <span class="math inline">\(\displaystyle
-\sum_{k=0}^{\left\lfloor\frac{n}{2}\right\rfloor}\binom{n}{2k}
-=  \sum_{k=0}^{\left\lfloor\frac{n-1}{2}\right\rfloor}\binom{n}{2k+1}
-=\frac{2^n}{2} =2^{n-1}\)</span>.</p>
+\sum_{k=0}^{n}\binom{2n}{2k} =  \sum_{k=0}^{n-1}\binom{2n}{2k+1}
+=\frac{2^{2n}}{2} =2^{2n-1}\)</span>.</p>
 </details>
 </div>
 <h2 data-number="3.4"
