@@ -4760,21 +4760,20 @@ class="math inline">\(y_n \in B(a,r).\)</span></p>
 </div>
 <div class="wprop">
 <p>Soit <span class="math inline">\((E,\left\|\cdot\right\|)\)</span> un
-espace vectoriel normé, alors <span
-class="math inline">\(\quad\)</span></p>
-<ul>
+espace vectoriel normé, alors</p>
+<ol>
 <li><p>toute partie finie de <span class="math inline">\(E\)</span> est
 un fermé de <span class="math inline">\(E.\)</span></p></li>
-</ul>
+</ol>
 </div>
 <div class="wproof">
 <p><span class="math inline">\(\quad\)</span></p>
-<ul>
+<ol>
 <li><p>Soit <span class="math inline">\(a \in E\)</span>, la seule suite
 de <span class="math inline">\(\left\{a\right\}\)</span> est la suite
 constante égale à <span class="math inline">\(a\)</span> qui tend vers
 <span class="math inline">\(a \in \left\{a\right\}.\)</span></p></li>
-</ul>
+</ol>
 </div>
 <div class="wexoc">
 <p>Soient <span class="math inline">\((E,\left\|\cdot\right\|)\)</span>
@@ -4782,17 +4781,18 @@ et <span class="math inline">\(\left(x_n\right)\)</span> une suite de
 <span class="math inline">\(E.\)</span> On pose <span
 class="math inline">\(V = \left\{\text{valeurs d&#39;adhérence de
 $\left(x_n\right)$}\right\}.\)</span></p>
-<ul>
+<ol>
 <li><p>Montrer que <span class="math inline">\(V\)</span> est une partie
 fermée de <span class="math inline">\(E.\)</span></p></li>
 <li><p>Pour <span class="math inline">\(N \in \mathbb{N}\)</span>, on
 pose <span class="math inline">\(X_N = \left\{x_n / n \geq
 N\right\}.\)</span> Montrer que <span class="math inline">\(V =
-\bigcap_{n \geq 0} \overline{X_N}.\)</span></p></li>
-</ul>
+\bigcap_{N \geq 0} \overline{X_N}.\)</span></p></li>
+</ol>
 <details><summary>Corrigé</summary>
-<p>Soit <span class="math inline">\(\varepsilon &gt; 0\)</span> et <span
-class="math inline">\(N \geq 0.\)</span></p>
+<ol>
+<li><p>Soit <span class="math inline">\(\varepsilon &gt; 0\)</span> et
+<span class="math inline">\(N \geq 0.\)</span></p>
 <p>Soit <span class="math inline">\(x \in \overline{V}\)</span>, il
 existe <span class="math inline">\(\ell \in V\)</span> tel que <span
 class="math inline">\(\left\|x-\ell\right\| \leq
@@ -4809,20 +4809,21 @@ donc <span class="math inline">\(x\)</span> est valeur d’adhérence de
 <span class="math inline">\(\left(x_n\right)\)</span> et <span
 class="math inline">\(x \in V.\)</span></p>
 <p>Donc <span class="math inline">\(\overline{V} = V\)</span> est un
-fermé de <span class="math inline">\(E.\)</span></p>
-<p>Soit <span class="math inline">\(x \in E\)</span>, <span
+fermé de <span class="math inline">\(E.\)</span></p></li>
+<li><p>Soit <span class="math inline">\(x \in E\)</span>, <span
 class="math display">\[\begin{aligned}
-                x \in \bigcap_{n \geq 0} \overline{X_N}
+                x \in \bigcap_{N \geq 0} \overline{X_N}
                 &amp; \iff \forall N \geq 0, x\in \overline{X_N} \\
                 &amp; \iff \forall N \geq 0, \forall \varepsilon &gt;
-0,n{X_N} \cap \overline{B}(x,\varepsilon) \neq \emptyset \\
+0,{X_N} \cap \overline{B}(x,\varepsilon) \neq \emptyset \\
                 &amp; \iff \forall N \geq 0, \forall \varepsilon &gt; 0,
 \exists n \geq N \text{ tel que }x_n \in \overline{B}(x,\varepsilon) \\
                 &amp; \iff  \forall N \geq 0, \forall \varepsilon &gt;
 0, \exists n \geq N \text{ tel que }\left\|x_n-x\right\|\leq \varepsilon
 \\
                 &amp; \iff x \in V.
-            \end{aligned}\]</span></p>
+            \end{aligned}\]</span></p></li>
+</ol>
 </details>
 </div>
 <div class="wdefi">
@@ -4848,11 +4849,13 @@ class="math inline">\(\overline{A} = E.\)</span></p></li>
 class="math inline">\(n \in \mathbb{N}\)</span>, il existe <span
 class="math inline">\(p_n \in \mathbb{Z}\)</span> unique tel que <span
 class="math inline">\(\frac{p_n}{10^n} \leq x &lt;
-\frac{p_n}{10^n}+\frac{1}{10^n}.\)</span> Pour rappel, <span
-class="math inline">\(\frac{p_n}{10^n}\)</span> est appelée la valeur
-décimale approchée de <span class="math inline">\(x\)</span> par défaut
-à <span class="math inline">\(\frac{1}{10^n}.\)</span> Par exemple pour
-<span class="math inline">\(x=\pi\)</span>, <span
+\frac{p_n}{10^n}+\frac{1}{10^n}\)</span> en prenant <span
+class="math inline">\(p_n = \lfloor  10^n x\rfloor\)</span>. Pour
+rappel, <span class="math inline">\(\frac{p_n}{10^n}\)</span> est
+appelée la valeur décimale approchée de <span
+class="math inline">\(x\)</span> par défaut à <span
+class="math inline">\(\frac{1}{10^n}.\)</span> Par exemple pour <span
+class="math inline">\(x=\pi\)</span>, <span
 class="math inline">\(\frac{p_1}{10^1} = 3,1\)</span>, <span
 class="math inline">\(\frac{p_2}{10^2} = 3,14\)</span>,<span
 class="math inline">\(\ldots.\)</span></p>
@@ -4861,8 +4864,8 @@ class="math inline">\(\ldots.\)</span></p>
 class="math inline">\(\left|x-\frac{p_n}{10^n}\right| &lt;
 \frac{1}{10^n}\xrightarrow[n \to +\infty]{}0\)</span> donc <span
 class="math inline">\(\left(\frac{p_n}{10^n}\right)\)</span> est une
-suite de <span class="math inline">\(Q\)</span> qui tend vers <span
-class="math inline">\(x.\)</span></p>
+suite de <span class="math inline">\(\mathbb{Q}\)</span> qui tend vers
+<span class="math inline">\(x.\)</span></p>
 </div></li>
 <li><p><span
 class="math inline">\(\mathbb{R}\setminus\mathbb{Q}\)</span> est dense
@@ -4873,13 +4876,13 @@ dans <span class="math inline">\(\mathbb{R}\)</span></p>
 class="math inline">\(\mathbb{R}\)</span>, il existe <span
 class="math inline">\(\left(q_n\right)\)</span> suite de <span
 class="math inline">\(\mathbb{Q}\)</span> telle que <span
-class="math inline">\(q_n \xrightarrow[n \to +\infty]{}
+class="math inline">\(q_n \xrightarrow[n \to +\infty]{} x
 \mathbb{R}.\)</span></p>
 <p>Alors, pour <span class="math inline">\(n \in \mathbb{N}\)</span>,
 <span class="math inline">\(x_n = q_n +\frac{\pi}{n+1} \notin
 \mathbb{Q}\)</span> (car sinon on aurait <span class="math inline">\(\pi
 = (n+1)(x_n-q_n) \in \mathbb{Q}\)</span>) et <span
-class="math inline">\(x_n= \xrightarrow[n \to +\infty]{} x.\)</span></p>
+class="math inline">\(x_n \xrightarrow[n \to +\infty]{} x.\)</span></p>
 <p>Donc <span class="math inline">\(\left(x_n\right)\)</span> est une
 suite de <span
 class="math inline">\(\mathbb{R}\setminus\mathbb{Q}\)</span> qui tend
@@ -4920,7 +4923,7 @@ considérant <span class="math inline">\(u \in E \setminus F\)</span>, on
 a pour <span class="math inline">\(n \in \mathbb{N}^{\star}\)</span>,
 <span class="math inline">\(x_n = x+\frac{1}{n}u \in E \setminus
 F\)</span> (car sinon on aurait <span class="math inline">\(u=n(x_n-x)
-\in F\)</span> et <span class="math inline">\(x_n \xrightarrow[n \to
+\in F\)</span>) et <span class="math inline">\(x_n \xrightarrow[n \to
 +\infty]{} x \in \overline{E \setminus F}.\)</span></p></li>
 </ul>
 </details>
