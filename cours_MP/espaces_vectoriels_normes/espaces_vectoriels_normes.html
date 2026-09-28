@@ -4760,20 +4760,12 @@ class="math inline">\(y_n \in B(a,r).\)</span></p>
 </div>
 <div class="wprop">
 <p>Soit <span class="math inline">\((E,\left\|\cdot\right\|)\)</span> un
-espace vectoriel normé, alors</p>
-<ol>
-<li><p>toute partie finie de <span class="math inline">\(E\)</span> est
-un fermé de <span class="math inline">\(E.\)</span></p></li>
-</ol>
+espace vectoriel normé, alors toute partie finie de <span
+class="math inline">\(E\)</span> est un fermé de <span
+class="math inline">\(E.\)</span></p>
 </div>
 <div class="wproof">
-<p><span class="math inline">\(\quad\)</span></p>
-<ol>
-<li><p>Soit <span class="math inline">\(a \in E\)</span>, la seule suite
-de <span class="math inline">\(\left\{a\right\}\)</span> est la suite
-constante égale à <span class="math inline">\(a\)</span> qui tend vers
-<span class="math inline">\(a \in \left\{a\right\}.\)</span></p></li>
-</ol>
+
 </div>
 <div class="wexoc">
 <p>Soient <span class="math inline">\((E,\left\|\cdot\right\|)\)</span>
@@ -4952,8 +4944,8 @@ considérer <span class="math inline">\(k = \lfloor 2^n x
 0\)</span> et <span class="math inline">\(k \leq 2^n x \leq
 2^n.\)</span></p>
 <p>Alors, <span class="math inline">\(\frac{k}{2^n} \in A\)</span> et
-<span class="math inline">\(\left|x-\frac{k}{2^n}\right| = \frac{1}{2^n}
-\leq \varepsilon.\)</span></p>
+<span class="math inline">\(\left|x-\frac{k}{2^n}\right| \leq
+\frac{1}{2^n} \leq \varepsilon.\)</span></p>
 <p>Donc <span class="math inline">\(x \in \overline{A}.\)</span></p>
 </details>
 </div>
@@ -4998,7 +4990,7 @@ class="math inline">\(\mathbb{Q}\)</span>).</p>
 <span class="math inline">\(G=a\mathbb{Z}\)</span> (et dans ce cas <span
 class="math inline">\(\overline{G}=G\)</span>).</p></li>
 </ul></li>
-<li><p>Soient <span class="math inline">\(a,b
+<li><p>Soient <span class="math inline">\(a,b \in
 \mathbb{R}^{\star}\)</span> tels que <span
 class="math inline">\(\frac{a}{b} \notin \mathbb{Q}\)</span>, montrer
 que <span class="math inline">\(G = a\mathbb{Z}+b\mathbb{Z}=
@@ -5031,7 +5023,7 @@ class="math inline">\(\inf G \cap \mathbb{R}^{+\star}= 0\)</span>).</p>
 &lt;(k+1)g\)</span>, ce qui revient à considérer <span
 class="math inline">\(k = \left\lfloor
 \frac{x}{g}\right\rfloor.\)</span></p>
-<p>On a alors <span class="math inline">\(\left|x-kg\right| = g &lt;
+<p>On a alors <span class="math inline">\(\left|x-kg\right| \leq g &lt;
 \varepsilon\)</span> et <span class="math inline">\(kg =
 \underbrace{g+\ldots+g}_{k \text{ fois}} \in G\)</span> (car <span
 class="math inline">\(G\)</span> est un groupe) donc <span
@@ -5150,7 +5142,7 @@ class="math inline">\(\pm \infty\)</span></h2>
 <p>Soit <span class="math inline">\(A \subset \mathbb{R}\)</span>,</p>
 <ul>
 <li><p>on dit que <span class="math inline">\(A\)</span> est un
-voisinage de <span class="math inline">\(-\infty\)</span> s’il existe
+voisinage de <span class="math inline">\(+\infty\)</span> s’il existe
 <span class="math inline">\(\alpha \in \mathbb{R}\)</span> tel que <span
 class="math inline">\(A \supset [\alpha,+\infty[\)</span>,</p></li>
 <li><p>on dit que <span class="math inline">\(A\)</span> est un
@@ -5525,7 +5517,7 @@ class="math inline">\(M \in \mathbb{R}^{+}\)</span> tels que pour tout
 \mathcal{V}(a)\)</span> tel que pour tout <span class="math inline">\(x
 \in W \cap A, f(x) \in \overline{B}(\ell,1).\)</span></p>
 <p>On a donc pour tout <span class="math inline">\(x \in W \cap A,
-N(f(x)-\ell) \leq 1 \Longleftarrow N(f(x)) = N(f(x)-\ell+\ell) \leq
+N(f(x)-\ell) \leq 1 \Longrightarrow N(f(x)) = N(f(x)-\ell+\ell) \leq
 1+N(\ell).\)</span></p>
 </div>
 <div class="wprop">
@@ -5584,7 +5576,7 @@ class="math inline">\(x_n \xrightarrow[n \to +\infty]{}
         a &amp; \mbox{ si $a \neq \pm \infty$,} \\
         +\infty &amp; \mbox{ si $a = +\infty$,} \\
         -\infty &amp; \mbox{ si $a = -\infty$} \\
-        \end{array}\right. = a\)</span> et <span
+        \end{array}\right.\)</span> et <span
 class="math inline">\(f(x_n) \centernot{\xrightarrow[n \to +\infty]{}}
 \ell.\)</span></p></li>
 </ul>
@@ -5718,11 +5710,12 @@ class="math inline">\(\ell \leq \ell&#39;.\)</span></p>
 <p>Soient <span class="math inline">\(f,g,h \in
 \mathscr{F}(A,\mathbb{R})\)</span> telles que <span
 class="math inline">\(f(x) \xrightarrow[x \to a]{} \ell \in
-\mathbb{R}\)</span> et <span class="math inline">\(h(x) \xrightarrow[x
-\to a]{} \ell.\)</span> On suppose que <span class="math inline">\(f(x)
-\leq g(x) \leq h(x)\)</span> au voisinage de <span
-class="math inline">\(a.\)</span> Alors <span class="math inline">\(g(x)
-\xrightarrow[x \to a]{} \ell \in \mathbb{R}.\)</span></p>
+\overline{\mathbb{R}}\)</span> et <span class="math inline">\(h(x)
+\xrightarrow[x \to a]{} \ell \in \overline{\mathbb{R}}.\)</span> On
+suppose que <span class="math inline">\(f(x) \leq g(x) \leq
+h(x)\)</span> au voisinage de <span class="math inline">\(a.\)</span>
+Alors <span class="math inline">\(g(x) \xrightarrow[x \to a]{} \ell \in
+\mathbb{R}.\)</span></p>
 </div>
 <div class="wrappel">
 <p><strong>(Théorème de la limite monotone)</strong> Soit <span
@@ -6084,8 +6077,8 @@ f_n &amp; : &amp; [a,b] &amp; \to &amp; \mathbb{R} \\
 \end{array}\)</span>, on a pour <span class="math inline">\(n \in
 \mathbb{N}^{\star}\)</span>, <span
 class="math inline">\(\left\|f_n\right\|_\infty = (b-a)^n\)</span> car
-<span class="math inline">\(f_n(t) \leq f(b)\)</span> pour tout <span
-class="math inline">\(t \in [0,1]\)</span> et <span
+<span class="math inline">\(0\leq f_n(t) \leq f(b)\)</span> pour tout
+<span class="math inline">\(t \in [a,b]\)</span> et <span
 class="math inline">\(\left\|f_n\right\|_1 = \int_a^b (t-a)^{n}dt =
 \left[\frac{1}{n+1}(t-a)^{n+1}\right] =
 \frac{1}{n+1}(b-a)^{n+1}.\)</span></p>
@@ -6108,7 +6101,7 @@ f_n &amp; : &amp; [a,b] &amp; \to &amp; \mathbb{R} \\
 \mathbb{N}^{\star}\)</span>, <span
 class="math inline">\(\left\|f_n\right\|_\infty = (b-a)^n\)</span> car
 <span class="math inline">\(f_n(t) \leq f(b)\)</span> pour tout <span
-class="math inline">\(t \in [0,1]\)</span> et <span
+class="math inline">\(t \in [a,b]\)</span> et <span
 class="math inline">\(\left\|f_n\right\|_2^2 = \int_a^b (t-a)^{2n}dt =
 \left[\frac{1}{2n+1}(t-a)^{2n+1}\right] =
 \frac{1}{2n+1}(b-a)^{2n+1}\)</span> puis <span
@@ -6178,9 +6171,9 @@ class="math inline">\(\iff\)</span> <span
 class="math inline">\(A\)</span> est bornée pour <span
 class="math inline">\(N_1\)</span>,</p></li>
 <li><p><span class="math inline">\(A\)</span> est un voisinage de <span
-class="math inline">\(x\)</span> <span
+class="math inline">\(x\)</span> pour <span
+class="math inline">\(N_1\)</span> <span
 class="math inline">\(\iff\)</span> <span
-class="math inline">\(N_1\)</span> alors <span
 class="math inline">\(A\)</span> est un voisinage de <span
 class="math inline">\(x\)</span> pour <span
 class="math inline">\(N_2\)</span>,</p></li>
@@ -6279,7 +6272,7 @@ class="math inline">\(x_n \xrightarrow[n \to
 +\infty]{\left\|\cdot\right\|} a\)</span> alors <span
 class="math display">\[\begin{aligned}
         f(x_n) \xrightarrow[x \to a]{\left\|\cdot\right\|_\infty} \ell
-        &amp; \iff \forall 1 \leq j \leq p, f_j(x) \xrightarrow[x \to
+        &amp; \iff \forall 1 \leq j \leq p, f_j(x_n) \xrightarrow[x \to
 a]{N_j} \ell_j.
     \end{aligned}\]</span> Donc par caractérisation séquentielle de la
 limite d’une fonction, on a bien l’équivalence souhaitée.</p>
@@ -6446,9 +6439,8 @@ class="math display">\[\forall x\in B,\quad \exists r&gt;0,\quad
 class="math inline">\((A,d_A)\)</span></em> si <span
 class="math inline">\(A\setminus B\)</span> est ouvert dans <span
 class="math inline">\((A,d_A)\)</span> ou de façon équivalente, <span
-class="math display">\[\forall x\in A\setminus B,\quad \exists
-r&gt;0,\quad
-\overline{B}_A(x,r)\cap B=\emptyset.\]</span></p></li>
+class="math display">\[\forall x\in B, \forall\varepsilon &gt;0,\quad
+\overline{B}_A(x,\varepsilon)\cap B \neq\emptyset.\]</span></p></li>
 </ul>
 <p>Les voisinages, ouverts, fermés de <span
 class="math inline">\((A,d_A)\)</span> sont appelés voisinages relatifs
