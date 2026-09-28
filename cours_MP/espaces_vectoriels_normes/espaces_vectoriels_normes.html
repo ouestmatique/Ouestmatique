@@ -2954,10 +2954,12 @@ Pour <span class="math inline">\(n \in \mathbb{N}\)</span>,</p>
         \end{aligned}\]</span></p>
 </div>
 <div class="wprop">
-<p>Soient <span class="math inline">\((E,\langle \cdot, \cdot
-\rangle)\)</span> un espace préhilbertien (normé par sa norme
-préhilbertienne), <span class="math inline">\(\left(u_n\right)\)</span>
-une suite de <span class="math inline">\(E\)</span> telle que <span
+<p><span id="prop:limite_suite_produit_scalaire"
+label="prop:limite_suite_produit_scalaire"></span> Soient <span
+class="math inline">\((E,\langle \cdot, \cdot \rangle)\)</span> un
+espace préhilbertien (normé par sa norme préhilbertienne), <span
+class="math inline">\(\left(u_n\right)\)</span> une suite de <span
+class="math inline">\(E\)</span> telle que <span
 class="math inline">\(u_n \xrightarrow[n \to +\infty]{} \ell \in
 E\)</span> et <span class="math inline">\(\left(v_n\right)\)</span> une
 suite de <span class="math inline">\(E\)</span> telle que <span
@@ -4767,9 +4769,6 @@ class="math inline">\(E.\)</span></p>
 <div class="wproof">
 
 </div>
-<div class="wproof">
-<p>blabblaba</p>
-</div>
 <div class="wexoc">
 <p>Soient <span class="math inline">\((E,\left\|\cdot\right\|)\)</span>
 et <span class="math inline">\(\left(x_n\right)\)</span> une suite de
@@ -5585,8 +5584,10 @@ class="math inline">\(f(x_n) \centernot{\xrightarrow[n \to +\infty]{}}
 </ul>
 </div>
 <div class="wprop">
-<p>Soient <span class="math inline">\((E,\left\|\cdot\right\|)\)</span>,
-<span class="math inline">\((F,N(\cdot))\)</span>, <span
+<p><span id="prop:limites_fonctions_composition"
+label="prop:limites_fonctions_composition"></span> Soient <span
+class="math inline">\((E,\left\|\cdot\right\|)\)</span>, <span
+class="math inline">\((F,N(\cdot))\)</span>, <span
 class="math inline">\((G,N&#39;(\cdot))\)</span> trois espaces
 vectoriels normés.</p>
 <p>Soient <span class="math inline">\(A \subset E\)</span> tel que <span
@@ -5613,10 +5614,12 @@ f\right)(x_n) = g(f(x_n)) \xrightarrow[n \to +\infty]{}
 f\right)(x) \xrightarrow[x \to a]{} \ell&#39;.\)</span></p>
 </div>
 <div class="wprop">
-<p>Soient <span class="math inline">\((E,\left\|\cdot\right\|)\)</span>,
-<span class="math inline">\((F,N(\cdot))\)</span> deux espaces
-vectoriels normés, <span class="math inline">\(A \subset E\)</span> tel
-que <span class="math inline">\(A \neq \emptyset\)</span>, <span
+<p><span id="prop:limites_fonctions"
+label="prop:limites_fonctions"></span> Soient <span
+class="math inline">\((E,\left\|\cdot\right\|)\)</span>, <span
+class="math inline">\((F,N(\cdot))\)</span> deux espaces vectoriels
+normés, <span class="math inline">\(A \subset E\)</span> tel que <span
+class="math inline">\(A \neq \emptyset\)</span>, <span
 class="math inline">\(f : A \to F\)</span> telle que <span
 class="math inline">\(f(x) \xrightarrow[x \to a]{} \ell\)</span> et
 <span class="math inline">\(g : A \to F\)</span> telle que <span
@@ -6211,7 +6214,8 @@ class="math inline">\(N_2.\)</span></p></li>
 class="header-section-number">2.8</span> Espace vectoriel normé
 produit</h2>
 <div class="wprop">
-<p>Soient <span
+<p><span id="prop:limites_fonctions_evn_produit"
+label="prop:limites_fonctions_evn_produit"></span> Soient <span
 class="math inline">\((E_1,N_1),\ldots,(E_p,N_p)\)</span> des espaces
 vectoriels normés et <span
 class="math inline">\(\left\|\cdot\right\|_\infty\)</span> la norme sur
@@ -6771,7 +6775,7 @@ Par exemple, pour <span class="math inline">\(f \in
 \mathop{\mathrm{Lip}}(A,F)\)</span> quelconque, <span
 class="math inline">\(g = -f\)</span> et <span
 class="math inline">\(\lambda = \mu = 1\)</span>, on a <span
-class="math inline">\(k(f+g) = f(0) = 0\)</span> mais <span
+class="math inline">\(k(f+g) = k(0) = 0\)</span> mais <span
 class="math inline">\(\left|\lambda\right|k\left(f\right)+\left|\mu\right|k\left(g\right)
 = \left|1\right|k\left(f\right)+\left|1\right|k\left(-f\right) =
 2k(f).\)</span></p></li>
@@ -6781,7 +6785,7 @@ par la proposition <a href="#prop:lipschitz_combinaisons_lineaires"
 data-reference-type="ref"
 data-reference="prop:lipschitz_combinaisons_lineaires">[prop:lipschitz_combinaisons_lineaires]</a>.
 De plus, <span class="math inline">\(f \in \mathop{\mathrm{Lip}}(A,F)
-\mapsto k(f) \in \mathbb{R}^{+}\)</span> est une semi-normesur <span
+\mapsto k(f) \in \mathbb{R}^{+}\)</span> est une semi-norme sur <span
 class="math inline">\(\mathop{\mathrm{Lip}}(A,F).\)</span> En revanche,
 soit <span class="math inline">\(a \in A\)</span>, <span
 class="math inline">\(f \in \mathop{\mathrm{Lip}}(A,F) \mapsto k(f)
@@ -6938,7 +6942,7 @@ class="math inline">\(f \in \mathop{\mathrm{Lip}}(I,\mathbb{C})\)</span>
 et <span class="math inline">\(k(f) \leq
 \left\|f&#39;\right\|_\infty.\)</span></p>
 <div class="wrem">
-<p>PL’inégalité des accroissements finis est valable pour une fonction à
+<p>L’inégalité des accroissements finis est valable pour une fonction à
 valeurs complexes en écrivant <span class="math inline">\(f(y)-f(x) =
 \int_x^y f&#39;(t)dt\)</span> (on reprécisera plus tard dans les
 chapitres la notion d’intégrale d’une fonction à valeurs complexes).</p>
@@ -7028,11 +7032,10 @@ class="math display">\[\left|\left\|y-b\right\|-\left\|x-b\right\|\right|
 triangulaire, <span class="math display">\[\left\|x-a\right\| =
 \left\|x-y+y-a\right\| \leq
 \left\|x-y\right\|+\left\|y-a\right\|.\]</span> On a donc <span
-class="math display">\[d(x,A) = \inf_{a\in A}\left\|x-a\right\| =
-\left\|x-y+y-a\right\| \leq \left\|x-y\right\|+\inf_{a\in
-A}\left\|y-a\right\| = =\left\|x-y\right\| + d(y,A).\]</span> Cela donne
-<span class="math display">\[d(x,A)-d(y,A) \leq
-\left\|x-y\right\|.\]</span> En échangeant le rôle de <span
+class="math display">\[d(x,A) = \inf_{a\in A}\left\|x-a\right\|  \leq
+\left\|x-y\right\|+\inf_{a\in A}\left\|y-a\right\| =\left\|x-y\right\| +
+d(y,A).\]</span> Cela donne <span class="math display">\[d(x,A)-d(y,A)
+\leq \left\|x-y\right\|.\]</span> En échangeant le rôle de <span
 class="math inline">\(x\)</span> et <span
 class="math inline">\(y\)</span>, on a aussi <span
 class="math inline">\(d(y,A)-d(x,A) \leq \left\|x-y\right\|\)</span> et
@@ -7101,7 +7104,7 @@ y\)</span> est 1-lipschitzienne,</p></li>
 </ul>
 <p>On en déduit donc que <span class="math inline">\((x,y) \in
 \mathbb{R}^2 \mapsto \max(x,y) = \frac{x+y+\left|x-y\right|}{2}\)</span>
-est 2-lipschitzienne.</p>
+est 2-lipschitzienne par combinaison linéaire.</p>
 </details>
 </div>
 <h2 data-number="3.2" id="continuité-1"><span
@@ -7199,7 +7202,10 @@ class="math inline">\(a.\)</span></p></li>
 class="math inline">\(g\)</span> sont continues en <span
 class="math inline">\(a\)</span>, on a <span class="math inline">\(f(x)
 \xrightarrow[x \to a]{} f(a)\)</span> et <span
-class="math inline">\(g(x) \xrightarrow[x \to a]{} g(a).\)</span></p>
+class="math inline">\(g(x) \xrightarrow[x \to a]{} g(a).\)</span>
+D’après les propriétés déjà connues des limites (voir proposition <a
+href="#prop:limites_fonctions" data-reference-type="ref"
+data-reference="prop:limites_fonctions">[prop:limites_fonctions]</a>),</p>
 <ul>
 <li><p>On en déduit alors <span class="math inline">\(\lambda f(x)+ \mu
 g(x) \xrightarrow[x \to a]{} \lambda f(a) +\mu g(a).\)</span></p></li>
@@ -7232,13 +7238,17 @@ class="math inline">\(g\circ f\)</span> est continue en <span
 class="math inline">\(a.\)</span></p>
 </div>
 <div class="wproof">
-<p>Comme déjà vu pour les limites, si <span class="math inline">\(f(x)
-\xrightarrow[x \to a]{} f(a)\)</span>, on a <span
-class="math inline">\(g(f(x)) \xrightarrow[x \to a]{}
-g(f(a)).\)</span></p>
+<p>Comme déjà vu pour les limites (voir proposition <a
+href="#prop:limites_fonctions_composition" data-reference-type="ref"
+data-reference="prop:limites_fonctions_composition">[prop:limites_fonctions_composition]</a>),
+si <span class="math inline">\(f(x) \xrightarrow[x \to a]{}
+f(a)\)</span>, on a <span class="math inline">\(g(f(x)) \xrightarrow[x
+\to a]{} g(f(a)).\)</span></p>
 </div>
 <div class="wprop">
-<p>Soient <span class="math inline">\((F,\left\|\cdot\right\|),
+<p><span id="prop:continuite_evn_produit"
+label="prop:continuite_evn_produit"></span> Soient <span
+class="math inline">\((F,\left\|\cdot\right\|),
 (E_1,N_1),\ldots,(E_p,N_p)\)</span> des espaces vectoriels normés, <span
 class="math inline">\(\left\|\cdot\right\|_\infty\)</span> la norme sur
 <span class="math inline">\(E_1 \times \ldots \times E_p\)</span>
@@ -7256,7 +7266,10 @@ class="math display">\[f \text{ continue en $a$ } \iff \text{ Pour tout
 $1 \leq j \leq p$, $f_j$ est continue en $a$}.\]</span></p>
 </div>
 <div class="wproof">
-<p><span class="math inline">\(f(x) \xrightarrow[x \to a]{} f(a) \iff
+<p>Comme déjà vu pour les limites (voir la proposition <a
+href="#prop:limites_fonctions_evn_produit" data-reference-type="ref"
+data-reference="prop:limites_fonctions_evn_produit">[prop:limites_fonctions_evn_produit]</a>),
+<span class="math inline">\(f(x) \xrightarrow[x \to a]{} f(a) \iff
 \forall 1 \leq j \leq p, f_j(x) \xrightarrow[x \to a]{}
 f_j(a).\)</span></p>
 </div>
@@ -7372,7 +7385,9 @@ x_n^{\alpha_n}
 <ul>
 <li><p>pour tout <span class="math inline">\(1 \leq j \leq n\)</span>,
 <span class="math inline">\(x= (x_1,\ldots,x_n) \mapsto x_j\)</span> est
-continue,</p></li>
+continue (par la proposition <a href="#prop:continuite_evn_produit"
+data-reference-type="ref"
+data-reference="prop:continuite_evn_produit">[prop:continuite_evn_produit]</a>),</p></li>
 <li><p>donc pour tout <span class="math inline">\(1 \leq j \leq
 n\)</span> et <span class="math inline">\(\alpha_j \in
 \mathbb{N}\)</span>, <span class="math inline">\(x= (x_1,\ldots,x_n)
@@ -7401,7 +7416,10 @@ class="math inline">\((x_n,y_n) \xrightarrow[n \to
 class="math inline">\(x_n \xrightarrow[n \to +\infty]{} x\)</span> et
 <span class="math inline">\(y_n \xrightarrow[n \to +\infty]{} y\)</span>
 puis <span class="math inline">\(\langle x_n , y_n \rangle
-\xrightarrow[n \to +\infty]{} \langle x,y \rangle.\)</span></p>
+\xrightarrow[n \to +\infty]{} \langle x,y \rangle\)</span> (voir la
+proposition <a href="#prop:limite_suite_produit_scalaire"
+data-reference-type="ref"
+data-reference="prop:limite_suite_produit_scalaire">[prop:limite_suite_produit_scalaire]</a>)</p>
 </div>
 <div class="wprop">
 <p>Soient <span class="math inline">\((E,\left\|\cdot\right\|)\)</span>,
@@ -7565,7 +7583,7 @@ f &amp; : &amp; [-\pi,+\pi[ &amp; \to &amp; \mathbb{U} \\
 f^{-1} &amp; : &amp; \mathbb{U} &amp; \to &amp; [-\pi,+\pi[ \\
    &amp;   &amp; z &amp; \mapsto &amp; \text{l&#39;unique argument de
 $z$ dans $[-\pi,+\pi[$}
-\end{array}\)</span> n’est pas continue.</p>
+\end{array}\)</span> qui n’est pas continue.</p>
 <p>En effet, pour <span class="math inline">\(n \in \mathbb{N}\)</span>,
 <span
 class="math inline">\(f^{-1}\left(e^{i\left(\pi-\frac{1}{n}\right)}\right)
@@ -7958,7 +7976,7 @@ En effet, de <span class="math inline">\(\left|\varphi(P)\right| \leq
 class="math inline">\(\left\|P\right\| = \sup_{j \geq 0}
 \left|a_j\right|\)</span> pour <span class="math inline">\(P = \sum_{j
 \geq 0} a_j X^j \in E\)</span>, pour <span class="math inline">\(x \in
-\mathbb{C}\)</span>, on considère <span
+\mathbb{K}\)</span>, on considère <span
 class="math inline">\(\begin{array}{lllll}
 \varphi_x &amp; : &amp; E &amp; \to &amp; \mathbb{K} \\
    &amp;   &amp; P &amp; \mapsto &amp; P\left(x\right)
@@ -7997,7 +8015,7 @@ class="math display">\[\frac{\left|\varphi_x(P_n)\right|}{\left\|P_n\right\|}
     \end{array}
     \right..\]</span> Donc <span
 class="math inline">\(\left\{\frac{\left|\varphi_x(P)\right|}{\left\|P\right\|}/
-P \in \mathbb{K}[X], P\neq 0\right\}\)</span> n’est pa smajoré et <span
+P \in \mathbb{K}[X], P\neq 0\right\}\)</span> n’est pas majoré et <span
 class="math inline">\(\varphi_x\)</span> n’est pas continue.</p></li>
 </ul>
 </details>
@@ -8038,8 +8056,8 @@ f\right|\!\right|\!\right| = \sup_{\substack{x \in E \\ x \neq 0}}
 \frac{N(\lambda f(x))}{\left\|x\right\|} = \sup_{\substack{x \in E \\ x
 \neq 0}} \left|\lambda\right|\frac{N(f(x))}{\left\|x\right\|}
 =  \left|\lambda\right| \sup_{\substack{x \in E \\ x \neq 0}}
-\frac{N(f(x))}{\left\|x\right\|} = \left|\!\left|\!\left|\lambda
-f\right|\!\right|\!\right|.\]</span></p></li>
+\frac{N(f(x))}{\left\|x\right\|} = \left|\lambda
+\right|\left|\!\left|\!\left|f\right|\!\right|\!\right|.\]</span></p></li>
 <li><p>Pour <span class="math inline">\(x \in E \setminus
 \left\{0\right\}\)</span>, <span
 class="math display">\[\frac{N(f(x)+g(x))}{\left\|x\right\|} \leq
@@ -8061,25 +8079,23 @@ class="math inline">\((F,N(\cdot))\)</span> deux espaces vectoriels
 normés et <span class="math inline">\(f \in \mathscr{L}_c(E,F).\)</span>
 Montrer que <span
 class="math display">\[\left|\!\left|\!\left|f\right|\!\right|\!\right|
-= \sup_{\substack{x \in E \\ \left\|x\right\| = 1}} N(f(x)) = \sup_{x
-\in S(0,1)} N(f(x)).\]</span></p>
+= \sup_{\substack{x \in E \\ \left\|x\right\| = 1}} N(f(x)) = \sup_{y
+\in S(0,1)} N(f(y)).\]</span></p>
 <details><summary>Corrigé</summary>
 <ul>
-<li><p>D’abord, pour <span class="math inline">\(x \in S(0,1)\)</span>,
-<span class="math inline">\(\frac{N(f(x))}{\left\|x\right\|} = N(f(x))
+<li><p>D’abord, pour <span class="math inline">\(y \in S(0,1)\)</span>,
+<span class="math inline">\(\frac{N(f(y))}{\left\|y\right\|} = N(f(y))
 \leq \left|\!\left|\!\left|f\right|\!\right|\!\right|\)</span> donc
-<span class="math inline">\(\sup_{\substack{x \in E \\ \left\|x\right\|
-= 1}} N(f(x)) \leq
+<span class="math inline">\(\sup_{y \in S(0,1)} N(f(y)) \leq
 \left|\!\left|\!\left|f\right|\!\right|\!\right|.\)</span></p></li>
 <li><p>Ensuite, soit <span class="math inline">\(x \in E\)</span> tel
 que <span class="math inline">\(x \neq 0\)</span> alors</p>
 <p><span class="math inline">\(\frac{N(f(x))}{\left\|x\right\|} =
-N\left(f\left(\frac{x}{\left\|x\right\|}\right)\right) \leq \sup_{x \in
-S(0,1)} N(f(x))\)</span> car <span
-class="math inline">\(\frac{x}{\left\|x\right\|} \in S(0,1).\)</span>
-Donc <span class="math inline">\(\sup_{\substack{x \in E \\
-\left\|x\right\| = 1}} N(f(x)) \geq
-\left|\!\left|\!\left|f\right|\!\right|\!\right|.\)</span></p></li>
+N\left(f\left(\frac{x}{\left\|x\right\|}\right)\right) \leq \sup_{y \in
+S(0,1)} N(f(y))\)</span> car <span
+class="math inline">\(y=\frac{x}{\left\|x\right\|} \in S(0,1).\)</span>
+Donc <span class="math inline">\(\sup_{y \in S(0,1)} N(f(y)) N(f(x))
+\geq \left|\!\left|\!\left|f\right|\!\right|\!\right|.\)</span></p></li>
 </ul>
 </details>
 </div>
@@ -8155,8 +8171,13 @@ E\)</span>, <span class="math inline">\(\left|\varphi_a(x)\right| =
 \left|\langle x,a \rangle\right| \leq
 \left\|x\right\|\left\|a\right\|\)</span> donc <span
 class="math inline">\(\varphi_a\)</span> est continue.</p>
-<p>De plus, pour <span class="math inline">\(x \in E \setminus
-\left\{0\right\}\)</span>, <span
+<ul>
+<li><p>Si <span class="math inline">\(a = 0\)</span>, <span
+class="math inline">\(\varphi_a = 0\)</span> et <span
+class="math inline">\(\left|\!\left|\!\left|\varphi_a\right|\!\right|\!\right|
+= \left\|a\right\| = 0\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(a \neq 0\)</span>, pour <span
+class="math inline">\(x \in E \setminus \left\{0\right\}\)</span>, <span
 class="math inline">\(\frac{\left|\varphi_a(x)\right|}{\left\|x\right\|}
 \leq \left\|a\right\|\)</span> donc <span
 class="math inline">\(\left|\!\left|\!\left|\varphi_a\right|\!\right|\!\right|
@@ -8169,7 +8190,8 @@ class="math inline">\(\left|\!\left|\!\left|\varphi_a\right|\!\right|\!\right|
 \geq \left\|a\right\|.\)</span></p>
 <p>On en déduit donc finalement <span
 class="math inline">\(\left|\!\left|\!\left|\varphi_a\right|\!\right|\!\right|
-= \left\|a\right\|.\)</span></p>
+= \left\|a\right\|.\)</span></p></li>
+</ul>
 </div>
 <h2 data-number="3.5" id="continuité-et-pré-image"><span
 class="header-section-number">3.5</span> Continuité et pré-image</h2>
@@ -8398,9 +8420,9 @@ extraction telle que <span class="math inline">\(u_{\varphi(n)}
 \xrightarrow[n \to +\infty]{} \ell \in \mathbb{R}.\)</span></p>
 <p>De plus, pour tout <span class="math inline">\(n \in
 \mathbb{N}\)</span>, <span class="math inline">\(a \leq u_{\varphi(n)}
-b\)</span> donc en passant à la limite, <span class="math inline">\(a
-\leq \ell \leq b\)</span> ie <span class="math inline">\(\ell \in
-[a,b].\)</span></p>
+\leq b\)</span> donc en passant à la limite, <span
+class="math inline">\(a \leq \ell \leq b\)</span> ie <span
+class="math inline">\(\ell \in [a,b].\)</span></p>
 </div>
 <div class="wrem">
 <p>En revanche, tout intervalle de <span
@@ -8658,7 +8680,7 @@ class="math inline">\(A\)</span> est compacte.</p>
 label="ex:fondamental_de_compact_Dans_RP"></span> Soient <span
 class="math inline">\(a_1 &lt; b_1, a_2 &lt; b_2,\ldots,a_p &lt; b_p \in
 \mathbb{R}\)</span>, <span
-class="math inline">\(\left[a_1,b_1\right]\times \ldots
+class="math inline">\(\left[a_1,b_1\right]\times \ldots \times
 \left[a_p,b_p\right]\)</span> est une partie compacte de <span
 class="math inline">\(\mathbb{R}^p\)</span> pour <span
 class="math inline">\(\left\|\cdot\right\|_\infty\)</span> car pour tout
@@ -9053,7 +9075,7 @@ p}\)</span> la base canonique de <span
 class="math inline">\(\mathbb{R}^p\)</span> telle que pour <span
 class="math inline">\(1 \leq j \leq p\)</span>, <span
 class="math inline">\(\varepsilon_j =
-(0,\ldots,\underbrace{1}_{\text{$j$-ième}),\ldots,0}.\)</span></p>
+(0,\ldots,\underbrace{1}_{\text{$j$-ième}},\ldots,0).\)</span></p>
 <ul>
 <li><p>Soit <span class="math inline">\(x \in \mathbb{R}^p\)</span> tel
 que <span class="math inline">\(x = \sum_{j=1}^p x_j
@@ -9114,17 +9136,19 @@ S_\infty(0,1)\)</span> tel que <span class="math inline">\(f(y_1) =
 <p>Or, <span class="math inline">\(y_1 \neq 0\)</span> (car <span
 class="math inline">\(\left\|y_1\right\|_\infty = 1\)</span>) donc <span
 class="math inline">\(f(y_1) &gt; 0\)</span> puis <span
-class="math inline">\(\inf_{S_\infty(0,1)} f &gt; 0.\)</span></p>
+class="math inline">\(\beta&#39;=\inf_{S_\infty(0,1)} f &gt;
+0.\)</span></p>
 <p>On a donc pour tout <span class="math inline">\(x \in E\)</span> tel
 que <span class="math inline">\(x \neq 0\)</span>, <span
 class="math inline">\(\frac{x}{\left\|x\right\|_\infty} \in
 S_\infty(0,1)\)</span> donc <span
 class="math display">\[f\left(\frac{x}{\left\|x\right\|_\infty}\right)
-\geq \beta =\inf_{S_\infty(0,1)} f &gt; 0 \iff
-N\left(\frac{x}{\left\|x\right\|_\infty}\right) \geq \beta &gt; 0
-\iff  \left\|x\right\|_\infty \leq \frac{1}{\beta}N(x)\]</span> et cette
-relation reste valable pour <span class="math inline">\(x=0\)</span>
-donc <span class="math inline">\(N\)</span> est plus fine que <span
+\geq \beta&#39; =\inf_{S_\infty(0,1)} f &gt; 0 \iff
+N\left(\frac{x}{\left\|x\right\|_\infty}\right) \geq \beta&#39; &gt; 0
+\iff  \left\|x\right\|_\infty \leq \frac{1}{\beta&#39;}N(x)\]</span> et
+cette relation reste valable pour <span
+class="math inline">\(x=0\)</span> donc <span
+class="math inline">\(N\)</span> est plus fine que <span
 class="math inline">\(\left\|\cdot\right\|_\infty.\)</span></p></li>
 </ul></li>
 <li><p>Revenons au cas général où <span class="math inline">\(E\)</span>
@@ -9404,7 +9428,7 @@ class="math inline">\((E,\left\|\cdot\right\|).\)</span></p>
 </div>
 <div class="wrem">
 <p>Ceci est faux avec <span class="math inline">\(F\)</span> de
-dimension finie.</p>
+dimension infinie.</p>
 <div class="wex">
 <p>On considère <span class="math inline">\(E =
 \mathscr{C}([0,1],\mathbb{R})\)</span> normé par <span
@@ -9487,23 +9511,23 @@ class="math inline">\(\left(y_n\right)\)</span> de <span
 class="math inline">\(B\)</span> telles que <span
 class="math inline">\(\left\|x_n-y_n\right\| \xrightarrow[n \to
 +\infty]{} d(A,B).\)</span> Or, <span class="math inline">\(B\)</span>
-est compacte il existe une extraction <span
+est compacte donc il existe une extraction <span
 class="math inline">\(\varphi:\mathbb{N}\to\mathbb{N}\)</span> et <span
-class="math inline">\(\ell \in B\)</span> tels que <span
+class="math inline">\(y \in B\)</span> tels que <span
 class="math inline">\(y_{\varphi(n)} \xrightarrow[n \to +\infty]{}
 y.\)</span></p>
 <p>On a donc que la suite <span
-class="math inline">\(\left(x_n\right)\)</span> est bornée car alors
-pour tout <span class="math inline">\(n \in \mathbb{N}\)</span>, <span
-class="math inline">\(\left\|x_n\right\| \leq
-\left\|x_n-y_n\right\|+\left\|y_n\right\|\)</span> et <span
-class="math inline">\(\left(\left\|y_n-x_n\right\|\right)_{n \geq
-0}\)</span>,<span class="math inline">\(\left(x_n\right)_{n \geq
-0}\)</span> sont bornées car convergentes.</p>
-<p>La suite <span
-class="math inline">\(\left(x_{\varphi(n)}\right)\)</span> est donc
-aussi bornée et par théorème de Bolzano-Weirstrass, il existe une
-extraction <span
+class="math inline">\(\left(x_{\varphi(n)}\right)\)</span> est bornée
+car alors pour tout <span class="math inline">\(n \in
+\mathbb{N}\)</span>, <span
+class="math inline">\(\left\|x_{\varphi(n)}\right\| \leq
+\left\|x_{\varphi(n)}-y_{\varphi(n)}\right\|+\left\|y_{\varphi(n)}\right\|\)</span>
+et <span
+class="math inline">\(\left(\left\|y_{\varphi(n)}-x_{\varphi(n)}\right\|\right)_{n
+\geq 0}\)</span>,<span
+class="math inline">\(\left(y_{\varphi(n)}\right)_{n \geq 0}\)</span>
+sont bornées car convergentes.</p>
+<p>Par théorème de Bolzano-Weirstrass, il existe une extraction <span
 class="math inline">\(\psi:\mathbb{N}\to\mathbb{N}\)</span> et <span
 class="math inline">\(x \in E\)</span> tels que <span
 class="math inline">\(x_{\varphi(\psi(n))} \xrightarrow[n \to +\infty]{}
@@ -9544,8 +9568,8 @@ class="math inline">\(\left\|x\right\|_{\infty,\mathscr{B}} = \max_{1
 \leq j \leq p} \left|x_j\right|\)</span> (peu importe la norme
 considérée en dimension finie).</p>
 <p>Alors, par linéarité de <span class="math inline">\(f\)</span>, soit
-<span class="math inline">\(x\sum_{j=1}^p x_j e_j  \in E\)</span>, <span
-class="math inline">\(f(x) = \sum_{j=1}^n x_j f(e_j).\)</span></p>
+<span class="math inline">\(x=\sum_{j=1}^p x_j e_j  \in E\)</span>,
+<span class="math inline">\(f(x) = \sum_{j=1}^n x_j f(e_j).\)</span></p>
 <p>On a donc <span class="math display">\[N(f(x)) = N\left(\sum_{j=1}^n
 x_j f(e_j)\right) \leq \sum_{j=1}^n \left|x_j\right| N(f(e_j)) \leq
 \left(\sum_{j=1}^n N(f(e_j))\right)\left\|x\right\|_\infty\]</span> et
@@ -9569,12 +9593,11 @@ class="math inline">\(F\)</span> est de dimension finie.</p>
 <p>Si <span class="math inline">\(E\)</span> est un <span
 class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
 finie, <span class="math inline">\(F\)</span> est un <span
-class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
-quelconque et <span class="math inline">\(f \in
-\mathscr{L}(E,F)\)</span> est une bijection linéaire alors <span
-class="math inline">\(f^{-1} \in \mathscr{L}(F,E)\)</span> et <span
-class="math inline">\(F\)</span> est de dimension finie donc <span
-class="math inline">\(f\)</span> et <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel et <span
+class="math inline">\(f \in \mathscr{L}(E,F)\)</span> est une bijection
+linéaire alors <span class="math inline">\(f^{-1} \in
+\mathscr{L}(F,E)\)</span> et <span class="math inline">\(F\)</span> est
+de dimension finie donc <span class="math inline">\(f\)</span> et <span
 class="math inline">\(f^{-1}\)</span> sont continues.</p>
 </div>
 <div class="wrem">
@@ -9589,7 +9612,7 @@ dimension quelconque.</p>
 normé par <span
 class="math inline">\(\left|\!\left|\!\left|f\right|\!\right|\!\right| =
 \sup_{\substack{x \in E\\  x \neq 0}}
-\frac{N(f(x)}{\left\|f(x)\right\|}.\)</span></p>
+\frac{N(f(x)}{\left\|x\right\|}.\)</span></p>
 <p>De plus (voir l’exercice <a href="#exoc:normetriple_sur_sphere"
 data-reference-type="ref"
 data-reference="exoc:normetriple_sur_sphere">[exoc:normetriple_sur_sphere]</a>),
@@ -9602,7 +9625,7 @@ class="math inline">\(E\)</span> et <span class="math inline">\(y \in F
 \in E \mapsto N(f(x))\)</span> qui est continue par composition et <span
 class="math inline">\(\left|\!\left|\!\left|f\right|\!\right|\!\right| =
 \max_{y \in S(0,1)} N(f(y)) =  \max_{\substack{x \in E\\  x \neq 0}}
-\frac{N(f(x)}{\left\|f(x)\right\|}\)</span></p></li>
+\frac{N(f(x)}{\left\|x\right\|}\)</span></p></li>
 <li><p>Si <span class="math inline">\(E\)</span> est de dimension finie,
 <span class="math inline">\(E&#39;=E^\star.\)</span></p></li>
 </ul>
@@ -9632,8 +9655,8 @@ $E_1$}, \\
         \left(e_{21},e_{22},\ldots,e_{2n_2}\right) &amp; \text{ base de
 $E_2$}, \\
         \vdots &amp; \\
-        \left(e_{p1},e_{)2},\ldots,e_{1n_p}\right) &amp; \text{ base de
-$E_1$}
+        \left(e_{p1},e_{p2},\ldots,e_{pn_p}\right) &amp; \text{ base de
+$E_p$}
     \end{array}\)</span> (avec <span
 class="math inline">\(n_1,\ldots,n_p \in \mathbb{N}\)</span> les
 dimensions de <span class="math inline">\(E_1,\ldots,E_p\)</span>).</p>
@@ -9657,14 +9680,14 @@ n_p}}x_{1j_1} \ldots x_{pj_p} f(e_{1j_1},\ldots,e_{pj_p}).\]</span></p>
              \text{Pour } 1 \leq i \leq p, &amp; x \in E_1 \times \ldots
 \times E_p \mapsto x_i \in E_i \text{ est continue car linéaire} \\
             \text{ et }\text{ pour }1 \leq j \leq n_i &amp; x_i \in E_i
-\mapsto x_{ij} \in \mathbb{R}\text{ est continue car linéaire}
+\mapsto x_{ij} \in \mathbb{K}\text{ est continue car linéaire}
         \end{array}\)</span></p>
 <p>donc <span class="math inline">\(x \in E_1 \times \ldots \times E_p
-\mapsto x_{ij} \in \mathbb{R}\)</span> est continue par
+\mapsto x_{ij} \in \mathbb{K}\)</span> est continue par
 composition.</p></li>
 <li><p>Pour <span class="math inline">\(j_1,\ldots,j_p \in
 \mathbb{N}\)</span>, <span class="math inline">\(x \in E_1 \times
-\mapsto E_p \mapsto x_{1j_1} \ldots x_{pj_p} \in \mathbb{R}\)</span> est
+\mapsto E_p \mapsto x_{1j_1} \ldots x_{pj_p} \in \mathbb{K}\)</span> est
 continue par produit et <span class="math inline">\(x \in E_1 \times
 \mapsto E_p \mapsto f(e_{1j_1},\ldots,e_{pj_p}) \in F\)</span> est
 continue car constante</p>
@@ -9682,8 +9705,8 @@ continue par somme.</p></li>
 \mathscr{M}_{p,q}(\mathbb{K}) &amp; \to &amp;
 \mathscr{M}_{n,q}(\mathbb{K}) \\
      &amp; (A,B) &amp; \mapsto &amp; AB
-\end{array}\)</span> est bilinéaire donc continue. Donc une suite <span
-class="math inline">\(\left(A_k\right)\)</span> de <span
+\end{array}\)</span> est bilinéaire donc continue. Donc si une suite
+<span class="math inline">\(\left(A_k\right)\)</span> de <span
 class="math inline">\(\mathscr{M}_{n,p}(\mathbb{K})\)</span> vérifie
 <span class="math inline">\(A_k \xrightarrow[k \to +\infty]{} A \in
 \mathscr{M}_{n,p}(\mathbb{K})\)</span> et une suite <span
@@ -9771,11 +9794,10 @@ f &amp; : &amp; A &amp; \to &amp; E \\
    &amp;   &amp; x &amp; \mapsto &amp; f(x) = f_1(x)e_1+\ldots+f_n(x)e_n
 \end{array}
 .\)</span></p>
-<p>Soit <span class="math inline">\(\ell \in E\)</span> tel que <span
-class="math inline">\(\ell = \sum_{j=1}^n \ell_j e_j.\)</span> Alors,
-soit <span class="math inline">\(a \in \overline{A}\)</span>, <span
-class="math display">\[f(x) \xrightarrow[x \to a]{} \ell \iff \forall 1
-\leq j \leq n, f_{j}(x) \xrightarrow[x \to a]{} \ell_j.\]</span></p>
+<p>Alors, soit <span class="math inline">\(a \in \overline{A}\)</span>,
+<span class="math display">\[f(x) \xrightarrow[x \to a]{} \ell \iff
+\forall 1 \leq j \leq n, f_{j}(x) \xrightarrow[x \to a]{}
+\ell_j.\]</span></p>
 </div>
 <div class="wproof">
 <p><span class="math display">\[\begin{aligned}
@@ -9827,7 +9849,7 @@ class="math inline">\(f(x) \xrightarrow[x \to +\infty]{} \begin{pmatrix}
         \end{pmatrix}.\)</span></p></li>
 <li><p><span class="math inline">\(E= \mathbb{C}\)</span> est un <span
 class="math inline">\(\mathbb{R}\)</span>-espace vectoriel de base <span
-class="math inline">\((1,i).\)</span> donc une fonction <span
+class="math inline">\((1,i)\)</span> donc une fonction <span
 class="math inline">\(\begin{array}{lllll}
 f &amp; : &amp; A &amp; \to &amp; \mathbb{C} \\
    &amp;   &amp; x &amp; \mapsto &amp;
@@ -9905,7 +9927,7 @@ class="math inline">\(1 \leq i,j \leq n\)</span>, <span
 class="math inline">\(\begin{array}{llll}
   &amp; \mathscr{M}_{n}(\mathbb{K}) &amp; \to &amp; \mathbb{K} \\
      &amp; A &amp; \mapsto &amp; \det(A_{ij})
-\end{array}\)</span> et on a <span
+\end{array}\)</span> est continue et on a <span
 class="math inline">\(\begin{array}{llll}
   &amp; \mathscr{M}_{n}(\mathbb{K}) &amp; \to &amp; \mathbb{K} \\
      &amp; A &amp; \mapsto &amp; (-1)^{i+j}\det(A_{ij})
@@ -10409,19 +10431,19 @@ N\left(f(x)\right) \leq \varepsilon N&#39;\left(g(x)\right)\\
 class="math display">\[\begin{aligned}
         &amp; \exists M_2 \in \mathbb{R}^{+}, \exists V_2 \in
 \mathcal{V}(a) / \forall x \in V_2 \cap A, N&#39;\left(g(x)\right) \leq
-M_2 \mathbb{N}&#39;&#39;\left(h(x)\right).
+M_2 N&#39;&#39;\left(h(x)\right).
     \end{aligned}\]</span></p>
 <p>Or, <span class="math inline">\(V_1 \cap V_2 \in
 \mathcal{V}(a)\)</span> comme intersection de deux voisinages de <span
 class="math inline">\(a\)</span> et <span class="math display">\[\forall
 x \in \left(V_1 \cap V_2\right) \cap A, N\left(f(x)\right) \leq
-\varepsilon M_2 \mathbb{N}&#39;&#39;\left(h(x)\right).\]</span></p>
+\varepsilon M_2 N&#39;&#39;\left(h(x)\right).\]</span></p>
 <p>Donc <span class="math inline">\(f(x) =\underset{x\to a}{o}
 \left(h(x)\right).\)</span></p></li>
 <li><p><span class="math display">\[\begin{aligned}
         &amp; \exists M_1 \in \mathbb{R}^{+}, \exists V_1 \in
 \mathcal{V}(a) / \forall x \in V_1 \cap A, N\left(f(x)\right) \leq M_1
-\mathbb{N}&#39;\left(g(x)\right).
+N&#39;\left(g(x)\right).
     \end{aligned}\]</span> et soit <span
 class="math inline">\(\varepsilon &gt; 0\)</span>, <span
 class="math display">\[\begin{aligned}
@@ -10432,7 +10454,7 @@ N&#39;\left(g(x)\right) \leq \varepsilon N&#39;&#39;\left(h(x)\right)\\
 \mathcal{V}(a)\)</span> comme intersection de deux voisinages de <span
 class="math inline">\(a\)</span> et <span class="math display">\[\forall
 x \in \left(V_1 \cap V_2\right) \cap A, N\left(f(x)\right) \leq M_1
-\varepsilon \mathbb{N}&#39;&#39;\left(h(x)\right).\]</span></p>
+\varepsilon N&#39;&#39;\left(h(x)\right).\]</span></p>
 <p>Donc <span class="math inline">\(f(x) =\underset{x\to a}{o}
 \left(h(x)\right).\)</span></p></li>
 <li><p>Si <span class="math inline">\(f(x) =\underset{x\to a}{o}
@@ -10535,7 +10557,7 @@ class="math inline">\(E = \mathbb{R}\)</span>).</p>
 à <span class="math inline">\(g(x)\)</span> quand <span
 class="math inline">\(x\)</span> tend vers <span
 class="math inline">\(a\)</span> si <span
-class="math inline">\(f(x)-f(x) = \underset{x\to
+class="math inline">\(f(x)-g(x) = \underset{x\to
 a}{o}\left(g(x)\right)\)</span> ie <span class="math display">\[\forall
 \varepsilon &gt; 0, \exists V \in \mathcal{V}(a) / \forall x \in V \cap
 A, N\left(f(x)-g(x)\right) \leq \varepsilon
@@ -10633,7 +10655,7 @@ data-reference="prop:equiv_donc_grandO">[prop:equiv_donc_grandO]</a>,
 <span class="math inline">\(g(x) =\underset{x\to a}{O}
 \left(h(x)\right)\)</span> donc <span class="math inline">\(f(x) =
 h(x)+\underset{x\to a}{o}\left(h(x)\right)\)</span> et finalement, <span
-class="math inline">\(h(x) \underset{x\to a}{\sim}
+class="math inline">\(f(x) \underset{x\to a}{\sim}
 h(x).\)</span></p></li>
 </ul>
 </div>
@@ -10672,7 +10694,7 @@ class="math inline">\(f(x)-g(x) = k(x)g(x).\)</span></p>
 <p>On a donc pour tout <span class="math inline">\(x \in V \cap
 A\)</span>, <span class="math inline">\(f(x) = (k(x)+1)g(x) =
 h(x)g(x)\)</span> avec <span class="math inline">\(h: x \in V \cap A
-\mapsto k(x)+1 \mathbb{K}\)</span> qui vérifie <span
+\mapsto k(x)+1 \in  \mathbb{K}\)</span> qui vérifie <span
 class="math inline">\(h(x) \xrightarrow[x \to a]{} 1.\)</span></p></li>
 <li><p><span class="math inline">\((\Longrightarrow)\)</span> S’il
 existe <span class="math inline">\(V \in \mathcal{V}(a)\)</span> et
@@ -10778,8 +10800,8 @@ N\left(g(x)\right).\]</span> Donc <span class="math display">\[\forall x
 \in V \cap A, \left|N\left(f(x)\right)-N\left(g(x)\right)\right| \leq
 N(f(x)-g(x)) \leq \varepsilon N\left(g(x)\right) =
 \varepsilon\left|N\left(g(x)\right)\right|\]</span> ce qui est la
-définition de <span class="math inline">\(N(f(x)) \Longrightarrow
-N(g(x)).\)</span></p>
+définition de <span class="math inline">\(N(f(x)) \underset{x\to
+a}{\sim} N(g(x)).\)</span></p>
 </div>
 <div class="wrem">
 <p>La réciproque est fausse. Par exemple, avec <span
@@ -10831,8 +10853,8 @@ a]{} \ell\)</span>, il existe <span class="math inline">\(W \in
 \in W \cap A\)</span>, <span
 class="math inline">\(N\left(f(x)-\ell\right) \leq
 \varepsilon.\)</span></p>
-<p>On a donc pour tout <span class="math inline">\(x \in W \cap
-V\)</span>, <span class="math inline">\(N(g(x)-\ell) =
+<p>On a donc pour tout <span class="math inline">\(x \in \left(W \cap
+V\right) \cap A\)</span>, <span class="math inline">\(N(g(x)-\ell) =
 N(g(x)-f(x)+f(x)-\ell) \leq N(g(x)-f(x)) + N(f(x)-\ell) \leq
 2\varepsilon\)</span> puis <span class="math inline">\(g(x)
 \xrightarrow[x \to a]{}\ell.\)</span></p>
@@ -10862,10 +10884,10 @@ g(x)\)</span>, il existe <span class="math inline">\(U \in
 href="#prop:equivalence_et_fonction_tend_vers_1"
 data-reference-type="ref"
 data-reference="prop:equivalence_et_fonction_tend_vers_1">[prop:equivalence_et_fonction_tend_vers_1]</a>,
-il existe <span class="math inline">\(V \in Vc(a)\)</span> et <span
-class="math inline">\(h : V \cap A \to \mathbb{R}\)</span> telle que
-<span class="math inline">\(h(x) \xrightarrow[x \to a]{} 1\)</span> et
-pour tout <span class="math inline">\(x \in V \cap A\)</span>, <span
+il existe <span class="math inline">\(V \in \mathcal{V}(a)\)</span> et
+<span class="math inline">\(h : V \cap A \to \mathbb{R}\)</span> telle
+que <span class="math inline">\(h(x) \xrightarrow[x \to a]{} 1\)</span>
+et pour tout <span class="math inline">\(x \in V \cap A\)</span>, <span
 class="math inline">\(f(x) = g(x)h(x).\)</span></p>
 <p>Or, <span class="math inline">\(1 &gt; 0\)</span>, donc il existe
 <span class="math inline">\(W \in \mathcal{V}(a)\)</span> tel que pour
@@ -10907,7 +10929,7 @@ définies par <span class="math inline">\(u_n = \frac{1}{n}\)</span> et
 <span class="math inline">\(v_n = \frac{1}{n^2}\)</span> pour <span
 class="math inline">\(n \in \mathbb{N}^{\star}\)</span>, on a <span
 class="math inline">\(u_n-v_n =  \frac{1}{n}- \frac{1}{n^2}
-\xrightarrow[n \to +\infty]{}\)</span> mais <span
+\xrightarrow[n \to +\infty]{} 0\)</span> mais <span
 class="math inline">\(u_n \centernot{\underset{n\to +\infty}{\sim}}
 v_n.\)</span></p>
 </div></li>
@@ -10958,8 +10980,8 @@ E\)</span> non vide. Soient <span class="math inline">\(f: A \to
 \mathbb{R}\)</span>).</p>
 <p>Soit <span class="math inline">\(\alpha \in \mathbb{R}.\)</span> Si
 <span class="math inline">\(f\)</span> et <span
-class="math inline">\(g\)</span> sont strictement positives au
-voisinages de <span class="math inline">\(a\)</span> alors <span
+class="math inline">\(g\)</span> sont strictement positives au voisinage
+de <span class="math inline">\(a\)</span> alors <span
 class="math display">\[f(x) \underset{x\to a}{\sim} g(x) \Longrightarrow
 \left(f(x)\right)^\alpha \underset{x\to a}{\sim}
 \left(g(x)\right)^\alpha.\]</span></p>
@@ -10983,8 +11005,8 @@ class="math inline">\(\left(1+\frac{1}{n}\right)^n \underset{n\to
 +\infty}{\sim} e\neq 1.\)</span></p>
 </div></li>
 <li><p>Si <span class="math inline">\(f\)</span> et <span
-class="math inline">\(g\)</span> sont strictement positives au
-voisinages de <span class="math inline">\(a\)</span> alors <span
+class="math inline">\(g\)</span> sont strictement positives au voisinage
+de <span class="math inline">\(a\)</span> alors <span
 class="math inline">\(f(x) \underset{x\to a}{\sim} g(x)
 \centernot{\Longrightarrow} \ln\left(f(x)\right) \underset{x\to a}{\sim}
 \ln\left(g(x)\right).\)</span></p>
@@ -11010,9 +11032,9 @@ label="ex:dv_ln_de_factorielle_de_n"></span> De l’équivalent de Stirling
 <span class="math inline">\(n! \underset{n\to +\infty}{\sim} \sqrt{2\pi
 n} \left(\frac{n}{e}\right)^n\)</span>, on tire <span
 class="math inline">\(\ln(n!) =
-\frac{1}{2}\ln(2\pi)+\frac{1}{2}\ln(n)+n\ln(n)-n+o\left(n\ln(n)\right) =
-n\ln(n) + \underset{n\to +\infty}{o}\left(1\right) \underset{n\to
-+\infty}{\sim} n\ln(n).\)</span></p>
+\frac{1}{2}\ln(2\pi)+\frac{1}{2}\ln(n)+n\ln(n)-n+ \underset{n\to
++\infty}{o}\left(1\right) = n\ln(n) +o\left(n\ln(n)\right)
+\underset{n\to +\infty}{\sim} n\ln(n).\)</span></p>
 </div></li>
 <li><p>Comme <span class="math inline">\(e^f\)</span> et <span
 class="math inline">\(e^g\)</span> sont strictement positives, <span
@@ -11066,7 +11088,7 @@ b}{\sim}g(\varphi(t)).\)</span></p>
 <div class="wex">
 <p><span class="math inline">\(\ln(1+x) \underset{x\to 0}{\sim}
 x\)</span> donc <span class="math inline">\(\ln(t) \underset{t\to
-1}{\sim} t-1\)</span> puis <span class="math inline">\(\ln(cos x)
+1}{\sim} t-1\)</span> puis <span class="math inline">\(\ln(\cos x)
 \underset{x\to 0}{\sim} \cos(x)-1 \underset{x\to 0}{\sim}
 -\frac{1}{2}x^2.\)</span></p>
 </div>
@@ -11143,6 +11165,7 @@ donc <span class="math inline">\(\begin{array}{ll}
 </ul>
 </div>
 <div class="wrappel">
+<p><strong>(Croissances comparées)</strong></p>
 <ul>
 <li><p><span class="math inline">\(\forall \alpha&gt; 0,
 \beta&gt;0\)</span>,</p>
@@ -11200,10 +11223,10 @@ class="math inline">\(\ln\left(1+\frac{1}{x}\right) \xrightarrow[x\to
 class="math inline">\(x\ln\left(1+\frac{1}{x}\right) \xrightarrow[x\to
 +\infty]{} +\infty\)</span> donc <span
 class="math inline">\(\left(1+\frac{1}{x}\right)^x \xrightarrow[x\to
-+\infty]{} +\infty\)</span> mais c’est faux. On ne rentre pas dans le
-cadre de la proposition précédente. On verra plus tard que <span
++\infty]{} +\infty\)</span> mais c’est faux car <span
 class="math inline">\(\left(1+\frac{1}{x}\right)^x \xrightarrow[x\to
-+\infty]{} e.\)</span></p>
++\infty]{} e.\)</span>. On ne rentre pas dans le cadre de la proposition
+précédente.</p>
 </div>
 <div class="wprop">
 <p>Soient <span class="math inline">\(\alpha,\beta, \gamma \in
@@ -11280,7 +11303,7 @@ donc <span class="math inline">\(u_n \xrightarrow[n \to +\infty]{}
 <li><p>Si <span class="math inline">\(\gamma = 0\)</span> et <span
 class="math inline">\(a \neq 1\)</span> ie <span
 class="math inline">\(\ln(a) \neq 0\)</span>,</p>
-<p><span class="math inline">\(\frac{v_n}{ n\ln(a) } =
+<p><span class="math inline">\(\frac{v_n}{ n\ln(a) } = 0+
     1
     +\frac{\alpha}{\ln(a)} \underbrace{\frac{ \ln(n)}{n}}_{
     \substack{
@@ -11364,9 +11387,8 @@ Taylor-Young</h2>
 class="math inline">\(f : I \to \mathbb{K}\)</span> <span
 class="math inline">\(n\)</span> fois dérivable sur <span
 class="math inline">\(I\)</span> (avec <span class="math inline">\(n \in
-\mathbb{N}^{\star}\)</span>), <span class="math inline">\(x_0 \in
-I\)</span> alors soit <span class="math inline">\(a \in I\)</span> <span
-class="math display">\[\begin{aligned}
+\mathbb{N}^{\star}\)</span>) alors soit <span class="math inline">\(a
+\in I\)</span> <span class="math display">\[\begin{aligned}
         f(a+h)
         &amp; =
 f(a)+hf&#39;(a)+h^2\frac{f&#39;&#39;(a)}{2}+\ldots+h\frac{f^{(n)}(a)}{n!}h^n
