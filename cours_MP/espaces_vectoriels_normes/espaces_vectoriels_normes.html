@@ -144,14 +144,14 @@ class="toc-section-number">2.1</span> Limite de suite</a></li>
 id="toc-sous-suites-et-valeurs-dadhérence"><span
 class="toc-section-number">2.2</span> Sous-suites et valeurs
 d’adhérence</a></li>
-<li><a href="#voisinage-intérieur-ouverts"
-id="toc-voisinage-intérieur-ouverts"><span
-class="toc-section-number">2.3</span> Voisinage, intérieur,
+<li><a href="#voisinages-intérieurs-ouverts"
+id="toc-voisinages-intérieurs-ouverts"><span
+class="toc-section-number">2.3</span> Voisinages, intérieurs,
 ouverts</a></li>
-<li><a href="#fermés-points-adhérents-densité-frontière"
-id="toc-fermés-points-adhérents-densité-frontière"><span
+<li><a href="#fermés-points-adhérents-densité-frontières"
+id="toc-fermés-points-adhérents-densité-frontières"><span
 class="toc-section-number">2.4</span> Fermés, points adhérents, densité,
-frontière</a></li>
+frontières</a></li>
 <li><a href="#voisinage-de-pm-infty"
 id="toc-voisinage-de-pm-infty"><span
 class="toc-section-number">2.5</span> Voisinage de <span
@@ -3259,7 +3259,7 @@ label="rem::sous_suite_sous_suite"></span> Et une sous-suite de
 sous-suite ? Soit <span class="math inline">\(\left(v_n\right)
 =\left(u_{\varphi(n)}\right)\)</span> une sous-suite de <span
 class="math inline">\(\left(u_n\right)\)</span> alors une sous-suite de
-<span class="math inline">\(\left(v_n\right)\)</span> c’est <span
+<span class="math inline">\(\left(v_n\right)\)</span> s’écrit <span
 class="math inline">\(\left(v_{\psi(n)}\right)\)</span> avec <span
 class="math inline">\(\psi\)</span> une extraction telle que pour tout
 <span class="math inline">\(n \in \mathbb{N}\)</span>, <span
@@ -3347,8 +3347,8 @@ class="math display">\[\left\|u_{2n}-\ell\right\| \leq
 N&#39;\)</span>, <span
 class="math display">\[\left\|u_{2n+1}-\ell\right\| \leq
 \varepsilon.\]</span></p>
-<p>Maintenant, soit <span class="math inline">\(n \geq \max{2N,
-2N&#39;+1}\)</span>,</p>
+<p>Maintenant, soit <span class="math inline">\(n \geq \max\left(2N,
+2N&#39;+1\right)\)</span>,</p>
 <ul>
 <li><p>soit <span class="math inline">\(n\)</span> est pair et alors
 <span class="math inline">\(n = 2\underbrace{\frac{n}{2}}_{\in
@@ -3469,7 +3469,7 @@ class="math inline">\(\varphi(0)&lt;\ldots&lt;\varphi(k)\)</span> et
 <span class="math inline">\(\left\|u_{\varphi(j)}-\ell\right\| \leq
 \frac{1}{2^j}\)</span> pour <span class="math inline">\(j \in [\![ 0,k
 ]\!].\)</span></p>
-<p>avec <span class="math inline">\(\varepsilon =
+<p>Avec <span class="math inline">\(\varepsilon =
 \frac{1}{2^{k+1}}\)</span>, il existe <span
 class="math inline">\(n_{k+1} \geq \varphi(k)+1\)</span> tel que <span
 class="math inline">\(\left\|u_{n_{k+1}}-\ell\right\| \leq
@@ -3500,7 +3500,8 @@ considérons <span class="math inline">\(n_1
 <p>Par le lemme <a href="#lem:extraction" data-reference-type="ref"
 data-reference="lem:extraction">[lem:extraction]</a>, on a <span
 class="math inline">\(\varphi(n_1) \geq n_1 \geq N\)</span> et on a
-aussi <span class="math inline">\(\left\|u_{\varphi{n_1}}-\ell\right\|
+aussi <span
+class="math inline">\(\left\|u_{\varphi\left(n_1\right)}-\ell\right\|
 \leq \varepsilon.\)</span></p>
 <p>Donc <span class="math inline">\(\ell\)</span> est une valeur
 d’adhérence de <span
@@ -3508,9 +3509,10 @@ class="math inline">\(\left(u_n\right).\)</span></p></li>
 </ul>
 </div>
 <div class="wrem">
-<p>Si <span class="math inline">\(\left(u_n\right)\)</span> converge,
-<span class="math inline">\(\left(u_n\right)\)</span> a une unique
-valeur d’adhérence qui est sa limite.</p>
+<p><span class="math inline">\(\left(u_n\right)\)</span> converge <span
+class="math inline">\(\iff\)</span> <span
+class="math inline">\(\left(u_n\right)\)</span> a une unique valeur
+d’adhérence qui est sa limite.</p>
 </div>
 <div class="wthm">
 <p><strong>(Théorème de Bolzano-Weierstrass)</strong> Soit <span
@@ -3528,7 +3530,7 @@ M.\)</span></p>
 <p>Pour <span class="math inline">\(n \in \mathbb{N}\)</span>, on
 considère la suite <span class="math inline">\(\left(x_n\right)\)</span>
 telle que <span class="math inline">\(x_n = \sup \left\{u_k, k \geq
-n\right\} = \sup_{k \geq n} u_k \in \mathbb{R}\)</span> car <span
+n\right\} = \sup_{k \geq n} u_k\)</span> qui est bien définie car <span
 class="math inline">\(u_n \leq M\)</span> pour tout <span
 class="math inline">\(n \geq 0.\)</span></p>
 <p>Pour <span class="math inline">\(n \in \mathbb{N}\)</span>, <span
@@ -3537,9 +3539,9 @@ k \geq n\right\}\)</span> donc <span class="math inline">\(x_{n+1} \leq
 x_n\)</span> et <span class="math inline">\(\left(x_n\right)\)</span>
 est décroissante.</p>
 <p>De plus, <span class="math inline">\(\left(x_n\right)\)</span> est
-bornée (par <span class="math inline">\(M\)</span>) donc minorée et on
-en déduit donc qu’elle admet une limite <span class="math inline">\(\ell
-\in \mathbb{R}.\)</span></p>
+bornée (en valeur absolue par <span class="math inline">\(M\)</span>)
+donc minorée et on en déduit donc qu’elle admet une limite <span
+class="math inline">\(\ell \in \mathbb{R}.\)</span></p>
 <p>Montrons que <span class="math inline">\(\ell\)</span> est une valeur
 d’adhérence de <span class="math inline">\(\left(u_n\right).\)</span>
 Soient <span class="math inline">\(\varepsilon &gt; 0\)</span> et <span
@@ -3557,7 +3559,7 @@ n\)</span> tel que <span class="math inline">\(x_n-\varepsilon &lt; u_k
 <p>On en déduit donc <span class="math inline">\(\ell-\varepsilon \leq
 x_n-\varepsilon &lt; u_k \leq x_n\leq \ell+\varepsilon\)</span> donc
 <span class="math inline">\(\left|u_k-\ell\right| \leq
-\varepsilon.\)</span> avec <span class="math inline">\(k \geq
+\varepsilon\)</span> avec <span class="math inline">\(k \geq
 N.\)</span></p>
 <p>Donc <span class="math inline">\(\ell\)</span> est une valeur
 d’adhérence de <span
@@ -3611,7 +3613,7 @@ class="math inline">\(u_{2^k+2^{k}-1} =
 2^k-1\)</span>, on a <span class="math inline">\(u_{2^k+j} =
 \frac{j}{2^k}\)</span></p>
 <p>Ou pour <span class="math inline">\(n \in [\![ 2^k,
-2^{k+1}-1\)</span>, on a <span class="math inline">\(u_n =
+2^{k+1}-1]\!]\)</span>, on a <span class="math inline">\(u_n =
 \frac{n-2^k}{2^k}.\)</span></p></li>
 </ul>
 <p>Montrons maintenant que <span
@@ -3845,8 +3847,8 @@ class="math inline">\(\left(v_n\right).\)</span></p></li>
 </ol>
 </details>
 </div>
-<h2 data-number="2.3" id="voisinage-intérieur-ouverts"><span
-class="header-section-number">2.3</span> Voisinage, intérieur,
+<h2 data-number="2.3" id="voisinages-intérieurs-ouverts"><span
+class="header-section-number">2.3</span> Voisinages, intérieurs,
 ouverts</h2>
 <div class="wdefi">
 <div class="webtextfigure">
@@ -3887,9 +3889,8 @@ data-reference-type="ref"
 data-reference="ex:contient_mais_nest_pas_voisinage">[ex:contient_mais_nest_pas_voisinage]</a>),</p></li>
 <li><p>Soit <span class="math inline">\(a \in E\)</span>, pour <span
 class="math inline">\(r &gt; 0\)</span>, <span
-class="math inline">\(B(a,r)\)</span> et <span
-class="math inline">\(\overline{B}(a,r)\)</span> sont des
-voisinages,</p></li>
+class="math inline">\(\overline{B}(a,r)\)</span> est un voisinage de
+<span class="math inline">\(a\)</span>,</p></li>
 <li><p>Si <span class="math inline">\(A \in \mathcal{V}(x)\)</span> et
 <span class="math inline">\(A\subset B\)</span> alors <span
 class="math inline">\(B \in \mathcal{V}(x).\)</span></p></li>
@@ -3917,6 +3918,12 @@ class="math inline">\(\overline{B}\left(x,\frac{r&#39;}{2}\right)
 \subset A\)</span> donc <span class="math inline">\(A \in
 \mathcal{V}(x).\)</span></p></li>
 </ul>
+</div>
+<div class="wrem">
+<p>Soit <span class="math inline">\(a \in E\)</span>, pour <span
+class="math inline">\(r &gt; 0\)</span>, <span
+class="math inline">\({B}(a,r)\)</span> est un voisinage de <span
+class="math inline">\(a\)</span>.</p>
 </div>
 <div class="wprop">
 <p>Soient <span class="math inline">\((E,\left\|\cdot\right\|)\)</span>
@@ -3956,8 +3963,7 @@ forcément défini avec <span class="math inline">\(I\)</span> infini)
 mais plutôt <span class="math inline">\(\inf_{i \in I} r_i.\)</span>
 Dans l’exemple des <span class="math inline">\(A_n\)</span>, avec pour
 tout <span class="math inline">\(n \geq 1\)</span>, <span
-class="math inline">\(r_n = \frac{1}{n}\)</span>, on a <span
-class="math inline">\(r_n &gt; 0\)</span> mais <span
+class="math inline">\(r_n = \frac{1}{n} &gt; 0\)</span> mais <span
 class="math inline">\(\inf_{n\geq 1}r_n = 0.\)</span></p>
 </div>
 <div class="wdefi">
@@ -3966,12 +3972,12 @@ un espace vectoriel normé, <span class="math inline">\(x \in E\)</span>
 et <span class="math inline">\(A \subset E.\)</span></p>
 <p>On dit que <span class="math inline">\(x\)</span> est un point
 intérieur à <span class="math inline">\(A\)</span> (dans <span
-class="math inline">\((E,\left\|\cdot\right\|\)</span>) si <span
+class="math inline">\((E,\left\|\cdot\right\|-\)</span>) si <span
 class="math inline">\(A\)</span> est un voisinage de <span
 class="math inline">\(x.\)</span></p>
 <p><span class="math inline">\(\left\{\text{points intérieurs à
 $A$}\right\}\)</span> est alors appelée l’intérieur (dans <span
-class="math inline">\((E,\left\|\cdot\right\|\)</span>) de <span
+class="math inline">\((E,\left\|\cdot\right\|)\)</span>) de <span
 class="math inline">\(A\)</span>, notée <span
 class="math inline">\(\mathring{A}\)</span> ou <span
 class="math inline">\(\mathrm{Int}(A).\)</span></p>
@@ -4044,8 +4050,9 @@ class="math inline">\(\overline{B}(\ell,r) \subset V.\)</span></p>
 <span class="math inline">\(N \in \mathbb{N}\)</span> tel que pour tout
 <span class="math inline">\(n \geq N, u_n \in
 \overline{B}(\ell,r)\subset V.\)</span></p></li>
-<li><p>Soit <span class="math inline">\(\varepsilon &gt; 0\)</span>,
-<span class="math inline">\(\overline{B}(\ell,\varepsilon) \in
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Soit <span
+class="math inline">\(\varepsilon &gt; 0\)</span>, <span
+class="math inline">\(\overline{B}(\ell,\varepsilon) \in
 \mathcal{V}(\ell)\)</span> donc il existe <span class="math inline">\(N
 \geq 0\)</span> tel que pour tout <span class="math inline">\(n \geq
 N\)</span>, <span class="math inline">\(u_n \in
@@ -4076,8 +4083,9 @@ class="math inline">\(N \in \mathbb{N}\)</span>, il existe <span
 class="math inline">\(n \geq N\)</span> tel que <span
 class="math inline">\(u_n \in \overline{B}(\ell,r)\subset
 V.\)</span></p></li>
-<li><p>Soient <span class="math inline">\(\varepsilon &gt; 0\)</span> et
-<span class="math inline">\(N \in \mathbb{N}\)</span>, <span
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Soient
+<span class="math inline">\(\varepsilon &gt; 0\)</span> et <span
+class="math inline">\(N \in \mathbb{N}\)</span>, <span
 class="math inline">\(\overline{B}(\ell,\varepsilon) \in
 \mathcal{V}(\ell)\)</span> donc il existe <span class="math inline">\(n
 \geq N\)</span> tel que <span class="math inline">\(u_n \in
@@ -4265,7 +4273,7 @@ A_i\)</span> et <span class="math inline">\(\bigcup_{i\in I}
 A_i\)</span> est un ouvert de <span
 class="math inline">\(E.\)</span></p></li>
 <li><p>Soit <span class="math inline">\(x \in \bigcap_{i\in I}
-A_i\)</span>, pour tout <span class="math inline">\(i \in I, x \in
+A_i\)</span> alors pour tout <span class="math inline">\(i \in I, x \in
 A_{i}.\)</span></p>
 <p>Òr, pour <span class="math inline">\(i \in I\)</span>, <span
 class="math inline">\(A_{i}\)</span> est un ouvert donc il existe <span
@@ -4354,18 +4362,18 @@ B}^{\circ}\)</span> mais <span class="math inline">\(1 \notin
 </details>
 </div>
 <h2 data-number="2.4"
-id="fermés-points-adhérents-densité-frontière"><span
+id="fermés-points-adhérents-densité-frontières"><span
 class="header-section-number">2.4</span> Fermés, points adhérents,
-densité, frontière</h2>
+densité, frontières</h2>
 <div class="wdefi">
 <p>Soient <span class="math inline">\((E,\left\|\cdot\right\|)\)</span>
 un espace vectoriel normé et <span class="math inline">\(A \subset
 E.\)</span></p>
 <p>On dit que <span class="math inline">\(A\)</span> est une partie
 fermée (ou un fermé) de <span
-class="math inline">\((E,\left\|\cdot\right\|\)</span> si <span
+class="math inline">\((E,\left\|\cdot\right\|)\)</span> si <span
 class="math inline">\(E \setminus A\)</span> est une partie ouverte de
-<span class="math inline">\((E,\left\|\cdot\right\|.\)</span></p>
+<span class="math inline">\((E,\left\|\cdot\right\|).\)</span></p>
 </div>
 <div class="wex">
 <ul>
@@ -4443,7 +4451,7 @@ B(x,\varepsilon) \neq \emptyset, \\
 <p><span class="math inline">\(\left\{\text{points adhérents à
 $A$}\right\}\)</span> est alors appelée l’adhérence de <span
 class="math inline">\(A\)</span> (dans <span
-class="math inline">\((E,\left\|\cdot\right\|\)</span>), notée <span
+class="math inline">\((E,\left\|\cdot\right\|)\)</span>), notée <span
 class="math inline">\(\overline{A}\)</span> ou <span
 class="math inline">\(\mathrm{Adh}(A).\)</span></p>
 </div>
@@ -4465,9 +4473,11 @@ class="math inline">\(\overline{A} \subset
 </div>
 <div class="wproof">
 <ul>
-<li><p>Si <span class="math inline">\(x \in A\)</span>, <span
-class="math inline">\(\overline{B}(x,1) \cap A \supset \left\{x\right\}
-\neq \emptyset\)</span>,</p></li>
+<li><p>Si <span class="math inline">\(x \in A\)</span>, soit <span
+class="math inline">\(\varepsilon &gt; 0\)</span>, <span
+class="math inline">\(\overline{B}(x,\varepsilon) \cap A \supset
+\left\{x\right\} \neq \emptyset\)</span> donc <span
+class="math inline">\(x \in \overline{A}\)</span>,</p></li>
 <li><p>Si <span class="math inline">\(x \in \overline{A}\)</span>, soit
 <span class="math inline">\(\varepsilon &gt; 0\)</span>, <span
 class="math inline">\(A \cap \overline{B}(x,\varepsilon) \neq
@@ -4492,7 +4502,7 @@ E.\)</span> Alors,</p>
 <ul>
 <li><p><span class="math display">\[\begin{aligned}
     x \in E \setminus \overline{A}
-    &amp; \iff x \notin A \\
+    &amp; \iff x \notin \overline{A} \\
     &amp; \iff \exists r&gt; 0 / \overline{B}(x,r) \cap A = \emptyset \\
     &amp; \iff  \exists r&gt; 0 / \overline{B}(x,r) \subset E \setminus
 A \\
@@ -4543,7 +4553,7 @@ class="math inline">\(E\)</span> donc <span
 class="math inline">\(\overline{A}\)</span> est un fermé de <span
 class="math inline">\(E.\)</span></p></li>
 <li><p>Soit <span class="math inline">\(B \subset E\)</span> tel que
-<span class="math inline">\(B\)</span> est fermé et <span
+<span class="math inline">\(B\)</span> est fermée et <span
 class="math inline">\(A \subset B\)</span> alors <span
 class="math inline">\(\overline{A} \subset \overline{B} =
 B.\)</span></p></li>
@@ -4665,7 +4675,7 @@ class="math inline">\(a_n \xrightarrow[n \to +\infty]{} x.\)</span></p>
 class="math inline">\(d(x,A) = 0.\)</span></p></li>
 <li><p><span class="math inline">\((\Longleftarrow)\)</span> Si <span
 class="math inline">\(d(x,A) = \inf_{a \in
-A}\left\|x-y\right\|\)</span>, soit <span class="math inline">\(n \in
+A}\left\|x-a\right\|\)</span>, soit <span class="math inline">\(n \in
 \mathbb{N}\)</span>, il existe <span class="math inline">\(a_n \in
 A\)</span> tel que <span class="math inline">\(\left\|x-a_n\right\| \leq
 \frac{1}{2^n}.\)</span></p>
@@ -4750,13 +4760,15 @@ class="math inline">\(y_n \in B(a,r).\)</span></p>
 </div>
 <div class="wprop">
 <p>Soit <span class="math inline">\((E,\left\|\cdot\right\|)\)</span> un
-espace vectoriel normé, alors</p>
+espace vectoriel normé, alors <span
+class="math inline">\(\quad\)</span></p>
 <ul>
 <li><p>toute partie finie de <span class="math inline">\(E\)</span> est
 un fermé de <span class="math inline">\(E.\)</span></p></li>
 </ul>
 </div>
 <div class="wproof">
+<p><span class="math inline">\(\quad\)</span></p>
 <ul>
 <li><p>Soit <span class="math inline">\(a \in E\)</span>, la seule suite
 de <span class="math inline">\(\left\{a\right\}\)</span> est la suite
