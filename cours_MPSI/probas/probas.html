@@ -208,34 +208,43 @@ class="toc-section-number">4.1</span> Loi uniforme</a></li>
 class="toc-section-number">4.2</span> Loi de Bernoulli</a></li>
 <li><a href="#loi-binomiale" id="toc-loi-binomiale"><span
 class="toc-section-number">4.3</span> Loi binomiale</a></li>
+</ul></li>
+<li><a href="#n-uplets-de-variables-aléatoires"
+id="toc-n-uplets-de-variables-aléatoires"><span
+class="toc-section-number">5</span> N-uplets de variables aléatoires</a>
+<ul>
 <li><a href="#couples-de-variables-aléatoires"
 id="toc-couples-de-variables-aléatoires"><span
-class="toc-section-number">4.4</span> Couples de variables
+class="toc-section-number">5.1</span> Couples de variables
 aléatoires</a></li>
 <li><a href="#loi-conditionnelle-de-y-sachant-xx"
 id="toc-loi-conditionnelle-de-y-sachant-xx"><span
-class="toc-section-number">4.5</span> Loi conditionnelle de <span
+class="toc-section-number">5.2</span> Loi conditionnelle de <span
 class="math inline">\(Y\)</span> sachant <span
 class="math inline">\((X=x)\)</span></a></li>
 <li><a href="#variables-indépendantes"
 id="toc-variables-indépendantes"><span
-class="toc-section-number">4.6</span> Variables indépendantes</a>
+class="toc-section-number">5.3</span> Variables indépendantes</a>
 <ul>
 <li><a href="#définition-5" id="toc-définition-5"><span
-class="toc-section-number">4.6.1</span> Définition</a></li>
+class="toc-section-number">5.3.1</span> Définition</a></li>
 <li><a href="#propriétés-3" id="toc-propriétés-3"><span
-class="toc-section-number">4.6.2</span> Propriétés</a></li>
+class="toc-section-number">5.3.2</span> Propriétés</a></li>
 </ul></li>
 <li><a href="#covariance-de-x-et-y" id="toc-covariance-de-x-et-y"><span
-class="toc-section-number">4.7</span> Covariance de <span
+class="toc-section-number">5.4</span> Covariance de <span
 class="math inline">\(X\)</span> et <span
 class="math inline">\(Y\)</span></a>
 <ul>
 <li><a href="#définition-6" id="toc-définition-6"><span
-class="toc-section-number">4.7.1</span> Définition</a></li>
+class="toc-section-number">5.4.1</span> Définition</a></li>
 <li><a href="#propriétés-4" id="toc-propriétés-4"><span
-class="toc-section-number">4.7.2</span> Propriétés</a></li>
+class="toc-section-number">5.4.2</span> Propriétés</a></li>
 </ul></li>
+<li><a href="#extension-au-cas-dun-n-uplets-de-variables-aléatoires"
+id="toc-extension-au-cas-dun-n-uplets-de-variables-aléatoires"><span
+class="toc-section-number">5.5</span> Extension au cas d’un <span
+class="math inline">\(n\)</span>-uplets de variables aléatoires</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -729,6 +738,12 @@ class="header-section-number">1.5</span> Rappels</h2>
 <p>Soit <span class="math inline">\(E\)</span> un ensemble de fini de
 cardinal <span class="math inline">\(n\)</span>,</p>
 <ul>
+<li><p>soit <span class="math inline">\(k \in [\![ 0,n]\!]\)</span>, un
+<span class="math inline">\(k\)</span>-arrangement de <span
+class="math inline">\(E\)</span> est un <span
+class="math inline">\(k\)</span>-uplet <span
+class="math inline">\((x_1,\ldots,x_k)\)</span> avec les <span
+class="math inline">\(x_1,\ldots,x_k\)</span> tous distincts,</p></li>
 <li><p>un <span class="math inline">\(k\)</span>-arrangement revient à
 désigner une fonction injective de <span class="math inline">\([\![
 1,k]\!]\)</span> dans <span class="math inline">\(E\)</span> et il y en
@@ -911,6 +926,8 @@ class="math inline">\(A \cap B = \emptyset\)</span>.</p></li>
 <div class="wdefi">
 <p>On considère une expérience aléatoire et son univers <span
 class="math inline">\(\Omega\)</span>.</p>
+<p>Un système complet d’événement est une suite finie d’événements <span
+class="math inline">\((A_1,\ldots,A_n)\)</span> telle que</p>
 <p><span class="math display">\[\bigcup_{j=1}^n A_j = \Omega \text{ et
 }\forall i,j \in [\![ 1,n ]\!], i\neq j \Longrightarrow A_i \cap A_j =
 \emptyset (\text{deux à deux disjoints}).\]</span></p>
@@ -1085,14 +1102,22 @@ A_i\right) = \sum_{i=1}^n
 </ul>
 </div>
 <div class="wprop">
-<p><strong>(Formule des probabilités totales)</strong> Alors, soit <span
-class="math inline">\(A \in \mathscr{P}(\Omega)\)</span>,</p>
+<p><strong>(Formule des probabilités totales)</strong> Soient <span
+class="math inline">\((\Omega,\mathbb{P})\)</span> un espace
+probabilisé, <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span> et <span
+class="math inline">\(A_1,\ldots,A_n \in \mathscr{P}(\Omega)\)</span> un
+système complet d’événements. Alors, soit <span class="math inline">\(A
+\in \mathscr{P}(\Omega)\)</span>,</p>
 <p><span class="math display">\[\mathbb{P}\left(A\right)= \sum_{i=1}^n
 \mathbb{P}\left(A \cap A_i\right).\]</span></p>
 </div>
 <div class="wproof">
 <div class="webtextfigure">
 <div class="webtext">
+<p>Par définition d’un un système complet d’événements, <span
+class="math inline">\(\Omega=\bigcup_{i=1}^n A_i\)</span> et les
+événements sont deux à deux disjoints.</p>
 <p>On a donc <span class="math inline">\(A = A\cap \Omega =
 A\cap\left(\bigcup_{i=1}^n A_i\right) = \bigcup_{i=1}^n \left(A_i \cap
 A\right)\)</span> et pour <span class="math inline">\(i \neq j\)</span>,
@@ -1491,9 +1516,17 @@ B)}{\mathbb{P}(A)}\frac{\mathbb{P}(A)}{\mathbb{P}(B)}
 </div>
 <div class="wcor">
 <p><strong>(Formule des probabilités totales et formule de
-Bayes)</strong> Alors, soit <span class="math inline">\(A \in
-\mathscr{P}(\Omega)\)</span>, pour <span class="math inline">\(1 \leq i
-\leq n\)</span>, <span class="math display">\[\begin{array}{lll}
+Bayes)</strong> Soient <span
+class="math inline">\((\Omega,\mathbb{P})\)</span> un espace
+probabilisé, <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span> et <span
+class="math inline">\(A_1,\ldots,A_n \in \mathscr{P}(\Omega)\)</span> un
+système complet d’événements tel que <span
+class="math inline">\(\mathbb{P}(A_i) &gt; 0\)</span> pour tout <span
+class="math inline">\(1 \leq i \leq n\)</span>. Alors, soit <span
+class="math inline">\(A \in \mathscr{P}(\Omega)\)</span>, pour <span
+class="math inline">\(1 \leq i \leq n\)</span>, <span
+class="math display">\[\begin{array}{lll}
          \mathbb{P}(A) &amp; = \sum_{k=1}^n \mathbb{P}(A \mid A_k)
 \mathbb{P}(A_k) &amp; \text{(Formule des probabilités totales réécrite)}
 \\
@@ -1585,6 +1618,8 @@ déclarés positifs).</p>
 <p>Calculer <span class="math inline">\(\mathbb{P}(D \mid
 T)\)</span>.</p>
 <details><summary>Corrigé</summary>
+<p><span class="math inline">\((D,\overline{D})\)</span> est un système
+complet d’événements donc par la formule de Bayes,</p>
 <p><span class="math display">\[\mathbb{P}(D \mid T) =
 \frac{\mathbb{P}(D)\mathbb{P}(T\mid D)}{\mathbb{P}(D)\mathbb{P}(T\mid
 D)+\mathbb{P}(\overline{D})\mathbb{P}(T\mid \overline{D})} =
@@ -2644,8 +2679,11 @@ class="math display">\[\begin{aligned}
 = np((n-1)p+1-np) = np(1-p).
     \end{aligned}\]</span></p>
 </div>
-<h2 data-number="4.4" id="couples-de-variables-aléatoires"><span
-class="header-section-number">4.4</span> Couples de variables
+<h1 data-number="5" id="n-uplets-de-variables-aléatoires"><span
+class="header-section-number">5</span> N-uplets de variables
+aléatoires</h1>
+<h2 data-number="5.1" id="couples-de-variables-aléatoires"><span
+class="header-section-number">5.1</span> Couples de variables
 aléatoires</h2>
 <div class="wdefi">
 <p>Soient <span class="math inline">\((\Omega,\mathbb{P})\)</span> un
@@ -2865,8 +2903,8 @@ X \setminus Z &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; \text{Loi de }  X \\
 </ul>
 </details>
 </div>
-<h2 data-number="4.5" id="loi-conditionnelle-de-y-sachant-xx"><span
-class="header-section-number">4.5</span> Loi conditionnelle de <span
+<h2 data-number="5.2" id="loi-conditionnelle-de-y-sachant-xx"><span
+class="header-section-number">5.2</span> Loi conditionnelle de <span
 class="math inline">\(Y\)</span> sachant <span
 class="math inline">\((X=x)\)</span></h2>
 <div class="wdefi">
@@ -2906,10 +2944,10 @@ class="math inline">\(1 \leq k \leq n\)</span> et <span
 class="math inline">\(1 \leq \ell \leq m\)</span>, <span
 class="math display">\[P_{k\ell} = \mathbb{P}(X=x_k,Y=y_\ell) =
 \mathbb{P}(X=x_k)\mathbb{P}_{(X=x_k)}(Y=y_\ell).\]</span></p>
-<h2 data-number="4.6" id="variables-indépendantes"><span
-class="header-section-number">4.6</span> Variables indépendantes</h2>
-<h3 data-number="4.6.1" id="définition-5"><span
-class="header-section-number">4.6.1</span> Définition</h3>
+<h2 data-number="5.3" id="variables-indépendantes"><span
+class="header-section-number">5.3</span> Variables indépendantes</h2>
+<h3 data-number="5.3.1" id="définition-5"><span
+class="header-section-number">5.3.1</span> Définition</h3>
 <div class="wdefi">
 <p>Soit <span class="math inline">\((\Omega,\mathbb{P})\)</span> un
 espace probabilisé, <span class="math inline">\(E,F\)</span> deux
@@ -2980,8 +3018,8 @@ tels que $F&#39; = \left\{y_{j_1},\ldots,y_{j_s}\right\}$}
         \end{aligned}\]</span></p></li>
 </ul>
 </div>
-<h3 data-number="4.6.2" id="propriétés-3"><span
-class="header-section-number">4.6.2</span> Propriétés</h3>
+<h3 data-number="5.3.2" id="propriétés-3"><span
+class="header-section-number">5.3.2</span> Propriétés</h3>
 <div class="wprop">
 <p>Soit <span class="math inline">\((\Omega,\mathbb{P})\)</span> un
 espace probabilisé, <span class="math inline">\(E,F\)</span> deux
@@ -3093,12 +3131,12 @@ class="math inline">\(\mathbb{E}\left[(X-\mathbb{E}(X))(Y-\mathbb{E}(Y))\right]
 <p>On a donc bien <span class="math inline">\(V(X+Y) =
 V(X)+V(Y)\)</span>.</p>
 </div>
-<h2 data-number="4.7" id="covariance-de-x-et-y"><span
-class="header-section-number">4.7</span> Covariance de <span
+<h2 data-number="5.4" id="covariance-de-x-et-y"><span
+class="header-section-number">5.4</span> Covariance de <span
 class="math inline">\(X\)</span> et <span
 class="math inline">\(Y\)</span></h2>
-<h3 data-number="4.7.1" id="définition-6"><span
-class="header-section-number">4.7.1</span> Définition</h3>
+<h3 data-number="5.4.1" id="définition-6"><span
+class="header-section-number">5.4.1</span> Définition</h3>
 <div class="wdefi">
 <p>Soit <span class="math inline">\((\Omega,\mathbb{P})\)</span> un
 espace probabilisé et <span class="math inline">\(X : \Omega \to
@@ -3115,8 +3153,8 @@ class="math inline">\(\mathbb{E}\left[(X-\mathbb{E}(X))(Y-\mathbb{E}(Y))\right]\
 que l’on note <span class="math inline">\(C(X,Y)\)</span>. On a alors
 <span class="math display">\[V(X+Y) = V(X)+V(Y)+2C(X,Y).\]</span></p>
 </div>
-<h3 data-number="4.7.2" id="propriétés-4"><span
-class="header-section-number">4.7.2</span> Propriétés</h3>
+<h3 data-number="5.4.2" id="propriétés-4"><span
+class="header-section-number">5.4.2</span> Propriétés</h3>
 <div class="wprop">
 <p>Soit <span class="math inline">\((\Omega,\mathbb{P})\)</span> un
 espace probabilisé et <span class="math inline">\(X : \Omega \to
@@ -3214,6 +3252,10 @@ car <span class="math inline">\(\mathbb{P}(X=0,Y=0) = 0 \neq
 class="math inline">\(\mathbb{E}(XY) = 0\)</span> et <span
 class="math inline">\(C(X,Y) = 0\)</span>.</p>
 </div>
+<h2 data-number="5.5"
+id="extension-au-cas-dun-n-uplets-de-variables-aléatoires"><span
+class="header-section-number">5.5</span> Extension au cas d’un <span
+class="math inline">\(n\)</span>-uplets de variables aléatoires</h2>
 <div class="wdefi">
 <p>Soit <span class="math inline">\((\Omega,\mathbb{P})\)</span> un
 espace probabilisé.</p>
