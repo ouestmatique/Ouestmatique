@@ -169,8 +169,12 @@ class="toc-section-number">5.1</span> Convolution et produit de
 Cauchy</a></li>
 <li><a href="#exponentielle" id="toc-exponentielle"><span
 class="toc-section-number">5.2</span> Exponentielle</a></li>
-<li><a href="#un-exercice" id="toc-un-exercice"><span
-class="toc-section-number">5.3</span> Un exercice</a></li>
+<li><a
+href="#application-des-séries-à-létude-des-inversibles-de-mathcala"
+id="toc-application-des-séries-à-létude-des-inversibles-de-mathcala"><span
+class="toc-section-number">5.3</span> Application des séries à l’étude
+des inversibles de <span
+class="math inline">\(\mathcal{A}\)</span></a></li>
 </ul></li>
 <li><a href="#transformation-dabel" id="toc-transformation-dabel"><span
 class="toc-section-number">6</span> Transformation d’Abel</a></li>
@@ -187,61 +191,46 @@ class="header-section-number">1</span> Généralites</h1>
 <h2 data-number="1.1" id="définition"><span
 class="header-section-number">1.1</span> Définition</h2>
 <div class="wdefi">
-<p>Soit <span class="math inline">\((u_n)_{n\geq 0}\)</span> une suite
+<p>Soit <span class="math inline">\((u_n)_{n\geq n_0}\)</span> une suite
 de <span class="math inline">\(E,\)</span> on considère, pour <span
-class="math inline">\(n \in \mathbb{N},\)</span> <span
-class="math inline">\(S_n = \sum_{k=0}^n u_k \in E.\)</span></p>
+class="math inline">\(n \in \mathbb{N}, \geq n_0,\)</span> <span
+class="math inline">\(S_n = \sum_{k=n_0}^n u_k \in E.\)</span></p>
 <p>La série de terme général <span class="math inline">\(u_n,\)</span>
-notée <span class="math inline">\(\sum u_n,\)</span> est la donnée des
-suites <span class="math inline">\(\left(u_n\right)\)</span> et <span
-class="math inline">\(\left(S_n\right).\)</span></p>
+notée <span class="math inline">\(\sum_{n \geq n_0} u_n\)</span> ou
+<span class="math inline">\(\sum u_n,\)</span> est la donnée des suites
+<span class="math inline">\(\left(u_n\right)_{n\geq n_0}\)</span> et
+<span class="math inline">\(\left(S_n\right)_{n\geq n_0}.\)</span></p>
 <ul>
-<li><p><span class="math inline">\((S_n)\)</span> est appelée la suite
-des sommes partielles associées à <span class="math inline">\(\sum
-u_n.\)</span></p></li>
-<li><p>Si <span class="math inline">\((S_n)\)</span> converge vers une
-limite <span class="math inline">\(S \in E,\)</span> on dit que la série
-<span class="math inline">\(\sum u_n\)</span> converge (est convergente)
-et sa limite est appelée la somme de la série <span
-class="math inline">\(\sum u_n\)</span> et est notée <span
-class="math inline">\(\sum_{n=0}^{+\infty} u_n\)</span> ou <span
-class="math inline">\(\sum_{n\geq 0}^{+\infty} u_n.\)</span></p></li>
-<li><p>Si <span class="math inline">\((S_n)\)</span> diverge, on dit que
-<span class="math inline">\(\sum u_n\)</span> diverge (est
-divergente).</p></li>
+<li><p><span class="math inline">\((S_n)_{n\geq n_0}\)</span> est
+appelée la suite des sommes partielles associées à <span
+class="math inline">\(\sum_{n\geq n_0} u_n.\)</span></p></li>
+<li><p>Si <span class="math inline">\((S_n)_{n\geq n_0}\)</span>
+converge vers une limite <span class="math inline">\(S \in E,\)</span>
+on dit que la série <span class="math inline">\(\sum_{n\geq n_0}
+u_n\)</span> converge (est convergente) et sa limite est appelée la
+somme de la série <span class="math inline">\(\sum_{n\geq n_0}
+u_n\)</span> et est notée <span
+class="math inline">\(\sum_{n=n_0}^{+\infty} u_n.\)</span></p></li>
+<li><p>Si <span class="math inline">\((S_n)_{n\geq n_0}\)</span>
+diverge, on dit que <span class="math inline">\(\sum_{n\geq n_0}
+u_n\)</span> diverge (est divergente).</p></li>
 <li><p>Le caractère convergent ou divergent d’une série est appelé sa
 nature.</p></li>
-</ul>
-</div>
-<div class="wrem">
-<ul>
-<li><p>Comme <span class="math inline">\(E\)</span> est de dimension
-finie, la convergence de <span class="math inline">\(\sum u_n\)</span>
-ne dépend pas de la norme.</p></li>
-<li><p>La définition s’adapte avec <span
-class="math inline">\((u_n)_{n\geq n_0}\)</span> et <span
-class="math inline">\(S_n = \sum_{k= n_0}^n u_k\)</span> pour <span
-class="math inline">\(n \geq n_0\)</span> dont on notera la somme <span
-class="math inline">\(\sum_{n=n_0}^{+\infty} u_n\)</span> ou <span
-class="math inline">\(\sum_{n\geq n_0} u_n\)</span> en cas de
-convergence. On notera parfois <span class="math inline">\(\sum_{n \geq
-n_0} u_n\)</span> au lieu de <span class="math inline">\(\sum
-u_n\)</span> pour apporter la précision que <span
-class="math inline">\(u_n\)</span> est définie pour <span
-class="math inline">\(n \geq n_0.\)</span></p></li>
 </ul>
 </div>
 <div class="wex">
 <p><span id="ex:exponentielle" label="ex:exponentielle"></span> Soit
 <span class="math inline">\(x \in \mathbb{R},\)</span> on peut
-considérer la suite <span class="math inline">\(\sum u_n\)</span> avec
-<span class="math inline">\(u_n = \frac{x^n}{n!}\)</span> pour <span
-class="math inline">\(n \in \mathbb{N}.\)</span> Elle est convergente de
-somme <span class="math inline">\(e^x.\)</span> En effet, comme <span
+considérer la série <span class="math inline">\(\sum_{n \geq 0}
+u_n\)</span> avec <span class="math inline">\(u_n =
+\frac{x^n}{n!}\)</span> pour <span class="math inline">\(n \in
+\mathbb{N}.\)</span> Elle est convergente de somme <span
+class="math inline">\(e^x.\)</span> En effet, comme <span
 class="math inline">\(f: x \in \mathbb{R}\mapsto e^x\)</span> est <span
 class="math inline">\(\mathscr{C}^\infty,\)</span> par inégalité de
-Taylor-Lagrange et <span class="math inline">\(n \in
-\mathbb{N},\)</span> <span class="math display">\[\begin{aligned}
+Taylor-Lagrange appliquée sur <span class="math inline">\([0,x]\)</span>
+à l’ordre <span class="math inline">\(n \in \mathbb{N},\)</span> <span
+class="math display">\[\begin{aligned}
         \left|f(x) - \sum_{k=0}^n \frac{f^{(k)}(0)}{k!}x^k\right|
         &amp; = \left|e^x - \sum_{k=0}^n \frac{x^k}{k!}\right| \\
         &amp; \leq \sup_{t\in
@@ -253,9 +242,10 @@ $x &lt; 0$)}}\\
         &amp; \leq \frac{\max(e^x,1)\left|x\right|^{n+1}}{(n+1)!}
 \xrightarrow[n \to +\infty]{} 0.
         \end{aligned}\]</span></p>
-<p>O, écrit alors <span class="math inline">\(e^x = \sum_{k=0}^{+\infty}
-\frac{x^k}{k!}.\)</span> De même, <span class="math inline">\(\cos(x) =
-\sum_{k=0}^{+\infty} \frac{(-1)^kx^{2k}}{(2k)!}\)</span> et <span
+<p>On écrit alors <span class="math inline">\(e^x = \sum_{k=0}^{+\infty}
+\frac{x^k}{k!}.\)</span></p>
+<p>De même, <span class="math inline">\(\cos(x) = \sum_{k=0}^{+\infty}
+\frac{(-1)^kx^{2k}}{(2k)!}\)</span> et <span
 class="math inline">\(\sin(x) =  \sum_{k=0}^{+\infty}
 \frac{(-1)^kx^{2k+1}}{(2k+1)!}.\)</span></p>
 </div>
@@ -336,8 +326,8 @@ diverge grossièrement (<span class="math inline">\(q^n
 \centernot{\xrightarrow[n \to +\infty]{}} 0\)</span>).</p></li>
 <li><p>Si <span class="math inline">\(\left|q\right| &lt; 1,\)</span>
 pour <span class="math inline">\(N \in \mathbb{N},\)</span> <span
-class="math inline">\(\sum_{n=0}^Nq^n = \frac{1-q^{n+1}}{1-q}\)</span>
-et <span class="math inline">\(q^{n+1} \xrightarrow[n \to +\infty]{}
+class="math inline">\(\sum_{n=0}^Nq^n = \frac{1-q^{N+1}}{1-q}\)</span>
+et <span class="math inline">\(q^{N+1} \xrightarrow[n \to +\infty]{}
 0\)</span> donc <span class="math inline">\(\sum_{n=0}^Nq^n
 \xrightarrow[N \to +\infty]{} \frac{1}{1-q}.\)</span></p></li>
 </ul>
@@ -345,8 +335,9 @@ et <span class="math inline">\(q^{n+1} \xrightarrow[n \to +\infty]{}
 <h2 data-number="1.4" id="séries-de-riemann"><span
 class="header-section-number">1.4</span> Séries de Riemann</h2>
 <div class="wprop">
-<p><span id="prop:series_Riemann" label="prop:series_Riemann"></span>
-Soit <span class="math inline">\(\alpha \in \mathbb{R},\)</span> <span
+<p><strong>(Séries de Riemann)</strong> <span id="prop:series_Riemann"
+label="prop:series_Riemann"></span> Soit <span
+class="math inline">\(\alpha \in \mathbb{R},\)</span> <span
 class="math display">\[\sum_{n \geq 1} \frac{1}{n^\alpha} \text{
 converge } \iff \alpha &gt; 1.\]</span></p>
 </div>
@@ -390,7 +381,7 @@ u_n.\)</span></p>
 class="math inline">\(S_N = \sum_{n=n_0}^{N} u_n\)</span> et <span
 class="math inline">\(T_N = \sum_{n=n_1}^{N} u_n\)</span> les sommes
 partielles associées.</p>
-<p>Alors, pour tout <span class="math inline">\(N \geq N_1,\)</span>
+<p>Alors, pour tout <span class="math inline">\(N \geq n_1,\)</span>
 <span class="math inline">\(S_N = T_N+\underbrace{\sum_{n=n_0}^{n_1-1}
 u_n}_{\text{ne dépend pas de $N.$}}\)</span></p>
 <p>et on a clairement <span
@@ -482,7 +473,7 @@ e_p\)</span></p>
 <p>Donc <span class="math display">\[\left(\sum_{n= n_0}^{N} u_n
 \right)_{N \geq 0}\text{ converge } \iff \forall 1 \leq j \leq
 p,  \left(\sum_{n= n_0}^{N} u_{n,j}\right)_{N \geq 0} \text{
-converge}\]</span> avec, en cas de convergence, <span
+converge}\]</span> avec en cas de convergence, <span
 class="math display">\[\sum_{n = n_0}^{+\infty} u_n = \left(\sum_{n =
 n_0}^{+\infty} u_{n,1}\right) e_1+\ldots+\left(\sum_{n = n_0}^{+\infty}
 u_{n,p}\right) e_p.\]</span></p></li>
@@ -655,13 +646,13 @@ class="math inline">\(u_n=v_n.\)</span></p>
 </div>
 <div class="wproof">
 <p>Pour tout <span class="math inline">\(n \geq n_0,\)</span> <span
-class="math inline">\(v_n-u_n \geq 0.\)</span> De plus, <span
-class="math inline">\(\sum_{n \geq n_0}\left(v_n-u_n\right)\)</span>
-converge avec <span class="math inline">\(\sum_{n=n_0}^{+\infty}
-\left(v_n-u_n\right) = \sum_{n=n_0}^{+\infty} v_n-\sum_{n=n_0}^{+\infty}
-u_n \geq 0\)</span> et égalité si et seulement si pour tout <span
-class="math inline">\(n \geq n_0,\)</span> <span
-class="math inline">\(u_n=v_n.\)</span></p>
+class="math inline">\(v_n-u_n \geq 0.\)</span> Donc <span
+class="math inline">\(\sum_{n \geq n_0}\left(v_n-u_n\right)\)</span> est
+une série à termes positifs qui converge avec <span
+class="math inline">\(\sum_{n=n_0}^{+\infty} \left(v_n-u_n\right) =
+\sum_{n=n_0}^{+\infty} v_n-\sum_{n=n_0}^{+\infty} u_n \geq 0\)</span> et
+égalité si et seulement si pour tout <span class="math inline">\(n \geq
+n_0,\)</span> <span class="math inline">\(u_n=v_n.\)</span></p>
 </div>
 <h2 data-number="1.9" id="convergence-absolue"><span
 class="header-section-number">1.9</span> Convergence absolue</h2>
@@ -719,8 +710,9 @@ pose</p>
     \end{array}\right.
         \end{aligned}\]</span></p>
 <p>qui sont positifs.</p>
-<p>De plus, <span class="math inline">\(x = x^+-x^-\)</span> et <span
-class="math inline">\(\left|x\right| = x^++x^-.\)</span></p>
+<p>On remarque alors que <span class="math inline">\(x =
+x^+-x^-\)</span> et <span class="math inline">\(\left|x\right| =
+x^++x^-.\)</span></p>
 </div>
 <div class="webimg">
 <p><img src="decomposition_partie_positive_negative.png"
@@ -820,11 +812,10 @@ semi-convergente.</p>
 class="header-section-number">1.10</span> Séries alternées</h2>
 <div class="wdefi">
 <p>Soit <span class="math inline">\(\sum_{n \geq n_0} u_n\)</span> une
-suite réelle.</p>
+série de réels.</p>
 <p>On dit que <span class="math inline">\(\sum_{n \geq n_0} u_n\)</span>
-est alternée si <span class="math inline">\(\left((-1)^n
-u_n\right)\)</span> est de signe constant à partir d’un certain
-rang.</p>
+est alternée si <span class="math inline">\(\left((-1)^n u_n\right)_{n
+\geq n_0}\)</span> est de signe constant à partir d’un certain rang.</p>
 </div>
 <div class="wex">
 <p><span class="math inline">\(\sum_{n \geq 1} \frac{(-1)^n}{n}\)</span>
@@ -908,11 +899,12 @@ de signe constant (disons <span class="math inline">\(\geq 0\)</span>
 par exemple, mais la preuve est adaptable à <span
 class="math inline">\(\leq 0\)</span>) et <span
 class="math inline">\(\left(\left|u_n\right|\right)_{n \geq
-n_1}\)</span> est décroissante. Montrons que la suite des sommes
-partielles <span class="math inline">\(\left(T_n\right)_{n \geq
-n_1}\)</span> (ie <span class="math inline">\(T_n = \sum_{k=n_1}^n
-u_k\)</span> pour <span class="math inline">\(n \geq n_1\)</span>) est
-convergente. Pour cela, on va montrer que <span
+n_1}\)</span> est décroissante.</p>
+<p>Montrons que la suite des sommes partielles <span
+class="math inline">\(\left(T_n\right)_{n \geq n_1}\)</span> (ie <span
+class="math inline">\(T_n = \sum_{k=n_1}^n u_k\)</span> pour <span
+class="math inline">\(n \geq n_1\)</span>) est convergente.</p>
+<p>Pour cela, on va montrer que <span
 class="math inline">\(\left(T_{2n}\right)_{n \geq n_1}\)</span> et <span
 class="math inline">\(\left(T_{2n+1}\right)_{n \geq n_1}\)</span> sont
 adjacentes. Ainsi, ces deux sous-suites seront convergentes de même
@@ -954,8 +946,8 @@ class="math inline">\(T_{2n+1}-T_{2n} = \sum_{k=n_1}^{2n+1} u_k -
 n_1}\)</span> et <span class="math inline">\(\left(T_{2n+1}\right)_{n
 \geq n_1}\)</span> sont effectivement adjacentes puis <span
 class="math inline">\(\left(T_n\right)\)</span> converge d’où <span
-class="math inline">\(\sum_{n \geq n_1} u_n\)</span> et <span
-class="math inline">\(\sum_{n \geq n_0}\)</span> convergent.</p>
+class="math inline">\(\sum_{n \geq n_1} u_n\)</span> puis <span
+class="math inline">\(\sum_{n \geq n_0}u_n\)</span> convergent.</p>
 </div>
 <div class="wprop">
 <p><strong>(Séries de Riemann alternées)</strong> <span
@@ -991,7 +983,7 @@ converge.</p></li>
 </ul>
 </div>
 <div class="wrem">
-<p>Comment utiliser des équivalents pour utiliser le théorème spécial
+<p>Comment mobiliser des équivalents pour utiliser le théorème spécial
 des séries alternées ?</p>
 <ul>
 <li><p>Si <span class="math inline">\((-1)^n u_n \underset{n\to
@@ -1036,7 +1028,7 @@ class="math inline">\(\left|u_n\right| = f(n)\)</span> avec <span
 class="math inline">\(f\)</span> une fonction réelle, on peut montrer
 que <span class="math inline">\(f\)</span> est décroissante au voisinage
 de <span class="math inline">\(+\infty\)</span> (éventuellement via un
-équivalent de <span class="math inline">\(f&#39;\)</span> quand <span
+équivalent de <span class="math inline">\(f&#39;(x)\)</span> quand <span
 class="math inline">\(x \longrightarrow +\infty,\)</span> si <span
 class="math inline">\(f\)</span> est dérivable), comme illustré dans
 l’exercice <a href="#exoc:series_alternees_De_bertrand"
@@ -1079,7 +1071,7 @@ spécial des séries alternées est applicable.</p>
 <ol>
 <li><p>Pour <span class="math inline">\(n \geq 2,\)</span> <span
 class="math inline">\((-1)^nu_n = \frac{1}{n^\alpha
-\left(\ln(n)\right)^\beta} \geq 2.\)</span></p></li>
+\left(\ln(n)\right)^\beta} \geq 0.\)</span></p></li>
 <li><p>Remarquons que pour <span class="math inline">\(n \geq
 2,\)</span> <span class="math inline">\(\left|u_n\right| = f(n)\)</span>
 avec <span class="math inline">\(f : x &gt;1 \mapsto \frac{1}{x^\alpha
@@ -1111,10 +1103,17 @@ class="math inline">\(x\)</span> au voisinage de <span
 class="math inline">\(+\infty\)</span> donc <span
 class="math inline">\(f\)</span> est décroissante au voisinage de <span
 class="math inline">\(+\infty.\)</span></p></li>
-<li><p>Pour <span class="math inline">\(n \geq 2,\)</span> <span
-class="math inline">\(\left|u_n\right| = \frac{1}{n^\alpha
-\left(\ln(n)\right)^\beta} \xrightarrow[n \to +\infty]{} 0\)</span> par
-croissances comparées.</p></li>
+<li><p>Pour <span class="math inline">\(n \geq 2,\)</span></p>
+<p><span class="math inline">\(\left|u_n\right| = \frac{1}{n^\alpha
+\left(\ln(n)\right)^\beta}
+            = \left\{\begin{array}{ll}
+                n^{\underbrace{-\alpha}_{&lt; 0}}
+\left(\ln(n)\right)^{-\beta} \xrightarrow[n \to +\infty]{} 0 &amp;
+\mbox{par croissances comparées si $\alpha &gt; 0$,} \\
+                 \left(\ln(n)\right)^{\underbrace{-\beta}_{&lt; 0}}
+\xrightarrow[n \to +\infty]{} 0 &amp;  \mbox{ si $\alpha = 0$ et $\beta
+&gt; 0$.} \\
+            \end{array}\right.\)</span></p></li>
 </ol>
 <p>On en déduit donc par le théorème spécial des séries alternées que
 <span class="math inline">\(\sum u_n\)</span> converge.</p></li>
@@ -1137,7 +1136,7 @@ n_0\)</span></u>,</p></li>
 0,\)</span></p></li>
 </ol>
 <p>Alors la somme <span class="math inline">\(S = \sum_{n =
-0}^{+\infty}\)</span> vérifie :</p>
+0}^{+\infty}u_n\)</span> vérifie :</p>
 <ul>
 <li><p><span class="math inline">\(S\)</span> est du signe de <span
 class="math inline">\(u_{n_0},\)</span></p></li>
@@ -1166,7 +1165,7 @@ data-reference="lem:sommer_Deux_reels_dont_on_connait_relation_module">[lem:somm
 <p>Or, <span class="math inline">\(T_N = \sum_{k=0}^{2N+1} u_k
 \xrightarrow[N \to +\infty]{} S\)</span> donc <span
 class="math inline">\(S \geq 0.\)</span></p></li>
-<li><p>De même, <span class="math inline">\(\ell \in
+<li><p>De même, pour <span class="math inline">\(\ell \in
 \mathbb{N}^{\star},\)</span> <span
 class="math inline">\(u_{2\ell-1}+u_{2\ell} \leq 0\)</span> car <span
 class="math inline">\(u_{2\ell-1} \leq 0,\)</span> <span
@@ -1257,7 +1256,7 @@ décroissante <u>dès <span class="math inline">\(n=0\)</span></u>).</p>
 0\)</span> dès <span class="math inline">\(n = 0.\)</span></p>
 <p>En revanche, <span
 class="math inline">\(\frac{\left|u_{n+1}\right|}{\left|u_{n}\right|} =
-\frac{8}{(2n+1)(2n+2)}\)</span> donc</p>
+\frac{8}{(2n+1)(2n+2)}\)</span> et</p>
 <ul>
 <li><p>Pour <span class="math inline">\(n=0,\)</span> <span
 class="math inline">\(\frac{\left|u_{1}\right|}{\left|u_{0}\right|} =
@@ -1266,8 +1265,14 @@ class="math inline">\(\frac{\left|u_{1}\right|}{\left|u_{0}\right|} =
 class="math inline">\(\frac{\left|u_{2}\right|}{\left|u_{1}\right|} =
 \frac{8}{12} = \frac{2}{3} &lt; 1,\)</span></p></li>
 </ul>
-<p>donc la suite décroît dès <span class="math inline">\(n=1.\)</span>
-On peut donc appliquer la proposition <a
+<p>Comme <span
+class="math inline">\(\left(\frac{8}{(2n+1)(2n+2)}\right)_{n \geq
+0}\)</span> décroît, on en déduit que <span
+class="math inline">\(\frac{8}{(2n+1)(2n+2)} \leq 1\)</span> dès <span
+class="math inline">\(n=1\)</span> et que la suite <span
+class="math inline">\(\left(\left|u_n\right|\right)_{n \geq 0}\)</span>
+décroît dès <span class="math inline">\(n=1.\)</span> On peut donc
+appliquer la proposition <a
 href="#prop:signe_somme_thm_series_alternees" data-reference-type="ref"
 data-reference="prop:signe_somme_thm_series_alternees">[prop:signe_somme_thm_series_alternees]</a>
 à <span class="math inline">\(\left(u_n\right)_{n \geq 1}\)</span> pour
@@ -1374,7 +1379,8 @@ class="math inline">\(\sum \frac{z^n}{n!}\)</span> converge absolument
 <p>La proposition <a href="#prop:comparaison_Asymptote_nature_series"
 data-reference-type="ref"
 data-reference="prop:comparaison_Asymptote_nature_series">[prop:comparaison_Asymptote_nature_series]</a>
-est faux en remplaçant la convergence absolue par de la convergence.</p>
+est fausse en remplaçant la convergence absolue par de la
+convergence.</p>
 <div class="wex">
 <p>On a <span class="math inline">\(\frac{1}{n} = \underset{n\to
 +\infty}{O} \left(\frac{(-1)^n}{\sqrt{n}}\right)\)</span> mais <span
@@ -1443,8 +1449,8 @@ $\alpha &lt; 0$}}}} \underset{n\to +\infty}{\sim} 1\)</span> puis <span
 class="math inline">\(\sum u_n\)</span> diverge grossièrement.</p></li>
 <li><p>Si <span class="math inline">\(\alpha &gt; 0,\)</span></p>
 <p><span class="math inline">\(u_n = \frac{(-1)^n}{(-1)^n+n^\alpha} =
-\frac{(-1)^n}{n^\alpha}\frac{1}{1+\underbrace{\frac{(-1)^n}{n^\alpha}_{\substack{\xrightarrow[n
-\to +\infty]{} 0 \\ \text{car $\alpha &gt; 0$}}}}} \underset{n\to
+\frac{(-1)^n}{n^\alpha}\frac{1}{1+\underbrace{\frac{(-1)^n}{n^\alpha}}_{\substack{\xrightarrow[n
+\to +\infty]{} 0 \\ \text{car $\alpha &gt; 0$}}}} \underset{n\to
 +\infty}{\sim} \frac{(-1)^n}{n^\alpha}.\)</span></p>
 <p>Problème ! <span
 class="math inline">\(\frac{(-1)^n}{n^\alpha}\)</span> ne converge pas
@@ -1455,7 +1461,7 @@ class="math inline">\(\sum u_n\)</span> converge absolument donc
 converge et pour <span class="math inline">\(0 &lt; \alpha \leq
 1,\)</span> la série <span class="math inline">\(\sum u_n\)</span> ne
 converge pas absolument mais après tout, elle peut-être
-semi-convergente. Il faut pousser l’analyse en faisant un développement
+semi-convergente. Il faut préciser l’analyse en faisant un développement
 asymptotique plus poussé.</p>
 <p>En utilisant <span
 class="math inline">\(\frac{1}{1+t}=1-t+\underset{t\to
@@ -1513,7 +1519,7 @@ class="math display">\[\pi\sqrt{n^2+n}
 0}{o}\left(t^2\right)\)</span> donc <span class="math display">\[u_n
 =\frac{\pi}{8}\frac{(-1)^n}{n}+\underset{n\to
 +\infty}{o}\left(\tfrac{1}{n}\right)+\underset{n\to
-+\infty}{o}\left(\tfrac{1}{n^2}\right)\]</span> On sait que <span
++\infty}{o}\left(\tfrac{1}{n^2}\right).\]</span> On sait que <span
 class="math inline">\(\sum \frac{\pi}{8}\frac{(-1)^n}{n}\)</span> et
 <span class="math inline">\(\sum \underset{n\to
 +\infty}{o}\left(\tfrac{1}{n^2}\right)\)</span> mais on ne peut rien
@@ -1714,9 +1720,10 @@ u_n\)</span> diverge grossièrement.</p>
 class="header-section-number">2.3</span> Comparaison
 série-intégrale</h2>
 <div class="wprop">
-<p>Soit <span class="math inline">\(f:[n_0,+\infty[ \to
-\mathbb{R}\)</span> avec <span class="math inline">\(n_0 \in
-\mathbb{N}\)</span></p>
+<p><span id="prop:comparaison_Serie_integrale"
+label="prop:comparaison_Serie_integrale"></span> Soit <span
+class="math inline">\(f:[n_0,+\infty[ \to \mathbb{R}\)</span> avec <span
+class="math inline">\(n_0 \in \mathbb{N}\)</span></p>
 <ul>
 <li><p>continue par morceaux sur <span
 class="math inline">\([n_0,+\infty[,\)</span></p></li>
@@ -1730,8 +1737,8 @@ class="math inline">\(+\infty.\)</span></p></li>
 <li><p><span class="math inline">\(\sum_{k \geq n_0+1}
 \left(\int_{k-1}^k f(t)dt - f(k)\right) \text{
 converge.}\)</span></p></li>
-<li><p><span class="math inline">\(\sum f(k) \text{ converge } \iff
-\left(\int_{n_0}^{n} f(t)dt\right)_{n \geq 0} \text{
+<li><p><span class="math inline">\(\sum_{n \geq n_0} f(n) \text{
+converge } \iff \left(\int_{n_0}^{n} f(t)dt\right)_{n \geq 0} \text{
 converge.}\)</span></p></li>
 </ul>
 </div>
@@ -1773,13 +1780,9 @@ somme de la série <span class="math inline">\(\sum_{k \geq n_0+1}
 u_k,\)</span> on a donc <span class="math display">\[\sum_{k=n_0+1}^n
 u_k = \sum_{k=n_0+1}^n\left(\int_{k-1}^{k}f(t)dt-f(k)\right) =
 \int_{n_0}^{n}f(t)dt - \sum_{k=n_0+1}^nf(k) \xrightarrow[n \to
-+\infty]{} \ell\]</span> donc <span
-class="math display">\[\sum_{k=n_0+1}^n u_k =
-\sum_{k=n_0+1}^n\left(\int_{k-1}^{k}f(t)dt-f(k)\right) =
-\int_{n_0}^{n}f(t)dt - \sum_{k=n_0}^nf(k) \xrightarrow[n \to +\infty]{}
-\ell&#39; = \ell -f(n_0)\]</span> et <span class="math display">\[\sum
-f(k) \text{ converge } \iff \left(\int_{n_0}^{n} f(t)dt\right)_{n \geq
-0} \text{ converge.}\]</span></p>
++\infty]{} \ell\]</span> donc <span class="math display">\[\sum_{n \geq
+n_0} f(n) \text{ converge } \iff \left(\int_{n_0}^{n} f(t)dt\right)_{n
+\geq 0} \text{ converge.}\]</span></p>
 </div>
 <div class="wrem">
 <div class="webtextfigure">
@@ -1828,7 +1831,7 @@ et seulement si <span class="math inline">\(\alpha
 </div>
 <div class="wrem">
 <p>Comme <span class="math inline">\(\sum_{k \geq n_0+1}
-\left(\int_{k-1}^k f(t)dt - f(k)\right) \text{ converge.}
+\left(\int_{k-1}^k f(t)dt - f(k)\right) \text{ converge}
         ,\)</span> il existe <span class="math inline">\(\ell \in
 \mathbb{R}\)</span> tel que <span class="math inline">\(\sum_{k=
 n_0}  f(k) = \int_{n_0}^n f(t)+\ell +\underset{n\to
@@ -1976,8 +1979,10 @@ simple de <span class="math inline">\(R_n = \sum_{k=n+1}^{+\infty}
 \in \mathbb{N}\)</span> et <span class="math inline">\(\alpha &gt;
 1.\)</span></p>
 <details><summary>Corrigé</summary>
-<p>Reprenons la preuve de la proposition sur la comparaison
-série-intégrale. <span class="math inline">\(f:t &gt;1 \mapsto
+<p>Reprenons la preuve de la proposition <a
+href="#prop:comparaison_Serie_integrale" data-reference-type="ref"
+data-reference="prop:comparaison_Serie_integrale">[prop:comparaison_Serie_integrale]</a>.
+<span class="math inline">\(f:t &gt;1 \mapsto
 \frac{1}{t^\alpha}\)</span> est décroissante donc pour <span
 class="math inline">\(k \geq 2,\)</span></p>
 <div class="webtextfigure">
@@ -2118,8 +2123,9 @@ u_k}\underset{n\to +\infty}{\sim}{\sum_{k=n+1}^{+\infty}
 v_k}.\)</span></p></li>
 </ul></li>
 <li><p>Si <span class="math inline">\(\sum v_n\)</span> diverge, alors
-<span class="math inline">\(\sum_{k=0}^n v_k \xrightarrow[n \to
-+\infty]{}+\infty\)</span> comme elle est à terme général positif.</p>
+<span class="math inline">\(\sum_{k=n_0}^n v_k \xrightarrow[n \to
++\infty]{}+\infty\)</span> comme la série est de terme général
+positif.</p>
 <ul>
 <li><p>Soit <span class="math inline">\(\varepsilon &gt; 0,\)</span> il
 existe <span class="math inline">\(N \in \mathbb{N}\)</span> tel que
@@ -2132,15 +2138,15 @@ class="math display">\[\left\|\sum_{k=n_0}^{n} u_k\right\| \leq
 \left\|u_k\right\|+\sum_{k=N}^{n} \left\|u_k\right\| \leq
 \sum_{k=n_0}^{N-1} \left\|u_k\right\|+\varepsilon \left(\sum_{k=N}^{n}
 {v_k}\right).\]</span></p>
-<p>Or,<span class="math inline">\(\sum_{k=0}^n v_k \xrightarrow[n \to
+<p>Or,<span class="math inline">\(\sum_{k=n_0}^n v_k \xrightarrow[n \to
 +\infty]{}+\infty\)</span> et <span
 class="math inline">\(\sum_{k=n_0}^{N-1} \left\|u_k\right\|\)</span> est
 constant donc <span class="math inline">\(\frac{\sum_{k=n_0}^{N-1}
-\left\|u_k\right\|}{\sum_{k=0}^n v_k } \xrightarrow[n \to +\infty]{}
+\left\|u_k\right\|}{\sum_{k=n_0}^n v_k } \xrightarrow[n \to +\infty]{}
 0\)</span> et il existe <span class="math inline">\(N&#39; \geq
 N\)</span> tel que pour tout <span class="math inline">\(n \geq
 N&#39;,\)</span> <span class="math inline">\(\frac{\sum_{k=n_0}^{N-1}
-\left\|u_k\right\|}{\sum_{k=0}^n v_k } \leq \varepsilon.\)</span> On a
+\left\|u_k\right\|}{\sum_{k=n_0}^n v_k } \leq \varepsilon.\)</span> On a
 donc aussi pour tout <span class="math inline">\(n \geq N&#39;,\)</span>
 <span class="math display">\[\left\|\sum_{k=n_0}^{n} u_k\right\|  \leq
 \varepsilon \sum_{k=n_0}^{n} v_k+\varepsilon
@@ -2161,17 +2167,17 @@ class="math display">\[\left\|\sum_{k=n_0}^{n} u_k\right\| \leq
 \left\|u_k\right\|+\sum_{k=N}^{n} \left\|u_k\right\| \leq
 \sum_{k=n_0}^{N-1} \left\|u_k\right\|+M \left(\sum_{k=N}^{n}
 {v_k}\right).\]</span></p>
-<p>Or,<span class="math inline">\(\sum_{k=0}^n v_k \xrightarrow[n \to
+<p>Or,<span class="math inline">\(\sum_{k=n_0}^n v_k \xrightarrow[n \to
 +\infty]{}+\infty\)</span> et <span
 class="math inline">\(\sum_{k=n_0}^{N-1} \left\|u_k\right\|\)</span> est
 constant donc <span class="math inline">\(\frac{\sum_{k=n_0}^{N-1}
-\left\|u_k\right\|}{\sum_{k=0}^n v_k } \xrightarrow[n \to +\infty]{}
+\left\|u_k\right\|}{\sum_{k=n_0}^n v_k } \xrightarrow[n \to +\infty]{}
 0\)</span> et il existe <span class="math inline">\(N&#39; \geq
 N\)</span> tel que pour tout <span class="math inline">\(n \geq
 N&#39;,\)</span> <span class="math inline">\(\frac{\sum_{k=n_0}^{N-1}
-\left\|u_k\right\|}{\sum_{k=0}^n v_k } \leq M.\)</span> On a donc aussi
-pour tout <span class="math inline">\(n \geq N&#39;,\)</span> <span
-class="math display">\[\left\|\sum_{k=n_0}^{n} u_k\right\|  \leq M
+\left\|u_k\right\|}{\sum_{k=n_0}^n v_k } \leq M.\)</span> On a donc
+aussi pour tout <span class="math inline">\(n \geq N&#39;,\)</span>
+<span class="math display">\[\left\|\sum_{k=n_0}^{n} u_k\right\|  \leq M
 \sum_{k=n_0}^{n} v_k+M \underbrace{\left(\sum_{k=N}^{n}
 {v_k}\right)}_{\substack{\leq \sum_{k=n_0}^{n} v_k\\ \text{car
 $\left(v_n\right)$ positive.}}} \leq 2M \sum_{k=n_0}^{n} v_k = 2M\left|
@@ -2182,12 +2188,10 @@ $\left(v_n\right)$ positive.}}} \leq 2M \sum_{k=n_0}^{n} v_k = 2M\left|
 v_n\)</span> alors <span class="math inline">\(u_n-v_n = \underset{n\to
 +\infty}{o}\left(v_n\right).\)</span></p>
 <p>Donc par le cas précédent, <span
-class="math inline">\(\sum_{k=n_0}^{n} \left(u_k-v_k\right) =
-\underset{n\to +\infty}{o}\left(\sum_{k=n_0}^{n} v_k\right)\)</span>
-puis <span class="math inline">\(\sum_{k=n_0}^{n} u_k-  \sum_{k=n_0}^{n}
-v_k = \underset{n\to +\infty}{o}\left(\sum_{k=n_0}^{n}
-v_k\right),\)</span> ce qui signifie <span
-class="math inline">\({\sum_{k=n_0}^{n} u_k}\underset{n\to
+class="math inline">\(\sum_{k=n_0}^{n} u_k-  \sum_{k=n_0}^{n}v_k =
+\sum_{k=n_0}^{n} \left(u_k-v_k\right) = \underset{n\to
++\infty}{o}\left(\sum_{k=n_0}^{n} v_k\right)\)</span> ce qui signifie
+<span class="math inline">\({\sum_{k=n_0}^{n} u_k}\underset{n\to
 +\infty}{\sim}{\sum_{k=n_0}^{n} v_k}.\)</span></p></li>
 </ul></li>
 </ol>
@@ -2244,13 +2248,13 @@ sommations de relation de comparaison.</p>
 class="math inline">\(\alpha_n(u_n-\ell) = \underset{n\to
 +\infty}{o}\left(\alpha_n\right).\)</span></p>
 <p>Or, <span class="math inline">\(\sum \alpha_n\)</span> diverge donc
-<span class="math inline">\(\sum_{k=0}^n \alpha_k(u_n-\ell) =
+<span class="math inline">\(\sum_{k=0}^n \alpha_k(u_k-\ell) =
 \underset{n\to +\infty}{o}\left(\sum_{k=0}^n
 \alpha_k\right).\)</span></p>
 <p>Donc, en divisant par <span class="math inline">\(\sum_{k=0}^n
 \alpha_k,\)</span></p>
 <p><span class="math inline">\(\frac{\sum_{k=0}^n
-\alpha_k(u_n-\ell)}{\sum_{k=0}^n \alpha_k} = \frac{\sum_{k=0}^n \alpha_k
+\alpha_k(u_k-\ell)}{\sum_{k=0}^n \alpha_k} = \frac{\sum_{k=0}^n \alpha_k
 u_k}{\sum_{k=0}^n \alpha_k}-\frac{\sum_{k=0}^n \alpha_k
 \ell}{\sum_{k=0}^n \alpha_k} = \frac{\sum_{k=0}^n \alpha_k
 u_k}{\sum_{k=0}^n \alpha_k}-\ell= \underset{n\to
@@ -2897,7 +2901,7 @@ class="math inline">\(\left\|\frac{1}{\left\|u\right\|_1}u\right\|_2
 \leq 1 \Longrightarrow  \frac{1}{\left\|u\right\|_1}\left\|u\right\|_2
 \leq 1 \Longrightarrow \left\|u\right\|_2 \leq
 \left\|u\right\|_1.\)</span></p>
-<p>Ensuite, reconsidérons la suite de suites (et oui...) <span
+<p>Enfin, reconsidérons la suite de suites (et oui...) <span
 class="math inline">\(\left(u^k\right)_{k\geq 0}\)</span> telle que pour
 <span class="math inline">\(k \in \mathbb{N},\)</span> <span
 class="math inline">\(u^k =
@@ -2914,7 +2918,7 @@ k\)</span> donc <span class="math inline">\(u^k \in
 class="math inline">\(\left\|u^k\right\|_2 = \sqrt{k}.\)</span></p>
 <p>On a donc <span
 class="math inline">\(\frac{\left\|u^k\right\|_1}{\left\|u^k\right\|_2}
-= \sqrt{k} \xrightarrow[k \to +\infty]{}\)</span> et <span
+= \sqrt{k} \xrightarrow[k \to +\infty]{} +\infty\)</span> et <span
 class="math inline">\(\left\|\cdot\right\|_2\)</span> n’est pas plus
 fine que <span
 class="math inline">\(\left\|\cdot\right\|_1.\)</span></p></li>
@@ -2959,11 +2963,16 @@ class="header-section-number">4</span> Séries doubles</h1>
 class="math inline">\(\left(u_{n,p}\right)_{\substack{n \geq n_0\\ p\geq
 p_0}}\)</span> une famille de <span
 class="math inline">\(E.\)</span></p>
-<p>Alors, en supposant <span
-class="math inline">\(\sum_{n=n_0}^{+\infty}\left(\sum_{p=p_0}^{+\infty}
-u_{n,p}\right)\)</span> et <span
-class="math inline">\(\sum_{p=p_0}^{+\infty}\left(\sum_{n=n_0}^{+\infty}
-u_{n,p}\right)\)</span> existent, on a en général <span
+<p>Alors, en supposant que</p>
+<p><span class="math inline">\(\begin{array}{ll}
+&amp; \sum_{n=n_0}^{+\infty}\left(\sum_{p=p_0}^{+\infty} u_{n,p}\right)
+= \lim_{N \longrightarrow +\infty}\left(\lim_{P \longrightarrow
++\infty}{\sum_{n=n_0}^{N}{\sum_{p=p_0}^{P} u_{n,p}}}\right) \\
+\text{ et }&amp; \sum_{p=p_0}^{+\infty}\left(\sum_{n=n_0}^{+\infty}
+u_{n,p}\right) = \lim_{P \longrightarrow +\infty}\left(\lim_{N
+\longrightarrow +\infty}{\sum_{p=p_0}^{P}{\sum_{n=n_0}^{N}
+u_{n,p}}}\right)
+\end{array}\)</span> existent, on a en général <span
 class="math display">\[\sum_{n=n_0}^{+\infty}\left(\sum_{p=p_0}^{+\infty}
 u_{n,p}\right) \neq \sum_{p=p_0}^{+\infty}\left(\sum_{n=n_0}^{+\infty}
 u_{n,p}\right)\]</span> alors que l’égalité vaut pour des sommes finies
@@ -2992,7 +3001,7 @@ class="math inline">\({\color{red}\sum_{n=0}^{+\infty}u_{n,p}=\left\{\begin{arra
     u_{p,p}+ u_{p-1,p} &amp; =-1+1 &amp;=0 &amp; \mbox{ si $p\geq 1$}
 \end{array}\right..}\)</span></p>
 <p>Puis, en sommant selon les flèches bleues, on a pour <span
-class="math inline">\(p \in \mathbb{N},\)</span></p>
+class="math inline">\(n \in \mathbb{N},\)</span></p>
 <p><span class="math inline">\({\color{blue}\sum_{p=0}^{+\infty}u_{n,p}=
 u_{n,n}+u_{n,n+1} = 1+-1 = 0.}\)</span></p>
 <p>On a donc <span class="math inline">\(\sum_{p=0}^{+\infty}
@@ -3034,7 +3043,7 @@ class="math inline">\({\color{red}\sum_{n=0}^{+\infty}u_{n,p}=\left\{\begin{arra
 si $p\geq 1$}
 \end{array}\right..}\)</span></p>
 <p>Puis, en sommant selon les flèches bleues, on a pour <span
-class="math inline">\(p \in \mathbb{N},\)</span></p>
+class="math inline">\(n \in \mathbb{N},\)</span></p>
 <p><span class="math inline">\({\color{blue}\sum_{p=0}^{+\infty}u_{n,p}=
 u_{n,n}+u_{n,n+1} = (-1)^n-(-1)^n = 0.}\)</span></p>
 <p>On a donc pour <span class="math inline">\(P \in
@@ -3075,7 +3084,7 @@ u_{n,p}\right)\)</span></p>
 class="math inline">\(\sum_{n=n_0}^{+\infty}\left(\sum_{p=p_0}^{+\infty}
 u_{n,p}\right)\)</span> existe. Montrons que <span
 class="math inline">\(\sum_{p=p_0}^{+\infty}\left(\sum_{n=n_0}^{+\infty}
-u_{n,p}\right)\)</span> existe assi.</p>
+u_{n,p}\right)\)</span> existe aussi.</p>
 <p>Soit <span class="math inline">\(p \in \mathbb{N}\)</span> fixé tel
 que <span class="math inline">\(p \geq p_0\)</span> alors pour tout
 <span class="math inline">\(n \geq n_0,\)</span> <span
@@ -3138,8 +3147,8 @@ n_0\\ p\geq p_0}}\)</span> une famille de <span
 class="math inline">\(E.\)</span> Alors, si <span
 class="math inline">\(\sum_{n=n_0}^{+\infty}\left(\sum_{p=p_0}^{+\infty}
 \left\|u_{n,p}\right\|\right)\)</span> existe</p>
-<p><span class="math inline">\(\left(\text{ie
-$\sum_{p=p_0}^{+\infty}\left(\sum_{n=n_0}^{+\infty}
+<p><span class="math inline">\(\left(\text{ce qui équivaut à
+l&#39;existence de $\sum_{p=p_0}^{+\infty}\left(\sum_{n=n_0}^{+\infty}
 \left\|u_{n,p}\right\|\right)$ par le
 théorème~{4.3}.}\right)\)</span></p>
 <p>Alors, <span class="math inline">\(\begin{array}{ll}
@@ -3255,8 +3264,8 @@ e_q.\)</span> On considère la norme <span
 class="math inline">\(\left\|\cdot\right\|_{\infty,\mathscr{B}}\)</span>
 sur <span class="math inline">\(E\)</span> telle que <span
 class="math inline">\(\left\|x\right\|_{\infty,\mathscr{B}} = \max_{1
-\leq j \leq p} \left|x_j\right|\)</span> pour <span
-class="math inline">\(x = \sum_{j=1}^p x_j e_j \in E.\)</span></p>
+\leq j \leq q} \left|x_j\right|\)</span> pour <span
+class="math inline">\(x = \sum_{j=1}^q x_j e_j \in E.\)</span></p>
 <p>On a alors, pour tout <span class="math inline">\(1 \leq j \leq
 p,\)</span> <span class="math inline">\(0 \leq \left|u_{n,p,j}\right|
 \leq \left\|u_{n,p}\right\|_{\infty,\mathscr{B}}.\)</span></p>
@@ -3266,8 +3275,8 @@ class="math inline">\(\sum_{p \geq p_0}\left(\sum_{n \geq n_0}
 {u_{n,p,j}}\right)\)</span> et <span class="math inline">\(\sum_{p \geq
 p_0}\left(\sum_{n \geq n_0} {u_{n,p,j}}\right)\)</span> existent avec
 <span class="math inline">\(\sum_{p = p_0}^{+\infty}\left(\sum_{n
-=n_0}^{+\infty} {u_{n,p,j}}\right)=\sum_{p = p_0}^{+\infty}\left(\sum_{n
-=n_0}^{+\infty}{u_{n,p,j}}\right)\)</span> (par le cas <span
+=n_0}^{+\infty} {u_{n,p,j}}\right)=\sum_{n = n_0}^{+\infty}\left(\sum_{p
+=p_0}^{+\infty}{u_{n,p,j}}\right)\)</span> (par le cas <span
 class="math inline">\(E = \mathbb{R}\)</span>).</p>
 <p>Pour <span class="math inline">\(N \in \mathbb{N}, \geq n_0\)</span>
 et <span class="math inline">\(P \in \mathbb{N}, \geq p_0,\)</span>
@@ -3325,7 +3334,7 @@ class="math display">\[\sum_{n = 1}^{+\infty}\frac{(-1)^n}{n+z}
 <details><summary>Corrigé</summary>
 <ol>
 <li><p>D’abord, pour <span class="math inline">\(z \notin
-\mathbb{N}^{\star}\)</span> et <span class="math inline">\(n \in
+(-\mathbb{N}^{\star})\)</span> et <span class="math inline">\(n \in
 \mathbb{N}^{\star},\)</span> <span class="math inline">\(n+z \neq
 0\)</span> donc <span class="math inline">\(\frac{(-1)^n}{n+z}\)</span>
 est définie.</p>
@@ -3377,11 +3386,10 @@ class="math inline">\(\left|\frac{z}{n}\right| &lt; \frac{1}{n} &lt;
              \end{aligned}\]</span></p>
 <p>Pour conclure, il suffirait de pouvoir inverser <span
 class="math inline">\(\sum_{n = 1}^{+\infty}\)</span> et <span
-class="math inline">\(\sum_{k = 0}^{+\infty}\)</span> et utilisons le
+class="math inline">\(\sum_{k = 0}^{+\infty}\)</span> en utilisant
 théorème de Fubini (théorème <a href="#thm:Fubini_series_doubles"
 data-reference-type="ref"
-data-reference="thm:Fubini_series_doubles">[thm:Fubini_series_doubles]</a>)
-pour se l’autoriser.</p>
+data-reference="thm:Fubini_series_doubles">[thm:Fubini_series_doubles]</a>).</p>
 <p><span class="math display">\[\begin{aligned}
               \sum_{n = 1}^{+\infty}\sum_{k = 0}^{+\infty}
 \left|\frac{(-1)^{n+k}}{n^{k+1}}z^k\right|
@@ -3469,14 +3477,16 @@ Cauchy</h2>
 class="math inline">\(\mathbb{K}\)</span>-algèbre de dimension finie.
 Soient <span class="math inline">\(u = \left(u_n\right)_{n \geq
 0}\)</span> et <span class="math inline">\(v = \left(v_n\right)_{n \geq
-0}\)</span> deux suites de <span class="math inline">\(A.\)</span></p>
+0}\)</span> deux suites de <span
+class="math inline">\(\mathcal{A}.\)</span></p>
 <p>Pour <span class="math inline">\(n \geq 0,\)</span> on pose <span
 class="math display">\[w_n = \sum_{i+j=n} u_i v_j = \sum_{i=0}^n u_i
 v_{n-i} = \sum_{j=0}^n u_{n-j} v_{j}.\]</span> <span
 class="math inline">\(w= \left(w_n\right)_{n \geq 0}\)</span> est une
-suite de <span class="math inline">\(A\)</span> qui est appelée le
-produit de convolution de <span class="math inline">\(u\)</span> et
-<span class="math inline">\(v\)</span> que l’on note <span
+suite de <span class="math inline">\(\mathcal{A}\)</span> qui est
+appelée le produit de convolution de <span
+class="math inline">\(u\)</span> et <span
+class="math inline">\(v\)</span> que l’on note <span
 class="math inline">\(w = u\star v.\)</span></p>
 <p>La série <span class="math inline">\(\sum_{n \geq 0} w_n\)</span> est
 appelée le produit de Cauchy des séries <span
@@ -3493,13 +3503,14 @@ class="math inline">\(w_2 = u_0v_2+u_1v_1+u_2v_0.\)</span></p>
 class="math inline">\(\mathbb{K}\)</span>-algèbre de dimension finie.
 Soient <span class="math inline">\(u = \left(u_n\right)_{n \geq
 0}\)</span> et <span class="math inline">\(v = \left(v_n\right)_{n \geq
-0}\)</span> deux suites de <span class="math inline">\(A\)</span> et
-<span class="math inline">\(w = u\star v\)</span> leur produit de
+0}\)</span> deux suites de <span
+class="math inline">\(\mathcal{A}\)</span> et <span
+class="math inline">\(w = u\star v\)</span> leur produit de
 convolution.</p>
-<p>Alors, si <span class="math inline">\(\sum u_n\)</span> et <span
-class="math inline">\(\sum v_n\)</span> convergent absolument, <span
-class="math inline">\(\sum w_n\)</span> converge absolument avec <span
-class="math display">\[\sum_{n=0}^{+\infty} w_n =
+<p>Si <span class="math inline">\(\sum u_n\)</span> et <span
+class="math inline">\(\sum v_n\)</span> convergent absolument alors
+<span class="math inline">\(\sum w_n\)</span> converge absolument avec
+<span class="math display">\[\sum_{n=0}^{+\infty} w_n =
 \left(\sum_{n=0}^{+\infty} u_n \right)\left(\sum_{n=0}^{+\infty}
 v_n\right).\]</span></p>
 </div>
@@ -3533,7 +3544,7 @@ C_n \subset T_{2n}.\]</span></p>
 class="math inline">\(0 \leq j \leq n-i \leq n\)</span> donc <span
 class="math inline">\((i,j) \in C_n\)</span> et si <span
 class="math inline">\((i,j) \in C_n,\)</span> <span
-class="math inline">\(0 \leq i +j\leq 2n \leq n\)</span> donc <span
+class="math inline">\(0 \leq i +j\leq 2n\)</span> donc <span
 class="math inline">\((i,j) \in T_{2n}.\)</span></p>
 <p>Comme <span class="math inline">\(u\)</span> et <span
 class="math inline">\(v\)</span> sont positives, on en déduit <span
@@ -3545,7 +3556,7 @@ C_n} u_iv_j  \leq \sum_{(i,j) \in T_{2n}} u_iv_j\]</span></p>
 </div>
 </div>
 <p>D’abord, cela donne que <span class="math display">\[0 \leq
-\sum_{k=0}^n w_k = \sum_{(i,j) \in T_n} u_iv_j\leq \sum_{(i,j) \in T_2n}
+\sum_{k=0}^n w_k = \sum_{(i,j) \in T_n} u_iv_j\leq \sum_{(i,j) \in C_n}
 u_iv_j = \left(\sum_{i=0}^{n} u_i \right)\left(\sum_{j=0}^{n} v_j\right)
 \leq \left(\sum_{i=0}^{+\infty} u_i \right)\left(\sum_{j=0}^{+\infty}
 v_j\right)\]</span> Donc <span class="math inline">\(\sum_{n \geq 0}
@@ -3584,7 +3595,7 @@ data-reference="exoc:existence_norme_algebre">[exoc:existence_norme_algebre]</a>
 <p>Donc <span class="math inline">\(\sum_{n \geq 0} \gamma_n\)</span>
 est le produit de Cauchy de <span class="math inline">\(\sum_{n \geq
 0}\left\|u_n\right\|\)</span> et <span class="math inline">\(\sum_{n
-\geq 0}\left\|v_n\right\|\)</span> et par le cas positif ce qui précède
+\geq 0}\left\|v_n\right\|\)</span> et par le cas positif qui précède
 <span class="math inline">\(\sum_{n \geq 0} \gamma_n\)</span> converge.
 On en déduit alors que <span class="math inline">\(\sum_{n \geq 0}
 \left\|w_n\right\|\)</span> converge donc <span
@@ -3608,7 +3619,7 @@ T_n}\left\|u_i\right\|\left\|v_j\right\| \\
 \left\|u_i\right\|\right)\left(\sum_{j=0}^n
 \left\|v_j\right\|\right)-\sum_{k=0}^n \gamma_k.
         \end{aligned}\]</span></p>
-<p>De plus, par le cas positif, <span
+<p>Toujours par le cas positif, <span
 class="math inline">\(\sum_{k=0}^{+\infty} \gamma_k =
 \left(\sum_{i=0}^{+\infty}
 \left\|u_i\right\|\right)\left(\sum_{j=0}^{+\infty}\left\|v_j\right\|\right)\)</span></p>
@@ -3730,10 +3741,10 @@ class="math inline">\(\star.\)</span> Soit <span class="math inline">\(u
 \in \mathcal{A}^\mathbb{N},\)</span> <span
 class="math display">\[\begin{aligned}
                 &amp; u\star e= \left(\sum_{i=0}^n u_i
-e_i\right)_{n \geq 0} = \left(u_ne_0\right)_{n \geq 0} =
+e_{n-i}\right)_{n \geq 0} = \left(u_ne_0\right)_{n \geq 0} =
 \left(u_n\right)_{n \geq 0} \\
                 \text{ et }&amp; e\star u= \left(\sum_{i=0}^n e_i
-u_i\right)_{n \geq 0} = \left(e_0u_n\right)_{n \geq 0} =
+u_{n-i}\right)_{n \geq 0} = \left(e_0u_n\right)_{n \geq 0} =
 \left(u_n\right)_{n \geq 0}.
             \end{aligned}\]</span></p></li>
 <li><p>Enfin, montrons que <span class="math inline">\(\star\)</span>
@@ -3742,12 +3753,12 @@ Soient <span class="math inline">\(u,v,w \in
 \mathcal{A}^\mathbb{N},\)</span> <span
 class="math display">\[\begin{aligned}
                  &amp; u\star (v+w)
-                 = \left(\sum_{i=0}^n u_i (v_i+w_i)\right)_{n \geq 0}
-                 = \left(\sum_{i=0}^n u_i v_i+u_iw_i\right)_{n \geq 0}
+                 = \left(\sum_{i+j=n} u_i (v_j+w_j)\right)_{n \geq 0}
+                 = \left(\sum_{i+j=n} u_i v_j+u_iw_j\right)_{n \geq 0}
                  = u\star v+ u\star w \\
                  \text{ et }&amp; (u+v)\star w
-                 = \left(\sum_{i=0}^n (u_i +v_i)w_i\right)_{n \geq 0}
-                 = \left(\sum_{i=0}^n u_i w_i+v_iw_i\right)_{n \geq 0}
+                 = \left(\sum_{i+j=n} (u_i +v_i)w_j\right)_{n \geq 0}
+                 = \left(\sum_{i+j=n} u_i w_j+v_iw_j\right)_{n \geq 0}
                  = u\star w+ v\star w.
             \end{aligned}\]</span></p></li>
 </ol></li>
@@ -3756,11 +3767,11 @@ class="math display">\[\begin{aligned}
 \mathcal{A}^\mathbb{N},\)</span> <span
 class="math display">\[\begin{aligned}
                 \lambda \left(u \star v\right)
-                &amp; = \lambda \left(\sum_{i=0}^n u_i
-v_i\right)_{n \geq 0} \\
-                &amp; =  \left(\sum_{i=0}^n \lambda u_i
-v_i\right)_{n \geq 0} =  \left(\sum_{i=0}^n  u_i \left(\lambda
-v_i\right)\right)_{n \geq 0}\\
+                &amp; = \lambda \left(\sum_{i+j=n} u_i
+v_j\right)_{n \geq 0} \\
+                &amp; =  \left(\sum_{i+j=n} \left(\lambda u_i\right)
+v_j\right)_{n \geq 0} =  \left(\sum_{i+j=n}  u_i \left(\lambda
+v_j\right)\right)_{n \geq 0}\\
                 &amp; = \left(\lambda u \right)\star v = u \star
 \left(\lambda v\right).
             \end{aligned}\]</span></p></li>
@@ -3805,7 +3816,8 @@ z\right\|}{\left\|z\right\|}=\left|\lambda\right| \sup_{\substack{z \in
 \mathcal{A}\\ z\neq 0}} \frac{\left\|x \times
 z\right\|}{\left\|z\right\|} =  \left|\lambda\right|
 N(x).\)</span></p></li>
-<li><p>Soit <span class="math inline">\(z \in \mathcal{A},\)</span></p>
+<li><p>Soit <span class="math inline">\(z \in \mathcal{A}\setminus
+\left\{0\right\},\)</span></p>
 <p><span class="math inline">\(\frac{\left\|(x+y) \times
 z\right\|}{\left\|z\right\|} = \frac{\left\|x \times z+y \times
 z\right\|}{\left\|z\right\|} \leq \frac{\left\|x \times
@@ -3947,7 +3959,7 @@ class="math inline">\(\mathbb{K}\)</span>-algèbre de dimension finie et
 \frac{y^n}{n!}\right).\)</span></p>
 <p>Or, <span class="math inline">\(\sum_{n \geq 0}
 \frac{x^n}{n!}\)</span> et <span class="math inline">\(\sum_{n \geq
-0}\frac{y^n}{n!}\)</span> converge absolument. Donc par produit de
+0}\frac{y^n}{n!}\)</span> convergent absolument. Donc par produit de
 Cauchy, <span class="math display">\[\exp(x)\exp(y)=
 \sum_{n=0}^{+\infty} w_n \text{ avec }w =
 \left(\frac{x^n}{n!}\right)_{n\geq 0}
@@ -3976,15 +3988,18 @@ class="math inline">\(x(-x) = (-x)x\)</span> et <span
 class="math inline">\(\exp(x)\exp(-x) = \exp(x-x) = \exp(0) =
 1.\)</span></p>
 </div>
-<h2 data-number="5.3" id="un-exercice"><span
-class="header-section-number">5.3</span> Un exercice</h2>
+<h2 data-number="5.3"
+id="application-des-séries-à-létude-des-inversibles-de-mathcala"><span
+class="header-section-number">5.3</span> Application des séries à
+l’étude des inversibles de <span
+class="math inline">\(\mathcal{A}\)</span></h2>
 <div class="wexoc">
 <p>Soit <span class="math inline">\(\mathcal{A}\)</span> une <span
 class="math inline">\(\mathbb{K}\)</span>-algèbre de dimension finie et
 <span class="math inline">\(\left\|\cdot\right\|\)</span> une norme
-d’algèbre que <span class="math inline">\(\mathcal{A}.\)</span></p>
+d’algèbre sur <span class="math inline">\(\mathcal{A}.\)</span></p>
 <p>On pose <span class="math inline">\(U(\mathcal{A}) = \left\{x \in
-\mathcal{A}/ x \text{est inversible (pour
+\mathcal{A}/ x \text{ est inversible (pour
 $\times$)}\right\}\)</span></p>
 <ol>
 <li><p>Soit <span class="math inline">\(x \in \mathcal{A}\)</span> tel
@@ -3996,8 +4011,11 @@ inversible avec <span class="math inline">\((1-x)^{-1} = \sum_{n =
 <li><p>Montrer que <span class="math inline">\(U(\mathcal{A})\)</span>
 est un ouvert de <span
 class="math inline">\(\mathcal{A}.\)</span></p></li>
+<li><p>Montrer que <span class="math inline">\(\begin{array}{llll}
+  &amp; U(\mathcal{A}) &amp; \to &amp; \mathcal{A} \\
+     &amp; x &amp; \mapsto &amp; x^{-1}
+\end{array}\)</span> est continue.</p></li>
 </ol>
-</div>
 <details><summary>Corrigé</summary>
 <ol>
 <li><p>Pour <span class="math inline">\(n \in \mathbb{N},\)</span> <span
@@ -4037,7 +4055,7 @@ class="math inline">\(y \in \overline{B}(a,\varepsilon).\)</span></p>
 a+h\)</span> et <span class="math inline">\(\left\|h\right\| \leq
 \varepsilon.\)</span></p>
 <p>Or, <span class="math inline">\(a+h = a(1+a^{-1}h) =
-a(1-(-a^{-1}h).\)</span></p>
+a\left(1-(-a^{-1}h)\right).\)</span></p>
 <p>Donc pour <span class="math inline">\(\varepsilon\)</span> tel que
 <span class="math inline">\(\varepsilon &lt;
 \left\|a^{-1}\right\|,\)</span> on a <span
@@ -4048,11 +4066,42 @@ question précédente puis <span class="math inline">\(y=a+h =
 a(1-(-a^{-1}h)\in U(\mathcal{A}).\)</span></p>
 <p>Donc <span
 class="math inline">\(\overline{B}\left(a,\frac{\left\|a^{-1}\right\|}{2}\right)
-\in U(\mathcal{A})\)</span> et <span
+\subset U(\mathcal{A})\)</span> et <span
 class="math inline">\(U(\mathcal{A})\)</span> est un ouvert de <span
 class="math inline">\(\mathcal{A}.\)</span></p></li>
+<li><p>Soit <span class="math inline">\(a\in U(\mathcal{A})\)</span> et
+soit <span class="math inline">\(x\in U(\mathcal{A})\)</span>. On a
+<span class="math inline">\(x^{-1}-a^{-1}=x^{-1}(a-x)a^{-1}\)</span></p>
+<p>donc <span class="math inline">\(\|x^{-1}-a^{-1}\|
+\leq \|x^{-1}\|\,\|x-a\|\,\|a^{-1}\|.\)</span></p>
+<p>Or, d’après la question précédente, si <span
+class="math inline">\(\|a^{-1}(x-a)\|&lt;1,\)</span> alors <span
+class="math inline">\(x=a\bigl(1+a^{-1}(x-a)\bigr)\in
+U(\mathcal{A})\)</span> et <span class="math inline">\(x^{-1}
+=\bigl(1+a^{-1}(x-a)\bigr)^{-1}a^{-1} = \left(\sum_{n
+=0}^{+\infty}(-1)^n \left(a^{-1}(x-a)\right)^n\right)a^{-1}.\)</span> On
+a donc <span class="math display">\[\|x^{-1}\|
+\leq \left\|\sum_{n =0}^{+\infty}(-1)^n
+\left(a^{-1}(x-a)\right)^n\right\|\left\|a^{-1}\right\|
+\leq \sum_{n =0}^{+\infty}\left\|a^{-1}(x-a)\right\|^n
+\left\|a^{-1}\right\|
+=
+\frac{\|a^{-1}\|}
+{1-\|a^{-1}(x-a)\|}.\]</span></p>
+<p>En particulier, si <span class="math inline">\(\|a^{-1}(x-a)\|\leq
+\frac12,\)</span> alors <span class="math inline">\(\|x^{-1}\|\leq
+2\|a^{-1}\|.\)</span> Ainsi, pour <span
+class="math inline">\(\|x-a\|\leq \frac{1}{2\|a^{-1}\|},\)</span> on
+obtient <span class="math inline">\(\|x^{-1}-a^{-1}\|
+\leq 2\|a^{-1}\|^2\|x-a\|.\)</span></p>
+<p>Donc <span class="math inline">\(x\longrightarrow a
+\quad\Longrightarrow\quad
+x^{-1}\longrightarrow a^{-1}.\)</span> Ainsi l’application <span
+class="math inline">\(x\mapsto x^{-1}\)</span> est continue sur <span
+class="math inline">\(U(\mathcal{A})\)</span>.</p></li>
 </ol>
 </details>
+</div>
 <h1 data-number="6" id="transformation-dabel"><span
 class="header-section-number">6</span> Transformation d’Abel</h1>
 <div class="wthm">
@@ -4099,8 +4148,10 @@ class="math display">\[\begin{aligned}
         &amp; = \sum_{n = 1}^N \frac{s_n-s_{n-1}}{n^\alpha} \\
         &amp; = \sum_{n = 1}^N \frac{s_n}{n^\alpha}-\sum_{n = 1}^N
 \frac{s_{n-1}}{n^\alpha} \\
-        &amp; = \sum_{n = 1}^N \frac{s_n}{n^\alpha}-\sum_{n = 0}^{N+1}
+        &amp; = \sum_{n = 1}^N \frac{s_n}{n^\alpha}-\sum_{n = 0}^{N-1}
 \frac{s_{n}}{(n+1)^\alpha} \\
+        &amp; = \sum_{n = 1}^N \frac{s_n}{n^\alpha}-\sum_{n = 1}^{N}
+\frac{s_{n}}{(n+1)^\alpha}-s_0+\frac{s_N}{(N+1)^\alpha} \\
         &amp; = \sum_{n = 1}^N
 s_n\left(\frac{1}{n^\alpha}-\frac{1}{(n+1)^\alpha}\right)-s_0+\frac{s_N}{(N+1)^\alpha}
 \\
@@ -4134,12 +4185,12 @@ class="math inline">\(\sum_{n \geq
 converge (deuxième point du théorème <a href="#thm:transformation_Abel"
 data-reference-type="ref"
 data-reference="thm:transformation_Abel">[thm:transformation_Abel]</a>).</p>
-<p>Donc <span class="math display">\[\left|\sum_{n = 1}^N
-s_n\left(\frac{1}{n^\alpha}-\frac{1}{(n+1)^\alpha}\right)\right| \leq
-M\sum_{n = 1}^N \left(\frac{1}{n^\alpha}-\frac{1}{(n+1)^\alpha}\right)
-\leq M\sum_{n = 1}^{+\infty}
-\left(\frac{1}{n^\alpha}-\frac{1}{(n+1)^\alpha}\right)\]</span> et <span
-class="math inline">\(\sum_{n \geq 1}
+<p>Donc <span class="math display">\[\sum_{n =
+1}^N  \left|s_n\left(\frac{1}{n^\alpha}-\frac{1}{(n+1)^\alpha}\right)\right|
+\leq M\sum_{n = 1}^N
+\left(\frac{1}{n^\alpha}-\frac{1}{(n+1)^\alpha}\right) \leq M\sum_{n =
+1}^{+\infty} \left(\frac{1}{n^\alpha}-\frac{1}{(n+1)^\alpha}\right) =
+M\]</span> et <span class="math inline">\(\sum_{n \geq 1}
 s_n\left(\frac{1}{n^\alpha}-\frac{1}{(n+1)^\alpha}\right)\)</span>
 converge absolument donc converge.</p>
 <p>Donc finalement, <span class="math inline">\(\sum_{n \geq 1}
