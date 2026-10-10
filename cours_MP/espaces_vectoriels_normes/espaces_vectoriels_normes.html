@@ -9557,6 +9557,87 @@ distante est atteinte en <span class="math inline">\(x \in A\)</span> et
 </ol>
 </details>
 </div>
+<div class="wexoc">
+<p>Soit <span class="math inline">\((E,\left\|\cdot\right\|)\)</span> un
+<span class="math inline">\(\mathbb{K}\)</span>-espace vectoriel
+normé.</p>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(\left(x_n\right)_{n \geq 0}\)</span>
+une suite de <span class="math inline">\(E\)</span>. On dit que <span
+class="math inline">\(\left(x_n\right)\)</span> est une suite de Cauchy
+si <span class="math display">\[\forall \varepsilon &gt;0, \exists N \in
+\mathbb{N}/ \forall n,m \geq N, \left\|x_n-x_m\right\| \leq
+\varepsilon.\]</span></p>
+</div>
+<ol>
+<li><p>Montrer que si <span
+class="math inline">\(\left(x_n\right)\)</span> est une suite de Cauchy
+alors <span class="math inline">\(\left(x_n\right)\)</span> est
+bornée.</p></li>
+<li><p>Soit <span class="math inline">\(\left(x_n\right)_{n \geq
+0}\)</span> une suite de <span class="math inline">\(E\)</span> telle
+que <span class="math inline">\(x_n \xrightarrow[n \to +\infty]{} \ell
+\in E\)</span>. Montrer que <span
+class="math inline">\(\left(x_n\right)\)</span> est une suite de
+Cauchy.</p></li>
+<li><p>Soit <span class="math inline">\(\left(x_n\right)_{n \geq
+0}\)</span> une suite de Cauchy de <span
+class="math inline">\(E\)</span> et <span class="math inline">\(\ell \in
+E\)</span> une valeur d’adhérence de <span
+class="math inline">\(\left(x_n\right)\)</span>. Montrer <span
+class="math inline">\(x_n \xrightarrow[n \to +\infty]{}
+\ell\)</span>.</p></li>
+<li><p><u>Si <span class="math inline">\(E\)</span> est de dimension
+finie</u>, montrer que toute suite de Cauchy de <span
+class="math inline">\(E\)</span> converge.</p></li>
+</ol>
+<details><summary>Corrigé</summary>
+<ol>
+<li><p>Avec <span class="math inline">\(\varepsilon = 1\)</span>, il
+existe <span class="math inline">\(N \in \mathbb{N}\)</span> tel que
+pour tout <span class="math inline">\(n,m \geq N, \left\|x_n-x_m\right\|
+\leq 1.\)</span></p>
+<p>Donc, pour tout <span class="math inline">\(n \geq N\)</span>, <span
+class="math display">\[\left\|x_n\right\|=\left\|x_n-x_N+x_N\right\|
+\leq \left\|x_n-x_N\right\|+\left\|x_N\right\| \leq
+1+\left\|x_N\right\|.\]</span></p></li>
+<li><p>Soit <span class="math inline">\(\varepsilon &gt;0\)</span>, il
+existe <span class="math inline">\(N \in \mathbb{N}\)</span> tel que
+pour tout <span class="math inline">\(n \geq N, \left\|x_n-\ell\right\|
+\leq \frac{\varepsilon}{2}.\)</span></p>
+<p>Donc pour tout <span class="math inline">\(n,m \geq N\)</span>, <span
+class="math display">\[\left\|x_n-x_m\right\| =
+\left\|x_n-\ell+\ell-x_m\right\| \leq
+\left\|x_n-\ell\right\|+\left\|\ell-x_m\right\| \leq
+\frac{\varepsilon}{2}+\frac{\varepsilon}{2}=  \varepsilon.\]</span></p></li>
+<li><p>Soit <span class="math inline">\(\varepsilon\)</span>, il existe
+<span class="math inline">\(N \in \mathbb{N}\)</span> tel que pour tout
+<span class="math inline">\(n,m \geq N, \left\|x_n-x_m\right\| \leq
+\varepsilon.\)</span></p>
+<p>Or, comme <span class="math inline">\(\ell\)</span> est valeur
+d’adhérence de <span class="math inline">\(\left(x_n\right)\)</span>, il
+existe <span class="math inline">\(N&#39; \geq N\)</span> tel que <span
+class="math inline">\(\left\|x_{N&#39;}-\ell\right\| \leq
+\varepsilon\)</span>.</p>
+<p>On a donc pour tout <span class="math inline">\(n \geq N\)</span>,
+<span class="math display">\[\left\|x_n-\ell\right\| =
+\left\|x_n-x_{N&#39;}+x_{N&#39;}-\ell\right\| \leq
+\left\|x_n-x_{N&#39;}\right\|+\left\|x_{N&#39;}-\ell\right\| \leq
+2\varepsilon\]</span> ie <span class="math inline">\(x_n \xrightarrow[n
+\to +\infty]{} \ell\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(\left(x_n\right)\)</span> une
+suite de Cauchy de <span class="math inline">\(E\)</span>.</p>
+<p>Alors, par la question 1., <span
+class="math inline">\(\left(x_n\right)\)</span> est bornée.</p>
+<p>Donc par le théorème de Bolzano-Weierstrass (<span
+class="math inline">\(E\)</span> est de dimension finie), <span
+class="math inline">\(\left(x_n\right)\)</span> admet une valeur
+d’adhérence <span class="math inline">\(\ell \in E\)</span>.</p>
+<p>Donc par la question 3., <span class="math inline">\(x_n
+\xrightarrow[n \to +\infty]{} \ell\)</span>.</p></li>
+</ol>
+</details>
+</div>
 <h2 data-number="5.3"
 id="applications-linéaires-et-n-linéaires-en-dimension-finie"><span
 class="header-section-number">5.3</span> Applications linéaires et <span

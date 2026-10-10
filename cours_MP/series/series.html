@@ -570,16 +570,24 @@ class="math inline">\(\left(S_n\right)\)</span> la suite des sommes
 partielles associé.</p>
 <p>Alors, <span class="math inline">\(\sum u_n \text{ converge } \iff
 \left(S_n\right) \text{ est majorée}.\)</span></p>
-<p>De plus, dans le cas où <span class="math inline">\(\sum u_n\)</span>
-diverge, <span class="math inline">\(S_n \xrightarrow[n \to +\infty]{}
-+\infty.\)</span></p>
+<p>De plus, dans le dans le cas où <span class="math inline">\(\sum_{n
+\geq n_0} u_n\)</span> converge, <span
+class="math inline">\(\sum_{n=n_0}^{+\infty} u_n = \sup_{n \geq n_0}
+S_n\)</span></p>
+<p>et dans le cas où <span class="math inline">\(\sum_{n \geq n_0}
+u_n\)</span> diverge, <span class="math inline">\(S_n \xrightarrow[n \to
++\infty]{} +\infty.\)</span></p>
 </div>
 <div class="wproof">
 <p>Pour <span class="math inline">\(n \geq n_0,\)</span> <span
 class="math inline">\(S_{n+1}-S_n = u_{n+1} \geq 0\)</span> donc <span
 class="math inline">\(\left(S_n\right)\)</span> est croissante et
 converge si et seulement si elle est majorée.</p>
-<p>De plus, en cas de non-convergence, <span
+<p>De plus, en cas de convergence, <span
+class="math inline">\(\left(S_n\right)\)</span> est majorée et <span
+class="math inline">\(S_n \xrightarrow[n \to +\infty]{}
+    \sup_{n \geq n_0} S_n\)</span></p>
+<p>et en cas de non-convergence, <span
 class="math inline">\(\left(S_n\right)\)</span> est non majorée et <span
 class="math inline">\(S_n \xrightarrow[n \to +\infty]{}
 +\infty.\)</span></p>
@@ -589,6 +597,10 @@ class="math inline">\(S_n \xrightarrow[n \to +\infty]{}
 série à termes réels positifs qui converge alors <span
 class="math display">\[\sum_{n=n_0}^{+\infty}u_n = 0 \iff \forall n \geq
 n_0, u_n = 0.\]</span></p>
+<p>En effet, dans ce cas, <span class="math inline">\(\sup_{n \geq n_0}
+S_n = 0\)</span> donc pour tout <span class="math inline">\(n \geq n_0,
+0 \leq S_n \leq 0 \Longrightarrow S_n = 0\)</span> et <span
+class="math inline">\(u_n = S_{n}-S_{n-1} = 0\)</span>.</p>
 </div>
 <div class="wprop">
 <p><span id="prop:premiere_comp_series"
