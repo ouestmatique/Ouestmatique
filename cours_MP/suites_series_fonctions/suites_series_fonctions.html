@@ -236,7 +236,7 @@ f &amp; : &amp; [0,1] &amp; \to &amp; \mathbb{R} \\
 <p>On considère une suite <span class="math inline">\((\alpha_n)_{n \geq
 1}\)</span> de réels strictement positifs et <span
 class="math inline">\(\left(f_n\right)_{n \geq 1}\)</span> définie comme
-ci-contre.</p>
+sur le dessin.</p>
 <p>Autrement dit,</p>
 <p><span class="math inline">\(\begin{array}{lllll}
 f_n &amp; : &amp; [0,1] &amp; \to &amp; \mathbb{R} \\
@@ -264,7 +264,7 @@ et  $\left[\tfrac{1}{n},\tfrac{2}{n}\right]$} \\
 existe <span class="math inline">\(N \in \mathbb{N}^{\star}\)</span> tel
 que <span class="math inline">\(\frac{2}{N} \leq x\)</span> car <span
 class="math inline">\(\frac{2}{n} \xrightarrow[n \to +\infty]{}
-0.\)</span> Donc pour <span class="math inline">\(n \geq Ns,\)</span>
+0.\)</span> Donc pour <span class="math inline">\(n \geq N,\)</span>
 <span class="math inline">\(f_n(x) = 0\)</span> et <span
 class="math inline">\(f_n(x) \xrightarrow[n \to +\infty]{} 0.\)</span>
 Pour <span class="math inline">\(x = 0,\)</span> on a pour tout <span
@@ -308,17 +308,17 @@ class="math inline">\(f\)</span> linéaire,</p></li>
 <span class="math inline">\(x \leq y\)</span> alors pour tout <span
 class="math inline">\(n \in \mathbb{N},\)</span></p>
 <p><span class="math display">\[f_n(x) \leq f_n(y)\]</span></p>
-<p>donc en passant à la limite quand <span class="math inline">\(n
-\longrightarrow +\infty\)</span> dans l’inégalité, <span
-class="math inline">\(f(x) \leq f(y)\)</span> et <span
-class="math inline">\(f\)</span> est croissante.</p></li>
+<p>donc en passant à la limite quand <span class="math inline">\(n \to
++\infty\)</span> dans l’inégalité, <span class="math inline">\(f(x) \leq
+f(y)\)</span> et <span class="math inline">\(f\)</span> est
+croissante.</p></li>
 <li><p>Soient <span class="math inline">\(x,y \in A\)</span> et <span
 class="math inline">\(\lambda \in [0,1]\)</span> alors pour tout <span
 class="math inline">\(n \in \mathbb{N},\)</span></p>
 <p><span class="math display">\[f_n\left((1-\lambda)x+ \lambda y\right)
 \leq (1-\lambda)f_n(x)+ \lambda f_n(y)\]</span></p>
-<p>donc en passant à la limite quand <span class="math inline">\(n
-\longrightarrow +\infty\)</span> dans l’inégalité, <span
+<p>donc en passant à la limite quand <span class="math inline">\(n \to
++\infty\)</span> dans l’inégalité, <span
 class="math inline">\(f\left((1-\lambda)x+ \lambda y\right) \leq
 (1-\lambda)f(x)+ \lambda f(y)\)</span> et <span
 class="math inline">\(f\)</span> est convexe.</p></li>
@@ -327,11 +327,10 @@ class="math inline">\(\lambda,\mu \in \mathbb{K}\)</span> alors pour
 tout <span class="math inline">\(n \in \mathbb{N},\)</span></p>
 <p><span class="math display">\[f_n\left(\lambda x+ \mu y\right) =
 \lambda f_n(x)+ \mu f_n(y)\]</span></p>
-<p>donc en considérant la limite quand <span class="math inline">\(n
-\longrightarrow +\infty,\)</span> <span
-class="math inline">\(f\left(\lambda x+ \mu y\right) = \lambda f(x)+ \mu
-f(y)\)</span> et <span class="math inline">\(f\)</span> est
-linéaire.</p></li>
+<p>donc en considérant la limite quand <span class="math inline">\(n \to
++\infty,\)</span> <span class="math inline">\(f\left(\lambda x+ \mu
+y\right) = \lambda f(x)+ \mu f(y)\)</span> et <span
+class="math inline">\(f\)</span> est linéaire.</p></li>
 </ul>
 </div>
 <div class="wprop">
@@ -413,7 +412,8 @@ class="math inline">\(f_n(x) \xrightarrow[n \to +\infty]{}
 <span class="math inline">\(\left\|f_n(x)\right\| \leq M,\)</span> on a
 pour tout <span class="math inline">\(x \in A,\)</span> <span
 class="math inline">\(\left\|f(x)\right\| \leq M\)</span> donc <span
-class="math inline">\(M\)</span> est bornée.</p>
+class="math inline">\(f\)</span> est bornée sur <span
+class="math inline">\(A\)</span>.</p>
 </div>
 <h2 data-number="1.2" id="convergence-uniforme"><span
 class="header-section-number">1.2</span> Convergence uniforme</h2>
@@ -541,12 +541,12 @@ mais <span class="math inline">\(\left\|f_n\right\|_{\infty,[0,1[}=1
 \centernot{\xrightarrow[n \to +\infty]{}} 0.\)</span></p></li>
 <li><p>Si <span class="math inline">\(F = \mathbb{R},\)</span></p>
 <p><span class="math display">\[\begin{aligned}
-    f_n \xrightarrow[{f}]{\text{A}}
+    f_n \xrightarrow[{A}]{\text{CVU}} f
     &amp; \iff \forall \varepsilon &gt;0, \exists N \in \mathbb{N}/
 \forall n \geq N, \forall x \in A, \left|f_n(x)-f(x)\right| \leq
 \varepsilon \\
-    &amp; \forall \varepsilon &gt;0, \exists N \in \mathbb{N}/ \forall n
-\geq N, \forall x \in A, -\varepsilon \leq {f_n(x)-f(x)} \leq
+    &amp; \iff \forall \varepsilon &gt;0, \exists N \in \mathbb{N}/
+\forall n \geq N, \forall x \in A, -\varepsilon \leq {f_n(x)-f(x)} \leq
 \varepsilon.
     \end{aligned}\]</span> Donc à partir d’un certain rang, les
 fonctions <span class="math inline">\(f_n\)</span> se retrouvent dans un
@@ -560,7 +560,8 @@ data-reference="ex:fonction_x_puissance_n">[ex:fonction_x_puissance_n]</a>.</p>
 </ul>
 </div>
 <div class="wprop">
-<p>Soient <span class="math inline">\(A \subset E,\)</span> <span
+<p><span id="prop:CVU_bornees" label="prop:CVU_bornees"></span> Soient
+<span class="math inline">\(A \subset E,\)</span> <span
 class="math inline">\(\left(f_n\right)_{n \geq 0}\)</span> une suite de
 fonctions de <span class="math inline">\(A\)</span> dans <span
 class="math inline">\(F\)</span> et <span
@@ -631,23 +632,22 @@ class="math inline">\(F\)</span> telles que <span
 class="math inline">\(f_n \xrightarrow[{A}]{\text{CVU}} f\)</span> et
 <span class="math inline">\(g_n \xrightarrow[{A}]{\text{CVU}}
 g.\)</span></p>
-<p>Alors, pour <span class="math inline">\(\lambda, \mu \in \mathbb{K},
-\lambda f_n+\mu g_n \xrightarrow[{A}]{\text{CVU}} \lambda f+\mu
-g.\)</span></p>
+<p>Alors, pour <span class="math inline">\(\lambda, \mu \in
+\mathbb{K},\)</span> <span class="math inline">\(\lambda f_n+\mu g_n
+\xrightarrow[{A}]{\text{CVU}} \lambda f+\mu g.\)</span></p>
 </div>
 <div class="wproof">
-<p>Il existe <span class="math inline">\(N \in \mathbb{N}\)</span>
-telles que <span class="math inline">\(f_n-f\)</span> et <span
-class="math inline">\(g_n-g\)</span> soient bornées pour <span
-class="math inline">\(n \geq N\)</span> (par exemple, par <span
-class="math inline">\(\varepsilon = 1\)</span>). De plus, pour <span
-class="math inline">\(n \geq N,\)</span> <span
-class="math display">\[\left\|\lambda f_n+\mu g_n-\left(\lambda f+\mu
-g\right)\right\|_{\infty,A} \leq
+<p>On a <span class="math display">\[\begin{aligned}
+        \left\|\lambda f_n+\mu g_n-\left(\lambda f+\mu
+g\right)\right\|_{\infty,A}
+        &amp; = \left\|\lambda\left(f_n-f\right)+\mu
+\left(g_n-g\right)\right\|_{\infty,A}\\
+        &amp; \leq
 \left|\lambda\right|\underbrace{\left\|f_n-f\right\|_{\infty,A}}_{\xrightarrow[n
 \to +\infty]{} 0} +
 \left|\mu\right|\underbrace{\left\|g_n-g\right\|_{\infty,A}}_{\xrightarrow[n
-\to +\infty]{} 0} \xrightarrow[n \to +\infty]{} 0.\]</span></p>
+\to +\infty]{} 0} \xrightarrow[n \to +\infty]{} 0.
+    \end{aligned}\]</span></p>
 </div>
 <div class="wrem">
 <p>Si <span class="math inline">\(F = \mathbb{K},\)</span> <span
@@ -669,8 +669,8 @@ f_n.\)</span></p>
 f &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R} \\
    &amp;   &amp; x &amp; \mapsto &amp; x
 \end{array}
-,\)</span> <span class="math inline">\(f_n \xrightarrow[n \to +\infty]{}
-f.\)</span> En effet, <span
+,\)</span> <span class="math inline">\(f_n
+\xrightarrow[{\mathbb{R}}]{\text{CVU}} f.\)</span> En effet, <span
 class="math inline">\(\left\|f_n-f\right\|_{\infty,\mathbb{R}} =
 \frac{1}{n} \xrightarrow[n \to +\infty]{} 0.\)</span></p>
 <p>Maintenant, pour <span class="math inline">\(n \in
@@ -708,11 +708,17 @@ class="math inline">\(A.\)</span> Montrer <span
 class="math inline">\(f_ng_n \xrightarrow[{A}]{\text{CVU}}
 fg.\)</span></p>
 <details><summary>Corrigé</summary>
-<p>D’abord, <span class="math inline">\(f\)</span> et <span
-class="math inline">\(g\)</span> sont bornées puis pour <span
-class="math inline">\(n \in \mathbb{N},\)</span> <span
-class="math display">\[\begin{aligned}
+<p>D’abord, par la proposition <a href="#prop:CVU_bornees"
+data-reference-type="ref"
+data-reference="prop:CVU_bornees">[prop:CVU_bornees]</a>, <span
+class="math inline">\(f\)</span> et <span
+class="math inline">\(g\)</span> sont bornées et <span
+class="math inline">\(\left\|f_n\right\|_{\infty,A} \xrightarrow[n \to
++\infty]{} \left\|f\right\|_{\infty,A}.\)</span></p>
+<p>Puis, pour <span class="math inline">\(n \in \mathbb{N},\)</span>
+<span class="math display">\[\begin{aligned}
             \left\|f_ng_n-fg\right\|_{\infty,A}
+            &amp; =  \left\|f_n(g_n-g+g)-fg\right\|_{\infty,A} \\
             &amp; =  \left\|f_n(g_n-g)+g(f_n-f)\right\|_{\infty,A} \\
             &amp; \leq
 \underbrace{\left\|f_n\right\|_{\infty,A}}_{\xrightarrow[n \to
@@ -741,19 +747,20 @@ class="math inline">\(F\)</span> et <span class="math inline">\(a \in
 \mathcal{V}(a) / &amp;\forall x \in W\cap A,
 &amp;\left\|f(x)-\ell\right\| \leq \varepsilon \\
         \text{ ie }&amp; \forall V \in \mathcal{V}(\ell), &amp;\exists W
-\in \mathcal{V}(a) / &amp;\forall x \in W\cap A, &amp; f(x) \in V \\
+\in \mathcal{V}(a) / &amp;\forall x \in W\cap A, &amp; f(x) \in V.
     \end{array}\]</span> On note aussi alors <span
-class="math inline">\(\ell = \lim_{\substack{x \to a\\ {x \in A}}}
-f(x).\)</span></p>
+class="math inline">\(\ell = \underset{\substack{x \to a \\ x \in
+A}}{\lim} f(x).\)</span></p>
 </div>
 <p>Soient <span class="math inline">\(A \subset E\)</span> et <span
 class="math inline">\(\left(f_n\right)_{n \geq 0}\)</span> une suite de
 fonctions de <span class="math inline">\(A\)</span> dans <span
-class="math inline">\(F.\)</span> Tout l’objet de cette sous-partie est
-de se demander <span class="math display">\[\text{A-t-on } \text{ «~}
-\lim_{n \xrightarrow{} +\infty}\left(\lim_{\substack{x \to a\\ {x \in
-A}}} f_n(x)\right) = \lim_{\substack{x \to a\\ {x \in A}}}\left(\lim_{n
-\xrightarrow{} +\infty} f_n(x)\right) \text{ ~»} ?\]</span></p>
+class="math inline">\(F.\)</span> Tout l’objet de cette partie est de se
+demander <span class="math display">\[\text{A-t-on } \text{ «~}
+\underset{n \to +\infty}{\lim}\left(\underset{\substack{x \to a \\ x \in
+A}}{\lim} f_n(x)\right) = \underset{\substack{x \to a \\ x \in
+A}}{\lim}\left(\underset{n \to +\infty}{\lim} f_n(x)\right) \text{ ~»}
+?\]</span></p>
 <p>En général, la réponse est non.</p>
 <div class="wex">
 <ul>
@@ -765,15 +772,15 @@ f_n &amp; : &amp; \mathbb{R}^{+} &amp; \to &amp; \mathbb{R} \\
 \end{array}
 .\)</span></p>
 <p>Alors, pour <span class="math inline">\(n \in
-\mathbb{N}^{\star},\)</span> <span class="math inline">\(\lim_{x \to
-+\infty} f_n(x) = 1\)</span> donc <span class="math inline">\(\lim_{n
-\xrightarrow{} +\infty}\Big(\lim_{x \to +\infty} f_n(x)\Big) =
-1.\)</span></p>
+\mathbb{N}^{\star},\)</span> <span class="math inline">\(\underset{x \to
++\infty}{\lim} f_n(x) = 1\)</span> donc <span
+class="math inline">\(\underset{n \to +\infty}{\lim}\Big(\underset{x \to
++\infty}{\lim} f_n(x)\Big) = 1.\)</span></p>
 <p>En revanche, pour <span class="math inline">\(x \in
-\mathbb{R}^{+},\)</span> <span class="math inline">\(\lim_{n
-\xrightarrow{} +\infty} f_n(x)= 0\)</span> puis <span
-class="math inline">\(\lim_{x \to +\infty}\left(\lim_{n \xrightarrow{}
-+\infty} f_n(x)\right) = 0 \neq 1.\)</span></p></li>
+\mathbb{R}^{+},\)</span> <span class="math inline">\(\underset{n \to
++\infty}{\lim} f_n(x)= 0\)</span> puis <span
+class="math inline">\(\underset{x \to +\infty}{\lim}\left(\underset{n
+\to +\infty}{\lim} f_n(x)\right) = 0 \neq 1.\)</span></p></li>
 <li><p>Pour <span class="math inline">\(n \in
 \mathbb{N}^{\star},\)</span> on pose <span
 class="math inline">\(\begin{array}{lllll}
@@ -782,15 +789,15 @@ f_n &amp; : &amp; \mathbb{R}^{+} &amp; \to &amp; \mathbb{R} \\
 \end{array}
 .\)</span></p>
 <p>Alors, pour <span class="math inline">\(n \in
-\mathbb{N}^{\star},\)</span> <span class="math inline">\(\lim_{x \to
-+\infty} f_n(x) = \sqrt{n}\)</span> donc <span
-class="math inline">\(\lim_{n \xrightarrow{} +\infty}\Big(\lim_{x \to
-+\infty} f_n(x)\Big) = +\infty.\)</span></p>
+\mathbb{N}^{\star},\)</span> <span class="math inline">\(\underset{x \to
++\infty}{\lim} f_n(x) = \sqrt{n}\)</span> donc <span
+class="math inline">\(\underset{n \to +\infty}{\lim}\Big(\underset{x \to
++\infty}{\lim} f_n(x)\Big) = +\infty.\)</span></p>
 <p>En revanche, pour <span class="math inline">\(x \in
-\mathbb{R}^{+},\)</span> <span class="math inline">\(\lim_{n
-\xrightarrow{} +\infty} f_n(x)= 0\)</span> puis <span
-class="math inline">\(\lim_{x \to +\infty}\left(\lim_{n \xrightarrow{}
-+\infty} f_n(x)\right) = 0 \neq +\infty.\)</span></p></li>
+\mathbb{R}^{+},\)</span> <span class="math inline">\(\underset{n \to
++\infty}{\lim} f_n(x)= 0\)</span> puis <span
+class="math inline">\(\underset{x \to +\infty}{\lim}\left(\underset{n
+\to +\infty}{\lim} f_n(x)\right) = 0 \neq +\infty.\)</span></p></li>
 <li><p>Pour <span class="math inline">\(n \in \mathbb{N},\)</span> on
 pose <span class="math inline">\(\begin{array}{lllll}
 f_n &amp; : &amp; [0,1[ &amp; \to &amp; \mathbb{R} \\
@@ -798,15 +805,16 @@ f_n &amp; : &amp; [0,1[ &amp; \to &amp; \mathbb{R} \\
 \end{array}
 .\)</span></p>
 <p>Alors, pour <span class="math inline">\(n \in \mathbb{N},\)</span>
-<span class="math inline">\(\lim_{\substack{x \to 1\\ {x \in [0,1[}}}
-f_n(x) = 1\)</span> donc <span class="math inline">\(\lim_{n
-\xrightarrow{} +\infty}\Big(\lim_{\substack{x \to 1\\ {x \in [0,1[}}}
+<span class="math inline">\(\underset{\substack{x \to 1 \\ x \in
+[0,1[}}{\lim} f_n(x) = 1\)</span> donc <span
+class="math inline">\(\underset{n \to
++\infty}{\lim}\Big(\underset{\substack{x \to 1 \\ x \in [0,1[}}{\lim}
 f_n(x)\Big) = 1.\)</span></p>
 <p>En revanche, pour <span class="math inline">\(x \in [0,1[,\)</span>
-<span class="math inline">\(f_n(x) = 0\)</span> donc <span
-class="math inline">\(\lim_{n \xrightarrow{} +\infty} f_n(x)= 0\)</span>
-puis <span class="math inline">\(\lim_{\substack{x \to 1\\ {x \in
-[0,1[}}}\left(\lim_{n \xrightarrow{} +\infty} f_n(x)\right) = 0 \neq
+<span class="math inline">\(f_n(x) = x^n\)</span> donc <span
+class="math inline">\(\underset{n \to +\infty}{\lim} f_n(x)= 0\)</span>
+puis <span class="math inline">\(\underset{\substack{x \to 1 \\ x \in
+[0,1[}}{\lim}\left(\underset{n \to +\infty}{\lim} f_n(x)\right) = 0 \neq
 1.\)</span></p>
 <div class="wrem">
 <p>Si on avait considérer <span
@@ -814,8 +822,8 @@ class="math inline">\(\begin{array}{lllll}
 f_n &amp; : &amp; [0,1] &amp; \to &amp; \mathbb{R} \\
    &amp;   &amp; x &amp; \mapsto &amp; x^n
 \end{array}
-,\)</span> <span class="math inline">\(\lim_{\substack{x \to 1\\ {x \in
-[0,1]}}} f_n(x)\)</span> ne serait pas défini.</p>
+,\)</span> <span class="math inline">\(\underset{\substack{x \to 1 \\ x
+\in [0,1]}}{\lim} f_n(x)\)</span> ne serait pas défini.</p>
 </div></li>
 </ul>
 </div>
@@ -927,12 +935,13 @@ f,\)</span></p></li>
 <li><p><span class="math inline">\(\forall n \in \mathbb{N},\)</span>
 <span class="math inline">\(f_n(x) \xrightarrow[\substack{x \to a\\ {x
 \in A}}]{} \ell_n \in F,\)</span></p></li>
-<li><p><span class="math inline">\(\begin{array}{ll}
-            &amp; \text{$f_n$ converge uniformément vers $f$ au
-voisinage  (dans $A$) de $a,$} \\
-            \text{ ie }&amp; \exists W \in \mathcal{V}(a) /
-\left\|f_n-f\right\|_{\infty,W \cap A} \xrightarrow[n \to +\infty]{} 0.
-        \end{array}\)</span></p></li>
+<li><p><span class="math inline">\(\left(f_n\right)\)</span> converge
+uniformément vers <span class="math inline">\(f\)</span> au voisinage
+(dans <span class="math inline">\(A\)</span>) de <span
+class="math inline">\(a,\)</span></p>
+<p>ie <span class="math inline">\(\exists W \in \mathcal{V}(a) /
+\left\|f_n-f\right\|_{\infty,W \cap A} \xrightarrow[n \to +\infty]{}
+0.\)</span></p></li>
 </ol>
 <p>Alors,</p>
 <ul>
@@ -941,10 +950,11 @@ vers une limite <span class="math inline">\(\ell \in F\)</span></p></li>
 <li><p>et <span class="math inline">\(f(x) \xrightarrow[\substack{x \to
 a\\ {x \in A}}]{} \ell,\)</span></p></li>
 </ul>
-<p>ie <span class="math display">\[\lim_{n \xrightarrow{}
-+\infty}\left(\lim_{\substack{x \to a\\ {x \in A}}} f_n(x)\right) =
-\lim_{\substack{x \to a\\ {x \in A}}}\left(\lim_{n \xrightarrow{}
-+\infty} f_n(x)\right).\]</span></p>
+<p>ie <span class="math display">\[\underset{n \to
++\infty}{\lim}\left(\underset{\substack{x \to a \\ x \in A}}{\lim}
+f_n(x)\right) = \underset{\substack{x \to a \\ x \in
+A}}{\lim}\left(\underset{n \to +\infty}{\lim}
+f_n(x)\right).\]</span></p>
 </div>
 <div class="wproof">
 <ul>
@@ -965,7 +975,7 @@ class="math inline">\(\left\|f_n(x)-f(x)\right\| \leq
 class="math display">\[\left\|f_n(x)-f_m(x)\right\| \leq
 \left\|f_n(x)-f(x)\right\|+\left\|f(x)-f_m(x)\right\| \leq
 \varepsilon.\]</span> Puis en prenant la limite quand <span
-class="math inline">\(x \xrightarrow{} a,\)</span> <span
+class="math inline">\(x \to a,\)</span> <span
 class="math display">\[\forall n,m \geq N,
 \left\|\ell_n-\ell_m\right\|\leq \varepsilon.\]</span> Alors, <span
 class="math inline">\(\left(\ell_n\right)\)</span> est une suite de
@@ -1053,8 +1063,8 @@ class="math inline">\((E,\left\|\cdot\right\|),\)</span> <span
 class="math inline">\((F,N(\cdot))\)</span> deux espaces vectoriels
 normés, <span class="math inline">\(A \subset E\)</span> et <span
 class="math inline">\(f : A \to F.\)</span></p>
-<p><span class="math display">\[\text{$f$ continue sur tout compact }
-\Longrightarrow \text{$f$ continue sur $A.$}\]</span></p>
+<p><span class="math display">\[\text{$f$ continue sur tout compact de
+$A$} \Longrightarrow \text{$f$ continue sur $A.$}\]</span></p>
 </div>
 </div>
 <div class="wcor">
@@ -1139,107 +1149,12 @@ data-reference="prop:continue_sur_tout_compact">[prop:continue_sur_tout_compact]
 class="math inline">\(A.\)</span></p>
 </div>
 <div class="wrem">
-<p>Si <span class="math inline">\(A\)</span> est compacte,</p>
-<p><span class="math inline">\(\text{pour toute partie compacte $B$ de
-$A,$ } f_n \xrightarrow[{B}]{\text{CVU}} f \iff f_n
-\xrightarrow[{A}]{\text{CVU}} f\)</span> (en prenant <span
-class="math inline">\(B = A\)</span>).</p>
-</div>
-<div class="wcor">
-<p><strong>(Très très important en pratique)</strong> <span
-id="cor:tout_segment_CVU_donc_continue_suite"
-label="cor:tout_segment_CVU_donc_continue_suite"></span> Soient <u><span
-class="math inline">\(A \subset \mathbb{R}\)</span> un intervalle de
-<span class="math inline">\(\mathbb{R}\)</span></u>, <span
-class="math inline">\(\left(f_n\right)_{n \geq 0}\)</span> une suite de
-fonctions de <span class="math inline">\(A\)</span> dans <span
-class="math inline">\(F\)</span> et <span
-class="math inline">\(f\)</span> une fonction de <span
-class="math inline">\(A\)</span> dans <span
-class="math inline">\(F.\)</span></p>
-<p>Alors, <span class="math display">\[\left.\begin{array}{ll}
-            &amp; \forall n \in \mathbb{N}, f_n \text{ est continue sur
-$A$} \\
-            &amp; \text{Pour tout segment $[a,b] \subset A$ ($a \leq
-b$), } f_n \xrightarrow[{[a,b]}]{\text{CVU}} f
-        \end{array}\right\} \Longrightarrow f \text{ est continue sur
-$A.$}\]</span></p>
-</div>
-<div class="wproof">
-<p>Par le corollaire <a href="#cor:tout_compact_CVU_donc_continue_suite"
-data-reference-type="ref"
-data-reference="cor:tout_compact_CVU_donc_continue_suite">[cor:tout_compact_CVU_donc_continue_suite]</a>,
-il suffit de montrer <span class="math display">\[\begin{array}{c}
-    \text{Pour toute partie compacte $B$ de $A,$} \\
-    f_n \xrightarrow[{B}]{\text{CVU}} f
-\end{array}
-\iff
-\begin{array}{c}
-    \text{Pour tout segment $[a,b] \subset A$ ($a \leq b$),} \\
-    f_n \xrightarrow[{[a,b]}]{\text{CVU}} f
-\end{array}\]</span></p>
 <ul>
-<li><p><span class="math inline">\((\Longrightarrow)\)</span> est clair
-car les segments <span class="math inline">\([a,b]\)</span> (<span
-class="math inline">\(a \leq b\)</span>) sont des compacts de <span
-class="math inline">\(A.\)</span></p></li>
-<li><p><span class="math inline">\((\Longleftarrow)\)</span> Soit <span
-class="math inline">\(B \subset A\)</span> un compact de <span
-class="math inline">\(A.\)</span></p>
-<p>Alors, <span class="math inline">\(B\)</span> est bornée et fermée
-donc <span class="math inline">\(B\)</span> admet un minimum et un
-maximum et <span class="math inline">\(B \subset
-\left[\min(B),\max(B)\right].\)</span></p>
-<p>De plus, <span class="math inline">\(\left[\min(B),\max(B)\right]
-\subset A\)</span> car <span class="math inline">\(A\)</span> est un
-intervalle de <span class="math inline">\(\mathbb{R}\)</span> et <span
-class="math inline">\(B \subset A\)</span> donc <span
-class="math inline">\(\min(B),\max(B) \in A.\)</span></p>
-<p>On a donc <span class="math inline">\(f_n
-\xrightarrow[{[\min(B),\max(B)]}]{\text{CVU}} f\)</span> puis <span
-class="math inline">\(f_n \xrightarrow[{B}]{\text{CVU}}
-f.\)</span></p></li>
-</ul>
-</div>
-<div class="wrem">
-<p><span id="rem:tout_segment_ou_intervalle_infini"
-label="rem:tout_segment_ou_intervalle_infini"></span></p>
-<ul>
-<li><p>Si <span class="math inline">\(A = ]b,+\infty[\)</span> (ou <span
-class="math inline">\(A =]-\infty,b[\)</span>) alors la convergence sur
-tout intervalle <span class="math inline">\([a,+\infty[ \subset
-]b,+\infty[\)</span> (ou <span class="math inline">\(]-\infty,a] \subset
-]-\infty,b[\)</span>) implique la convergence sur tout segment de <span
-class="math inline">\(A.\)</span></p></li>
-<li><p>Si <span class="math inline">\(A\)</span> est un segment,</p>
-<p><span class="math inline">\(\text{pour tout segment $S$ de $A,$ } f_n
-\xrightarrow[{S}]{\text{CVU}} f \iff f_n \xrightarrow[{A}]{\text{CVU}}
-f\)</span> (en prenant <span class="math inline">\(S =
-A\)</span>).</p></li>
-<li><p>La convergence uniforme sur tout compact ou tout segment de <span
-class="math inline">\(A\)</span> n’implique pas la convergence uniforme
-sur <span class="math inline">\(A.\)</span></p>
-<div class="wex">
-<p>Pour <span class="math inline">\(n \in \mathbb{N},\)</span> on pose
-<span class="math inline">\(\begin{array}{lllll}
-f_n &amp; : &amp; [0,1[ &amp; \to &amp; \mathbb{R} \\
-   &amp;   &amp; x &amp; \mapsto &amp; x^n
-\end{array}\)</span> et <span class="math inline">\(A =
-[0,1[.\)</span></p>
-<p>Alors, soit <span class="math inline">\([a,b] \subset A\)</span>
-(<span class="math inline">\(a \leq b\)</span>) alors <span
-class="math inline">\(b \in A\)</span> donc <span
-class="math inline">\(b &lt; 1.\)</span></p>
-<p>On a donc <span
-class="math inline">\(\left\|f_n\right\|_{\infty,[a,b]} = b^n
-\xrightarrow[n \to +\infty]{} 0.\)</span> on a alors <span
-class="math inline">\(f_n\)</span> qui converge uniformément vers <span
-class="math inline">\(0\)</span> sur tout segment donc tout compact de
-<span class="math inline">\(A.\)</span></p>
-<p>Cependant, <span class="math inline">\(\left\|f_n\right\|_{\infty,A}
-= \left\|f_n\right\|_{\infty,[0,1[} = 1 \centernot{\xrightarrow[n \to
-+\infty]{}} 0.\)</span></p>
-</div></li>
+<li><p>Si <span class="math inline">\(A\)</span> est compacte,</p>
+<p><span class="math inline">\(\text{«~Pour toute partie compacte $B$ de
+$A,$ } f_n \xrightarrow[{B}]{\text{CVU}} f \text{~»} \iff f_n
+\xrightarrow[{A}]{\text{CVU}} f\)</span>.</p>
+<p>(en prenant <span class="math inline">\(B = A\)</span>).</p></li>
 <li><p>Soit <span class="math inline">\(A\)</span> un compact de <span
 class="math inline">\(E\)</span> alors pour rappel, <span
 class="math inline">\(\mathscr{C}(A,F) \subset \mathscr{B}(A,F)\)</span>
@@ -1251,6 +1166,103 @@ dit que <span class="math inline">\(\mathscr{C}(A,F)\)</span> est un
 fermé de <span class="math inline">\(\mathscr{B}(A,F)\)</span> pour
 <span
 class="math inline">\(\left\|\cdot\right\|_\infty.\)</span></p></li>
+</ul>
+</div>
+<div class="wcor">
+<p><strong>(Très très important en pratique)</strong> <span
+id="cor:tout_segment_CVU_donc_continue_suite"
+label="cor:tout_segment_CVU_donc_continue_suite"></span> Soient <u><span
+class="math inline">\(I \subset \mathbb{R}\)</span> un intervalle de
+<span class="math inline">\(\mathbb{R}\)</span></u>, <span
+class="math inline">\(\left(f_n\right)_{n \geq 0}\)</span> une suite de
+fonctions de <span class="math inline">\(I\)</span> dans <span
+class="math inline">\(F\)</span> et <span
+class="math inline">\(f\)</span> une fonction de <span
+class="math inline">\(I\)</span> dans <span
+class="math inline">\(F.\)</span></p>
+<p>Alors, <span class="math display">\[\left.\begin{array}{ll}
+            &amp; \forall n \in \mathbb{N}, f_n \text{ est continue sur
+$I$} \\
+            &amp; \text{Pour tout segment $[a,b] \subset I$ ($a \leq
+b$), } f_n \xrightarrow[{[a,b]}]{\text{CVU}} f
+        \end{array}\right\} \Longrightarrow f \text{ est continue sur
+$I.$}\]</span></p>
+</div>
+<div class="wproof">
+<p>Par le corollaire <a href="#cor:tout_compact_CVU_donc_continue_suite"
+data-reference-type="ref"
+data-reference="cor:tout_compact_CVU_donc_continue_suite">[cor:tout_compact_CVU_donc_continue_suite]</a>,
+il suffit de montrer <span class="math display">\[\begin{array}{c}
+    \text{Pour toute partie compacte $B$ de $I,$} \\
+    f_n \xrightarrow[{B}]{\text{CVU}} f
+\end{array}
+\iff
+\begin{array}{c}
+    \text{Pour tout segment $[a,b] \subset I$ ($a \leq b$),} \\
+    f_n \xrightarrow[{[a,b]}]{\text{CVU}} f
+\end{array}\]</span></p>
+<ul>
+<li><p><span class="math inline">\((\Longrightarrow)\)</span> est clair
+car les segments <span class="math inline">\([a,b]\)</span> (<span
+class="math inline">\(a \leq b\)</span>) sont des compacts de <span
+class="math inline">\(I.\)</span></p></li>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> Soit <span
+class="math inline">\(B \subset I\)</span> un compact de <span
+class="math inline">\(I.\)</span></p>
+<p>Alors, <span class="math inline">\(B\)</span> est bornée et fermée
+donc <span class="math inline">\(B\)</span> admet un minimum et un
+maximum et <span class="math inline">\(B \subset
+\left[\min(B),\max(B)\right].\)</span></p>
+<p>De plus, <span class="math inline">\(\left[\min(B),\max(B)\right]
+\subset I\)</span> car <span class="math inline">\(I\)</span> est un
+intervalle de <span class="math inline">\(\mathbb{R}\)</span> et <span
+class="math inline">\(\min(B),\max(B) \in I\)</span> car <span
+class="math inline">\(B \subset I.\)</span></p>
+<p>On a donc <span class="math inline">\(f_n
+\xrightarrow[{[\min(B),\max(B)]}]{\text{CVU}} f\)</span> puis <span
+class="math inline">\(f_n \xrightarrow[{B}]{\text{CVU}}
+f.\)</span></p></li>
+</ul>
+</div>
+<div class="wrem">
+<p><span id="rem:tout_segment_ou_intervalle_infini"
+label="rem:tout_segment_ou_intervalle_infini"></span></p>
+<ul>
+<li><p>Si <span class="math inline">\(I = ]b,+\infty[\)</span> (ou <span
+class="math inline">\(I =]-\infty,b[\)</span>) alors la convergence sur
+tout intervalle <span class="math inline">\([a,+\infty[ \subset
+]b,+\infty[\)</span> (ou <span class="math inline">\(]-\infty,a] \subset
+]-\infty,b[\)</span>) implique la convergence sur tout segment de <span
+class="math inline">\(I.\)</span></p></li>
+<li><p>Si <span class="math inline">\(I\)</span> est un segment,</p>
+<p><span class="math inline">\(\text{pour tout segment $[a,b]$ de $I,$ }
+f_n \xrightarrow[{[a,b]}]{\text{CVU}} f \iff f_n
+\xrightarrow[{I}]{\text{CVU}} f\)</span> (en prenant <span
+class="math inline">\([a,b] = I\)</span>).</p></li>
+<li><p>La convergence uniforme sur tout compact ou tout segment de <span
+class="math inline">\(I\)</span> n’implique pas la convergence uniforme
+sur <span class="math inline">\(I.\)</span></p>
+<div class="wex">
+<p>Pour <span class="math inline">\(n \in \mathbb{N},\)</span> on pose
+<span class="math inline">\(\begin{array}{lllll}
+f_n &amp; : &amp; [0,1[ &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; x^n
+\end{array}\)</span> et <span class="math inline">\(I =
+[0,1[.\)</span></p>
+<p>Alors, soit <span class="math inline">\([a,b] \subset I\)</span>
+(<span class="math inline">\(a \leq b\)</span>) alors <span
+class="math inline">\(b \in I\)</span> donc <span
+class="math inline">\(b &lt; 1.\)</span></p>
+<p>On a donc <span
+class="math inline">\(\left\|f_n\right\|_{\infty,[a,b]} = b^n
+\xrightarrow[n \to +\infty]{} 0.\)</span> on a alors <span
+class="math inline">\(f_n\)</span> qui converge uniformément vers <span
+class="math inline">\(0\)</span> sur tout segment donc tout compact de
+<span class="math inline">\(I.\)</span></p>
+<p>Cependant, <span class="math inline">\(\left\|f_n\right\|_{\infty,I}
+= \left\|f_n\right\|_{\infty,[0,1[} = 1 \centernot{\xrightarrow[n \to
++\infty]{}} 0.\)</span></p>
+</div></li>
 </ul>
 </div>
 <h2 data-number="1.4" id="intégration-sur-un-segment"><span
@@ -1350,7 +1362,7 @@ class="math inline">\(I\)</span> un intervalle de <span
 class="math inline">\(\mathbb{R},\)</span> <span
 class="math inline">\(\left(f_n\right)_{n \geq 0}\)</span> une suite de
 fonctions de <span
-class="math inline">\(\mathscr{C}_{\mathrm{m}}(I,\mathbb{K})\)</span> et
+class="math inline">\(\mathscr{C}_{\mathrm{m}}(I,\mathbb{K})\)</span>,
 <span class="math inline">\(f\)</span> une fonction de <span
 class="math inline">\(\mathscr{C}_{\mathrm{m}}(I,\mathbb{K})\)</span> et
 <span class="math inline">\(a \in I\)</span> fixé.</p>
@@ -1440,7 +1452,7 @@ f_n &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R} \\
 \mathbb{N}^{\star}\)</span> et <span
 class="math inline">\(x\in\mathbb{R},\)</span> <span
 class="math inline">\(f_n(x) \xrightarrow[n \to +\infty]{}
-\left|x\right|\)</span> donc <span class="math inline">\(f_n
+\sqrt{x^2}=\left|x\right|\)</span> donc <span class="math inline">\(f_n
 \xrightarrow[{\mathbb{R}}]{\text{CVS}} f\)</span> avec <span
 class="math inline">\(f: x \in \mathbb{R}\mapsto \left|x\right|\)</span>
 qui n’est pas dérivable en <span class="math inline">\(0\)</span> donc
@@ -1527,10 +1539,10 @@ data-reference="prop:CVU_en_route_vers_la_derivation">[prop:CVU_en_route_vers_la
 uniformément vers <span class="math inline">\(\Phi\)</span> sur tout
 segment inclus dans <span class="math inline">\(I.\)</span></p>
 <p>En particulier, on a donc <span class="math inline">\(\Phi_n
-\xrightarrow[{\Phi}]{\text{CVS}}\)</span> donc pour <span
+\xrightarrow[{I}]{\text{CVS}} \Phi\)</span> donc pour <span
 class="math inline">\(x \in I,\)</span> en passant à la limite quand
-<span class="math inline">\(n \longrightarrow +\infty\)</span> dans
-<span class="math inline">\(f_n(x) = f_n(a)+\int_a^x f_n&#39;(t)dt =
+<span class="math inline">\(n \to +\infty\)</span> dans <span
+class="math inline">\(f_n(x) = f_n(a)+\int_a^x f_n&#39;(t)dt =
 f_n(a)+\Phi_n(x),\)</span> on a <span class="math display">\[f(x) =
 f(a)+\int_a^x g(t)dt = f(a)+\Phi(x)\]</span> Or, comme <span
 class="math inline">\(g\)</span> est continue, <span
@@ -1637,8 +1649,8 @@ class="math inline">\(I.\)</span></p></li>
 converge simplement vers <span class="math inline">\(g_1\)</span> sur
 <span class="math inline">\(I,\)</span></p></li>
 <li><p>pour tout <span class="math inline">\(1 \leq j \leq p-2,\)</span>
-<span class="math inline">\(\left(\left(f_n&#39;\right)^{j}\right) =
-\left(f_n^{j+1}\right)\)</span> converge simplement vers <span
+<span class="math inline">\(\left(\left(f_n&#39;\right)^{(j)}\right) =
+\left(f_n^{(j+1)}\right)\)</span> converge simplement vers <span
 class="math inline">\(g_{j+1}\)</span> sur <span
 class="math inline">\(I.\)</span></p></li>
 <li><p><span
@@ -1657,11 +1669,11 @@ class="math inline">\(g_1^{(j)}=g_{j+1}\)</span> pour tout <span
 class="math inline">\(1 \leq j \leq p-1,\)</span></p></li>
 <li><p>pour tout <span class="math inline">\(0 \leq j \leq p-2,\)</span>
 <span
-class="math inline">\(\left(\left(f_n&#39;\right)^{(j)}\right)=\left(f_n^{j+1}\right)\)</span>
+class="math inline">\(\left(\left(f_n&#39;\right)^{(j)}\right)=\left(f_n^{(j+1)}\right)\)</span>
 converge uniformément vers <span class="math inline">\(g_{j+1}\)</span>
 sur tout segment inclus dans <span class="math inline">\(I\)</span></p>
 <p>ie pour tout <span class="math inline">\(1 \leq j \leq p-1,\)</span>
-<span class="math inline">\(\left(f_n^{j}\right)\)</span> converge
+<span class="math inline">\(\left(f_n^{(j)}\right)\)</span> converge
 uniformément vers <span class="math inline">\(g_{j}\)</span> sur tout
 segment inclus dans <span class="math inline">\(I.\)</span></p></li>
 </ul>
@@ -1760,9 +1772,9 @@ n_0}\)</span> est appelée une série de fonctions, notée <span
 class="math inline">\(\sum_{n \geq n_0} f_n\)</span> ou <span
 class="math inline">\(\sum f_n.\)</span></p>
 <ul>
-<li><p><span class="math inline">\(\left(S_n\right)_{n \geq 0}\)</span>
-est appelée la suite des sommes partielles associées à <span
-class="math inline">\(\sum_{n \geq n_0} f_n.\)</span></p></li>
+<li><p><span class="math inline">\(\left(S_n\right)_{n \geq
+n_0}\)</span> est appelée la suite des sommes partielles associées à
+<span class="math inline">\(\sum_{n \geq n_0} f_n.\)</span></p></li>
 <li><p>On dit que <span class="math inline">\(\sum_{n \geq n_0}
 f_n\)</span> converge simplement sur <span
 class="math inline">\(A\)</span> si pour tout <span
@@ -1799,10 +1811,12 @@ class="math inline">\(n\)</span> de <span class="math inline">\(\sum_{n
 <p>Soient <span class="math inline">\(A \subset E\)</span> et <span
 class="math inline">\(\sum_{n \geq n_0} f_n\)</span> une série de
 fonctions de <span class="math inline">\(A\)</span> dans <span
-class="math inline">\(F\)</span> alors <span
-class="math display">\[\sum_{n \geq n_0} f_n \text{ converge absolument
-sur $A$} \Longrightarrow \sum_{n \geq n_0} f_n \text{ converge
-simplement sur $A.$}\]</span></p>
+class="math inline">\(F\)</span> alors</p>
+<ul>
+<li><p><span class="math inline">\(\sum_{n \geq n_0} f_n \text{ converge
+absolument sur $A$} \Longrightarrow \sum_{n \geq n_0} f_n \text{
+converge simplement sur $A.$}\)</span></p></li>
+</ul>
 <p>Soient <span class="math inline">\(D = \Big\{x \in A / \sum_{n \geq
 n_0} {f_n(x)} \text{ converge}\Big\},\)</span> <span
 class="math inline">\(S\)</span> la fonction somme, <span
@@ -1880,14 +1894,14 @@ class="math inline">\(S\)</span> linéaire,</p></li>
 <ul>
 <li><p>Soient <span class="math inline">\(x,y \in A\)</span> tels que
 <span class="math inline">\(x \leq y\)</span> alors pour tout <span
-class="math inline">\(k \in \mathbb{N},\)</span> <span
+class="math inline">\(k \geq n_0,\)</span> <span
 class="math inline">\(f_k(x) \leq f_k(y)\)</span> donc pour tout <span
-class="math inline">\(n \in \mathbb{N},\)</span> <span
+class="math inline">\(n \geq n_0,\)</span> <span
 class="math display">\[\sum_{k=n_0}^n f_k(x) \leq \sum_{k=n_0}^n
 f_k(y)\]</span> et en passant à la limite quand <span
-class="math inline">\(n \longrightarrow +\infty\)</span> dans
-l’inégalité, <span class="math inline">\(S(x) \leq S(y)\)</span> ie
-<span class="math inline">\(S\)</span> est croissante.</p></li>
+class="math inline">\(n \to +\infty\)</span> dans l’inégalité, <span
+class="math inline">\(S(x) \leq S(y)\)</span> ie <span
+class="math inline">\(S\)</span> est croissante.</p></li>
 <li><p>Par le point précédent, <span class="math inline">\(S\)</span>
 est croissante donc soient <span class="math inline">\(x,y \in
 A\)</span> tels que <span class="math inline">\(x \leq y,\)</span> <span
@@ -1898,7 +1912,7 @@ f_k(x)\right)\)</span> est une série à termes positifs.</p>
         &amp; \iff S(y)-S(x) = 0 \\
         &amp; \iff \sum_{n= n_0}^{+\infty} \left(f_n(y) - f_n(x)\right)
 = 0 \\
-        &amp; \iff \forall n \in \mathbb{N}, f_n(y) - f_n(x) = 0
+        &amp; \iff \forall n \geq n_0, f_n(y) - f_n(x) = 0
 \substack{\text{ car $\sum_{n \geq n_0} \left(f_k(y) - f_k(x)\right)$}
 \\\text{ est une série à termes positifs,}}\\
         &amp; \text{ } \Longrightarrow f_{n_1}(y) - f_{n_1}(x) = 0 \\
@@ -1909,31 +1923,30 @@ f_k(x)\right)\)</span> est une série à termes positifs.</p>
 croissante.</p></li>
 <li><p>Soient <span class="math inline">\(x,y \in A\)</span> et <span
 class="math inline">\(\lambda \in [0,1]\)</span> alors pour tout <span
-class="math inline">\(k \in \mathbb{N},\)</span> <span
+class="math inline">\(k \geq n_0,\)</span> <span
 class="math inline">\(f_k\left((1-\lambda)x+ \lambda y\right) \leq
 (1-\lambda)f_k(x)+ \lambda f_k(y)\)</span> donc pour tout <span
-class="math inline">\(n \in \mathbb{N},\)</span> <span
+class="math inline">\(n \geq n_0,\)</span> <span
 class="math display">\[\sum_{k=n_0}^n f_k\left((1-\lambda)x+ \lambda
 y\right) \leq (1-\lambda)\sum_{k=n_0}^nf_k(x)+ \lambda \sum_{k=n_0}^n
 f_k(y)\]</span> donc en passant à la limite quand <span
-class="math inline">\(n \longrightarrow +\infty\)</span> dans
-l’inégalité, <span class="math inline">\(S\left((1-\lambda)x+ \lambda
-y\right) \leq (1-\lambda)S(x)+ \lambda S(y)\)</span> ie <span
+class="math inline">\(n \to +\infty\)</span> dans l’inégalité, <span
+class="math inline">\(S\left((1-\lambda)x+ \lambda y\right) \leq
+(1-\lambda)S(x)+ \lambda S(y)\)</span> ie <span
 class="math inline">\(S\)</span> est convexe.</p></li>
 <li><p>Soient <span class="math inline">\(x,y \in A\)</span> et <span
 class="math inline">\(\lambda,\mu \in \mathbb{K}\)</span> alors pour
-tout <span class="math inline">\(k \in \mathbb{N},\)</span> <span
+tout <span class="math inline">\(k \geq n_0,\)</span> <span
 class="math inline">\(f_k\left(\lambda x+ \mu y\right) = \lambda f_k(x)+
-\mu f_k(y)\)</span> donc pour tout <span class="math inline">\(n \in
-\mathbb{N},\)</span> <span
+\mu f_k(y)\)</span> donc pour tout <span class="math inline">\(n \geq
+n_0,\)</span> <span
 class="math display">\[\sum_{k=n_0}^n  f_k\left(\lambda x+ \mu y\right)
 = \lambda \sum_{k=n_0}^n  f_k(x)+ \mu
 \sum_{k=n_0}^n  f_k(y)\]</span></p>
-<p>et en considérant la limite quand <span class="math inline">\(n
-\longrightarrow +\infty,\)</span> <span
-class="math inline">\(S\left(\lambda x+ \mu y\right) = \lambda S(x)+ \mu
-S(y)\)</span> ie <span class="math inline">\(S\)</span> est
-linéaire.</p></li>
+<p>et en considérant la limite quand <span class="math inline">\(n \to
++\infty,\)</span> <span class="math inline">\(S\left(\lambda x+ \mu
+y\right) = \lambda S(x)+ \mu S(y)\)</span> ie <span
+class="math inline">\(S\)</span> est linéaire.</p></li>
 </ul>
 </div>
 <div class="wex">
@@ -1949,9 +1962,9 @@ linéaire.</p></li>
 class="math inline">\(f_n(x) = e^{-x \ln(n)}\)</span> <span
 class="math display">\[\begin{array}{lll}
         f_n&#39;(x) &amp; = -\ln(n)e^{-x\ln(n)} &amp;\text{ donc $f_n$
-est strictement croissante} \\
+est strictement décroissante} \\
         &amp;&amp; \text{dès $n &gt; 1$ et $\zeta$ est strictement
-croissante} \\
+décroissante} \\
         f_n&#39;&#39;(x) &amp; = \left(\ln(n)\right)^2e^{-x\ln(n)}
 &amp;\text{ donc $f_n$ est convexe et $\zeta$ est convexe} \\
     \end{array}\]</span></p>
@@ -1965,11 +1978,11 @@ class="math inline">\(+\infty.\)</span></p>
 class="math inline">\(N \in \mathbb{N},\)</span> <span
 class="math display">\[\sum_{n=1}^N \frac{1}{n^x} \leq
 \sum_{n=1}^{+\infty} \frac{1}{n^x} = \zeta(x).\]</span> Donc en prenant
-la limite quand <span class="math inline">\(x \xrightarrow{}
-1^+,\)</span> <span class="math display">\[\sum_{n=1}^N \frac{1}{n} \leq
-\lim_{x \xrightarrow{}} \zeta(x) = \ell.\]</span> Puis en faisant <span
-class="math inline">\(N \xrightarrow{} +\infty,\)</span> <span
-class="math inline">\(\ell = +\infty.\)</span></p>
+la limite quand <span class="math inline">\(x \to 1^+,\)</span> <span
+class="math display">\[\sum_{n=1}^N \frac{1}{n} \leq \lim_{x \to 1^+}
+\zeta(x) = \ell.\]</span> Puis en faisant <span class="math inline">\(N
+\to +\infty,\)</span> <span class="math inline">\(\ell =
++\infty.\)</span></p>
 <p>Pour obtenir <span class="math inline">\(\ell&#39;,\)</span>
 procédons à une comparaison-série intégrale. Pour <span
 class="math inline">\(n \in \mathbb{N}, \geq 2,\)</span> et <span
@@ -1978,7 +1991,7 @@ class="math inline">\(t \geq 1 \mapsto \frac{1}{t^x}\)</span> est
 décroissante,</p>
 <p><span class="math display">\[\int_{n}^{n+1} \frac{dt}{t^x} \leq
 \frac{1}{n^x} \leq \int_{n-1}^n \frac{dt}{t^x} \left(\substack{\text{ on
-prend $n=2$ pour que $t \geq 1 \mapsto \frac{1}{t^x}$} \\ \text{ soit
+prend $n=2$ pour que $t &gt;0 \mapsto \frac{1}{t^x}$} \\ \text{ soit
 définie jusque la borne $n-1 &gt; 0$}}\right).\]</span> Donc soit <span
 class="math inline">\(N \in \mathbb{N}^{\star}, \geq 2,\)</span> <span
 class="math display">\[\sum_{n=1}^N \int_{n}^{n+1} \frac{dt}{t^x} =
@@ -1995,9 +2008,9 @@ On a donc <span class="math display">\[\begin{array}{llll}
         &amp; \leq \sum_{n=1}^N\frac{1}{n^x} &amp; \leq
 1+\frac{1}{x-1}-\frac{1}{x-1}\frac{1}{\left(N\right)^{x-1}}.
     \end{array}\]</span></p>
-<p>Puis en faisant <span class="math inline">\(N \xrightarrow{}
-+\infty,\)</span> comme <span class="math inline">\(x-1 &gt; 0,\)</span>
-<span class="math display">\[\frac{1}{x-1} \leq \zeta(x) \leq
+<p>Puis en faisant <span class="math inline">\(N \to +\infty,\)</span>
+comme <span class="math inline">\(x-1 &gt; 0,\)</span> <span
+class="math display">\[\frac{1}{x-1} \leq \zeta(x) \leq
 1+\frac{1}{x-1}.\]</span></p>
 <p>D’une part, on retrouve <span class="math inline">\(\zeta(x)
 \xrightarrow[x \to 1^+]{} +\infty\)</span> (car <span
@@ -2010,9 +2023,9 @@ class="math inline">\(\zeta(x) = 1+\sum_{n\geq 2} \frac{1}{n^x} \geq
 1\)</span> pour <span class="math inline">\(x&gt;1.\)</span> Donc, pour
 <span class="math inline">\(x &gt; 1,\)</span> <span
 class="math display">\[1 \leq \zeta(x) \leq 1+\frac{1}{x-1}\]</span> et
-en faisant <span class="math inline">\(x \xrightarrow{}
-+\infty,\)</span> on obtient <span class="math inline">\(\ell&#39; =
-\lim_{x \xrightarrow{} +\infty} = 1\)</span> par encadrement.</p>
+en faisant <span class="math inline">\(x \to +\infty,\)</span> on
+obtient <span class="math inline">\(\ell&#39; = \lim_{x \to +\infty} =
+1\)</span> par encadrement.</p>
 <p>Enfin, pour la culture, on peut montrer que <span
 class="math inline">\(\zeta(2) = \frac{\pi^2}{6}\)</span> et <span
 class="math inline">\(\zeta(4) = \frac{\pi^4}{90}.\)</span> On en déduit
@@ -2222,13 +2235,13 @@ Riemann.</p></li>
 converge normalement sur <span class="math inline">\(A\)</span> alors
 <span class="math inline">\(f_n \xrightarrow[{A}]{\text{CVU}} 0\)</span>
 car alors <span class="math inline">\(\left\|f_n\right\|_{\infty,A}
-\xrightarrow[{+\infty}]{\text{n}}.\)</span></p></li>
+\xrightarrow[n \to +\infty]{} 0.\)</span></p></li>
 <li><p>Si <span class="math inline">\(\sum_{n \geq n_0} f_n\)</span>
 converge normalement sur <span class="math inline">\(A\)</span> et <span
 class="math inline">\(B \subset A\)</span> alors <span
 class="math inline">\(\sum_{n \geq n_0} f_n\)</span> converge
 normalement sur <span class="math inline">\(B\)</span> car <span
-class="math inline">\(\left\|f_n\right\|_{\infty,B} \leq
+class="math inline">\(0 \leq \left\|f_n\right\|_{\infty,B} \leq
 \left\|f_n\right\|_{\infty,A}.\)</span></p></li>
 </ul>
 </div>
@@ -2494,10 +2507,10 @@ converge</p></li>
 <li><p>et <span class="math inline">\(S(x) \xrightarrow[\substack{x \to
 a\\ {x \in A}}]{} \sum_{n=n_0}^{+\infty} \ell_n,\)</span></p></li>
 </ul>
-<p>ie <span class="math display">\[\lim_{\substack{x \to a\\ {x \in
-A}}}\left(\sum_{n=n_0}^{+\infty} f_n(x)\right) =
-\sum_{n=n_0}^{+\infty}\left(\lim_{\substack{x \to a\\ {x \in A}}}
-f_n(x)\right).\]</span></p>
+<p>ie <span class="math display">\[\underset{\substack{x \to a \\ x \in
+A}}{\lim}\left(\sum_{n=n_0}^{+\infty} f_n(x)\right) =
+\sum_{n=n_0}^{+\infty}\left(\underset{\substack{x \to a \\ x \in
+A}}{\lim} f_n(x)\right).\]</span></p>
 </div>
 <div class="wproof">
 <p>Il suffit d’appliquer le théorème de la double-limite pour les suites
@@ -2505,7 +2518,7 @@ de fonctions (théorème <a href="#thm:double_limite"
 data-reference-type="ref"
 data-reference="thm:double_limite">[thm:double_limite]</a>) à la suite
 des sommes partielles <span class="math inline">\(\left(S_n\right)_{n
-\geq 0}.\)</span></p>
+\geq n_0}.\)</span></p>
 <ol>
 <li><p>Pour <span class="math inline">\(x \in A,\)</span> <span
 class="math inline">\(S_n(x) \xrightarrow[n \to +\infty]{} S(x)\)</span>
@@ -2572,10 +2585,10 @@ class="math inline">\(f_n(x) \xrightarrow[\substack{x \to 1\\ {x \in
 \sum_{n=0}^{+\infty}\left(x^n-x^{n+1}\right) = 1\)</span> (par
 télescopage) donc <span class="math inline">\(S(x)
 \xrightarrow[\substack{x \to 1\\ {x \in [0,1[}}]{} 1.\)</span></p>
-<p>On a donc <span class="math inline">\(\lim_{\substack{x \to 1\\ {x
-\in [0,1[}}}\left( \sum_{n=0}^{+\infty} f_n(x)\right) = 1 \neq 0 =
-\sum_{n=0}^{+\infty}\left(\lim_{\substack{x \to 1\\ {x \in [0,1[}}}
-f_n(x)\right).\)</span></p>
+<p>On a donc <span class="math inline">\(\underset{\substack{x \to 1 \\
+x \in [0,1[}}{\lim}\left( \sum_{n=0}^{+\infty} f_n(x)\right) = 1 \neq 0
+= \sum_{n=0}^{+\infty}\left(\underset{\substack{x \to 1 \\ x \in
+[0,1[}}{\lim} f_n(x)\right).\)</span></p>
 <p>On a en effet non convergence uniforme de <span
 class="math inline">\(\sum_{n \geq 0} f_n\)</span> sur <span
 class="math inline">\([0,1[\)</span> car pour <span
@@ -2624,10 +2637,10 @@ vers $S$ sur tout segment de $A$}.
 href="#cor:double_limite_donne_continuite" data-reference-type="ref"
 data-reference="cor:double_limite_donne_continuite">[cor:double_limite_donne_continuite]</a>
 à la suite des sommes partielles <span
-class="math inline">\(\left(S_n\right)_{n \geq 0}\)</span> associées à
+class="math inline">\(\left(S_n\right)_{n \geq n_0}\)</span> associées à
 <span class="math inline">\(\sum_{n \geq n_0} f_n.\)</span> En effet,
-<span class="math inline">\(\left(S_n\right)_{n \geq 0}\)</span> est une
-suite de fonctions et</p>
+<span class="math inline">\(\left(S_n\right)_{n \geq n_0}\)</span> est
+une suite de fonctions et</p>
 <ul>
 <li><p>Pour tout <span class="math inline">\(n \geq n_0,\)</span> <span
 class="math inline">\(S_n = \sum_{k=n_0}^n f_k\)</span> est continue,
@@ -2899,8 +2912,10 @@ class="math inline">\(\left(1+\frac{x}{n}\right)^n =
 e^{n\ln\left(1+\frac{x}{n}\right)}.\)</span></p>
 <p>Or, <span class="math inline">\(\ln\left(1+\frac{x}{n}\right)
 \underset{n\to +\infty}{\sim} \frac{x}{n}\)</span> donc <span
+class="math inline">\(n\ln\left(1+\frac{x}{n}\right) \underset{n\to
++\infty}{\sim} x\)</span> puis <span
 class="math inline">\(n\ln\left(1+\frac{x}{n}\right) \xrightarrow[n \to
-+\infty]{} x\)</span> puis <span
++\infty]{} x\)</span> et <span
 class="math inline">\(\left(1+\frac{x}{n}\right)^n \xrightarrow[n \to
 +\infty]{} e^x.\)</span></p></li>
 </ul>
@@ -2917,7 +2932,8 @@ sur <span class="math inline">\(\mathcal{A}.\)</span> Soit <span
 class="math inline">\(B\)</span> une partie bornée de <span
 class="math inline">\(\mathcal{A}\)</span> tel que <span
 class="math inline">\(\left\|x\right\| \leq M_B\)</span> pour tout <span
-class="math inline">\(x \in B.\)</span></p>
+class="math inline">\(x \in B\)</span> avec <span
+class="math inline">\(M_B \in \mathbb{R}^{+}.\)</span></p>
 <p>Pour <span class="math inline">\(x \in B\)</span> et <span
 class="math inline">\(n \in \mathbb{N}^{\star},\)</span> <span
 class="math display">\[\begin{aligned}
@@ -2925,15 +2941,15 @@ class="math display">\[\begin{aligned}
             &amp; = \left\|\sum_{k=0}^{+\infty} \frac{x^k}{k!} -
 \sum_{k=0}^n \binom{n}{k} \frac{x^k}{n^k}\right\| \\
             &amp; = \left\|\sum_{k=n+1}^{+\infty} \frac{x^k}{k!} +
-\sum_{k=0}^n \binom{n}{k}\left(
-\frac{1}{k!}-\frac{1}{n^k}\right)x^k\right\| \\
+\sum_{k=0}^n \left(
+\frac{1}{k!}-\frac{1}{n^k}\binom{n}{k}\right)x^k\right\| \\
             &amp; \leq  \sum_{k=n+1}^{+\infty}
-\frac{\left\|x^k\right\|}{k!} + \sum_{k=0}^n \binom{n}{k}\left|
-\frac{1}{k!}-\frac{1}{n^k}\right|\left\|x^k\right\| \\
+\frac{\left\|x^k\right\|}{k!} + \sum_{k=0}^n \left|
+\frac{1}{k!}-\frac{1}{n^k}\binom{n}{k}\right|\left\|x^k\right\| \\
             &amp; \leq  \sum_{k=n+1}^{+\infty}
-\frac{\left\|x\right\|^k}{k!} + \sum_{k=0}^n \binom{n}{k}\left|
-\frac{1}{k!}-\frac{1}{n^k}\right|\left\|x\right\|^k \text{ car
-$\left\|\cdot\right\|$ est une norme d&#39;algèbre.}
+\frac{\left\|x\right\|^k}{k!} + \sum_{k=0}^n \left|
+\frac{1}{k!}-\frac{1}{n^k}\binom{n}{k}\right|\left\|x\right\|^k \text{
+car $\left\|\cdot\right\|$ est une norme d&#39;algèbre.}
         \end{aligned}\]</span></p>
 <p>Or, remarquons que pour <span class="math inline">\(0 \leq k \leq
 n,\)</span> <span class="math display">\[\frac{1}{n^k}\binom{n}{k} =
@@ -2945,12 +2961,12 @@ n,\)</span> <span class="math display">\[\frac{1}{n^k}\binom{n}{k} =
 class="math display">\[\begin{aligned}
             \left\|\exp(x)-g_n(x)\right\|
             &amp; \leq  \sum_{k=n+1}^{+\infty}
-\frac{\left\|x\right\|^k}{k!} + \sum_{k=0}^n
-\binom{n}{k}\underbrace{\left( \frac{1}{k!}-\frac{1}{n^k}\right)}_{\geq
+\frac{\left\|x\right\|^k}{k!} + \sum_{k=0}^n \underbrace{\left(
+\frac{1}{k!}-\frac{1}{n^k}\binom{n}{k}\right)}_{\geq
 0}\left\|x\right\|^k \\
             &amp; \leq  \sum_{k=n+1}^{+\infty} \frac{M_B^k}{k!} +
-\sum_{k=0}^n \binom{n}{k}\underbrace{\left(
-\frac{1}{k!}-\frac{1}{n^k}\right)}_{\geq 0}M_B^k \\
+\sum_{k=0}^n \underbrace{\left(
+\frac{1}{k!}-\frac{1}{n^k}\binom{n}{k}\right)}_{\geq 0}M_B^k \\
             &amp; =  \sum_{k=0}^{+\infty} \frac{M_B^k}{k!} -\sum_{k=0}^n
 \binom{n}{k}\frac{M_B^k}{n^k} \\
             &amp; = \exp(M_B) - \left(1+\frac{M_B^n}{n}\right)^n.
@@ -2990,10 +3006,10 @@ href="#prop:CVU_implique_convergence_integrales"
 data-reference-type="ref"
 data-reference="prop:CVU_implique_convergence_integrales">[prop:CVU_implique_convergence_integrales]</a>
 à la suite des sommes partielles <span
-class="math inline">\(\left(S_n\right)_{n \geq 0}\)</span> associées à
+class="math inline">\(\left(S_n\right)_{n \geq n_0}\)</span> associées à
 <span class="math inline">\(\sum_{n \geq n_0} f_n.\)</span> En effet,
-<span class="math inline">\(\left(S_n\right)_{n \geq 0}\)</span> est une
-suite de fonctions et</p>
+<span class="math inline">\(\left(S_n\right)_{n \geq n_0}\)</span> est
+une suite de fonctions et</p>
 <ul>
 <li><p>Pour tout <span class="math inline">\(n \geq n_0,\)</span> <span
 class="math inline">\(S_n = \sum_{k=n_0}^n f_k\)</span> est continue par
@@ -3006,7 +3022,8 @@ class="math inline">\([a,b].\)</span></p></li>
 href="#prop:CVU_implique_convergence_integrales"
 data-reference-type="ref"
 data-reference="prop:CVU_implique_convergence_integrales">[prop:CVU_implique_convergence_integrales]</a>,
-<span class="math inline">\(S\)</span> est continue.</p>
+<span class="math inline">\(\int_a^b S_n(t)dt = \sum_{k=n_0}^n \int_a^b
+f_k(t)dt\xrightarrow[n \to +\infty]{} \int_a^b S(t)dt\)</span>.</p>
 </div>
 <div class="wex">
 <p>Pour <span class="math inline">\(z \in \mathbb{C}\)</span> tel que
@@ -3076,9 +3093,9 @@ z^ne^{-i(n+1)t}dt.
 <p>Or, en posant <span class="math inline">\(f_n:t \in [-\pi,\pi]
 \mapsto z^ne^{-i(n+1)t}\)</span> pour <span class="math inline">\(t \in
 [-\pi,\pi],\)</span> <span class="math inline">\(\left|f_n(t)\right|
-={\left|z\right|^{n+1}}\)</span> donc <span
+={\left|z\right|^{n}}\)</span> donc <span
 class="math inline">\(\left\|f_n\right\|_{\infty,[-\pi,\pi]}
-={\left|z\right|^{n+1}}\)</span> avec <span
+={\left|z\right|^{n}}\)</span> avec <span
 class="math inline">\({\left|z\right|} &lt; 1\)</span> et <span
 class="math inline">\(\sum_{n \geq 0} f_n\)</span> converge normalement
 (donc uniformément) sur <span
@@ -3151,14 +3168,13 @@ la proposition <a href="#prop:CVU_implique_convergence_integrales_serie"
 data-reference-type="ref"
 data-reference="prop:CVU_implique_convergence_integrales_serie">[prop:CVU_implique_convergence_integrales_serie]</a>.</p></li>
 <li><p>Cette question est une question de double limite.</p>
-<p>En effet, <span class="math inline">\(\lim_{x \xrightarrow{} 1^-}
-\ln(1+x) = \ln(2)\)</span> et pour <span class="math inline">\(n \in
-\mathbb{N}^{\star},\)</span> <span class="math inline">\(\lim_{x
-\xrightarrow{} 1^-} \frac{(-1)^{n-1}x^n}{n} =
-\frac{(-1)^{n-1}}{n}\)</span> et on cherche donc à montrer <span
-class="math inline">\(\lim_{x \xrightarrow{} 1^-}
+<p>En effet, <span class="math inline">\(\lim_{x \to 1^-} \ln(1+x) =
+\ln(2)\)</span> et pour <span class="math inline">\(n \in
+\mathbb{N}^{\star},\)</span> <span class="math inline">\(\lim_{x \to
+1^-} \frac{(-1)^{n-1}x^n}{n} = \frac{(-1)^{n-1}}{n}\)</span> et on
+cherche donc à montrer <span class="math inline">\(\lim_{x \to 1^-}
 \left(\sum_{n=1}^{+\infty} \left(-1\right)^{n-1}\frac{x^n}{n}\right) =
-\sum_{n=1}^{+\infty}\left(\lim_{x \xrightarrow{} 1^-}
+\sum_{n=1}^{+\infty}\left(\lim_{x \to 1^-}
 \left(-1\right)^{n-1}\frac{x^n}{n}\right).\)</span></p>
 <p>Pour cela, on va utiliser le théorème de la double-limite
 (théorème <a href="#thm:double_limite_series" data-reference-type="ref"
@@ -3216,7 +3232,7 @@ class="math inline">\(I\)</span> un intervalle de <span
 class="math inline">\(\mathbb{R},\)</span> <span
 class="math inline">\(\sum_{n \geq n_0} f_n\)</span> une série de
 fonctions de <span
-class="math inline">\(\mathscr{C}_{\mathrm{m}}(I,\mathbb{K})\)</span> et
+class="math inline">\(\mathscr{C}_{\mathrm{m}}(I,\mathbb{K})\)</span>,
 <span class="math inline">\(S\)</span> une fonction de <span
 class="math inline">\(\mathscr{C}_{\mathrm{m}}(I,\mathbb{K})\)</span> et
 <span class="math inline">\(a \in I\)</span> fixé.</p>
@@ -3235,13 +3251,13 @@ segment de <span class="math inline">\(I.\)</span></p>
 href="#prop:CVU_en_route_vers_la_derivation" data-reference-type="ref"
 data-reference="prop:CVU_en_route_vers_la_derivation">[prop:CVU_en_route_vers_la_derivation]</a>
 à la suite des sommes partielles <span
-class="math inline">\(\left(S_n\right)_{n \geq 0}\)</span> associées à
+class="math inline">\(\left(S_n\right)_{n \geq n_0}\)</span> associées à
 <span class="math inline">\(\sum_{n \geq n_0} f_n.\)</span> En effet,
-<span class="math inline">\(\left(S_n\right)_{n \geq 0}\)</span> est une
-suite de fonctions et</p>
+<span class="math inline">\(\left(S_n\right)_{n \geq n_0}\)</span> est
+une suite de fonctions et</p>
 <ul>
-<li><p>Pour <span class="math inline">\(n \in \mathbb{N}\)</span> et
-<span class="math inline">\(x \in I,\)</span> <span
+<li><p>Pour <span class="math inline">\(n \geq n_0\)</span> et <span
+class="math inline">\(x \in I,\)</span> <span
 class="math inline">\(\int_a^x S_n(t)dt =  \int_a^x\left(
 \sum_{k=n_0}^nf_k(t)\right)dt =  \sum_{k=n_0}^n \int_a^x f_k(t)dt =
 \sum_{k=n_0}^n \Phi_k(x).\)</span></p></li>
@@ -3317,7 +3333,8 @@ class="math inline">\(I\)</span> comme somme de fonctions de classe
 class="math inline">\(I.\)</span> De plus,</p>
 <ol>
 <li><p><span class="math inline">\(\left(S_n\right)_{n \geq
-n_0}\)</span> vers <span class="math inline">\(S\)</span> sur <span
+n_0}\)</span> converge simplement vers <span
+class="math inline">\(S\)</span> sur <span
 class="math inline">\(I.\)</span></p></li>
 <li><p>Pour tout <span class="math inline">\(1 \leq j \leq p-1\)</span>
 et <span class="math inline">\(n \in \mathbb{N}, \geq n_0,\)</span>
@@ -3368,13 +3385,13 @@ class="math inline">\(\left(T_j\right)_{j \in \mathbb{N}}\)</span> des
 fonctions de <span class="math inline">\(I\)</span> dans <span
 class="math inline">\(\mathbb{K}.\)</span> Si</p>
 <ol>
-<li><p><span class="math inline">\(\left(f_n\right)\)</span> converge
-simplement vers <span class="math inline">\(S\)</span> sur <span
-class="math inline">\(I,\)</span></p></li>
+<li><p><span class="math inline">\(\sum_{n \geq n_0} f_n\)</span>
+converge simplement vers <span class="math inline">\(S\)</span> sur
+<span class="math inline">\(I,\)</span></p></li>
 <li><p>Pour tout <span class="math inline">\(j \in \mathbb{N},\)</span>
-<span class="math inline">\(\sum_{n \geq
-n_0}\left(f_n^{(j)}\right)\)</span> converge uniformément vers <span
-class="math inline">\(T_j\)</span> sur tout segment inclus dans <span
+<span class="math inline">\(\sum_{n \geq n_0}{f_n^{(j)}}\)</span>
+converge uniformément vers <span class="math inline">\(T_j\)</span> sur
+tout segment inclus dans <span
 class="math inline">\(I.\)</span></p></li>
 </ol>
 <p>Alors,</p>
@@ -3426,9 +3443,8 @@ class="math inline">\(]1,+\infty[\)</span> avec pour <span
 class="math inline">\(j \in \mathbb{N}, f^{(j)}_n(x) = \left(-\ln
 n\right)^j e^{-x\ln(n)} = \frac{\left(-\ln n\right)^j}{n^x}.\)</span>
 Montrons que <span class="math inline">\(\sum_{n \geq
-n_0}\left(f_n^{(j)}\right)\)</span> converge normalement (donc
-uniformément) sur tout segment de <span
-class="math inline">\(]1,+\infty[.\)</span></p>
+n_0}{f_n^{(j)}}\)</span> converge normalement (donc uniformément) sur
+tout segment de <span class="math inline">\(]1,+\infty[.\)</span></p>
 <p>Soit <span class="math inline">\([a,b] \subset ]1,+\infty[,\)</span>
 alors <span class="math inline">\(a &gt; 1.\)</span> De plus, pour <span
 class="math inline">\(x \in [a,b],\)</span> <span
@@ -3442,16 +3458,14 @@ class="math inline">\(\left\|f_n^{(j)}\right\|_{\infty,[a,b]} =
 +\infty}{o}\left(\frac{1}{n^\gamma}\right)\)</span> car <span
 class="math inline">\(\frac{\frac{\left(\ln
 n\right)^j}{n^a}}{\frac{1}{n^\gamma}} = \frac{\left(\ln
-n\right)^j}{n^{\underbrace{a-\gamma}_{&gt;0}}}
-\xrightarrow[{+\infty}]{\text{n}} 0\)</span> par croissances comparées.
-De plus, <span class="math inline">\(\sum_{n \geq 1}
-\frac{1}{n^\gamma}\)</span> converge absolument car <span
-class="math inline">\(\gamma &gt; 1\)</span> donc <span
-class="math inline">\(\sum_{n \geq
+n\right)^j}{n^{\underbrace{a-\gamma}_{&gt;0}}} \xrightarrow[n \to
++\infty]{} 0\)</span> par croissances comparées. De plus, <span
+class="math inline">\(\sum_{n \geq 1} \frac{1}{n^\gamma}\)</span>
+converge absolument car <span class="math inline">\(\gamma &gt;
+1\)</span> donc <span class="math inline">\(\sum_{n \geq
 1}\left\|f_n^{(j)}\right\|_{\infty,[a,b]}\)</span> converge puis <span
-class="math inline">\(\sum_{n \geq n_0}\left(f_n^{(j)}\right)\)</span>
-converge normalement sur <span
-class="math inline">\([a,b].\)</span></p></li>
+class="math inline">\(\sum_{n \geq n_0}{f_n^{(j)}}\)</span> converge
+normalement sur <span class="math inline">\([a,b].\)</span></p></li>
 </ol>
 <p>On en déduit donc que <span class="math inline">\(\zeta\)</span> est
 de classe <span class="math inline">\(\mathscr{C}^\infty\)</span> sur
@@ -3473,7 +3487,7 @@ class="math inline">\(\zeta&#39;(x) = -\sum_{n=1}^{+\infty}
 <li><p>On retrouve la convexité de <span
 class="math inline">\(\zeta\)</span> car pour <span
 class="math inline">\(x &gt; 1,\)</span> <span
-class="math inline">\(\zeta&#39;&#39;(x) = -\sum_{n=1}^{+\infty}
+class="math inline">\(\zeta&#39;&#39;(x) = \sum_{n=1}^{+\infty}
 \frac{\left(\ln(n)\right)^2}{n^x} &gt; 0.\)</span></p></li>
 </ul>
 </div>
@@ -3499,9 +3513,9 @@ class="math inline">\(\mathbb{R}^{+\star}.\)</span></p></li>
 class="math inline">\(\mathbb{R}^{+}.\)</span></p></li>
 <li><p>Montrer que <span class="math inline">\(f\)</span> n’est pas
 dérivable en <span class="math inline">\(0.\)</span></p></li>
-<li><p>Déterminer, si elle existe, la limites <span
-class="math inline">\(+\infty\)</span> de <span
-class="math inline">\(f.\)</span></p></li>
+<li><p>Déterminer, si elle existe, la limite de <span
+class="math inline">\(f\)</span> en <span
+class="math inline">\(+\infty.\)</span></p></li>
 <li><p>Dessiner l’allure de la courbe de <span
 class="math inline">\(f.\)</span></p></li>
 </ol>
@@ -3571,8 +3585,8 @@ Soit <span class="math inline">\([a,b] \subset
 0\)</span> et pour <span class="math inline">\(x \in [a,b],\)</span>
 <span class="math display">\[\left|f_n^{(j)}(x)\right| = \frac{n^j
 e^{—nx}}{1+n^2} \leq \frac{n^j e^{—na}}{1+n^2}\]</span> Donc <span
-class="math inline">\(\left\|f_n\right\|_{\infty,[a,b]} = f_n(0) =
-\frac{n^j e^{—na}}{1+n^2} =\underset{n\to
+class="math inline">\(\left\|f_n^{(j)}\right\|_{\infty,[a,b]} =
+\left|f_n^{(j)}(a)\right| = \frac{n^j e^{—na}}{1+n^2} =\underset{n\to
 +\infty}{o}\left(\frac{1}{n^2}\right)\)</span> par croissances comparées
 donc <span class="math inline">\(\sum_{n \geq 0}
 \left\|f_n\right\|_{\infty,[a,b]}\)</span> converge ie <span
@@ -3607,15 +3621,15 @@ class="math inline">\(N \in \mathbb{N},\)</span> on a <span
 class="math display">\[f&#39;(x) =
 -\sum_{n=0}^{+\infty}\frac{ne^{-nx}}{1+n^2} \leq
 -\sum_{n=0}^{N}\frac{ne^{-nx}}{1+n^2}.\]</span> En faisant <span
-class="math inline">\(x \xrightarrow{} 0^+,\)</span> on a donc <span
-class="math display">\[\ell = \lim_{x \xrightarrow{} 0^+}f&#39;(x)  \leq
+class="math inline">\(x \to 0^+,\)</span> on a donc <span
+class="math display">\[\ell = \lim_{x \to 0^+}f&#39;(x)  \leq
 -\sum_{n=0}^{N}\frac{n}{1+n^2}.\]</span> Or, <span
 class="math inline">\(\frac{n}{1+n^2} \underset{n\to +\infty}{\sim}
-\frac{1}{n^2}\)</span> donc <span class="math inline">\(\sum_{n \geq 0}
+\frac{1}{n}\)</span> donc <span class="math inline">\(\sum_{n \geq 0}
 \frac{n}{1+n^2}\)</span> diverge avec <span
 class="math inline">\(\sum_{n=0}^{N}\frac{n}{1+n^2} \xrightarrow[N \to
 +\infty]{} +\infty.\)</span> On en déduit alors en faisant <span
-class="math inline">\(N \xrightarrow{} +\infty\)</span> que <span
+class="math inline">\(N \to +\infty\)</span> que <span
 class="math display">\[\ell \leq -\infty\]</span> donc <span
 class="math inline">\(f&#39;(x) \xrightarrow[x \to 0^+]{}
 -\infty\)</span> et <span class="math inline">\(f\)</span> n’est pas
@@ -3643,12 +3657,12 @@ dérivable en <span class="math inline">\(0.\)</span></p></li>
 class="math inline">\(\sum_{n \geq 0} f_n\)</span> converge uniformément
 sur <span class="math inline">\(\mathbb{R}^{+}.\)</span> De plus, pour
 <span class="math inline">\(n \in \mathbb{N},\)</span> <span
-class="math inline">\(f_n(x) = \frac{e^{-nx}}{1+n^2}
-\xrightarrow[{+\infty}]{\text{x}} \begin{array}{ll}
+class="math inline">\(f_n(x) = \frac{e^{-nx}}{1+n^2} \xrightarrow[x \to
++\infty]{} \left\{\begin{array}{ll}
                 1 &amp; \mbox{ si $n = 1$} \\
                 0 &amp; \mbox{ si $n \geq 2$} \\
-            \end{array}\)</span> et on en déduit par le théorème <a
-href="#thm:double_limite_series" data-reference-type="ref"
+            \end{array}\right.\)</span> et on en déduit par le
+théorème <a href="#thm:double_limite_series" data-reference-type="ref"
 data-reference="thm:double_limite_series">[thm:double_limite_series]</a>
 que <span class="math inline">\(f(x) \xrightarrow[x \to +\infty]{}
 1.\)</span></p></li>
@@ -3665,22 +3679,24 @@ class="math inline">\(\mathbb{R}^{+}\)</span> car pour <span
 class="math inline">\(x &gt; 0,\)</span> <span
 class="math inline">\(f&#39;(x) =
 \sum_{n=0}^{+\infty}\frac{n^2e^{-nx}}{1+n^2} &gt; 0\)</span> (ou plus
-simplement, c’est la somme d’une série de fonctions convexe).</p></li>
+simplement, c’est la somme d’une série de fonctions convexes).</p></li>
 <li><p><span class="math inline">\(f\)</span> est non dérivable en <span
 class="math inline">\(0\)</span> avec <span
-class="math inline">\(\frac{f(x)-f(0)}{x} \xrightarrow[{0}]{\text{x}} -
+class="math inline">\(\frac{f(x)-f(0)}{x} \xrightarrow[x \to 0]{} -
 \infty\)</span> donc sa courbe admet une tangente verticale en <span
 class="math inline">\(0.\)</span></p></li>
 <li><p><span class="math inline">\(f(x) \xrightarrow[x \to +\infty]{}
 1.\)</span></p></li>
 <li><p><span class="math inline">\(f(0) = \sum_{n=0}^{+\infty}
-\frac{1}{1+n^2} &gt; \sum_{n=0}^{+\infty} \frac{1}{1+n^2+2n} = \zeta(2)
-= \frac{\pi^2}{6} &gt; \frac{3^2}{6} = 1,5\)</span> et <span
-class="math inline">\(f(0) = 1+\sum_{n=1}^{+\infty} \frac{1}{1+n^2} &lt;
-1+ \sum_{n=1}^{+\infty} \frac{1}{n^2} = 1+\zeta(2) = 1+\frac{\pi^2}{6}
-&lt; 1+\frac{3,2^2}{6} = 1+\frac{1}{6}\left(\frac{16}{5}\right)^2 =
-1+\frac{256}{6\times 25} = 1+\frac{128}{3\times 25} &lt;
-1+\frac{150}{3\times 25} = 1+\frac{6}{3} = 3.\)</span></p></li>
+\frac{1}{1+n^2} &gt; \sum_{n=0}^{+\infty}
+\frac{1}{1+n^2+2n}=\sum_{n=0}^{+\infty} \frac{1}{(n+1)^2} = \zeta(2) =
+\frac{\pi^2}{6} &gt; \frac{3^2}{6} = 1,5\)</span></p>
+<p>et <span class="math inline">\(f(0) = 1+\sum_{n=1}^{+\infty}
+\frac{1}{1+n^2} &lt; 1+ \sum_{n=1}^{+\infty} \frac{1}{n^2} = 1+\zeta(2)
+= 1+\frac{\pi^2}{6} &lt; 1+\frac{3,2^2}{6} =
+1+\frac{1}{6}\left(\frac{16}{5}\right)^2 = 1+\frac{256}{6\times 25} =
+1+\frac{128}{3\times 25} &lt; 1+\frac{150}{3\times 25} = 1+\frac{6}{3} =
+3.\)</span></p></li>
 </ul>
 <div class="center">
 <p><img src="serie_exponentielle_somme_exo.png" alt="image" /></p>
@@ -3694,11 +3710,12 @@ accroissements finis. En effet, pour <span class="math inline">\(x &gt;
 0,\)</span> <span class="math inline">\(\frac{f(x)-f(0)}{x} =
 \sum_{n=0}^{+\infty} \frac{e^{-nx}-1}{1+n^2}\)</span> donc <span
 class="math inline">\(x &gt; 0 \mapsto \frac{f(x)-f(0)}{x}\)</span> est
-décroissante (comme somme d’une série de fonction décroissante) et admet
-une limite <span class="math inline">\(\ell \in
+décroissante (comme somme d’une série de fonctions décroissantes) et
+admet une limite <span class="math inline">\(\ell \in
 [-\infty,+\infty[\)</span> en <span class="math inline">\(0^+\)</span>
-tel que <span class="math inline">\(\ell \leq f(x)\)</span> pour tout
-<span class="math inline">\(x &gt; 0.\)</span></p>
+tel que <span class="math inline">\(\ell \leq
+\frac{f(x)-f(0)}{x}\)</span> pour tout <span class="math inline">\(x
+&gt; 0.\)</span></p>
 <p>De plus, pour <span class="math inline">\(N \in \mathbb{N}\)</span>
 et <span class="math inline">\(x &gt; 0.\)</span> <span
 class="math display">\[\ell \leq \frac{f(x)-f(0)}{x} =
@@ -3710,10 +3727,10 @@ class="math inline">\(\sum_{n \geq 0}\frac{e^{-nx}-1}{1+n^2}\)</span>
 diverge avec même <span class="math inline">\(\sum_{n
 =0}^{N}\frac{e^{-nx}-1}{1+n^2} \xrightarrow[N \to +\infty]{}
 -\infty.\)</span></p>
-<p>Donc en faisant <span class="math inline">\(N \xrightarrow{}
-+\infty\)</span> dans l’inégalité précédente, on a <span
-class="math inline">\(\ell \leq -\infty\)</span> donc <span
-class="math inline">\(\ell = -\infty.\)</span></p>
+<p>Donc en faisant <span class="math inline">\(N \to +\infty\)</span>
+dans l’inégalité précédente, on a <span class="math inline">\(\ell \leq
+-\infty\)</span> donc <span class="math inline">\(\ell =
+-\infty.\)</span></p>
 </div>
 </details>
 </div>
@@ -3836,11 +3853,11 @@ possible car <span class="math inline">\(\frac{b-a}{p} \xrightarrow[p
 pose <span class="math inline">\(c_k = \frac{a_k+a_{k+1}}{2} \in
 \left[a_k,a_{k+1}\right],\)</span> le milieu de <span
 class="math inline">\(\left[a_k,a_{k+1}\right].\)</span></p>
-<p>On définit alors <span class="math inline">\(\varphi \in
+<p>On définit alors <span class="math inline">\(g_\varepsilon \in
 \mathscr{E}\left([a,b],F\right)\)</span> telle que pour tout <span
 class="math inline">\(k \in [\![ 0,p-1]\!],\)</span> <span
-class="math inline">\(\forall x \in [a_k,a_{k+1}[, \varphi(x) =
-f(c_k)\)</span> et <span class="math inline">\(\varphi(a_p) =
+class="math inline">\(\forall x \in [a_k,a_{k+1}[, g_\varepsilon(x) =
+f(c_k)\)</span> et <span class="math inline">\(g_\varepsilon(a_p) =
 f(b).\)</span></p>
 <p>Alors, pour tout <span class="math inline">\(x \in [a,b[,\)</span> il
 existe <span class="math inline">\(0 \leq k \leq p-1\)</span> tel que
@@ -3848,17 +3865,15 @@ existe <span class="math inline">\(0 \leq k \leq p-1\)</span> tel que
 <span class="math inline">\(\left|x-c_k\right| \leq a_{k+1}-a_k = h &lt;
 \eta_\varepsilon.\)</span> Puis par uniforme continuité de <span
 class="math inline">\(f,\)</span> <span
-class="math inline">\(\left\|f(x)-\varphi(x)\right\| =
+class="math inline">\(\left\|f(x)-g_\varepsilon(x)\right\| =
 \left\|f(x)-f(c_k)\right\| \leq \varepsilon.\)</span></p>
 <p>Pour <span class="math inline">\(x = b,\)</span> on a <span
-class="math inline">\(\varphi(b) =  f(b)\)</span> donc <span
-class="math inline">\(\left\|f(b)-\varphi(b)\right\| =0\leq
+class="math inline">\(g_\varepsilon(b) =  f(b)\)</span> donc <span
+class="math inline">\(\left\|f(b)-g_\varepsilon(b)\right\| =0\leq
 \varepsilon.\)</span></p>
 <p>On en déduit alors <span
-class="math inline">\(\left\|f-\varphi\right\|_{\infty,[a,b]} \leq
-\varepsilon.\)</span></p>
-<p>On a donc bien <span class="math display">\[\forall x \in [a,b],
-\left\|f(x)-\varphi(x)\right\| \leq \varepsilon.\]</span></p></li>
+class="math inline">\(\left\|f-g_\varepsilon\right\|_{\infty,[a,b]} \leq
+\varepsilon.\)</span></p></li>
 <li><p>Revenons au cas général : <span class="math inline">\(f \in
 \mathscr{C}_{\mathrm{m}}([a,b],F).\)</span></p>
 <p>Soit <span class="math inline">\((a_0,\ldots,a_p)\)</span> une
@@ -3876,31 +3891,33 @@ class="math inline">\(\tilde{f}_k\)</span> sur <span
 class="math inline">\([a_k,a_{k+1}]\)</span> en posant <span
 class="math inline">\(\tilde{f}_k(a_k) = \ell_{k,d}\)</span> et <span
 class="math inline">\(\tilde{f}_k(a_{k+1}) = \ell_{k+1,g}.\)</span></p>
-<p>Par le cas précédent, il existe <span class="math inline">\(\varphi_k
-\in \mathscr{E}\left([a_k,a_{k+1}],F\right)\)</span> telle que pour tout
+<p>Par le cas précédent, il existe <span
+class="math inline">\(g_\varepsilon^k \in
+\mathscr{E}\left([a_k,a_{k+1}],F\right)\)</span> telle que pour tout
 <span class="math inline">\(x \in [a_k,a_{k+1}],\)</span> <span
-class="math inline">\(\left\|\varphi_k-\tilde{f}_k\right\|_{\infty,[a_k,a_{k+1}]}\varepsilon.\)</span></p>
+class="math inline">\(\left\|g_\varepsilon^k-\tilde{f}_k\right\|_{\infty,[a_k,a_{k+1}]}\leq
+\varepsilon.\)</span></p>
 <div class="webtextfigure">
 <div class="webtext">
-<p>On définit alors <span class="math inline">\(\varphi\)</span> en
-escalier telle que pour tout <span class="math inline">\(x \in
-]a_k,a_{k+1}[,\)</span> <span class="math inline">\(\varphi(x) =
-\varphi_k(x)\)</span> et pour tout <span class="math inline">\(0 \leq k
-\leq p, \varphi(a_k) = f(a_k).\)</span></p>
-<p>On a bien <span class="math inline">\(\varphi\)</span> en escalier
-(qui reprend les escaliers de chaque <span
-class="math inline">\(\varphi_k\)</span>) et de plus,</p>
+<p>On définit alors <span class="math inline">\(g_\varepsilon\)</span>
+en escalier telle que pour tout <span class="math inline">\(x \in
+]a_k,a_{k+1}[,\)</span> <span class="math inline">\(g_\varepsilon(x) =
+g_\varepsilon^k(x)\)</span> et pour tout <span class="math inline">\(0
+\leq k \leq p, g_\varepsilon(a_k) = f(a_k).\)</span></p>
+<p>On a bien <span class="math inline">\(g_\varepsilon\)</span> en
+escalier (qui reprend les escaliers de chaque <span
+class="math inline">\(g_\varepsilon^k\)</span>) et de plus,</p>
 <p>pour tout <span class="math inline">\(x \in [a,b] \setminus
 \left\{a_0,\ldots,a_p\right\},\)</span> <span
-class="math inline">\(\left\|\varphi(x)-f(x)\right\| =
-\left\|\varphi_k(x)- \tilde{f}_k(x)\right\|  \leq \varphi(x)
-+\varepsilon.\)</span></p>
+class="math inline">\(\left\|g_\varepsilon(x)-f(x)\right\| =
+\left\|g_\varepsilon^k(x)- \tilde{f}_k(x)\right\|  \leq
+\varepsilon.\)</span></p>
 <p>Puis, pour <span class="math inline">\(k \in [\![ 0,p
 ]\!],\)</span></p>
-<p><span class="math inline">\(\left\|\varphi(a_k) - f(a_k)\right\| = 0
-\leq \varepsilon.\)</span></p>
+<p><span class="math inline">\(\left\|g_\varepsilon(a_k) -
+f(a_k)\right\| = 0 \leq \varepsilon.\)</span></p>
 <p>Donc <span
-class="math inline">\(\left\|f-\varphi\right\|_{\infty,[a,b]} \leq
+class="math inline">\(\left\|f-g_\varepsilon\right\|_{\infty,[a,b]} \leq
 \varepsilon.\)</span></p>
 </div>
 <div class="webimg">
@@ -3967,7 +3984,7 @@ cas précédent.}}} \xrightarrow[n \to +\infty]{} 0\]</span></p></li>
 théorème <a href="#thm:approximation_uniforme_escalier_cpm"
 data-reference-type="ref"
 data-reference="thm:approximation_uniforme_escalier_cpm">[thm:approximation_uniforme_escalier_cpm]</a>,
-il existe <span class="math inline">\(\varphi_\varepsilon
+il existe <span class="math inline">\(g_\varepsilon
 \in  \mathscr{E}\left([a,b],\mathbb{K}\right)\)</span> telle que <span
 class="math inline">\(\left\|f-g_\varepsilon\right\|_{\infty,[a,b]} &lt;
 \varepsilon.\)</span></p>
@@ -4113,7 +4130,7 @@ class="math inline">\(\tau\)</span>-périodique et</p>
 \varphi\right) = \frac{1}{\tau}\int_0^\tau
 \varphi-\frac{1}{\tau}\int_0^\tau \left(\frac{1}{\tau}\int_0^\tau
 \varphi\right) = \frac{1}{\tau}\int_0^\tau \varphi-\frac{1}{\tau}
-\left(\tau \times \right)\frac{1}{\tau}\int_0^\tau \varphi =
+\left(\tau \times \frac{1}{\tau}\int_0^\tau \varphi\right) =
 0\)</span></p>
 <p>donc <span class="math inline">\(\psi\)</span> rentre dans le cadre
 de la question précédente.</p>
@@ -4141,27 +4158,27 @@ des fonctions polynômes de <span class="math inline">\([a,b]\)</span>
 dans <span class="math inline">\(\mathbb{K}.\)</span> Alors, <span
 class="math inline">\(\mathscr{P}([a,b],\mathbb{K})\subset
 \mathscr{C}([a,b],\mathbb{K}) \subset
-\mathscr{B}(ab,\mathbb{K})\)</span> qui est normée par <span
+\mathscr{B}([a,b],\mathbb{K})\)</span> qui est normée par <span
 class="math inline">\(\left\|\cdot\right\|_{\infty,[a,b]}.\)</span></p>
 <div class="wthm">
 <p><strong>(Théorème de Weierstrass)</strong></p>
 <p><span class="math display">\[\begin{aligned}
         &amp; \forall f \in \mathscr{C}([a,b],\mathbb{K}), \forall
-\varepsilon, \exists g_\varepsilon \in \mathscr{P}([a,b],\mathbb{K})
-\text{ telle que }  \left\|f-g_\varepsilon\right\|_{\infty,[a,b]} \leq
+\varepsilon, \exists P_\varepsilon \in \mathscr{P}([a,b],\mathbb{K})
+\text{ telle que }  \left\|f-P_\varepsilon\right\|_{\infty,[a,b]} \leq
 \varepsilon, \\
         \text{ ie }&amp; \forall f \in \mathscr{C}([a,b],\mathbb{K}),
-\forall \varepsilon, \exists g_\varepsilon \in
+\forall \varepsilon, \exists P_\varepsilon \in
 \mathscr{P}([a,b],\mathbb{K}) \text{ telle que } \forall x \in
-[a,b],  \left\|f(x)-g_\varepsilon(x)\right\| \leq \varepsilon, \\
+[a,b],  \left\|f(x)-P_\varepsilon(x)\right\| \leq \varepsilon, \\
         \text{ ie }&amp; \forall f \in \mathscr{C}([a,b],\mathbb{K}), f
 \text{ est adhérent à }  \mathscr{P}([a,b],\mathbb{K}) \text{ pour
 }\left\|\cdot\right\|_{\infty,[a,b]},  \\
         \text{ ie }&amp; \begin{array}{ll}
         \forall f \in \mathscr{C}([a,b],\mathbb{K}), \text{il existe
-$\left(g_n\right)_{n \geq 0}$ suite de $\mathscr{P}([a,b],\mathbb{K})$}
+$\left(P_n\right)_{n \geq 0}$ suite de $\mathscr{P}([a,b],\mathbb{K})$}
 &amp;\text{telle que }  \\
-            &amp;\left\|f-g_n\right\|_{\infty,[a,b]} \xrightarrow[n \to
+            &amp;\left\|f-P_n\right\|_{\infty,[a,b]} \xrightarrow[n \to
 +\infty]{} 0,
         \end{array} \\
         \text{ ie }&amp;  \mathscr{P}([a,b],\mathbb{K}) \text{ est dense
@@ -4186,8 +4203,8 @@ class="math inline">\(\left(P_n\right)_{n\geq 0}\)</span> converge
 uniformément vers <span class="math inline">\(f\)</span> sur <span
 class="math inline">\([0,1].\)</span></p>
 <div class="wlem">
-<p>Pour <span class="math inline">\(x \in [0,1],\)</span> <span
-class="math inline">\(\sum_{k=0}^n
+<p>Pour <span class="math inline">\(x \in [0,1], n \in
+\mathbb{N}^{\star}\)</span> <span class="math inline">\(\sum_{k=0}^n
 \left(x-\frac{k}{n}\right)^2\binom{n}{k} x^k (1-x)^{n-k}
             = \frac{x(1-x)}{n}.\)</span></p>
 </div>
@@ -4229,7 +4246,7 @@ class="math display">\[n(n-1)x\left(x+y\right)^{n-2}+n\left(x+y\right)^{n-1}
 = \sum_{k=0}^n k^2\binom{n}{k}x^{k-1} y^{n-k}\]</span> donc en
 multipliant par <span class="math inline">\(x,\)</span> <span
 class="math display">\[n(n-1)x^2\left(x+y\right)^{n-2}+nx\left(x+y\right)^{n-1}
-= \sum_{k=0}^n k\binom{n}{k}x^{k} y^{n-k}\]</span> et en prenant <span
+= \sum_{k=0}^n k^2\binom{n}{k}x^{k} y^{n-k}\]</span> et en prenant <span
 class="math inline">\(y=1-x,\)</span> <span
 class="math inline">\(x+y=1\)</span> et <span
 class="math display">\[n(n-1)x^2+nx = n((n-1)x+x) = \sum_{k=0}^n
@@ -4238,11 +4255,14 @@ k^2\binom{n}{k}x^{k} \left(1-x\right)^{n-k}.\]</span></p></li>
 <p>Donc</p>
 <ol>
 <li><p><span class="math inline">\(x^2\sum_{k=0}^n\binom{n}{k} x^k
-(1-x)^{n-k} = x^2,\)</span></p></li>
+(1-x)^{n-k} = x^2 \times 1 = x^2,\)</span></p></li>
 <li><p><span class="math inline">\(-\frac{2x}{n}\sum_{k=0}^n
-k\binom{n}{k} x^k (1-x)^{n-k} = -2x^2,\)</span></p></li>
+k\binom{n}{k} x^k (1-x)^{n-k} =-\frac{2x}{n} \times nx
+=-2x^2,\)</span></p></li>
 <li><p><span class="math inline">\(\frac{1}{n^2}\sum_{k=0}^n
-k^2\binom{n}{k} x^k (1-x)^{n-k} = \frac{(n-1)x^2+x}{n}\)</span></p></li>
+k^2\binom{n}{k} x^k (1-x)^{n-k} =
+\frac{1}{n^2}\times\left(n(n-1)x^2+nx\right) =
+\frac{(n-1)x^2+x}{n}\)</span></p></li>
 </ol>
 <p>puis <span class="math display">\[\begin{aligned}
             \sum_{k=0}^n \left(x-\frac{k}{n}\right)^2\binom{n}{k} x^k
@@ -4278,8 +4298,8 @@ class="math display">\[\forall x,y \in [0,1], \left|x-y\right| \leq \eta
 \Longrightarrow \left|f(y)-f(x)\right| \leq \varepsilon.\]</span></p>
 <p>On note alors</p>
 <ul>
-<li><p><span class="math inline">\(A_x = \left(k \in [\![ 0,n ]\!] /
-\left|x-\tfrac{k}{n}\right| \leq \eta\right)\)</span> et on a <span
+<li><p><span class="math inline">\(A_x = \left\{k \in [\![ 0,n ]\!] /
+\left|x-\tfrac{k}{n}\right| \leq \eta\right\}\)</span> et on a <span
 class="math display">\[\begin{aligned}
         \sum_{k\in A_x} \left|f(x)-f\left(\tfrac{k}{n}\right)\right|
 \binom{n}{k} x^k (1-x)^{n-k}
@@ -4289,8 +4309,8 @@ class="math display">\[\begin{aligned}
 \\
         &amp; = \varepsilon.
         \end{aligned}\]</span></p></li>
-<li><p>puis <span class="math inline">\(B_x = \left(k \in [\![ 0,n ]\!]
-/ \left|x-\tfrac{k}{n}\right| &gt; \eta\right)\)</span> et on a <span
+<li><p>puis <span class="math inline">\(B_x = \left\{k \in [\![ 0,n ]\!]
+/ \left|x-\tfrac{k}{n}\right| &gt; \eta\right\}\)</span> et on a <span
 class="math inline">\(\frac{\left|x-\tfrac{k}{n}\right|}{\eta} &gt;
 1\)</span> donc <span
 class="math inline">\(\frac{\left(x-\tfrac{k}{n}\right)^2}{\eta^2} &gt;
@@ -4352,7 +4372,7 @@ class="math inline">\([0,1].\)</span></p>
 class="math inline">\(x \in [0,1],\)</span> <span
 class="math inline">\(\binom{n}{k} x^k (1-x)^{n-k} \geq 0\)</span> et
 <span class="math inline">\(\sum_{k=0}^n \binom{n}{k} x^k (1-x)^{n-k}  =
-(1+1-x)^n=1\)</span> donc <span class="math inline">\(P_n(x)\)</span>
+(x+1-x)^n=1\)</span> donc <span class="math inline">\(P_n(x)\)</span>
 est un barycentre à coefficients positifs de <span
 class="math inline">\(f(0),
 f\left(\frac{1}{n}\right),f\left(\frac{2}{n}\right),\ldots,f\left(1-\frac{1}{n}\right),
@@ -4369,7 +4389,7 @@ class="math inline">\(\begin{array}{llll}
 \end{array}\)</span> est une bijection de réciproque <span
 class="math inline">\(\begin{array}{llll}
   &amp; [a,b] &amp; \to &amp; [0,1] \\
-     &amp; u &amp; \mapsto &amp; t=\frac{t-a}{b-a}
+     &amp; u &amp; \mapsto &amp; t=\frac{u-a}{b-a}
 \end{array}
 .\)</span></p>
 <p>De plus, <span class="math inline">\(\begin{array}{lllll}
@@ -4431,8 +4451,8 @@ pas un segment.</p>
 <div class="wex">
 <p>Tout élément de <span
 class="math inline">\(\mathscr{P}(]0,1],\mathbb{K})\)</span> est borné
-(car prolongeable par continuité sur <span
-class="math inline">\([0,1].\)</span></p>
+(car prolongeable par continuité sur le compact <span
+class="math inline">\([0,1]).\)</span></p>
 <p>Donc si une suite de <span
 class="math inline">\(\mathscr{P}(]0,1],\mathbb{K})\)</span> converge
 pour <span
