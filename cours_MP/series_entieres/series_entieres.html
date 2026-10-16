@@ -210,7 +210,7 @@ convergence</h1>
 <h2 data-number="1.1" id="définition"><span
 class="header-section-number">1.1</span> Définition</h2>
 <div class="wdefi">
-<p>Une série entière est une série de fonction <span
+<p>Une série entière est une série de fonctions <span
 class="math inline">\(\sum_{n \geq 0} f_n\)</span> où pour <span
 class="math inline">\(n \in \mathbb{N},\)</span> <span
 class="math inline">\(\begin{array}{lllll}
@@ -251,7 +251,7 @@ class="math inline">\(z_0 \neq 0\)</span> et <span
 class="math inline">\(\left(a_n z_0^n\right)_{n \geq 0}\)</span> est
 bornée.</p>
 <p>Alors, pour tout <span class="math inline">\(z \in
-\mathbb{C}\)</span> tel que <span class="math inline">\(\left|z\right|
+\mathbb{C}\)</span> tels que <span class="math inline">\(\left|z\right|
 &lt; \left|z_0\right|,\)</span> <span class="math inline">\(\sum_{n \geq
 0} a_n z^n\)</span> converge absolument.</p>
 </div>
@@ -261,7 +261,7 @@ tel que pour tout <span class="math inline">\(n \geq 0,\)</span> <span
 class="math inline">\(\left|a_n z_0^n\right| \leq M.\)</span></p>
 <p>De plus, soit <span class="math inline">\(z \in \mathbb{C}\)</span>
 tel que <span class="math inline">\(\left|z\right| &lt;
-\left|z_0\right|,\)</span> pour <span class="math inline">\(n \in
+\left|z_0\right|\)</span> alors pour <span class="math inline">\(n \in
 \mathbb{N},\)</span> <span class="math display">\[a_n z^n =
 a_n\frac{z_0^n}{z_0^n}z^n =a_n z_0^n \frac{z^n}{z_0^n} = a_n
 z_0^n\left(\frac{z}{z_0}\right)^n.\]</span> donc <span
@@ -282,12 +282,14 @@ entière.</p>
 <p>Alors, il existe un unique <span class="math inline">\(R \in
 [0,+\infty]\)</span> tel que</p>
 <ul>
-<li><p>Pour tout <span class="math inline">\(z \in \mathbb{C}/
-\left|z\right| &lt; R,\)</span> <span class="math inline">\(\sum_{n \geq
-0} a_n z^n\)</span> converge absolument.</p></li>
-<li><p>Pour tout <span class="math inline">\(z \in \mathbb{C}/
-\left|z\right| &gt; R,\)</span> <span class="math inline">\(\left(a_n
-z^n\right)_{n \geq 0}\)</span> est non bornée.</p></li>
+<li><p>Pour tout <span class="math inline">\(z \in \mathbb{C}\)</span>
+tel que <span class="math inline">\(\left|z\right| &lt; R,\)</span>
+<span class="math inline">\(\sum_{n \geq 0} a_n z^n\)</span> converge
+absolument.</p></li>
+<li><p>Pour tout <span class="math inline">\(z \in \mathbb{C}\)</span>
+tel que <span class="math inline">\(\left|z\right| &gt; R,\)</span>
+<span class="math inline">\(\left(a_n z^n\right)_{n \geq 0}\)</span> est
+non bornée.</p></li>
 </ul>
 </div>
 <div class="wproof">
@@ -305,8 +307,10 @@ non bornée.</p></li>
 par propriété de la borne supérieure, il existe <span
 class="math inline">\(z_0 \in \mathbb{C}\)</span> tel que <span
 class="math inline">\(\left|z\right| \leq \left|z_0\right| &lt;
-R\)</span> et <span class="math inline">\(\left(a_n z^n\right)_{n \geq
-0}\)</span> est bornée.</p>
+R\)</span> et <span class="math inline">\(z_0 \in
+\left\{\left|z\right|/\text{$\left(a_n z^n\right)_{n \geq 0}$ est
+bornée}\right\}\)</span> donc <span class="math inline">\(\left(a_n
+z_0^n\right)_{n \geq 0}\)</span> est bornée.</p>
 <p>Donc par le lemme d’Abel (lemme <a href="#lem:lemme_Abel"
 data-reference-type="ref"
 data-reference="lem:lemme_Abel">[lem:lemme_Abel]</a>), <span
@@ -401,19 +405,6 @@ n’y a aucun renseignement général sur la converge ou non de <span
 class="math inline">\(\sum_{n \geq 0} a_n z^n\)</span> pour <span
 class="math inline">\(z \in \mathbb{C}\)</span> tel que <span
 class="math inline">\(\left|z\right| = R.\)</span></p></li>
-<li><p>Si <span class="math inline">\(0 &lt; R &lt; +\infty,\)</span>
-<span class="math display">\[\begin{aligned}
-        B(0,R)
-        &amp; \subset \left\{z \in \mathbb{C}/ \sum_{n \geq 0} a_n z^n
-\text{ converge absolument}\right\} \\
-        &amp; \subset \left\{z \in \mathbb{C}/ \sum_{n \geq 0} a_n z^n
-\text{ converge}\right\} \\
-        &amp; \subset \left\{z \in \mathbb{C}/ a_n z^n \xrightarrow[n
-\to +\infty]{} 0\right\} \\
-        &amp; \subset \left\{z \in \mathbb{C}/ \left(a_n z^n\right)_{n
-\geq 0} \text{ est bornée}\right\} \\
-        &amp; \subset \overline{B}(0,R).
-        \end{aligned}\]</span></p></li>
 </ul>
 </div>
 <div class="wexoc">
@@ -448,16 +439,17 @@ s_n\left(\frac{1}{n}-\frac{1}{n+1}\right)+\frac{s_N}{N+1}.
 <p>Or, comme <span class="math inline">\(z \neq 1,\)</span> <span
 class="math display">\[\left|s_N\right| =
 \left|\frac{1-z^{N+1}}{1-z}\right| \leq
-\frac{1}{\left|1-z\right|}\left(1+\left|z\right|^{n+1}\right) =
-\frac{1}{\left|1-z\right|}.\]</span> Donc en posant <span
-class="math inline">\(M = \frac{1}{\left|1-z\right|} \in
+\frac{1}{\left|1-z\right|}\left(1+\left|z\right|^{N+1}\right) =
+\frac{2}{\left|1-z\right|}.\]</span> Donc en posant <span
+class="math inline">\(M = \frac{2}{\left|1-z\right|} \in
 \mathbb{R}^{+},\)</span> <span
 class="math inline">\(\left|\frac{s_N}{N+1}\right| \leq \frac{M}{N+1}
 \xrightarrow[N \to +\infty]{} 0.\)</span></p>
 <p>De plus, <span class="math display">\[0 \leq \sum_{n = 1}^N
 \left|s_n\left(\frac{1}{n}-\frac{1}{n+1}\right)\right| \leq M\sum_{n =
-1}^N  \left(\frac{1}{n}-\frac{1}{n+1}\right) = M(1-\frac{1}{N+1}) &lt;
-2M.\]</span> et <span class="math inline">\(\sum_{n \geq 1}
+1}^N  \left(\frac{1}{n}-\frac{1}{n+1}\right) =
+M\left(1-\frac{1}{N+1}\right) \leq M.\]</span> et <span
+class="math inline">\(\sum_{n \geq 1}
 s_n\left(\frac{1}{n}-\frac{1}{n+1}\right)\)</span> converge absolument
 donc converge. Donc <span class="math inline">\(\sum_{n \geq
 1}\frac{z^n}{n}\)</span> converge.</p>
@@ -465,7 +457,7 @@ donc converge. Donc <span class="math inline">\(\sum_{n \geq
 </div>
 <div class="wprop">
 <p><span id="prop:RCV_comme_multiples_bornes_sup"
-label="prop:RCV_comme_multiples_bornes_sup"></span> Soit <span
+label="prop:RCV_comme_multiples_bornes_sup"></span> Soient <span
 class="math inline">\(\sum_{n \geq 0} a_n z^n\)</span> une série entière
 et <span class="math inline">\(R\)</span> son rayon de convergence.
 Alors, <span class="math display">\[\begin{aligned}
@@ -482,16 +474,16 @@ z^n\right)_{n \geq 0} \text{ est bornée}\right\} \\
 </div>
 <div class="wproof">
 <p><span class="math display">\[\begin{aligned}
-        [0,R[
-        &amp; \subset \left\{\left|z\right| \in \mathbb{C}/ \sum_{n \geq
-0} a_n z^n \text{ converge absolument}\right\} \\
-        &amp; \subset \left\{\left|z\right| \in \mathbb{C}/ \sum_{n \geq
-0} a_n z^n \text{ converge}\right\} \\
-        &amp; \subset \left\{\left|z\right| \in \mathbb{C}/ a_n z^n
-\xrightarrow[n \to +\infty]{} 0\right\} \\
-        &amp; \subset \left\{\left|z\right| \in \mathbb{C}/ \left(a_n
-z^n\right)_{n \geq 0} \text{ est bornée}\right\} \\
-        &amp; \subset [0,R].
+        B(0,R)
+        &amp; \subset \left\{z \in \mathbb{C}/ \sum_{n \geq 0} a_n z^n
+\text{ converge absolument}\right\} \\
+        &amp; \subset \left\{z \in \mathbb{C}/ \sum_{n \geq 0} a_n z^n
+\text{ converge}\right\} \\
+        &amp; \subset \left\{z \in \mathbb{C}/ a_n z^n \xrightarrow[n
+\to +\infty]{} 0\right\} \\
+        &amp; \subset \left\{z \in \mathbb{C}/ \left(a_n z^n\right)_{n
+\geq 0} \text{ est bornée}\right\} \\
+        &amp; \subset \overline{B}(0,R).
         \end{aligned}\]</span></p>
 </div>
 <div class="wcor">
