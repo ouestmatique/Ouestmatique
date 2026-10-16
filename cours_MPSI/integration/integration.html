@@ -1051,7 +1051,7 @@ possible car <span class="math inline">\(\frac{b-a}{p} \xrightarrow[p
 \to +\infty]{} 0\)</span>).</p>
 <p>Pour <span class="math inline">\(k \in [\![ 0,p-1]\!]\)</span>, comme
 <span class="math inline">\(f\)</span> est continue sur le segment <span
-class="math inline">\([a_k,a_{k+1}] f(x)\)</span>, <span
+class="math inline">\([a_k,a_{k+1}]\)</span>, <span
 class="math inline">\(f\)</span> atteint <span class="math inline">\(m_k
 = \inf_{x \in [a_k,a_{k+1}]}\)</span> ie il existe <span
 class="math inline">\(c_k \in [a_k,a_{k+1}]\)</span> tel que <span
@@ -1059,13 +1059,13 @@ class="math inline">\(f(c_k) = m_k\)</span>.</p>
 <div class="webtextfigure">
 <div class="webtext">
 <p>On définit alors <span class="math inline">\(\varphi \in
-\mathscr{E}\left(ab\right)\)</span> telle que</p>
+\mathscr{E}\left([a,b]\right)\)</span> telle que</p>
 <p>pour tout <span class="math inline">\(k \in [\![
 0,p-1]\!]\)</span>,</p>
 <p><span class="math inline">\(\forall x \in [a_k,a_{k+1}[, \varphi(x) =
 f(c_k) = m_k\)</span></p>
-<p>et <span class="math inline">\(\varphi(a_p) = f(c_p) =
-m_p\)</span>.</p>
+<p>et <span class="math inline">\(\varphi(a_p) = f(c_{p-1}) =
+m_{p-1}\)</span>.</p>
 <p>Alors, tout d’abord, pour tout <span class="math inline">\(x \in
 [a,b[\)</span>,</p>
 <p>il existe <span class="math inline">\(0 \leq k \leq p-1\)</span> tel
@@ -1079,7 +1079,7 @@ que <span class="math inline">\(x \in [a_k,a_{k+1}[\)</span>.</p>
 </div>
 </div>
 <p>De plus, <span class="math inline">\(\left|x-c_k\right| \leq
-a_{k+1-a_k} = h &lt; \eta_\varepsilon\)</span>.</p>
+a_{k+1}-a_k = h &lt; \eta_\varepsilon\)</span>.</p>
 <p>Donc, par uniforme continuité de <span
 class="math inline">\(f\)</span>, <span
 class="math inline">\(f(x)-\varphi(x)=\left|f(x)-\varphi(x)\right| =
