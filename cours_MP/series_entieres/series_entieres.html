@@ -487,8 +487,8 @@ z^n\right)_{n \geq 0} \text{ est bornée}\right\} \\
         \end{aligned}\]</span></p>
 </div>
 <div class="wcor">
-<p>Soit <span class="math inline">\(\sum_{n \geq 0} a_n z^n\)</span> une
-série entière, <span class="math inline">\(R\)</span> son rayon de
+<p>Soient <span class="math inline">\(\sum_{n \geq 0} a_n z^n\)</span>
+une série entière, <span class="math inline">\(R\)</span> son rayon de
 convergence et <span class="math inline">\(z_0 \in
 \mathbb{C}.\)</span></p>
 <ol>
@@ -504,7 +504,7 @@ converge, <span class="math inline">\(R \geq
 \left|z_0\right|,\)</span></p></li>
 <li><p>Si <span class="math inline">\(\left(a_n z_0^n\right)_{n \geq
 0}\)</span> est bornée, <span class="math inline">\(R \geq
-\left|z_0\right|,\)</span></p></li>
+\left|z_0\right|.\)</span></p></li>
 </ul></li>
 <li><ul>
 <li><p>Si <span class="math inline">\(a_n z_0^n
@@ -518,7 +518,7 @@ diverge, <span class="math inline">\(R \leq
 \left|z_0\right|,\)</span></p></li>
 <li><p>Si <span class="math inline">\(\left(a_n z_0^n\right)_{n \geq
 0}\)</span> est non bornée, <span class="math inline">\(R \leq
-\left|z_0\right|,\)</span></p></li>
+\left|z_0\right|.\)</span></p></li>
 </ul></li>
 </ol>
 </div>
@@ -531,7 +531,7 @@ data-reference="prop:RCV_comme_multiples_bornes_sup">[prop:RCV_comme_multiples_b
 <p>Soit <span class="math inline">\(\left(a_n\right)_{n \geq 0}\)</span>
 suite de <span class="math inline">\(\mathbb{N}\)</span> tel que <span
 class="math inline">\(a_n\)</span> vaut la <span
-class="math inline">\(n\)</span>-ième décimal de <span
+class="math inline">\(n\)</span>-ième décimale de <span
 class="math inline">\(\pi\)</span> pour <span class="math inline">\(n
 \in \mathbb{N}\)</span> (<span class="math inline">\(a_0 = 3,\)</span>
 <span class="math inline">\(a_1=1,\)</span> <span
@@ -569,7 +569,7 @@ class="header-section-number">1.3.1</span> Règle de d’Alembert</h3>
 <p><strong>(Règle de d’Alembert (pour les séries))</strong> <span
 id="rappel:regle_dalembert" label="rappel:regle_dalembert"></span> Soit
 <span class="math inline">\(\sum u_n\)</span> une série de <span
-class="math inline">\(E\)</span> telle que <span
+class="math inline">\(E\)</span> de dimension finie telle que <span
 class="math inline">\(\left(u_n\right)\)</span> est non nulle à partir
 d’un certain rang. On suppose <span
 class="math inline">\(\frac{\left\|u_{n+1}\right\|}{\left\|u_n\right\|}
@@ -586,7 +586,7 @@ class="math inline">\(\left\|u_n\right\| \xrightarrow[n \to +\infty]{}
 </ul>
 </div>
 <div class="wprop">
-<p><strong>(Règle de d’Alembert)</strong> Soit <span
+<p><strong>(Règle de d’Alembert)</strong> Soient <span
 class="math inline">\(\sum_{n \geq 0} a_n z^n\)</span> une série entière
 telle que <span class="math inline">\(\left(a_n\right)_{n\geq
 0}\)</span> est non nulle à partir d’un certain rang et <span
@@ -622,7 +622,7 @@ class="math inline">\(\left|\frac{a_{n+1}z^{n+1}}{a_nz^n}\right|  \xrightarrow[n
 pour les séries (rappel <a href="#rappel:regle_dalembert"
 data-reference-type="ref"
 data-reference="rappel:regle_dalembert">[rappel:regle_dalembert]</a>),
-<span class="math inline">\(\sum a_n z^n\)</span> diverge absolument
+<span class="math inline">\(\sum a_n z^n\)</span> diverge grossièrement
 donc <span class="math inline">\(R = 0.\)</span></p></li>
 <li><p>Si <span class="math inline">\(\ell \in ]0,+\infty[,\)</span>
 alors pour tout <span class="math inline">\(z \in
@@ -650,15 +650,15 @@ data-reference="rappel:regle_dalembert">[rappel:regle_dalembert]</a>),
 </div>
 <div class="wex">
 <p>Considérons la série entière <span class="math inline">\(\sum_{n \geq
-0}\frac{n!}{n^n}z^n\)</span> et <span class="math inline">\(a_n
+1}\frac{n!}{n^n}z^n\)</span> avec <span class="math inline">\(a_n
 =  \frac{n!}{n^n}\)</span> pour <span class="math inline">\(n \in
-\mathbb{N}.\)</span></p>
+\mathbb{N}^{\star}.\)</span></p>
 <p>On a <span class="math inline">\(\left|\frac{a_{n+1}}{a_n}\right| =
 \frac{n^n}{n!}\frac{(n+1)!}{\left(n+1\right)^{n+1}}=
     \frac{n^n(n+1)}{\left(n+1\right)^{n}\left(n+1\right)} =
 \left(\frac{1}{1+\frac{1}{n}}\right)^n=  \frac{1}{\left(1+\frac{1}{n}\right)^n}
 \xrightarrow[n \to +\infty]{} \frac{1}{e}\)</span> donc son rayon de
-convergence vaut <span class="math inline">\(\frac{1}{e}.\)</span></p>
+convergence vaut <span class="math inline">\(e.\)</span></p>
 </div>
 <div class="wrem">
 <ul>
@@ -688,7 +688,7 @@ z^n\)</span> « pour <span class="math inline">\(n \in
 class="math inline">\(\left\{\begin{array}{ll}
         a_{2n} &amp; = 4^n \\
         a_{2n+1} &amp; = 0
-    \end{array}\right..\)</span> » et on ne peut donc pas appliquer la
+    \end{array}\right.\)</span> » et on ne peut donc pas appliquer la
 règle de d’Alembert car on n’a pas « <span
 class="math inline">\(\left(a_n\right)\)</span> non nulle à partir d’un
 certain rang. »</p>
@@ -734,12 +734,12 @@ entières car <span class="math inline">\(\left\{\begin{array}{ll}
         \frac{a_{2n}}{a_{2n-1}} &amp; = \frac{2^n}{ \frac{1}{2^{n-1}}} =
 2^{2n-1} \xrightarrow[n \to +\infty]{} +\infty\\
         \frac{a_{2n+1}}{a_{2n}} &amp; = \frac{\frac{1}{2^{n+1}}}{2^n}
-=\frac{1}{2^{2n+1}} =\xrightarrow[n \to +\infty]{} 0
+=\frac{1}{2^{2n+1}} \xrightarrow[n \to +\infty]{} 0
     \end{array}\right.\)</span></p>
 <p>En revanche, étudions les convergences de <span
 class="math inline">\(\sum_{n\geq 0} 2^n z^{2n}\)</span> et <span
 class="math inline">\(\sum_{n\geq 0} \frac{1}{2^n} z^{2n+1}\)</span> à
-l’aide la règle de d’Alembert pour les séries (rappel <a
+l’aide de la règle de d’Alembert pour les séries (rappel <a
 href="#rappel:regle_dalembert" data-reference-type="ref"
 data-reference="rappel:regle_dalembert">[rappel:regle_dalembert]</a>).</p>
 <ul>
@@ -827,14 +827,14 @@ R&#39;.\)</span></p></li>
 <ul>
 <li><p>Soit <span class="math inline">\(z \in \mathbb{C},\)</span> pour
 tout <span class="math inline">\(n \geq N,\)</span> <span
-class="math inline">\(\left|a_n\right|z^n \leq
-\left|b_n\right|z^n.\)</span></p>
+class="math inline">\(\left|a_n\right|\left|z\right|^n \leq
+\left|b_n\right|\left|z\right|^n.\)</span></p>
 <p>Donc si <span class="math inline">\(\left|z\right| &lt;
-R&#39;,\)</span> <span class="math inline">\(0 \leq \left|a_n\right|z^n
-\leq \left|b_n\right|z^n \xrightarrow[n \to +\infty]{} 0,\)</span> ce
-qui donne <span class="math inline">\(\left|a_n\right|z^n \xrightarrow[n
-\to +\infty]{} 0\)</span> donc <span class="math inline">\(R \geq
-R&#39;.\)</span></p></li>
+R&#39;,\)</span> <span class="math inline">\(0 \leq
+\left|a_n\right|\left|z\right|^n \leq \left|b_n\right|\left|z\right|^n
+\xrightarrow[n \to +\infty]{} 0,\)</span> ce qui donne <span
+class="math inline">\(a_nz^n \xrightarrow[n \to +\infty]{} 0\)</span>
+donc <span class="math inline">\(R \geq R&#39;.\)</span></p></li>
 <li><p>Si <span class="math inline">\(a_n =\underset{n\to +\infty}{O}
 \left(b_n\right)\)</span> alors il existe <span class="math inline">\(M
 \in \mathbb{R}^{+}\)</span> et <span class="math inline">\(N \in
@@ -892,7 +892,7 @@ géométrique l’emporte sur la polynomiale.</p>
 z^n\right| \xrightarrow[n \to +\infty]{} 0,\)</span> ce qui donne <span
 class="math inline">\(R&#39; \geq R.\)</span></p></li>
 <li><p>En faisant la même preuve que ce qui précède et en utilisant
-<span class="math inline">\(a_, = \frac{1}{n^{-\alpha}}
+<span class="math inline">\(a_n = \frac{1}{n^{-\alpha}}
 \frac{a_n}{n^\alpha},\)</span> on obtient <span
 class="math inline">\(R&#39; \leq R.\)</span></p></li>
 </ul>
@@ -951,9 +951,8 @@ class="math inline">\(\left|\frac{a_n}{n!}z^n\right| \xrightarrow[n \to
 </div>
 <div class="wprop">
 <p>Soient <span class="math inline">\(\sum_{n \geq 0} a_n z^n\)</span>
-de rayon de convergence respectif <span class="math inline">\(R\)</span>
-et <span class="math inline">\(\lambda \in
-\mathbb{K}^\star.\)</span></p>
+de rayon de convergence <span class="math inline">\(R\)</span> et <span
+class="math inline">\(\lambda \in \mathbb{K}^\star.\)</span></p>
 <p>Alors, <span class="math inline">\(\sum_{n \geq 0} \lambda a_n
 z^n\)</span> est de rayon <span class="math inline">\(R.\)</span></p>
 </div>
@@ -1000,7 +999,9 @@ class="math inline">\(R &lt; \left|z\right| &lt; R&#39;\)</span> alors
 +\infty]{}} 0\)</span> et <span class="math inline">\(b_n z^n
 \xrightarrow[n \to +\infty]{} 0\)</span> donc <span
 class="math inline">\(\left(a_n+b_n\right) z^n \centernot{\xrightarrow[n
-\to +\infty]{}} 0.\)</span></p>
+\to +\infty]{}} 0.\)</span> (sinon par l’absurde, on aurait <span
+class="math inline">\(b_nz^n = \left(a_n+b_n\right)z^n-a_nz^n
+\xrightarrow[n \to +\infty]{} 0\)</span>.)</p>
 <p>On en déduit <span class="math inline">\(R&#39;&#39; \leq R=
 \min(R,R&#39;)\)</span> puis <span class="math inline">\(R&#39;&#39; =
 \min(R,R&#39;).\)</span></p></li>
@@ -1076,7 +1077,7 @@ class="header-section-number">2</span> Propriétés de la somme</h1>
 <p>Dans toute cette partie, on va travailler avec <span
 class="math inline">\(\sum_{n \geq 0} a_n z^n\)</span> de rayon de
 convergence <span class="math inline">\(&gt; 0.\)</span> On va étudier
-la propriété de sa somme <span
+les propriétés de sa somme <span
 class="math inline">\(\begin{array}{lllll}
 S &amp; : &amp; D &amp; \to &amp; \mathbb{C} \\
    &amp;   &amp; z &amp; \mapsto &amp; \sum_{n =0}^{+\infty} a_n z^n
@@ -1219,12 +1220,15 @@ S &amp; : &amp; D &amp; \to &amp; \mathbb{C} \\
 \end{array}\)</span> associée.</p>
 <details><summary>Corrigé</summary>
 <ul>
-<li><p>Si <span class="math inline">\(\alpha \geq 0,\)</span> <span
-class="math inline">\(\frac{1}{n^\alpha} \centernot{\xrightarrow[n \to
-+\infty]{}} 0\)</span> donc <span class="math inline">\(S\)</span> est
-uniquement définie sur <span class="math inline">\(B(0,1)\)</span> et y
-est continue par la proposition <a
-href="#prop:continuite_somme_SE_boule_ouverte" data-reference-type="ref"
+<li><p>Si <span class="math inline">\(\alpha \geq 0,\)</span> soit <span
+class="math inline">\(z \in \mathbb{C}\)</span> tel que que <span
+class="math inline">\(\left|z\right|=1\)</span>, <span
+class="math inline">\(\frac{\left|z\right|^n}{n^\alpha} =
+\frac{1}{n^\alpha} \centernot{\xrightarrow[n \to +\infty]{}} 0\)</span>
+donc <span class="math inline">\(S\)</span> est uniquement définie sur
+<span class="math inline">\(B(0,1)\)</span> et y est continue par la
+proposition <a href="#prop:continuite_somme_SE_boule_ouverte"
+data-reference-type="ref"
 data-reference="prop:continuite_somme_SE_boule_ouverte">[prop:continuite_somme_SE_boule_ouverte]</a>.</p></li>
 <li><p>Si <span class="math inline">\(\alpha &gt; 1,\)</span> <span
 class="math inline">\(\sum \frac{1}{n^\alpha}\)</span> est une série de
@@ -1273,9 +1277,9 @@ s_n\left(\frac{1}{n^\alpha}-\frac{1}{\left(n+1\right)^\alpha}\right)+\frac{s_N}{
 <p>Or, comme <span class="math inline">\(z \neq 1,\)</span> <span
 class="math display">\[\left|s_N\right| =
 \left|\frac{1-z^{N+1}}{1-z}\right| \leq
-\frac{1}{\left|1-z\right|}\left(1+\left|z\right|^{n+1}\right) =
-\frac{1}{\left|1-z\right|}.\]</span> Donc en posant <span
-class="math inline">\(M = \frac{1}{\left|1-z\right|} \in
+\frac{1}{\left|1-z\right|}\left(1+\left|z\right|^{N+1}\right) =
+\frac{2}{\left|1-z\right|}.\]</span> Donc en posant <span
+class="math inline">\(M = \frac{2}{\left|1-z\right|} \in
 \mathbb{R}^{+},\)</span> <span
 class="math inline">\(\left|\frac{s_N}{\left(N+1\right)^\alpha}\right|
 \leq \frac{M}{\left(N+1\right)^\alpha} \xrightarrow[N \to +\infty]{}
@@ -1284,7 +1288,7 @@ class="math inline">\(\left|\frac{s_N}{\left(N+1\right)^\alpha}\right|
 \left|s_n\left(\frac{1}{n^\alpha}-\frac{1}{\left(n+1\right)^\alpha}\right)\right|
 \leq M\sum_{n =
 1}^N  \left(\frac{1}{n^\alpha}-\frac{1}{\left(n+1\right)^\alpha}\right)
-= M(1-\frac{1}{\left(N+1\right)^\alpha}) &lt; 2M.\]</span> et <span
+= M(1-\frac{1}{\left(N+1\right)^\alpha}) \leq M.\]</span> et <span
 class="math inline">\(\sum_{n \geq 1}
 s_n\left(\frac{1}{n^\alpha}-\frac{1}{\left(n+1\right)^\alpha}\right)\)</span>
 converge absolument donc converge. Donc <span
@@ -1337,11 +1341,12 @@ est strictement positif et on le note <span class="math inline">\(m &gt;
 <p>Pour tout <span class="math inline">\(z \in A\)</span> et <span
 class="math inline">\(N \in \mathbb{N}^{\star},\)</span> <span
 class="math display">\[\frac{\left|s_N(z)\right|}{\left(N+1\right)^\alpha}
-= \frac{1}{\left(N+1\right)^\alpha}\frac{\left|1-z^{N+1}\right|}{1-z}
-\leq \frac{2}{M}\frac{1}{\left(N+1\right)^\alpha}.\]</span></p>
+=
+\frac{1}{\left(N+1\right)^\alpha}\frac{\left|1-z^{N+1}\right|}{\left|z-1\right|}
+\leq 2M\frac{1}{\left(N+1\right)^\alpha}.\]</span></p>
 <p>Donc <span
 class="math inline">\(\left\|\frac{\left|s_N\right|}{\left(N+1\right)^\alpha}\right\|_{\infty,A}
-\leq \frac{2}{M}\frac{1}{\left(N+1\right)^\alpha}\)</span> et <span
+\leq 2M\frac{1}{\left(N+1\right)^\alpha}\)</span> et <span
 class="math inline">\(\frac{s_N}{\left(N+1\right)^\alpha}
 \xrightarrow[{A}]{\text{CVU}} 0.\)</span></p>
 </div>
@@ -1353,9 +1358,9 @@ class="math inline">\(\frac{s_N}{\left(N+1\right)^\alpha}
 class="math inline">\(n \in \mathbb{N}^{\star},\)</span> <span
 class="math display">\[\left| g_n(z)\right| = \left|s_n(z)\right|
 \left(\frac{1}{n^\alpha}-\frac{1}{\left(n+1\right)^\alpha}\right) \leq
-\frac{2}{M}\left(\frac{1}{n^\alpha}-\frac{1}{\left(n+1\right)^\alpha}\right).\]</span>
+M\left(\frac{1}{n^\alpha}-\frac{1}{\left(n+1\right)^\alpha}\right).\]</span>
 Donc <span class="math inline">\(\left\|g_n\right\|_{\infty,A} \leq
-\frac{2}{M}\left(\frac{1}{n^\alpha}-\frac{1}{\left(n+1\right)^\alpha}\right)\)</span>
+M\left(\frac{1}{n^\alpha}-\frac{1}{\left(n+1\right)^\alpha}\right)\)</span>
 et <span class="math inline">\(\sum g_n\)</span> converge normalement
 sur <span class="math inline">\(A.\)</span> On en déduit donc que <span
 class="math inline">\(\sum g_n\)</span> converge uniformément sur <span
@@ -1434,12 +1439,13 @@ donc <span class="math inline">\(S(z)
 </div>
 <div class="wex">
 <p>Pour <span class="math inline">\(z \in \mathbb{C}\)</span> tel que
-<span class="math inline">\(\left|z\right| &lt; 0\)</span> et <span
+<span class="math inline">\(\left|z\right| &lt; 1\)</span> et <span
 class="math inline">\(n \in \mathbb{N},\)</span> <span
 class="math inline">\(\frac{1}{1-z} = \sum_{k=0}^{+\infty}z^k
 =  1+z+z^2+\ldots+z^n + \underset{z\to
 0}{O}\left(z^{n+1}\right)\)</span> donc a fortiori, pour <span
-class="math inline">\(t \in \mathbb{R},\)</span> <span
+class="math inline">\(t \in
+\mathbb{R}\setminus\left\{-1\right\},\)</span> <span
 class="math inline">\(\frac{1}{1-t} = 1+t+t^2+\ldots+t^n +
 \underset{t\to 0}{O}\left(t^{n+1}\right)\)</span></p>
 </div>
@@ -1525,9 +1531,9 @@ class="math inline">\(S(-z) = \sum_{n=0}^{+\infty} a_{2n}(-z)^{2n} =
 <li><p><span class="math inline">\((\Longrightarrow).\)</span> Si <span
 class="math inline">\(S\)</span> est paire, alors pour <span
 class="math inline">\(x \in ]0,R[,\)</span> <span
-class="math inline">\(S(x) = \sum_{n=0}^{+\infty} a_nx^n = S(x) =
-\sum_{n=0}^{+\infty} a_n(-x)^n = \sum_{n=0}^{+\infty} (-1)^na_nx^n =
-S(-x).\)</span></p>
+class="math inline">\(S(x) = \sum_{n=0}^{+\infty} a_nx^n = S(-x) =
+\sum_{n=0}^{+\infty} a_n(-x)^n = \sum_{n=0}^{+\infty}
+(-1)^na_nx^n.\)</span></p>
 <p>Donc, par la proposition <a
 href="#prop:egalite_somme_autour_de_zero_donc_egalite_SE"
 data-reference-type="ref"
@@ -1676,7 +1682,7 @@ class="math display">\[\begin{aligned}
 (n+1) a_{n+p} x^{n} \text{ par changement d&#39;indice.} \\
         &amp; = \sum_{\underline{n=0}}^{+\infty} \frac{(n+p)!}{n!}
 a_{n+p} x^{n}
-    \end{aligned}\]</span> et <span class="math inline">\(S^(p)(0)
+    \end{aligned}\]</span> et <span class="math inline">\(S^{(p)}(0)
 =  \frac{(0+p)!}{0!} a_{0+p} x^{0} = p!a_p.\)</span></p>
 </div>
 <div class="wrem">
@@ -1710,7 +1716,7 @@ class="math display">\[\begin{array}{l}
          \vdots    \\
          \text{en dérivant $p$ fois ($p \in \mathbb{N}$),}    \\
          \forall x \in ]-1,1[  , \frac{p!}{\left(1-x\right)^{p+1}}   =
-\sum_{n=p}^{+\infty}n(n-1)\ldots (n+p-1)x^{n-2} =
+\sum_{n=p}^{+\infty}n(n-1)\ldots (n+p-1)x^{n-p} =
 \sum_{n=0}^{+\infty}(n+p)\ldots(n+1)x^{n} \\
     \end{array}\]</span></p>
 <p>Donc pour <span class="math inline">\(p \in \mathbb{N}\)</span> et
@@ -1857,7 +1863,8 @@ class="math display">\[S&#39;(x) = \sum_{n = 0}^{+\infty}\frac{(-1)^n
 <li><p><span class="math inline">\(1+X^3 =
 (X+1)\left(X^2-X+1\right).\)</span> Donc en posant <span
 class="math inline">\(\begin{array}{lllll}
-f &amp; : &amp; \mathbb{R}\setminus{-1} &amp; \to &amp; \mathbb{R} \\
+f &amp; : &amp; \mathbb{R}\setminus\left\{-1\right\} &amp; \to &amp;
+\mathbb{R} \\
    &amp;   &amp; x &amp; \mapsto &amp; \frac{1}{1+x^3}
 \end{array}\)</span> pour <span class="math inline">\(x \neq
 -1,\)</span> <span class="math inline">\(f(x) = \frac{1}{1+x^3} =
@@ -1975,7 +1982,7 @@ class="math display">\[\forall x \in ]-\rho,\rho[, f(x) =
 <div class="wprop">
 <p><span id="prop:DSE_donc_CCi" label="prop:DSE_donc_CCi"></span> Soit
 <span class="math inline">\(f : D \to \mathbb{C}\)</span> avec <span
-class="math inline">\(D \subset R\)</span> et <span
+class="math inline">\(D \subset \mathbb{R}\)</span> et <span
 class="math inline">\(0 \in \mathring{D}\)</span> développable en série
 entière en <span class="math inline">\(0\)</span> telle que <span
 class="math display">\[\forall x \in ]-\rho,\rho[, f(x) =
@@ -2065,8 +2072,8 @@ convient.</p></li>
 <li><p><u>Hérédité.</u> Soit <span class="math inline">\(n \in
 \mathbb{N}^{\star},\)</span> supposons la propriété vraie au rang <span
 class="math inline">\(n-1.\)</span></p>
-<p>Alors, par hypothèse de récurrence, il existe une fonction
-polynomiale <span class="math inline">\(P_{n-1}\)</span> telle que <span
+<p>Par hypothèse de récurrence, il existe une fonction polynomiale <span
+class="math inline">\(P_{n-1}\)</span> telle que <span
 class="math inline">\(f^{(n-1)}\)</span> s’écrit <span
 class="math inline">\(\begin{array}{lllll}
 f^{(n-1)} &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{R} \\
@@ -2116,7 +2123,7 @@ si c’était le cas, il existerait <span class="math inline">\(\rho &gt;
 0\)</span> tel que pour tout <span class="math inline">\(x \in
 ]-\rho,\rho[, f(x) = \sum_{n=0}^{+\infty} \frac{f^{(n)}(0)}{n!}x^n =
 0,\)</span> ce qui est absurde car <span class="math inline">\(f(x) =
-e^{-t\frac{1}{x}} &gt; 0\)</span> pour <span class="math inline">\(x \in
+e^{-\frac{1}{x}} &gt; 0\)</span> pour <span class="math inline">\(x \in
 ]0,\rho[.\)</span></p></li>
 </ol>
 <div class="wrem">
@@ -2132,7 +2139,7 @@ class="math inline">\(\mathscr{C}^\infty\)</span> telle que <span
 class="math inline">\(g(x) &gt; 0\)</span> pour <span
 class="math inline">\(x \in ]a,b[\)</span> et <span
 class="math inline">\(g(x) = 0\)</span> pour <span
-class="math inline">\(x \in \mathbb{R}\setminus ]a,b[,\)</span></p>
+class="math inline">\(x \in \mathbb{R}\setminus ]a,b[\)</span></p>
 <p>en posant <span class="math inline">\(g : x \in \mathbb{R}\mapsto
 f(x-a)f(b-x).\)</span></p>
 </div>
@@ -2148,7 +2155,7 @@ class="math inline">\(\mathscr{C}^\infty\)</span> telle que <span
 class="math inline">\(h(x) = 0\)</span> pour <span
 class="math inline">\(x &lt; a\)</span> et <span
 class="math inline">\(h(x) = 1\)</span> pour <span
-class="math inline">\(x &gt;a\)</span></p>
+class="math inline">\(x &gt;b\)</span></p>
 <p>en posant <span class="math inline">\(h : x \in \mathbb{R}\mapsto
 \frac{\int_a^x g(t)dt}{\int_a^b g(t)dt}.\)</span></p>
 </div>
@@ -2175,7 +2182,7 @@ car <span class="math display">\[\forall x \in ]-1,1[, \frac{1}{1-x} =
 <li><p><span class="math inline">\(x \in
 \mathbb{R}\setminus\left\{-1\right\}\mapsto \frac{1}{1+x}\)</span> est
 développable en série entière en <span class="math inline">\(0\)</span>
-car <span class="math display">\[\forall x \in ]-1,1[, \frac{1}{1-x} =
+car <span class="math display">\[\forall x \in ]-1,1[, \frac{1}{1+x} =
 \sum_{n=0}^{+\infty} (-1)^nx^n.\]</span></p></li>
 <li><p><span class="math inline">\(x &gt; -1\mapsto \ln(1+x)\)</span>
 est développable en série entière en <span
@@ -2183,8 +2190,8 @@ class="math inline">\(0\)</span> (voir l’exemple <a
 href="#ex:DSE_ln_1_plus_x_eT_ln_un_moins_x_et_arctan"
 data-reference-type="ref"
 data-reference="ex:DSE_ln_1_plus_x_eT_ln_un_moins_x_et_arctan">[ex:DSE_ln_1_plus_x_eT_ln_un_moins_x_et_arctan]</a>)
-car <span class="math display">\[\forall x \in ]-1,1[, \ln(1+x)
-=\sum_{n=0}^{+\infty} \left(-1\right)^n x^n.\]</span></p></li>
+car <span class="math display">\[\forall x \in ]-1,1[, \ln(1+x) =
+\sum_{n=1}^{+\infty} \frac{(-1)^{n-1}}{n}x^n.\]</span></p></li>
 <li><p><span class="math inline">\(x &lt; 1\mapsto \ln(1-x)\)</span> est
 développable en série entière en <span class="math inline">\(0\)</span>
 (voir l’exemple <a href="#ex:DSE_ln_1_plus_x_eT_ln_un_moins_x_et_arctan"
@@ -2525,7 +2532,7 @@ class="math inline">\(u_n \xrightarrow[n \to +\infty]{} 0.\)</span></p>
 class="math inline">\(u_n = 0,\)</span></p></li>
 <li><p>Si <span class="math inline">\(x \in ]-1,1[
 \setminus\left\{0\right\},\)</span> <span
-class="math display">\[\frac{\left|u_{n+1}\right|}{u_n} =
+class="math display">\[\frac{\left|u_{n+1}\right|}{\left|u_n\right|} =
 \frac{\left|x\right|\left|\alpha-n+1\right|}{n+1} \xrightarrow[n \to
 +\infty]{} \left|x\right| &lt; 1.\]</span> Donc, par le critère de
 d’Alembert pour les séries (rappel <a href="#rappel:regle_dalembert"
@@ -2647,7 +2654,7 @@ Vérifions les hypothèses.</p>
 <ol>
 <li><p><span class="math inline">\(\sum_{n \geq 0} f_n\)</span> converge
 simplement vers <span
-class="math inline">\(\mathop{\mathrm{Arctan}}\)</span> sur <span
+class="math inline">\(\mathop{\mathrm{Arcsin}}\)</span> sur <span
 class="math inline">\(A.\)</span></p></li>
 <li><p>Pour <span class="math inline">\(n \in \mathbb{N},\)</span> <span
 class="math inline">\(f_n(x) \xrightarrow[\substack{x \to 1\\ {x \in
@@ -2667,9 +2674,8 @@ Stirling.</p>
 <p>Or, <span class="math inline">\(\frac{3}{2} &gt; 1\)</span> donc
 <span class="math inline">\(\sum_{n \geq 0}
 \left\|f_n\right\|_{\infty,[0,1]}\)</span> converge ie <span
-class="math inline">\(\sum_{n \geq 0}
-\left\|f_n\right\|_{\infty,[0,1]}\)</span> converge normalement sur
-<span class="math inline">\([0,1].\)</span></p></li>
+class="math inline">\(\sum_{n \geq 0} f_n\)</span> converge normalement
+sur <span class="math inline">\([0,1].\)</span></p></li>
 </ol>
 <p>On en déduit, par le théorème de la double limite, que l’on a
 effectivement <span class="math display">\[\mathop{\mathrm{Arcsin}}(1) =
@@ -3271,7 +3277,7 @@ class="math display">\[\forall x \in \mathbb{R}, e^{x} = e^{a}e^{x-a} =
 <li><p>Soit <span class="math inline">\(a \in
 \mathbb{R}^{+\star},\)</span> <span class="math inline">\(\ln\)</span>
 est développable en série entière en <span
-class="math inline">\(a.\)</span> En effet, soit <span
+class="math inline">\(a.\)</span> En effet, <span
 class="math display">\[\forall t &gt;-a, \ln(t+a) =
 \ln\left(a\left(1+\frac{t}{a}\right)\right) = \ln(a) +
 \ln\left(1+\frac{t}{a}\right).\]</span> Donc <span
@@ -3370,7 +3376,7 @@ class="math display">\[\begin{aligned}
 </div>
 <div class="wprop">
 <p>Soit <span class="math inline">\(f : D \to \mathbb{C}\)</span> avec
-<span class="math inline">\(D \subset R\)</span> et <span
+<span class="math inline">\(D \subset \mathbb{R}\)</span> et <span
 class="math inline">\(a \in \mathring{D}\)</span> développable en série
 entière en <span class="math inline">\(a\)</span> telle que <span
 class="math display">\[\forall x \in ]a-\rho,a+\rho[, f(x) =
@@ -3438,7 +3444,7 @@ a_{n+p}(x-a)^{n}
 </div>
 <div class="wprop">
 <p>Soit <span class="math inline">\(f : D \to \mathbb{C}\)</span> avec
-<span class="math inline">\(D \subset R\)</span> et <span
+<span class="math inline">\(D \subset \mathbb{R}\)</span> et <span
 class="math inline">\(a \in \mathring{D}\)</span> développable en série
 entière en <span class="math inline">\(a\)</span> telle que <span
 class="math display">\[\forall x \in ]a-\rho,a+\rho[, f(x) =
@@ -3503,8 +3509,8 @@ class="math inline">\(g: x \in ]a-\rho,a+\rho[ \mapsto g(a)
 <div class="wrem">
 <p>Pour montrer qu’une fonction <span class="math inline">\(f\)</span>
 de classe <span class="math inline">\(\mathscr{C}^\infty\)</span> est
-développable en en un point <span class="math inline">\(a,\)</span> on
-peut utiliser</p>
+développable en série entière en un point <span
+class="math inline">\(a,\)</span> on peut utiliser</p>
 <ul>
 <li><p>L’inégalité de Taylor-Lagrange en <span
 class="math inline">\(a.\)</span></p>
@@ -3738,7 +3744,7 @@ pour tout <span class="math inline">\(t \in
 class="math inline">\(t = 1,\)</span> pour <span class="math inline">\(z
 \in B(0,\left|a\right|),\)</span> <span class="math inline">\(1 \in
 \left]-\frac{\left|z\right|}{\left|a\right|},\frac{\left|z\right|}{\left|a\right|}\right[\)</span>
-puis finalement, <span
+et finalement, <span
 class="math display">\[\frac{1}{\left(a-z\right)^{p}} =
          \sum_{n=0}^{+\infty}\binom{n+p-1}{p-1}\frac{z^{n}}{a^{n+p}}.\]</span></p></li>
 </ul>
@@ -3766,6 +3772,8 @@ complexe.</h2>
 \frac{z^{n}}{n!}
 \end{array}
 .\)</span></p>
+</div>
+<div class="wrem">
 <p><span class="math inline">\(\exp\)</span> est bien définie sur <span
 class="math inline">\(\mathbb{C}\)</span> car la somme d’une série
 entière de rayon de convergence infini. En effet, par la règle de
@@ -3822,7 +3830,7 @@ class="math inline">\(e^{z+z&#39;} = e^{z}e^{z&#39;}.\)</span></p>
 <div class="wproof">
 <p>Voir le cours sur les séries (c’est un cas particulier d’une
 propriété déjà vue dans toute algèbre normée de dimension finie, avec
-deux éléments qui commutent).</p>
+deux éléments qui commutent en utilisant le produit de Cauchy).</p>
 </div>
 <div class="wprop">
 <p>Pour <span class="math inline">\(z \in \mathbb{C},\)</span></p>
@@ -3832,9 +3840,9 @@ class="math inline">\(\frac{1}{e^{z}} = e^{-z},\)</span></p></li>
 <li><p><span class="math inline">\(\overline{e^{z}} =
 e^{\overline{z}},\)</span></p></li>
 <li><p>pour <span class="math inline">\(k \in \mathbb{Z},\)</span> <span
-class="math inline">\((e^{z})^{k} = e^{kz}.\)</span></p></li>
+class="math inline">\((e^{z})^{k} = e^{kz},\)</span></p></li>
 <li><p><span class="math inline">\(|e^{z}| =
-e^{\mathop{\mathrm{Re}}z},\)</span></p></li>
+e^{\mathop{\mathrm{Re}}z}.\)</span></p></li>
 </ol>
 </div>
 <div class="wproof">
@@ -3984,14 +3992,16 @@ continues et <span class="math display">\[\left|\psi_n&#39;(x)\right| =
 \leq
 \frac{\left\|\varphi&#39;\right\|_{\infty,[a,b]}\left\|\varphi\right\|_{\infty,[a,b]}^{n-1}}{(n-1)!}\]</span>
 donc <span
-class="math inline">\(\left\|\psi_n&#39;\right\|_{\infty,[a,b]} &lt;
+class="math inline">\(\left\|\psi_n&#39;\right\|_{\infty,[a,b]} \leq
 \frac{\left\|\varphi&#39;\right\|_{\infty,[a,b]}\left\|\varphi\right\|_{\infty,[a,b]}^{n-1}}{(n-1)!}
 = \underset{n\to +\infty}{o}\left(\frac{1}{n^2}\right)\)</span> et <span
 class="math inline">\(\sum_{n \geq 1} \psi_n&#39;\)</span> converge
 normalement sur <span class="math inline">\([a,b].\)</span></p>
 <p>On en déduit que pour tout <span class="math inline">\(t \in
-I,\)</span> <span class="math inline">\(\psi&#39;(t) =
-\sum_{n=1}^{+\infty}\varphi&#39;(t)\frac{\left(\varphi(t)\right)^{n-1}}{(n-1)!}
+I,\)</span></p>
+<p><span class="math inline">\(\psi&#39;(t) =
+\sum_{n=1}^{+\infty}\psi_n&#39;(t)
+=\sum_{n=1}^{+\infty}\varphi&#39;(t)\frac{\left(\varphi(t)\right)^{n-1}}{(n-1)!}
 =
 \varphi&#39;(t)\sum_{n=0}^{+\infty}\frac{\left(\varphi(t)\right)^{n}}{n!}
 = \varphi&#39;(t) e^{\varphi(t)}.\)</span></p>
@@ -4021,8 +4031,8 @@ g &amp; : &amp; [0,1] &amp; \to &amp; \mathbb{C} \\
    &amp;   &amp; x &amp; \mapsto &amp; \int_0^x \frac{f&#39;(t)}{f(t)}dt
 \end{array}
 .\)</span></p>
-<p>Alors, pour tout <span class="math inline">\(x \in [0,1], f(x)
-=e^{g(x)}.\)</span></p>
+<p>Alors, pour tout <span class="math inline">\(x \in [0,1]\)</span>,
+<span class="math inline">\(f(x) = e^{g(x)}.\)</span></p>
 </div>
 <div class="wproof">
 <p><span class="math inline">\(t \in [0,1] \mapsto
@@ -4031,7 +4041,7 @@ class="math inline">\([0,1]\)</span> donc <span
 class="math inline">\(g\)</span> est de classe <span
 class="math inline">\(\mathscr{C}^1\)</span> sur <span
 class="math inline">\([0,1]\)</span> avec pour tout <span
-class="math inline">\(x \in [0,1], g(x) =
+class="math inline">\(x \in [0,1], g&#39;(x) =
 \frac{f&#39;(x)}{f(x)}.\)</span></p>
 <p>On considère maintenant <span
 class="math inline">\(\begin{array}{lllll}
@@ -4047,8 +4057,8 @@ class="math inline">\(\mathscr{C}^1\)</span>). De plus, pour tout <span
 class="math inline">\(x \in [0,1],\)</span> <span
 class="math display">\[h&#39;(x) =
 f&#39;(x)e^{-g(x)}-f(x)g&#39;(x)e^{-g(x)} =
-f&#39;(x)e^{-g(x)}-f(x)\frac{f&#39;(x)}{f(x)}e^{-g(x)}f&#39;(x)=0.\]</span>
-donc <span class="math inline">\(h\)</span> est constante sur <span
+f&#39;(x)e^{-g(x)}-f(x)\frac{f&#39;(x)}{f(x)}e^{-g(x)}=0.\]</span> donc
+<span class="math inline">\(h\)</span> est constante sur <span
 class="math inline">\([0,1].\)</span></p></li>
 <li><p>De plus, <span class="math inline">\(h(0) = f(0)e^{-g(0)} =
 1\times e^{0}=1.\)</span></p></li>
@@ -4159,8 +4169,8 @@ a^{\mathop{\mathrm{Re}}z}.\)</span></p></li>
 \sum_{n=1}^{\infty} \frac{1}{n^{z}}\)</span> est continue sur <span
 class="math inline">\(A = \left\{z \in \mathbb{C}, \mathop{\mathrm{Re}}z
 &gt; 1\right\}.\)</span></p>
-<p>Cette fonction est notée <span class="math inline">\(\zeta,\)</span>
-et c’est un prolongement de la fonction <span
+<p>Cette fonction est notée <span class="math inline">\(\zeta\)</span>
+et est un prolongement de la fonction <span
 class="math inline">\(\zeta\)</span> réelle déjà vue.</p>
 <details><summary>Corrigé</summary>
 <p>D’abord, remarquons que la série est absolument convergente pour
@@ -4227,7 +4237,7 @@ class="math inline">\(G = a\mathbb{Z}.\)</span></p>
 <li><p><span class="math inline">\(f: t \in \mathbb{R}\mapsto
 e^{it}\)</span> est un morphisme de groupes de <span
 class="math inline">\((\mathbb{R},+)\)</span> dans <span
-class="math inline">\((\mathbb{C},\star)\)</span> donc <span
+class="math inline">\((\mathbb{C}^\star,\times)\)</span> donc <span
 class="math inline">\(G = \mathop{\mathrm{Ker}}(f)\)</span> est un
 sous-groupe additif de <span
 class="math inline">\(\mathbb{R}.\)</span></p></li>
@@ -4247,8 +4257,8 @@ class="math inline">\(\ell \in G.\)</span></p></li>
 \mathbb{R}\)</span> tel que <span class="math inline">\(e^{is} = -1 \in
 \mathbb{U}\)</span> et <span class="math inline">\(s \neq 0.\)</span>
 Donc <span class="math inline">\(e^{2is} = \left(-1\right)^2 =
-1\)</span> et <span class="math inline">\(s \in G\)</span> avec <span
-class="math inline">\(s \neq 0.\)</span></p></li>
+1\)</span> et <span class="math inline">\(2s \in G\)</span> avec <span
+class="math inline">\(2s \neq 0.\)</span></p></li>
 </ul>
 </div>
 <div class="wdefi">
@@ -4302,8 +4312,8 @@ class="math inline">\(e^{z}=1 \iff z \in 2i\pi\mathbb{Z}.\)</span></p>
 <li><p><span class="math inline">\((\Longleftarrow)\)</span> Si <span
 class="math inline">\(z \in 2i\pi\mathbb{Z},\)</span> il existe <span
 class="math inline">\(k \in \mathbb{Z}\)</span> tel que <span
-class="math inline">\(z = 2\pi k.\)</span></p>
-<p>Donc <span class="math inline">\(e^z = \left(e^{2\pi}\right)^k = 1^k
+class="math inline">\(z = 2i\pi k.\)</span></p>
+<p>Donc <span class="math inline">\(e^z = \left(e^{2i\pi}\right)^k = 1^k
 = 1.\)</span></p></li>
 <li><p><span class="math inline">\((\Longrightarrow)\)</span> Si <span
 class="math inline">\(e^{z}=1\)</span> alors <span
@@ -4412,8 +4422,8 @@ class="math inline">\(\mathop{\mathrm{ch}},\mathop{\mathrm{sh}},\cos,\sin\)</spa
 sont des combinaisons linéaires de sommes des séries entières <span
 class="math inline">\(e^z = \sum_{n \geq 0} \frac{z^n}{n!}\)</span> et
 <span class="math inline">\(e^{iz} = \sum_{n \geq 0}
-\frac{(iz)^n}{n!}\)</span> de rayon infini comme déjà démontré par la
-règle de d’Alembert. Elles sont donc de rayon infini et par les
+\frac{(iz)^n}{n!}\)</span> de rayon infini (comme déjà démontré avec la
+règle de d’Alembert). Elles sont donc de rayon infini et par les
 propositions <a href="#prop:continuite_somme_SE_boule_ouverte"
 data-reference-type="ref"
 data-reference="prop:continuite_somme_SE_boule_ouverte">[prop:continuite_somme_SE_boule_ouverte]</a> et <a
@@ -4477,7 +4487,7 @@ class="math display">\[\begin{aligned}
 <span class="math inline">\(\cos z - i\sin z = e^{-iz},\)</span> donc
 <span class="math inline">\(\cos^{2} z + \sin^{2} z=\cos^{2} z -
 i^2\sin^{2} z = \left(\cos z + i\sin z \right)\left(\cos z - i\sin z
-\right) = 1.\)</span></p></li>
+\right) = e^{iz}e^{-iz}= 1.\)</span></p></li>
 <li><p><span class="math display">\[\begin{aligned}
             \cos(z+z&#39;)
              = &amp;\frac{e^{i(z+z&#39;)}+e^{-i(z+z&#39;)}}{2} \\
@@ -4534,8 +4544,8 @@ class="math inline">\(\sin.\)</span></p></li>
 <p>Pour <span class="math inline">\(z, z&#39; \in
 \mathbb{C},\)</span></p>
 <ul>
-<li><p><span class="math inline">\(\mathop{\mathrm{ch}}^2 z -
-\mathop{\mathrm{sh}}^2 z = 1,\)</span></p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{ch}}{}^2 z -
+\mathop{\mathrm{sh}}{}^2 z = 1,\)</span></p></li>
 <li><p><span class="math inline">\(\mathop{\mathrm{ch}}(z+z&#39;) =
 \mathop{\mathrm{ch}}(z)\mathop{\mathrm{ch}}(z&#39;) +
 \mathop{\mathrm{sh}}(z)\mathop{\mathrm{sh}}(z&#39;),\)</span></p></li>
@@ -4549,11 +4559,11 @@ class="math inline">\(\sin.\)</span></p></li>
 \mathop{\mathrm{sh}}(z)\mathop{\mathrm{ch}}(z&#39;) -
 \mathop{\mathrm{ch}}(z)\mathop{\mathrm{sh}}(z&#39;),\)</span></p></li>
 <li><p><span class="math inline">\(\mathop{\mathrm{ch}}(2z) =
-2\mathop{\mathrm{ch}}^2(z) - 1 = 1 +
-2\mathop{\mathrm{sh}}^2(z),\)</span></p>
-<p>(donc <span class="math inline">\(\mathop{\mathrm{ch}}^2(z) =
+2\mathop{\mathrm{ch}}{}^2(z) - 1 = 1 +
+2\mathop{\mathrm{sh}}{}^2(z),\)</span></p>
+<p>(donc <span class="math inline">\(\mathop{\mathrm{ch}}{}^2(z) =
 \frac{1+\mathop{\mathrm{ch}}(2z)}{2}\)</span> et <span
-class="math inline">\(\mathop{\mathrm{sh}}^2(z) =
+class="math inline">\(\mathop{\mathrm{sh}}{}^2(z) =
 \frac{\mathop{\mathrm{ch}}(2z)-1}{2}\)</span>)</p></li>
 <li><p><span class="math inline">\(\mathop{\mathrm{sh}}(2z) =
 2\mathop{\mathrm{sh}}(z)\mathop{\mathrm{ch}}(z).\)</span></p></li>
@@ -4565,8 +4575,8 @@ class="math inline">\(\mathop{\mathrm{sh}}^2(z) =
 \mathop{\mathrm{sh}}z = e^z\)</span> et <span
 class="math inline">\(\mathop{\mathrm{ch}}z - \mathop{\mathrm{sh}}z =
 e^{-z},\)</span> d’où : <span
-class="math display">\[\mathop{\mathrm{ch}}^2 z - \mathop{\mathrm{sh}}^2
-z = (\mathop{\mathrm{ch}}z +
+class="math display">\[\mathop{\mathrm{ch}}{}^2 z -
+\mathop{\mathrm{sh}}{}^2 z = (\mathop{\mathrm{ch}}z +
 \mathop{\mathrm{sh}}z)(\mathop{\mathrm{ch}}z - \mathop{\mathrm{sh}}z) =
 e^z e^{-z} = 1.\]</span></p></li>
 <li><p><span class="math display">\[\begin{aligned}
@@ -4619,11 +4629,11 @@ de <span class="math inline">\(\mathop{\mathrm{ch}}\)</span> et imparité
 de <span class="math inline">\(\mathop{\mathrm{sh}}.\)</span></p></li>
 <li><p><span class="math display">\[\begin{aligned}
             \mathop{\mathrm{ch}}(2z) &amp;= \mathop{\mathrm{ch}}(z+z) =
-\mathop{\mathrm{ch}}^2 z + \mathop{\mathrm{sh}}^2 z \\
-            &amp;= \mathop{\mathrm{ch}}^2 z + (\mathop{\mathrm{ch}}^2 z
-- 1) = 2\mathop{\mathrm{ch}}^2 z - 1 \\
-            &amp;= (1 + \mathop{\mathrm{sh}}^2 z) +
-\mathop{\mathrm{sh}}^2 z = 1 + 2\mathop{\mathrm{sh}}^2 z.
+\mathop{\mathrm{ch}}{}^2 z + \mathop{\mathrm{sh}}{}^2 z \\
+            &amp;= \mathop{\mathrm{ch}}{}^2 z +
+(\mathop{\mathrm{ch}}{}^2 z - 1) = 2\mathop{\mathrm{ch}}{}^2 z - 1 \\
+            &amp;= (1 + \mathop{\mathrm{sh}}{}^2 z) +
+\mathop{\mathrm{sh}}{}^2 z = 1 + 2\mathop{\mathrm{sh}}{}^2 z.
         \end{aligned}\]</span></p></li>
 <li><p><span class="math inline">\(\mathop{\mathrm{sh}}(2z) =
 \mathop{\mathrm{sh}}(z+z) =
@@ -4651,11 +4661,10 @@ quelques différences entre ces formules.</p>
 <ul>
 <li><p><span class="math inline">\(e^{i\pi} = -1\)</span> ie <span
 class="math inline">\(\cos\left(\pi\right) = -1\)</span> et <span
-class="math inline">\(\sin\left(\frac{\pi}{2}\right) =
-0.\)</span></p></li>
+class="math inline">\(\sin\left(\pi\right) = 0.\)</span></p></li>
 <li><p><span class="math inline">\(e^{i\frac{\pi}{2}} = i\)</span> ie
 <span class="math inline">\(\cos\left(\frac{\pi}{2}\right) = 0\)</span>
-et <span class="math inline">\(\sin\left(\pi\right) =
+et <span class="math inline">\(\sin\left(\frac{\pi}{2}\right) =
 1.\)</span></p></li>
 <li><p><span class="math inline">\(e^{i\frac{\pi}{4}} =
 \frac{\sqrt{2}}{2} + i\frac{\sqrt{2}}{2}\)</span> ie <span
@@ -4693,20 +4702,19 @@ class="math inline">\(\left[0,\frac{\pi}{2}\right].\)</span></p>
 </div>
 <div class="wproof">
 <p><span class="math inline">\(\cos(0) = 1\)</span> et <span
-class="math inline">\(\cos\left(\frac{\pi}{2}\right) = 0\)</span> (car
-<span
-class="math inline">\(\mathop{\mathrm{Re}}\left(e^{i\frac{\pi}{2}}\right)
-= \mathop{\mathrm{Re}}\left(\pm i\right) = 0\)</span>). Par l’absurde,
-s’il existe <span class="math inline">\(x \in ]0,\frac{\pi}{2}[\)</span>
-tel que <span class="math inline">\(\cos(x) \leq 0\)</span> alors par le
-théorème des valeurs intermédiaires, il existe <span
-class="math inline">\(y \in ]0,x] \subset ]0,\frac{\pi}{2}[\)</span> tel
-que <span class="math inline">\(\cos(y) = 0.\)</span> On aurait donc
-<span class="math inline">\(\sin^2(y) = 1\)</span> puis <span
-class="math inline">\(\sin(y) = \pm 1\)</span> et <span
-class="math inline">\(e^{iy} = \pm i.\)</span> On aurait alors <span
-class="math inline">\(e^{i4y} = \left(\pm i\right)^4 = 1\)</span> avec
-<span class="math inline">\(4y \in  ]0,2\pi[,\)</span> ce qui est
+class="math inline">\(\cos\left(\frac{\pi}{2}\right) = 0\)</span> car
+<span class="math inline">\(\left(e^{i\frac{\pi}{2}}\right)^2 = e^{i\pi}
+= -1\)</span> donc <span class="math inline">\(e^{i\frac{\pi}{2}} = \pm
+i\)</span>. Par l’absurde, s’il existe <span class="math inline">\(x \in
+]0,\frac{\pi}{2}[\)</span> tel que <span class="math inline">\(\cos(x)
+\leq 0\)</span> alors par le théorème des valeurs intermédiaires, il
+existe <span class="math inline">\(y \in ]0,x] \subset
+]0,\frac{\pi}{2}[\)</span> tel que <span class="math inline">\(\cos(y) =
+0.\)</span> On aurait donc <span class="math inline">\(\sin^2(y) =
+1\)</span> puis <span class="math inline">\(\sin(y) = \pm 1\)</span> et
+<span class="math inline">\(e^{iy} = \pm i.\)</span> On aurait alors
+<span class="math inline">\(e^{i4y} = \left(\pm i\right)^4 = 1\)</span>
+avec <span class="math inline">\(4y \in  ]0,2\pi[,\)</span> ce qui est
 absurde car <span class="math inline">\(2\pi\)</span> est le plus petit
 réel positif <span class="math inline">\(t\)</span> tel que <span
 class="math inline">\(e^{it} = 1.\)</span></p>
@@ -4715,8 +4723,7 @@ class="math inline">\(e^{it} = 1.\)</span></p>
 class="math inline">\(\left[0,\frac{\pi}{2}\right]\)</span> avec <span
 class="math inline">\(\sin(0) = 0\)</span> donc <span
 class="math inline">\(\sin\)</span> est positive sur <span
-class="math inline">\(\left[0,\frac{\pi}{2}\right].\)</span> En
-effet,</p>
+class="math inline">\(\left[0,\frac{\pi}{2}\right].\)</span></p>
 </div></li>
 <li><p><span class="math inline">\(\left(e^{i\frac{\pi}{2}}\right)^2 =
 -1\)</span> donc <span class="math inline">\(e^{i\frac{\pi}{2}}=e^{i\pi}
@@ -4728,7 +4735,7 @@ data-reference="lem:positivite_cos_sin">[lem:positivite_cos_sin]</a>,
 <span class="math inline">\(\sin\left(\frac{\pi}{2}\right) \geq
 0\)</span> donc <span class="math inline">\(e^{i\frac{\pi}{2}} =
 i.\)</span></p></li>
-<li><p><span class="math inline">\(\cos\left(\frac{\pi}{2}\right) =
+<li><p><span class="math inline">\(0=\cos\left(\frac{\pi}{2}\right) =
 \cos\left(2\frac{\pi}{4}\right) =
 2\cos^2\left(\frac{\pi}{4}\right)-1\)</span> donc <span
 class="math inline">\(\cos^2\left(\frac{\pi}{4}\right) =
@@ -4767,7 +4774,7 @@ class="math inline">\([0, \frac{\pi}{2}[,\)</span> ce qui donne <span
 class="math inline">\(\mathop{\mathrm{Re}}\left(e^{i\frac{\pi}{3}}\right)
 = \frac{1}{2} = \cos\left(\frac{\pi}{3}\right).\)</span> De plus, par le
 lemme <a href="#lem:positivite_cos_sin" data-reference-type="ref"
-data-reference="lem:positivite_cos_sin">[lem:positivite_cos_sin]</a>l, a
+data-reference="lem:positivite_cos_sin">[lem:positivite_cos_sin]</a>, la
 fonction <span class="math inline">\(\sin\)</span> est positive sur
 <span class="math inline">\([0, \frac{\pi}{2}],\)</span> ce qui impose
 <span
@@ -4852,7 +4859,7 @@ class="math display">\[\begin{aligned}
 \frac{e^{iz} + e^{-iz}}{2} = \cos(z) \\
 \sin\left(\frac{\pi}{2} + z\right) &amp;= \frac{e^{i(\frac{\pi}{2} + z)}
 - e^{-i(\frac{\pi}{2} + z)}}{2i} = \frac{i e^{iz} + i e^{-iz}}{2i} =
-\frac{e^{iz} + e^{-iz}}{2} = \cos(z) \qedhere
+\frac{e^{iz} + e^{-iz}}{2} = \cos(z)
 \end{aligned}\]</span></p></li>
 </ul>
 </div>
@@ -4887,7 +4894,7 @@ d’inconnue <span class="math inline">\(z \in
         &amp;\iff \frac{e^{iz}+e^{-iz}}{2} = a \\
         &amp;\iff e^{iz}+e^{-iz}-2a=0 \\
         &amp;\iff e^{2iz}+1-2ae^{iz}= 0\\
-        &amp; \iff Z^2-2aZ+1 \text{ avec }Z = e^{iz}.
+        &amp; \iff Z^2-2aZ+1=0 \text{ avec }Z = e^{iz}.
                 \end{aligned}\]</span></p>
 <p>En notant <span class="math inline">\(\delta\)</span> une racine
 carrée de <span class="math inline">\(\Delta = (-2a)^2-4 =
@@ -5077,7 +5084,7 @@ class="math inline">\(\operatorname{Arg}(z_{\varphi(n)}) \xrightarrow[n
 \to +\infty]{} \ell.\)</span></p>
 <p>Par continuité de <span class="math inline">\(t \mapsto
 e^{it}\)</span> et <span class="math inline">\(z \mapsto
-\left|z\right|,\)</span> on a donc <span
+\left|z\right|,\)</span> on a <span
 class="math inline">\(z_{\varphi(n)}=\left|z_{\varphi(n)}\right|e^{i\operatorname{Arg}(z_{\varphi(n)})}
 \xrightarrow[n \to +\infty]{} \left|z\right|e^{i\ell}\)</span> donc
 <span class="math inline">\(z = \left|z\right|e^{i\ell}.\)</span></p>
