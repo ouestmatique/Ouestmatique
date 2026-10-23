@@ -3124,12 +3124,15 @@ class="math inline">\(\int_{m}^{d} \left(f\circ \varphi\right)(t)
 \varphi\right)(t) \varphi&#39;(t)dt = -\int^{\varphi(m)}_{c}
 f(x)dx.\)</span></p>
 <p>Finalement, <span class="math inline">\(\int_{a}^{b} \left(f\circ
-\varphi\right)(t) \varphi&#39;(t)dt\)</span> converge.</p></li>
+\varphi\right)(t) \varphi&#39;(t)dt\)</span> converge avec de nouveau
+l’égalité voulue.</p></li>
 </ul>
 </div>
+<div class="wrem">
 <p>On reprend la même méthode (assez peu formelle) qu’en MPSI en posant
 <span class="math inline">\(u = \varphi(t)\)</span> donc <span
 class="math inline">\(du = \varphi&#39;(t)dt.\)</span></p>
+</div>
 <div class="wex">
 <ul>
 <li><p><span class="math inline">\(\int_{-\infty}^{+\infty}
@@ -5823,9 +5826,18 @@ class="math inline">\(x \in [c,d],\)</span> par inégalité des
 accroissements finis, <span
 class="math display">\[\left\|u(x,t)-u(c,t)\right\| \leq
 \left|x-c\right|\sup_{z \in [c,d]}\left\|\frac{\partial u}{\partial
-x}(x,t)\right\| \leq (d-c)\varphi(t).\]</span> avec <span
-class="math inline">\(t \in I \mapsto (d-c)\varphi(t) \in
-\mathbb{R}^{+}\)</span> qui est intégrable.</p></li>
+x}(x,t)\right\| \leq (d-c)\varphi(t).\]</span> donc <span
+class="math display">\[\left\|u(x,t)\right\| \leq
+\left\|u(c,t)\right\|+(d-c)\varphi(t).\]</span> On en déduit alors <span
+class="math display">\[\left\|u(x,t)\right\|
+=\left\|\frac{\partial^{p-1} f}{\partial x^{p-1}}(x,t)\right\| \leq
+\left\|\frac{\partial^{p-1} f}{\partial
+x^{p-1}}(c,t)\right\|+(d-c)\varphi(t).\]</span> avec <span
+class="math inline">\(t \in I \mapsto \left\|\frac{\partial^{p-1}
+f}{\partial x^{p-1}}(c,t)\right\|+(d-c)\varphi(t) \in
+\mathbb{R}^{+}\)</span> qui est intégrable (car <span
+class="math inline">\(t \in I \mapsto \frac{\partial^{p-1} f}{\partial
+x^{p-1}}(c,t)\)</span> est intégrable par hypothèse).</p></li>
 </ol>
 <p>Donc, par l’hypothèse de récurrence (le cas <span
 class="math inline">\(p-1\)</span>), <span
