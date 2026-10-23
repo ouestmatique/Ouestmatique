@@ -2359,58 +2359,64 @@ a</p>
 class="math inline">\(0^+\)</span>)</strong> Soient <span
 class="math inline">\(\alpha, \beta \in \mathbb{R},\)</span> montrer que
 <span class="math display">\[\int_0^{\frac{1}{2}} \frac{dt}{t^\alpha
-\left(\ln t\right)^\beta} \text{ converge } \iff
+\left|\ln t\right|^\beta} = \int_0^{\frac{1}{2}} \frac{dt}{t^\alpha
+\left(-\ln t\right)^\beta} \text{ converge } \iff
 \left\{\begin{array}{ll}
         &amp; \alpha &lt; 1 \\
         \text{ ou }&amp; \alpha = 1 \text{ et }\beta &gt;1.
     \end{array}\right.\]</span></p>
+<p>(les valeurs absolues sont dues au fait que <span
+class="math inline">\(\ln\)</span> est négatif sur <span
+class="math inline">\(\left]0,1/2\right]\)</span> et que les puissances
+réelles ne sont définies que pour des nombres strictement positifs).</p>
 <details><summary>Corrigé</summary>
 <ul>
 <li><p>Si <span class="math inline">\(\alpha &lt; 1,\)</span> soit <span
 class="math inline">\(\gamma \in \left]\alpha,1\right[,\)</span> <span
-class="math inline">\(\frac{1}{t^\alpha \left(\ln t\right)^\beta} =
+class="math inline">\(\frac{1}{t^\alpha \left|\ln t\right|^\beta} =
 \underset{t\to 0^+}{o}\left( \frac{1}{t^\gamma}\right)\)</span> par
 croissances comparées.</p>
 <p>Or, <span class="math inline">\(\gamma &lt; 1\)</span> donc <span
 class="math inline">\(\int_0^{\frac{1}{2}} \frac{1}{t^\gamma}\)</span>
 converge absolument en tant qu’intégrale de Riemann puis <span
-class="math inline">\(\int_0^{\frac{1}{2}} \frac{dt}{t^\alpha \left(\ln
-t\right)^\beta}\)</span> converge (absolument, mais c’est inutile de
+class="math inline">\(\int_0^{\frac{1}{2}} \frac{dt}{t^\alpha \left|\ln
+t\right|^\beta}\)</span> converge (absolument, mais c’est inutile de
 préciser car la fonction est de signe constant).</p></li>
 <li><p>Si <span class="math inline">\(\alpha &gt; 1,\)</span> <span
 class="math inline">\(\frac{1}{t} = \underset{t\to 0^+}{o}\left(
-\frac{1}{t^\alpha \left(\ln t\right)^\beta}\right)\)</span> par
+\frac{1}{t^\alpha \left|\ln t\right|^\beta}\right)\)</span> par
 croissances comparées.</p>
 <p>Or, <span class="math inline">\(\int_0^{\frac{1}{2}}
 \frac{1}{t}\)</span> diverge en tant qu’intégrale de Riemann puis <span
-class="math inline">\(\int_0^{\frac{1}{2}} \frac{dt}{t^\alpha \left(\ln
-t\right)^\beta}\)</span> diverge (ne converge pas absolument donc
+class="math inline">\(\int_0^{\frac{1}{2}} \frac{dt}{t^\alpha \left|\ln
+t\right|^\beta}\)</span> diverge (ne converge pas absolument donc
 diverge car la fonction est de signe constant).</p></li>
 <li><p>Si <span class="math inline">\(\alpha = 1,\)</span> soit <span
 class="math inline">\(x \in \left]0,\frac{1}{2}\right],\)</span> par le
-changement de variable <span class="math inline">\(u = \ln(t)
-\Longrightarrow du = \frac{dt}{t},\)</span> on a <span
-class="math display">\[\int_x^{\frac{1}{2}} \frac{dt}{t \left(\ln
-t\right)^\beta} = \int_{\ln(x)}^{\ln(1/2)}
+changement de variable <span class="math inline">\(u = -\ln(t)
+\Longrightarrow du = -\frac{dt}{t},\)</span> on a <span
+class="math display">\[\int_x^{\frac{1}{2}} \frac{dt}{t \left|\ln
+t\right|^\beta} = \int^{-\ln(x)}_{-\ln(1/2)}
 \frac{du}{u^\beta}.\]</span></p>
 <ul>
 <li><p>Si <span class="math inline">\(\beta = 1,\)</span> <span
-class="math display">\[\int_x^{\frac{1}{2}} \frac{dt}{t \left(\ln
-t\right)^\beta} = \int_{\ln(x)}^{\ln(1/2)} \frac{du}{u} =
-[\ln(\left|u\right|)]_{\ln(x)}^{\ln(1/2)} = \ln(\ln(1/2))
--\ln(\left|\ln(x)\right|)\xrightarrow[x \to
+class="math display">\[\int_x^{\frac{1}{2}} \frac{dt}{t \left|\ln
+t\right|^\beta} = \int^{-\ln(x)}_{-\ln(1/2)} \frac{du}{u} =
+[\ln(\left|u\right|)]^{-\ln(x)}_{-\ln(1/2)} =
+\ln(\left|\ln(x)\right|)-\ln(\ln(2)) \xrightarrow[x \to
 0^+]{}+\infty.\]</span></p></li>
 <li><p>Si <span class="math inline">\(\beta \neq 1,\)</span> <span
 class="math display">\[\begin{aligned}
-            \int_x^{\frac{1}{2}} \frac{dt}{t \left(\ln t\right)^\beta}
+            \int_x^{\frac{1}{2}} \frac{dt}{t \left|\ln t\right|^\beta}
             &amp; =
-\frac{1}{{1-\beta}}\left[u^{1-\beta}\right]_{\ln(x)}^{\ln(1/2)}\\
+\frac{1}{{1-\beta}}\left[u^{1-\beta}\right]^{-\ln(x)}_{-\ln(1/2)}\\
             &amp;  =
-\frac{1}{1-\beta}\left(\ln(2)^{1-\beta}-\ln(x)^{1-\beta}\right) \\
+\frac{1}{1-\beta}\left(\left|\ln(x)\right|^{1-\beta}-\ln(2)^{1-\beta}\right)
+\\
             &amp; \xrightarrow[x \to 0^+]{} \left\{\begin{array}{ll}
          +\infty &amp; \mbox{ si $1-\beta &gt; 0 \iff \beta &lt; 1$} \\
-         \frac{1}{1-\beta}\ln(2)^{1-\beta} &amp; \mbox{ si $1-\beta &lt;
-0 \iff \beta &gt; 1$} \\
+         -\frac{1}{1-\beta}\ln(2)^{1-\beta} &amp; \mbox{ si $1-\beta
+&lt; 0 \iff \beta &gt; 1$} \\
     \end{array}\right..
                 \end{aligned}\]</span></p></li>
 </ul></li>
