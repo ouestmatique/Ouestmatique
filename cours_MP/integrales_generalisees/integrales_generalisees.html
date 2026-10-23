@@ -5321,7 +5321,7 @@ le cas précédent.}}} \xrightarrow[x \to +\infty]{} 0
 \in \mathscr{C}_{\mathrm{m}}\left([a,b],\mathbb{K}\right).\)</span></p>
 <p>Soit <span class="math inline">\(\varepsilon &gt;0,\)</span> par le
 théorème d’approximation uniforme des fonctions continues par morceaux
-par des fonctions en escaliers, il existe <span
+par des fonctions en escalier, il existe <span
 class="math inline">\(g_\varepsilon
 \in  \mathscr{E}\left([a,b],\mathbb{K}\right)\)</span> telle que <span
 class="math inline">\(\left\|g-g_\varepsilon\right\|_{\infty,[a,b]} &lt;
@@ -5338,8 +5338,8 @@ class="math inline">\(\left|\int_a^b g_\varepsilon(t) e^{ixt}dt\right|
             &amp;  = \left|\int_a^b
 \left(g(t)-g_\varepsilon(t)+g_\varepsilon(t) e^{ixt}dt\right)\right| \\
             &amp; \leq \left|\int_a^b \left(g(t)-g_\varepsilon(t)
-e^{ixt}dt\right)\right|+\left|\int_a^b \left(g_\varepsilon(t)
-e^{ixt}dt\right)\right| \\
+e^{ixt}\right)dt\right|+\left|\int_a^b \left(g_\varepsilon(t)
+e^{ixt}\right)dt\right| \\
             &amp; \leq \int_a^b
 \left\|g(t)-g_\varepsilon(t)\right\|_{\infty,[a,b]}\left|
 e^{ixt}\right|dt+\varepsilon\\
@@ -5403,7 +5403,8 @@ f &amp; : &amp; A \times I &amp; \to &amp; E \\
 .\)</span></p>
 <p>Si <span class="math inline">\(\psi_t\)</span> est dérivable en un
 point <span class="math inline">\(a \in A\)</span> alors <span
-class="math inline">\(\psi_t&#39;(a)\)</span> est noté <span
+class="math inline">\(\psi_t&#39;(a) = \underset{y \to a}{\lim}\text{ }
+\frac{f(y,t)-f(a,t)}{y-a}\)</span> est noté <span
 class="math inline">\(\frac{\partial f}{\partial x}(a,t)\)</span> et est
 appelé la dérivée partielle de <span class="math inline">\(f\)</span>
 par rapport à <span class="math inline">\(x\)</span> (ou « sa première
@@ -5504,13 +5505,13 @@ class="math inline">\(\mathscr{C}^1\)</span> sur <span
 class="math inline">\(A\)</span> avec <span
 class="math inline">\(\Psi_t&#39;(z) = \frac{\partial f}{\partial
 x}(z,t)\)</span> pour tout <span class="math inline">\(z \in A.\)</span>
-Donc par inégalité des accroissements finis, tout <span
+Donc par inégalité des accroissements finis, pour tout <span
 class="math inline">\(t \in I,\)</span> pour tout <span
 class="math inline">\(y \neq x \in A,\)</span> <span
 class="math display">\[\left\|u_y(t)\right\|
         = \left\|\frac{\psi_t(y)-\psi_t(x)}{y-x}\right\|
         \leq \sup_{z \in \left[x,y\right]} \left\|\psi&#39;_t(z)\right\|
-        = \leq \sup_{z \in \left[x,y\right]} \left\|\frac{\partial
+        = \sup_{z \in \left[x,y\right]} \left\|\frac{\partial
 f}{\partial x}(z,t)\right\|
          \leq \varphi(t)\]</span> avec <span
 class="math inline">\(\varphi: I \to \mathbb{R}^{+}\)</span> intégrable
@@ -5639,8 +5640,8 @@ intégrable (par la question précédente).</p></li>
 <li><p><span class="math inline">\(x \in \mathbb{R}^{+\star}\mapsto
 f(x,t)\)</span> est de classe <span
 class="math inline">\(\mathscr{C}^1\)</span> de dérivée <span
-class="math inline">\(x \in \mathbb{R}^{+\star}\frac{\partial
-f}{\partial x}(x,t) = -e^{-x(1+t^2)}.\)</span></p></li>
+class="math inline">\(\frac{\partial f}{\partial x}(x,t) =
+-e^{-x(1+t^2)}.\)</span></p></li>
 <li><p>Soit <span class="math inline">\([a,b] \subset
 \mathbb{R}^{+\star}\)</span> alors <span class="math inline">\(a &gt;
 0\)</span> et pour tout <span class="math inline">\(x \in
@@ -5654,7 +5655,7 @@ et telle que <span class="math inline">\(\varphi(t) = \underset{t\to
 comparées car <span class="math inline">\(a &gt; 0.\)</span></p></li>
 </ol>
 <p>Donc <span class="math inline">\(g\)</span> est de classe <span
-class="math inline">\(\mathscr{C}^\infty\)</span> sur <span
+class="math inline">\(\mathscr{C}^1\)</span> sur <span
 class="math inline">\(\mathbb{R}^{+\star}\)</span> avec pour tout <span
 class="math inline">\(x &gt; 0,\)</span> <span
 class="math display">\[g&#39;(x) = -\int_0^{+\infty} e^{-x(1+t^2)}dt =
@@ -5666,13 +5667,13 @@ changement de variable <span class="math inline">\(u=xt^2 \iff t =
 class="math display">\[g&#39;(x)  =
 -\frac{e^{-x}}{2\sqrt{x}}\int_0^{+\infty}\frac{e^{-u}}{\sqrt{u}}du =
 -\Gamma\left(\frac{1}{2}\right)
-\frac{e^{-x}}{2\sqrt{x}}.\]</span></p></li>
+\frac{e^{-x}}{\sqrt{x}}.\]</span></p></li>
 <li><p>D’après l’expression de <span
 class="math inline">\(g&#39;,\)</span> il existe une constante <span
 class="math inline">\(C \in \mathbb{R}\)</span> tel que pour tout <span
 class="math inline">\(x &gt; 0,\)</span> <span
 class="math display">\[g(x) =
-\frac{\Gamma\left(\frac{1}{2}\right)}{2}\int_x^{+\infty}\frac{e^{-t}}{2\sqrt{t}}dt+C.\]</span></p>
+\frac{\Gamma\left(\frac{1}{2}\right)}{2}\int_x^{+\infty}\frac{e^{-t}}{\sqrt{t}}dt+C.\]</span></p>
 <p>Or, d’une part, <span
 class="math inline">\(\int_x^{+\infty}\frac{e^{-t}}{2\sqrt{t}}dt
 \xrightarrow[x \to +\infty]{} 0\)</span> et d’autre part, montrons <span
@@ -5687,12 +5688,12 @@ suffit d’ajouter que pour tout <span class="math inline">\(t \in
 \xrightarrow[x \to +\infty]{} 0\)</span> puis <span
 class="math inline">\(C = 0\)</span> et <span
 class="math display">\[\forall x &gt; 0, g(x) =
-\frac{\Gamma\left(\frac{1}{2}\right)}{2}\int_x^{+\infty}\frac{e^{-t}}{2\sqrt{t}}dt.\]</span></p>
+\frac{\Gamma\left(\frac{1}{2}\right)}{2}\int_x^{+\infty}\frac{e^{-t}}{\sqrt{t}}dt.\]</span></p>
 <p>Pour finir, <span class="math display">\[g(0) = \int_0^{+\infty}
 \frac{dt}{1+t^2} = \left[\mathop{\mathrm{Arctan}}(t)\right]_0^{+\infty}
 = \frac{\pi}{2}\]</span> donc <span class="math display">\[\frac{\pi}{2}
 =
-\frac{\Gamma\left(\frac{1}{2}\right)}{2}\int_0^{+\infty}\frac{e^{-t}}{2\sqrt{t}}dt
+\frac{\Gamma\left(\frac{1}{2}\right)}{2}\int_0^{+\infty}\frac{e^{-t}}{\sqrt{t}}dt
 = \frac{\Gamma\left(\frac{1}{2}\right)^2}{2}\]</span> donc <span
 class="math display">\[\Gamma\left(\frac{1}{2}\right)^2 = \pi \iff
 \Gamma\left(\frac{1}{2}\right) = \sqrt{\pi}.\]</span></p></li>
@@ -5849,7 +5850,6 @@ x^{p-1}}(x,t)\)</span> est de classe <span
 class="math inline">\(\mathscr{C}^1\)</span> de dérivée <span
 class="math inline">\(x \in A \mapsto \frac{\partial^{p} f}{\partial
 x^{p}}(x,t).\)</span></p></li>
-<li></li>
 <li><p>Pour tout <span class="math inline">\(x \in A,\)</span> <span
 class="math inline">\(t \in I \mapsto \frac{\partial^p f}{\partial
 x^p}(x,t)\)</span> est continue par morceaux</p>
@@ -5864,8 +5864,8 @@ class="math display">\[\forall x \in [c,d],  \forall t \in I,
 <p>Donc <span class="math inline">\(g^{(p-1)}\)</span> est de classe
 <span class="math inline">\(\mathscr{C}^1\)</span> avec pour tout <span
 class="math inline">\(x \in A,\)</span> <span
-class="math display">\[g^{(p)}(x) = \int_a^b \frac{\partial^p
-f}{\partial x^p}(x,t)dt.\]</span> Donc <span
+class="math display">\[\left(g^{(p-1)}\right)&#39;(x) = \int_a^b
+\frac{\partial^p f}{\partial x^p}(x,t)dt.\]</span> Donc <span
 class="math inline">\(g\)</span> est de classe <span
 class="math inline">\(\mathscr{C}^{p}\)</span> avec pour tout <span
 class="math inline">\(1 \leq j \leq p,\)</span> pour tout <span
@@ -5969,8 +5969,8 @@ g &amp; : &amp; A &amp; \to &amp; E \\
 class="math inline">\(\mathscr{C}^\infty\)</span> avec pour tout <span
 class="math inline">\(p \in \mathbb{N},\)</span> pour tout <span
 class="math inline">\(x \in A,\)</span> <span
-class="math display">\[g^{(j)}(x) = \int_a^b \frac{\partial^j
-f}{\partial x^j}(x,t)dt.\]</span></p>
+class="math display">\[g^{(p)}(x) = \int_a^b \frac{\partial^p
+f}{\partial x^p}(x,t)dt.\]</span></p>
 </div>
 <div class="wproof">
 <p>Il suffit d’appliquer le théorème <a
@@ -6120,8 +6120,8 @@ class="math inline">\(\Gamma(1) = 0! = 1\)</span> et <span
 class="math inline">\(\Gamma(2) = 1!=1.\)</span></p>
 <p>On en déduit donc par théorème de Rolle qu’il existe <span
 class="math inline">\(c \in \left]1,2\right[\)</span> tel que <span
-class="math inline">\(\Gamma&#39;(c) = 0.\)</span></p>
-<p>On en déduit alors le tableau de variations suivant.</p>
+class="math inline">\(\Gamma&#39;(c) = 0\)</span> et le tableau de
+variations suivant.</p>
 <div class="center">
 <p><img src="table_var_gamma.png" alt="image" /></p>
 </div>
@@ -6160,7 +6160,7 @@ Soit <span class="math inline">\(f : \left]0,+\infty\right[ \to
 \mathbb{C}\)</span> continue par morceaux, on pose <span
 class="math display">\[A = \left\{x \in \mathbb{R}/ t &gt; 0 \mapsto
 e^{-xt}f(t) \text{ est intégrable sur
-$\mathbb{R}^{+\star}$}\right\}\]</span> et on suppose <span
+$\mathbb{R}^{+\star}$}\right\},\]</span> on suppose <span
 class="math inline">\(A \neq \emptyset\)</span> et on rappelle que <span
 class="math inline">\(A\)</span> est un intervalle non majoré de <span
 class="math inline">\(\mathbb{R}.\)</span></p>
@@ -6248,10 +6248,10 @@ intégrable en <span class="math inline">\(+\infty\)</span> et <span
 class="math inline">\(\varphi_p\)</span> aussi.</p></li>
 </ul></li>
 </ol>
-<p>On en déduit que <span class="math inline">\(\mathscr{L}_f\)</span>
-est de classe <span class="math inline">\(\mathscr{C}^\infty\)</span>
-sur <span class="math inline">\(\mathring{A}\)</span> avec pour tout
-<span class="math inline">\(p \in \mathbb{N},\)</span> <span
+<p>On en déduit que <span class="math inline">\(L_f\)</span> est de
+classe <span class="math inline">\(\mathscr{C}^\infty\)</span> sur <span
+class="math inline">\(\mathring{A}\)</span> avec pour tout <span
+class="math inline">\(p \in \mathbb{N},\)</span> <span
 class="math display">\[\forall x \in \mathring{A}, L_f^{(p)}(x) =
 \int_0^{+\infty} \left(-t\right)^p e^{-xt}f(t)dt\]</span></p></li>
 <li><ol>
@@ -6260,7 +6260,7 @@ class="math display">\[\forall x \in \mathring{A}, L_f^{(p)}(x) =
 class="math inline">\(e^{-xt}\frac{\sin t}{t} \underset{t\to 0}{\sim}
 1.\)</span></p>
 <p>De plus, pour <span class="math inline">\(t &gt; 0,\)</span> <span
-class="math inline">\(\left|e^{-xt}\frac{\sin t}{t}\right| = \leq
+class="math inline">\(\left|e^{-xt}\frac{\sin t}{t}\right| \leq
 \frac{e^{-xt}}{t} = \underset{t\to
 +\infty}{o}\left(\frac{1}{t^2}\right)\)</span> par croissances
 comparées.</p></li>
@@ -6333,43 +6333,42 @@ class="math inline">\(u,v\)</span> définies pour <span
 class="math inline">\(t \in \mathbb{R}^{+\star}\)</span> par</p>
 <p><span class="math inline">\(\left\{
             \begin{array}{ll}
-                u(t) &amp; = \Phi(t) \\
-                v(t) &amp; = e^{-xt}\\
+                u(t) &amp; = e^{-xt} \\
+                v(t) &amp; = \Phi(t)\\
             \end{array}\right. \Longrightarrow \left\{
             \begin{array}{ll}
-                u&#39;(t) &amp; = \frac{\sin(t)}{t}\\
-                v&#39;(t) &amp; = -xe^{-xt} \\
+                u&#39;(t) &amp; = -xe^{-xt}\\
+                v&#39;(t) &amp; = \frac{\sin(t)}{t} \\
             \end{array}\right..\)</span> Vérifions l’existence de <span
 class="math inline">\(\left[u(t)v(t)\right]_0^{+\infty}.\)</span> On a
 <span class="math inline">\(\Phi(t) e^{-xt} \xrightarrow[t \to
 +\infty]{} \underset{x \to 0}{\lim}\text{ } \Phi(x).\)</span> Puis,
 <span class="math inline">\(u(t)v(t) = \Phi(t) e^{-xt} \xrightarrow[t
-\to +\infty]{} 0\times \underset{x \to +\infty}{\lim}\text{ } \Phi(x) =
+\to 0]{} 0\times \underset{x \to +\infty}{\lim}\text{ } \Phi(x) =
 0\)</span> donc <span
 class="math inline">\(\left[u(t)v(t)\right]_0^{+\infty}\)</span> existe
 et vaut <span class="math inline">\(-\underset{x \to 0}{\lim}\text{ }
 \Phi(x).\)</span></p>
 <p>On en déduit alors que pour <span class="math inline">\(x &gt;
 0,\)</span> <span class="math display">\[L_f(x)
-             = \underset{x \to 0}{\lim}\text{ } \Phi(x)
+             = -\underset{x \to 0}{\lim}\text{ } \Phi(x)
 +\int_0^{+\infty} xe^{-xt} \Phi(t)dt.\]</span></p>
 <p>Puis, en posant <span class="math inline">\(u = xt\)</span> dans
 l’intégrale, on a <span class="math display">\[L_f(x)
-             = \underset{x \to 0}{\lim}\text{ } \Phi(x)
+             = -\underset{x \to 0}{\lim}\text{ } \Phi(x)
 +\int_0^{+\infty} e^{-u} \Phi\left(\frac{u}{x}\right)du.\]</span></p>
 <p>Pour conclure, montrons maintenant <span
 class="math inline">\(\int_0^{+\infty} e^{-u}
-\Phi\left(\frac{u}{x}\right)du \xrightarrow[x \to +\infty]{}
-\int_0^{+\infty} e^{-u} \left( \underset{x \to +\infty}{\lim}\text{ }
-\Phi(x)\right)du =  \underset{x \to +\infty}{\lim}\text{ }
-\Phi(x)\)</span> à l’aide du théorème de convergence dominée
-(généralisé, Théorème <a href="#thm:CV_generalisée"
-data-reference-type="ref"
+\Phi\left(\frac{u}{x}\right)du \xrightarrow[x \to 0]{} \int_0^{+\infty}
+e^{-u} \left( \underset{x \to +\infty}{\lim}\text{ } \Phi(x)\right)du
+=  \underset{x \to +\infty}{\lim}\text{ } \Phi(x)\)</span> à l’aide du
+théorème de convergence dominée (généralisé, Théorème <a
+href="#thm:CV_generalisée" data-reference-type="ref"
 data-reference="thm:CV_generalisée">[thm:CV_generalisée]</a>).</p>
 <ol>
 <li><p>Pour tout <span class="math inline">\(u \in
 \mathbb{R}^{+\star},\)</span> <span class="math inline">\(e^{-u}
-\Phi\left(\frac{u}{x}\right) \xrightarrow[u \to +\infty]{} e^{-u} \left(
+\Phi\left(\frac{u}{x}\right) \xrightarrow[x \to 0]{} e^{-u} \left(
 \underset{x \to +\infty}{\lim}\text{ } \Phi(x)\right).\)</span></p></li>
 <li><p>Pour tout <span class="math inline">\(u \in
 \mathbb{R}^{+\star},\)</span> pour tout <span class="math inline">\(x
@@ -6383,18 +6382,18 @@ car elle converge en <span class="math inline">\(0,\)</span> converge en
 <span class="math inline">\(+\infty\)</span> et est continue.</p></li>
 </ol>
 <p>On en déduit donc bien <span class="math inline">\(\int_0^{+\infty}
-e^{-u} \Phi\left(\frac{u}{x}\right)du \xrightarrow[x \to +\infty]{}
+e^{-u} \Phi\left(\frac{u}{x}\right)du \xrightarrow[x \to 0]{}
 \int_0^{+\infty} e^{-u} \left( \underset{x \to +\infty}{\lim}\text{ }
 \Phi(x)\right)du =  \underset{x \to +\infty}{\lim}\text{ }
 \Phi(x).\)</span></p>
 <p>Ce qui donne <span class="math inline">\(L_f(x) \xrightarrow[x \to
-+\infty]{} \underset{x \to +\infty}{\lim}\text{ } \Phi(x)-\underset{x
-\to 0}{\lim}\text{ } \Phi(x) = \int_0^{+\infty} \frac{\sin
++\infty]{} \underset{x \to 0}{\lim}\text{ } \Phi(x)-\underset{x \to
+0}{\lim}\text{ } \Phi(x) = \int_0^{+\infty} \frac{\sin
 t}{t}dt.\)</span></p></li>
 </ul>
 <p>On a donc finalement, <span
 class="math display">\[\boxed{\int_0^{+\infty} \frac{\sin t}{t}dt =
-\frac{\pi}{2}.I}\]</span></p></li>
+\frac{\pi}{2}.}\]</span></p></li>
 </ol></li>
 </ol>
 </details>
