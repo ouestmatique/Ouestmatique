@@ -773,14 +773,15 @@ f_n &amp; : &amp; \mathbb{R}^{+} &amp; \to &amp; \mathbb{R} \\
 .\)</span></p>
 <p>Alors, pour <span class="math inline">\(n \in
 \mathbb{N}^{\star},\)</span> <span class="math inline">\(\underset{x \to
-+\infty}{\lim} f_n(x) = 1\)</span> donc <span
++\infty}{\lim}\text{ } f_n(x) = 1\)</span> donc <span
 class="math inline">\(\underset{n \to +\infty}{\lim}\Big(\underset{x \to
-+\infty}{\lim} f_n(x)\Big) = 1.\)</span></p>
++\infty}{\lim}\text{ } f_n(x)\Big) = 1.\)</span></p>
 <p>En revanche, pour <span class="math inline">\(x \in
 \mathbb{R}^{+},\)</span> <span class="math inline">\(\underset{n \to
 +\infty}{\lim} f_n(x)= 0\)</span> puis <span
-class="math inline">\(\underset{x \to +\infty}{\lim}\left(\underset{n
-\to +\infty}{\lim} f_n(x)\right) = 0 \neq 1.\)</span></p></li>
+class="math inline">\(\underset{x \to +\infty}{\lim}\text{
+}\left(\underset{n \to +\infty}{\lim} f_n(x)\right) = 0 \neq
+1.\)</span></p></li>
 <li><p>Pour <span class="math inline">\(n \in
 \mathbb{N}^{\star},\)</span> on pose <span
 class="math inline">\(\begin{array}{lllll}
@@ -790,14 +791,15 @@ f_n &amp; : &amp; \mathbb{R}^{+} &amp; \to &amp; \mathbb{R} \\
 .\)</span></p>
 <p>Alors, pour <span class="math inline">\(n \in
 \mathbb{N}^{\star},\)</span> <span class="math inline">\(\underset{x \to
-+\infty}{\lim} f_n(x) = \sqrt{n}\)</span> donc <span
++\infty}{\lim}\text{ } f_n(x) = \sqrt{n}\)</span> donc <span
 class="math inline">\(\underset{n \to +\infty}{\lim}\Big(\underset{x \to
-+\infty}{\lim} f_n(x)\Big) = +\infty.\)</span></p>
++\infty}{\lim}\text{ } f_n(x)\Big) = +\infty.\)</span></p>
 <p>En revanche, pour <span class="math inline">\(x \in
 \mathbb{R}^{+},\)</span> <span class="math inline">\(\underset{n \to
 +\infty}{\lim} f_n(x)= 0\)</span> puis <span
-class="math inline">\(\underset{x \to +\infty}{\lim}\left(\underset{n
-\to +\infty}{\lim} f_n(x)\right) = 0 \neq +\infty.\)</span></p></li>
+class="math inline">\(\underset{x \to +\infty}{\lim}\text{
+}\left(\underset{n \to +\infty}{\lim} f_n(x)\right) = 0 \neq
++\infty.\)</span></p></li>
 <li><p>Pour <span class="math inline">\(n \in \mathbb{N},\)</span> on
 pose <span class="math inline">\(\begin{array}{lllll}
 f_n &amp; : &amp; [0,1[ &amp; \to &amp; \mathbb{R} \\
@@ -3991,9 +3993,9 @@ class="math inline">\(\left\|f-g_\varepsilon\right\|_{\infty,[a,b]} &lt;
 <p>De plus, par le cas précédent, <span class="math inline">\(\int_a^b
 g_\varepsilon(t) \cos(nt)dt \xrightarrow[n \to +\infty]{} 0\)</span> et
 donc il existe <span class="math inline">\(N \in \mathbb{N}\)</span> tel
-que pour tout <span class="math inline">\(n \in \mathbb{N},\)</span>
-<span class="math inline">\(\left|\int_a^b g_\varepsilon(t)
-\cos(nt)dt\right| \leq \varepsilon.\)</span></p>
+que pour tout <span class="math inline">\(n \geq N,\)</span> <span
+class="math inline">\(\left|\int_a^b g_\varepsilon(t) \cos(nt)dt\right|
+\leq \varepsilon.\)</span></p>
 <p>On a donc pour tout <span class="math inline">\(n \geq N,\)</span>
 <span class="math display">\[\begin{aligned}
             \left|u_n\right|
