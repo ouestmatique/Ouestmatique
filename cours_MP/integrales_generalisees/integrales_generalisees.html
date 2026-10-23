@@ -198,9 +198,10 @@ class="toc-section-number">5.4.3</span> Dérivation</a></li>
 </nav>
 <p>Dans tout le cours, <span
 class="math inline">\((E,\left\|\cdot\right\|)\)</span> désigne un <span
-class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
-finie avec <span class="math inline">\(\mathbb{K}= \mathbb{R}\)</span>
-ou <span class="math inline">\(\mathbb{K}= \mathbb{C}.\)</span></p>
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel normé de
+dimension finie avec <span class="math inline">\(\mathbb{K}=
+\mathbb{R}\)</span> ou <span class="math inline">\(\mathbb{K}=
+\mathbb{C}.\)</span></p>
 <p>Soit <span class="math inline">\(\begin{array}{lllll}
 f &amp; : &amp; I &amp; \to &amp; E \\
    &amp;   &amp; t &amp; \mapsto &amp; f(t)
@@ -209,13 +210,15 @@ MPSI consistait à définir l’intégrale de <span
 class="math inline">\(f\)</span> sur un segment <span
 class="math inline">\(I=[a,b].\)</span> Dans ce chapitre, on étend cette
 définition aux cas où <span class="math display">\[\begin{array}{lll}
-    I &amp; = \left[a,b\right[ &amp; \text{ avec }a &lt; b \in
-\overline{\mathbb{R}} \text{ donc éventuellement $b=+\infty$} \\
-    \text{ ou }I &amp; = \left]a,b\right] &amp; \text{ avec }a &lt; b
-\in \overline{\mathbb{R}} \text{ donc éventuellement $a=-\infty$} \\
-    \text{ ou }I &amp; = \left]a,b\right[ &amp; \text{ avec }a &lt; b
-\in \overline{\mathbb{R}} \text{ donc éventuellement $a=-\infty$ ou
-$b=+\infty$}
+    I &amp; = \left[a,b\right[ \subset \mathbb{R}&amp; \text{ avec }a
+&lt; b \in \overline{\mathbb{R}} \text{ donc éventuellement $b=+\infty$}
+\\
+    \text{ ou }I &amp; = \left]a,b\right] \subset \mathbb{R}&amp; \text{
+avec }a &lt; b \in \overline{\mathbb{R}} \text{ donc éventuellement
+$a=-\infty$} \\
+    \text{ ou }I &amp; = \left]a,b\right[ \subset \mathbb{R}&amp; \text{
+avec }a &lt; b \in \overline{\mathbb{R}} \text{ donc éventuellement
+$a=-\infty$ ou $b=+\infty$}
 \end{array}\]</span></p>
 <h1 data-number="1" id="intégrale-sur-ab"><span
 class="header-section-number">1</span> Intégrale sur <span
@@ -235,10 +238,9 @@ class="math inline">\(\begin{array}{lllll}
    &amp;   &amp; x &amp; \mapsto &amp; \int_a^xf(t)dt
 \end{array}
 .\)</span></p>
-<p>On dit que « l’intégrale sur de <span
-class="math inline">\(f\)</span> sur <span
-class="math inline">\([a,b[\)</span> converge » si la fonction <span
-class="math inline">\(\Phi\)</span> converge quand <span
+<p>On dit que « l’intégrale de <span class="math inline">\(f\)</span>
+sur <span class="math inline">\([a,b[\)</span> converge » si la fonction
+<span class="math inline">\(\Phi\)</span> converge quand <span
 class="math inline">\(x \xrightarrow{} b.\)</span> Dans ce cas, la
 limite de <span class="math inline">\(\Phi\)</span> en <span
 class="math inline">\(b\)</span> est appelée « l’intégrale de <span
@@ -412,20 +414,20 @@ class="header-section-number">1.2</span> Premières propriétés</h2>
 <p><span id="prop:integrale_CV_primitive_aussi"
 label="prop:integrale_CV_primitive_aussi"></span> Soient <span
 class="math inline">\(f : [a,b[\to E\)</span> continue et <span
-class="math inline">\(g\)</span> un primitive de <span
+class="math inline">\(g\)</span> une primitive de <span
 class="math inline">\(f\)</span> sur <span
 class="math inline">\([a,b[.\)</span></p>
 <p>Alors, <span class="math inline">\(\int_a^b f(t)dt\)</span> converge
 <span class="math inline">\(\iff\)</span> <span
-class="math inline">\(g\)</span> admet une limite en <span
+class="math inline">\(g\)</span> admet une limite finie en <span
 class="math inline">\(b.\)</span></p>
 <p>Dans ce cas, <span class="math inline">\(\int_a^b f(t)dt =
-\underset{x \to b}{\lim}\text{ }g(x)-g(x),\)</span> que l’on note <span
+\underset{x \to b}{\lim}\text{ }g(x)-g(a),\)</span> que l’on note <span
 class="math inline">\(\left[g(x)\right]_a^b.\)</span></p>
 </div>
 <div class="wproof">
 <p>Pour <span class="math inline">\(x \in [a,b[,\)</span> <span
-class="math inline">\(\int_a^x f(t)dt = f(x)-g(a)\)</span> d’où la
+class="math inline">\(\int_a^x f(t)dt = g(x)-g(a)\)</span> d’où la
 proposition.</p>
 </div>
 <div class="wcor">
@@ -457,25 +459,26 @@ par morceaux.</p>
             \int_a^b g(t)dt &amp; \text{ converge}
         \end{array}\right\}
         \Longrightarrow
-        \begin{array}{ll}
+        \left\{\begin{array}{ll}
         \int_a^b &amp; \left(\lambda f(t)+\mu g(t)\right)dt \text{
 converge} \\
          \text{ avec }&amp;\int_a^b \left(\lambda f(t)+\mu g(t)\right)dt
 \\
          &amp; = \lambda\int_a^b f(t)dt+\mu\int_a^b g(t)dt.
-        \end{array}\]</span></p></li>
+        \end{array}\right.\]</span></p></li>
 <li><p>Soit <span class="math inline">\(\mathscr{B}=
 (e_1,\ldots,e_n)\)</span> une base de <span
 class="math inline">\(E\)</span> telle que pour tout <span
 class="math inline">\(t \in [a,b[,\)</span> <span
 class="math inline">\(f(t) = f_1(t)e_1+\ldots+f_n(t)e_n\)</span> avec
-<span class="math inline">\(f_i : [a,b[\to \mathbb{K}\)</span> pour
-<span class="math inline">\(1 \leq i \leq n.\)</span></p>
+<span class="math inline">\(f_j : [a,b[\to \mathbb{K}\)</span> pour
+<span class="math inline">\(1 \leq j \leq n.\)</span></p>
 <p>Alors, <span class="math display">\[\int_a^b f(t)dt \text{ converge }
 \iff \forall 1 \leq j \leq n, \int_a^b f_j(t)dt \text{
 converge.}\]</span> De plus, dans ce cas, <span
-class="math inline">\(\int_a^b f(t)dt = \int_a^b
-f_1(t)dte_1+\ldots+\int_a^b f_n(t)dte_n.\)</span></p></li>
+class="math inline">\(\int_a^b f(t)dt = \left(\int_a^b
+f_1(t)dt\right)e_1+\ldots+\left(\int_a^b
+f_n(t)dt\right)e_n.\)</span></p></li>
 <li><p>Soit <span class="math inline">\(F\)</span> un espace vectoriel
 de dimension finie et <span class="math inline">\(u \in
 \mathscr{L}(E,F).\)</span> Alors, <span class="math display">\[\int_a^b
@@ -495,25 +498,26 @@ b,\)</span> <span class="math inline">\(\int_a^b \left(\lambda f(t)+\mu
 g(t)\right)dt
           = \lambda\int_a^b f(t)dt+\mu\int_a^b g(t)dt.\)</span></p></li>
 <li><p>Pour tout <span class="math inline">\(x \in [a,b[,\)</span> <span
-class="math inline">\(\int_a^x f(t)dt = \int_a^x
-f_1(t)dte_1+\ldots+\int_a^x f_n(t)dte_n.\)</span> En tant que fonction
-de <span class="math inline">\([a,b[\)</span> dans <span
-class="math inline">\(E,\)</span> <span class="math inline">\(x \in
-[a,b[\mapsto \int_a^x f(t)dt\)</span> converge en <span
+class="math inline">\(\int_a^x f(t)dt = \left(\int_a^x
+f_1(t)dt\right)e_1+\ldots+\left(\int_a^x f_n(t)dt\right)e_n.\)</span> En
+tant que fonction de <span class="math inline">\([a,b[\)</span> dans
+<span class="math inline">\(E,\)</span> <span class="math inline">\(x
+\in [a,b[\mapsto \int_a^x f(t)dt\)</span> converge en <span
 class="math inline">\(b\)</span> si et seulement si, pour tout <span
 class="math inline">\(1 \leq j \leq n,\)</span> <span
-class="math inline">\(x \in [a,b[\mapsto \int_a^x f_j(t)dt\)</span> avec
+class="math inline">\(x \in [a,b[\mapsto \int_a^x f_j(t)dt\)</span> et
 en cas de convergence, <span class="math inline">\(\int_a^b f(t)dt =
-\int_a^b f_1(t)dte_1+\ldots+\int_a^b f_n(t)dte_n.\)</span></p></li>
+\left(\int_a^b f_1(t)dt\right)e_1+\ldots+\left(\int_a^b
+f_n(t)dt\right)e_n.\)</span></p></li>
 <li><p>Pour <span class="math inline">\(x \in [a,b[,\)</span> <span
 class="math inline">\(\int_a^x u(f(t))dt = u\left(\int_a^x
 f(t)dt\right).\)</span></p>
 <p>De plus, comme <span class="math inline">\(E\)</span> est de
 dimension finie, <span class="math inline">\(u\)</span> est continue
 donc <span class="math display">\[\int_a^b f(t)dt \text{ converge }
-\Longrightarrow \int_a^b u(f(t))dt \text{ converge.}\]</span> De plus,
-dans ce cas, <span class="math inline">\(\int_a^b u(f(t))dt =
-u\left(\int_a^b f(t)dt\right).\)</span></p></li>
+\Longrightarrow \int_a^b u(f(t))dt \text{ converge.}\]</span> et dans ce
+cas, <span class="math inline">\(\int_a^b u(f(t))dt = u\left(\int_a^b
+f(t)dt\right).\)</span></p></li>
 </ul>
 </div>
 <div class="wrem">
@@ -536,7 +540,7 @@ class="math inline">\(\int_a^b \overline{f(t)}dt=\overline{\int_a^b
 f(t)dt}.\)</span></p></li>
 <li><p>Si <span class="math inline">\(\int_a^b f(t)dt\)</span> converge
 et <span class="math inline">\(\int_a^b g(t)dt\)</span> diverge alors
-<span class="math inline">\(\int_a^b \left(f(t)\right)+g(t)dt\)</span>
+<span class="math inline">\(\int_a^b \left(f(t)+g(t)\right)dt\)</span>
 diverge (Sinon, par l’absurde, on aurait <span
 class="math inline">\(\int_a^b g(t)dt = \int_a^b
 \left(g(t)+f(t)-f(t)\right)dt\)</span> qui converge).</p></li>
@@ -850,8 +854,12 @@ class="math display">\[\left(\int_{n_0}^{n} f(t)dt\right)_{n \geq n_0}
 \text{ converge}
     \iff
     \int_{n_0}^{+\infty} f(t)dt \text{ converge.}\]</span></p>
-<p>Comme <span class="math inline">\(f\)</span> est positive, par la
-proposition <a
+<p>Comme <span class="math inline">\(f\)</span> est positive au
+voisinage de <span class="math inline">\(+\infty\)</span>, il existe
+<span class="math inline">\(n_1 \in \mathbb{N}\)</span> tel que <span
+class="math inline">\(f\)</span> est positive sur <span
+class="math inline">\(\left[n_1,+\infty\right[\)</span>. Supposons <span
+class="math inline">\(n_1 =n_0\)</span> et par la proposition <a
 href="#prop:fonction_positive_integrale_partielle_croissante"
 data-reference-type="ref"
 data-reference="prop:fonction_positive_integrale_partielle_croissante">[prop:fonction_positive_integrale_partielle_croissante]</a>,
@@ -933,9 +941,9 @@ class="math inline">\(\int_a^b f(t)dt = \int_a^b
 \left(f^+(t)-f^-(t)\right)dt\)</span> converge.</p></li>
 <li><p>Revenons à <span class="math inline">\(E\)</span> quelconque.</p>
 <p>On considère <span class="math inline">\(\mathscr{B}=
-(e_1,\ldots,e_n)\)</span> une base du <span
-class="math inline">\(\mathbb{R}\)</span>-espace vectoriel quelconque et
-la norme <span
+(e_1,\ldots,e_n)\)</span> une base quelconque du <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel <span
+class="math inline">\(E\)</span> et la norme <span
 class="math inline">\(\left\|\cdot\right\|_{\infty,\mathscr{B}}\)</span>
 sur <span class="math inline">\(E\)</span> telle que <span
 class="math inline">\(\left\|x\right\|_{\infty,\mathscr{B}} = \max_{1
@@ -1011,7 +1019,7 @@ convergente.</p>
 \frac{\sin t}{t^\alpha}dt\)</span> est absolument convergente.</p></li>
 <li><p>Si <span class="math inline">\(0 &lt; \alpha \leq 1,\)</span></p>
 <ul>
-<li><p>commençons par montrer que <span
+<li><p>Commençons par montrer que <span
 class="math inline">\(\int_1^{+\infty} \frac{\sin
 t}{t^\alpha}dt\)</span> est convergente.</p>
 <p>Soit <span class="math inline">\(x \geq 1,\)</span></p>
@@ -1063,7 +1071,7 @@ class="math inline">\(\pi\)</span>-périodique.</p>
 \mathbb{N}^{\star},\)</span> on définit <span
 class="math inline">\(\left(u_n\right)\)</span> tel que <span
 class="math inline">\(u_n = \int_{n\pi}^{(n+1)\pi} \frac{\left|\sin
-t\right|}{t^\alpha}dt\)</span> et <span
+t\right|}{t^\alpha}dt\)</span>. On a alors <span
 class="math display">\[\begin{aligned}
                 u_n
                 &amp; = \int_{n\pi}^{(n+1)\pi} \frac{\left|\sin
@@ -1080,7 +1088,7 @@ t\right|dt \\
                 &amp; =
 \frac{1}{\left(n+1\right)^\alpha\pi^\alpha}\left[-\cos(t)\right]_0^\pi
 \\
-                &amp; = \frac{1}{\left(n+1\right)^\alpha\pi^\alpha}.
+                &amp; = \frac{2}{\left(n+1\right)^\alpha\pi^\alpha}.
                 \end{aligned}\]</span></p></li>
 </ul>
 <p>On en déduit que pour <span class="math inline">\(N \in
@@ -1093,7 +1101,7 @@ t\right|}{t^\alpha}dt \\
 \frac{\left|\sin t\right|}{t^\alpha}dt \\
                 &amp; = \sum_{n=1}^{N-1} u_n.
             \end{aligned}\]</span></p>
-<p>Or, <span class="math inline">\(u_n \sim \frac{1}{\pi^\alpha
+<p>Or, <span class="math inline">\(u_n \sim \frac{2}{\pi^\alpha
 n^\alpha}\)</span> avec <span class="math inline">\(\alpha &lt;
 1\)</span> donc <span class="math inline">\(\sum_{n \geq 1}u_n\)</span>
 est divergente avec <span class="math inline">\(\sum_{n=1}^{N-1} u_n
@@ -1118,7 +1126,7 @@ label="prop:comparaison_asymptotique_pour_CV_integrales"></span> Soient
 <span class="math inline">\(f : [a,b[\to E\)</span> continue par
 morceaux et <span class="math inline">\(g : [a,b[\to F\)</span> continue
 par morceaux avec <span
-class="math inline">\((F,\left\|\cdot\right\|_F)\)</span> <span
+class="math inline">\((F,\left\|\cdot\right\|_F)\)</span> un <span
 class="math inline">\(\mathbb{K}\)</span>-espace vectoriel normé de
 dimension finie.</p>
 <ul>
@@ -1232,12 +1240,12 @@ data-reference="exoc:semi_CV_sin_sur_talpha">[exoc:semi_CV_sin_sur_talpha]</a>).
 \frac{\cos^2 t}{t}dt\)</span> diverge.</p>
 <p>Pour <span class="math inline">\(t \geq 1,\)</span> <span
 class="math inline">\(\frac{\cos^2 t}{t} = \frac{\cos(2t) +1}{2t} =
-\frac{\cos(2t)}{2t} + \frac{1}{t}.\)</span></p>
+\frac{\cos(2t)}{2t} + \frac{1}{2t}.\)</span></p>
 <p>Or, <span class="math inline">\(\int_1^{+\infty}
 \frac{\cos(2t)}{2t}dt\)</span> converge voir l’exercice <a
 href="#exoc:semi_CV_sin_sur_talpha" data-reference-type="ref"
 data-reference="exoc:semi_CV_sin_sur_talpha">[exoc:semi_CV_sin_sur_talpha]</a>)
-et <span class="math inline">\(\int_1^{+\infty} \frac{1}{t}dt\)</span>
+et <span class="math inline">\(\int_1^{+\infty} \frac{1}{2t}dt\)</span>
 diverge donc par le second point de la remarque <a
 href="#rem:somme_CV_integrales" data-reference-type="ref"
 data-reference="rem:somme_CV_integrales">[rem:somme_CV_integrales]</a>,
@@ -1258,7 +1266,7 @@ class="math display">\[\int_a^b g(t)dt \text{ converge} \iff \int_a^b
 f(t)dt \text{ converge}\]</span></p>
 </div>
 <div class="wproof">
-<p><span class="math inline">\({f(t)} \underset{t\to
+<p>Comme <span class="math inline">\({f(t)} \underset{t\to
 b}{\sim}{g(t)},\)</span> <span class="math inline">\(f\)</span> est
 aussi positive au voisinage de <span class="math inline">\(b\)</span>
 donc il existe <span class="math inline">\(c \in [a,b[\)</span> tel que
@@ -1322,7 +1330,7 @@ data-reference="ex:contrex_grandO_CV_non_CVA">[ex:contrex_grandO_CV_non_CVA]</a>
 donc par le second point de la remarque <a
 href="#rem:somme_CV_integrales" data-reference-type="ref"
 data-reference="rem:somme_CV_integrales">[rem:somme_CV_integrales]</a>,
-qs<span class="math inline">\(\int_1^{+\infty}\frac{\cos
+<span class="math inline">\(\int_1^{+\infty}\frac{\cos
 t}{\sqrt{t}}+\frac{\cos^2 t}{t}dt\)</span> diverge.</p>
 </div>
 </div>
@@ -1380,7 +1388,7 @@ class="math display">\[\begin{aligned}
          +\infty &amp; \mbox{ si $1-\beta &gt; 0 \iff \beta &lt; 1$} \\
          \frac{1}{\beta-1}\ln(2)^{1-\beta} &amp; \mbox{ si $1-\beta &lt;
 0 \iff \beta &gt; 1$} \\
-    \end{array}\right.\infty.
+    \end{array}\right.
                 \end{aligned}\]</span></p></li>
 </ul></li>
 </ul>
@@ -1481,7 +1489,7 @@ class="math inline">\({f(t)} \underset{t\to b}{\sim} {g(t)}\)</span>
 alors <span class="math inline">\({f(t)} -g(t) =\underset{t\to
 b}{o}\left(g(t)\right)\)</span> donc par ce qui précède, <span
 class="math inline">\(\int_x^b\left(f(t)-g(t)\right)dt=\int_x^b{f(t)}dt
--\int_x^bg(t)dt =\underset{t\to
+-\int_x^bg(t)dt =\underset{x\to
 b}{o}\left(\int_x^bg(t)dt\right)\)</span></p>
 <p>ie <span class="math inline">\({\int_x^bf(t)dt} \underset{x\to
 b}{\sim} {\int_x^bg(t)dt}.\)</span></p></li>
@@ -1560,7 +1568,7 @@ class="math inline">\({f(t)} \underset{t\to b}{\sim} {g(t)}\)</span>
 alors <span class="math inline">\({f(t)} -g(t) =\underset{t\to
 b}{o}\left(g(t)\right)\)</span> donc par ce qui précède, <span
 class="math inline">\(\int_a^x\left(f(t)-g(t)\right)dt=\int_a^x{f(t)}dt
--\int_a^xg(t)dt =\underset{t\to
+-\int_a^xg(t)dt =\underset{x\to
 b}{o}\left(\int_a^xg(t)dt\right)\)</span></p>
 <p>ie <span class="math inline">\({\int_a^xf(t)dt} \underset{x\to
 b}{\sim} {\int_a^xg(t)dt}.\)</span></p></li>
@@ -1616,7 +1624,7 @@ positives telle que <span class="math inline">\(\int_a^b g(t)dt\)</span>
 diverge. Alors, <span class="math display">\[\frac{\int_a^x
 g(t)f(t)dt}{\int_a^x g(t)dt} \xrightarrow[x \to b]{} \ell.\]</span></p>
 <p>En particulier, en considérant <span class="math inline">\(b =
-+\infty,\)</span> <span class="math inline">\(g : t \in
++\infty\)</span> et <span class="math inline">\(g : t \in
 \left[a,+\infty\right[ \mapsto 1,\)</span> on a <span
 class="math display">\[\frac{1}{x-a}\int_a^x f(t)dt \xrightarrow[x \to
 +\infty]{} \ell.\]</span></p>
@@ -1726,7 +1734,7 @@ f &amp; : &amp; ]a,b] &amp; \to &amp; E \\
 \end{array}\)</span> continue par morceaux, on considère <span
 class="math inline">\(\begin{array}{lllll}
 \Phi &amp; : &amp; ]a,b] &amp; \to &amp; E \\
-   &amp;   &amp; x &amp; \mapsto &amp; \int_x^af(t)dt
+   &amp;   &amp; x &amp; \mapsto &amp; \int_x^bf(t)dt
 \end{array}
 .\)</span></p>
 <p>On dit que « l’intégrale sur de <span
@@ -1791,7 +1799,7 @@ class="math display">\[\int_{x}^1 \frac{dt}{t^\alpha} =
 </ul>
 </div>
 <div class="wrem">
-<p>On a donc aussi pour tout <span class="math inline">\(b \geq
+<p>On a donc aussi pour tout <span class="math inline">\(b &gt;
 0,\)</span> <span class="math display">\[\int_0^b \frac{dt}{t^\alpha}
 \text{ converge } \iff \alpha &lt; 1.\]</span></p>
 </div>
@@ -1799,20 +1807,20 @@ class="math display">\[\int_{x}^1 \frac{dt}{t^\alpha} =
 class="header-section-number">2.2</span> Propriétés similaires au cas
 <span class="math inline">\([a,b[\)</span></h2>
 <p>On présente ici les propriétés déjà démontrées dans le cas <span
-class="math inline">\([a,b[,\)</span> qui s’applique aussi au cas <span
-class="math inline">\(]a,b].\)</span> On ne présente pas les preuves qui
-sont identiques.</p>
+class="math inline">\([a,b[,\)</span> qui s’appliquent aussi au cas
+<span class="math inline">\(]a,b].\)</span> On ne présente pas les
+preuves qui sont identiques.</p>
 <div class="wprop">
 <p><strong>(Similaire à la proposition <a
 href="#prop:integrale_CV_primitive_aussi" data-reference-type="ref"
 data-reference="prop:integrale_CV_primitive_aussi">[prop:integrale_CV_primitive_aussi]</a>)</strong>
 Soient <span class="math inline">\(f : ]a,b]\to E\)</span> continue et
-<span class="math inline">\(g\)</span> un primitive de <span
+<span class="math inline">\(g\)</span> une primitive de <span
 class="math inline">\(f\)</span> sur <span
 class="math inline">\(]a,b].\)</span> Alors, <span
 class="math display">\[\text{$\int_a^b f(t)dt$ converge $\iff$ $g$ admet
 une limite en $a.$}\]</span> Dans ce cas, <span
-class="math inline">\(\int_a^b f(t)dt = g(x)-\underset{x \to
+class="math inline">\(\int_a^b f(t)dt = g(b)-\underset{x \to
 a}{\lim}\text{ }g(x),\)</span> que l’on note <span
 class="math inline">\(\left[g(x)\right]_a^b.\)</span></p>
 </div>
@@ -1840,25 +1848,26 @@ par morceaux.</p>
             \int_a^b g(t)dt &amp; \text{ converge}
         \end{array}\right\}
         \Longrightarrow
-        \begin{array}{ll}
+        \left\{\begin{array}{ll}
         \int_a^b &amp; \left(\lambda f(t)+\mu g(t)\right)dt \text{
 converge} \\
          \text{ avec }&amp;\int_a^b \left(\lambda f(t)+\mu g(t)\right)dt
 \\
          &amp; = \lambda\int_a^b f(t)dt+\mu\int_a^b g(t)dt.
-        \end{array}\]</span></p></li>
+        \end{array}\right.\]</span></p></li>
 <li><p>Soit <span class="math inline">\(\mathscr{B}=
 (e_1,\ldots,e_n)\)</span> une base de <span
 class="math inline">\(E\)</span> telle que pour tout <span
 class="math inline">\(t \in ]a,b],\)</span> <span
 class="math inline">\(f(t) = f_1(t)e_1+\ldots+f_n(t)e_n\)</span> avec
-<span class="math inline">\(f_i : ]a,b]\to \mathbb{K}\)</span> pour
-<span class="math inline">\(1 \leq i \leq n.\)</span></p>
+<span class="math inline">\(f_j : ]a,b]\to \mathbb{K}\)</span> pour
+<span class="math inline">\(1 \leq j \leq n.\)</span></p>
 <p>Alors, <span class="math display">\[\int_a^b f(t)dt \text{ converge }
 \iff \forall 1 \leq j \leq n, \int_a^b f_j(t)dt \text{
 converge.}\]</span> De plus, dans ce cas, <span
-class="math inline">\(\int_a^b f(t)dt = \int_a^b
-f_1(t)dte_1+\ldots+\int_a^b f_n(t)dte_n.\)</span></p></li>
+class="math inline">\(\int_a^b f(t)dt = \left(\int_a^b
+f_1(t)dt\right)e_1+\ldots+\left(\int_a^b
+f_n(t)dt\right)e_n.\)</span></p></li>
 <li><p>Soit <span class="math inline">\(F\)</span> un espace vectoriel
 de dimension finie et <span class="math inline">\(u \in
 \mathscr{L}(E,F).\)</span> Alors, <span class="math display">\[\int_a^b
@@ -1891,7 +1900,7 @@ class="math inline">\(\int_a^b \overline{f(t)}dt=\overline{\int_a^b
 f(t)dt}.\)</span></p></li>
 <li><p>Si <span class="math inline">\(\int_a^b f(t)dt\)</span> converge
 et <span class="math inline">\(\int_a^b g(t)dt\)</span> diverge alors
-<span class="math inline">\(\int_a^b \left(f(t)\right)+g(t)dt\)</span>
+<span class="math inline">\(\int_a^b \left(f(t)+g(t)\right)dt\)</span>
 diverge (Sinon, par l’absurde, on aurait <span
 class="math inline">\(\int_a^b g(t)dt = \int_a^b
 \left(g(t)+f(t)-f(t)\right)dt\)</span> qui converge).</p></li>
@@ -1933,9 +1942,9 @@ href="#prop:reste_tend_vers_zeroasimilaire" data-reference-type="ref"
 data-reference="prop:reste_tend_vers_zeroasimilaire">[prop:reste_tend_vers_zeroasimilaire]</a>)</strong>
 Si de plus, <span class="math inline">\(f\)</span> est continue, la
 fonction <span class="math inline">\(\psi\)</span> définie dans la
-proposition <a href="#prop:reste_tend_vers_zeroabof"
+proposition <a href="#prop:reste_tend_vers_zeroasimilaire"
 data-reference-type="ref"
-data-reference="prop:reste_tend_vers_zeroabof">[prop:reste_tend_vers_zeroabof]</a>
+data-reference="prop:reste_tend_vers_zeroasimilaire">[prop:reste_tend_vers_zeroasimilaire]</a>
 est de classe <span class="math inline">\(\mathscr{C}^1\)</span> et sa
 dérivée est <span class="math inline">\(f.\)</span> C’est la primitive
 de <span class="math inline">\(f\)</span> qui tend vers <span
@@ -2027,10 +2036,8 @@ class="math inline">\(\int_a^b f(t)dt \text{ diverge }
 \Longrightarrow  \int_a^b g(t)dt \text{ diverge.}\)</span>)</p>
 </div>
 <div class="wdefi">
-<p><strong>(Similaire à la définition <a href="#defi:CVA"
-data-reference-type="ref"
-data-reference="defi:CVA">[defi:CVA]</a>)</strong> Soit <span
-class="math inline">\(f: ]a,b]\to E\)</span> continue par morceaux.</p>
+<p>Soit <span class="math inline">\(f: ]a,b]\to E\)</span> continue par
+morceaux.</p>
 <p>On dit que « l’intégrale de <span class="math inline">\(f\)</span>
 sur <span class="math inline">\(]a,b]\)</span> converge absolument » si
 <span class="math inline">\(\int_a^b \left\|f(t)\right\|dt\)</span>
@@ -2088,14 +2095,12 @@ converge pas absolument.</p>
 </div>
 </div>
 <div class="wdefi">
-<p><strong>(Similaire à la définition <a href="#defi:semiCV"
-data-reference-type="ref"
-data-reference="defi:semiCV">[defi:semiCV]</a>)</strong> Soit <span
-class="math inline">\(f: ]a,b]\to E\)</span> continue par morceaux tel
-que <span class="math inline">\(\int_a^bf(t)dt\)</span> converge et
-<span class="math inline">\(\int_a^b\left\|f(t)\right\|dt\)</span> ne
-converge pas, on dit que <span
-class="math inline">\(\int_a^bf(t)dt\)</span> est semi-convergente.</p>
+<p>Soit <span class="math inline">\(f: ]a,b]\to E\)</span> continue par
+morceaux tel que <span class="math inline">\(\int_a^bf(t)dt\)</span>
+converge et <span
+class="math inline">\(\int_a^b\left\|f(t)\right\|dt\)</span> ne converge
+pas, on dit que <span class="math inline">\(\int_a^bf(t)dt\)</span> est
+semi-convergente.</p>
 </div>
 <div class="wprop">
 <p><strong>(Similaire à la proposition <a
@@ -2305,15 +2310,15 @@ class="math inline">\(\left|\frac{\sin\left(\frac{1}{t}\right)}{\sqrt{t}}\right|
 \frac{dt}{\sqrt{t}}\)</span> converge (Intégrale de Riemann en <span
 class="math inline">\(0\)</span> avec <span class="math inline">\(\alpha
 = 1/2\)</span>) donc <span class="math inline">\(\int_0^1
-\frac{\sin\left(\frac{1}{t}\right)}{t\sqrt{t}}dt\)</span> converge (et
-converge même absolument).</p></li>
+\frac{\sin\left(\frac{1}{t}\right)}{t}dt\)</span> converge (et converge
+même absolument).</p></li>
 <li><p>Par croissances comparées, <span class="math inline">\(\ln(t) =
 \underset{t\to 0}{o}\left(\frac{1}{t^{\frac{1}{4}}}\right)\)</span> donc
 <span class="math inline">\(\frac{\ln(t)}{\sqrt{t}} = \underset{t\to
 0}{o}\left(\frac{1}{t^{\frac{3}{4}}}\right).\)</span> Or, <span
 class="math inline">\(\int_0^1 \frac{dt}{t^\frac{3}{4}}\)</span>
 converge (Intégrale de Riemann en <span class="math inline">\(0\)</span>
-avec <span class="math inline">\(\alpha = 3/2\)</span>) donc <span
+avec <span class="math inline">\(\alpha = 3/4\)</span>) donc <span
 class="math inline">\(\int_0^1 \frac{\ln(t)}{\sqrt{t}}dt\)</span>
 converge (et converge même absolument).</p></li>
 <li><p>Soit <span class="math inline">\(f : \left]0,1\right] \to
@@ -2327,7 +2332,7 @@ class="math inline">\(0^+.\)</span></p>
 <p>De plus, en notant <span class="math inline">\(\ell = \underset{t \to
 0^+}{\lim}\text{ } f(t),\)</span> par intégration des relations de
 comparaisons, on a</p>
-<p><span class="math inline">\(f(x) -  \int_0^x f&#39;(t)dt\ell
+<p><span class="math inline">\(f(x) - \ell= \int_0^x f&#39;(t)dt
 \underset{x\to 0^+}{\sim} \int_0^x \frac{dt}{\sqrt{t}} =
 \left[2\sqrt{t}\right]_0^x = 2\sqrt{x}\)</span> donc <span
 class="math inline">\(f(x) = \ell + 2\sqrt{x} + \underset{x\to
@@ -2391,8 +2396,9 @@ t\right)^\beta} = \int_{\ln(x)}^{\ln(1/2)}
 <ul>
 <li><p>Si <span class="math inline">\(\beta = 1,\)</span> <span
 class="math display">\[\int_x^{\frac{1}{2}} \frac{dt}{t \left(\ln
-t\right)^\beta} = \left[\ln(u)\right]_{\ln(x)}^{\ln(1/2)} =
-\ln(\ln(1/2)) -\ln(\ln(x))\xrightarrow[x \to
+t\right)^\beta} = \int_{\ln(x)}^{\ln(1/2)} \frac{du}{u} =
+[\ln(\left|u\right|)]_{\ln(x)}^{\ln(1/2)} = \ln(\ln(1/2))
+-\ln(\left|\ln(x)\right|)\xrightarrow[x \to
 0^+]{}+\infty.\]</span></p></li>
 <li><p>Si <span class="math inline">\(\beta \neq 1,\)</span> <span
 class="math display">\[\begin{aligned}
@@ -2495,7 +2501,7 @@ class="math inline">\(+\infty.\)</span></p>
 class="math inline">\(\int_{-\infty}^{+\infty}tdt\)</span> diverge car
 <span class="math inline">\(\int_{0}^{+\infty}tdt\)</span> diverge.</p>
 </div>
-<p>On définit aussi le convergence absolue et on a encore les mêmes
+<p>On définit aussi la définition de convergence absolue et les mêmes
 propriétés que dans les cas <span class="math inline">\([a,b[\)</span>
 et <span class="math inline">\(]a,b].\)</span></p>
 <h1 data-number="4"
@@ -2505,13 +2511,15 @@ class="header-section-number">4</span> Propriétés communes aux trois cas
 <p>Dans toute cette partie, <span class="math inline">\(I\)</span>
 désigne un intervalle de <span class="math inline">\(\mathbb{R}\)</span>
 tel que <span class="math display">\[\begin{array}{lll}
-    I &amp; = \left[a,b\right[ &amp; \text{ avec }a &lt; b \in
-\overline{\mathbb{R}} \text{ donc éventuellement $b=+\infty$} \\
-\text{ ou }I &amp; = \left]a,b\right] &amp; \text{ avec }a &lt; b \in
-\overline{\mathbb{R}} \text{ donc éventuellement $a=-\infty$} \\
-\text{ ou }I &amp; = \left]a,b\right[ &amp; \text{ avec }a &lt; b \in
-\overline{\mathbb{R}} \text{ donc éventuellement $a=-\infty$ ou
-$b=+\infty$}
+    I &amp; = \left[a,b\right[ \subset \mathbb{R}&amp; \text{ avec }a
+&lt; b \in \overline{\mathbb{R}} \text{ donc éventuellement $b=+\infty$}
+\\
+\text{ ou }I &amp; = \left]a,b\right] \subset \mathbb{R}&amp; \text{
+avec }a &lt; b \in \overline{\mathbb{R}} \text{ donc éventuellement
+$a=-\infty$} \\
+\text{ ou }I &amp; = \left]a,b\right[ \subset \mathbb{R}&amp; \text{
+avec }a &lt; b \in \overline{\mathbb{R}} \text{ donc éventuellement
+$a=-\infty$ ou $b=+\infty$}
 \end{array}\]</span></p>
 <h2 data-number="4.1" id="intégrales-faussement-impropres"><span
 class="header-section-number">4.1</span> Intégrales faussement
@@ -2668,12 +2676,12 @@ class="math inline">\(u,v\)</span> définies pour <span
 class="math inline">\(t \in \mathbb{R}^{+\star}\)</span> telles que</p>
 <p><span class="math inline">\(\left\{
             \begin{array}{ll}
-                u(t) &amp; = -\cos(t) \\
-                v(t) &amp; = \frac{1}{t}\\
+                u(t) &amp; = \frac{1}{t} \\
+                v(t) &amp; =  -\cos(t)\\
             \end{array}\right. \Longrightarrow \left\{
             \begin{array}{ll}
-                u&#39;(t) &amp; = \sin(t)\\
-                v&#39;(t) &amp; = -\frac{1}{t^2} \\
+                u&#39;(t) &amp; =-\frac{1}{t^2} \\
+                v&#39;(t) &amp; = \sin(t) \\
             \end{array}\right..\)</span> Vérifions l’existence de <span
 class="math inline">\(\left[u(t)v(t)\right]_0^{+\infty}.\)</span> On a
 <span class="math inline">\(\left|u(t)v(t)\right| \leq \frac{1}{t}
@@ -2688,12 +2696,12 @@ class="math inline">\(u,v\)</span> définies pour <span
 class="math inline">\(t \in \mathbb{R}^{+\star}\)</span> telles que</p>
 <p><span class="math inline">\(\left\{
             \begin{array}{ll}
-                u(t) &amp; = 1-\cos(t) \\
-                v(t) &amp; = \frac{1}{t}\\
+                u(t) &amp; = \frac{1}{t} \\
+                v(t) &amp; = 1-\cos(t)\\
             \end{array}\right. \Longrightarrow \left\{
             \begin{array}{ll}
-                u&#39;(t) &amp; = \sin(t)\\
-                v&#39;(t) &amp; = -\frac{1}{t^2} \\
+                u&#39;(t) &amp; = -\frac{1}{t^2}\\
+                v&#39;(t) &amp; = \sin(t) \\
             \end{array}\right..\)</span> Vérifions l’existence de <span
 class="math inline">\(\left[u(t)v(t)\right]_0^{+\infty}.\)</span> On a
 <span class="math inline">\(\left|u(t)v(t)\right| \leq \frac{2}{t}
@@ -2763,13 +2771,13 @@ class="math inline">\(u,v\)</span> définies pour <span
 class="math inline">\(t \in \mathbb{R}^{+\star}\)</span> telles que</p>
 <p><span class="math inline">\(\left\{
             \begin{array}{ll}
-                u(t) &amp; = \frac{1}{x}
+                u(t) &amp; =e^{-t} \\
+                v(t) &amp; = \frac{1}{x}
                 t^{x} \\
-                v(t) &amp; = e^{-t}\\
             \end{array}\right. \Longrightarrow \left\{
             \begin{array}{ll}
-                u&#39;(t) &amp; = t^{x-1}\\
-                v&#39;(t) &amp; = -e^{-t} \\
+                u&#39;(t) &amp; =-e^{-t} \\
+                v&#39;(t) &amp; = t^{x-1} \\
             \end{array}\right..\)</span> On a <span
 class="math inline">\(u(t)v(t) = \frac{1}{x}
                 t^{x}e^{-t} \xrightarrow[t \to 0]{} 0\)</span> car <span
@@ -2790,7 +2798,7 @@ x\Gamma(x).\]</span></p></li>
 <li><p><span class="math inline">\(\Gamma(2) = \Gamma(1+1) = 1\times
 \Gamma(1) = 1 = 1!,\)</span></p></li>
 <li><p><span class="math inline">\(\Gamma(3) = \Gamma(2+1) = 2\times
-\Gamma(1) = 2=3!,\)</span></p></li>
+\Gamma(1) = 2=2!,\)</span></p></li>
 <li><p><span class="math inline">\(\vdots\)</span></p></li>
 </ul>
 <p>et on peut donc montrer par récurrence que pour tout <span
@@ -2854,7 +2862,7 @@ class="math inline">\(\int_x^1  \frac{e^{-t}}{t}dt = -\ln(x) +
 class="math inline">\(\int_1^{+\infty} \frac{e^{-t}}{t}dt =
 \underset{x\to 0^{+}}{o}\left(\ln(x)\right).\)</span></p>
 <p>Finalement, <span class="math inline">\(\Phi(x) =  -\ln(x) +
-\underset{x\to 0^{+}}{o} \underset{x\to
+\underset{x\to 0^{+}}{o}\left(\ln(x)\right) \underset{x\to
 0^+}{\sim}-\ln(x).\)</span></p></li>
 <li><p>Soit <span class="math inline">\(x \in
 \mathbb{R}^{+\star},\)</span> menons une intégration par parties sur
@@ -2892,10 +2900,10 @@ relations de comparaison, <span class="math inline">\(\int_x^{+\infty}
 \Phi(x)\)</span> ie <span class="math inline">\(\Phi(x) \underset{x\to
 +\infty}{\sim} \frac{e^{-x}}{x}.\)</span></p></li>
 <li><p>Par la question précédente, on a <span
-class="math inline">\(\Phi(x) \frac{e^{-x}}{x}+\underset{x\to
+class="math inline">\(\Phi(x) = \frac{e^{-x}}{x}+\underset{x\to
 +\infty}{o}\left(\frac{e^{-x}}{x}\right).\)</span></p>
-<p>Plus précisément, on a obtenu pour <span class="math inline">\(x \geq
-1,\)</span> <span class="math inline">\(\Phi(x)
+<p>Plus précisément, on a obtenu pour <span class="math inline">\(x
+&gt;0,\)</span> <span class="math inline">\(\Phi(x)
 =\frac{e^{-x}}{x}-\int_x^{+\infty} \frac{e^{-t}}{t^2}dt.\)</span></p>
 <p>En faisant de nouveau une intégration par parties avec avec <span
 class="math inline">\(u,v\)</span> définies pour <span
@@ -2955,6 +2963,8 @@ class="math inline">\(J = \left[c,d\right[, \left]c,d\right]\)</span> ou
 <span class="math inline">\(\left]c,d\right[\)</span> avec <span
 class="math inline">\(c &lt; d \in
 \overline{\mathbb{R}}.\)</span></p></li>
+<li><p>Soit <span class="math inline">\(f : J \to E\)</span>,
+<u>continue.</u></p></li>
 <li><p>Soit <span class="math inline">\(\begin{array}{lllll}
 \varphi &amp; : &amp; I &amp; \to &amp; J \\
    &amp;   &amp; x &amp; \mapsto &amp; \varphi(x)
@@ -2996,20 +3006,20 @@ class="math inline">\(J =
 class="math inline">\(\varphi\)</span> est décroissante donc <span
 class="math inline">\(J =
 \left[\underset{b}{\lim}\varphi,\underset{a}{\lim}\varphi\right[  =
-\left[d,c\right[,\)</span></p></li>
+\left[c,d\right[,\)</span></p></li>
 <li><p><span class="math inline">\(I = ]a,b]\)</span> et <span
 class="math inline">\(\varphi\)</span> est décroissante donc <span
 class="math inline">\(J =
 \left]\underset{b}{\lim}\varphi,\underset{a}{\lim}\varphi\right] =
-\left]d,c\right],\)</span></p></li>
+\left]c,d\right],\)</span></p></li>
 <li><p><span class="math inline">\(I = ]a,b[\)</span> et <span
 class="math inline">\(\varphi\)</span> est décroissante donc <span
 class="math inline">\(J =
 \left]\underset{b}{\lim}\varphi,\underset{a}{\lim}\varphi\right[ =
-\left]d,c\right[.\)</span></p></li>
+\left]c,d\right[.\)</span></p></li>
 </ul>
-<p>On ne traite que le cas mais la preuve est similaire dans les autres
-cas.</p>
+<p>On ne traite que le dernier cas mais la preuve est similaire dans les
+autres cas.</p>
 <ul>
 <li><p><span class="math inline">\((\Longleftarrow).\)</span> On suppose
 que <span class="math inline">\(\int_a^b \left(f\circ \varphi\right)(t)
@@ -3405,7 +3415,7 @@ class="math inline">\((\left|a\right|-\left|b\right|)^2 \geq 0
 class="math inline">\(\left|f(t)g(t)\right| \leq
 \frac{1}{2}\left(\left|f(t)\right|^2+\left|g(t)\right|^2\right)\)</span></p>
 <p>puis <span class="math inline">\(\int_a^b \left|f(t)g(t)\right|dt
-\frac{1}{2}\int_a^b \left|f(t)\right|^2dt +\frac{1}{2}\int_a^b
+\leq \frac{1}{2}\int_a^b \left|f(t)\right|^2dt +\frac{1}{2}\int_a^b
 \left|g(t)\right|^2dt &lt; +\infty\)</span> et <span
 class="math inline">\(fg \in \mathrm{L}^1(I,\mathbb{K}).\)</span></p>
 </div>
@@ -3626,17 +3636,17 @@ mais <span class="math inline">\(\notin
 exemple,</p>
 <ul>
 <li><p><span class="math inline">\(t \in \left]0,1\right] \mapsto
-\frac{1}{t^{1/4}} \in \mathrm{L}^1(\left]0,1\right],\mathbb{R})\)</span>
+\frac{1}{t^{1/4}} \in \mathrm{L}^2(\left]0,1\right],\mathbb{R})\)</span>
 mais <span class="math inline">\(\notin
 \mathrm{L}^\infty(\left]0,1\right],\mathbb{R}).\)</span></p></li>
 <li><p><span class="math inline">\(t \in \left[0,1\right[ \mapsto
 \frac{1}{\left(1-t\right)^{1/4}} \in
-\mathrm{L}^1(\left[0,1\right[,\mathbb{R})\)</span> mais <span
+\mathrm{L}^2(\left[0,1\right[,\mathbb{R})\)</span> mais <span
 class="math inline">\(\notin
 \mathrm{L}^\infty(\left[0,1\right[,\mathbb{R}).\)</span></p></li>
 <li><p><span class="math inline">\(t \in \left]0,1\right[ \mapsto
 \frac{1}{\left(t(1-t)\right)^{1/4}} \in
-\mathrm{L}^1(\left]0,1\right[,\mathbb{R})\)</span> mais <span
+\mathrm{L}^2(\left]0,1\right[,\mathbb{R})\)</span> mais <span
 class="math inline">\(\notin
 \mathrm{L}^\infty(\left]0,1\right[,\mathbb{R}).\)</span></p></li>
 </ul></li>
@@ -3674,15 +3684,17 @@ class="header-section-number">5</span> Théorèmes de convergence</h1>
 <p>Dans toute cette partie, <span class="math inline">\(I\)</span>
 désigne un intervalle de <span class="math inline">\(\mathbb{R}\)</span>
 tel que <span class="math display">\[\begin{array}{lll}
-I &amp; = \left[a,b\right] &amp; \text{ avec }a &lt; b \in
-{\mathbb{R}}  \\
-    \text{ ou }I &amp; = \left[a,b\right[ &amp; \text{ avec }a &lt; b
-\in \overline{\mathbb{R}} \text{ donc éventuellement $b=+\infty$} \\
-    \text{ ou }I &amp; = \left]a,b\right] &amp; \text{ avec }a &lt; b
-\in \overline{\mathbb{R}} \text{ donc éventuellement $a=-\infty$} \\
-    \text{ ou }I &amp; = \left]a,b\right[ &amp; \text{ avec }a &lt; b
-\in \overline{\mathbb{R}} \text{ donc éventuellement $a=-\infty$ ou
-$b=+\infty$}
+I &amp; = \left[a,b\right] \subset \mathbb{R}&amp; \text{ avec }a &lt; b
+\in {\mathbb{R}}  \\
+    \text{ ou }I &amp; = \left[a,b\right[ \subset \mathbb{R}&amp; \text{
+avec }a &lt; b \in \overline{\mathbb{R}} \text{ donc éventuellement
+$b=+\infty$} \\
+    \text{ ou }I &amp; = \left]a,b\right] \subset \mathbb{R}&amp; \text{
+avec }a &lt; b \in \overline{\mathbb{R}} \text{ donc éventuellement
+$a=-\infty$} \\
+    \text{ ou }I &amp; = \left]a,b\right[ \subset \mathbb{R}&amp; \text{
+avec }a &lt; b \in \overline{\mathbb{R}} \text{ donc éventuellement
+$a=-\infty$ ou $b=+\infty$}
 \end{array}\]</span></p>
 <h2 data-number="5.1" id="introduction"><span
 class="header-section-number">5.1</span> Introduction</h2>
@@ -3929,7 +3941,7 @@ f_x(t) dt \xrightarrow[x \to a]{} \int_I f(t)dt.\]</span></p>
 <div class="wproof">
 <p>D’abord, on a l’intégrabilité sur <span
 class="math inline">\(I\)</span> des fonctions <span
-class="math inline">\(f_x\)</span> pour <span class="math inline">\(n
+class="math inline">\(f_x\)</span> pour <span class="math inline">\(x
 \in A\)</span> via <span class="math display">\[\forall x \in A, \forall
 t \in I, \left\|f_n(t)\right\| \leq \varphi(t)\]</span> avec <span
 class="math inline">\(\varphi: I \to \mathbb{R}^{+}\)</span>
@@ -4070,13 +4082,13 @@ t\right)^n dt.\)</span></p>
 quand <span class="math inline">\(n \xrightarrow{}
 +\infty.\)</span></p></li>
 <li><p>Pour <span class="math inline">\(n \in \mathbb{N},\)</span> on
-sidère <span class="math inline">\(x_n = \sqrt{n}u_n.\)</span>
-Déterminer la limite de <span class="math inline">\(x_n \xrightarrow[n
-\to +\infty]{} \int_0^{+\infty}e^{-\frac{x^2}{2}}dx.\)</span></p></li>
+considère <span class="math inline">\(x_n = \sqrt{n}u_n.\)</span>
+Montrer <span class="math inline">\(x_n \xrightarrow[n \to +\infty]{}
+\int_0^{+\infty}e^{-\frac{x^2}{2}}dx.\)</span></p></li>
 <li><p>On admet <span class="math inline">\(u_n \underset{n\to
 +\infty}{\sim} \sqrt{\frac{\pi}{2n}}\)</span> (que l’on peut montrer par
-le calcul des <span class="math inline">\(\left(u_n\right)\)</span> qui
-est la suite des intégrables de Wallis). En déduire la valeur de <span
+le calcul de <span class="math inline">\(\left(u_n\right)\)</span> qui
+est la suite des intégrales de Wallis). En déduire la valeur de <span
 class="math inline">\(\Gamma\left(\frac{1}{2}\right)\)</span> (voir
 l’exercice <a href="#exoc:premier_exo_Gamma" data-reference-type="ref"
 data-reference="exoc:premier_exo_Gamma">[exoc:premier_exo_Gamma]</a>
@@ -4134,7 +4146,7 @@ class="math inline">\(\left(\cos
 class="math inline">\(\ln(x) \underset{x\to 1}{\sim} x-1\)</span> donc
 <span class="math inline">\(\ln\left(\cos
 \left(\frac{u}{\sqrt{n}}\right)\right)\underset{n\to +\infty}{\sim} \cos
-\left(\frac{u}{\sqrt{n}}\right).\)</span></p>
+\left(\frac{u}{\sqrt{n}}\right)-1.\)</span></p>
 <p>De plus, <span class="math inline">\(\cos
 \left(\frac{u}{\sqrt{n}}\right) -1\underset{n\to
 +\infty}{\sim}-\frac{1}{2}\frac{u^2}{n}\)</span> donc <span
@@ -4149,7 +4161,7 @@ class="math inline">\(n\ln\left(\cos
 e^{-\frac{u^2}{2}}.\)</span></p>
 <p>Seulement, un détail ne rentre pas dans l’énoncé du théorème de
 convergence dominée : les bornes dépendent de <span
-class="math inline">\(n.\)</span> Pour surmonter de problème, on
+class="math inline">\(n.\)</span> Pour surmonter ce problème, on
 considère <span class="math inline">\(\begin{array}{lllll}
 f_n &amp; : &amp; \mathbb{R}^{+} &amp; \to &amp; \mathbb{R} \\
    &amp;   &amp; u &amp; \mapsto &amp; \left\{\begin{array}{ll}
@@ -4334,9 +4346,9 @@ domination.</p></li>
 <p>Donc <u>dans le cas <span class="math inline">\(x &gt;
 1\)</span></u>, par théorème de convergence dominée, <span
 class="math display">\[u_n(x) \xrightarrow[n \to +\infty]{}
-\int_0^{+\infty} e^{(1-x)}t^3dt.\]</span> Puis, en faisant le changement
-de variable <span class="math inline">\(u = (x-1)t,\)</span> <span
-class="math display">\[\int_0^{+\infty} e^{(1-x)}t^3dt =
+\int_0^{+\infty} e^{(1-x)t}t^3dt.\]</span> Puis, en faisant le
+changement de variable <span class="math inline">\(u = (x-1)t,\)</span>
+<span class="math display">\[\int_0^{+\infty} e^{(1-x)t}t^3dt =
              \int_0^{+\infty} e^{-u} \frac{u^3}{\left(x-1\right)^3}
 \frac{du}{\left(x-1\right)^3}
               = \frac{\Gamma(4)}{(x-1)^4} = \frac{3!}{(x-1)^4} =
@@ -4408,8 +4420,8 @@ class="math inline">\(\left|\alpha_n(B) - \alpha(B)\right| \leq 1
 \Longrightarrow \alpha_n(B) \geq \alpha(B)-1 \geq A.\)</span></p>
 <p>Donc, pour tout <span class="math inline">\(n \geq N,\)</span> <span
 class="math display">\[u_n(x) \geq A\]</span> et finalement, <span
-class="math inline">\(u_n(x) \xrightarrow[n \to +\infty]{}
-\int_0^{+\infty} +\infty.\)</span></p></li>
+class="math inline">\(u_n(x) \xrightarrow[n \to
++\infty]{}  +\infty.\)</span></p></li>
 </ul>
 <p>On en déduit <span class="math display">\[u_n(x) \xrightarrow[n \to
 +\infty]{}
@@ -4502,7 +4514,7 @@ Fubini-Lebesgue.</p>
 class="math inline">\(\left]0,1\right[\)</span> (continue en <span
 class="math inline">\(1\)</span> et <span
 class="math inline">\(=\underset{t\to
-0}{o}\left(\frac{1}{\sqrt{t}}\right).\)</span></p></li>
+0}{o}\left(\frac{1}{\sqrt{t}}\right)).\)</span></p></li>
 <li><p><span class="math inline">\(\sum_{n \geq 0} f_n\)</span> converge
 simplement vers <span class="math inline">\(t \mapsto
 \frac{1}{1-t}\)</span> sur <span
@@ -4525,9 +4537,9 @@ class="math inline">\(t \in \left[0,1\right]\)</span> telles que</p>
 class="math inline">\(u(t)v(t) = \frac{\ln t}{n+1}t^{n+1} \xrightarrow[t
 \to 0]{} 0\)</span> par croissances comparées et <span
 class="math inline">\(u(t)v(t) =  \frac{\ln
-t}{n+1}t^{n+1}  \xrightarrow[t \to 1]{} u(1)v(1) = 1\)</span> par donc
-<span class="math inline">\(\left[u(t)v(t)\right]_0^{1}\)</span> existe
-et vaut <span class="math inline">\(0.\)</span></p>
+t}{n+1}t^{n+1}  \xrightarrow[t \to 1]{} u(1)v(1) = 1\)</span> donc <span
+class="math inline">\(\left[u(t)v(t)\right]_0^{1}\)</span> existe et
+vaut <span class="math inline">\(0.\)</span></p>
 <p>On en déduit <span class="math display">\[\int_0^1 t^n \ln t dt =
 -\frac{1}{n+1}\int_{0}^{1} t^{n}dt = -\frac{1}{(n+1)^2}.\]</span></p>
 <p>On a donc <span class="math inline">\(\int_0^1 \left|t^n \ln t
@@ -4596,7 +4608,7 @@ Fubini-Lebesgue.</p>
 class="math inline">\(\left]0,+\infty\right[\)</span> (continue en <span
 class="math inline">\(0\)</span> et <span
 class="math inline">\(=\underset{t\to
-+\infty}{o}\left(\frac{1}{t^2}\right).\)</span></p></li>
++\infty}{o}\left(\frac{1}{t^2}\right)).\)</span></p></li>
 <li><p><span class="math inline">\(\sum_{n \geq 0} f_n\)</span> converge
 simplement vers <span class="math inline">\(t \mapsto
 \frac{t^\alpha}{e^t} \frac{1}{1-e^{-t}} =
@@ -4626,7 +4638,7 @@ t^\alpha e^{-(n+1)t}dt
 </div>
 <div class="wexoc">
 <p>On considère <span class="math inline">\(\begin{array}{lllll}
-f &amp; : &amp; \left[-\infty,1\right[ &amp; \to &amp; \mathbb{R} \\
+f &amp; : &amp; \left]-\infty,1\right[ &amp; \to &amp; \mathbb{R} \\
    &amp;   &amp; x &amp; \mapsto &amp; \int_0^{+\infty}
 \frac{e^{xt}}{e^t+1}dt
 \end{array}
@@ -4635,8 +4647,8 @@ f &amp; : &amp; \left[-\infty,1\right[ &amp; \to &amp; \mathbb{R} \\
 en série entière en <span class="math inline">\(0.\)</span></p>
 <details><summary>Corrigé</summary>
 <p>D’abord, <span class="math inline">\(f\)</span> existe bien sur <span
-class="math inline">\(\left[-\infty,1\right[.\)</span> En effet, soit
-<span class="math inline">\(x \in \left[-\infty,1\right[.\)</span></p>
+class="math inline">\(\left]-\infty,1\right[.\)</span> En effet, soit
+<span class="math inline">\(x \in \left]-\infty,1\right[.\)</span></p>
 <ul>
 <li><p><u>En 0,</u> <span class="math inline">\(t \in
 \mathbb{R}^{+}\mapsto \frac{e^{xt}}{e^t+1}\)</span> est
@@ -4648,7 +4660,7 @@ e^{(x-1)t} = \underset{t\to +\infty}{o}
 class="math inline">\(x-1 &lt; 0.\)</span></p></li>
 </ul>
 <p>De plus, soit <span class="math inline">\(x \in
-\left[-\infty,1\right[,\)</span> <span class="math display">\[f(x) =
+\left]-\infty,1\right[,\)</span> <span class="math display">\[f(x) =
 \int_0^{+\infty}\frac{e^{xt}}{e^t+1}dt =
 \int_0^{+\infty}\sum_{n=0}^{+\infty}
 \frac{x^nt^n}{n!(e^t+1)}dt.\]</span> On cherche donc à faire une
@@ -4729,7 +4741,7 @@ class="math inline">\(\gamma \in ]1-a,1[\)</span> par croissances
 comparées.</p></li>
 <li><p><u>En <span class="math inline">\(+\infty,\)</span></u> <span
 class="math inline">\(f_n(t) = \underset{t\to +\infty}{o}
-\left(\frac{1}{t^2}\right)\)</span> par croissances comparées).</p></li>
+\left(\frac{1}{t^2}\right)\)</span> par croissances comparées.</p></li>
 </ul></li>
 <li><p><span class="math inline">\(\sum_{n \geq 0} f_n\)</span> converge
 simplement vers <span class="math inline">\(t \mapsto
@@ -4766,8 +4778,8 @@ e^{-t} = \frac{ e^{-t} }{t^{1-a+\left|h\right|}}\underset{t\to 0}{\sim}
 \frac{ e^{-t} }{t^{1-a+\left|h\right|}}\)</span> donc <span
 class="math inline">\(\varphi\)</span> est intégrable au voisinage de
 <span class="math inline">\(0\)</span> si et seulement si <span
-class="math inline">\(1-a+\left|h\right| &lt; 1 \iff \left|(\right|h)
-&lt; a.\)</span> <u>En <span class="math inline">\(+\infty,\)</span></u>
+class="math inline">\(1-a+\left|h\right| &lt; 1 \iff \left|h\right| &lt;
+a.\)</span> <u>En <span class="math inline">\(+\infty,\)</span></u>
 <span class="math inline">\(\varphi(t) = \underset{t\to
 +\infty}{o}\left(\frac{1}{t^2}\right)\)</span> par croissances
 comparées.</p></li>
@@ -4846,8 +4858,8 @@ class="math display">\[\forall x \in A, \forall t \in I,
 g &amp; : &amp; A &amp; \to &amp; E \\
    &amp;   &amp; x &amp; \mapsto &amp; \int_a^b f(x,t)dt
 \end{array}\)</span> est continue. <span
-class="math display">\[\left(\text{ ie }\forall y \in A, \int_a^b
-f(x,t)dt \xrightarrow[y \to x]{} \int_a^b f(x,t)dt.\right)\]</span></p>
+class="math display">\[\left(\text{ ie }\forall x \in A, \int_a^b
+f(y,t)dt \xrightarrow[y \to x]{} \int_a^b f(x,t)dt.\right)\]</span></p>
 </div>
 <div class="wproof">
 <p>Soit <span class="math inline">\(z \in A\)</span> et <span
@@ -4969,7 +4981,7 @@ class="math inline">\(\alpha &gt; 0.\)</span></p>
 \mathop{\mathrm{Re}}(z) = \max_{z\in B} \mathop{\mathrm{Re}}(z)\)</span>
 car <span class="math inline">\(z \mapsto
 \mathop{\mathrm{Re}}(z)\)</span> est continue et <span
-class="math inline">\(B\)</span> est un compact. De plus, <span
+class="math inline">\(B\)</span> est un compact. On a aussi <span
 class="math inline">\(\beta \geq \alpha &gt; 0.\)</span></p>
 <p>De plus, pour tout <span class="math inline">\(z \in B,\)</span> pour
 tout <span class="math inline">\(t \in \mathbb{R}^{+\star},\)</span>
@@ -5105,8 +5117,7 @@ class="math inline">\(\frac{e^{—xt}}{\sqrt{t}}= \underset{t\to
 comparées.</p></li>
 <li><p>Si <span class="math inline">\(x \leq 0,\)</span> <span
 class="math inline">\(\frac{1}{\sqrt{t}} = \underset{t\to
-+\infty}{O}\left(\frac{e^{—xt}}{\sqrt{t}}\right)\)</span> par
-croissances comparées.</p></li>
++\infty}{O}\left(\frac{e^{—xt}}{\sqrt{t}}\right)\)</span>.</p></li>
 </ul></li>
 </ul>
 <p>Donc <span class="math inline">\(A =
@@ -5223,6 +5234,7 @@ bornée.</p></li>
 <li><p>Montrer que <span class="math inline">\(\widehat{f}(x)
 \xrightarrow[x \to +\infty]{} 0.\)</span></p></li>
 </ol>
+<details><summary>Corrigé</summary>
 <ol>
 <li><p>Pour <span class="math inline">\(x \in \mathbb{R},\)</span> <span
 class="math inline">\(t \in \mathbb{R}\mapsto e^{ixt}f(t)\)</span> est
@@ -5368,6 +5380,7 @@ e^{ixt}f(t)dt\right|+\int_{b}^{+\infty} \left|f(t)\right|dt \\
 <p>Donc <span class="math inline">\(\widehat{f}(x) \xrightarrow[x \to
 +\infty]{} 0.\)</span></p></li>
 </ol>
+</details>
 </div>
 <h3 data-number="5.4.3" id="dérivation"><span
 class="header-section-number">5.4.3</span> Dérivation</h3>
