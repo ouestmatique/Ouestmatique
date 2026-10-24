@@ -2963,14 +2963,6 @@ class="math inline">\(\int_x^{+\infty} \frac{e^{-t}}{t^2}dt
 class="header-section-number">4.3</span> Changement de variable</h2>
 <div class="wprop">
 <ul>
-<li><p>Soient <span class="math inline">\(J\)</span> un autre intervalle
-de <span class="math inline">\(\mathbb{R}\)</span> tel que <span
-class="math inline">\(J = \left[c,d\right[, \left]c,d\right]\)</span> ou
-<span class="math inline">\(\left]c,d\right[\)</span> avec <span
-class="math inline">\(c &lt; d \in
-\overline{\mathbb{R}}.\)</span></p></li>
-<li><p>Soit <span class="math inline">\(f : J \to E\)</span>,
-<u>continue.</u></p></li>
 <li><p>Soit <span class="math inline">\(\begin{array}{lllll}
 \varphi &amp; : &amp; I &amp; \to &amp; J \\
    &amp;   &amp; x &amp; \mapsto &amp; \varphi(x)
@@ -2979,6 +2971,15 @@ class="math inline">\(c &lt; d \in
             \text{(une fonction strictement monotone)}
         \end{array}\)</span> de classe <span
 class="math inline">\(\mathscr{C}^1.\)</span></p></li>
+<li><p>Alors, <span class="math inline">\(J\)</span> est un autre
+intervalle de <span class="math inline">\(\mathbb{R}\)</span> tel que
+<span class="math inline">\(J = \left[c,d\right[,
+\left]c,d\right]\)</span> ou <span
+class="math inline">\(\left]c,d\right[\)</span> avec <span
+class="math inline">\(c &lt; d \in
+\overline{\mathbb{R}}.\)</span></p></li>
+<li><p>Soit <span class="math inline">\(f : J = \varphi(I) \to
+E\)</span>, <u>continue.</u></p></li>
 </ul>
 <p>Alors, <span class="math display">\[\int_c^d f(x)dx \text{ converge }
 \iff \int_a^b \left(f\circ \varphi\right)(t) \varphi&#39;(t)dt \text{
@@ -3036,25 +3037,34 @@ veut montrer que <span class="math inline">\(\int_c^m f(x)dx\)</span> et
 <p>Soit <span class="math inline">\(X \in \left]c,m\right[.\)</span> Par
 changement de variable sur <span
 class="math inline">\(\left[X,m\right]\)</span> (avec <span
-class="math inline">\(x =\varphi(t)\)</span>), <span
-class="math display">\[\int_X^m f(x)dx =
-\int_{\varphi^{-1}(X)}^{\varphi^{-1}(m)} \left(f\circ \varphi\right)(t)
-\varphi&#39;(t)dt = -\int^{\varphi^{-1}(X)}_{\varphi^{-1}(m)}
-\left(f\circ \varphi\right)(t) \varphi&#39;(t)dt.\]</span></p>
+class="math inline">\(x =\varphi(t) \iff t = \varphi^{-1}(x)\)</span>),
+<span class="math display">\[\begin{array}{c}
+             \int_X^m f(x)dx = \int_{\varphi^{-1}(X)}^{\varphi^{-1}(m)}
+\left(f\circ \varphi\right)(t) \varphi&#39;(t)dt =
+-\int^{\varphi^{-1}(X)}_{\varphi^{-1}(m)} \left(f\circ \varphi\right)(t)
+\varphi&#39;(t)dt. \\
+             \left(\text{$\varphi^{-1}(m) &lt; \varphi^{-1}(X)$ car
+$\varphi$ est de même monotonie que $\varphi$ donc décroissante
+ici.}\right)
+            \end{array}\]</span></p>
 <p>Or,</p>
 <ul>
-<li><p><span class="math inline">\(\varphi^{-1}\)</span> est continue
-(voir cours de MPSI),</p></li>
 <li><p><span class="math inline">\(X \mapsto \int_{X}^{m}
 f(x)dx\)</span> est continue (et même <span
 class="math inline">\(\mathscr{C}^1\)</span> car <span
 class="math inline">\(x\in J \mapsto  f(x)\)</span> est
 continue),</p></li>
+<li><p><span class="math inline">\(\varphi^{-1}\)</span> est continue
+comme réciproque de <span class="math inline">\(\varphi\)</span> qui est
+continue (voir cours de MPSI),</p></li>
 <li><p><span class="math inline">\(Y \mapsto \int^{Y}_{\varphi^{-1}(m)}
 \left(f\circ \varphi\right)(t) \varphi&#39;(t)dt\)</span> est continue
 (et même <span class="math inline">\(\mathscr{C}^1\)</span> car <span
 class="math inline">\(t\in I \mapsto  \left(f\circ \varphi\right)(t)
 \varphi&#39;(t)\)</span> est continue).</p></li>
+<li><p>Donc <span class="math inline">\(X \in J \mapsto
+\int^{\varphi^{-1}(X)}_{\varphi^{-1}(m)} \left(f\circ \varphi\right)(t)
+\varphi&#39;(t)dt\)</span> est continue par composition.</p></li>
 </ul>
 <p>Donc en faisant <span class="math inline">\(X \xrightarrow{}
 c,\)</span> on a <span class="math display">\[\int_c^m f(x)dx =
@@ -3078,13 +3088,12 @@ converge avec <span class="math display">\[\begin{aligned}
 \varphi\right)(t) \varphi&#39;(t)dt+\int^{b}_{\varphi^{-1}(m)}
 \left(f\circ \varphi\right)(t) \varphi&#39;(t)dt\right) \\
         &amp; = -\int_{a}^{b} \left(f\circ \varphi\right)(t)
-\varphi&#39;(t)dt \\
-        &amp; =\int_{b}^{a} \left(f\circ \varphi\right)(t)
-\varphi&#39;(t)dt     
+\varphi&#39;(t)dt \\        
         \end{aligned}\]</span></p>
-<p>et <span
+<p>et ie <span
 class="math inline">\(\int_{\underset{a}{\lim}\varphi}^{\underset{b}{\lim}\varphi}
-f(x)dx = \int_c^d f(x)dx.\)</span></p></li>
+f(x)dx = \int_d^c f(x)dx = -\int_c^d f(x)dx = \int_{a}^{b} \left(f\circ
+\varphi\right)(t) \varphi&#39;(t)dt.\)</span></p></li>
 <li><p><span class="math inline">\((\Longleftarrow).\)</span> On suppose
 que <span class="math inline">\(\int_c^d f(x)\)</span> converge.</p>
 <p>Soit <span class="math inline">\(m \in \left]a,b\right[,\)</span> on
@@ -5730,9 +5739,8 @@ class="math inline">\(x \in A \mapsto f(x,t)\)</span> est de classe
 <span class="math inline">\(\mathscr{C}^p\)</span> avec pour tout <span
 class="math inline">\(x \in A,\)</span> <span
 class="math inline">\(\begin{array}{ll}
-            t \in I \mapsto f(x,t) &amp; \text{ est intégrable} \\
-            t \in I \mapsto \frac{\partial}{\partial x}f(x,t) &amp;
-\text{ est intégrable} \\
+t \in I \mapsto \frac{\partial}{\partial x}f(x,t) &amp; \text{ est
+intégrable} \\
             \vdots &amp; \\
             t \in I \mapsto \frac{\partial^{p-1}}{\partial
 x^{p-1}}f(x,t) &amp; \text{ est intégrable} \\
@@ -5753,10 +5761,9 @@ g &amp; : &amp; A &amp; \to &amp; E \\
    &amp;   &amp; x &amp; \mapsto &amp; \int_a^b f(x,t)dt
 \end{array}\)</span> est de classe <span
 class="math inline">\(\mathscr{C}^p\)</span> avec pour tout <span
-class="math inline">\(1 \leq j \leq p,\)</span> pour tout <span
-class="math inline">\(x \in A,\)</span> <span
-class="math display">\[g^{(j)}(x) = \int_a^b \frac{\partial^j
-f}{\partial x^j}(x,t)dt.\]</span></p>
+class="math inline">\(1 \leq j \leq p,\)</span> <span
+class="math display">\[\forall x \in A, g^{(j)}(x) = \int_a^b
+\frac{\partial^j f}{\partial x^j}(x,t)dt.\]</span></p>
 </div>
 <div class="wproof">
 <p>Procédons par récurrence sur <span class="math inline">\(p \in
@@ -5779,9 +5786,8 @@ class="math inline">\(x \in A \mapsto f(x,t)\)</span> est de classe
 <span class="math inline">\(\mathscr{C}^p\)</span> avec pour tout <span
 class="math inline">\(x \in A,\)</span> <span
 class="math inline">\(\begin{array}{ll}
-            t \in I \mapsto f(x,t) &amp; \text{ est intégrable} \\
-            t \in I \mapsto \frac{\partial}{\partial x}f(x,t) &amp;
-\text{ est intégrable} \\
+t \in I \mapsto \frac{\partial}{\partial x}f(x,t) &amp; \text{ est
+intégrable} \\
             \vdots &amp; \\
             t \in I \mapsto \frac{\partial^{p-1}}{\partial
 x^{p-1}}f(x,t) &amp; \text{ est intégrable} \\
@@ -5797,9 +5803,10 @@ class="math display">\[\forall x \in [c,d],  \forall t \in I,
 \left\|\frac{\partial^p f}{\partial x^p}(x,t)\right\| \leq
 \varphi(t).\]</span></p></li>
 </ol>
-<p>Alors, les hypothèses sont vérifiées au rang <span
-class="math inline">\(p-1\)</span> (en particulier la domination). En
-effet,</p>
+<p>Alors, montrons que les hypothèses sont vérifiées au rang <span
+class="math inline">\(p-1\)</span> pour utiliser l’hypothèse de
+récurrence. Les deux premiers points sont évidents mais la domination
+est un peu plus délicate.</p>
 <ol>
 <li><p>Pour tout <span class="math inline">\(x \in A,\)</span> <span
 class="math inline">\(t \in I \mapsto f(x,t)\)</span> est continue par
@@ -5809,9 +5816,8 @@ class="math inline">\(x \in A \mapsto f(x,t)\)</span> est de classe
 <span class="math inline">\(\mathscr{C}^{p-1}\)</span> avec pour tout
 <span class="math inline">\(x \in A,\)</span> <span
 class="math inline">\(\begin{array}{ll}
-            t \in I \mapsto f(x,t) &amp; \text{ est intégrable} \\
-            t \in I \mapsto \frac{\partial}{\partial x}f(x,t) &amp;
-\text{ est intégrable} \\
+t \in I \mapsto \frac{\partial}{\partial x}f(x,t) &amp; \text{ est
+intégrable} \\
             \vdots &amp; \\
             t \in I \mapsto \frac{\partial^{p-2}}{\partial
 x^{p-2}}f(x,t) &amp; \text{ est intégrable} \\
@@ -5823,14 +5829,15 @@ x^{p-1}}(x,t)\)</span> est continue par morceaux. De plus, en notant
 u &amp; : &amp; A \times I &amp; \to &amp; E \\
    &amp;   &amp; (x,t) &amp; \mapsto &amp; \frac{\partial^{p-1}
 f}{\partial x^{p-1}}(x,t)
-\end{array}\)</span> alors <span class="math display">\[\forall x \in
-[c,d], \forall t \in I, \left\|\frac{\partial u}{\partial
-x}(x,t)\right\| \leq \varphi(t).\]</span> Donc soit <span
-class="math inline">\(x \in [c,d],\)</span> par inégalité des
-accroissements finis, <span
+\end{array}\)</span> alors <span class="math inline">\(\frac{\partial
+u}{\partial x} = \frac{\partial^{p} f}{\partial x^{p}}\)</span> donc
+<span class="math display">\[\forall x \in [c,d], \forall t \in I,
+\left\|\frac{\partial u}{\partial x}(x,t)\right\| \leq
+\varphi(t).\]</span> Donc soit <span class="math inline">\(x \in
+[c,d],\)</span> par inégalité des accroissements finis, <span
 class="math display">\[\left\|u(x,t)-u(c,t)\right\| \leq
 \left|x-c\right|\sup_{z \in [c,d]}\left\|\frac{\partial u}{\partial
-x}(x,t)\right\| \leq (d-c)\varphi(t).\]</span> donc <span
+x}(x,t)\right\| \leq (d-c)\varphi(t),\]</span> ce qui donne <span
 class="math display">\[\left\|u(x,t)\right\| \leq
 \left\|u(c,t)\right\|+(d-c)\varphi(t).\]</span> On en déduit alors <span
 class="math display">\[\left\|u(x,t)\right\|
@@ -5861,7 +5868,9 @@ g^{(p-1)} &amp; : &amp; A &amp; \to &amp; E \\
 \end{array}\)</span> et appliquons lui le théorème <a
 href="#thm:derivation_integrale_a_parametres" data-reference-type="ref"
 data-reference="thm:derivation_integrale_a_parametres">[thm:derivation_integrale_a_parametres]</a>
-(le cas <span class="math inline">\(p=1\)</span>).</p>
+(le cas <span class="math inline">\(p=1\)</span>) pour avoir finalement
+<span class="math inline">\(g\)</span> de classe <span
+class="math inline">\(\mathscr{C}^p\)</span>.</p>
 <ol>
 <li><p>Pour tout <span class="math inline">\(x \in A,\)</span> <span
 class="math inline">\(t \in I \mapsto \frac{\partial^{p-1} f}{\partial
@@ -5930,9 +5939,7 @@ est continue par morceaux et intégrable,</p></li>
 est de classe <span class="math inline">\(\mathscr{C}^p\)</span> avec
 pour tout <span class="math inline">\(x \in A,\)</span></p>
 <p><span class="math inline">\(\begin{array}{ll}
-            t \in \mathbb{R}\mapsto g(x,t) &amp; \text{ est intégrable}
-\\
-            t \in \mathbb{R}\mapsto \frac{\partial}{\partial x}g(x,t) =
+t \in \mathbb{R}\mapsto \frac{\partial}{\partial x}g(x,t) =
 ite^{ixt}f(t) &amp; \text{ est intégrable car $=\underset{t\to \pm
 \infty}{o}\left(\left|t^p f(t)\right|\right)$} \\
             \vdots &amp; \\
