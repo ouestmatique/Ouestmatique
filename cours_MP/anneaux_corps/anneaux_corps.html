@@ -994,6 +994,29 @@ class="math inline">\(P\)</span> (<span class="math inline">\(a \neq
 0\)</span> car <span class="math inline">\(P \neq 0\)</span>).</p></li>
 </ul>
 </div>
+<div class="wprop">
+<p><span id="prop:egal_produit_dont_associe_lautre_est_inversible"
+label="prop:egal_produit_dont_associe_lautre_est_inversible"></span>
+Soit <span class="math inline">\(a \in {A}^\star\)</span> et <span
+class="math inline">\(b,c \in A\)</span> tels que <span
+class="math inline">\(a=bc\)</span> et <span class="math inline">\(b
+\sim a\)</span>.</p>
+<p>Alors, <span class="math inline">\(c \in U(A)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Comme <span class="math inline">\(b \sim a\)</span>, par la
+proposition <a href="#prop:associes_et_inversibles"
+data-reference-type="ref"
+data-reference="prop:associes_et_inversibles">[prop:associes_et_inversibles]</a>,
+il existe <span class="math inline">\(u \in U(A)\)</span> tel que <span
+class="math inline">\(a=bu\)</span>.</p>
+<p>On a donc <span class="math inline">\(bu=bc \Longrightarrow b(u-c) =
+0\)</span> et <span class="math inline">\(b \neq 0\)</span> (car <span
+class="math inline">\(a \neq 0\)</span> et <span class="math inline">\(a
+\sim b\)</span>) donc par intégrité de <span
+class="math inline">\(A\)</span>, <span class="math inline">\(c=u \in
+U(A)\)</span>.</p>
+</div>
 <h2 data-number="3.2" id="divisibilité-et-idéaux"><span
 class="header-section-number">3.2</span> Divisibilité et idéaux</h2>
 <div class="wprop">
@@ -1182,15 +1205,12 @@ class="math inline">\(a = bc\)</span> alors <span
 class="math inline">\(b| a\)</span> donc</p>
 <ul>
 <li><p>soit <span class="math inline">\(b \in U(a),\)</span></p></li>
-<li><p>soit <span class="math inline">\(b \sim a\)</span> et donc <span
-class="math inline">\(a|b.\)</span> Alors, il existe <span
-class="math inline">\(x \in A\)</span> tel que <span
-class="math inline">\(b=ax\)</span> et <span
-class="math inline">\(a=bc=axc \Longrightarrow a(1-xc).\)</span> Comme
-<span class="math inline">\(a \neq 0\)</span> et que <span
-class="math inline">\(A\)</span> est intègre, on a donc <span
-class="math inline">\(xc = 1\)</span> et puis <span
-class="math inline">\(c \in U(A).\)</span></p></li>
+<li><p>soit <span class="math inline">\(b \sim a\)</span> et alors par
+la proposition <a
+href="#prop:egal_produit_dont_associe_lautre_est_inversible"
+data-reference-type="ref"
+data-reference="prop:egal_produit_dont_associe_lautre_est_inversible">[prop:egal_produit_dont_associe_lautre_est_inversible]</a>,
+<span class="math inline">\(c \in U(A).\)</span></p></li>
 </ul></li>
 </ul>
 </div>
@@ -1464,7 +1484,7 @@ data-reference="prop:majoration_deg_abs_diviseur">[prop:majoration_deg_abs_divis
             \deg\left(d\right)=\deg\left(b\right) &amp; \mbox{si $A=
 \mathbb{K}[X]$}
             \end{array}
-            \right. \text{ et }d|b,\)</span> ce qui veut dire</p>
+            \right. \text{ et }d|b,\)</span> ce qui donne</p>
 <p><span class="math inline">\(\left\{
             \begin{array}{ll}
             d = \pm b  &amp; \mbox{si $A= \mathbb{Z},$} \\
@@ -1702,7 +1722,7 @@ data-reference="prop:majoration_deg_abs_diviseur">[prop:majoration_deg_abs_divis
             \deg\left(m\right)=\deg\left(b\right) &amp; \mbox{si $A=
 \mathbb{K}[X]$}
             \end{array}
-            \right. \text{ et }b|m,\)</span> ce qui veut dire</p>
+            \right. \text{ et }b|m,\)</span> ce qui donne</p>
 <p><span class="math inline">\(\left\{
             \begin{array}{ll}
             m = \pm b  &amp; \mbox{si $A= \mathbb{Z},$} \\
