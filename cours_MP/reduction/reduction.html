@@ -174,26 +174,26 @@ de trigonalisabilité</a></li>
 id="toc-endomorphismes-nilpotents-matrices-nilpotentes"><span
 class="toc-section-number">4.3</span> Endomorphismes nilpotents,
 matrices nilpotentes</a></li>
-<li><a
-href="#compléments-sur-les-endomorphismes-diagonalisables-à-travers-des-exercices"
-id="toc-compléments-sur-les-endomorphismes-diagonalisables-à-travers-des-exercices"><span
+<li><a href="#compléments-sur-les-endomorphismes-diagonalisables"
+id="toc-compléments-sur-les-endomorphismes-diagonalisables"><span
 class="toc-section-number">4.4</span> Compléments sur les endomorphismes
-diagonalisables à travers des exercices</a>
+diagonalisables</a>
 <ul>
 <li><a href="#bilan" id="toc-bilan"><span
 class="toc-section-number">4.4.1</span> Bilan</a></li>
+<li><a href="#compléments" id="toc-compléments"><span
+class="toc-section-number">4.4.2</span> Compléments</a></li>
 <li><a href="#exercices" id="toc-exercices"><span
-class="toc-section-number">4.4.2</span> Exercices</a></li>
+class="toc-section-number">4.4.3</span> Exercices</a></li>
 </ul></li>
-<li><a
-href="#compléments-sur-les-endomorphismes-diagonalisables-à-travers-des-exercices-1"
-id="toc-compléments-sur-les-endomorphismes-diagonalisables-à-travers-des-exercices-1"><span
+<li><a href="#compléments-sur-les-endomorphismes-trigonalisables"
+id="toc-compléments-sur-les-endomorphismes-trigonalisables"><span
 class="toc-section-number">4.5</span> Compléments sur les endomorphismes
-diagonalisables à travers des exercices</a>
+trigonalisables</a>
 <ul>
 <li><a href="#bilan-1" id="toc-bilan-1"><span
 class="toc-section-number">4.5.1</span> Bilan</a></li>
-<li><a href="#compléments" id="toc-compléments"><span
+<li><a href="#compléments-1" id="toc-compléments-1"><span
 class="toc-section-number">4.5.2</span> Compléments</a></li>
 <li><a href="#exercices-1" id="toc-exercices-1"><span
 class="toc-section-number">4.5.3</span> Exercices</a></li>
@@ -5536,9 +5536,9 @@ diagonalisable}
 <li><p>Si <span class="math inline">\(f\)</span> est nilpotent d’indice
 <span class="math inline">\(p \in \mathbb{N}^{\star}\)</span> alors
 <span class="math inline">\(\mathop{\mathrm{Sp}}(f) =
-\left\{0\right\}\)</span> car <span class="math inline">\(\mu_f =
-X^p\)</span> (exemple <a href="#ex:nilpotent" data-reference-type="ref"
-data-reference="ex:nilpotent">[ex:nilpotent]</a>).</p>
+\left\{0\right\}\)</span> (proposition <a
+href="#prop:nilpotent_unique_vp" data-reference-type="ref"
+data-reference="prop:nilpotent_unique_vp">[prop:nilpotent_unique_vp]</a>).</p>
 <p>Donc <span class="math display">\[\text{$f$ est diagonalisable}
     \iff f=0
     \iff \text{$f$ est nilpotent d&#39;indice $1.$}\]</span></p>
@@ -5600,7 +5600,8 @@ class="math inline">\(1,\)</span> à la puissance <span
 class="math inline">\(1\)</span> et donc <span
 class="math inline">\(\mu_f\)</span> est scindé simple dans <span
 class="math inline">\(\mathbb{K}[X].\)</span></p></li>
-<li><p>En notant <span class="math inline">\(\mathop{\mathrm{Sp}}(f) =
+<li><p><span class="math inline">\((1. \Longrightarrow 3.).\)</span> En
+notant <span class="math inline">\(\mathop{\mathrm{Sp}}(f) =
 \left\{\lambda_1,\ldots,\lambda_k\right\},\)</span> par la
 proposition <a href="#prop:critere_diago_somme_directe_noyaux"
 data-reference-type="ref"
@@ -5656,7 +5657,7 @@ class="math inline">\((2. \Longrightarrow 1.).\)</span></p>
 <span class="math inline">\(\mu_f \in
 \mathop{\mathrm{Ann}}(f).\)</span></p></li>
 <li><p><span class="math inline">\((3. \Longrightarrow 2.).\)</span> Si
-<span class="math inline">\(P \neq 0\)</span> est scindédans <span
+<span class="math inline">\(P \neq 0\)</span> est scindé dans <span
 class="math inline">\(\mathbb{K}[X]\)</span> et <span
 class="math inline">\(P \in \mathop{\mathrm{Ann}}(f).\)</span></p>
 <p>Alors, <span class="math inline">\(P\)</span> se décompose en
@@ -5696,12 +5697,12 @@ trigonalisable.</p></li>
 \mathbb{N}^{\star},\)</span> Supposons que pour tout sous-espace
 vectoriel <span class="math inline">\(F\)</span> de dimension <span
 class="math inline">\(n-1\)</span> et <span class="math inline">\(g \in
-\mathscr{L}(f)\)</span> alors <span class="math inline">\(\mu_g\)</span>
+\mathscr{L}(F)\)</span> alors <span class="math inline">\(\mu_g\)</span>
 scindé dans <span class="math inline">\(\mathbb{K}[X]\)</span> <span
 class="math inline">\(\Longrightarrow\)</span> <span
 class="math inline">\(g\)</span> trigonalisable.</p>
-<p>On considère alors <span class="math inline">\(f \in L(E)\)</span>
-avec <span class="math inline">\(\dim E = n\)</span> tel que <span
+<p>On considère <span class="math inline">\(f \in L(E)\)</span> avec
+<span class="math inline">\(\dim E = n\)</span> tel que <span
 class="math inline">\(\mu_f\)</span> est scindé dans <span
 class="math inline">\(\mathbb{K}[X].\)</span></p>
 <p>Alors, <span class="math inline">\(\mu_f\)</span> admet au moins une
@@ -5954,8 +5955,9 @@ data-reference="prop:egalite_polynome_minimal_transpose_semblable">[prop:egalite
 </ul>
 </div>
 <div class="wprop">
-<p>Soit <span class="math inline">\(A \in
-\mathscr{M}_{n}(\mathbb{C})\)</span> alors <span
+<p><span id="prop:dansC_tout_trigo"
+label="prop:dansC_tout_trigo"></span> Soit <span class="math inline">\(A
+\in \mathscr{M}_{n}(\mathbb{C})\)</span> alors <span
 class="math inline">\(A\)</span> est trigonalisable.</p>
 <p>De la même façon, tout endomorphisme d’un <span
 class="math inline">\(\mathbb{C}\)</span>-espace vectoriel est
@@ -6000,9 +6002,11 @@ e^{\mathop{\mathrm{Tr}}A}.\)</span></p>
 <span class="math inline">\(\mathbb{C},\)</span> on considère <span
 class="math inline">\(A\)</span> comme une matrice de <span
 class="math inline">\(\mathscr{M}_{n}(\mathbb{C})\)</span> tel que <span
-class="math inline">\(A\)</span> est diagonalisable ie il existe <span
-class="math inline">\(P \in GL_n(\mathbb{C})\)</span> telle que <span
-class="math display">\[P^{-1}AP = \begin{pmatrix}
+class="math inline">\(A\)</span> est trigonalisable (proposition <a
+href="#prop:dansC_tout_trigo" data-reference-type="ref"
+data-reference="prop:dansC_tout_trigo">[prop:dansC_tout_trigo]</a>) ie
+il existe <span class="math inline">\(P \in GL_n(\mathbb{C})\)</span>
+telle que <span class="math display">\[P^{-1}AP = \begin{pmatrix}
     a_{11} &amp;  &amp; &amp;  &amp;  \\
      &amp; \ddots &amp;  &amp; ?? &amp;  \\
      &amp;  &amp; \ddots &amp;  &amp;  \\
@@ -6028,11 +6032,13 @@ a_{jj}} = e^{\mathop{\mathrm{Tr}}(A)}.\)</span></p>
 \in GL_n(\mathbb{K}).\)</span></p>
 </div>
 <div class="wprop">
-<p>Soient <span class="math inline">\(f \in \mathscr{L}(E)\)</span> et
-<span class="math inline">\(F \subset E\)</span> un sous-espace
-vectoriel stable par <span class="math inline">\(f\)</span> tel que
-<span class="math inline">\(F \neq \left\{0\right\}.\)</span> On note
-<span class="math inline">\(\begin{array}{lllll}
+<p><span id="prop:induit_diago_trigo"
+label="prop:induit_diago_trigo"></span> Soient <span
+class="math inline">\(f \in \mathscr{L}(E)\)</span> et <span
+class="math inline">\(F \subset E\)</span> un sous-espace vectoriel
+stable par <span class="math inline">\(f\)</span> tel que <span
+class="math inline">\(F \neq \left\{0\right\}.\)</span> On note <span
+class="math inline">\(\begin{array}{lllll}
 g &amp; : &amp; F &amp; \to &amp; F \\
    &amp;   &amp; x &amp; \mapsto &amp; f(x)
 \end{array}\)</span> l’endomorphisme induit par <span
@@ -6049,7 +6055,7 @@ trigonalisable.}
 <p>Par la proposition <a href="#prop:polynome_minimal_induit_divise"
 data-reference-type="ref"
 data-reference="prop:polynome_minimal_induit_divise">[prop:polynome_minimal_induit_divise]</a>,
-<span class="math inline">\(\mu_g \mu_f\)</span> donc</p>
+<span class="math inline">\(\mu_g |\mu_f\)</span> donc</p>
 <ul>
 <li><p>Si <span class="math inline">\(f\)</span> est diagonalisable, par
 la proposition <a href="#prop:critere_diago_trigo_polynome_minimal"
@@ -6170,7 +6176,7 @@ data-reference="prop:critere_diago_somme_directe_noyaux">[prop:critere_diago_som
 class="math inline">\(f\)</span> est trigonalisable, il existe <span
 class="math inline">\(\mathscr{B}\)</span> base de <span
 class="math inline">\(E\)</span> telle que <span
-class="math display">\[\mathscr{M}_{f}(\mathscr{B}) = \begin{pmatrix}
+class="math display">\[\mathscr{M}_{\mathscr{B}}(f) = \begin{pmatrix}
     a_{11} &amp;  &amp; &amp;  &amp;  \\
      &amp; \ddots &amp;  &amp; ?? &amp;  \\
      &amp;  &amp; \ddots &amp;  &amp;  \\
@@ -6200,19 +6206,20 @@ x_ny_1 &amp; x_ny_2 &amp; \cdots &amp; x_ny_n
 \end{pmatrix} \in \mathscr{M}_{n}(\mathbb{K})\)</span> est de rang <span
 class="math inline">\(1\)</span> car <span class="math inline">\(x,y
 \neq 0\)</span> donc <span class="math inline">\(A \neq 0\)</span> et
-toutes les colonnes sont colinéaires à la première colonne. Par théorème
-du rang, on a donc <span class="math inline">\(\dim
+toutes les colonnes sont colinéaires à une colonne non nulle. Par
+théorème du rang, on a donc <span class="math inline">\(\dim
 \mathop{\mathrm{Ker}}A = n-1.\)</span></p>
 <p>On en déduit alors par la proposition <a
 href="#prop:dim_sep_vs_multiplicite" data-reference-type="ref"
 data-reference="prop:dim_sep_vs_multiplicite">[prop:dim_sep_vs_multiplicite]</a>
 que <span class="math inline">\(0\)</span> est valeur propre de
 multiplicité <span class="math inline">\(\geq n-1\)</span> et que <span
-class="math inline">\(\chi_f\)</span> s’écrit sous la forme <span
-class="math inline">\(\chi_f = X^{n-1}(X-\lambda)\)</span> avec <span
-class="math inline">\(\lambda \in \mathbb{K}.\)</span></p>
-<p>De plus, comme alors <span class="math inline">\(\chi_f = X^n -
-\lambda X^{n-1},\)</span> par la proposition <a
+class="math inline">\(\chi_A\)</span> s’écrit sous la forme <span
+class="math inline">\(\chi_A = X^{n-1}(X-\lambda) = X^n - \lambda
+X^{n-1}\)</span> avec <span class="math inline">\(\lambda \in
+\mathbb{K}.\)</span></p>
+<p>De plus, <span class="math inline">\(\chi_A = X^n -
+\mathop{\mathrm{Tr}}(A) X^{n-1},\)</span> par la proposition <a
 href="#prop:polynome_caract_unitaire" data-reference-type="ref"
 data-reference="prop:polynome_caract_unitaire">[prop:polynome_caract_unitaire]</a>,
 <span class="math inline">\(\lambda = \mathop{\mathrm{Tr}}(A).\)</span>
@@ -6265,9 +6272,9 @@ b &amp; b &amp; b &amp; \cdots &amp; b \\
 b &amp; b &amp; b &amp; \cdots &amp; b
 \end{pmatrix}\)</span> donc <span
 class="math inline">\(\mathop{\mathrm{rg}}\left(A-(a-b)I_n\right) =
-1,\)</span> ce qui donne <span class="math inline">\(\dim
-\mathop{\mathrm{Ker}}(A-(a-b)I_n) = n-1\)</span> par théorème du
-rang.</p>
+1\)</span> (car <span class="math inline">\(b \neq 0\)</span>), ce qui
+donne <span class="math inline">\(\dim \mathop{\mathrm{Ker}}(A-(a-b)I_n)
+= n-1\)</span> par théorème du rang.</p>
 <p>On sait donc que <span class="math inline">\(a-b \in
 \mathop{\mathrm{Sp}}(A)\)</span> et que l’ordre de multiplicité de <span
 class="math inline">\(a-b\)</span> est <span class="math inline">\(\geq
@@ -6353,7 +6360,7 @@ class="math inline">\(X^k\)</span> est scindé).</p>
 <p>Donc il existe une base <span
 class="math inline">\(\mathscr{B}\)</span> de <span
 class="math inline">\(E\)</span> telle que <span
-class="math inline">\(\mathscr{M}_{f}(\mathscr{B}) = \begin{pmatrix}
+class="math inline">\(\mathscr{M}_{\mathscr{B}}(f) = \begin{pmatrix}
     a_{11} &amp;  &amp; &amp;  &amp;  \\
      &amp; \ddots &amp;  &amp; ?? &amp;  \\
      &amp;  &amp; \ddots &amp;  &amp;  \\
@@ -6369,7 +6376,7 @@ data-reference-type="ref"
 data-reference="prop:nilpotent_unique_vp">[prop:nilpotent_unique_vp]</a>,
 <span class="math inline">\(\mathop{\mathrm{Sp}}(f) =
 \left\{0\right\}\)</span> donc <span
-class="math inline">\(\mathscr{M}_{f}(\mathscr{B}) = \begin{pmatrix}
+class="math inline">\(\mathscr{M}_{\mathscr{B}}(f) = \begin{pmatrix}
     0 &amp;  &amp; &amp;  &amp;  \\
      &amp; \ddots &amp;  &amp; ?? &amp;  \\
      &amp;  &amp; \ddots &amp;  &amp;  \\
@@ -6377,7 +6384,7 @@ class="math inline">\(\mathscr{M}_{f}(\mathscr{B}) = \begin{pmatrix}
      &amp; &amp;  &amp;  &amp; 0 \\
 \end{pmatrix}.\)</span></p></li>
 <li><p><span class="math inline">\((2. \Longrightarrow 3.).\)</span>
-<span class="math inline">\(\mathscr{M}_{f}(\mathscr{B}) =
+<span class="math inline">\(\mathscr{M}_{\mathscr{B}}(f) =
 \begin{pmatrix}
     0 &amp;  &amp; &amp;  &amp;  \\
      &amp; \ddots &amp;  &amp; ?? &amp;  \\
@@ -6498,13 +6505,11 @@ data-reference="prop:nilpotent_matrice_triangulaire_strict">[prop:nilpotent_matr
 à <span class="math inline">\(A-\lambda I_n.\)</span></p>
 </div>
 <h2 data-number="4.4"
-id="compléments-sur-les-endomorphismes-diagonalisables-à-travers-des-exercices"><span
+id="compléments-sur-les-endomorphismes-diagonalisables"><span
 class="header-section-number">4.4</span> Compléments sur les
-endomorphismes diagonalisables à travers des exercices</h2>
+endomorphismes diagonalisables</h2>
 <h3 data-number="4.4.1" id="bilan"><span
 class="header-section-number">4.4.1</span> Bilan</h3>
-<p>Faisons le bilan de nos connaissances sur les les endomorphismes
-diagonalisables en ajoutant quelques compléments.</p>
 <div class="wprop">
 <p><strong>(Bilan du cours sur les endomorphismes
 diagonalisables)</strong> <span id="prop:bilan_diago"
@@ -6582,6 +6587,11 @@ e^{\lambda_1} I_{\alpha_1}
 d’exponentielles).</p></li>
 </ul>
 </div>
+<div class="wproof">
+<p>Voir le cours qui précède.</p>
+</div>
+<h3 data-number="4.4.2" id="compléments"><span
+class="header-section-number">4.4.2</span> Compléments</h3>
 <div class="wprop">
 <p><strong>(Complément sur le commutant de <span
 class="math inline">\(f\)</span>)</strong> Soit <span
@@ -6618,8 +6628,8 @@ A_k \\
 <div class="wproof">
 <ul>
 <li><p><span class="math inline">\((\Longleftarrow).\)</span> Si <span
-class="math inline">\(\mathscr{M}_{\mathscr{B}}(g)\)</span> est la bonne
-forme, en multipliant les matrices par blocs, on a <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}}(g)\)</span> est de la
+bonne forme, en multipliant les matrices par blocs, on a <span
 class="math display">\[\mathscr{M}_{\mathscr{B}}(g \circ f) =
 \mathscr{M}_{\mathscr{B}}(f \circ g) = \left(
 \begin{array}{ccc}
@@ -6652,7 +6662,7 @@ class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_j
 class="math inline">\(g\)</span> (voir le rappel <a
 href="#rappel:commute_donc_Ker_Stable" data-reference-type="ref"
 data-reference="rappel:commute_donc_Ker_Stable">[rappel:commute_donc_Ker_Stable]</a>)
-et donc la matrice de <span class="math inline">\(g\)</span> dans <span
+et la matrice de <span class="math inline">\(g\)</span> dans <span
 class="math inline">\(\mathscr{B},\)</span> adaptée à la décompositon
 <span class="math inline">\(E =
 \mathop{\mathrm{Ker}}(f-\lambda_1\mathop{\mathrm{Id}}) \oplus \ldots
@@ -6668,7 +6678,7 @@ proposition <a href="#prop:bilan_diago" data-reference-type="ref"
 data-reference="prop:bilan_diago">[prop:bilan_diago]</a>.</p>
 <p>Comme <span class="math inline">\(E =
 \mathop{\mathrm{Ker}}(f-\lambda_1\mathop{\mathrm{Id}}) \oplus \ldots
-\oplus \mathop{\mathrm{Ker}}(f-\lambda_k\mathop{\mathrm{Id}}).
+\oplus \mathop{\mathrm{Ker}}(f-\lambda_k\mathop{\mathrm{Id}})
     ,\)</span> pour <span class="math inline">\(1 \leq j \leq
 k,\)</span> on peut considérer la projection <span
 class="math inline">\(p_j\)</span> sur <span
@@ -6680,7 +6690,7 @@ Alors,</p>
 <ul>
 <li><p><span class="math inline">\(p_1+\ldots+p_k =
 \mathop{\mathrm{Id}}\)</span> et pour <span class="math inline">\(1 \leq
-i,j \leq k,\)</span> <span class="math inline">\(\pi \circ p_j = \left\{
+i,j \leq k,\)</span> <span class="math inline">\(p_i \circ p_j = \left\{
 \begin{array}{ll}
     0 &amp; \mbox{ si $i\neq j$} \\
     p_i &amp; \mbox{ si $i=j$}.
@@ -6774,7 +6784,7 @@ class="math inline">\(L_j = \frac{\prod_{\substack{1 \leq i \leq k \\ i
 \neq j}}(X-\lambda_i)}{\prod_{\substack{1 \leq i \leq k \\ i \neq
 j}}(\lambda_j-\lambda_i)}\)</span> le polynôme d’interpolation de
 Lagrange tel que pour <span class="math inline">\(1 \leq i \leq
-k,\)</span><span class="math inline">\(L_j(\lambda_i) = \left\{
+k,\)</span> <span class="math inline">\(L_j(\lambda_i) = \left\{
 \begin{array}{ll}
     0 &amp; \mbox{ si $i\neq j$} \\
     1 &amp; \mbox{ si $i=j$}.
@@ -6792,10 +6802,12 @@ class="math inline">\(\mathbb{K}[f].\)</span></p>
 <span class="math inline">\(\mathbb{K}[f].\)</span></p></li>
 </ul>
 </div>
-<h3 data-number="4.4.2" id="exercices"><span
-class="header-section-number">4.4.2</span> Exercices</h3>
+<h3 data-number="4.4.3" id="exercices"><span
+class="header-section-number">4.4.3</span> Exercices</h3>
 <div class="wexoc">
-<p><strong>(Diagonalisation simultanée)</strong> Soient <span
+<p><strong>(Diagonalisation simultanée)</strong> <span
+id="exoc:diago_simul_deux_endos"
+label="exoc:diago_simul_deux_endos"></span> Soient <span
 class="math inline">\(E\)</span> un <span
 class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
 <span class="math inline">\(n \in \mathbb{N}^{\star}\)</span> et <span
@@ -6842,7 +6854,7 @@ data-reference-type="ref"
 data-reference="prop:critere_diago_somme_directe_noyaux">[prop:critere_diago_somme_directe_noyaux]</a>.</p>
 <p><span class="math inline">\(g\)</span> et <span
 class="math inline">\(f\)</span> commutent donc pour <span
-class="math inline">\(1 \leq j \leq k\)</span> <span
+class="math inline">\(1 \leq j \leq k,\)</span> <span
 class="math inline">\(g\)</span> commute avec <span
 class="math inline">\(f-\lambda_j \mathop{\mathrm{Id}}\)</span> et <span
 class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})\)</span>
@@ -6859,13 +6871,9 @@ g_j &amp; : &amp; \mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})
 sur <span
 class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}}).\)</span></p>
 <p>Pour <span class="math inline">\(1 \leq j \leq k,\)</span> <span
-class="math inline">\(g_j\)</span> est diagonalisable car <span
-class="math inline">\(\mu_{g_j}|\mu_g\)</span> qui est scindé simple
-(propositions <a href="#prop:critere_diago_trigo_polynome_minimal"
-data-reference-type="ref"
-data-reference="prop:critere_diago_trigo_polynome_minimal">[prop:critere_diago_trigo_polynome_minimal]</a> et <a
-href="#prop:polynome_minimal_induit_divise" data-reference-type="ref"
-data-reference="prop:polynome_minimal_induit_divise">[prop:polynome_minimal_induit_divise]</a>).</p>
+class="math inline">\(g_j\)</span> est diagonalisable (proposition <a
+href="#prop:induit_diago_trigo" data-reference-type="ref"
+data-reference="prop:induit_diago_trigo">[prop:induit_diago_trigo]</a>).</p>
 <p>Donc il existe une base <span
 class="math inline">\(\mathscr{B}_j\)</span> de <span
 class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})\)</span>
@@ -6876,8 +6884,8 @@ data-reference="prop:polynome_minimal_induit_divise">[prop:polynome_minimal_indu
 <p>Alors, <span class="math inline">\(\mathscr{B}=
 (\mathscr{B}_1,\ldots,\mathscr{B}_k)\)</span> est une base de <span
 class="math inline">\(E\)</span> composée de vecteurs propres de <span
-class="math inline">\(g\)</span> (par le choix précédents) et de
-vecteurs propres de <span class="math inline">\(f\)</span> car <span
+class="math inline">\(g\)</span> (par le choix précédent) et de vecteurs
+propres de <span class="math inline">\(f\)</span> car <span
 class="math inline">\(\mathscr{B}_j\)</span> est composée de vecteurs de
 <span
 class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})\)</span>
@@ -6942,7 +6950,7 @@ data-reference="prop:critere_diago_somme_directe_noyaux">[prop:critere_diago_som
 <p>Soit <span class="math inline">\(g \in \mathscr{P},\)</span> <span
 class="math inline">\(g\)</span> et <span
 class="math inline">\(f\)</span> commutent donc pour <span
-class="math inline">\(1 \leq j \leq k\)</span> <span
+class="math inline">\(1 \leq j \leq k,\)</span> <span
 class="math inline">\(g\)</span> commute avec <span
 class="math inline">\(f-\lambda_j \mathop{\mathrm{Id}}\)</span> et <span
 class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})\)</span>
@@ -6969,34 +6977,33 @@ n-1.\)</span></p>
 \text{ induit par $g \in \mathscr{P}$ sur
 $\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})$}\right\},\)</span></p>
 <ul>
-<li><p>Pour tout <span class="math inline">\(\tilde{f} \in
-\mathscr{P},\)</span> <span class="math inline">\(\tilde{f}\)</span> est
-diagonalisable (car <span class="math inline">\(\tilde{f}\)</span> est
-l’induit d’un diagonalisable),</p></li>
-<li><p>Pour tout <span class="math inline">\(\tilde{f}, \tilde{g} \in
+<li><p>Pour tout <span class="math inline">\(g_j \in
+\mathscr{P}_j,\)</span> <span class="math inline">\(g_j\)</span> est
+diagonalisable (comme induit d’un diagonalisable),</p></li>
+<li><p>Pour tout <span class="math inline">\(g_j, h_j \in
 \mathscr{P},\)</span> <span
-class="math inline">\(\tilde{f}\tilde{g}=\tilde{g}\tilde{f}.\)</span></p></li>
+class="math inline">\(h_jg_j=g_jh_j.\)</span></p></li>
 </ul>
 <p>En appliquant l’hypothèse de récurrence à <span
 class="math inline">\(\mathscr{P}_j,\)</span> il existe une base <span
 class="math inline">\(\mathscr{B}_j\)</span> de <span
 class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})\)</span>
 telle que <span
-class="math inline">\(\mathscr{M}_{\mathscr{B}}(\tilde{f})\)</span> est
-diagonale pour tout <span class="math inline">\(\tilde{f} \in
-\mathscr{P}_j.\)</span></p>
+class="math inline">\(\mathscr{M}_{\mathscr{B}}(g_j)\)</span> est
+diagonale pour tout <span class="math inline">\(g \in
+\mathscr{P}.\)</span></p>
 <p>Donc avec <span class="math inline">\(\mathscr{B}=
 (\mathscr{B}_1,\ldots,\mathscr{B}_k),\)</span> pour tout <span
-class="math inline">\(f \in \mathscr{P},
-\mathscr{M}_{\mathscr{B}}(f)\)</span> est diagonale.</p></li>
+class="math inline">\(g \in \mathscr{P},
+\mathscr{M}_{\mathscr{B}}(g)\)</span> est diagonale.</p></li>
 </ul></li>
 </ul>
 </details>
 </div>
 <h2 data-number="4.5"
-id="compléments-sur-les-endomorphismes-diagonalisables-à-travers-des-exercices-1"><span
+id="compléments-sur-les-endomorphismes-trigonalisables"><span
 class="header-section-number">4.5</span> Compléments sur les
-endomorphismes diagonalisables à travers des exercices</h2>
+endomorphismes trigonalisables</h2>
 <h3 data-number="4.5.1" id="bilan-1"><span
 class="header-section-number">4.5.1</span> Bilan</h3>
 <div class="wprop">
@@ -7041,11 +7048,14 @@ class="math display">\[\mathscr{M}_{\mathscr{B}}(\exp f ) =
 d’exponentielles).</p></li>
 </ul>
 </div>
-<h3 data-number="4.5.2" id="compléments"><span
+<div class="wproof">
+<p>Voir le cours qui précède.</p>
+</div>
+<h3 data-number="4.5.2" id="compléments-1"><span
 class="header-section-number">4.5.2</span> Compléments</h3>
 <p>On propose de compléter la connaissance des endomorphismes
 trigonalisables en montrant qu’ils sont en réalité « diagonalisables par
-blocs  » avec un certain nombre d’implications pratiques.</p>
+blocs  ».</p>
 <div class="wdefi">
 <p>Soit <span class="math inline">\(f \in \mathscr{L}(E).\)</span>
 Soient <span class="math inline">\(\lambda \in
@@ -7072,7 +7082,7 @@ class="math inline">\(\chi_f = \prod_{j=1}^k
 (X-\lambda_j)^{\alpha_j}\)</span> où <span
 class="math inline">\(\alpha_j \in \mathbb{N}^{\star}\)</span> est la
 multiplicité de <span class="math inline">\(\lambda_j\)</span> pour
-<span class="math inline">\(1 \leq j \leq k..\)</span></p>
+<span class="math inline">\(1 \leq j \leq k.\)</span></p>
 <p>Alors, il existe une base <span
 class="math inline">\(\mathscr{B}\)</span> de <span
 class="math inline">\(E\)</span> telle que <span
@@ -7148,8 +7158,8 @@ f_j &amp; : &amp;
 \to &amp;
 \mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j} \\
    &amp;   &amp; x &amp; \mapsto &amp; f(x)
-\end{array}\)</span> par <span class="math inline">\(f\)</span> sur
-<span
+\end{array}\)</span> induit par <span class="math inline">\(f\)</span>
+sur <span
 class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j}.\)</span></p>
 <p><span class="math inline">\(f_j\)</span> vérifie <span
 class="math inline">\((f_j-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j} =
@@ -7348,7 +7358,7 @@ pour l’inclusion : <span class="math display">\[\forall k \in
 \mathop{\mathrm{Ker}}(f^{k+1}).\]</span> De plus, cette suite est
 stationnaire à partir d’un certain rang : il existe <span
 class="math inline">\(p \in \mathbb{N}\)</span> tel que <span
-class="math display">\[\forall n \geq p, \qquad
+class="math display">\[\forall k \geq p, \qquad
 \mathop{\mathrm{Ker}}(f^k) = \mathop{\mathrm{Ker}}(f^p).\]</span></p>
 </div>
 <div class="wprop">
@@ -7372,7 +7382,7 @@ class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\a
 </div>
 <div class="wproof">
 <ul>
-<li><p>Puis, par théorème de Cayley-Hamilton, <span
+<li><p>Par théorème de Cayley-Hamilton, <span
 class="math inline">\(\mu_f | \chi_f\)</span> donc <span
 class="math inline">\(\mu_f =
 \prod_{j=1}^k(X-\lambda_j)^{\beta_j}\)</span> avec <span
@@ -7380,9 +7390,9 @@ class="math inline">\(1 \leq \beta_j \leq \alpha_j\)</span> (<span
 class="math inline">\(\beta_j \geq 1\)</span> car <span
 class="math inline">\(\lambda_j \in \mathop{\mathrm{Sp}}(f)\)</span>
 donc <span class="math inline">\(\mu_f(\lambda_j) =
-1\)</span>).</p></li>
-<li><p><span class="math inline">\(\beta_j\)</span> est le rang à partir
-duquel la suite <span
+0\)</span>).</p></li>
+<li><p>Montrons que <span class="math inline">\(\beta_j\)</span> est le
+rang à partir duquel la suite <span
 class="math inline">\(\left(\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^k\right)_{k
 \geq 0}\)</span> stationne (voir le rappel <a
 href="#rappel:iteres_noyaux" data-reference-type="ref"
@@ -7419,21 +7429,67 @@ j}}(X-\lambda_\ell)^{\beta_\ell}(X-\lambda_j)^{\beta_j-1}\)</span>
 annule <span class="math inline">\(f\)</span> avec <span
 class="math inline">\(\deg(P) = \deg(\mu_f)-1 &lt; \deg(\mu_f),\)</span>
 ce qui est absurde.</p></li>
-<li><p>Ensuite, <span
-class="math inline">\(\left(\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^k\right)_{k
-\geq 0}\)</span> ne stationne pas après le rang <span
-class="math inline">\(\beta_j\)</span> car sinon <span
-class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\beta_j+1}
-\neq
-\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\beta_j}\)</span>
-donc il existe <span class="math inline">\(x \in E\)</span> tel que
+<li><p>Ensuite, supposons par l’absurde que la suite ne stationne pas au
+rang <span class="math inline">\(\beta_j\)</span>, c’est-à-dire que
 <span
-class="math inline">\((f-\lambda_j\mathop{\mathrm{Id}})^{\beta_j+1}(x)
-=0\)</span> mais <span
-class="math inline">\((f-\lambda_j\mathop{\mathrm{Id}})^{\beta_j} \neq
-0.\)</span> Cela impose <span
-class="math inline">\((X-\lambda)^{\beta_j+1} | \mu_f,\)</span> ce qui
-est absurde.</p></li>
+class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\beta_j}
+\subsetneq
+\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\beta_j+1}.\)</span>
+Il existe alors un vecteur <span class="math inline">\(x \in
+\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\beta_j+1}\)</span>
+tel que <span
+class="math inline">\((f-\lambda_j\mathop{\mathrm{Id}})^{\beta_j}(x)
+\neq 0\)</span>.</p>
+<p>Comme <span class="math inline">\(\mu_f = \prod_{i=1}^k
+(X-\lambda_i)^{\beta_i}\)</span> annule <span
+class="math inline">\(f\)</span>, le lemme des noyaux assure que <span
+class="math inline">\(E = \bigoplus_{i=1}^k
+\mathop{\mathrm{Ker}}(f-\lambda_i\mathop{\mathrm{Id}})^{\beta_i}.\)</span>
+On décompose <span class="math inline">\(x\)</span> selon cette somme
+directe en notant <span class="math inline">\(x = \sum_{i=1}^k
+x_i\)</span>, où <span class="math inline">\(x_i \in
+\mathop{\mathrm{Ker}}(f-\lambda_i\mathop{\mathrm{Id}})^{\beta_i}\)</span>
+pour <span class="math inline">\(1 \leq i \leq k\)</span>.</p>
+<p>En appliquant <span
+class="math inline">\((f-\lambda_j\mathop{\mathrm{Id}})^{\beta_j+1}\)</span>,
+il vient <span class="math display">\[0 =
+(f-\lambda_j\mathop{\mathrm{Id}})^{\beta_j+1}(x) = \sum_{i=1}^k
+(f-\lambda_j\mathop{\mathrm{Id}})^{\beta_j+1}(x_i).\]</span> Chaque
+sous-espace <span
+class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_i\mathop{\mathrm{Id}})^{\beta_i}\)</span>
+étant stable par <span
+class="math inline">\(f-\lambda_j\mathop{\mathrm{Id}}\)</span> (par
+commutativité, voir le rappel <a href="#rappel:commute_donc_Ker_Stable"
+data-reference-type="ref"
+data-reference="rappel:commute_donc_Ker_Stable">[rappel:commute_donc_Ker_Stable]</a>),
+l’unicité de l’écriture du vecteur nul dans une somme directe impose
+<span class="math display">\[\forall i \in \{1, \dots, k\}, \quad
+(f-\lambda_j\mathop{\mathrm{Id}})^{\beta_j+1}(x_i) = 0.\]</span></p>
+<ul>
+<li><p>Pour <span class="math inline">\(i \neq j\)</span>, <span
+class="math inline">\((X-\lambda_j)^{\beta_j+1} \wedge
+(X-\lambda_i)^{\beta_i} = 1\)</span> donc par lemme des noyaux, <span
+class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\beta_j+1}
++
+\mathop{\mathrm{Ker}}(f-\lambda_i\mathop{\mathrm{Id}})^{\beta_i}\)</span>
+est directe et <span
+class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\beta_j+1}
+\cap \mathop{\mathrm{Ker}}(f-\lambda_i\mathop{\mathrm{Id}})^{\beta_i} =
+\left\{0\right\}\)</span>, ce qui donne <span class="math inline">\(x_i
+= 0\)</span>.</p></li>
+<li><p>Il en résulte que <span class="math inline">\(x = x_j \in
+\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\beta_j}\)</span>.</p></li>
+</ul>
+<p>On obtient <span
+class="math inline">\((f-\lambda_j\mathop{\mathrm{Id}})^{\beta_j}(x) =
+0\)</span>, ce qui contredit l’hypothèse sur <span
+class="math inline">\(x\)</span>.</p>
+<p>Par conséquent, <span
+class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\beta_j+1}
+=
+\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\beta_j}\)</span>,
+et la suite stationne dès le rang <span
+class="math inline">\(\beta_j\)</span>.</p></li>
 </ul></li>
 </ul>
 </div>
@@ -7445,15 +7501,15 @@ class="math inline">\(f\)</span> sur le sous-espace caractéristique
 class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j}.\)</span></p>
 </div>
 <div class="wprop">
-<p><strong>(Compléments sur les projecteurs sur le commutant)</strong>
-Soit <span class="math inline">\(f \in \mathscr{L}(E)\)</span>
-trigonalisable, reprenons les notations de la proposition <a
+<p><strong>(Compléments sur le commutant)</strong> Soit <span
+class="math inline">\(f \in \mathscr{L}(E)\)</span> trigonalisable,
+reprenons les notations de la proposition <a
 href="#prop:trigo_diagonale_par_blocs" data-reference-type="ref"
 data-reference="prop:trigo_diagonale_par_blocs">[prop:trigo_diagonale_par_blocs]</a>.
 En notant <span class="math inline">\(\mathscr{C}(f) = \left\{g \in
 \mathscr{L}(E)/gf=gf\right\}\)</span> le commutant de <span
 class="math inline">\(f,\)</span> <span class="math display">\[g \in
-\mathscr{C}(f) \iff \begin{array}{l}
+\mathscr{C}(f) \iff \left\{\begin{array}{l}
         
     \mathscr{M}_{\mathscr{B}}(g) \text{ est diagonale par blocs de la
 forme } \left(
@@ -7477,7 +7533,7 @@ A_k \\
 \right) \\
 \text{ avec }A_j(\lambda_jI_{\alpha_j}+N_j) =
 (\lambda_jI_{\alpha_j}+N_j)A_j \text{ pour }1 \leq j \leq k
-\end{array}\]</span> En particulier, on a donc <span
+\end{array}\right.\]</span> En particulier, on a donc <span
 class="math inline">\(\dim \mathscr{C}(f) = \sum_{j=1}^k \dim
 \mathscr{C}(\lambda_jI_{\alpha_j}+N_j).\)</span></p>
 </div>
@@ -7507,8 +7563,8 @@ A_k(\lambda_kI_{\alpha_k}+N_k) \\
 class="math inline">\(g \in \mathscr{C}(f)\)</span> alors pour <span
 class="math inline">\(1 \leq j \leq k,\)</span> <span
 class="math inline">\(g\)</span> et <span
-class="math inline">\(f-\lambda_j \mathop{\mathrm{Id}}\)</span>
-commutent. Donc <span
+class="math inline">\((f-\lambda_j
+\mathop{\mathrm{Id}})^{\alpha_j}\)</span> commutent. Donc <span
 class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_j
 \mathop{\mathrm{Id}})^{\alpha_j}\)</span> est stable par <span
 class="math inline">\(g\)</span> (voir le rappel <a
@@ -7542,14 +7598,14 @@ Comme <span class="math inline">\(E =
 peut considérer la projection <span class="math inline">\(p_j\)</span>
 sur <span
 class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j}\)</span>
-parallèlement à <span class="math inline">\(\underset{\substack{1 \leq i
-\leq k \\ i \neq
-j}}{\oplus}\mathop{\mathrm{Ker}}(f-\lambda_i\mathop{\mathrm{Id}})^{\alpha_i}.\)</span></p>
+parallèlement à <span class="math inline">\(\underset{{\substack{1 \leq
+i \leq k \\ i \neq
+j}}}{\oplus}\mathop{\mathrm{Ker}}(f-\lambda_i\mathop{\mathrm{Id}})^{\alpha_i}.\)</span></p>
 <p>Alors,</p>
 <ul>
 <li><p><span class="math inline">\(p_1+\ldots+p_k =
 \mathop{\mathrm{Id}}\)</span> et pour <span class="math inline">\(1 \leq
-i,j \leq k,\)</span> <span class="math inline">\(\pi \circ p_j = \left\{
+i,j \leq k,\)</span> <span class="math inline">\(p_i \circ p_j = \left\{
 \begin{array}{ll}
     0 &amp; \mbox{ si $i\neq j$} \\
     p_i &amp; \mbox{ si $i=j$}.
@@ -7598,14 +7654,15 @@ class="math inline">\(p_i \circ p_j = \left\{
     p_i &amp; \mbox{ si $i=j$}.
 \end{array}
 \right.\)</span></p></li>
-<li><p>Pour <span class="math inline">\(1 \leq j \leq k,\)</span> <span
-class="math inline">\(p_j \in \mathbb{K}[f].\)</span> Soit <span
-class="math inline">\(1 \leq j \leq k,\)</span> Les polynômes <span
-class="math inline">\((X-\lambda_j)^{\alpha_j}\)</span> et <span
-class="math inline">\(\prod_{\substack{1 \leq i \leq k \\ i \neq j}}
-(X-\lambda_i)^{\alpha_i}\)</span> sont premiers entre eux donc il existe
-<span class="math inline">\(U,V \in \mathbb{K}[X]\)</span> tels que
-<span
+<li><p>Montrons que pour <span class="math inline">\(1 \leq j \leq
+k,\)</span> <span class="math inline">\(p_j \in
+\mathbb{K}[f].\)</span></p>
+<p>Soit <span class="math inline">\(1 \leq j \leq k,\)</span> Les
+polynômes <span class="math inline">\((X-\lambda_j)^{\alpha_j}\)</span>
+et <span class="math inline">\(\prod_{\substack{1 \leq i \leq k \\ i
+\neq j}} (X-\lambda_i)^{\alpha_i}\)</span> sont premiers entre eux donc
+il existe <span class="math inline">\(U,V \in \mathbb{K}[X]\)</span>
+tels que <span
 class="math display">\[U(X-\lambda_j)^{\alpha_j}+V\prod_{\substack{1
 \leq i \leq k \\ i \neq j}} (X-\lambda_i)^{\alpha_i} = 1.\]</span> On a
 donc, <span class="math inline">\(U(f) \circ
@@ -7617,16 +7674,20 @@ E,\)</span> <span class="math display">\[U(f) \circ
 (f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j}(x)+V(f) \circ
 \prod_{\substack{1 \leq i \leq k \\ i \neq j}}
 (f-\lambda_i\mathop{\mathrm{Id}})^{\alpha_i}(x) = x\]</span></p>
-<p>Or, par théorème de Cayley-Hamilton,</p>
+<p>Or, pour rappel, <span class="math inline">\(\chi_f = \prod_{j=1}^k
+(X-\lambda_j)^{\alpha_j}\)</span> donc par théorème de
+Cayley-Hamilton,</p>
 <ul>
 <li><p><span class="math inline">\(\prod_{\substack{1 \leq i \leq k \\ i
 \neq j}} (f-\lambda_i\mathop{\mathrm{Id}})^{\alpha_i}\left(U(f) \circ
 (f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j}(x)\right) = U(f)\circ
-\chi_f(f)(x) = 0\)</span> donc <span class="math inline">\(x \in
+\chi_f(f)(x) = 0\)</span> donc <span class="math inline">\(U(f) \circ
+(f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j}(x) \in
 \mathop{\mathrm{Ker}}\left(\prod_{\substack{1 \leq i \leq k \\ i \neq
 j}}(f-\lambda_i\mathop{\mathrm{Id}})^{\alpha_i}\right) =
-\oplus_{\substack{1 \leq i \leq k \\ i \neq
-j}}\mathop{\mathrm{Ker}}(f-\lambda_i\mathop{\mathrm{Id}})^{\alpha_i}.\)</span></p></li>
+\underset{\substack{1 \leq i \leq k \\ i \neq
+j}}{\oplus}\mathop{\mathrm{Ker}}(f-\lambda_i\mathop{\mathrm{Id}})^{\alpha_i}\)</span>
+(par lemme des noyaux).</p></li>
 <li><p><span
 class="math inline">\((f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j}\left(V(f)
 \circ \prod_{\substack{1 \leq i \leq k \\ i \neq j}}
@@ -7653,370 +7714,6 @@ class="math display">\[p_j = V(f) \circ \prod_{\substack{1 \leq i \leq k
 </div>
 <h3 data-number="4.5.3" id="exercices-1"><span
 class="header-section-number">4.5.3</span> Exercices</h3>
-<div class="wexoc">
-<p><strong>(Décomposition de Dunford)</strong> Soit <span
-class="math inline">\(E\)</span> un <span
-class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
-finie. Soit <span class="math inline">\(f \in \mathscr{L}(E)\)</span>
-trigonalisable. Montrer qu’il existe un unique couple <span
-class="math inline">\((g,h) \in \mathscr{L}(E) \times
-\mathscr{L}(E)\)</span> tel que <span class="math display">\[\left\{
-    \begin{array}{ll}
-        1. \quad &amp; f=g+h \\
-        2. \quad &amp; g \text{ est diagonalisable} \\
-        3. \quad &amp; h \text{ est nilpotent} \\
-        4. \quad &amp; hg=gh.
-    \end{array}\right.\]</span></p>
-<details><summary>Corrigé</summary>
-<ul>
-<li><p><u>Existence.</u> Comme <span class="math inline">\(f\)</span>
-est trigonalisable, <span class="math inline">\(\chi_f\)</span> est
-scindé sous la forme <span class="math inline">\(\chi_f = \prod_{j=1}^k
-(X-\lambda_j)^{\alpha_j}\)</span> avec <span
-class="math inline">\(\mathop{\mathrm{Sp}}(f) =
-\left\{\lambda_1,\ldots,\lambda_k\right\}\)</span> et <span
-class="math inline">\(\alpha_1,\ldots,\alpha_k \in
-\mathbb{N}^{\star}.\)</span></p>
-<p>De plus, par la proposition <a href="#prop:trigo_diagonale_par_blocs"
-data-reference-type="ref"
-data-reference="prop:trigo_diagonale_par_blocs">[prop:trigo_diagonale_par_blocs]</a>,
-<span class="math inline">\(\mathscr{B}\)</span> de <span
-class="math inline">\(E\)</span> telle que <span
-class="math display">\[\mathscr{M}_{\mathscr{B}}(f)
-\left(
-\begin{array}{ccc}
-\begin{array}{c|}
-\lambda_1I_{\alpha_1}+N_1 \\
-\hline
-\end{array}
-&amp; &amp; 0\\
-&amp; \ddots &amp;\\
-0 &amp; &amp;
-\begin{array}{|c}
-\hline
-\lambda_kI_{\alpha_k}+N_k\\
-\end{array}
-\end{array}
-\right)\]</span> avec pour <span class="math inline">\(1 \leq j \leq
-k,\)</span> <span class="math inline">\(N_j\)</span> triangulaire
-supérieure stricte. Alors, en considérant <span class="math inline">\(g
-\in \mathscr{L}(E)\)</span> telle que <span
-class="math display">\[\mathscr{M}_{\mathscr{B}}(f)
-\left(
-\begin{array}{ccc}
-\begin{array}{c|}
-\lambda_1I_{\alpha_1} \\
-\hline
-\end{array}
-&amp; &amp; 0\\
-&amp; \ddots &amp;\\
-0 &amp; &amp;
-\begin{array}{|c}
-\hline
-\lambda_kI_{\alpha_k}\\
-\end{array}
-\end{array}
-\right)\]</span> et <span class="math inline">\(h \in
-\mathscr{L}(E)\)</span> telle que <span
-class="math display">\[\mathscr{M}_{\mathscr{B}}(h)
-\left(
-\begin{array}{ccc}
-\begin{array}{c|}
-N_1 \\
-\hline
-\end{array}
-&amp; &amp; 0\\
-&amp; \ddots &amp;\\
-0 &amp; &amp;
-\begin{array}{|c}
-\hline
-N_k\\
-\end{array}
-\end{array}
-\right)\]</span> on a</p>
-<ol>
-<li><p><span class="math inline">\(\mathscr{M}_{\mathscr{B}}(f) =
-\mathscr{M}_{\mathscr{B}}(g)+\mathscr{M}_{\mathscr{B}}(h)\)</span> donc
-<span class="math inline">\(f = g+h,\)</span></p></li>
-<li><p><span class="math inline">\(g\)</span> est diagonalisable car
-<span class="math inline">\(\mathscr{M}_{\mathscr{B}}(g)\)</span> est
-diagonale,</p></li>
-<li><p><span class="math inline">\(h\)</span> est nilpotente car <span
-class="math inline">\(\mathscr{M}_{\mathscr{B}}(h)\)</span> est
-triangulaire stricte,</p></li>
-<li><p><span
-class="math inline">\(\mathscr{M}_{\mathscr{B}}(g)\mathscr{M}_{\mathscr{B}}(h)=
-\mathscr{M}_{\mathscr{B}}(h)\mathscr{M}_{\mathscr{B}}(g)\)</span> donc
-<span class="math inline">\(gh=hg.\)</span></p></li>
-</ol></li>
-<li><p><u>Unicité.</u> Soit <span class="math inline">\((g,h)\)</span>
-un couple qui convient. Alors, <span class="math inline">\(gf = g(g+h) =
-g^2+gh = g^2+hg = (g+h)g = fg\)</span> et de même, <span
-class="math inline">\(hf=fh.\)</span></p>
-<p>Donc pour <span class="math inline">\(1 \leq j \leq k,\)</span> <span
-class="math inline">\(g\)</span> et <span
-class="math inline">\(h\)</span> commutent avec <span
-class="math inline">\((f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j}\)</span>
-et <span
-class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j}\)</span>
-est stable par <span class="math inline">\(g\)</span> et <span
-class="math inline">\(h\)</span> (voir le rappel <a
-href="#rappel:commute_donc_Ker_Stable" data-reference-type="ref"
-data-reference="rappel:commute_donc_Ker_Stable">[rappel:commute_donc_Ker_Stable]</a>).</p>
-<p>On considère alors les endomosphismes <span
-class="math inline">\(\begin{array}{lllll}
-f_j &amp; : &amp;
-\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j} &amp;
-\to &amp;
-\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j} \\
-   &amp;   &amp; x &amp; \mapsto &amp; f(x)
-\end{array}
-,\)</span> <span class="math inline">\(\begin{array}{lllll}
-g_j &amp; : &amp;
-\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j} &amp;
-\to &amp;
-\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j} \\
-   &amp;   &amp; x &amp; \mapsto &amp; g(x)
-\end{array}\)</span> et <span class="math inline">\(\begin{array}{lllll}
-h_j &amp; : &amp;
-\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j} &amp;
-\to &amp;
-\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j} \\
-   &amp;   &amp; x &amp; \mapsto &amp; h(x)
-\end{array}\)</span> qui sont les induits par <span
-class="math inline">\(f,g,h\)</span> sur <span
-class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j}.\)</span>
-On a alors toujours <span class="math inline">\(\left\{\begin{array}{ll}
-        1. \quad &amp; f_j=g_j+h_j \\
-        2. \quad &amp; g_j \text{ est diagonalisable (comme induit
-d&#39;un diagonalisable)} \\
-        3. \quad &amp; h_j \text{ est nilpotent (comme induit d&#39;un
-nilpotent)} \\
-        4. \quad &amp; h_jg_j=g_jh_j.
-    \end{array}\right.\)</span></p>
-<p>On en déduit alors <span class="math display">\[f_j - \lambda_j
-\mathop{\mathrm{Id}}= g_j+h_j- \lambda_j \mathop{\mathrm{Id}}\iff
-\underbrace{\underbrace{f_j - \lambda_j
-\mathop{\mathrm{Id}}}_{\text{nilpotent}}
--\underbrace{h_j}_{\text{nilpotent}}}_{\substack{\text{nilpotent car la
-somme de deux nilpotents} \\ \text{qui commutent est un nilpotent, par
-binôme de Newton}}} =  \underbrace{g_j- \lambda_j
-\mathop{\mathrm{Id}}}_{\text{diagonalisable}}.\]</span></p>
-<p>Donc <span class="math inline">\(g_j- \lambda_j
-\mathop{\mathrm{Id}}\)</span> est à la fois nilpotent est diagonalisable
-donc <span class="math inline">\(g_j- \lambda_j \mathop{\mathrm{Id}}=
-0\)</span> et <span class="math inline">\(g_j = \lambda_j
-\mathop{\mathrm{Id}}.\)</span></p>
-<p>Cela donne l’unicité de chaque <span
-class="math inline">\(g_j\)</span> donc celle de <span
-class="math inline">\(g\)</span> et l’unicité de <span
-class="math inline">\(h\)</span> est donnée par <span
-class="math inline">\(h=f-g.\)</span></p></li>
-</ul>
-<div class="wrem">
-<p>On peut montrer que <span class="math inline">\(g,h \in
-\mathbb{K}[f]\)</span> car <span class="math inline">\(g = \sum_{j=1}^k
-\lambda_j p_j \in \mathbb{K}[f]\)</span> et <span
-class="math inline">\(h= f-g \in \mathbb{K}[f]\)</span> où les <span
-class="math inline">\(p_j\)</span> sont les projections sur les
-sous-espaces caractéristiques étudiées dans la proposition <a
-href="#prop:projections_Sec" data-reference-type="ref"
-data-reference="prop:projections_Sec">[prop:projections_Sec]</a>.</p>
-</div>
-</details>
-</div>
-<div class="wexoc">
-<p><strong>(Trigonalisation simultanée pour une partie)</strong> Soient
-<span class="math inline">\(E\)</span> un <span
-class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
-<span class="math inline">\(n \in \mathbb{N}^{\star}.\)</span> On
-considère une partie <span class="math inline">\(\mathscr{P}\subset
-\mathscr{L}(E)\)</span> telle que</p>
-<ul>
-<li><p>Pour tout <span class="math inline">\(f \in \mathscr{P},\)</span>
-<span class="math inline">\(f\)</span> est trigonalisable,</p></li>
-<li><p>Pour tout <span class="math inline">\(f,g \in
-\mathscr{P},\)</span> <span
-class="math inline">\(gf=fg.\)</span></p></li>
-</ul>
-<p>Montrer qu’il existe une base <span
-class="math inline">\(\mathscr{B}\)</span> de <span
-class="math inline">\(E\)</span> telle que pour tout <span
-class="math inline">\(f \in \mathscr{P},\)</span> <span
-class="math inline">\(\mathscr{M}_{\mathscr{B}}(f)\)</span> est
-triangulaire supérieure.</p>
-<div class="wrem">
-<p>On dit alors que les endomorphismes de <span
-class="math inline">\(\mathscr{P}\)</span> sont simultanément
-trigonalisables.</p>
-</div>
-<details><summary>Corrigé</summary>
-<p>On démontre ce résultat par récurrence sur <span
-class="math inline">\(n = \dim E.\)</span></p>
-<ul>
-<li><p><u>Initialisation.</u> Pour <span
-class="math inline">\(n=1,\)</span> toute matrice est diagonale donc
-triangulaire supérieure.</p></li>
-<li><p><u>Hérédité.</u> Soit <span class="math inline">\(n \in
-\mathbb{N}^{\star}, \geq 2,\)</span> on suppose le résultat vrai pour
-tout espace de dimension <span class="math inline">\(\leq n-1\)</span>
-(c’est donc une récurrence forte) et on considère <span
-class="math inline">\(\mathscr{P}\)</span> vérifiant les hypothèses dans
-un espace <span class="math inline">\(E\)</span> de dimension <span
-class="math inline">\(n.\)</span></p>
-<ul>
-<li><p><u>Premier cas:</u> Tout élément de <span
-class="math inline">\(\mathscr{P}\)</span> est une homothétie. Dans ce
-cas, n’importe quelle base <span
-class="math inline">\(\mathscr{B}\)</span> convient.</p></li>
-<li><p><u>Deuxième cas:</u> Il existe <span class="math inline">\(f \in
-\mathscr{P}\)</span> qui n’est pas une homothétie. Alors, <span
-class="math inline">\(f\)</span> est trigonalisable donc <span
-class="math inline">\(\mathop{\mathrm{Sp}}(f) \neq \emptyset\)</span> et
-on considère <span class="math inline">\(\lambda \in
-\mathop{\mathrm{Sp}}(f).\)</span> Comme <span
-class="math inline">\(f\)</span> n’est pas une homothétie, <span
-class="math inline">\(1 \leq \dim
-\mathop{\mathrm{Ker}}(f-\lambda\mathop{\mathrm{Id}})\leq
-n-1.\)</span></p>
-<p>Soit <span class="math inline">\(g \in \mathscr{P},\)</span> <span
-class="math inline">\(g\)</span> et <span
-class="math inline">\(f\)</span> commutent donc <span
-class="math inline">\(g\)</span> commute avec <span
-class="math inline">\(f-\lambda \mathop{\mathrm{Id}}\)</span> et <span
-class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda\mathop{\mathrm{Id}})\)</span>
-est stable par <span class="math inline">\(g\)</span> (voir le rappel <a
-href="#rappel:commute_donc_Ker_Stable" data-reference-type="ref"
-data-reference="rappel:commute_donc_Ker_Stable">[rappel:commute_donc_Ker_Stable]</a>).</p>
-<p>On peut donc considérer l’endomorphisme <span
-class="math inline">\(\begin{array}{lllll}
-\tilde{g} &amp; : &amp;
-\mathop{\mathrm{Ker}}(f-\lambda\mathop{\mathrm{Id}}) &amp; \to &amp;
-\mathop{\mathrm{Ker}}(f-\lambda\mathop{\mathrm{Id}}) \\
-   &amp;   &amp; x &amp; \mapsto &amp; g(x)
-\end{array}\)</span> induit par <span class="math inline">\(g\)</span>
-sur <span
-class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda\mathop{\mathrm{Id}}).\)</span></p>
-<p>Alors, en considérant <span class="math inline">\(\tilde{\mathscr{P}}
-= \left\{\tilde{g} \in
-\mathscr{L}(\mathop{\mathrm{Ker}}(f-\lambda\mathop{\mathrm{Id}})) \text{
-induit par $g \in \mathscr{P}$ sur
-$\mathop{\mathrm{Ker}}(f-\lambda\mathop{\mathrm{Id}})$}\right\},\)</span></p>
-<ul>
-<li><p>Pour tout <span class="math inline">\(\tilde{f} \in
-\mathscr{P},\)</span> <span class="math inline">\(\tilde{f}\)</span> est
-trigonalisable (car <span class="math inline">\(\tilde{f}\)</span> est
-l’induit d’un trigonalisable),</p></li>
-<li><p>Pour tout <span class="math inline">\(\tilde{f}, \tilde{g} \in
-\mathscr{P},\)</span> <span
-class="math inline">\(\tilde{f}\tilde{g}=\tilde{g}\tilde{f}.\)</span></p></li>
-</ul>
-<p>En appliquant l’hypothèse de récurrence à <span
-class="math inline">\(\tilde{\mathscr{P}},\)</span> il existe une base
-<span class="math inline">\(\tilde{B}\)</span> de <span
-class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda\mathop{\mathrm{Id}})\)</span>
-telle que <span
-class="math inline">\(\mathscr{M}_{\tilde{\mathscr{B}}}(\tilde{f})\)</span>
-est triangulaire supérieure pour tout <span
-class="math inline">\(\tilde{f} \in \tilde{\mathscr{P}}.\)</span></p>
-<p>On note alors <span class="math inline">\(\tilde{\mathscr{B}} =
-(e_1,\ldots,e_p)\)</span> avec <span class="math inline">\(p = \dim
-\mathop{\mathrm{Ker}}(f-\lambda\mathop{\mathrm{Id}})\in
-\mathbb{N}^{\star}\)</span> et on la complète en une base <span
-class="math inline">\(\mathscr{B}=  (e_1,\ldots,e_p,e_{p+1},\ldots,e_n)\)</span>
-de <span class="math inline">\(E.\)</span> On note aussi <span
-class="math inline">\(q = n-p.\)</span></p>
-<p>Alors, pour tout <span class="math inline">\(g \in
-\mathscr{P},\)</span> il existe <span class="math inline">\(A_g \in
-\mathscr{M}_{p}(\mathbb{K}), B_g \in
-\mathscr{M}_{q}(\mathbb{K})\)</span> et <span class="math inline">\(C_g
-\in \mathscr{M}_{p,q}(\mathbb{K})\)</span> telle que <span
-class="math display">\[\mathscr{M}_{g}(\mathscr{B}) =  \left(
-\begin{array}{c|c}
-        A_g &amp; C_g \\
-        \hline
-        0 &amp; B_g
-    \end{array}\right)\]</span> et <span
-class="math inline">\(A_g\)</span> est triangulaire supérieure, par ce
-qui précède.</p>
-<p>On considère alors <span class="math inline">\(\mathcal{P} = \left\{
-B_g \in \mathscr{M}_{q}(\mathbb{K}) / q \in \mathscr{P}\right\}\)</span>
-et on va lui appliquer la version matricielle de l’hypothèse de
-récurrence. Notons que</p>
-<ul>
-<li><p>Pour <span class="math inline">\(g \in \mathscr{P},\)</span>
-<span class="math inline">\(\chi_{g} =\chi_{A_g}\chi_{B_g}\)</span> et
-<span class="math inline">\(g\)</span> est trigonalisable donc <span
-class="math inline">\(\chi_g\)</span> est scindé et donc <span
-class="math inline">\(\chi_{B_g}\)</span> aussi et <span
-class="math inline">\(B_g\)</span> est trigonalisable (<span
-class="math inline"><span class="icon-warning">⚠️</span></span> <span
-class="math inline">\(B_g\)</span> n’est pas la matrice d’un induit de
-<span class="math inline">\(g\)</span> car a priori <span
-class="math inline">\(C_g \neq 0\)</span>).</p>
-<p>Donc tout élément de <span class="math inline">\(\mathcal{P}\)</span>
-est diagonalisable.</p></li>
-<li><p>Pour <span class="math inline">\(g,h \in \mathscr{P},\)</span>
-<span class="math inline">\(gh=hg\)</span> donc <span
-class="math display">\[\mathscr{M}_{gh}(\mathscr{B}) =  \left(
-\begin{array}{c|c}
-        A_gA_h &amp; A_gC_h+ C_gB_h \\
-        \hline
-        0 &amp; B_gB_h
-    \end{array}\right)
-    =   \left( \begin{array}{c|c}
-        A_hA_g &amp; A_hC_g+ C_hB_g \\
-        \hline
-        0 &amp; B_hB_g
-    \end{array}\right)
-    \mathscr{M}_{hg}(\mathscr{B})\]</span> puis <span
-class="math inline">\(B_gB_H = B_hB_g\)</span> et tous les éléments de
-<span class="math inline">\(\mathcal{P}\)</span> commutent.</p></li>
-</ul>
-<p>En appliquant la version matricielle de l’hypothèse de récurrence à
-<span class="math inline">\(\mathcal{P},\)</span> il existe <span
-class="math inline">\(Q \in GL_q(\mathbb{K})\)</span> tel que pour tout
-<span class="math inline">\(g \in \mathscr{P},\)</span> <span
-class="math inline">\(Q^{-1}B_gQ\)</span> est triangulaire
-supérieure.</p>
-<p>Alors, en notant <span class="math inline">\(\tilde{Q} = \left(
-\begin{array}{c|c}
-        I_p &amp; 0 \\
-        \hline
-        0 &amp; Q
-    \end{array}\right)
-,\)</span> on a <span class="math inline">\(\tilde{Q} \in
-GL_n(\mathbb{K})\)</span> avec <span
-class="math inline">\(\tilde{Q}^{-1} = \left( \begin{array}{c|c}
-        I_p &amp; 0 \\
-        \hline
-        0 &amp; Q^{-1}
-    \end{array}\right)\)</span> et pour tout <span
-class="math inline">\(g \in \mathscr{P},\)</span> <span
-class="math display">\[\tilde{Q}^{-1}
-\mathscr{M}_{g}(\mathscr{B})
-\tilde{Q}
-= \left( \begin{array}{c|c}
-        A_g &amp; ???\\
-        \hline
-        0 &amp; Q^{-1}B_gQ
-    \end{array}\right)\]</span> est triangulaire supérieure (car <span
-class="math inline">\(A_g\)</span> et <span
-class="math inline">\(Q^{-1}B_gQ\)</span> le sont).</p>
-<p><span class="math inline">\(\tilde{Q}^{-1}
-\mathscr{M}_{g}(\mathscr{B})
-\tilde{Q}\)</span> étant l’écriture de <span
-class="math inline">\(g\)</span> dans une nouvelle base <span
-class="math inline">\(\mathscr{B}&#39;\)</span> de <span
-class="math inline">\(E\)</span> (en interprétant <span
-class="math inline">\(\tilde{Q}\)</span> comme une matrice de passage),
-pour tout <span class="math inline">\(g \in E,\)</span> <span
-class="math inline">\(\mathscr{M}_{\mathscr{B}&#39;}(g)\)</span> est
-triangulaire supérieure et l’hérédité est établie.</p></li>
-</ul></li>
-</ul>
-</details>
-</div>
 <div class="wexoc">
 <p>Soient <span class="math inline">\(E\)</span> un <span
 class="math inline">\(\mathbb{R}\)</span>-espace vectoriel de dimension
@@ -8083,7 +7780,7 @@ L_3+L_1}}{=}
         5 &amp; X &amp; 6  \\
         1 &amp; 0 &amp; 1  \\
     \end{vmatrix} \substack{\text{en développant par rapport} \\ \text{à
-la dernière colonne}} \\
+la dernière ligne}} \\
     &amp; \overset{C_1 \leftarrow C_1-C_3}{=}
     (X+2)^2\begin{vmatrix}
         X-2 &amp; 1 &amp; 6 \\
@@ -8093,7 +7790,7 @@ la dernière colonne}} \\
         X-2 &amp; 1  \\
         -1 &amp; X \\
     \end{vmatrix} \substack{\text{en développant par rapport} \\ \text{à
-la dernière colonne}} \\
+la dernière ligne}} \\
     &amp; = (X+2)^2(X(X-2)+1) = (X+2)^2(X^2-2X+1) = (X+2)^2(X-1)^2.
             \end{aligned}\]</span> On en déduit alors <span
 class="math inline">\(\mathop{\mathrm{Sp}}(f) =
@@ -8117,7 +7814,7 @@ class="math display">\[\mathscr{M}_{\mathscr{B}}(f+2\mathop{\mathrm{Id}})
     \end{pmatrix}.\]</span> On remarque alors <span
 class="math inline">\(u_1 = e_1-2e_3 \in
 \mathop{\mathrm{Ker}}(f+2\mathop{\mathrm{Id}})\)</span> et <span
-class="math inline">\(u_2 = e_2-2e_4 \in
+class="math inline">\(u_2 = e_2-e_4 \in
 \mathop{\mathrm{Ker}}(f+2\mathop{\mathrm{Id}})\)</span> (en regardant
 les colonnes de <span
 class="math inline">\(\mathscr{M}_{\mathscr{B}}(f+2\mathop{\mathrm{Id}})\)</span>
@@ -8169,12 +7866,19 @@ class="math display">\[\begin{aligned}
     \right. \\
      \iff &amp; \left\{
     \begin{array}{lllll}
+        -6x &amp; -y &amp; -6z &amp; -t &amp;=0 \\
+        -3x &amp; -y &amp; -6z &amp; +2t &amp;=0\\
+        3x &amp;+ y &amp;+ 3z &amp; +t &amp;=0\\
+    \end{array}
+    \right. \text{ car $L_4=-L_2$} \\
+      \overset{\substack{L_1 \leftarrow -L_1 \\ L_2 \leftarrow
+-L_2}}{\iff} &amp; \left\{
+    \begin{array}{lllll}
         6x &amp; +y &amp; +6z &amp; +t &amp;=0 \\
         3x &amp; +y &amp; +6z &amp; -2t &amp;=0\\
         3x &amp;+ y &amp;+ 3z &amp; +t &amp;=0\\
     \end{array}
-    \right. \substack{\text{ car $L_4=-L_1$}\\ \text{ et avec $L_1
-\leftarrow -L_1, L_2 \leftarrow -L_2.$}} \\
+    \right.  \\
      \overset{\substack{L_2 \leftarrow L_2-L_1 \\ L_3 \leftarrow
 L_3-L_1}}{\iff} &amp; \left\{
     \begin{array}{lllll}
@@ -8206,12 +7910,21 @@ class="math inline">\(A\)</span> n’est pas diagonalisable.</p>
 <p>On remarque aussi en regardant la matrice de <span
 class="math inline">\(f-\mathop{\mathrm{Id}}\)</span> que <span
 class="math inline">\((f-\mathop{\mathrm{Id}})(e_3) = -u_3\)</span> et
-on pose alors <span class="math inline">\(e_4 = -u_3\)</span> de sorte
+on pose alors <span class="math inline">\(e_4 = -e_3\)</span> de sorte
 que <span class="math inline">\((u_3,u_4)\)</span> est une base de <span
 class="math inline">\(\mathop{\mathrm{Ker}}(f-\mathop{\mathrm{Id}})^2\)</span>
 (comme déjà fait similairement dans l’exercice <a
 href="#exoc:endo_cyclique" data-reference-type="ref"
-data-reference="exoc:endo_cyclique">[exoc:endo_cyclique]</a>).</p></li>
+data-reference="exoc:endo_cyclique">[exoc:endo_cyclique]</a> car <span
+class="math inline">\(-e_3 \in
+\mathop{\mathrm{Ker}}(f-\mathop{\mathrm{Id}})^2 \setminus
+\mathop{\mathrm{Ker}}(f-\mathop{\mathrm{Id}})\)</span>).</p>
+<div class="wrem">
+<p>Cette astuce est très utile pour avoir une matrice finale très simple
+(avec des <span class="math inline">\(1\)</span> sur la sur-diagonale).
+On appelle cette forme la décomposition de Jordan d’une matrice, qui est
+largement hors programme.</p>
+</div></li>
 </ul>
 <p>On a donc</p>
 <ul>
@@ -8240,7 +7953,7 @@ sont stables par <span class="math inline">\(g\)</span> (par le
 rappel <a href="#rappel:commute_donc_Ker_Stable"
 data-reference-type="ref"
 data-reference="rappel:commute_donc_Ker_Stable">[rappel:commute_donc_Ker_Stable]</a>)
-donc dans le base <span class="math inline">\(\mathscr{B}&#39;,\)</span>
+donc dans la base <span class="math inline">\(\mathscr{B}&#39;,\)</span>
 la matrice de <span class="math inline">\(g\)</span> s’écrit <span
 class="math display">\[\mathscr{M}_{\mathscr{B}&#39;}(g)
     = \left( \begin{array}{c|c}
@@ -8442,7 +8155,8 @@ par binôme de Newton, pour <span class="math inline">\(n \geq
         &amp; = \sum_{n=0}^{+\infty}
 \frac{1}{n!}\mathscr{M}_{\mathscr{B}&#39;}(f^n) \\
         &amp; = \begin{pmatrix}
-        \sum_{n=0}^{+\infty} \frac{(-2^n}{n!} &amp; 0 &amp; 0 &amp; 0 \\
+        \sum_{n=0}^{+\infty} \frac{(-2)^n}{n!} &amp; 0 &amp; 0 &amp; 0
+\\
         0 &amp; \sum_{n=0}^{+\infty} \frac{(-2)^n}{n!}&amp; 0 &amp; 0 \\
         0 &amp; 0 &amp; \sum_{n=0}^{+\infty} \frac{1}{n!} &amp;
 \sum_{n=0}^{+\infty} \frac{n}{n!} \\
@@ -8641,9 +8355,9 @@ class="math display">\[\begin{aligned}
 \mathbb{R}^{\star}.
     \end{aligned}\]</span></p></li>
 <li><p>Si <span class="math inline">\(\exp g = f\)</span> alors <span
-class="math inline">\(gf=fg=f (\exp f)\)</span> donc <span
-class="math inline">\(g \in \mathscr{C}(f).\)</span> On en déduit par la
-question 2. que <span
+class="math inline">\(g (\exp g) = (\exp g)g \iff gf=fg\)</span> donc
+<span class="math inline">\(g \in \mathscr{C}(f).\)</span> On en déduit
+par la question 2. que <span
 class="math display">\[\mathscr{M}_{\mathscr{B}&#39;}(g)
     = \left( \begin{array}{c|c}
         B_1&amp; 0\\
@@ -8753,7 +8467,12 @@ data-reference="exoc:calcul_dune_Expo_de_mat">[exoc:calcul_dune_Expo_de_mat]</a>
         \end{pmatrix} = \begin{pmatrix}
             \ln(2) &amp; -\pi \\
             \pi &amp; \ln(2)
-        \end{pmatrix}\)</span> convient.</p></li>
+        \end{pmatrix}\)</span> convient car alors comme les matrices
+commutent, <span class="math inline">\(\exp(B_1) = \exp( \ln(2)I_2) \exp
+\begin{pmatrix}
+            0 &amp; -\pi \\
+            \pi &amp;0
+        \end{pmatrix} = (2 I_2)(-I_2) = -2I_2\)</span>.</p></li>
 </ul>
 <p>Donc <span class="math inline">\(g\)</span> telle que <span
 class="math inline">\(\mathscr{M}_{\mathscr{B}&#39;}(g) = \left(
@@ -8775,6 +8494,388 @@ class="math inline">\(\mathscr{M}_{\mathscr{B}&#39;}(g) = \left(
         \end{array}
     \end{array}\right)\)</span> convient.</p></li>
 </ol>
+</details>
+</div>
+<div class="wexoc">
+<p><strong>(Décomposition de Dunford)</strong> Soit <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+finie. Soit <span class="math inline">\(f \in \mathscr{L}(E)\)</span>
+trigonalisable. Montrer qu’il existe un unique couple <span
+class="math inline">\((g,h) \in \mathscr{L}(E) \times
+\mathscr{L}(E)\)</span> tel que <span class="math display">\[\left\{
+    \begin{array}{ll}
+        1. \quad &amp; f=g+h \\
+        2. \quad &amp; g \text{ est diagonalisable} \\
+        3. \quad &amp; h \text{ est nilpotent} \\
+        4. \quad &amp; hg=gh.
+    \end{array}\right.\]</span></p>
+<details><summary>Corrigé</summary>
+<ul>
+<li><p><u>Existence.</u> Comme <span class="math inline">\(f\)</span>
+est trigonalisable, <span class="math inline">\(\chi_f\)</span> est
+scindé sous la forme <span class="math inline">\(\chi_f = \prod_{j=1}^k
+(X-\lambda_j)^{\alpha_j}\)</span> avec <span
+class="math inline">\(\mathop{\mathrm{Sp}}(f) =
+\left\{\lambda_1,\ldots,\lambda_k\right\}\)</span> et <span
+class="math inline">\(\alpha_1,\ldots,\alpha_k \in
+\mathbb{N}^{\star}.\)</span></p>
+<p>De plus, par la proposition <a href="#prop:trigo_diagonale_par_blocs"
+data-reference-type="ref"
+data-reference="prop:trigo_diagonale_par_blocs">[prop:trigo_diagonale_par_blocs]</a>,
+il existe une base <span class="math inline">\(\mathscr{B}\)</span> de
+<span class="math inline">\(E\)</span> telle que <span
+class="math display">\[\mathscr{M}_{\mathscr{B}}(f)
+\left(
+\begin{array}{ccc}
+\begin{array}{c|}
+\lambda_1I_{\alpha_1}+N_1 \\
+\hline
+\end{array}
+&amp; &amp; 0\\
+&amp; \ddots &amp;\\
+0 &amp; &amp;
+\begin{array}{|c}
+\hline
+\lambda_kI_{\alpha_k}+N_k\\
+\end{array}
+\end{array}
+\right)\]</span> avec pour <span class="math inline">\(1 \leq j \leq
+k,\)</span> <span class="math inline">\(N_j\)</span> triangulaire
+supérieure stricte. Alors, en considérant <span class="math inline">\(g
+\in \mathscr{L}(E)\)</span> telle que <span
+class="math display">\[\mathscr{M}_{\mathscr{B}}(f) =
+\left(
+\begin{array}{ccc}
+\begin{array}{c|}
+\lambda_1I_{\alpha_1} \\
+\hline
+\end{array}
+&amp; &amp; 0\\
+&amp; \ddots &amp;\\
+0 &amp; &amp;
+\begin{array}{|c}
+\hline
+\lambda_kI_{\alpha_k}\\
+\end{array}
+\end{array}
+\right)\]</span> et <span class="math inline">\(h \in
+\mathscr{L}(E)\)</span> telle que <span
+class="math display">\[\mathscr{M}_{\mathscr{B}}(h) =
+\left(
+\begin{array}{ccc}
+\begin{array}{c|}
+N_1 \\
+\hline
+\end{array}
+&amp; &amp; 0\\
+&amp; \ddots &amp;\\
+0 &amp; &amp;
+\begin{array}{|c}
+\hline
+N_k\\
+\end{array}
+\end{array}
+\right)\]</span> on a</p>
+<ol>
+<li><p><span class="math inline">\(\mathscr{M}_{\mathscr{B}}(f) =
+\mathscr{M}_{\mathscr{B}}(g)+\mathscr{M}_{\mathscr{B}}(h)\)</span> donc
+<span class="math inline">\(f = g+h,\)</span></p></li>
+<li><p><span class="math inline">\(g\)</span> est diagonalisable car
+<span class="math inline">\(\mathscr{M}_{\mathscr{B}}(g)\)</span> est
+diagonale,</p></li>
+<li><p><span class="math inline">\(h\)</span> est nilpotente car <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}}(h)\)</span> est
+triangulaire stricte (car chacun es <span
+class="math inline">\(N_j\)</span> l’est),</p></li>
+<li><p>en faisant le produit par blocs, <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}}(g)\mathscr{M}_{\mathscr{B}}(h)=
+\mathscr{M}_{\mathscr{B}}(h)\mathscr{M}_{\mathscr{B}}(g)\)</span> donc
+<span class="math inline">\(gh=hg.\)</span></p></li>
+</ol></li>
+<li><p><u>Unicité.</u> Soit <span class="math inline">\((g,h)\)</span>
+un couple qui convient. Alors, <span class="math inline">\(gf = g(g+h) =
+g^2+gh = g^2+hg = (g+h)g = fg\)</span> et de même, <span
+class="math inline">\(hf=fh.\)</span></p>
+<p>Donc pour <span class="math inline">\(1 \leq j \leq k,\)</span> <span
+class="math inline">\(g\)</span> et <span
+class="math inline">\(h\)</span> commutent avec <span
+class="math inline">\((f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j}\)</span>
+et <span
+class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j}\)</span>
+est stable par <span class="math inline">\(g\)</span> et <span
+class="math inline">\(h\)</span> (voir le rappel <a
+href="#rappel:commute_donc_Ker_Stable" data-reference-type="ref"
+data-reference="rappel:commute_donc_Ker_Stable">[rappel:commute_donc_Ker_Stable]</a>).</p>
+<p>On considère alors <span class="math inline">\(\begin{array}{lllll}
+f_j &amp; : &amp;
+\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j} &amp;
+\to &amp;
+\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j} \\
+   &amp;   &amp; x &amp; \mapsto &amp; f(x)
+\end{array}
+,\)</span> <span class="math inline">\(\begin{array}{lllll}
+g_j &amp; : &amp;
+\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j} &amp;
+\to &amp;
+\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j} \\
+   &amp;   &amp; x &amp; \mapsto &amp; g(x)
+\end{array}\)</span> et</p>
+<p><span class="math inline">\(\begin{array}{lllll}
+h_j &amp; : &amp;
+\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j} &amp;
+\to &amp;
+\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j} \\
+   &amp;   &amp; x &amp; \mapsto &amp; h(x)
+\end{array}\)</span> qui sont les endomorphismes induits par <span
+class="math inline">\(f,g,h\)</span> sur <span
+class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda_j\mathop{\mathrm{Id}})^{\alpha_j}.\)</span>
+On a alors toujours <span class="math inline">\(\left\{\begin{array}{ll}
+        1. \quad &amp; f_j=g_j+h_j \\
+        2. \quad &amp; g_j \text{ est diagonalisable (comme induit
+d&#39;un diagonalisable)} \\
+        3. \quad &amp; h_j \text{ est nilpotent (comme induit d&#39;un
+nilpotent)} \\
+        4. \quad &amp; h_jg_j=g_jh_j.
+    \end{array}\right.\)</span></p>
+<p>On en déduit alors <span class="math display">\[f_j - \lambda_j
+\mathop{\mathrm{Id}}= g_j+h_j- \lambda_j \mathop{\mathrm{Id}}\iff
+\underbrace{\underbrace{f_j - \lambda_j
+\mathop{\mathrm{Id}}}_{\text{nilpotent}}
+-\underbrace{h_j}_{\text{nilpotent}}}_{\substack{\text{nilpotent car la
+somme de deux nilpotents} \\ \text{qui commutent est un nilpotent, par
+binôme de Newton}}} =  \underbrace{g_j- \lambda_j
+\mathop{\mathrm{Id}}}_{\text{diagonalisable}}.\]</span></p>
+<p>Donc <span class="math inline">\(g_j- \lambda_j
+\mathop{\mathrm{Id}}\)</span> est à la fois nilpotent est diagonalisable
+donc <span class="math inline">\(g_j- \lambda_j \mathop{\mathrm{Id}}=
+0\)</span> et <span class="math inline">\(g_j = \lambda_j
+\mathop{\mathrm{Id}}.\)</span></p>
+<p>Cela donne l’unicité de chaque <span
+class="math inline">\(g_j\)</span> donc celle de <span
+class="math inline">\(g\)</span> et l’unicité de <span
+class="math inline">\(h\)</span> est donnée par <span
+class="math inline">\(h=f-g.\)</span></p></li>
+</ul>
+<div class="wrem">
+<ul>
+<li><p>On peut montrer que <span class="math inline">\(g,h \in
+\mathbb{K}[f]\)</span> car <span class="math inline">\(g = \sum_{j=1}^k
+\lambda_j p_j \in \mathbb{K}[f]\)</span> et <span
+class="math inline">\(h= f-g \in \mathbb{K}[f]\)</span> où les <span
+class="math inline">\(p_j\)</span> sont les projections sur les
+sous-espaces caractéristiques étudiées dans la proposition <a
+href="#prop:projections_Sec" data-reference-type="ref"
+data-reference="prop:projections_Sec">[prop:projections_Sec]</a>.</p></li>
+<li><p>Pour l’unicité, on peut aussi directement utiliser la
+diagonalisation simultanée (exercice <a
+href="#exoc:diago_simul_deux_endos" data-reference-type="ref"
+data-reference="exoc:diago_simul_deux_endos">[exoc:diago_simul_deux_endos]</a>).</p>
+<p>En effet, si <span class="math inline">\((g,h)\)</span> et <span
+class="math inline">\((\tilde{g},\tilde{h})\)</span> alors <span
+class="math inline">\(g-\tilde{g} = \tilde{h}-h\)</span> avec <span
+class="math inline">\(g, \tilde{g}\)</span> qui commutent donc
+simultanément diagonalisables donc <span
+class="math inline">\(g-\tilde{g}\)</span> est diagonalisable et <span
+class="math inline">\(h, \tilde{h}\)</span> qui commutent donc <span
+class="math inline">\(\tilde{h}-h\)</span> est nilpotent. En déduit
+alors <span class="math inline">\(g-\tilde{g} = \tilde{h}-h\)</span> est
+nilpotent et diagonalisable donc nul et finalement, <span
+class="math inline">\((\tilde{g},\tilde{h})= (g,h).\)</span></p></li>
+</ul>
+</div>
+</details>
+</div>
+<div class="wexoc">
+<p><strong>(Trigonalisation simultanée pour une partie)</strong> Soient
+<span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \in \mathbb{N}^{\star}.\)</span> On
+considère une partie <span class="math inline">\(\mathscr{P}\subset
+\mathscr{L}(E)\)</span> telle que</p>
+<ul>
+<li><p>Pour tout <span class="math inline">\(f \in \mathscr{P},\)</span>
+<span class="math inline">\(f\)</span> est trigonalisable,</p></li>
+<li><p>Pour tout <span class="math inline">\(f,g \in
+\mathscr{P},\)</span> <span
+class="math inline">\(gf=fg.\)</span></p></li>
+</ul>
+<p>Montrer qu’il existe une base <span
+class="math inline">\(\mathscr{B}\)</span> de <span
+class="math inline">\(E\)</span> telle que pour tout <span
+class="math inline">\(f \in \mathscr{P},\)</span> <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}}(f)\)</span> est
+triangulaire supérieure.</p>
+<div class="wrem">
+<p>On dit alors que les endomorphismes de <span
+class="math inline">\(\mathscr{P}\)</span> sont simultanément
+trigonalisables.</p>
+</div>
+<details><summary>Corrigé</summary>
+<p>On démontre ce résultat par récurrence sur <span
+class="math inline">\(n = \dim E.\)</span></p>
+<ul>
+<li><p><u>Initialisation.</u> Pour <span
+class="math inline">\(n=1,\)</span> toute matrice est diagonale donc
+triangulaire supérieure.</p></li>
+<li><p><u>Hérédité.</u> Soit <span class="math inline">\(n \in
+\mathbb{N}^{\star}, \geq 2,\)</span> on suppose le résultat vrai pour
+tout espace de dimension <span class="math inline">\(\leq n-1\)</span>
+(c’est donc une récurrence forte) et on considère <span
+class="math inline">\(\mathscr{P}\)</span> vérifiant les hypothèses dans
+un espace <span class="math inline">\(E\)</span> de dimension <span
+class="math inline">\(n.\)</span></p>
+<ul>
+<li><p><u>Premier cas:</u> Tout élément de <span
+class="math inline">\(\mathscr{P}\)</span> est une homothétie. Dans ce
+cas, n’importe quelle base <span
+class="math inline">\(\mathscr{B}\)</span> convient.</p></li>
+<li><p><u>Deuxième cas:</u> Il existe <span class="math inline">\(f \in
+\mathscr{P}\)</span> qui n’est pas une homothétie. Alors, <span
+class="math inline">\(f\)</span> est trigonalisable donc <span
+class="math inline">\(\mathop{\mathrm{Sp}}(f) \neq \emptyset\)</span> et
+on considère <span class="math inline">\(\lambda \in
+\mathop{\mathrm{Sp}}(f).\)</span> Comme <span
+class="math inline">\(f\)</span> n’est pas une homothétie, <span
+class="math inline">\(1 \leq \dim
+\mathop{\mathrm{Ker}}(f-\lambda\mathop{\mathrm{Id}})\leq
+n-1.\)</span></p>
+<p>Soit <span class="math inline">\(g \in \mathscr{P},\)</span> <span
+class="math inline">\(g\)</span> et <span
+class="math inline">\(f\)</span> commutent donc <span
+class="math inline">\(g\)</span> commute avec <span
+class="math inline">\(f-\lambda \mathop{\mathrm{Id}}\)</span> et <span
+class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda\mathop{\mathrm{Id}})\)</span>
+est stable par <span class="math inline">\(g\)</span> (voir le rappel <a
+href="#rappel:commute_donc_Ker_Stable" data-reference-type="ref"
+data-reference="rappel:commute_donc_Ker_Stable">[rappel:commute_donc_Ker_Stable]</a>).</p>
+<p>On peut donc considérer l’endomorphisme <span
+class="math inline">\(\begin{array}{lllll}
+{g}_\lambda &amp; : &amp;
+\mathop{\mathrm{Ker}}(f-\lambda\mathop{\mathrm{Id}}) &amp; \to &amp;
+\mathop{\mathrm{Ker}}(f-\lambda\mathop{\mathrm{Id}}) \\
+   &amp;   &amp; x &amp; \mapsto &amp; g(x)
+\end{array}\)</span> induit par <span class="math inline">\(g\)</span>
+sur <span
+class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda\mathop{\mathrm{Id}}).\)</span></p>
+<p>Alors, en considérant <span
+class="math inline">\({\mathscr{P}}_\lambda = \left\{{g}_\lambda \in
+\mathscr{L}(\mathop{\mathrm{Ker}}(f-\lambda\mathop{\mathrm{Id}})) \text{
+induit par $g \in \mathscr{P}$ sur
+$\mathop{\mathrm{Ker}}(f-\lambda\mathop{\mathrm{Id}})$}\right\},\)</span></p>
+<ul>
+<li><p>Pour tout <span class="math inline">\({g}_\lambda \in
+\mathscr{P}_\lambda,\)</span> <span
+class="math inline">\({g}_\lambda\)</span> est trigonalisable (car
+l’induit d’un trigonalisable),</p></li>
+<li><p>Pour tout <span class="math inline">\({g}_\lambda, {h}_\lambda
+\in \mathscr{P}_\lambda,\)</span> <span
+class="math inline">\({h}_\lambda{g}_\lambda={g}_\lambda{h}_\lambda.\)</span></p></li>
+</ul>
+<p>En appliquant l’hypothèse de récurrence à <span
+class="math inline">\({\mathscr{P}}_\lambda,\)</span> il existe une base
+<span class="math inline">\({B}_\lambda\)</span> de <span
+class="math inline">\(\mathop{\mathrm{Ker}}(f-\lambda\mathop{\mathrm{Id}})\)</span>
+telle que <span
+class="math inline">\(\mathscr{M}_{{\mathscr{B}}_\lambda}({g}_\lambda)\)</span>
+est triangulaire supérieure pour tout <span
+class="math inline">\(g_\lambda \in {\mathscr{P}}_\lambda.\)</span></p>
+<p>On note alors <span class="math inline">\({\mathscr{B}}_\lambda =
+(e_1,\ldots,e_p)\)</span> avec <span class="math inline">\(p = \dim
+\mathop{\mathrm{Ker}}(f-\lambda\mathop{\mathrm{Id}})\in
+\mathbb{N}^{\star}\)</span> et on la complète en une base <span
+class="math inline">\(\mathscr{B}=  (e_1,\ldots,e_p,e_{p+1},\ldots,e_n)\)</span>
+de <span class="math inline">\(E.\)</span> On note aussi <span
+class="math inline">\(q = n-p.\)</span></p>
+<p>Alors, pour tout <span class="math inline">\(g \in
+\mathscr{P},\)</span> il existe <span class="math inline">\(A_g \in
+\mathscr{M}_{p}(\mathbb{K}), B_g \in
+\mathscr{M}_{q}(\mathbb{K})\)</span> et <span class="math inline">\(C_g
+\in \mathscr{M}_{p,q}(\mathbb{K})\)</span> telle que <span
+class="math display">\[\mathscr{M}_{\mathscr{B}}(g) =  \left(
+\begin{array}{c|c}
+        A_g &amp; C_g \\
+        \hline
+        0 &amp; B_g
+    \end{array}\right)\]</span> et <span
+class="math inline">\(A_g\)</span> est triangulaire supérieure, par ce
+qui précède.</p>
+<p>On considère alors <span class="math inline">\(\mathcal{P} = \left\{
+B_g \in \mathscr{M}_{q}(\mathbb{K}) / q \in \mathscr{P}\right\}\)</span>
+et on va lui appliquer la version matricielle de l’hypothèse de
+récurrence. Notons que</p>
+<ul>
+<li><p>Pour <span class="math inline">\(g \in \mathscr{P},\)</span>
+<span class="math inline">\(\chi_{g} =\chi_{A_g}\chi_{B_g}\)</span> et
+<span class="math inline">\(g\)</span> est trigonalisable donc <span
+class="math inline">\(\chi_g\)</span> est scindé et donc <span
+class="math inline">\(\chi_{B_g}\)</span> aussi et <span
+class="math inline">\(B_g\)</span> est trigonalisable (<span
+class="math inline"><span class="icon-warning">⚠️</span></span> <span
+class="math inline">\(B_g\)</span> n’est pas la matrice d’un induit de
+<span class="math inline">\(g\)</span> car a priori <span
+class="math inline">\(C_g \neq 0\)</span>).</p>
+<p>Donc tout élément de <span class="math inline">\(\mathcal{P}\)</span>
+est diagonalisable.</p></li>
+<li><p>Pour <span class="math inline">\(g,h \in \mathscr{P},\)</span>
+<span class="math inline">\(gh=hg\)</span> donc <span
+class="math display">\[\mathscr{M}_{\mathscr{B}}(gh) =  \left(
+\begin{array}{c|c}
+        A_gA_h &amp; A_gC_h+ C_gB_h \\
+        \hline
+        0 &amp; B_gB_h
+    \end{array}\right)
+    =   \left( \begin{array}{c|c}
+        A_hA_g &amp; A_hC_g+ C_hB_g \\
+        \hline
+        0 &amp; B_hB_g
+    \end{array}\right)
+    \mathscr{M}_{\mathscr{B}}(hg)\]</span> puis <span
+class="math inline">\(B_gB_h = B_hB_g\)</span> et tous les éléments de
+<span class="math inline">\(\mathcal{P}\)</span> commutent.</p></li>
+</ul>
+<p>En appliquant la version matricielle de l’hypothèse de récurrence à
+<span class="math inline">\(\mathcal{P},\)</span> il existe <span
+class="math inline">\(Q \in GL_q(\mathbb{K})\)</span> tel que pour tout
+<span class="math inline">\(g \in \mathscr{P},\)</span> <span
+class="math inline">\(Q^{-1}B_gQ\)</span> est triangulaire
+supérieure.</p>
+<p>Alors, en notant <span class="math inline">\(\tilde{Q} = \left(
+\begin{array}{c|c}
+        I_p &amp; 0 \\
+        \hline
+        0 &amp; Q
+    \end{array}\right)
+,\)</span> on a <span class="math inline">\(\tilde{Q} \in
+GL_n(\mathbb{K})\)</span> avec <span
+class="math inline">\(\tilde{Q}^{-1} = \left( \begin{array}{c|c}
+        I_p &amp; 0 \\
+        \hline
+        0 &amp; Q^{-1}
+    \end{array}\right)\)</span> et pour tout <span
+class="math inline">\(g \in \mathscr{P},\)</span> <span
+class="math display">\[\tilde{Q}^{-1}
+\mathscr{M}_{\mathscr{B}}(g)
+\tilde{Q}
+= \left( \begin{array}{c|c}
+        A_g &amp; ???\\
+        \hline
+        0 &amp; Q^{-1}B_gQ
+    \end{array}\right)\]</span> est triangulaire supérieure (car <span
+class="math inline">\(A_g\)</span> et <span
+class="math inline">\(Q^{-1}B_gQ\)</span> le sont).</p>
+<p><span class="math inline">\(\tilde{Q}^{-1}
+\mathscr{M}_{\mathscr{B}}(g)
+\tilde{Q}\)</span> étant l’écriture de <span
+class="math inline">\(g\)</span> dans une nouvelle base <span
+class="math inline">\(\mathscr{B}&#39;\)</span> de <span
+class="math inline">\(E\)</span> (en interprétant <span
+class="math inline">\(\tilde{Q}\)</span> comme une matrice de passage),
+pour tout <span class="math inline">\(g \in E,\)</span> <span
+class="math inline">\(\mathscr{M}_{\mathscr{B}&#39;}(g)\)</span> est
+triangulaire supérieure et l’hérédité est établie.</p></li>
+</ul></li>
+</ul>
 </details>
 </div>
 <div class="wexoc">
@@ -8815,7 +8916,7 @@ deux racines <span class="math inline">\(\alpha,\beta \in
 class="math inline">\(\chi_A=(X-\alpha)^2(X-\beta).\)</span> On a donc
 par lemme des noyaux <span class="math inline">\(\mathbb{C}^3 =
 \mathop{\mathrm{Ker}}(A-\alpha
-I_3)^2\oplus  \mathop{\mathrm{Ker}}(A-\beta I_3)\)</span> et <span
+I_3)^2\oplus  \mathop{\mathrm{Ker}}(A-\beta I_3)\)</span>, <span
 class="math inline">\(\dim \mathop{\mathrm{Ker}}(A-\beta I_3)=1\)</span>
 (par le corollaire <a href="#cor:multiplicite_1_dim_sep"
 data-reference-type="ref"
@@ -8847,7 +8948,7 @@ class="math inline">\(\mu_A = (X-\alpha)(X-\beta)\)</span></p></li>
 \mathop{\mathrm{Ker}}(A-\alpha I_3) = 1,\)</span></u></p>
 <p>Alors, <span class="math inline">\(A\)</span> n’est pas
 diagonalisable (car la somme des dimensions des sous-espaces propres est
-<span class="math inline">\(&lt; 3.\)</span> De plus, <span
+<span class="math inline">\(&lt; 3\)</span>). De plus, <span
 class="math inline">\(\dim \mathop{\mathrm{Ker}}(A-\alpha I_3)^2 =
 3-\dim\mathop{\mathrm{Ker}}(f-\beta \mathop{\mathrm{Id}}) = 2.\)</span>
 En considérant <span class="math inline">\(e_1 \in
@@ -8857,7 +8958,9 @@ base <span class="math inline">\((e_1,e_2)\)</span> de <span
 class="math inline">\(\mathop{\mathrm{Ker}}(A-\alpha I_3)^2.\)</span>
 Avec <span class="math inline">\(P \in GL_3(\mathbb{C})\)</span> la
 matrice de <span class="math inline">\((e_1,e_2,e_3)\)</span> base de
-<span class="math inline">\(\mathbb{C}^3,\)</span> <span
+<span class="math inline">\(\mathbb{C}^3,\)</span> comme <span
+class="math inline">\(\mathop{\mathrm{Ker}}(A-\alpha I_3)^2\)</span> est
+stable par <span class="math inline">\(A,\)</span> <span
 class="math display">\[P^{-1}AP = \begin{pmatrix}
                     \alpha &amp; b &amp; 0 \\
                     0 &amp; a &amp; 0 \\
@@ -8906,7 +9009,7 @@ class="math display">\[A = \begin{pmatrix}
                 \end{pmatrix}\]</span> et <span
 class="math inline">\(\mu_A = X-\alpha.\)</span></p></li>
 <li><p><u>Si <span class="math inline">\(\dim
-\mathop{\mathrm{Ker}}(A-\alpha I_3) = 2,\)</span></u> alors <span
+\mathop{\mathrm{Ker}}(A-\alpha I_3) = 2\)</span></u> alors <span
 class="math inline">\(\mathop{\mathrm{Ker}}(A-\alpha I_3)^2 = E\)</span>
 en utilisant le rappel <a href="#rappel:iteres_noyaux"
 data-reference-type="ref"
@@ -8916,16 +9019,20 @@ sinon on aurait <span class="math inline">\(\dim
 class="math inline">\(\mathop{\mathrm{Ker}}(A-\alpha I_3) \subset
 \mathop{\mathrm{Ker}}(A-\alpha I_3)^2\)</span> donc <span
 class="math inline">\(\mathop{\mathrm{Ker}}(A-\alpha I_3)
-=\mathop{\mathrm{Ker}}(A-\alpha I_3)^2\)</span> et la suite stagnerait,
-ce qui contredit <span class="math inline">\((A-\alpha I_3)^3 =
-0.\)</span> Donc <span class="math inline">\(\mu_A =
-(X-\alpha)^2\)</span> car <span class="math inline">\(A-\alpha
-I_3\)</span> est nilpotent d’indice <span
-class="math inline">\(2.\)</span> On peut donc considérer <span
-class="math inline">\((e_1,e_2)\)</span> une base de <span
-class="math inline">\(\mathop{\mathrm{Ker}}(A-\alpha I_3)\)</span> et la
-compléter en une base <span class="math inline">\((e_1,e_2,e_3)\)</span>
-de <span class="math inline">\(E\)</span> telle qu’en considérant <span
+=\mathop{\mathrm{Ker}}(A-\alpha I_3)^2\)</span> et la suite stagnerait
+<span class="math inline">\(\left(\mathop{\mathrm{Ker}}(A-\alpha
+I_3)^k\right)_{k \geq 0}\)</span> dès <span
+class="math inline">\(k=1\)</span>, ce qui contredit <span
+class="math inline">\((A-\alpha I_3)^3 = 0.\)</span> Donc <span
+class="math inline">\(\mu_A = (X-\alpha)^2\)</span> car <span
+class="math inline">\(A-\alpha I_3\)</span> est nilpotent d’indice <span
+class="math inline">\(2\)</span> et <span
+class="math inline">\(A\)</span> n’est pas diagonalisable. On peut donc
+considérer <span class="math inline">\((e_1,e_2)\)</span> une base de
+<span class="math inline">\(\mathop{\mathrm{Ker}}(A-\alpha I_3)\)</span>
+et la compléter en une base <span
+class="math inline">\((e_1,e_2,e_3)\)</span> de <span
+class="math inline">\(E\)</span> telle qu’en considérant <span
 class="math inline">\(P \in GL_3(\mathbb{C})\)</span> la matrice de
 <span class="math inline">\((e_1,e_2,e_3),\)</span> on a <span
 class="math display">\[P^{-1}AP = \begin{pmatrix}
@@ -8958,9 +9065,9 @@ class="math inline">\((A-I_3)^2 =0\)</span>) et on peut donc compléter
 class="math inline">\((e&#39;_2,e&#39;_3)\)</span> de <span
 class="math inline">\(\mathop{\mathrm{Ker}}(A-\alpha I_3)\)</span> de
 sorte que <span
-class="math inline">\((e&#39;_1,e&#39;_2,e&#39;_3)\)</span> soit une
-base de <span class="math inline">\(\mathbb{C}^3.\)</span> En effet,
-soient <span class="math inline">\(a,b,c \in \mathbb{C},\)</span> <span
+class="math inline">\((e&#39;_1,e&#39;_2,e&#39;_3)\)</span> est une base
+de <span class="math inline">\(\mathbb{C}^3.\)</span> En effet, soient
+<span class="math inline">\(a,b,c \in \mathbb{C},\)</span> <span
 class="math display">\[a e&#39;_1 +be&#39;_2+ce&#39;_3 \Longrightarrow
 (A-\alpha I_3)\left(a e&#39;_1 +be&#39;_2+ce&#39;_3\right) = a(A-\alpha
 I_3)e&#39;_1 = 0\]</span> donc <span class="math inline">\(a =
@@ -8998,9 +9105,10 @@ class="math display">\[\tilde{P}^{-1}A\tilde{P} = \begin{pmatrix}
 <li><p><u>Si <span class="math inline">\(\dim
 \mathop{\mathrm{Ker}}(A-\alpha I_3) = 1,\)</span></u></p>
 <div class="wrappel">
-<p><strong>((voir le cours de révisions d’algèbre linéaire))</strong> En
-reprenant les notations du rappel <a href="#rappel:iteres_noyaux"
-data-reference-type="ref"
+<p><strong>((voir le cours de révisions d’algèbre linéaire))</strong>
+<span id="rappel:suite_ecarts_Ker"
+label="rappel:suite_ecarts_Ker"></span> En reprenant les notations du
+rappel <a href="#rappel:iteres_noyaux" data-reference-type="ref"
 data-reference="rappel:iteres_noyaux">[rappel:iteres_noyaux]</a>, la
 suite des dimensions des noyaux itérés est croissante et la suite des
 écarts de dimensions est décroissante : <span
@@ -9009,19 +9117,40 @@ class="math display">\[\forall k \in \mathbb{N}, \qquad
 \geq
 \dim\bigl(\mathop{\mathrm{Ker}}(f^{k+2})\bigr)-\dim\bigl(\mathop{\mathrm{Ker}}(f^{k+1})\bigr).\]</span></p>
 </div>
-<p>Sachant le rappel précédent ainsi que <span
-class="math inline">\(\dim \mathop{\mathrm{Ker}}(A-\alpha I_3) =
-1\)</span> et <span class="math inline">\(\dim
-\mathop{\mathrm{Ker}}(A-\alpha I_3)^3 = 3,\)</span> on ne peut que avoir
-<span class="math inline">\(\dim \mathop{\mathrm{Ker}}(A-\alpha I_3) =
-2.\)</span> On a donc <span class="math inline">\(A-\alpha I_3\)</span>
-qui est nilpotent d’indice <span class="math inline">\(3 = \dim
+<p>Montrons que <span class="math inline">\(\dim
+\mathop{\mathrm{Ker}}(A-\alpha I_3)^2 = 2.\)</span></p>
+<ul>
+<li><p>On n’a pas <span class="math inline">\(\dim
+\mathop{\mathrm{Ker}}(A-\alpha I_3)^2 = 1\)</span> car sinon <span
+class="math inline">\(\mathop{\mathrm{Ker}}(A-\alpha I_3)^2 =
+\mathop{\mathrm{Ker}}(A-\alpha I_3)\)</span> (car <span
+class="math inline">\(\mathop{\mathrm{Ker}}(A-\alpha I_3) \subset
+\mathop{\mathrm{Ker}}(A-\alpha I_3)^2\)</span>) et <span
+class="math inline">\(\left(\mathop{\mathrm{Ker}}(A-\alpha
+I_3)^k\right)_{k\geq 0}\)</span> stationne dès <span
+class="math inline">\(k=1\)</span> (par le rappel <a
+href="#rappel:iteres_noyaux" data-reference-type="ref"
+data-reference="rappel:iteres_noyaux">[rappel:iteres_noyaux]</a>), ce
+qui contredit <span class="math inline">\(\mathop{\mathrm{Ker}}(A-\alpha
+I_3)^3 = \mathbb{C}^3.\)</span></p></li>
+<li><p>On n’a pas <span class="math inline">\(\dim
+\mathop{\mathrm{Ker}}(A-\alpha I_3)^2 = 3\)</span> car sinon <span
+class="math inline">\(\dim \mathop{\mathrm{Ker}}(A-\alpha I_3)^3-\dim
+\mathop{\mathrm{Ker}}(A-\alpha I_3)^2 =0 &lt; \dim
+\mathop{\mathrm{Ker}}(A-\alpha I_3)^2 -\dim
+\mathop{\mathrm{Ker}}(A-\alpha I_3) = 3-1=2\)</span> et cela contredit
+le rappel <a href="#rappel:suite_ecarts_Ker" data-reference-type="ref"
+data-reference="rappel:suite_ecarts_Ker">[rappel:suite_ecarts_Ker]</a>.</p></li>
+</ul>
+<p>On a donc <span class="math inline">\(A-\alpha I_3\)</span> qui est
+nilpotent d’indice <span class="math inline">\(3 = \dim
 \mathbb{C}^3.\)</span></p>
 <p>Alors, (voir l’exercice <a href="#exoc:endo_cyclique"
 data-reference-type="ref"
-data-reference="exoc:endo_cyclique">[exoc:endo_cyclique]</a>), en
-prenant <span class="math inline">\(u \in E\setminus
-\mathop{\mathrm{Ker}}(A-\alpha I_3),\)</span> <span
+data-reference="exoc:endo_cyclique">[exoc:endo_cyclique]</a>), <span
+class="math inline">\(A-\alpha I_3\)</span> est cyclique et en prenant
+<span class="math inline">\(u \in E\setminus
+\mathop{\mathrm{Ker}}(A-\alpha I_3)^2,\)</span> <span
 class="math inline">\(\mathscr{B}= (u,(A-\alpha I_3)(u),(A-\alpha
 I_3)^2(u))\)</span> est une base de <span
 class="math inline">\(\mathbb{C}^3\)</span> et avec <span
@@ -9039,7 +9168,7 @@ cette base, <span class="math display">\[P^{-1}(A-\alpha I_3)P =
 \end{pmatrix}.\]</span> On a aussi <span class="math inline">\(\mu_A =
 (X-\alpha)^3\)</span> car <span class="math inline">\(A-\alpha
 I_3\)</span> est nilpotent d’indice <span
-class="math inline">\(2.\)</span></p></li>
+class="math inline">\(3.\)</span></p></li>
 </ul></li>
 </ul>
 </details>
