@@ -1809,6 +1809,151 @@ class="math inline">\(W\)</span> est solution de <span
 class="math inline">\(X&#39;=A(t)X\)</span> sur <span
 class="math inline">\(I.\)</span></p>
 </div>
+<div class="wexoc">
+<p>Soient <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel de dimension
+<span class="math inline">\(n \geqslant 1\)</span> muni d’une base <span
+class="math inline">\(\mathscr{B}= (e_1, \dots, e_n)\)</span>, <span
+class="math inline">\(I\)</span> un intervalle de <span
+class="math inline">\(\mathbb{R}\)</span> et <span
+class="math inline">\(t \mapsto A(t)\)</span> une application continue
+de <span class="math inline">\(I\)</span> dans <span
+class="math inline">\(\mathcal{M}_n(\mathbb{K})\)</span>.</p>
+<p>On considère le système différentiel linéaire homogène <span
+class="math display">\[\label{eq:exoc_equadiff_wronskien}
+    \tag{S}
+    X&#39;(t) = A(t)X(t)\]</span> et <span class="math inline">\((X_1,
+\dots, X_n)\)</span> une famille de <span
+class="math inline">\(n\)</span> solutions de <span
+class="math inline">\(\eqref{eq:exoc_equadiff_wronskien}\)</span>sur
+<span class="math inline">\(I\)</span>. On note <span
+class="math inline">\(\omega(t) = \det(X_1(t), \dots, X_n(t))\)</span>
+le wronskien de cette famille (dans la base canonique de <span
+class="math inline">\(\mathbb{K}^n\)</span>).</p>
+<ol>
+<li><p>Prouver le lemme suivant :</p>
+<div class="wlem">
+<p><span id="lem:exoc_equadiff_wronskien_2"
+label="lem:exoc_equadiff_wronskien_2"></span> Pour tout endomorphisme
+<span class="math inline">\(u \in \mathcal{L}(E)\)</span> et toute
+famille <span class="math inline">\((x_1, \dots, x_n) \in E^n\)</span>,
+on a : <span class="math inline">\(\displaystyle \sum_{j=1}^n
+\det_{\mathscr{B}}\big(x_1, \dots, u(x_j), \dots, x_n\big) =
+\mathop{\mathrm{Tr}}(u) \det_{\mathscr{B}}(x_1, \dots,
+x_n)\)</span>.</p>
+</div></li>
+<li><p>En déduire que le wronskien <span
+class="math inline">\(\omega\)</span> est dérivable sur <span
+class="math inline">\(I\)</span> et vérifie l’équation différentielle
+<span class="math display">\[\label{eq:exoc_equadiff_wronskien_2}
+    \tag{S}
+    \omega&#39;(t) =
+\mathop{\mathrm{Tr}}(A(t))\omega(t).\]</span></p></li>
+</ol>
+<details><summary>Corrigé</summary>
+<ol>
+<li><p>Soit <span class="math inline">\(u \in \mathcal{L}(E)\)</span>,
+on considère sa matrice <span class="math inline">\(B =
+\mathscr{M}_{\mathscr{B}}(\mathbb{K})[u]= (b_{ij})\)</span> telle que
+<span class="math inline">\(\mathop{\mathrm{Tr}}(u) =
+\mathop{\mathrm{Tr}}(B) = \sum_{i=1}^n b_{ii}\)</span>. Posons <span
+class="math inline">\(\Phi(x_1, \dots, x_n) = \sum_{j=1}^n
+\det_{\mathscr{B}}(x_1, \dots, u(x_j), \dots, x_n)\)</span>. On va
+montrer que <span class="math inline">\(\Phi\)</span> est <span
+class="math inline">\(n\)</span>-linéaire alternée puis l’exprimer.</p>
+<ul>
+<li><p><u>Multilinéarité.</u> Par linéarité de <span
+class="math inline">\(u\)</span> et <span
+class="math inline">\(n\)</span>-linéarité de <span
+class="math inline">\(\det_{\mathscr{B}}\)</span>, chaque terme <span
+class="math inline">\((x_1, \dots, x_n) \mapsto \det_{\mathscr{B}}(x_1,
+\dots, u(x_j), \dots, x_n)\)</span> est <span
+class="math inline">\(n\)</span>-linéaire. Par somme, <span
+class="math inline">\(\Phi\)</span> est <span
+class="math inline">\(n\)</span>-linéaire.</p></li>
+<li><p><u>Caractère alterné.</u> Supposons <span
+class="math inline">\(x_i = x_k\)</span> avec <span
+class="math inline">\(1 \leqslant i &lt; k \leqslant n\)</span>. Pour
+tout <span class="math inline">\(j \notin \{i, k\}\)</span>, le
+déterminant <span class="math inline">\(\det_{\mathscr{B}}(x_1, \dots,
+u(x_j), \dots, x_n)\)</span> possède deux colonnes égales (aux positions
+<span class="math inline">\(i\)</span> et <span
+class="math inline">\(k\)</span>), donc il est nul. Il ne reste que les
+termes d’indices <span class="math inline">\(j = i\)</span> et <span
+class="math inline">\(j = k\)</span> : <span
+class="math display">\[\begin{aligned}
+\Phi(x_1, \dots, x_n)
+&amp;  = \det_{\mathscr{B}}(\dots, \underbrace{u(x_i)}_{\text{pos. } i},
+\dots, \underbrace{x_i}_{\text{pos. } k}, \dots) +
+\det_{\mathscr{B}}(\dots, \underbrace{x_i}_{\text{pos. } i}, \dots,
+\underbrace{u(x_i)}_{\text{pos. } k}, \dots) \\
+&amp; =  \det_{\mathscr{B}}(\dots, \underbrace{u(x_i)}_{\text{pos. } i},
+\dots, \underbrace{x_i}_{\text{pos. } k}, \dots) -
+\det_{\mathscr{B}}(\dots, \underbrace{u(x_i)}_{\text{pos. } i}, \dots,
+\underbrace{x_i}_{\text{pos. } k}, \dots) \\
+&amp; = 0.
+\end{aligned}\]</span></p></li>
+<li><p><u>Identification de la constante.</u> L’espace des formes <span
+class="math inline">\(n\)</span>-linéaires alternées sur <span
+class="math inline">\(E\)</span> étant de dimension <span
+class="math inline">\(1\)</span> et engendré par <span
+class="math inline">\(\det_{\mathscr{B}}\)</span>, il existe <span
+class="math inline">\(\lambda \in \mathbb{K}\)</span> tel que <span
+class="math inline">\(\Phi = \lambda \det_{\mathscr{B}}\)</span>. En
+évaluant sur la base <span class="math inline">\(\mathscr{B}= (e_1,
+\dots, e_n)\)</span>, on obtient <span class="math inline">\(\lambda =
+\lambda \det_{\mathscr{B}}(e_1, \dots, e_n) = \Phi(e_1, \dots,
+e_n)\)</span>. Or, en décomposant <span class="math inline">\(u(e_j) =
+\sum_{i=1}^n b_{i,j} e_i\)</span> dans la base <span
+class="math inline">\(\mathscr{B}\)</span> (à l’aide de <span
+class="math inline">\(B = \mathscr{M}_{\mathscr{B}}(u)\)</span>), la
+multilinéarité et l’annulation des déterminants ayant deux colonnes
+identiques donnent <span class="math display">\[\det_{\mathscr{B}}(e_1,
+\dots, u(e_j), \dots, e_n) = b_{j,j} \det_{\mathscr{B}}(e_1, \dots, e_n)
+=  \det_\mathscr{B}(\mathscr{B})b_{j,j} = b_{j,j}.\]</span> En sommant
+pour <span class="math inline">\(j\)</span> allant de <span
+class="math inline">\(1\)</span> à <span
+class="math inline">\(n\)</span>, il vient <span
+class="math inline">\(\Phi(\mathscr{B}) = \sum_{j=1}^n b_{j,j} = \lambda
+\det_\mathscr{B}(\mathscr{B}) = \lambda\)</span> donc <span
+class="math inline">\(\lambda = \sum_{j=1}^n b_{j,j} =
+\mathop{\mathrm{Tr}}(u)\)</span>, ce qui conclut.</p></li>
+</ul></li>
+<li><p>Les fonctions <span class="math inline">\(X_1, \dots,
+X_n\)</span> sont solutions de <span
+class="math inline">\(\eqref{eq:exoc_equadiff_wronskien}\)</span>sur
+<span class="math inline">\(I\)</span>, donc elles sont dérivables (et
+même de classe <span class="math inline">\(\mathscr{C}^1\)</span>) sur
+<span class="math inline">\(I\)</span>. L’application <span
+class="math inline">\(\det : (\mathbb{K}^n)^n \to \mathbb{K}\)</span>
+étant <span class="math inline">\(n\)</span>-linéaire (en dimension
+finie, elle est donc polynomiale en les coordonnées et de classe <span
+class="math inline">\(\mathscr{C}^\infty\)</span>), la composée <span
+class="math inline">\(\omega : t \mapsto \det(X_1(t), \dots,
+X_n(t))\)</span> est dérivable sur <span
+class="math inline">\(I\)</span> et sa dérivée s’obtient en dérivant
+colonne par colonne telle que <span class="math display">\[\forall t \in
+I, \omega&#39;(t) = \sum_{j=1}^n \det\big(X_1(t), \dots, X&#39;_j(t),
+\dots, X_n(t)\big).\]</span></p>
+<p>Comme chaque <span class="math inline">\(X_j\)</span> vérifie <span
+class="math inline">\(X&#39;_j(t) = A(t)X_j(t)\)</span> pour tout <span
+class="math inline">\(t \in I\)</span>, on substitue et <span
+class="math display">\[\forall t \in I,\omega&#39;(t) = \sum_{j=1}^n
+\det\big(X_1(t), \dots, A(t)X_j(t), \dots, X_n(t)\big).\]</span></p>
+<p>Pour <span class="math inline">\(t \in I\)</span> fixé, on applique
+le lemme <a href="#lem:exoc_equadiff_wronskien_2"
+data-reference-type="ref"
+data-reference="lem:exoc_equadiff_wronskien_2">[lem:exoc_equadiff_wronskien_2]</a>
+à l’endomorphisme canoniquement associé à la matrice <span
+class="math inline">\(A(t)\)</span> dans la base canonique de <span
+class="math inline">\(\mathbb{K}^n\)</span> et à la famille <span
+class="math inline">\((X_1(t), \dots, X_n(t))\)</span> si bien que <span
+class="math display">\[\forall t \in I,\omega&#39;(t) =
+\mathop{\mathrm{Tr}}(A(t)) \det(X_1(t), \dots, X_n(t)) =
+\mathop{\mathrm{Tr}}(A(t))\,\omega(t).\]</span></p></li>
+</ol>
+</details>
+</div>
 <h2 data-number="2.5" id="variation-des-constantes"><span
 class="header-section-number">2.5</span> Variation des constantes</h2>
 <p>On souhaite déterminer les solutions de <span
@@ -6619,7 +6764,7 @@ ie <span class="math inline">\(y : u \in ]-1,1[ \mapsto
 \varphi(\mathop{\mathrm{Arcsin}}u).\)</span> Alors, <span
 class="math inline">\(y\)</span> est deux fois dérivable par composition
 (<span class="math inline">\(\mathop{\mathrm{Arcsin}}\)</span> étant
-<span class="math inline">\(\mathcal{C}^\infty\)</span> sur <span
+<span class="math inline">\(\mathscr{C}^\infty\)</span> sur <span
 class="math inline">\(]-1,1[\)</span>) et de plus, <span
 class="math inline">\(\begin{aligned}
                 \forall t \in I,\;
