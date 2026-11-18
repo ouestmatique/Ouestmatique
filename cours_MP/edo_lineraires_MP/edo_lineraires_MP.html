@@ -131,10 +131,10 @@ homogène du premier ordre à coefficients constants</a>
 id="toc-étude-du-cas-homogène"><span
 class="toc-section-number">3.1</span> Étude du cas homogène</a>
 <ul>
-<li><a href="#définition-et-existence-de-solutions"
-id="toc-définition-et-existence-de-solutions"><span
+<li><a href="#définition-et-existence-de-solutions-explicites"
+id="toc-définition-et-existence-de-solutions-explicites"><span
 class="toc-section-number">3.1.1</span> Définition et existence de
-solutions</a></li>
+solutions explicites</a></li>
 <li><a href="#propriétés-des-trajectoires"
 id="toc-propriétés-des-trajectoires"><span
 class="toc-section-number">3.1.2</span> Propriétés des
@@ -331,10 +331,10 @@ class="math inline">\(m_0
 <div class="webtext">
 <p>Pour <span class="math inline">\(h \neq 0\)</span> tel que <span
 class="math inline">\(f(t_0+h) \neq f(t_0),\)</span> <span
-class="math inline">\(f(t_0+h)-f(t_0)\)</span> dirige la droite passant
-par <span class="math inline">\(f(t_0+h)\)</span> et <span
+class="math inline">\(f(t_0+h)-f(t_0)\)</span> dirige la droite affine
+passant par <span class="math inline">\(f(t_0+h)\)</span> et <span
 class="math inline">\(f(t_0)\)</span> donc <span
-class="math inline">\(\frac{f(t_0+h)-f(t_0)}{h}.\)</span></p>
+class="math inline">\(\frac{f(t_0+h)-f(t_0)}{h}\)</span> aussi.</p>
 <p>En faisant <span class="math inline">\(h \xrightarrow{} 0,\)</span>
 on obtient donc une droite tangente en <span
 class="math inline">\(f(t_0).\)</span></p>
@@ -625,7 +625,7 @@ class="math inline">\((e_1,e_2)\)</span> une base orthonormée de <span
 class="math inline">\(E\)</span> ainsi que <span class="math inline">\(a
 \in E\)</span> et <span class="math inline">\(r &gt; 0.\)</span></p>
 <p>Alors, pour tout <span class="math inline">\(t \in \mathbb{R},
-f&#39;(t) = -r\sin t e_1+r\cos t e_2\)</span> qui est non nul (car <span
+f&#39;(t) = -r\sin t e_1+r\cos t e_2\)</span> est non nul (car <span
 class="math inline">\(\left\|f&#39;(t)\right\| = r\)</span>).</p>
 <p>Donc pour tout <span class="math inline">\(t_0 \in
 \mathbb{R},\)</span> le point <span class="math inline">\(m_0 =
@@ -665,11 +665,11 @@ tangente.</p>
 </div>
 </div>
 <div class="wrem">
-<p>Si <span class="math inline">\(f\)</span> est de classe <span
-class="math inline">\(\mathscr{C}^2,\)</span> <span
-class="math inline">\(t\)</span> représente le temps tandis que <span
-class="math inline">\(f\)</span> représente la position au temps <span
-class="math inline">\(t,\)</span> <span
+<p>On suppose <span class="math inline">\(f\)</span> est de classe <span
+class="math inline">\(\mathscr{C}^2.\)</span> Du point de vue de la
+mécanique, <span class="math inline">\(t\)</span> représente le temps
+tandis que <span class="math inline">\(f\)</span> représente la position
+au temps <span class="math inline">\(t,\)</span> <span
 class="math inline">\(f&#39;(t)\)</span> le vecteur vitesse et <span
 class="math inline">\(f&#39;&#39;(t)\)</span> le vecteur
 accélération.</p>
@@ -710,9 +710,9 @@ f&#39;&#39;(t).
     \end{aligned}\]</span></p>
 <p>Dans ce cas, le vecteur accélération est orthogonal au vecteur
 vitesse. Ainsi, l’accélération ne modifie pas la norme de la vitesse,
-mais uniquement sa direction. Le mouvement peut donc être curviligne,
-même si la vitesse est constante (par exemple, un mouvement circulaire
-uniforme).</p>
+mais uniquement sa direction. Le mouvement peut donc être non
+rectiligne, même si la vitesse est constante (par exemple, un mouvement
+circulaire uniforme).</p>
 <p>En revanche, <span class="math display">\[\begin{aligned}
         &amp;\text{le vecteur vitesse est constant} \\
         &amp; \iff \text{il existe $\alpha \in E$ tel que pour tout $t
@@ -910,9 +910,9 @@ class="math display">\[\label{eq:probleme_Cauch_syst_line}
 de <span class="math inline">\(\mathbb{R}\)</span> et <span
 class="math inline">\(t_0 \in J\)</span> alors une solution de ce
 problème de Cauchy sur <span class="math inline">\(J\)</span> est une
-fonction <span class="math inline">\(\varphi\)</span> telle que <span
-class="math inline">\(\left\{
-        \begin{array}{ll}
+fonction <span class="math inline">\(\varphi: J \to
+\mathbb{K}^n\)</span> telle que <span class="math inline">\(\left\{
+        \begin{array}{rl}
             \forall t \in J, \varphi&#39;(t) &amp; = A(t)\varphi(t) +
 b(t) \\
             \varphi(t_0) &amp; =  c_0
@@ -982,7 +982,7 @@ class="math inline">\(c_0 \in E,\)</span> <span
 class="math display">\[\label{eq:probleme_Cauch_syst_line_E_quelconque}
      \tag{$P_{\text{\ref{eq:systeme_lin_ordre_un_E_quelconque}},t_0,c_0}$}
         \left\{
-        \begin{array}{ll}
+        \begin{array}{rl}
             x&#39; &amp; = a(t)(x) + b(t) \\
             x(t_0) &amp; =  c_0
         \end{array}
@@ -991,9 +991,9 @@ class="math display">\[\label{eq:probleme_Cauch_syst_line_E_quelconque}
 de <span class="math inline">\(\mathbb{R}\)</span> et <span
 class="math inline">\(t_0 \in J\)</span> alors une solution de ce
 problème de Cauchy sur <span class="math inline">\(J\)</span> est une
-fonction <span class="math inline">\(\varphi\)</span> telle que <span
-class="math inline">\(\left\{
-        \begin{array}{ll}
+fonction <span class="math inline">\(\varphi: J \to E\)</span> telle que
+<span class="math inline">\(\left\{
+        \begin{array}{rl}
             \forall t \in J, \varphi&#39;(t) &amp; = a(t)(\varphi(t)) +
 b(t) \\
             \varphi(t_0) &amp; =  c_0
@@ -1056,7 +1056,7 @@ de~$\eqref{eq:systeme_lin_ordre_un_E_quelconque}$sur }
 I\right\}\)</span></p>
 <p>et <span
 class="math inline">\(\mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_E_quelconque_homo}}}
-= \left\{\varphi: I \to E \text{ solution
+= \left\{\psi: I \to E \text{ solution
 de~$\eqref{eq:systeme_lin_ordre_un_E_quelconque_homo}$sur }
 I\right\}.\)</span></p>
 <div class="wprop">
@@ -1076,10 +1076,11 @@ class="math inline">\(\eqref{eq:systeme_lin_ordre_un_E_quelconque}\)</span>sur
 class="math inline">\(\varphi_2\)</span> est solution de <span
 class="math inline">\(\eqref{eq:systeme_lin_ordre_un_E_quelconque_2}\)</span>sur
 <span class="math inline">\(I.\)</span></p>
-<p>Alors, soient <span class="math inline">\(\lambda,\mu \in K,\)</span>
-<span class="math inline">\(\lambda \varphi_1+\mu \varphi_2\)</span> est
-solution de <span class="math inline">\(x&#39;=a(t)(x) + \lambda b(t)+
-\mu b_1(t).\)</span></p>
+<p>Soient <span class="math inline">\(\lambda,\mu \in
+\mathbb{K}\)</span> alors <span class="math inline">\(\lambda
+\varphi_1+\mu \varphi_2\)</span> est solution de <span
+class="math inline">\(x&#39;=a(t)(x) + \lambda b(t)+ \mu
+c(t).\)</span></p>
 </div>
 <div class="wproof">
 <p>Comme combinaison linéaire de fonctions dérivables sur <span
@@ -1090,8 +1091,8 @@ class="math inline">\(t \in I,\)</span> <span
 class="math display">\[\begin{aligned}
             \left(\lambda \varphi_1+\mu \varphi_2\right)&#39;(t)
             &amp; = \lambda \varphi_1&#39;(t) + \mu \varphi_2&#39;(t) \\
-            &amp; =  \lambda \left(a(t) \varphi_1(t) +b(t)\right)+\mu
-\left(a(t) \varphi_2(t) +c(t)\right) \\
+            &amp; =  \lambda \left( a(t)(\varphi_1(t)) +b(t)\right)+\mu
+\left(a(t) (\varphi_2(t)) +c(t)\right) \\
             &amp; = a(t)\left(\lambda \varphi_1(t) + \mu
 \varphi_2(t)\right) + \lambda b(t) + \mu c(t).
         \end{aligned}\]</span></p>
@@ -1134,14 +1135,15 @@ continue par hypothèse,</p></li>
   &amp; \mathscr{L}(E)\times E &amp; \to &amp; E \\
      &amp; (u,h) &amp; \mapsto &amp; u(h)
 \end{array}\)</span> est continue car bilinéaire et <span
-class="math inline">\(E\)</span> est de dimension finie.</p></li>
+class="math inline">\(E\)</span> est de dimension finie donc <span
+class="math inline">\(\mathscr{L}(E)\times E\)</span> aussi.</p></li>
 </ul>
 <p>Donc par composition, <span class="math inline">\(t \in I \mapsto
 a(t)(\varphi(t))\)</span> est continue.</p>
 <p>Enfin, <span class="math inline">\(b\)</span> est continue sur <span
 class="math inline">\(I\)</span> par hypothèse donc <span
 class="math inline">\(\varphi&#39;\)</span> est continue sur <span
-class="math inline">\(I\)</span> et <span class="math inline">\(\varphi
+class="math inline">\(I\)</span> ie <span class="math inline">\(\varphi
 \in \mathscr{C}^1(I,E).\)</span></p></li>
 <li><p><span
 class="math inline">\(\eqref{eq:systeme_lin_ordre_un_E_quelconque_homo}\)</span>
@@ -1197,7 +1199,7 @@ par la proposition <a href="#prop:superposition"
 data-reference-type="ref"
 data-reference="prop:superposition">[prop:superposition]</a></p>
 <p>donc <span class="math inline">\(\varphi =
-\varphi_0+\varphi-\varphi_0 \in
+\varphi_0+(\varphi-\varphi_0) \in
 \varphi_0+\mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_E_quelconque_homo}}}.\)</span></p></li>
 </ul></li>
 </ul>
@@ -1364,8 +1366,8 @@ sur les espaces vectoriels normés).</p>
 continue (par composition de <span class="math inline">\(f \in
 \mathscr{L}(E) \mapsto
 \left|\!\left|\!\left|f\right|\!\right|\!\right|\)</span> et de <span
-class="math inline">\(u \in [a,b] \mapsto a(u)\)</span>). Comme <span
-class="math inline">\([a,b]\)</span> est un compact, on peut poser <span
+class="math inline">\(u \in [a,b] \mapsto a(u)\)</span>) et comme <span
+class="math inline">\([a,b]\)</span> est un compact, on a <span
 class="math display">\[k = \sup_{u \in [a,b]}
 \left|\!\left|\!\left|a(u)\right|\!\right|\!\right| &lt;
 +\infty.\]</span></p>
@@ -1412,7 +1414,7 @@ a(u)(\Gamma_\varphi(u)-\Gamma_\psi(u))du\right\| \\
             \begin{array}{ll}
                 \left[\frac{(u-t_0)^2}{2}\right]_{t_0}^{t} &amp;
 \mbox{si $t_0 \leq t$} \\
-                \left[\frac{(t_0-u)^2}{2}\right]_{t}^{t_0} &amp;
+                \left[-\frac{(t_0-u)^2}{2}\right]_{t}^{t_0} &amp;
 \mbox{si $t_0 &gt; t$} \\
             \end{array}
             \right.
@@ -1465,20 +1467,20 @@ class="math display">\[\begin{aligned}
             &amp;\leq kM
 \left\|\varphi_n-\varphi\right\|_{\infty,[a,b]}.
         \end{aligned}\]</span></p>
-<p>Or, <span class="math inline">\(\varphi_n\)</span> converge
-uniformément vers <span class="math inline">\(\varphi\)</span> sur <span
-class="math inline">\([a,b],\)</span> donc <span
+<p>Or, <span class="math inline">\(\left(\varphi_n\right)\)</span>
+converge uniformément vers <span class="math inline">\(\varphi\)</span>
+sur <span class="math inline">\([a,b],\)</span> donc <span
 class="math inline">\(\left\|\varphi_n-\varphi\right\|_{\infty,[a,b]}
 \xrightarrow[n \to +\infty]{} 0.\)</span> Ainsi, <span
-class="math inline">\(\varphi_{n+1}\)</span> converge uniformément vers
-<span class="math inline">\(\Gamma_\varphi\)</span> sur <span
-class="math inline">\([a,b].\)</span> Mais <span
-class="math inline">\(\varphi_{n+1}\)</span> converge également
-uniformément vers <span class="math inline">\(\varphi\)</span> sur <span
-class="math inline">\([a,b].\)</span> Par unicité de la limite, on
-obtient <span class="math display">\[\varphi = \Gamma_\varphi.\]</span>
-Donc <span class="math inline">\(\Gamma\)</span> admet un point
-fixe.</p></li>
+class="math inline">\(\left(\varphi_{n+1}\right)\)</span> converge
+uniformément vers <span class="math inline">\(\Gamma_\varphi\)</span>
+sur <span class="math inline">\([a,b].\)</span> Mais <span
+class="math inline">\(\left(\varphi_{n+1}\right)\)</span> converge
+également uniformément vers <span class="math inline">\(\varphi\)</span>
+sur <span class="math inline">\([a,b].\)</span> Par unicité de la
+limite, on obtient <span class="math display">\[\varphi =
+\Gamma_\varphi.\]</span> Donc <span
+class="math inline">\(\Gamma\)</span> admet un point fixe.</p></li>
 <li><p><u><span class="math inline">\(\Gamma\)</span> admet un unique
 point fixe</u>.</p>
 <p>Soit <span class="math inline">\(\psi\)</span> un autre point fixe de
@@ -1558,11 +1560,11 @@ c_0.\)</span></p></li>
 </ul>
 <p>Donc ces deux applications sont effectivement des bijections. D’une
 part, <span class="math inline">\(\gamma_{t_0}\)</span> est clairement
-linéaire car <span
+linéaire ( et <span
 class="math inline">\(\mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_E_quelconque_homo}}}\)</span>
 est un espace vectoriel par la proposition <a
 href="#prop:ensembles_de_solutions" data-reference-type="ref"
-data-reference="prop:ensembles_de_solutions">[prop:ensembles_de_solutions]</a>.</p>
+data-reference="prop:ensembles_de_solutions">[prop:ensembles_de_solutions]</a>).</p>
 <p>D’autre part, <span
 class="math inline">\(\mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_E_quelconque}}}
 \neq \emptyset\)</span> (car <span class="math inline">\(E \neq
@@ -1647,7 +1649,8 @@ telles que <span class="math inline">\(\varphi_{1\mid J} =
 \varphi_{2\mid J}.\)</span></p>
 <p>Fixons <span class="math inline">\(t_0 \in J.\)</span> On a alors
 <span class="math inline">\(\varphi_1(t_0) = \varphi_2(t_0).\)</span>
-Par unicité de la solution au problème de Cauchy, on obtient <span
+Par unicité de la solution au problème de Cauchy sur <span
+class="math inline">\(I\)</span>, on obtient <span
 class="math inline">\(\varphi_1 = \varphi_2.\)</span></p>
 <p>Ainsi, la fonction considérée est injective.</p></li>
 </ul>
@@ -1703,10 +1706,10 @@ et <span class="math inline">\(\mathscr{B}\)</span> une base de <span
 class="math inline">\(E.\)</span></p>
 <p>Pour <span class="math inline">\(t \in I,\)</span> on pose <span
 class="math display">\[W(t) =
-\mathscr{M}_{\mathscr{B}}(\psi_1(t),\ldots,\psi_n(t)).\]</span> alors,
-<span class="math inline">\(W\)</span> est appelé la matrice wronskienne
-de <span class="math inline">\((\psi_1,\ldots,\psi_n)\)</span>
-relativement à <span class="math inline">\(\mathscr{B}.\)</span></p>
+\mathscr{M}_{\mathscr{B}}(\psi_1(t),\ldots,\psi_n(t)).\]</span> qui est
+appelée la matrice wronskienne de <span
+class="math inline">\((\psi_1,\ldots,\psi_n)\)</span> relativement à
+<span class="math inline">\(\mathscr{B}.\)</span></p>
 <p><span class="math inline">\(\omega : t \in I \to \det W(t)\)</span>
 est appelé le wronskien de <span
 class="math inline">\((\psi_1,\ldots,\psi_n)\)</span> relativement à
@@ -1854,9 +1857,9 @@ class="math inline">\(I\)</span> et vérifie l’équation différentielle
 <ol>
 <li><p>Soit <span class="math inline">\(u \in \mathcal{L}(E)\)</span>,
 on considère sa matrice <span class="math inline">\(B =
-\mathscr{M}_{\mathscr{B}}(\mathbb{K})[u]= (b_{ij})\)</span> telle que
-<span class="math inline">\(\mathop{\mathrm{Tr}}(u) =
-\mathop{\mathrm{Tr}}(B) = \sum_{i=1}^n b_{ii}\)</span>. Posons <span
+\mathscr{M}_{\mathscr{B}}(u)= (b_{ij})\)</span> telle que <span
+class="math inline">\(\mathop{\mathrm{Tr}}(u) = \mathop{\mathrm{Tr}}(B)
+= \sum_{i=1}^n b_{ii}\)</span>. Posons <span
 class="math inline">\(\Phi(x_1, \dots, x_n) = \sum_{j=1}^n
 \det_{\mathscr{B}}(x_1, \dots, u(x_j), \dots, x_n)\)</span>. On va
 montrer que <span class="math inline">\(\Phi\)</span> est <span
@@ -1968,18 +1971,31 @@ id="prop:partie_variations_constantes"
 label="prop:partie_variations_constantes"></span> Soient <span
 class="math inline">\((\psi_1,\ldots,\psi_n)\)</span> une base de <span
 class="math inline">\(\mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_E_quelconque_homo}}}\)</span>
-et <span class="math inline">\(t_0 \in I.\)</span> Alors, l’ensemble des
-solutions de <span
+et <span class="math inline">\(t_0 \in I.\)</span> En cherchant une
+solution de <span
+class="math inline">\(\eqref{eq:systeme_lin_ordre_un_E_quelconque}\)</span>sous
+la forme <span class="math display">\[\begin{array}{lllll}
+\varphi_0 &amp; : &amp; I &amp; \to &amp; E \\
+   &amp;   &amp; t &amp; \mapsto &amp; \sum_{j=1}^n \alpha_j(t)\psi_j(t)
+\end{array}\]</span> où, pour <span class="math inline">\(1 \leq j \leq
+n,\)</span> <span class="math inline">\(\alpha_j\)</span> est une
+fonction de <span class="math inline">\(I\)</span> dans <span
+class="math inline">\(\mathbb{K}\)</span>, on aboutit à <span
+class="math display">\[\varphi_0 : t \in I \mapsto \sum_{j=1}^n
+\left(\int_{t_0}^t \beta_j(u)du\right)\psi_j(t)\]</span> et où les
+fonctions <span class="math inline">\(\beta_1,\ldots,\beta_n\)</span>
+sont définies par <span class="math display">\[\forall t \in I,\quad
+b(t) = \sum_{j=1}^n \beta_j(t)\psi_j(t).\]</span> (pour <span
+class="math inline">\(t \in I\)</span> fixé, <span
+class="math inline">\((\psi_1(t),\ldots,\psi_n(t)\)</span> est une base
+de <span class="math inline">\(E\)</span> donc <span
+class="math inline">\(b(t) \in E\)</span> s’y décompose.) et donc
+l’ensemble des solutions de <span
 class="math inline">\(\eqref{eq:systeme_lin_ordre_un_E_quelconque}\)</span>est
 donné par <span
 class="math display">\[\mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_E_quelconque}}}
 = \left\{\varphi_0 + \sum_{j=1}^n C_j\psi_j / C_1,\ldots,C_n \in
-\mathbb{K}\right\}\]</span> où <span class="math display">\[\varphi_0 :
-t \in I \mapsto \sum_{j=1}^n \left(\int_{t_0}^t
-\beta_j(u)du\right)\psi_j(t)\]</span> et où les fonctions <span
-class="math inline">\(\beta_1,\ldots,\beta_n\)</span> sont définies par
-<span class="math display">\[\forall t \in I,\quad b(t) = \sum_{j=1}^n
-\beta_j(t)\psi_j(t).\]</span></p>
+\mathbb{K}\right\}\]</span></p>
 </div>
 <div class="wproof">
 <p>On suppose connue une base <span
@@ -2056,8 +2072,10 @@ class="math inline">\(t \in I.\)</span> On a alors, pour tout <span
 class="math inline">\(t \in I,\)</span> <span
 class="math display">\[B(t) =
 \beta_1(t)\Psi_1(t)+\ldots+\beta_n(t)\Psi_n(t).\]</span></p>
-<p>En notant <span class="math inline">\(W(t)\)</span> la matrice
-wronskienne de <span
+<p>En notant <span class="math inline">\(W(t) =
+\left(\begin{array}{c|c|c}
+        \Psi_1(t) &amp; \ldots &amp; \Psi_n(t)
+    \end{array}\right)\)</span> la matrice wronskienne de <span
 class="math inline">\((\psi_1,\ldots,\psi_n)\)</span> relativement à
 <span class="math inline">\(\mathscr{B},\)</span> on obtient <span
 class="math display">\[B(t) = W(t)
@@ -2109,15 +2127,21 @@ n,\)</span> <span class="math inline">\(\alpha_j&#39; =
 \beta_j(u)du\right)\psi_j(t)\]</span> est donc une solution particulière
 de <span
 class="math inline">\(\eqref{eq:systeme_lin_ordre_un_E_quelconque}\)</span>.</p>
-<p>Enfin, comme l’ensemble des solutions de <span
-class="math inline">\(\eqref{eq:systeme_lin_ordre_un_E_quelconque}\)</span>est
-un translaté de l’ensemble des solutions de l’équation homogène, et
-comme <span class="math inline">\((\psi_1,\ldots,\psi_n)\)</span> en est
-une base, tout élément de <span
+<p>Enfin, comme <span
+class="math inline">\(\mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_E_quelconque}}}
+=
+\varphi_0+\mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_E_quelconque_homo}}}\)</span>
+(par la proposition <a href="#prop:ensembles_de_solutions"
+data-reference-type="ref"
+data-reference="prop:ensembles_de_solutions">[prop:ensembles_de_solutions]</a>)
+et comme <span class="math inline">\((\psi_1,\ldots,\psi_n)\)</span> est
+une base de <span
+class="math inline">\(\mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_E_quelconque_homo}}}\)</span>,
+tout élément de <span
 class="math inline">\(\mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_E_quelconque}}}\)</span>
 s’écrit <span class="math display">\[\varphi : t \in I \mapsto
-\sum_{j=1}^n \left(\int_{t_0}^t \beta_j(u)du +
-C_j\right)\psi_j(t)\]</span> où <span
+\varphi_0(t) + \sum_{j=1}^n C_j\psi_j(t)= \sum_{j=1}^n
+\left(\int_{t_0}^t \beta_j(u)du + C_j\right)\psi_j(t)\]</span> où <span
 class="math inline">\(C_1,\ldots,C_n \in \mathbb{K}.\)</span></p>
 </div>
 <h1 data-number="3"
@@ -2126,9 +2150,10 @@ class="header-section-number">3</span> Système différentiel linéaire
 homogène du premier ordre à coefficients constants</h1>
 <h2 data-number="3.1" id="étude-du-cas-homogène"><span
 class="header-section-number">3.1</span> Étude du cas homogène</h2>
-<h3 data-number="3.1.1" id="définition-et-existence-de-solutions"><span
+<h3 data-number="3.1.1"
+id="définition-et-existence-de-solutions-explicites"><span
 class="header-section-number">3.1.1</span> Définition et existence de
-solutions</h3>
+solutions explicites</h3>
 <div class="wdefi">
 <p>Un système différentiel linéaire homogène du premier ordre à
 coefficients constant est un système qui s’écrit sous la forme <span
@@ -2136,13 +2161,13 @@ class="math display">\[\label{eq:systeme_lin_ordre_un_homo_constant}
         \tag{$H_{A}$}
         x&#39; = Ax.\]</span> et <span class="math inline">\(A \in
 \mathscr{M}_{n}(\mathbb{K})\)</span> et <span class="math inline">\(I =
-\mathbb{R}.\)</span> Autrement dit, <span
+\mathbb{R}.\)</span> Autrement dit, dans <span
+class="math inline">\(\eqref{eq:systeme_lin_ordre_un}\)</span>, <span
 class="math inline">\(\begin{array}{llll}
   &amp; I &amp; \to &amp; \mathscr{M}_{n}(\mathbb{K}) \\
      &amp; t &amp; \mapsto &amp; A(t)
 \end{array}\)</span> est constante et définie sur <span
 class="math inline">\(\mathbb{R}.\)</span></p>
-<p>On dit alors que le système est homogène.</p>
 </div>
 <div class="wrem">
 <ul>
@@ -2243,8 +2268,9 @@ est <span class="math inline">\(\begin{array}{lllll}
 </div>
 <div class="wcor">
 <p><span id="cor:solutions_Explicites"
-label="cor:solutions_Explicites"></span> La réciproque de <span
-class="math inline">\(\begin{array}{lllll}
+label="cor:solutions_Explicites"></span> Soit <span
+class="math inline">\(t_0 \in \mathbb{R}\)</span>, la réciproque de
+<span class="math inline">\(\begin{array}{lllll}
 \gamma_{t_0} &amp; : &amp;
 \mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_homo_constant}}} &amp;
 \to &amp; \mathbb{K}^n \\
@@ -2280,29 +2306,39 @@ data-reference="prop:rang_SH_Cauchy">[prop:rang_SH_Cauchy]</a>) qui
 s’écrit <span class="math inline">\(\left(\psi_1 : t \in
 \mathbb{R}\mapsto \exp((t-t_0)A)e_1,\ldots,\psi_n : t \in
 \mathbb{R}\mapsto \exp((t-t_0)A)e_n\right).\)</span></p>
-<p>En considérant la matrice wronskienne de <span
+<p>En considérant la matrice wronskienne <span
+class="math inline">\(W\)</span> de <span
 class="math inline">\((\psi_1,\ldots,\psi_n)\)</span> relativement à la
-base canonique, on a alors pour <span class="math inline">\(t \in
+base canonique, on a pour <span class="math inline">\(t \in
 \mathbb{R},\)</span> <span class="math display">\[W(t) =
 \left(\begin{array}{l|l|l}
         \psi_1(t) &amp; \ldots &amp; \psi_n(t)
     \end{array}\right) = \exp((t-t_0)A)\left(\begin{array}{l|l|l}
-        c_1 &amp; \ldots &amp; c_n
+        e_1 &amp; \ldots &amp; e_n
     \end{array}\right) = \exp((t-t_0)A)W(t_0)\]</span> et donc
 clairement <span class="math display">\[W&#39;(t) = AW(t).\]</span></p>
 </div>
 <h3 data-number="3.1.2" id="propriétés-des-trajectoires"><span
 class="header-section-number">3.1.2</span> Propriétés des
 trajectoires</h3>
+<div class="wrem">
+<p><span class="math inline"><span class="icon-warning">⚠️</span></span>
+Les propositions suivantes sont assez subtiles. Il se peut que deux
+trajectoires soient égales sans que les solutions associées le soient.
+Par exemple, <span class="math inline">\(t \in \mathbb{R}\mapsto
+e^t\)</span> et <span class="math inline">\(t \in \mathbb{R}\mapsto
+e^{1+t}\)</span> ont même trajectoire sans être égales. Les solutions
+passent par les mêmes points mais pas au même temps.</p>
+</div>
 <div class="wprop">
 <p><span id="prop:trajectoires_egales_ou_disjointes"
 label="prop:trajectoires_egales_ou_disjointes"></span> Soient <span
 class="math inline">\(\varphi,\psi \in
 \mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_homo_constant}}},\)</span>
 on considère <span class="math inline">\(\mathrm{Traj}(\varphi) =
-\left\{\varphi(t)/ t \in \mathbb{R}\right\} \\subset
+\left\{\varphi(t)/ t \in \mathbb{R}\right\} \subset
 \mathbb{K}^n\)</span> et <span class="math inline">\(\mathrm{Traj}(\psi)
-= \left\{\psi(t)/ t \in \mathbb{R}\right\} \\subset
+= \left\{\psi(t)/ t \in \mathbb{R}\right\} \subset
 \mathbb{K}^n.\)</span> Alors,</p>
 <ul>
 <li><p>Soit ces deux trajectoires sont disjointes,</p></li>
@@ -2320,8 +2356,7 @@ class="math inline">\(\mathrm{Traj}(\varphi) =
 <span class="math inline">\(t_0 \in \mathbb{R}\)</span> tel que <span
 class="math inline">\(\varphi(t_0) = c_0\)</span> et il existe <span
 class="math inline">\(t_1 \in \mathbb{R}\)</span> tel que <span
-class="math inline">\(\psi(t_1) = c_0\)</span> par le théorème de
-Cauchy.</p>
+class="math inline">\(\psi(t_1) = c_0\)</span>.</p>
 <p>De plus, par le corollaire <a href="#cor:solutions_Explicites"
 data-reference-type="ref"
 data-reference="cor:solutions_Explicites">[cor:solutions_Explicites]</a>,
@@ -2349,28 +2384,20 @@ class="math inline">\(\psi(t_\varphi+t_1-t_0) = c \in
 \mathrm{Traj}(\psi),\)</span> il existe <span
 class="math inline">\(t_\psi \in \mathbb{R}\)</span> tel que <span
 class="math inline">\(\psi(t_\psi) = c\)</span> et donc <span
-class="math inline">\(\varphi(t_\varphi-t_1-t_0) = c \in
+class="math inline">\(\varphi(t_\psi-t_1-t_0)=\psi(t_\psi) = c \in
 \mathrm{Traj}(\varphi).\)</span></p></li>
 </ul>
-</div>
-<div class="wrem">
-<p><span class="math inline"><span class="icon-warning">⚠️</span></span> Il
-se peut que deux trajectoires soient égales sans que les solutions le
-soient. Par exemple, <span class="math inline">\(t \in \mathbb{R}\mapsto
-e^t\)</span> et <span class="math inline">\(t \in \mathbb{R}\mapsto
-e^{1+t}\)</span> ont même trajectoire sans être égales. Les solutions
-passent par les mêmes points mais pas au même temps.</p>
 </div>
 <div class="wcor">
 <p>Soit <span class="math inline">\(c_0 \in \mathbb{K}^n,\)</span> il
 existe une unique trajectoire <span
-class="math inline">\(\mathrm{Traj}(\varphi) = \left\{\varphi(t)/ t \in
-\mathbb{R}\right\}\)</span> avec <span class="math inline">\(\varphi \in
+class="math inline">\(\mathrm{Traj}(\psi) = \left\{\psi(t)/ t \in
+\mathbb{R}\right\}\)</span> avec <span class="math inline">\(\psi \in
 \mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_homo_constant}}}\)</span>
 telle que telle que <span class="math inline">\(c_0 \in
-\mathrm{Traj}(\varphi) = \left\{\varphi(t)/ t \in
+\mathrm{Traj}(\psi) = \left\{\psi(t)/ t \in
 \mathbb{R}\right\}.\)</span></p>
-<p>C’est-à-dire, les trajectoires des solutions de de <span
+<p>C’est-à-dire, les trajectoires des solutions de <span
 class="math inline">\(\eqref{eq:systeme_lin_ordre_un_homo_constant}\)</span>partitionnent
 <span class="math inline">\(\mathbb{K}^n.\)</span></p>
 </div>
@@ -2378,8 +2405,8 @@ class="math inline">\(\eqref{eq:systeme_lin_ordre_un_homo_constant}\)</span>part
 <p>L’union des trajectoires est <span
 class="math inline">\(\mathbb{K}^n\)</span> car soit <span
 class="math inline">\(c_0 \in \mathbb{K}^n,\)</span> par le théorème de
-Cauchy linéaire, il existe <span class="math inline">\(\varphi\)</span>
-telle que <span class="math inline">\(\varphi(0) = c_0\)</span> et les
+Cauchy linéaire, il existe <span class="math inline">\(\psi\)</span>
+telle que <span class="math inline">\(\psi(0) = c_0\)</span> et les
 trajectoires sont disjointes par la proposition <a
 href="#prop:trajectoires_egales_ou_disjointes" data-reference-type="ref"
 data-reference="prop:trajectoires_egales_ou_disjointes">[prop:trajectoires_egales_ou_disjointes]</a>.</p>
@@ -2389,11 +2416,11 @@ data-reference="prop:trajectoires_egales_ou_disjointes">[prop:trajectoires_egale
 <span class="math inline">\(\Gamma\)</span> la trajectoire passant par
 <span class="math inline">\(c_0.\)</span> La trajectoire <span
 class="math inline">\(\Gamma\)</span> est alors donnée, par exemple, par
-<span class="math inline">\(\varphi \in
+<span class="math inline">\(\psi \in
 \mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_homo_constant}}}\)</span>
-telle que <span class="math inline">\(\varphi(0) =c_0\)</span> ie <span
+telle que <span class="math inline">\(\psi(0) =c_0\)</span> ie <span
 class="math inline">\(\begin{array}{lllll}
-\varphi &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{K}^n \\
+\psi &amp; : &amp; \mathbb{R} &amp; \to &amp; \mathbb{K}^n \\
    &amp;   &amp; t &amp; \mapsto &amp; \exp(tA)c_0
 \end{array}
 .\)</span></p>
@@ -2403,17 +2430,16 @@ class="math inline">\(\begin{array}{lllll}
 class="math inline">\(Ac_0\)</span> dirige la tangente en <span
 class="math inline">\(c_0\)</span> de <span
 class="math inline">\(\Gamma.\)</span> En effet, <span
-class="math inline">\(\varphi&#39;(0) = A\varphi(0) =
-c_0.\)</span></p></li>
+class="math inline">\(\psi&#39;(0) = A\psi(0) = Ac_0.\)</span></p></li>
 <li><p>Si <span class="math inline">\(Ac_0 = 0\)</span> alors <span
 class="math inline">\(c_0 = 0\)</span> ou <span
 class="math inline">\(c_0\)</span> est un vecteur propre de <span
 class="math inline">\(A\)</span> associé à <span
 class="math inline">\(0\)</span> et pour tout <span
 class="math inline">\(t \in \mathbb{R},\)</span> <span
-class="math inline">\(\varphi(t) = \exp(tA)c_0 = e^0 c_0 = c_0\)</span>
-donc <span class="math inline">\(\mathrm{Traj}(\varphi) =
-c_0.\)</span></p></li>
+class="math inline">\(\psi(t) = \exp(tA)c_0 = e^0 c_0 = c_0\)</span>
+donc <span class="math inline">\(\mathrm{Traj}(\psi) =
+\left\{c_0\right\}.\)</span></p></li>
 </ul>
 </div>
 <h3 data-number="3.1.3"
@@ -2449,7 +2475,7 @@ class="math display">\[\begin{aligned}
         &amp; = \exp((t-t_0)A)C_0 \\
         &amp; = \exp((t-t_0)(A-\lambda I_n+\lambda I_n))C_0 \\
         &amp; = \exp((t-t_0)\lambda I_n)\exp((t-t_0)(A-\lambda I_n))C_0
-\\
+\text{ car $A$ et $\lambda I_n$ commutent} \\
         &amp; =
 e^{(t-t_0)\lambda}\sum_{k=0}^{+\infty}\frac{(t-t_0)^k}{k!}(A-\lambda
 I_n)^k C_0 \\
@@ -2477,15 +2503,15 @@ I_n)}\]</span> on a donc, par ce qui précède, pour <span
 class="math inline">\(t \in \mathbb{R},\)</span> <span
 class="math display">\[\exp((t-t_0)A)C_0 = e^{(t-t_0)\lambda_1}C_1+
 e^{(t-t_0)\lambda_2}C_2+\ldots+ e^{(t-t_0)\lambda_k}C_k.\]</span></p>
-<p>Plus précisément, en considérant <span
-class="math inline">\((c_1,\ldots,c_n)\)</span> une base de <span
+<p>Alors, en considérant <span
+class="math inline">\((e_1,\ldots,e_n)\)</span> une base de <span
 class="math inline">\(\mathbb{K}^n\)</span> de vecteurs propres de <span
 class="math inline">\(A\)</span> alors <span
-class="math inline">\(\left(t\mapsto \exp(tA)c_1,\ldots,t\mapsto
-\exp(tA)c_n\right)\)</span> est une base de <span
+class="math inline">\(\left(t\mapsto \exp(tA)e_1,\ldots,t\mapsto
+\exp(tA)e_n\right)\)</span> est une base de <span
 class="math inline">\(\mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_homo_constant}}}\)</span>
 qui se calcule facilement (en fonction des valeurs propres associées à
-chaque <span class="math inline">\(c_j\)</span>).</p></li>
+chaque <span class="math inline">\(e_j\)</span>).</p></li>
 <li><p><u>Si <span class="math inline">\(A\)</span> est
 trigonalisable</u>, en notant <span
 class="math inline">\(\mathop{\mathrm{Sp}}(A) =
@@ -2504,11 +2530,11 @@ somme tel que <span class="math display">\[C_0 = \underbrace{C_1}_{\in
 \mathop{\mathrm{Ker}}(A-\lambda_1 I_n)^{\alpha_1}}+\underbrace{C_2}_{\in
 \mathop{\mathrm{Ker}}(A-\lambda_2
 I_n)^{\alpha_2}}+\ldots+\underbrace{C_k}_{\in
-\mathop{\mathrm{Ker}}(A-\lambda_k I_n)^{\alpha_k}}\]</span> on a donc,
-par ce qui précède, pour <span class="math inline">\(t \in
-\mathbb{R},\)</span> <span class="math display">\[\exp((t-t_0)A)C_0 =
-\exp((t-t_0)A)C_1+ \exp((t-t_0)A)C_2+\ldots+ \exp((t-t_0)A)C_k.\]</span>
-avec pour <span class="math inline">\(1 \leq j \leq k,\)</span> <span
+\mathop{\mathrm{Ker}}(A-\lambda_k I_n)^{\alpha_k}}\]</span> on a donc
+pour <span class="math inline">\(t \in \mathbb{R},\)</span> <span
+class="math display">\[\exp((t-t_0)A)C_0 = \exp((t-t_0)A)C_1+
+\exp((t-t_0)A)C_2+\ldots+ \exp((t-t_0)A)C_k.\]</span> avec pour <span
+class="math inline">\(1 \leq j \leq k,\)</span> <span
 class="math inline">\(\exp((t-t_0)A)C_j\)</span> qui se calcule en un
 nombre fini de termes car <span class="math inline">\(C_j \in
 \mathop{\mathrm{Ker}}(A-\lambda_jI_n)^{\alpha_j}\)</span> (comme
@@ -2530,11 +2556,11 @@ trigonalisable,</u> c’est que <span class="math inline">\(\mathbb{K}=
 <p>On distingue alors <span class="math display">\[\begin{aligned}
         &amp;
 \mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_homo_constant}},\mathbb{R}}
-= \left\{\varphi: \mathbb{R}\to \mathbb{R}/ \varphi\text{ est solution
+= \left\{\psi: \mathbb{R}\to \mathbb{R}/ \psi\text{ est solution
 de$\eqref{eq:systeme_lin_ordre_un_homo_constant}$}\right\} \\
         \text{ et }&amp;
 \mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_homo_constant}},\mathbb{C}}
-= \left\{\varphi: \mathbb{R}\to \mathbb{C}/ \varphi\text{ est solution
+= \left\{\psi: \mathbb{R}\to \mathbb{C}/ \psi\text{ est solution
 de$\eqref{eq:systeme_lin_ordre_un_homo_constant}$}\right\}.
     \end{aligned}\]</span></p>
 <p>Remarquons alors que <span
@@ -2639,9 +2665,9 @@ class="math inline">\(\mathbb{C}^n
 =  \mathop{\mathrm{Ker}}(A-\lambda_1I_n)^{\alpha_1} \oplus
 \mathop{\mathrm{Ker}}(A-\lambda_2I_n)^{\alpha_2} \oplus \ldots \oplus
 \mathop{\mathrm{Ker}}(A-\lambda_k I_n)^{\alpha_k}\)</span> (avec <span
-class="math inline">\(\alpha_1=\ldots=\alpha_n\)</span> si <span
+class="math inline">\(\alpha_1=\ldots=\alpha_n=1\)</span> si <span
 class="math inline">\(A\)</span> est diagonalisable).</p></li>
-<li><p>Calculer <span class="math inline">\(\mathbb{C}\)</span>-base
+<li><p>Calculer une <span class="math inline">\(\mathbb{C}\)</span>-base
 <span class="math inline">\(\left(\psi_1,\ldots,\psi_n\right)\)</span>
 de <span
 class="math inline">\(\mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_homo_constant}},\mathbb{C}},\)</span>
@@ -2651,8 +2677,8 @@ où <span class="math inline">\(\psi_j : t \in \mathbb{R}\mapsto
 <li><p>Extraire de <span
 class="math inline">\(\left(\mathop{\mathrm{Re}}(\psi_1),\mathop{\mathrm{Im}}(\psi_1),
 \ldots,\mathop{\mathrm{Re}}(\psi_n),\mathop{\mathrm{Im}}(\psi_n)\right)\)</span>
-qui génère <span
-class="math inline">\(\mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_homo_constant}},\mathbb{R}},\)</span>
+(qui génère <span
+class="math inline">\(\mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_homo_constant}},\mathbb{R}}\)</span>)
 une base de <span
 class="math inline">\(\mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_homo_constant}},\mathbb{R}}.\)</span></p></li>
 </ol>
@@ -2664,8 +2690,6 @@ class="math inline">\(\mathop{\mathrm{Re}}(\psi_j) : t \mapsto
 class="math inline">\(\mathop{\mathrm{Im}}(\psi_j) : t \mapsto
 \exp((t-t_0)A)\mathop{\mathrm{Im}}(C_j)\)</span> pour <span
 class="math inline">\(1 \leq j \leq k\)</span> mais en général <span
-class="math inline">\(\exp((t-t_0)A)\mathop{\mathrm{Re}}(C_j)\)</span>
-ne se calcule pas en un nombre fini de termes car <span
 class="math display">\[\begin{aligned}
     &amp; \mathop{\mathrm{Re}}\Big(e^{(t-t_0)\overbrace{\lambda_j}^{\in
 \mathbb{C}}}\sum_{k=0}^{\alpha-1}\frac{(t-t_0)^k}{k!}(A-\overbrace{\lambda_j}^{\in
@@ -2721,7 +2745,7 @@ class="math display">\[\mathop{\mathrm{Re}}(\psi_1) =
 class="math inline">\((\mathop{\mathrm{Re}}(\psi_1),\mathop{\mathrm{Re}}(\psi_2))\)</span>
 ne forment pas une base de <span
 class="math inline">\(\mathcal{S}_{\text{\ref{eq:systeme_lin_ordre_un_homo_constant}},\mathbb{R}}\)</span>
-(tandis que <span
+qui est de dimension 2 (tandis que <span
 class="math inline">\((\mathop{\mathrm{Re}}(\psi_1),\mathop{\mathrm{Im}}(\psi_1)),\)</span>
 oui).</p>
 </div></li>
@@ -2746,7 +2770,7 @@ class="math inline">\(\mathbb{C}\)</span>-dimension 1.</p>
 <p>De plus, <span class="math inline">\(A_1-2iI_2 = \begin{pmatrix}
         2-2i &amp; -4 \\
         2 &amp; -2-2i
-    \end{pmatrix}\)</span> et donc <span
+    \end{pmatrix}\)</span> et <span
 class="math inline">\(\begin{pmatrix}
         x_1 \\ x_2
     \end{pmatrix} \in \mathop{\mathrm{Ker}}(A_1-2iI_2) \iff x_2 =
@@ -2847,12 +2871,12 @@ class="math display">\[\label{eq:systeme_lin_ordre_un_homo_constant_ex_2}
         \tag{$H_{A_2}$}
         x&#39; = A_2x.\]</span></p>
 <p>Alors, on a maintenant deux valeurs propres qui sont <span
-class="math inline">\(1+\pm 2i,\)</span> toujours associées aux mêmes
+class="math inline">\(1\pm 2i,\)</span> toujours associées aux mêmes
 vecteurs propres.</p>
 <p>En reprenant les mêmes calculs, on en déduit une base de constituée
-de <span class="math inline">\(\tilde{varphi}_1: t \mapsto
+de <span class="math inline">\(\tilde{\varphi}_1: t \mapsto
 e^t\varphi_1(t)\)</span> et <span
-class="math inline">\(\tilde{varphi}_2: t \mapsto
+class="math inline">\(\tilde{\varphi}_2: t \mapsto
 e^t\varphi_2(t)\)</span> (en reprenant les notations de l’exemple
 précédent).</p>
 <p>Comme <span class="math inline">\(\varphi_1\)</span> et <span
@@ -2933,7 +2957,7 @@ avec pour tout <span class="math inline">\(t \in \mathbb{R},\)</span>
     \text{ et }\psi_2(t)
     &amp; = \exp(tA)C_2 \\
     &amp; =  \exp(t(A+I_2-I_2))C_2 \\
-    &amp; = e^{-t}\left(t^0(A+I_2-I_2)^0C_2+t(A+I_2-I_2)C_2\right) \\
+    &amp; = e^{-t}\left(t^0(A+I_2)^0C_2+t(A+I_2)C_2\right) \\
     &amp; = e^{-t}\left(\begin{pmatrix}
         0 \\ 1
     \end{pmatrix}+t\begin{pmatrix}
@@ -2977,8 +3001,7 @@ AX.\]</span></p>
 propres donc elle est diagonalisable et on peut considérer <span
 class="math inline">\((e_1, e_2)\)</span> une base de <span
 class="math inline">\(\mathbb{R}^2\)</span> formée de vecteurs propres
-d’une matrice <span class="math inline">\(A\)</span> associés
-respectivement aux valeurs propres réelles <span
+associés respectivement aux valeurs propres réelles <span
 class="math inline">\(\lambda\)</span> et <span
 class="math inline">\(\mu.\)</span> L’espace des solutions du système
 différentiel <span class="math inline">\(X&#39; = A X\)</span> admet
@@ -3019,32 +3042,55 @@ e^{\lambda t}\)</span> et <span class="math inline">\(x_2(t) = c_2
 e^{\mu t}\)</span> les coordonnées de <span
 class="math inline">\(X(t)\)</span> dans la base <span
 class="math inline">\((e_1,e_2)\)</span> pour <span
-class="math inline">\(t \in \mathbb{R},\)</span> on a : <span
-class="math display">\[x_1(t) \xrightarrow[t \to +\infty]{} \pm \infty,
-\quad x_2(t) \xrightarrow[t \to +\infty]{} \pm\infty \qquad \text{ et
+class="math inline">\(t \in \mathbb{R},\)</span> on a :</p>
+<ul>
+<li><p>Si <span class="math inline">\(c_1 &gt; 0\)</span> et <span
+class="math inline">\(c_2 &gt; 0\)</span>, <span
+class="math display">\[x_1(t) \xrightarrow[t \to +\infty]{} +\infty,
+\quad x_2(t) \xrightarrow[t \to +\infty]{} +\infty \qquad \text{ et
 }\qquad x_1(t) \xrightarrow[t \to -\infty]{} 0, \quad x_2(t)
-\xrightarrow[t \to -\infty]{} 0\]</span> en fonction des signes de <span
-class="math inline">\(c_1,c_2\)</span> donc <span
-class="math inline">\(X(t)\)</span> tend vers <span
+\xrightarrow[t \to -\infty]{} 0\]</span></p></li>
+<li><p>Si <span class="math inline">\(c_1 &lt; 0\)</span> et <span
+class="math inline">\(c_2 &gt; 0\)</span>, <span
+class="math display">\[x_1(t) \xrightarrow[t \to +\infty]{} -\infty,
+\quad x_2(t) \xrightarrow[t \to +\infty]{} +\infty \qquad \text{ et
+}\qquad x_1(t) \xrightarrow[t \to -\infty]{} 0, \quad x_2(t)
+\xrightarrow[t \to -\infty]{} 0\]</span></p></li>
+<li><p>Si <span class="math inline">\(c_1 &gt; 0\)</span> et <span
+class="math inline">\(c_2 &lt; 0\)</span>, <span
+class="math display">\[x_1(t) \xrightarrow[t \to +\infty]{} +\infty,
+\quad x_2(t) \xrightarrow[t \to +\infty]{} -\infty \qquad \text{ et
+}\qquad x_1(t) \xrightarrow[t \to -\infty]{} 0, \quad x_2(t)
+\xrightarrow[t \to -\infty]{} 0\]</span></p></li>
+<li><p>Si <span class="math inline">\(c_1 &lt; 0\)</span> et <span
+class="math inline">\(c_2 &lt; 0\)</span>, <span
+class="math display">\[x_1(t) \xrightarrow[t \to +\infty]{} -\infty,
+\quad x_2(t) \xrightarrow[t \to +\infty]{} -\infty \qquad \text{ et
+}\qquad x_1(t) \xrightarrow[t \to -\infty]{} 0, \quad x_2(t)
+\xrightarrow[t \to -\infty]{} 0\]</span></p></li>
+</ul>
+<p>donc <span class="math inline">\(X(t)\)</span> tend vers <span
 class="math inline">\(0\)</span> lorsque <span class="math inline">\(t
 \to -\infty\)</span> et s’éloigne vers l’infini lorsque <span
-class="math inline">\(t \to +\infty.\)</span></p>
+class="math inline">\(t \to +\infty.\)</span> Ces quatre cas
+correspondent aux quatre zones délimitées par les trajectoires des
+points 1. et 2..</p>
 <p>Par ailleurs, comme <span class="math inline">\(0 &lt; \mu &lt;
 \lambda,\)</span> on a <span class="math inline">\(\lambda - \mu &gt;
 0,\)</span> d’où : <span class="math display">\[\frac{x_1(t)}{x_2(t)} =
 \frac{c_1}{c_2}e^{(\lambda-\mu)t} \xrightarrow[t \to -\infty]{}
-0\]</span> ainsi <span class="math inline">\(x_1(t) = o(x_2(t))\)</span>
-en <span class="math inline">\(-\infty\)</span> : la trajectoire quitte
-<span class="math inline">\(0\)</span> <span>tangentiellement à la
+0\]</span> ainsi <span class="math inline">\(x_1(t) = \underset{t\to
+-\infty}{o}(x_2(t))\)</span> la trajectoire quitte <span
+class="math inline">\(0\)</span> <span>avec une direction donnée par la
 demi-droite portée par <span class="math inline">\(\pm
 e_2\)</span></span> (selon le signe de <span
 class="math inline">\(c_2\)</span>).</p>
 <p>De même, en <span class="math inline">\(+\infty\)</span> : <span
 class="math display">\[\frac{x_2(t)}{x_1(t)} =
 \frac{c_2}{c_1}e^{(\mu-\lambda)t} \xrightarrow[t \to +\infty]{}
-0\]</span> ainsi <span class="math inline">\(x_2(t) = o(x_1(t))\)</span>
-en <span class="math inline">\(+\infty\)</span> : la trajectoire part
-vers l’infini avec une <span>direction asymptotique portée par <span
+0\]</span> ainsi <span class="math inline">\(x_2(t) = \underset{t\to
++\infty}{o}(x_1(t))\)</span> et la trajectoire part vers l’infini avec
+une <span>direction asymptotique portée par <span
 class="math inline">\(\pm e_1\)</span></span> (selon le signe de <span
 class="math inline">\(c_1\)</span>).</p></li>
 </ol>
@@ -3104,8 +3150,8 @@ class="math display">\[A-4I_3 = \begin{pmatrix}
         -8 &amp; -10 &amp; -8 \\
         1 &amp; -1 &amp; 1 \\
         3 &amp; 6 &amp; 3
-    \end{pmatrix}.\]</span> On repère donc <span
-class="math inline">\(C_1 = \begin{pmatrix}
+    \end{pmatrix}.\]</span> On repère <span class="math inline">\(C_1 =
+\begin{pmatrix}
                 1 \\0 \\ -1
             \end{pmatrix} \in \mathop{\mathrm{Ker}}(A-4I_3)\)</span> et
 donc <span class="math inline">\(\mathop{\mathrm{Ker}}(A-4I_3) =
@@ -3127,7 +3173,7 @@ donc <span class="math inline">\(\mathop{\mathrm{rg}}(A-I_3) =
 class="math inline">\(\mathop{\mathrm{Ker}}(A-I_3) =
 \mathop{\mathrm{Vect}}(C_2)\)</span> et que <span
 class="math inline">\(A\)</span> n’est pas diagonalisable.</p>
-<p>On remarque anfin que <span class="math inline">\(C_3 =
+<p>On remarque enfin que <span class="math inline">\(C_3 =
 \begin{pmatrix}
                 0 \\ -1 \\ 1
             \end{pmatrix}\)</span> vérifie <span
@@ -3177,10 +3223,10 @@ class="math inline">\(\mathbb{R},\)</span> on s’intéresse dans cette
 partie au système différentiel linéaire du premier ordre <span
 class="math display">\[\label{eq:systeme_lin_ordre_un_constant}
         \tag{$S_{A,b}$}
-        x&#39; = A(t)x+b(t)\]</span></p>
+        x&#39; = Ax+b(t)\]</span></p>
 <p>Les solutions du système homogène associé sont les solutions du
 système <span
-class="math inline">\(\eqref{eq:systeme_lin_ordre_un_constant}\)</span>restreintes
+class="math inline">\(\eqref{eq:systeme_lin_ordre_un_homo_constant}\)</span>restreintes
 à <span class="math inline">\(I.\)</span> On peut donc déterminer une
 base <span class="math inline">\((\psi_1,\ldots,\psi_n)\)</span> de ces
 solutions comme détaillées avant puis appliquer la méthode de variation
@@ -3197,7 +3243,7 @@ class="math inline">\(A \in \mathscr{M}_{n}(\mathbb{K})\)</span> et
 continue sur <span class="math inline">\(I,\)</span> un intervalle de
 <span class="math inline">\(\mathbb{R},\)</span> on s’intéresse dans
 cette partie au système différentiel linéaire du premier ordre <span
-class="math display">\[x&#39; = A(t)x+b(t)\]</span></p>
+class="math display">\[x&#39; = Ax+b(t)\]</span></p>
 <p>Faire une preuve directe du théorème de Cauchy (sans utiliser des
 outils aussi compliqués que dans la preuve du théorème général).</p>
 <details><summary>Corrigé</summary>
@@ -3325,10 +3371,10 @@ fonction <span class="math inline">\(\begin{array}{lllll}
 \varphi &amp; : &amp; J &amp; \to &amp; \mathbb{K} \\
    &amp;   &amp; t &amp; \mapsto &amp; \varphi(t)
 \end{array}\)</span> telle que <span class="math display">\[\forall t
-\in J, a(t)\varphi&#39;(t) + b(t)(\varphi(t))= c(t)\]</span></p></li>
-<li><p>L’arc paramétré <span class="math inline">\(\mathscr{C}=
-\varphi(J)\)</span> est appelé la trajectoire de <span
-class="math inline">\(\varphi.\)</span></p></li>
+\in J, a(t)\varphi&#39;(t) + b(t)\varphi(t)= c(t)\]</span></p></li>
+<li><p>La courbe associée à une trajectoire <span
+class="math inline">\(\varphi\)</span> est appelée une courbe
+intégrale.</p></li>
 <li><p>Soit <span class="math inline">\(t_0 \in I\)</span> et <span
 class="math inline">\(c_0 \in E,\)</span> <span
 class="math display">\[\label{eq:probleme_Cauch_eq:equation_lin_ordre_un_scalaire}
@@ -3343,8 +3389,8 @@ class="math display">\[\label{eq:probleme_Cauch_eq:equation_lin_ordre_un_scalair
 de <span class="math inline">\(\mathbb{R}\)</span> et <span
 class="math inline">\(t_0 \in J\)</span> alors une solution de ce
 problème de Cauchy sur <span class="math inline">\(J\)</span> est une
-fonction <span class="math inline">\(\varphi\)</span> telle que <span
-class="math inline">\(\left\{
+fonction <span class="math inline">\(\varphi:J \to \mathbb{K}\)</span>
+telle que <span class="math inline">\(\left\{
         \begin{array}{ll}
             \forall t \in J,  a(t)\varphi&#39;(t) +b(t)\varphi(t) &amp;
 = c(t) \\
@@ -3437,6 +3483,45 @@ e^{B(t)}\int_{t_0}^tc(u)e^{-B(u)}du +c_0e^{B(t)}.
 class="math inline">\(\eqref{eq:probleme_Cauch_eq:equation_lin_ordre_un_scalaire}\)</span>admet
 une unique solution.</p>
 </div>
+<div class="wrem">
+<p>On pourrait tenter cette preuve dans le cas du système
+différentiel <span
+class="math inline">\(\eqref{eq:systeme_lin_ordre_un}\)</span>. Soit
+<span class="math inline">\(B\)</span> une primitive de <span
+class="math inline">\(A: t \mapsto \mathscr{M}_{n}(\mathbb{K})\)</span>
+et soit <span class="math inline">\(\varphi: I \to \mathbb{K}^n\)</span>
+dérivable, <span class="math display">\[\begin{aligned}
+        \varphi \text{ solution de~$\eqref{eq:systeme_lin_ordre_un}$}
+        &amp; \iff \forall t \in I, \varphi&#39;(t)  +A(t)\varphi(t) =
+b(t) \\
+        &amp; \iff \forall t \in I, \left(\varphi&#39;(t)
++A(t)\varphi(t)\right)e^{B(t)} = b(t)e^{B(t)} \\
+    \end{aligned}\]</span> Or, <span class="math inline">\(t \in I
+\mapsto \left(\varphi&#39;(t) +A(t)\varphi(t)\right)e^{B(t)}\)</span>
+<u>n’est pas la dérivée</u> de <span class="math inline">\(t \in I
+\mapsto \varphi(t) e^{B(t)}.\)</span></p>
+<p>Pour rappel, pour une fonction matricielle <span
+class="math inline">\(t \in I \mapsto C(t) \in
+\mathscr{M}_{n}(\mathbb{K}),\)</span> la dérivée de <span
+class="math inline">\(t \in I \mapsto \exp(C(t))\)</span> n’est pas
+<span class="math inline">\(t \in I \mapsto C&#39;(t)\exp(C(t))\)</span>
+en général. C’est pourquoi, on ne peut pas proposer de forme générale
+des solutions de <span
+class="math inline">\(\eqref{eq:systeme_lin_ordre_un}\)</span>.</p>
+<p>En revanche, si <span class="math inline">\(C\)</span> et <span
+class="math inline">\(C&#39;\)</span> commutent, la dérivée de <span
+class="math inline">\(t \in I \mapsto \exp(C(t))\)</span> est bien <span
+class="math inline">\(t \in I \mapsto C&#39;(t)\exp(C(t)).\)</span>
+C’est pourquoi, dans le cas constant (le système <span
+class="math inline">\(\eqref{eq:systeme_lin_ordre_un_constant}\)</span>),
+on peut utiliser cette méthode et écrire une forme générale de solution
+(voir l’exercice <a href="#exoc:Cauchy_simplifiee_coeffs_constants"
+data-reference-type="ref"
+data-reference="exoc:Cauchy_simplifiee_coeffs_constants">[exoc:Cauchy_simplifiee_coeffs_constants]</a>).
+Cela vient du fait que <span class="math inline">\(t \in I\mapsto
+tA\)</span> et sa dérivée <span class="math inline">\(t \in I\mapsto
+A\)</span> commutent.</p>
+</div>
 <div class="wprop">
 <p><span id="prop:structure_solutions_Scalaire"
 label="prop:structure_solutions_Scalaire"></span> On suppose que
@@ -3463,45 +3548,6 @@ class="math inline">\(\mathcal{S}_{\text{$\eqref{eq:equation_lin_ordre_un_scalai
 =
 \varphi+\mathcal{S}_{\text{$\eqref{eq:equation_lin_ordre_un_scalaire_homo}$}}.\)</span></p></li>
 </ul>
-</div>
-<div class="wrem">
-<p>On pourrait tenter cette preuve dans le cas du système
-différentiel <span
-class="math inline">\(\eqref{eq:systeme_lin_ordre_un}\)</span>. Soit
-<span class="math inline">\(B\)</span> une primitive de <span
-class="math inline">\(A: t \mapsto \mathscr{M}_{n}(\mathbb{K})\)</span>
-et soit <span class="math inline">\(\varphi: I \to \mathbb{K}^n\)</span>
-dérivable, <span class="math display">\[\begin{aligned}
-        \varphi \text{ solution de~$\eqref{eq:systeme_lin_ordre_un}$}
-        &amp; \iff \forall t \in I, \varphi&#39;(t)  +A(t)\varphi(t) =
-b(t) \\
-        &amp; \iff \forall t \in I, \left(\varphi&#39;(t)
-+A(t)\varphi(t)\right)e^{B(t)} = b(t)e^{B(t)} \\
-    \end{aligned}\]</span> Or, <span class="math inline">\(t \in I
-\mapsto \left(\varphi&#39;(t) +A(t)\varphi(t)\right)e^{B(t)}\)</span>
-<u>n’est pas la dérivée</u> de <span class="math inline">\(t \in I
-\mapsto \varphi(t) e^{B(t)}.\)</span></p>
-<p>Pou rappel, pour une fonction matricielle <span
-class="math inline">\(t \in I \mapsto C(t) \in
-\mathscr{M}_{n}(\mathbb{K}),\)</span> la dérivée de <span
-class="math inline">\(t \in I \mapsto \exp(C(t))\)</span> n’est pas
-<span class="math inline">\(t \in I \mapsto C&#39;(t)\exp(C(t))\)</span>
-en général. C’est pourquoi, on ne peut pas proposer de forme générale
-des solutions de <span
-class="math inline">\(\eqref{eq:systeme_lin_ordre_un}\)</span>.</p>
-<p>En revanche, si <span class="math inline">\(C\)</span> et <span
-class="math inline">\(C&#39;\)</span> commutent, la dérivée de <span
-class="math inline">\(t \in I \mapsto \exp(C(t))\)</span> est bien <span
-class="math inline">\(t \in I \mapsto C&#39;(t)\exp(C(t)).\)</span>
-C’est pourquoi, dans le cas constant (le système <span
-class="math inline">\(\eqref{eq:systeme_lin_ordre_un_constant}\)</span>),
-on peut utiliser cette méthode et écrire une forme générale de solution
-(voir l’exercice <a href="#exoc:Cauchy_simplifiee_coeffs_constants"
-data-reference-type="ref"
-data-reference="exoc:Cauchy_simplifiee_coeffs_constants">[exoc:Cauchy_simplifiee_coeffs_constants]</a>).
-Cela vient du fait que <span class="math inline">\(t \in I\mapsto
-tA\)</span> et sa dérivée <span class="math inline">\(t \in I\mapsto
-A\)</span> commutent.</p>
 </div>
 <div class="wproof">
 <ul>
@@ -3578,30 +3624,35 @@ l’équation <span
 class="math inline">\(\eqref{eq:equation_lin_ordre_un_scalaire}\)</span>est
 sous forme résolue en <span class="math inline">\(x&#39;\)</span> (<span
 class="math inline">\(a\)</span> non nulle sur <span
-class="math inline">\(I\)</span>). Soient <span
-class="math inline">\(t_0\in I\)</span> et <span
+class="math inline">\(I\)</span>). Soit <span
 class="math inline">\(\psi\)</span> une solution non nulle de l’équation
 homogène <span
 class="math inline">\(\eqref{eq:equation_lin_ordre_un_scalaire_homo}\)</span>associée
 à <span
 class="math inline">\(\eqref{eq:equation_lin_ordre_un_scalaire}\)</span>.
 Alors, <span class="math inline">\(\psi\)</span> ne s’annule pas sur
-<span class="math inline">\(I\)</span> et l’ensemble des solutions
-de <span
+<span class="math inline">\(I\)</span>.</p>
+<p>En cherchant une solution de <span
+class="math inline">\(\eqref{eq:equation_lin_ordre_un_scalaire}\)</span>sous
+la forme <span class="math inline">\(\varphi_0  = \alpha \psi\)</span>
+avec <span class="math inline">\(\alpha\)</span> dérivable sur <span
+class="math inline">\(I\)</span>, on aboutit à <span
+class="math inline">\(\varphi_0:t\in I\mapsto
+\alpha(t)\psi(t)\)</span> avec <span
+class="math inline">\(\alpha\)</span> dérivable de dérivée <span
+class="math inline">\(t \mapsto \frac{c(t)}{a(t)\psi(t)}.\)</span> On en
+déduit que l’ensemble des solutions de <span
 class="math inline">\(\eqref{eq:equation_lin_ordre_un_scalaire}\)</span>est
 donné par <span
 class="math display">\[\mathcal{S}_{\text{$\eqref{eq:equation_lin_ordre_un_scalaire}$}}
     =
-    \left\{\varphi_0+C\psi \mid C\in\mathbb{K}\right\},\]</span> où
-<span class="math inline">\(\varphi_0:t\in I\mapsto
-\alpha(t)\psi(t).\)</span> avec <span
-class="math inline">\(\alpha\)</span> dérivable de dérivée <span
-class="math inline">\(t \mapsto \frac{c(t)}{a(t)\psi(t)}.\)</span></p>
+    \left\{\varphi_0+C\psi \mid C\in\mathbb{K}\right\}.\]</span></p>
 </div>
 <div class="wproof">
-<p>Posons <span class="math inline">\(x=\alpha\psi,\)</span> où <span
-class="math inline">\(\alpha:I\to\mathbb{K}\)</span> est une fonction
-dérivable que l’on cherche à déterminer. En substituant dans<span
+<p>Posons <span class="math inline">\(\varphi_0=\alpha\psi,\)</span> où
+<span class="math inline">\(\alpha:I\to\mathbb{K}\)</span> est une
+fonction dérivable que l’on cherche à déterminer. En substituant
+dans<span
 class="math inline">\(\eqref{eq:equation_lin_ordre_un_scalaire}\)</span>,
 on obtient <span class="math display">\[\forall t \in
 I,  a(t)(\alpha&#39;(t)\psi(t)+\alpha(t)\psi&#39;(t))+b(t)\alpha(t)\psi(t)=c(t).\]</span>
@@ -3616,7 +3667,7 @@ class="math inline">\(t,\)</span> on obtient <span
 class="math display">\[\alpha(t)=\alpha(t_0)+\int_{t_0}^t\frac{c(u)}{a(u)\psi(u)}\,du.\]</span>
 En posant <span class="math inline">\(C=\alpha(t_0),\)</span> on en
 déduit que toute solution s’écrit <span
-class="math display">\[x(t)=C\psi(t)+\varphi_0(t).\]</span>
+class="math display">\[\varphi_0(t)=C\psi(t)+\varphi_0(t).\]</span>
 Réciproquement, toute fonction de cette forme vérifie, par construction,
 l’équation<span
 class="math inline">\(\eqref{eq:equation_lin_ordre_un_scalaire}\)</span>(proposition <a
@@ -3635,7 +3686,7 @@ procédant ainsi</p>
 <li><p>Résoudre <span
 class="math inline">\(\eqref{eq:equation_lin_ordre_un_scalaire_homo}\)</span>:
 en primitivant <span class="math inline">\(-\frac{b}{a}\)</span> par
-<span class="math inline">\(B,\)</span> elles s’écrivent <span
+<span class="math inline">\(B,\)</span> les solutions s’écrivent <span
 class="math inline">\(t \mapsto Ce^{B(t)}\)</span> avec <span
 class="math inline">\(C \in \mathbb{K}\)</span> (proposition <a
 href="#prop:structure_solutions_Scalaire" data-reference-type="ref"
@@ -3667,7 +3718,7 @@ sous forme résolue.</p>
 class="math inline">\(t \in \mathbb{R}^{+\star}\mapsto -\ln(t)\)</span>
 donc les solutions de l’équation homogène associée <span
 class="math inline">\(x&#39; = -\frac{1}{t}x\)</span> s’écrivent <span
-class="math inline">\(t \in \mathbb{R}^{+\star}\mapsto C^{-\ln t} =
+class="math inline">\(t \in \mathbb{R}^{+\star}\mapsto Ce ^{-\ln t} =
 \frac{C}{t}\)</span> avec <span class="math inline">\(C \in
 \mathbb{R}.\)</span></p></li>
 <li><p>On cherche maintenant une solution particulière sous la forme
@@ -3701,7 +3752,7 @@ class="math inline">\(\left\{
             u&#39;(x) &amp; = 1 \\
             v&#39;(x) &amp; = \cos(x)
         \end{array}
-        \right.\)</span> et donc pour <span
+        \right.\)</span> et donc <span
 class="math display">\[\begin{aligned}
             \forall t \in \mathbb{R}^{+\star},
             \alpha(t) &amp; = \left[x \sin(x)\right]_{2\pi}^t
@@ -3709,9 +3760,10 @@ class="math display">\[\begin{aligned}
             &amp; = t\sin(t) - \left[-\cos(x)\right]_{2\pi}^t \\
             &amp; = t\sin(t) +\cos(t)+\mathrm{Cste}.
         \end{aligned}\]</span></p>
-<p>Donc <span class="math inline">\(\varphi_0: t \in
-\mathbb{R}^{+\star}\mapsto \frac{t\sin(t) +\cos(t)}{t} = \sin(t) +
-\frac{\cos(t)}{t}\)</span> est solution.</p></li>
+<p>Donc en prenant les constantes nulles, on en déduit que <span
+class="math inline">\(\varphi_0: t \in \mathbb{R}^{+\star}\mapsto
+\frac{t\sin(t) +\cos(t)}{t} = \sin(t) + \frac{\cos(t)}{t}\)</span> est
+solution.</p></li>
 <li><p>On en déduit que l’ensemble des solutions sur <span
 class="math inline">\(\mathbb{R}^{+\star}\)</span> s’écrit <span
 class="math display">\[\left\{
@@ -3831,8 +3883,8 @@ avec <span class="math inline">\(\begin{array}{lllll}
 </div>
 <div class="webtextfigure">
 <div class="webtext">
-<p>Par exemple, on a <span class="math inline">\(\varphi  =
-\varphi_1-\varphi_2.\)</span></p>
+<p>Par exemple, <span class="math inline">\(\varphi  =
+\varphi_1-\varphi_2\)</span> est solution.</p>
 </div>
 <div class="webimg">
 <p><img src="graphe_phi1_moins_phi2.png" alt="image" /></p>
@@ -3842,7 +3894,7 @@ avec <span class="math inline">\(\begin{array}{lllll}
 <ol>
 <li><p>Le problème de Cauchy associé à <span class="math inline">\(t_0 =
 0\)</span> et <span class="math inline">\(c_0 = 0\)</span> a pour
-solution toute solution de l’équation,</p></li>
+solution toute solution de l’équation (donc une infinité),</p></li>
 <li><p>Le problème de Cauchy associé à <span class="math inline">\(t_0 =
 0\)</span> et <span class="math inline">\(c_0 \in
 \mathbb{R}^{\star}\)</span> n’a aucune solution.</p></li>
@@ -3903,8 +3955,7 @@ class="math inline">\(\varphi\)</span> dérivable à gauche et à droite en
 <span class="math inline">\(0\)</span> avec <span
 class="math inline">\(\varphi_g&#39;(0) =
 \varphi_d&#39;(0).\)</span></p>
-<p>Or, quand <span class="math inline">\(t \xrightarrow{} 0,\)</span>
-<span class="math display">\[\begin{aligned}
+<p>Or, <span class="math display">\[\begin{aligned}
         &amp; \text{Pour $t &gt; 0,$} \frac{\varphi(t)-\varphi(0)}{t} =
 \frac{C_{+}}{\sqrt{t}} \text{ qui ne converge (vers $0$) que si $C_+ =
 0.$} \\
@@ -3931,8 +3982,8 @@ solution sur $\mathbb{R}$}
 \begin{array}{l}
 \forall k \in \mathbb{Z},\ \varphi \text{ solution sur } ]k\pi,(k+1)\pi[
 \\
-\forall k \in \mathbb{Z},\ \varphi \text{ dérivable en } k\pi \\
-\forall k \in \mathbb{Z},\ \varphi(k\pi)=0.
+\forall k \in \mathbb{Z},\ \varphi(k\pi)=0 \\
+\forall k \in \mathbb{Z},\ \varphi \text{ dérivable en } k\pi.
 \end{array}
 \right.\]</span></p>
 <p>Or,</p>
@@ -4021,7 +4072,8 @@ $\mathbb{R}$}
     \iff
     y \text{ solution de $(H_{B}): y&#39;=By$ sur $\mathbb{R}$}\]</span>
 avec <span class="math inline">\(B = P^{-1}AP\)</span> et <span
-class="math inline">\(y: t \in \mathbb{R}\mapsto P^{-1}x.\)</span></p>
+class="math inline">\(y: t \in \mathbb{R}\mapsto
+P^{-1}x(t).\)</span></p>
 </div>
 <div class="wproof">
 <p>Commençons par remarquer que pour <span class="math inline">\(t \in
@@ -4045,8 +4097,9 @@ class="math display">\[y(t) = P^{-1}x(t) = \begin{pmatrix}
         \forall t \in \mathbb{R}, x&#39;(t) = Ax(t)
         &amp; \iff \forall t \in \mathbb{R}, P^{-1}x&#39;(t) =
 P^{-1}Ax(t) \\
-        &amp;  \iff \forall t \in \mathbb{R}, P^{-1}x&#39;(t) =
-P^{-1}APP^{-1}x(t) \\
+        &amp;  \iff \forall t \in \mathbb{R},
+\underbrace{P^{-1}x&#39;(t)}_{=y&#39;(t)}=
+\underbrace{P^{-1}AP}_{=B}\underbrace{P^{-1}x(t)}_{=y(t)} \\
         &amp;  \iff \forall t \in \mathbb{R},y&#39;(t) =By(t) \\
     \end{aligned}\]</span></p>
 </div>
@@ -4067,10 +4120,10 @@ forme <span class="math inline">\(\begin{pmatrix}
      &amp;  &amp; \ddots &amp;  &amp;  \\
      &amp; (0) &amp;  &amp; \ddots &amp;  \\
      &amp; &amp;  &amp;  &amp; \lambda_n \\
-\end{pmatrix},\)</span> <span class="math inline">\(y : \mathbb{R}\to
-\mathbb{K}^n\)</span> est solution de <span class="math inline">\(y&#39;
-= By\)</span> (par la proposition <a
-href="#prop:reduire_A_pour_solutions" data-reference-type="ref"
+\end{pmatrix},\)</span> <span class="math inline">\(y =P^{-1}x\)</span>
+est solution de <span class="math inline">\(y&#39; = By\)</span> (par la
+proposition <a href="#prop:reduire_A_pour_solutions"
+data-reference-type="ref"
 data-reference="prop:reduire_A_pour_solutions">[prop:reduire_A_pour_solutions]</a>)
 donc <span class="math display">\[\forall t \in \mathbb{R}, y&#39;(t) =
 \begin{pmatrix}
@@ -4099,10 +4152,10 @@ forme <span class="math inline">\(\begin{pmatrix}
      &amp;  &amp; \ddots &amp; \ddots &amp; \vdots \\
      &amp; (0) &amp;  &amp; \ddots &amp; b_{n-1n} \\
      &amp; &amp;  &amp;  &amp; b_{nn} \\
-\end{pmatrix},\)</span> <span class="math inline">\(y : \mathbb{R}\to
-\mathbb{K}^n\)</span> est solution de <span class="math inline">\(y&#39;
-= By\)</span> (par la proposition <a
-href="#prop:reduire_A_pour_solutions" data-reference-type="ref"
+\end{pmatrix},\)</span> <span class="math inline">\(y =P^{-1}x\)</span>
+est solution de <span class="math inline">\(y&#39; = By\)</span> (par la
+proposition <a href="#prop:reduire_A_pour_solutions"
+data-reference-type="ref"
 data-reference="prop:reduire_A_pour_solutions">[prop:reduire_A_pour_solutions]</a>)
 donc <span class="math display">\[\begin{aligned}
 &amp; \forall t \in \mathbb{R}, y&#39;(t) = \begin{pmatrix}
@@ -4130,8 +4183,8 @@ proche en remontant.</p>
 \mathbb{R}, y_n(t) = C_ne^{b_{nn} t}\]</span></p></li>
 <li><p>Ensuite, on peut résoudre l’équation scalaire <span
 class="math inline">\(y_{n-1}&#39;(t)  = b_{n-1n-1} y_{n-1}(t)+b_{1n-1}
-y_{n}(t)  =b_{n-1n-1}y_{n-1}(t)+ C_ne^{b_{nn} t}\)</span> en considérant
-les solutions de l’équation homogène <span
+y_{n}(t)  =b_{n-1n-1}y_{n-1}(t)+ C_nb_{1n-1}e^{b_{nn} t}\)</span> en
+considérant les solutions de l’équation homogène <span
 class="math inline">\(y_{n-1}&#39;  =b_{n-1n-1}y_{n-1}\)</span> qui sont
 <span class="math inline">\(t \mapsto C_{n-1} e^{b_{n-1n-1}t}\)</span>
 (<span class="math inline">\(C_{n-1} \in \mathbb{K}\)</span>) puis en
@@ -4282,7 +4335,9 @@ class="math inline">\(a\)</span> sous la forme <span
 class="math inline">\(a:t\in\mathbb{R}\mapsto C_a(t)e^t,\)</span> avec
 <span class="math inline">\(C_a\)</span> une fonction de classe <span
 class="math inline">\(\mathscr{C}^1.\)</span></p>
-<p>On a alors <span class="math inline">\(a&#39;(t)=a(t)-C_be^t\iff
+<p>On a alors pour <span class="math inline">\(t \in
+\mathbb{R}\)</span>, <span
+class="math inline">\(a&#39;(t)=a(t)-C_be^t\iff
 C_a&#39;(t)e^t=-C_be^t\iff C_a&#39;(t)=-C_b.\)</span></p>
 <p>Donc les solutions s’écrivent <span
 class="math inline">\(a:t\in\mathbb{R}\mapsto (C_a-C_bt)e^t,\)</span>
@@ -4325,12 +4380,12 @@ class="math inline">\(Y(t)=
 \mathbb{C}\)</span> continue telle que <span class="math inline">\(b(t)
 \xrightarrow[t \to +\infty]{} 0\)</span> et <span
 class="math inline">\(\lambda \in \mathbb{C}\)</span> tel que <span
-class="math inline">\(\mathop{\mathrm{Re}}(\lambda) &gt; 0.\)</span> On
+class="math inline">\(\mathop{\mathrm{Re}}(\lambda) &lt; 0.\)</span> On
 considère <span class="math display">\[\label{eq:exoc_tend_Vers_0_scal}
             \tag{1}
             x&#39; = \lambda x+b(t).\]</span></p>
 <p>Montrer que <span class="math display">\[\forall \varphi \in
-\mathcal{S}_{$\eqref{eq:exoc_tend_Vers_0_scal}$}, \varphi(t)
+\mathcal{S}_{\text{$\eqref{eq:exoc_tend_Vers_0_scal}$}}, \varphi(t)
 \xrightarrow[t \to +\infty]{} 0.\]</span></p></li>
 <li><p>Soient <span class="math inline">\(b : [0,+\infty[ \to
 \mathbb{C}^n\)</span> continue telle que <span
@@ -4343,7 +4398,7 @@ class="math display">\[\label{eq:exoc_tend_Vers_0_mat}
             \tag{2}
             x&#39; = Ax+b(t).\]</span></p>
 <p>Montrer que <span class="math display">\[\forall \varphi \in
-\mathcal{S}_{$\eqref{eq:exoc_tend_Vers_0_mat}$}, \varphi(t)
+\mathcal{S}_{\text{$\eqref{eq:exoc_tend_Vers_0_mat}$}}, \varphi(t)
 \xrightarrow[t \to +\infty]{} 0.\]</span></p></li>
 </ol>
 <details><summary>Corrigé</summary>
@@ -4368,8 +4423,8 @@ de~$\eqref{eq:exoc_tend_Vers_0_scal}$}
 \lambda \varphi(t) + b(t) \\
                 &amp; \iff \forall t \in  [0,+\infty[,
 \alpha&#39;(t)e^{\lambda t} = b(t) \\
-                &amp; \iff   \iff \forall t \in  [0,+\infty[,
-\alpha&#39;(t) = b(t)e^{-\lambda t}.
+                &amp; \iff   \forall t \in  [0,+\infty[, \alpha&#39;(t)
+= b(t)e^{-\lambda t}.
             \end{aligned}\]</span> On considère alors <span
 class="math inline">\(\varphi_0 : t \in [0,+\infty[ \mapsto e^{\lambda
 t}\int_{0}^t b(u)e^{-\lambda u}du.\)</span></p></li>
@@ -4412,12 +4467,12 @@ e^{-\mathop{\mathrm{Re}}(\lambda) u}du\)</span> qui est divergente (car
 class="math display">\[\int_{0}^t
 \left|b(u)\right|e^{-\mathop{\mathrm{Re}}(\lambda) u}du = \underset{t\to
 +\infty}{o}\underbrace{\left(\int_{0}^te^{-\mathop{\mathrm{Re}}(\lambda)
-u}\right)}_{=
-\frac{e^{-Re(\lambda)t}-1}{\mathop{\mathrm{Re}}(\lambda)}}\]</span> Donc
+u}du\right)}_{=
+\frac{1-e^{-Re(\lambda)t}}{\mathop{\mathrm{Re}}(\lambda)}}\]</span> Donc
 <span
 class="math display">\[e^{\mathop{\mathrm{Re}}(\lambda)t}\int_{0}^t
-b(u)e^{-\lambda u}du = \underset{t\to
-+\infty}{o}\left(\frac{1-e^{\mathop{\mathrm{Re}}(\lambda)t}}{\mathop{\mathrm{Re}}(\lambda)}\right)
+b(u)e^{-\mathop{\mathrm{Re}}(\lambda) u}du = \underset{t\to
++\infty}{o}\left(\frac{e^{\mathop{\mathrm{Re}}(\lambda)t}-1}{\mathop{\mathrm{Re}}(\lambda)}\right)
 = \underset{t\to +\infty}{o}\left(1\right).\]</span> puis <span
 class="math inline">\(e^{\lambda t}\int_{0}^t b(u)e^{-\lambda u}du
 \xrightarrow[t \to +\infty]{} 0.\)</span></p></li>
@@ -4495,7 +4550,7 @@ class="header-section-number">5.1</span> Définitions</h2>
 <div class="wdefi">
 <p>Soient <span class="math inline">\(I\)</span> un intervalle de <span
 class="math inline">\(\mathbb{K},\)</span> <span class="math inline">\(n
-\in \mathbb{N}^{\star}\)</span> et <span
+\in \mathbb{N}^{\star}\)</span>, <span
 class="math inline">\(a_0,\ldots,a_n\)</span> <span
 class="math inline">\(n+1\)</span> fonctions continues de <span
 class="math inline">\(I\)</span> dans <span
@@ -4560,8 +4615,8 @@ class="math display">\[\label{eq:probleme_Cauch_eq:equation_lin_ordre_n_scalaire
 de <span class="math inline">\(\mathbb{R}\)</span> et <span
 class="math inline">\(t_0 \in J\)</span> alors une solution de ce
 problème de Cauchy sur <span class="math inline">\(J\)</span> est une
-fonction <span class="math inline">\(\varphi\)</span> telle que <span
-class="math display">\[\left\{
+fonction <span class="math inline">\(\varphi:J \to \mathbb{K}\)</span>
+telle que <span class="math display">\[\left\{
         \begin{array}{l}
             \varphi \text{ est solution
 de~$\eqref{eq:equation_lin_ordre_n_scalaire}$sur $J$} \\
@@ -4588,7 +4643,8 @@ class="math inline">\(\eqref{eq:equation_lin_ordre_n_scalaire}\)</span>équivaut
 <p><strong>(Superposition de solutions)</strong> <span
 id="prop:superposition_ordre_n"
 label="prop:superposition_ordre_n"></span> On considère une deuxième
-équation différentielle linéaire d’ordre 1 qui s’écrit <span
+équation différentielle linéaire d’ordre <span
+class="math inline">\(n\)</span> qui s’écrit <span
 class="math display">\[\label{eq:equation_lin_ordre_n_scalaire_2}
         \tag{$1&#39;_n$}
         a_n(t)x^{(n)}+\ldots+a_1(t)x&#39;+a_0(t)x  = c(t)\]</span> avec
@@ -4605,7 +4661,7 @@ class="math inline">\(\eqref{eq:equation_lin_ordre_n_scalaire_2}\)</span>sur
 <span class="math inline">\(\lambda \varphi_1+\mu \varphi_2\)</span> est
 solution de <span
 class="math inline">\(a_n(t)x^{(n)}+\ldots+a_1(t)x&#39;+a_0(t)x  =
-\lambda b(t)+ \mu b_1(t).\)</span></p>
+\lambda b(t)+ \mu c(t).\)</span></p>
 </div>
 <div class="wproof">
 <p>Comme combinaison linéaire de fonctions <span
@@ -4647,7 +4703,6 @@ class="math inline">\(\mathcal{S}_{\text{\ref{eq:equation_lin_ordre_n_scalaire}}
 class="math inline">\(\mathcal{S}_{\text{\ref{eq:equation_lin_ordre_n_scalaire_homo}}}
 \subset \mathscr{C}(I,E)\)</span> et montrons que c’en est un
 sous-espace vectoriel.</p>
-<p>De plus,</p>
 <ul>
 <li><p>On a clairement <span class="math inline">\(0 \in
 \mathcal{S}_{\text{\ref{eq:equation_lin_ordre_n_scalaire_homo}}}\)</span>
@@ -4694,7 +4749,7 @@ par la proposition <a href="#prop:superposition_ordre_n"
 data-reference-type="ref"
 data-reference="prop:superposition_ordre_n">[prop:superposition_ordre_n]</a></p>
 <p>donc <span class="math inline">\(\varphi =
-\varphi_0+\varphi-\varphi_0 \in
+\varphi_0+(\varphi-\varphi_0) \in
 \varphi_0+\mathcal{S}_{\text{\ref{eq:equation_lin_ordre_n_scalaire_homo}}}.\)</span></p></li>
 </ul></li>
 </ul>
@@ -4845,8 +4900,7 @@ class="math inline">\(t \in I,\)</span> l’égalité matricielle <span
 class="math inline">\(\widehat{\varphi}&#39;(t) =
 A(t)\widehat{\varphi}(t) + B(t)\)</span> se réécrit composante par
 composante sous la forme du système : <span
-class="math display">\[\label{eq:proof_sys_developpe}
-        \left\{
+class="math display">\[\left\{
         \begin{aligned}
             \varphi_1&#39;(t) &amp;= \varphi_2(t) \\
             \varphi_2&#39;(t) &amp;= \varphi_3(t) \\
@@ -4875,10 +4929,8 @@ class="math inline">\(I\)</span> et <span
 class="math inline">\(\varphi_1^{(n)} = \varphi_n&#39;.\)</span> En
 remplaçant chaque <span class="math inline">\(\varphi_{k+1}\)</span> par
 <span class="math inline">\(\varphi_1^{(k)}\)</span> dans la dernière
-ligne de<span
-class="math inline">\(\eqref{eq:proof_sys_developpe}\)</span>, on
-obtient, pour tout <span class="math inline">\(t \in I\)</span> : <span
-class="math display">\[\varphi_1^{(n)}(t) = -
+ligne, on obtient, pour tout <span class="math inline">\(t \in
+I\)</span> : <span class="math display">\[\varphi_1^{(n)}(t) = -
 \frac{a_{n-1}(t)}{a_n(t)}\varphi^{(n-1)}(t)-\ldots-
 \frac{a_{0}(t)}{a_n(t)}\varphi(t)  + \frac{b(t)}{a_n(t)},\]</span> ce
 qui équivaut à <span class="math inline">\(\varphi_1 \in
@@ -5071,7 +5123,7 @@ label="cor:bijection_lin_SH_ordre_n"></span></p>
              \vdots &amp; \\
              \psi^{(n-1)}(t_0) &amp; = 0
         \end{array}
-        \right. = 0 \Longrightarrow \psi = 0.\]</span></p></li>
+        \right.  \Longrightarrow \psi = 0.\]</span></p></li>
 <li><p>Soient <span
 class="math inline">\((\psi_1,\ldots,\psi_k)\)</span> une famille de
 <span
@@ -5158,12 +5210,11 @@ data-reference="prop:rang_SH_Cauchy">[prop:rang_SH_Cauchy]</a>)</strong>
 label="prop:rang_SH_Cauchy_ordre_n"></span> Soient <span
 class="math inline">\((\psi_1,\ldots,\psi_n)\)</span> une famille de
 <span
-class="math inline">\(\mathcal{S}_{\text{\ref{eq:equation_lin_ordre_n_scalaire_homo}}},\)</span>
-<span class="math inline">\(\mathscr{B}\)</span> et <span
-class="math inline">\(W\)</span> la matrice wronskienne de <span
-class="math inline">\((\psi_1,\ldots,\psi_n)\)</span> ainsi que <span
-class="math inline">\(\omega\)</span> le wronskien associé et <span
-class="math inline">\(t_0 \in I.\)</span></p>
+class="math inline">\(\mathcal{S}_{\text{\ref{eq:equation_lin_ordre_n_scalaire_homo}}}\)</span>
+et <span class="math inline">\(W\)</span> la matrice wronskienne de
+<span class="math inline">\((\psi_1,\ldots,\psi_n)\)</span> ainsi que
+<span class="math inline">\(\omega\)</span> le wronskien associé et
+<span class="math inline">\(t_0 \in I.\)</span></p>
 <p>Alors, en notant <span class="math inline">\(\widehat{\psi}_j =
 \begin{pmatrix}
                 \psi_j \\
@@ -5259,10 +5310,10 @@ GL_n(\mathbb{K})} \begin{pmatrix}
 particulièrement utile de <span
 class="math inline">\(\mathcal{S}_{\text{\ref{eq:equation_lin_ordre_n_scalaire_homo}}}\)</span>
 est <span
-class="math inline">\(\left(\psi_1,\ldots,\psi_n\right)\)</span> telle
-que pour <span class="math inline">\(1 \leq j \leq n,\)</span> <span
-class="math inline">\(\psi_j\)</span> est solution du problème de Cauchy
-de <span
+class="math inline">\(\left(\psi_0,\ldots,\psi_{n-1}\right)\)</span>
+telle que pour <span class="math inline">\(0 \leq j \leq n-1,\)</span>
+<span class="math inline">\(\psi_j\)</span> est solution du problème de
+Cauchy de <span
 class="math inline">\(\eqref{eq:equation_lin_ordre_n_scalaire_homo}\)</span>tel
 que <span class="math inline">\(\psi_j^{(k)}(t_0) = \left\{
         \begin{array}{ll}
@@ -5275,8 +5326,8 @@ class="math inline">\(\gamma_{t_0}\)</span> de la base canonique. De
 plus, on a alors <span class="math inline">\(W(t_0) = I_n\)</span> et
 tout <span class="math inline">\(\psi \in
 \mathcal{S}_{\text{\ref{eq:equation_lin_ordre_n_scalaire_homo}}}\)</span>
-s’exprime comme <span class="math inline">\(\psi = \sum_{k=1}^{n}
-\psi^{(k-1)}(t_0)\psi_k.\)</span></p></li>
+s’exprime comme <span class="math inline">\(\psi = \sum_{k=0}^{n-1}
+\psi^{(k)}(t_0)\psi_k.\)</span></p></li>
 <li><p>Dans le cas non résolu, on perd toutes ces propriétés comme
 l’illustre par exemple <span
 class="math inline">\(tx&#39;&#39;+tx&#39;-tx=1\)</span> sur <span
@@ -5308,12 +5359,12 @@ class="math inline">\((\widehat{\psi}_1,\ldots,\widehat{\psi}_n)\)</span>
 qui est une base du système homogène associé à <span
 class="math inline">\(\eqref{eq:systeme_lin_ordre_un_associe_ordre_n}\)</span>et
 on cherche maintenant une solution <span
-class="math inline">\(\widehat{\varphi} : I \to \mathbb{K}^n\)</span> du
-système sous la forme <span class="math display">\[\widehat{\varphi}_0 =
-\sum_{j=1}^n \alpha_j \widehat{\psi}_j\]</span> où pour <span
-class="math inline">\(1 \leq j \leq n,\)</span> <span
-class="math inline">\(\alpha_j\)</span> est une fonction dérivable à
-valeurs scalaires. On a alors <span
+class="math inline">\(\widehat{\varphi}_0 : I \to \mathbb{K}^n\)</span>
+du système sous la forme <span
+class="math display">\[\widehat{\varphi}_0 = \sum_{j=1}^n \alpha_j
+\widehat{\psi}_j\]</span> où pour <span class="math inline">\(1 \leq j
+\leq n,\)</span> <span class="math inline">\(\alpha_j\)</span> est une
+fonction dérivable à valeurs scalaires. On a alors <span
 class="math display">\[\begin{aligned}
     &amp; \text{$\widehat{\varphi}_0$ solution
 de~$\eqref{eq:systeme_lin_ordre_un_associe_ordre_n}$}    \\
@@ -5438,20 +5489,20 @@ class="math inline">\(\mathcal{S}_{\text{\ref{eq:equation_lin_ordre_n_scalaire_c
 </div>
 <div class="wproof">
 <p>Soit <span
-class="math inline">\(f\in\mathcal{S}_{\text{\ref{eq:equation_lin_ordre_n_scalaire_coeff_constants}}}.\)</span>
+class="math inline">\(\psi\in\mathcal{S}_{\text{\ref{eq:equation_lin_ordre_n_scalaire_coeff_constants}}}.\)</span>
 Comme <span class="math inline">\(a_n\neq 0,\)</span> on peut écrire
 <span
-class="math inline">\(f^{(n)}=-\frac{1}{a_n}\sum_{k=0}^{n-1}a_kf^{(k)}.\)</span></p>
+class="math inline">\(\psi^{(n)}=-\frac{1}{a_n}\sum_{k=0}^{n-1}a_k\psi^{(k)}.\)</span></p>
 <p>Or, <span
-class="math inline">\(f\in\mathscr{C}^n(\mathbb{R},\mathbb{K}).\)</span>
-Ainsi, le membre de droite est <span
+class="math inline">\(\psi\in\mathscr{C}^n(\mathbb{R},\mathbb{K}).\)</span>
+Ainsi, le membre de droite est de classe <span
 class="math inline">\(\mathscr{C}^1,\)</span> donc <span
-class="math inline">\(f^{(n)}\)</span> est <span
+class="math inline">\(\psi^{(n)}\)</span> est de classe <span
 class="math inline">\(\mathscr{C}^1\)</span> et <span
-class="math inline">\(f\)</span> est <span
+class="math inline">\(\psi\)</span> est de classe <span
 class="math inline">\(\mathscr{C}^{n+1}.\)</span></p>
 <p>En répétant ce raisonnement, on obtient par récurrence que <span
-class="math inline">\(f\in\mathscr{C}^\infty(\mathbb{R},\mathbb{K}).\)</span></p>
+class="math inline">\(\psi\in\mathscr{C}^\infty(\mathbb{R},\mathbb{K}).\)</span></p>
 </div>
 <div class="wdefi">
 <p>On définit <span class="math inline">\(P = a_nX^n+\ldots+a_1X+a_0
@@ -5632,16 +5683,20 @@ f_k(t).\]</span></p></li>
 <p>Si <span class="math inline">\(P\)</span> le polynôme caractéristique
 associé à <span
 class="math inline">\(\eqref{eq:equation_lin_ordre_n_scalaire_coeff_constants}\)</span>est
-scindé sous la forme <span class="math inline">\(P = \prod_{j=1}^k
+scindé sous la forme <span class="math inline">\(P = \beta\prod_{j=1}^k
 (X-\lambda_j)^{\alpha_j}\)</span> dans <span
 class="math inline">\(\mathbb{K}[X]\)</span> avec <span
+class="math inline">\(\beta \in \mathbb{K}\)</span>, <span
 class="math inline">\(\lambda_1,\ldots,\lambda_k \in \mathbb{K}\)</span>
 et <span class="math inline">\(\alpha_1,\ldots,\alpha_n \in
 \mathbb{N}^{\star}\)</span> alors une base de <span
 class="math inline">\(\mathcal{S}_{\text{\ref{eq:equation_lin_ordre_n_scalaire_coeff_constants}}}\)</span>
 est constituée de <span class="math inline">\(\left(f^1_j\right)_{0 \leq
 j \leq \alpha_1-1},\ldots,\left(f^k_j\right)_{0 \leq j \leq
-\alpha_k-1}.\)</span></p>
+\alpha_k-1}.\)</span> avec pour <span class="math inline">\(1 \leq \ell
+\leq k\)</span> et <span class="math inline">\(1 \leq j \leq
+\alpha_\ell-1\)</span> <span class="math inline">\(f_j^\ell : t \in
+\mathbb{R}\mapsto t^j e^{\lambda_\ell t}.\)</span></p>
 </div>
 <div class="wproof">
 <p>Par la proposition <a href="#prop:Sh_sous_forme_de_Ker_n_Scalaire"
@@ -5747,7 +5802,7 @@ e^{-t}).\)</span></p></li>
 <li><p><u>Variation des constantes.</u></p>
 <p>On associe à l’équation le système <span
 class="math inline">\(X&#39;=AX+B(t)\)</span> avec <span
-class="math inline">\(A=\begin{pmatrix}0&amp;1&amp;0\\0&amp;0&amp;1\\-2&amp;1&amp;2\end{pmatrix}\)</span>
+class="math inline">\(A=\begin{pmatrix}0&amp;1&amp;0\\0&amp;0&amp;1\\2&amp;1&amp;-2\end{pmatrix}\)</span>
 et <span class="math inline">\(B: t \in \mathbb{R}\mapsto
 \begin{pmatrix}0\\0\\e^{2t}\end{pmatrix}.\)</span></p>
 <p>On cherche une solution <span class="math inline">\(X_0\)</span> sous
@@ -5909,7 +5964,7 @@ class="math display">\[\left|t_{\varphi(n)}-t^\star\right| &lt; \eta
 }\psi_1(t_{\varphi(n)}) = 0.\]</span> et les <span
 class="math inline">\(t_{\varphi(n)}\)</span> <span> sont
 distincts</span> (donc non tous égaux à <span
-class="math inline">\(t^\star.\)</span></p>
+class="math inline">\(t^\star\)</span>).</p>
 <p>On en déduit donc qu’une telle suite n’existe pas et que <span
 class="math inline">\(\psi_1\)</span> admet un nombre fini de zéros dans
 <span class="math inline">\(\left[\alpha,\beta\right].\)</span></p></li>
@@ -5956,7 +6011,7 @@ class="math inline">\(\frac{1}{(k+1)\pi}\)</span>). On remarque
 d’ailleurs que <span class="math inline">\(f(0) = f&#39;(0) =
 0,\)</span> ce qui est impossible pour une solution non nulle de<span
 class="math inline">\(\eqref{eq:equation_lin_ordre_2_scalaire_homo}\)</span>d’après
-la question <strong>1(a)</strong>.</p>
+la première question.</p>
 </div></li>
 <li><p>La matrice wronskienne associée à <span
 class="math inline">\((\psi_1,\psi_2)\)</span> s’écrit <span
@@ -6242,12 +6297,13 @@ class="math inline">\(R = +\infty\)</span> par la règle de d’Alembert et
 class="math inline">\(\mathbb{R}.\)</span></p></li>
 <li><p><span class="math inline">\(a_2 = 0\)</span> et <span
 class="math inline">\(a_3 = 1\)</span> tels que <span
-class="math inline">\(\psi_2: t \mapsto
-\sum_{n=1}^{+\infty}  \frac{1}{2^{n-1}(n-1)!}t^{2n+1} =
+class="math display">\[\psi_2: t \mapsto
+\underbrace{a_3}_{=1}t^3+\sum_{n=2}^{+\infty}  \frac{1}{2^{n-1}(n-1)!}t^{2n+1}
+= \sum_{n=1}^{+\infty}  \frac{1}{2^{n-1}(n-1)!}t^{2n+1} =
 t^3\sum_{n=1}^{+\infty}  \frac{1}{2^{n-1}(n-1)!}t^{2(n-1)} =
 t^3\sum_{n=0}^{+\infty}  \frac{1}{2^nn!}t^{2n} =
-t^3e^{\frac{t^2}{2}}\)</span> est solution (car <span
-class="math inline">\(1 = a_3 = \frac{1}{2^{1-1}(1-1)!}\)</span>).</p>
+t^3e^{\frac{t^2}{2}}\]</span></p>
+<p>est solution.</p>
 <p><span class="math inline">\(R = +\infty\)</span> et <span
 class="math inline">\(\psi_2\)</span> est solution sur <span
 class="math inline">\(\mathbb{R}.\)</span></p></li>
@@ -6289,23 +6345,25 @@ entière sur <span class="math inline">\(\mathbb{R},\)</span> elles sont
 de classe <span class="math inline">\(\mathscr{C}^\infty\)</span> sur
 <span class="math inline">\(\mathbb{R}\)</span> et leurs développements
 limités en <span class="math inline">\(0\)</span> à l’ordre <span
-class="math inline">\(2\)</span> s’écrivent : <span
+class="math inline">\(2\)</span> s’écrivent <span
 class="math inline">\(\psi_1(t) = 2t^2 + \underset{t\to
 0}{o}(t^2)\)</span> et <span class="math inline">\(\psi_2(t) = t^3 +
 \underset{t\to 0}{o}(t^3) = \underset{t\to 0}{o}(t^2).\)</span></p>
+<p>et pour leurs dérivées <span class="math inline">\(\psi_1&#39;(t) =
+4t + \underset{t\to 0}{o}(t)\)</span> et <span
+class="math inline">\(\psi&#39;_2(t)  = \underset{t\to
+0}{o}(t).\)</span></p>
 <p>On en déduit les développements limités à droite et à gauche de <span
-class="math inline">\(\varphi\)</span> en <span
+class="math inline">\(\varphi\)</span> et <span
+class="math inline">\(\varphi&#39;\)</span> en <span
 class="math inline">\(0\)</span> à l’ordre <span
-class="math inline">\(2\)</span> : <span
+class="math inline">\(2\)</span> tels que <span
 class="math inline">\(\varphi(t) = 2\alpha_1 t^2 + \underset{t\to
 0^+}{o}(t^2)\)</span> et <span class="math inline">\(\varphi(t) =
-2\beta_1 t^2 + \underset{t\to 0^-}{o}(t^2).\)</span></p>
-<p>Par unicité du développement limité en <span
-class="math inline">\(0,\)</span> <span
-class="math inline">\(\varphi\)</span> est deux fois dérivable en <span
-class="math inline">\(0\)</span> si et seulement si ses parties
-régulières à droite et à gauche coïncident jusqu’à l’ordre <span
-class="math inline">\(2\)</span> :</p>
+2\beta_1 t^2 + \underset{t\to 0^-}{o}(t^2).\)</span> et <span
+class="math inline">\(\varphi&#39;(t) = 4\alpha_1 t + \underset{t\to
+0^+}{o}(t)\)</span> et <span class="math inline">\(\varphi&#39;(t) =
+4\beta_1 t + \underset{t\to 0^-}{o}(t).\)</span></p>
 <ol>
 <li><p><u>Continuité en <span class="math inline">\(0.\)</span></u>
 <span class="math inline">\(\lim_{t \to 0^+} \varphi(t) = \lim_{t \to
@@ -6313,18 +6371,28 @@ class="math inline">\(2\)</span> :</p>
 class="math inline">\(\varphi(0) = 0\)</span> (ce qui n’ajoute aucune
 condition).</p></li>
 <li><p><u>Dérivabilité en <span class="math inline">\(0.\)</span></u>
-les termes de degré <span class="math inline">\(1\)</span> étant nuls
-des deux côtés, <span class="math inline">\(\varphi\)</span> est
-dérivable en <span class="math inline">\(0\)</span> avec <span
-class="math inline">\(\varphi&#39;(0) = 0\)</span> (ce qui n’ajoute
-aucune condition).</p></li>
+<span
+class="math inline">\(\frac{\varphi(t)-\varphi(0)}{t}=\frac{\varphi(t)}{t}
+=  2\alpha_1 t + \underset{t\to 0^+}{o}(t)\)</span> et <span
+class="math inline">\(\frac{\varphi(t)-\varphi(0)}{t}=\frac{\varphi(t)}{t}
+= 2\beta_1 t + \underset{t\to 0^-}{o}(t)\)</span> donc <span
+class="math inline">\(\varphi\)</span> est dérivable en <span
+class="math inline">\(0\)</span> avec <span
+class="math inline">\(\varphi&#39;(0) = 0\)</span>.</p></li>
 <li><p><u>Double-dérivabilité en <span
-class="math inline">\(0.\)</span></u> l’égalité des termes de degré
-<span class="math inline">\(2\)</span> équivaut à <span
-class="math inline">\(2\alpha_1 = 2\beta_1 \iff \alpha_1 =
-\beta_1\)</span> (et alors <span
-class="math inline">\(\varphi&#39;&#39;(0) =
-4\alpha_1\)</span>).</p></li>
+class="math inline">\(0.\)</span></u> <span
+class="math inline">\(\frac{\varphi&#39;(t)-\varphi&#39;(0)}{t}=\frac{\varphi&#39;(t)}{t}
+=  4\alpha_1 + \underset{t\to 0^+}{o}(1)\)</span> et <span
+class="math inline">\(\frac{\varphi&#39;(t)-\varphi&#39;(0)}{t}=\frac{\varphi&#39;(t)}{t}
+= 4\beta_1 + \underset{t\to 0^-}{o}(1)\)</span> donc <span
+class="math inline">\(\varphi\)</span> est deux fois dérivable à gauche
+en <span class="math inline">\(0\)</span> avec <span
+class="math inline">\(\varphi_g&#39;&#39;(0) = 4\beta_1\)</span> et à
+droite avec <span class="math inline">\(\varphi_d&#39;&#39;(0) =
+4\alpha_1\)</span>. Finalement, <span
+class="math inline">\(\varphi\)</span> n’est deux fois dérivable en
+<span class="math inline">\(0\)</span> que si <span
+class="math inline">\(\alpha_1 = \beta_1.\)</span></p></li>
 </ol>
 <p>Ainsi, <span class="math inline">\(\varphi\)</span> est solution
 de <span class="math inline">\(\eqref{eq:exoc_serie_entiere}\)</span>sur
@@ -6411,18 +6479,19 @@ de~$\eqref{eq:exoc_serie_entiere_alpha}$sur $\left]-R,R\right[$} \\
 (1+t)g&#39;(t)-\alpha g(t) = 0. \\
              &amp; \iff  \forall t \in \left]-R,R\right[,
                 \sum_{n=0}^{+\infty} (n+1) a_{n+1} t^{n}
-                \sum_{n=1}^{+\infty} n a_n t^{n}
+                +\sum_{n=1}^{+\infty} n a_n t^{n}
                 -\alpha \sum_{n =0}^{+\infty} a_nt^n= 0
               \\
                &amp; \iff  \forall t \in \left]-R,R\right[,
-                a_{1} - \alpha a_0
+                a_{1} - \alpha a_0 +
                 \sum_{n=1}^{+\infty} \left((n-\alpha) a_n +(n+1)
 a_{n+1}\right)t^{n} = 0
               \\
               &amp; \iff \left\{
               \begin{array}{rl}
                 a_1 &amp; = \alpha a_0 \\
-                \forall n \geq 1, a_{n+1} = \frac{\alpha-n}{n+1}a_n.
+                \forall n \geq 1, a_{n+1} &amp; =
+\frac{\alpha-n}{n+1}a_n.
               \end{array}
               \right.
             \end{aligned}\]</span></p>
@@ -6440,7 +6509,7 @@ a_{n+1}\right)t^{n} = 0
             \end{aligned}\]</span></p>
 <p>On a donc <span
 class="math display">\[\left|\frac{a_{n+1}}{a_n}\right| =
-\frac{n-\alpha}{n+1} \xrightarrow[n \to +\infty]{}\]</span> donc <span
+\frac{n-\alpha}{n+1} \xrightarrow[n \to +\infty]{} 1\]</span> donc <span
 class="math inline">\(R = 1\)</span> et <span
 class="math inline">\(g\)</span> est solution sur <span
 class="math inline">\(\left]-1,1\right[.\)</span></p>
@@ -6457,7 +6526,7 @@ class="math display">\[\left\{
               \end{array}
               \right.\]</span> donc par unicité de la solution au
 problème de Cauchy, pour tout <span class="math inline">\(t \in
-\left]-1,1\right[,\)</span> <span class="math display">\[f(t) =
+\left]-1,1\right[,\)</span> <span class="math display">\[f_\alpha(t) =
 \sum_{n=0}^{+\infty}\underbrace{\frac{\alpha \ldots
 (\alpha-n+1)}{n!}}_{=\binom{\alpha}{n}}t^n\]</span></p>
 </div>
@@ -6471,8 +6540,8 @@ car pour <span class="math inline">\(t \in \left]-1,1\right[,
 \sum_{n=0}^{\infty}\frac{(-1)^n\left(2n\right)!}{n!^22^{2n}(2n+1)}t^{2n+1}\)</span>
 (voir le cours sur les séries entières).</p>
 <p>Seulement voilà, les coefficients sont déjà trop compliqués pour
-ensuite calculer leur produit de Cauchy. On va donc plutôt utiliser les
-séries entières. <span class="math inline">\(f =
+ensuite calculer leur produit de Cauchy. On va donc plutôt utiliser une
+équation différentielle. <span class="math inline">\(f =
 \mathop{\mathrm{Arcsin}}^2\)</span> est deux fois dérivable sur <span
 class="math inline">\(\left]-1,1\right[\)</span> avec <span
 class="math display">\[\begin{aligned}
@@ -6567,8 +6636,8 @@ a_{2(n-2)}\\
 &amp;=\frac{\left(2(n-1)\right)^2}{(2n)(2n-1)}
 \times\cdots\times
 \frac{2^2}{4\times3}a_2 \\
-&amp; = \frac{\left(\text{termes de $2(n-1)$ à
-$2$}^2\right)}{\tfrac{(2n)!}{2}}a_2 \\
+&amp; = \frac{\left(\text{termes pairs de $2(n-1)$ à
+$2$}\right)^2}{\tfrac{(2n)!}{2}}a_2 \\
 &amp; = \frac{2\left(2^{n-1}(n-1)!\right)^2}{(2n)!}a_2 \\
 &amp; = \frac{2^{2n-1}((n-1)!)^2}{(2n)!}.
 \end{aligned}\]</span> Donc pour tout <span class="math inline">\(t \in
@@ -6599,8 +6668,9 @@ class="math inline">\(\mathbb{R}.\)</span></p></li>
 <details><summary>Corrigé</summary>
 <ol>
 <li><p>Soit <span class="math inline">\(\varphi : \mathbb{R}^{+\star}\to
-\mathbb{R}\)</span> deux fois dérivables. On pose telle que pour tout
-<span class="math inline">\(t \in \mathbb{R}^{+\star},\)</span> <span
+\mathbb{R}\)</span> deux fois dérivables. On pose la fonction <span
+class="math inline">\(y\)</span> telle que pour tout <span
+class="math inline">\(t \in \mathbb{R}^{+\star},\)</span> <span
 class="math inline">\(\varphi(t) = y(\ln t)\)</span> ie <span
 class="math inline">\(y : u \in \mathbb{R}\mapsto \varphi(e^u).\)</span>
 Alors, <span class="math inline">\(y\)</span> est deux fois dérivable
@@ -6642,8 +6712,9 @@ e^{\tfrac{5}{2}u}).\)</span></p>
 class="math inline">\(\eqref{eq:exoc_chgt_var_ln}\)</span>sur <span
 class="math inline">\(\mathbb{R}^{+\star}\)</span> est <span
 class="math inline">\(\mathop{\mathrm{Vect}}(t \in
-\mathbb{R}^{+\star}\mapsto t^{\tfrac{3}{2}},t \in
-\mathbb{R}^{+\star}\mapsto t^{\tfrac{5}{2}}).\)</span></p></li>
+\mathbb{R}^{+\star}\mapsto e^{\tfrac{3}{2}\ln(t)} = t^{\tfrac{3}{2}},t
+\in \mathbb{R}^{+\star}\mapsto e^{\tfrac{5}{2}\ln(t)} =
+t^{\tfrac{5}{2}}).\)</span></p></li>
 <li><p>On peut procéder au changement de variable <span
 class="math inline">\(u = \ln(-t)\)</span> pour <span
 class="math inline">\(t \in \mathbb{R}^{-\star}\)</span> et on obtient
@@ -6819,7 +6890,7 @@ une des méthodes précédentes), à en chercher une autre sous la forme
 \psi_1(t)\)</span> avec <span class="math inline">\(\alpha: I \to
 \mathbb{K}\)</span> <span class="math inline">\(2\)</span> fois
 dérivable. On tombe alors ensuite sur une deuxième équation
-différentielle, d’ordre 1 que l’on peut résoudre pour déterminer <span
+différentielle d’ordre 1 que l’on peut résoudre pour déterminer <span
 class="math inline">\(\psi_2\)</span> (d’où le nom de la méthode!).</p>
 <div class="wexoc">
 <p>On considère <span
@@ -6931,7 +7002,7 @@ t.\]</span></p>
 <p><strong>Conclusion :</strong> L’équation <span
 class="math inline">\(\eqref{eq:exoc_absissement_ordre}\)</span>est une
 équation différentielle linéaire homogène d’ordre <span
-class="math inline">\(2\)</span> résolue en <span
+class="math inline">\(2\)</span> sous forme résolue en <span
 class="math inline">\(x&#39;&#39;\)</span> (car <span
 class="math inline">\(\forall t \in \mathbb{R}, 1+t^2 \neq 0\)</span>),
 donc l’ensemble de ses solutions sur <span
@@ -7060,10 +7131,10 @@ a_{n-1}\)</span></p></li>
 a_1\sum_{n=1}^{+\infty}t^n = \frac{a_1t}{1-t}\]</span> et <span
 class="math inline">\(R=1.\)</span></p>
 <p>Bien que le développement en série entière n’y soit plus valable, on
-peut mener calculs et montrer que <span class="math inline">\(\psi_1 : t
-\mapsto \frac{t}{1-t}\)</span> est solution sur <span
-class="math inline">\(\left]-\infty,1\right[\)</span> et <span
-class="math inline">\(\left]1,+\infty\right[.\)</span></p>
+peut mener les calculs de dérivation et montrer que <span
+class="math inline">\(\psi_1 : t \mapsto \frac{t}{1-t}\)</span> est
+solution sur <span class="math inline">\(\left]-\infty,1\right[\)</span>
+et <span class="math inline">\(\left]1,+\infty\right[.\)</span></p>
 <div class="wrem">
 <p>Contrairement à l’exercice <a href="#exoc:serie_entieres"
 data-reference-type="ref"
@@ -7101,7 +7172,7 @@ t^2(1-t)\psi_1&#39;&#39;(t)-t(1+t)\psi_1&#39;(t)+\psi_1(t)\right)}_{=0}
              +\alpha&#39;&#39;(t)t^2(1-t)\psi_1(t)
              \end{array}
              \right\} = 0 \\
-             &amp; \iff \alpha \text{solution de $(H&#39;):
+             &amp; \iff \alpha \text{ solution de $(H&#39;):
 t^2(1-t)\psi_1(t)x&#39;&#39;+\left(2t^2(1-t)\psi_1&#39;(t)-t(1+t)\psi_1(t)\right)x&#39;
 =0$ sur $J$} \\
         \end{aligned}\]</span></p>
@@ -7167,14 +7238,14 @@ constantes réelles <span class="math inline">\(\alpha_1, \alpha_2,
 \beta_1, \beta_2, \gamma_1, \gamma_2\)</span> telles que :</p>
 <ul>
 <li><p><span class="math inline">\(\forall t \in \left]-\infty,0\right[,
-\quad \varphi(t) = \alpha_1
-\frac{t\ln(-t)}{1-t}+\alpha_2\frac{t}{1-t},\)</span></p></li>
+\quad \varphi(t) = \alpha_1\frac{t}{1-t}+\alpha_2
+\frac{t\ln(-t)}{1-t},\)</span></p></li>
 <li><p><span class="math inline">\(\forall t \in \left]0,1\right[, \quad
-\varphi(t) = \beta_1
-\frac{t\ln(t)}{1-t}+\beta_2\frac{t}{1-t},\)</span></p></li>
+\varphi(t) = \beta_1\frac{t}{1-t}+\beta_2
+\frac{t\ln(t)}{1-t},\)</span></p></li>
 <li><p><span class="math inline">\(\forall t \in \left]1,+\infty\right[,
-\quad \varphi(t) = \gamma_1
-\frac{t\ln(t)}{1-t}+\gamma_2\frac{t}{1-t}.\)</span></p></li>
+\quad \varphi(t) = \gamma_1\frac{t}{1-t}+\gamma_2
+\frac{t\ln(t)}{1-t}.\)</span></p></li>
 </ul>
 <p>Il reste à traduire les conditions de régularité aux points
 singuliers <span class="math inline">\(0\)</span> et <span
@@ -7186,37 +7257,38 @@ ces constantes.</p>
 continue en <span class="math inline">\(1,\)</span> elle admet une
 limite finie lorsque <span class="math inline">\(t \to 1^-\)</span> et
 lorsque <span class="math inline">\(t \to 1^+.\)</span> Or, <span
-class="math inline">\(\lim_{t \to 1} t\ln(t) = 0\)</span> tandis que
-<span class="math inline">\(\frac{t}{1-t} \to \pm\infty.\)</span> Pour
-éviter l’explosion du dénominateur <span
-class="math inline">\((1-t),\)</span> il est nécessaire que <span
-class="math inline">\(\beta_2 = 0\)</span> et <span
-class="math inline">\(\gamma_2 = 0.\)</span> Par passage à la limite, on
-obtient alors <span class="math inline">\(\varphi(1) = -\beta_1 =
--\gamma_1\)</span> et <span class="math inline">\(\beta_1 =
-\gamma_1.\)</span></p></li>
+class="math inline">\(t\ln(t) \xrightarrow[t \to 1]{} 0\)</span> tandis
+que <span class="math inline">\(\frac{t}{1-t} \xrightarrow[t \to 1^+]{}
++\infty\)</span> et <span class="math inline">\(\frac{t}{1-t}
+\xrightarrow[t \to 1^-]{} -\infty\)</span>. Pour éviter l’explosion du
+dénominateur <span class="math inline">\((1-t),\)</span> il est
+nécessaire que <span class="math inline">\(\beta_1 = 0\)</span> et <span
+class="math inline">\(\gamma_1 = 0.\)</span> Par passage à la limite, on
+obtient alors <span class="math inline">\(\varphi(1) = -\beta_2 =
+-\gamma_2\)</span> donc <span class="math inline">\(\beta_2 =
+\gamma_2.\)</span></p></li>
 <li><p><u>En <span class="math inline">\(t = 0\)</span> (continuité et
 dérivabilité).</u> Par croissances comparées, <span
 class="math inline">\(\lim_{t \to 0} \varphi(t) = 0,\)</span> donc <span
 class="math inline">\(\varphi(0) = 0.\)</span> Le taux d’accroissement
 en <span class="math inline">\(0\)</span> vaut alors : <span
 class="math display">\[\forall t \in \left]0,1\right[, \quad
-\frac{\varphi(t) - \varphi(0)}{t} = \frac{\beta_1 \ln(t)}{1-t}
+\frac{\varphi(t) - \varphi(0)}{t} = \frac{\beta_2 \ln(t)}{1-t}
         \qquad \text{et} \qquad
         \forall t \in \left]-\infty,0\right[, \quad \frac{\varphi(t) -
-\varphi(0)}{t} = \frac{\alpha_1 \ln(-t) + \alpha_2}{1-t}.\]</span> Comme
+\varphi(0)}{t} = \frac{\alpha_2 \ln(-t) + \alpha_1}{1-t}.\]</span> Comme
 <span class="math inline">\(\ln|t| \to -\infty\)</span> lorsque <span
 class="math inline">\(t \to 0,\)</span> l’existence d’une dérivée finie
 en <span class="math inline">\(0\)</span> impose <span
-class="math inline">\(\beta_1 = 0\)</span> et <span
-class="math inline">\(\alpha_1 = 0.\)</span> L’égalité des dérivées à
+class="math inline">\(\beta_2 = 0\)</span> et <span
+class="math inline">\(\alpha_2 = 0.\)</span> L’égalité des dérivées à
 gauche et à droite donne ensuite <span
-class="math inline">\(\varphi&#39;(0) = \alpha_2 = 0.\)</span></p></li>
+class="math inline">\(\varphi&#39;(0) = \alpha_1 = 0.\)</span></p></li>
 </ul>
 <p><u>Conclusion.</u> On a obtenu <span class="math inline">\(\alpha_1 =
 \alpha_2 = 0\)</span> et <span class="math inline">\(\beta_1 = \beta_2 =
-0.\)</span> Enfin, comme <span class="math inline">\(\gamma_1 = \beta_1
-= 0\)</span> et <span class="math inline">\(\gamma_2 = 0,\)</span>
+0.\)</span> Enfin, comme <span class="math inline">\(\gamma_2 = \beta_2
+= 0\)</span> et <span class="math inline">\(\gamma_1 = 0,\)</span>
 toutes les constantes sont nulles : <span
 class="math display">\[\alpha_1 = \alpha_2 = \beta_1 = \beta_2 =
 \gamma_1 = \gamma_2 = 0.\]</span> La fonction nulle vérifiant bien
