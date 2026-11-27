@@ -1397,47 +1397,56 @@ class="header-section-number">2.6</span> Algorithme de Gram-Schmidt</h2>
 aussi importante que son énoncé. Elle applique une méthode appelée
 l’algorithme de Gram-Schmidt.</p>
 <div class="wprop">
-<p><span id="prop:algo_Gram_Schmidt"
-label="prop:algo_Gram_Schmidt"></span> Soit <span
-class="math inline">\((E,\left(\cdot \mid \cdot\right))\)</span> un
-espace euclidien de dimension <span
+<p><strong>(Algorithme de Gram-Schmidt)</strong> <span
+id="prop:algo_Gram_Schmidt" label="prop:algo_Gram_Schmidt"></span> Soit
+<span class="math inline">\((E,\left(\cdot \mid \cdot\right))\)</span>
+un espace euclidien de dimension <span
 class="math inline">\(n\)</span>.</p>
 <p>Soit <span class="math inline">\((e_1,\ldots,e_n)\)</span> une base
 <u>quelconque</u> de <span class="math inline">\(E\)</span>.</p>
 <p>Alors, il existe <span
-class="math inline">\((v_1,\ldots,v_n)\)</span> base orthonormée de
-<span class="math inline">\(E\)</span> telle que pour tout <span
-class="math inline">\(1 \leq k \leq n\)</span>, <span
+class="math inline">\((v&#39;_1,\ldots,v&#39;_n)\)</span> base
+orthogonale de vecteurs non nuls de <span
+class="math inline">\(E\)</span> telle que pour tout <span
+class="math inline">\(1 \leq k \leq n,\)</span> <span
 class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_k) =
-\mathop{\mathrm{Vect}}(v_1,\ldots,v_k)\)</span>.</p>
+\mathop{\mathrm{Vect}}(v&#39;_1,\ldots,v&#39;_k)\)</span></p>
+<p>et <span class="math inline">\((v_1,\ldots,v_n)\)</span> telle que
+<span class="math inline">\(v_i =
+\frac{1}{\left\|v&#39;_i\right\|}v&#39;_i\)</span> pour <span
+class="math inline">\(1 \leq i \leq n\)</span> est une base orthonormée
+de <span class="math inline">\(E\)</span> telle que pour tout <span
+class="math inline">\(1 \leq k \leq n,\)</span> <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_k) =
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_k).\)</span></p>
 </div>
 <div class="wproof">
 <p>Construisons pas à pas <span
-class="math inline">\((v_1,\ldots,v_n)\)</span>.</p>
+class="math inline">\((v_1,\ldots,v_n).\)</span></p>
 <ul>
-<li><p>(1) Pour <span class="math inline">\(v_1\)</span>, il suffit de
-prendre <span class="math inline">\(v_1 =
-\frac{1}{\left\|e_1\right\|}e_1\)</span>, de sorte que <span
+<li><p>(1) On prend <span class="math inline">\(v&#39;_1 = e_1\)</span>
+et <span class="math inline">\(v_1 =
+\frac{1}{\left\|e_1\right\|}e_1,\)</span> de sorte que <span
 class="math inline">\(\left(v_1\right)\)</span> est orthonormée et <span
 class="math inline">\(\mathop{\mathrm{Vect}}(e_1) =
-\mathop{\mathrm{Vect}}(v_1)\)</span>.</p></li>
+\mathop{\mathrm{Vect}}(v_1).\)</span></p></li>
 <li><p>⋮</p></li>
 <li><p><span class="math inline">\((k+1).\)</span></p>
 <div class="webtextfigure">
 <div class="webtext">
 <p>Supposons que l’on a construit <span
 class="math inline">\((v_1,\ldots,v_k)\)</span> famille orthonormée
-telle que pour <span class="math inline">\(1 \leq i \leq k\)</span>,
+telle que pour <span class="math inline">\(1 \leq i \leq k,\)</span>
 <span class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_i) =
-\mathop{\mathrm{Vect}}(v_1,\ldots,v_i)\)</span>.</p>
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_i).\)</span></p>
 <p>On pose <span class="math inline">\(F_k =
 \mathop{\mathrm{Vect}}(v_1,\ldots,v_k)\)</span> et on considère <span
-class="math inline">\(v&#39;_{k+1} =
-e_{k+1}-P_{F_k}(e_{k+1})\)</span>.</p>
+class="math inline">\(v&#39;_{k+1} = p_{F_k^{\perp}}(e_{k+1}) =
+e_{k+1}-p_{F_k}(e_{k+1}).\)</span></p>
 <p>Alors, <span
 class="math inline">\((v_1,\ldots,v_k,v&#39;_{k+1})\)</span> est
 orthogonale (car <span class="math inline">\(v&#39;_{k+1} =
-e_{k+1}-P_{F_k}(e_{k+1}) \in F_k^{\perp}\)</span>).</p>
+p_{F_k^{\perp}}(e_{k+1}) \in F_k^{\perp}\)</span>).</p>
 </div>
 <div class="webimg">
 <p><img src="gram_schmidt_projection.png" alt="image" /></p>
@@ -1445,31 +1454,34 @@ e_{k+1}-P_{F_k}(e_{k+1}) \in F_k^{\perp}\)</span>).</p>
 </div>
 <p>Donc <span class="math inline">\((v_1,\ldots,v_k,v_{k+1})\)</span>
 est orthonormée avec <span class="math inline">\(v_{k+1} =
-\frac{1}{\left\|v&#39;_{k+1}\right\|}v&#39;_{k+1}\)</span>.</p>
+\frac{1}{\left\|v&#39;_{k+1}\right\|}v&#39;_{k+1}.\)</span></p>
 <p>Il reste à vérifier que <span
 class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_k,e_{k+1}) =
-\mathop{\mathrm{Vect}}(v_1,\ldots,v_k,v_{k+1})\)</span>.</p>
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_k,v_{k+1}).\)</span></p>
 <p>Or, <span
 class="math inline">\(\mathop{\mathrm{Vect}}(v_1,\ldots,v_k) =
-\mathop{\mathrm{Vect}}(e_1,\ldots,e_k)\)</span>.</p>
+\mathop{\mathrm{Vect}}(e_1,\ldots,e_k).\)</span></p>
 <p>De plus, <span class="math inline">\(v_{k+1} =
-\frac{1}{v&#39;_{k+1}}\left(e_{k+1}-\underbrace{P_{F_k}(e_{k+1})}_{\in
+\frac{1}{v&#39;_{k+1}}\left(e_{k+1}-\underbrace{p_{F_k}(e_{k+1})}_{\in
 \mathop{\mathrm{Vect}}(e_1,\ldots,e_k)}\right) \in
 \mathop{\mathrm{Vect}}(e_1,\ldots,e_{k+1})\)</span> donc <span
 class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_k,e_{k+1})
-\supset \mathop{\mathrm{Vect}}(v_1,\ldots,v_k,v_{k+1})\)</span>.</p>
+\supset \mathop{\mathrm{Vect}}(v_1,\ldots,v_k,v_{k+1}).\)</span></p>
 <p>Enfin, <span class="math inline">\(\dim
 \mathop{\mathrm{Vect}}(e_1,\ldots,e_k,e_{k+1})  =
 \dim  \mathop{\mathrm{Vect}}(v_1,\ldots,v_k,v_{k+1}) = k+1\)</span> donc
 on a bien <span
 class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_k,e_{k+1}) =
-\mathop{\mathrm{Vect}}(v_1,\ldots,v_k,v_{k+1})\)</span>.</p>
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_k,v_{k+1}).\)</span></p>
 <div class="wrem">
 <p>Comme <span class="math inline">\(F_k =
 \mathop{\mathrm{Vect}}(v_1,\ldots,v_k)\)</span> et que <span
 class="math inline">\((v_1,\ldots,v_k)\)</span> est orthonormée, <span
 class="math inline">\(p_{F_k}(v) = \sum_{i=1}^k (v \mid
-v_i)v_i\)</span>.</p>
+v_i)v_i\)</span>, ce qui permet de calculer l’algorithme concrètement
+(voir l’exemple <a href="#ex:petit_Ex_polynomes"
+data-reference-type="ref"
+data-reference="ex:petit_Ex_polynomes">[ex:petit_Ex_polynomes]</a>).</p>
 </div></li>
 <li><p>⋮</p></li>
 <li><p>(<span class="math inline">\(n\)</span>) A l’étape <span
@@ -1520,7 +1532,7 @@ class="math inline">\(v&#39;_2 = X-1\)</span></p>
 <p>et <span class="math inline">\(v_2 =
 \frac{1}{\left\|v&#39;_2\right\|}v&#39;_2 =
 \frac{1}{\sqrt{2}}\left(X-1\right)\)</span>.</p></li>
-<li><p>Enfin, <span class="math inline">\(v&#39;_3 = X-
+<li><p>Enfin, <span class="math inline">\(v&#39;_3 = X^2-
 P_{F_2}(X^2)\)</span> avec <span class="math inline">\(F_2 =
 \mathop{\mathrm{Vect}}(v_1,v_2)\)</span> et <span
 class="math inline">\((v_1,v_2)\)</span> orthonormée.</p>
