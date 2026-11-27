@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="generator" content="pandoc" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>Espaces préhilbertiens</title>
+  <title>Espaces préhilbertiens (réels)</title>
   <style>
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
@@ -22,6 +22,9 @@
     }
   </style>
   <link rel="stylesheet" href="../style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
 </head>
 <body>
 
@@ -82,13 +85,2620 @@ color: var(--md-primary-bg-color);
 
 <header id="title-block-header">
 
-<h1 class="title">Espaces préhilbertiens</h1>
+<h1 class="title">Espaces préhilbertiens (réels)</h1>
 <p class="pdf-link">
 <a href="espaces_prehilbertiens.pdf" target="_blank">[PDF]</a>
 </p>
 
 </header>
+<nav id="TOC" role="doc-toc">
+<ul>
+<li><a href="#rappels" id="toc-rappels"><span
+class="toc-section-number">1</span> Rappels</a>
+<ul>
+<li><a href="#propriétés-du-produit-scalaire-et-de-la-norme-associée"
+id="toc-propriétés-du-produit-scalaire-et-de-la-norme-associée"><span
+class="toc-section-number">1.1</span> Propriétés du produit scalaire et
+de la norme associée</a></li>
+<li><a href="#exemples-de-produits-scalaires"
+id="toc-exemples-de-produits-scalaires"><span
+class="toc-section-number">1.2</span> Exemples de produits
+scalaires</a></li>
+</ul></li>
+<li><a href="#orthogonalité" id="toc-orthogonalité"><span
+class="toc-section-number">2</span> Orthogonalité</a>
+<ul>
+<li><a href="#orthogonal-dune-dun-vecteur-ou-dune-partie"
+id="toc-orthogonal-dune-dun-vecteur-ou-dune-partie"><span
+class="toc-section-number">2.1</span> Orthogonal d’une d’un vecteur ou
+d’une partie</a></li>
+<li><a href="#familles-orthogonales"
+id="toc-familles-orthogonales"><span
+class="toc-section-number">2.2</span> Familles orthogonales</a></li>
+</ul></li>
+<li><a
+href="#projection-orthogonale-sur-un-sous-espace-vectoriel-de-dimension-finie"
+id="toc-projection-orthogonale-sur-un-sous-espace-vectoriel-de-dimension-finie"><span
+class="toc-section-number">3</span> Projection orthogonale sur un
+sous-espace vectoriel de dimension finie</a>
+<ul>
+<li><a href="#définition-et-premières-propriétés"
+id="toc-définition-et-premières-propriétés"><span
+class="toc-section-number">3.1</span> Définition et premières
+propriétés</a></li>
+<li><a href="#distance-à-un-sous-espace-vectoriel-de-dimension-finie"
+id="toc-distance-à-un-sous-espace-vectoriel-de-dimension-finie"><span
+class="toc-section-number">3.2</span> Distance à un sous-espace
+vectoriel de dimension finie</a></li>
+<li><a href="#discussion-du-cas-de-dimension-infinie"
+id="toc-discussion-du-cas-de-dimension-infinie"><span
+class="toc-section-number">3.3</span> Discussion du cas de dimension
+infinie</a></li>
+</ul></li>
+<li><a href="#algorithme-de-gram-schmidt"
+id="toc-algorithme-de-gram-schmidt"><span
+class="toc-section-number">4</span> Algorithme de Gram-Schmidt</a>
+<ul>
+<li><a href="#algorithme" id="toc-algorithme"><span
+class="toc-section-number">4.1</span> Algorithme</a></li>
+<li><a href="#application-aux-polynômes-orthogonaux"
+id="toc-application-aux-polynômes-orthogonaux"><span
+class="toc-section-number">4.2</span> Application aux polynômes
+orthogonaux</a></li>
+</ul></li>
+<li><a href="#quelques-résultats-dans-le-cas-de-la-dimension-finie"
+id="toc-quelques-résultats-dans-le-cas-de-la-dimension-finie"><span
+class="toc-section-number">5</span> Quelques résultats dans le cas de la
+dimension finie</a></li>
+<li><a href="#inégalité-de-bessel-et-égalité-de-parseval"
+id="toc-inégalité-de-bessel-et-égalité-de-parseval"><span
+class="toc-section-number">6</span> Inégalité de Bessel et égalité de
+Parseval</a>
+<ul>
+<li><a href="#inégalité-de-bessel-et-égalité-de-parseval-1"
+id="toc-inégalité-de-bessel-et-égalité-de-parseval-1"><span
+class="toc-section-number">6.1</span> Inégalité de Bessel et égalité de
+Parseval</a></li>
+<li><a href="#famille-totale" id="toc-famille-totale"><span
+class="toc-section-number">6.2</span> Famille totale</a></li>
+</ul></li>
+</ul>
+</nav>
+<p>Dans tout le cours, <span class="math inline">\((E,\langle
+\cdot,\cdot \rangle)\)</span> désigne un <span
+class="math inline">\(\mathbb{R}\)</span>-espace préhilbertien dont on
+note <span class="math inline">\(\left\|\cdot\right\|\)</span> la norme
+préhilbertienne associée. On commence par faire quelques rappels (voir
+le cours de MPSI sur les espaces euclidiens ou le cours de topologie des
+espaces vectoriels normés).</p>
+<h1 data-number="1" id="rappels"><span
+class="header-section-number">1</span> Rappels</h1>
+<h2 data-number="1.1"
+id="propriétés-du-produit-scalaire-et-de-la-norme-associée"><span
+class="header-section-number">1.1</span> Propriétés du produit scalaire
+et de la norme associée</h2>
+<div class="wdefi">
+<p><strong>(Produit scalaire)</strong> Soit <span
+class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel et <span
+class="math inline">\(\langle \cdot,\cdot \rangle : E\times E \to
+\mathbb{R}.\)</span></p>
+<p><span class="math inline">\(\langle \cdot,\cdot \rangle\)</span> est
+un produit scalaire sur <span class="math inline">\(E\)</span> si</p>
+<ol>
+<li><p><span class="math inline">\(\langle \cdot,\cdot \rangle\)</span>
+est bilinéaire ie <span class="math inline">\(\langle \cdot,\cdot
+\rangle\)</span> est linéaire par rapport à chacune des variables, ou
+encore pour tout <span class="math inline">\(u,v \in E\)</span>, <span
+class="math inline">\(\begin{array}{llll}
+  &amp; E &amp; \to &amp; \mathbb{R} \\
+     &amp; x &amp; \mapsto &amp; \langle x,v \rangle
+\end{array}\)</span> est linéaire (linéarité à gauche) et <span
+class="math inline">\(\begin{array}{llll}
+  &amp; E &amp; \to &amp; \mathbb{R} \\
+     &amp; y &amp; \mapsto &amp; \langle u,y \rangle
+\end{array}\)</span> est linéaire (linéarité à droite).</p></li>
+<li><p><span class="math inline">\(\langle \cdot,\cdot \rangle\)</span>
+est symétrique ie pour tout <span class="math inline">\(u,v \in
+E\)</span>, <span class="math inline">\(\langle u,v \rangle = \langle
+v,u\rangle\)</span></p></li>
+<li><p><span class="math inline">\(\langle \cdot,\cdot \rangle\)</span>
+est définie positive ie pour tout <span class="math inline">\(v \in
+E\)</span>, <span class="math inline">\(\langle v,v\rangle \geq
+0\)</span> (<span class="math inline">\(\langle \cdot,\cdot
+\rangle\)</span> est positive) et <span class="math inline">\(\langle
+v,v\rangle = 0 \iff v = 0_E\)</span> (<span
+class="math inline">\(\langle \cdot,\cdot \rangle\)</span> est
+<u>définie</u> positive).</p></li>
+</ol>
+<p>On dit alors que <span class="math inline">\((E,\langle \cdot, \cdot
+\rangle)\)</span> est un produit scalaire.</p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel, muni d’un
+produit scalaire <span class="math inline">\(\langle \cdot, \cdot
+\rangle\)</span>, on pose <span class="math inline">\(\left\|x\right\| =
+\sqrt{\langle x,x\rangle}\)</span> pour <span class="math inline">\(x
+\in E.\)</span> Alors, <span
+class="math inline">\(\left\|\cdot\right\|\)</span> est une norme dite
+associée au produit scalaire <span class="math inline">\(\langle \cdot,
+\cdot \rangle\)</span> et est qualifiée de préhilbertienne.</p>
+</div>
+<div class="wprop">
+<p><strong>(Inégalité de Cauchy-Schwarz)</strong> Soient <span
+class="math inline">\(u,v \in E\)</span> alors <span
+class="math display">\[\left|\langle u,v \rangle \right| \leq
+\left\|u\right\|\left\|v\right\|.\]</span> De plus, il y a égalité dans
+l’inégalité si et seulement <span class="math inline">\((u,v)\)</span>
+est liée.</p>
+</div>
+<div class="wprop">
+<p><strong>(cas d’égalité de l’inégalité triangulaire)</strong> Soient
+<span class="math inline">\(x,y \in E\)</span>, <span
+class="math display">\[\left\|x+y\right\| \leq
+\left\|x\right\|+\left\|y\right\|\]</span> et <span
+class="math display">\[\left\|x+y\right\| =
+\left\|x\right\|+\left\|y\right\| \iff \left\{\begin{array}{ll}
+    &amp; x = 0_E \\
+    \text{ ou }&amp; \text{ il existe $\lambda \in \mathbb{R}^{+}$ tel
+que $y = \lambda x.$}
+    \end{array}\right.\]</span></p>
+</div>
+<div class="wrem">
+<ul>
+<li><p>Pour rappel,</p>
+<p><span class="math inline">\((x,y)\)</span> liée (ou <span
+class="math inline">\(x,y\)</span> colinéaires) <span
+class="math inline">\(\iff \left\{\begin{array}{ll}
+    &amp; x = 0_E \\
+    \text{ ou }&amp; \text{ il existe $\lambda \in \mathbb{R}$ tel que
+$y = \lambda x.$}
+    \end{array}\right..\)</span></p>
+<p>On peut donc lire la propriété comme « <span
+class="math inline">\(x\)</span> et <span
+class="math inline">\(y\)</span> positivement colinéaires  ».</p></li>
+<li><div class="webtextfigure">
+<div class="webtext">
+<p>En replongeant dans <span class="math inline">\(E =
+\mathbb{R}^2\)</span>, on retrouve l’égalité de l’inégalité triangulaire
+avec les dessins ci-contre. On comprend aussi pourquoi il est nécessaire
+que <span class="math inline">\(\lambda \geq 0.\)</span></p>
+</div>
+<div class="webimg">
+<p><img src="egalite_inegalite_triangulaire.png" alt="image" /></p>
+</div>
+</div></li>
+<li><p>Ce cas d’égalité dans l’inégalité triangulaire vaut pour les
+normes préhilbertiennes uniquement.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(x,y \in E\)</span>,</p>
+<p><span class="math display">\[\begin{aligned}
+        \left\|x+y\right\|^2 &amp;
+=\left\|x\right\|^2+\left\|y\right\|^2+2\langle x,y \rangle\\
+        \left\|x-y\right\|^2 &amp;
+=\left\|x\right\|^2+\left\|y\right\|^2-2\langle x,y \rangle\\
+         \langle x,y
+\rangle&amp;=\frac{1}{4}\left(\left\|x+y\right\|^2-\left\|x-y\right\|^2\right)
+\quad \text{(Identité de polarisation)}\\
+         \left\|x+y\right\|^2+\left\|x-y\right\|^2&amp;=2\left\|x\right\|^2+2\left\|y\right\|^2
+\quad \text{(Identité du parallélogramme)}.
+    \end{aligned}\]</span></p>
+</div>
+<div class="wrem">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soient <span class="math inline">\(a,b,c \in E\)</span>, en
+considérant <span class="math inline">\(x=a-b\)</span> et <span
+class="math inline">\(y=a-c\)</span>, on a <span
+class="math display">\[\begin{aligned}
+        \left\|x+y\right\|^2+\left\|x-y\right\|^2
+        &amp; =
+\left\|2a-\left(b+c\right)\right\|^2+\left\|b-c\right\|^2 \\
+        &amp; = 2\left\|x\right\|^2+2\left\|y\right\|^2 \\
+        &amp; = 2\left\|a-b\right\|^2+2\left\|a-c\right\|^2.
+    \end{aligned}\]</span> Donc en divisant par <span
+class="math inline">\(4\)</span>, on obtient <span
+class="math display">\[\left\|a-\frac{b+c}{2}\right\|^2 =
+\frac{1}{2}\left\|a-b\right\|^2+\frac{1}{2}\left\|a-c\right\|^2-\frac{1}{4}\left\|b-c\right\|^2\]</span>
+ce qui constitue l’égalité de la médiane.</p>
+</div>
+<div class="webimg">
+<p><img src="theoreme_mediane_triangle.png" alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(\left(E,\langle \cdot, \cdot,
+\rangle\right)\)</span> un espace préhilbertien (normé par sa norme
+préhilbertienne) alors <span class="math display">\[\begin{array}{llll}
+  &amp; E \times E &amp; \to &amp; \mathbb{R} \\
+     &amp; (x,y) &amp; \mapsto &amp; \langle x,y \rangle
+\end{array}\]</span> est continue sur <span class="math inline">\(E
+\times E\)</span> en considérant la norme préhilbertienne <span
+class="math inline">\(\left\|\cdot\right\|\)</span> sur <span
+class="math inline">\(E\)</span> et <span
+class="math inline">\(\left\|(x,y)\right\|_\infty =
+\max{\left\|x\right\|,\left\|y\right\|}\)</span> pour <span
+class="math inline">\((x,y) \in E\times E.\)</span></p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(a \in E\)</span>, <span
+class="math inline">\(\begin{array}{lllll}
+\varphi_a &amp; : &amp; E &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \langle a,x \rangle
+\end{array}\)</span> est une forme linéaire continue sur <span
+class="math inline">\(E\)</span> telle que <span
+class="math inline">\(\left|\!\left|\!\left|\varphi_a\right|\!\right|\!\right|
+= \left\|a\right\|\)</span>.</p>
+<p>De plus, <span class="math display">\[\begin{array}{llll}
+  &amp; E &amp; \to &amp; E&#39; \\
+     &amp; a &amp; \mapsto &amp; \varphi_a
+\end{array}\]</span> avec <span class="math inline">\(E&#39; \neq
+E^\star\)</span> les formes linéaires continues sur <span
+class="math inline">\(E\)</span>, est linéaire et injective (donc
+bijective si <span class="math inline">\(E\)</span> est de dimension
+finie, c’est le théorème de Riesz vu dans le cours de calcul
+différentiel).</p>
+</div>
+<h2 data-number="1.2" id="exemples-de-produits-scalaires"><span
+class="header-section-number">1.2</span> Exemples de produits
+scalaires</h2>
+<ul>
+<li><p>Sur <span class="math inline">\(\mathbb{R}^n\)</span>, <span
+class="math inline">\(x = (x_1,\ldots,x_n)\)</span> et <span
+class="math inline">\(y=(y_1,\ldots,y_n)\)</span>, le produit scalaire
+usuel est <span class="math inline">\(\langle x,y \rangle = \sum_{i=1}^n
+x_iy_i.\)</span> Remarquons qu’avec <span class="math inline">\(X =
+\begin{pmatrix}
+        x_1 \\ x_2 \\ \vdots \\ x_n
+    \end{pmatrix},Y = \begin{pmatrix}
+        y_1 \\ y_2 \\ \vdots \\ y_n
+    \end{pmatrix} \in \mathscr{M}_{n,1}(\mathbb{R})\)</span>, on a <span
+class="math inline">\(\langle x,y \rangle = {}^tXY =
+^{t}YX.\)</span></p></li>
+<li><p>Soit <span class="math inline">\(E\)</span> un <span
+class="math inline">\(\mathbb{R}\)</span>-espace vectoriel et <span
+class="math inline">\(\mathscr{B}=\left(e_i\right)_{i\in I}\)</span> une
+base de <span class="math inline">\(E\)</span> (avec <span
+class="math inline">\(I\)</span> fini ou non) alors on a le produit
+scalaire <span class="math inline">\(\langle \cdot,\cdot
+\rangle\)</span> tel que <span class="math inline">\(\langle x,y\rangle
+= \sum_{i \in I} x_i y_i\)</span> pour <span class="math inline">\(x =
+\sum_{i \in I} x_i e_i \in E\)</span> et <span class="math inline">\(y =
+\sum_{i \in I} y_i e_i \in E.\)</span></p>
+<p>Remarquons qu’alors <span class="math inline">\(\mathscr{B}\)</span>
+est une base orthonormée de <span class="math inline">\(E\)</span> avec
+pour <span class="math inline">\(1 \leq i,j \leq n\)</span>, <span
+class="math inline">\(\langle e_i, e_j \rangle = \left\{
+    \begin{array}{ll}
+        1 &amp; \mbox{ si $i=j$} \\
+        0 &amp; \mbox{ si $i \neq j$.}
+    \end{array}
+    \right.\)</span></p>
+<div class="wappli">
+<ul>
+<li><p>Sur <span class="math inline">\(E = \mathbb{R}[X]\)</span>, on a
+<span class="math inline">\(\langle P,Q \rangle= \sum_{n \geq 0} a_n
+b_n\)</span> pour <span class="math inline">\(P = \sum_{n\geq 0} a_n
+X^n\)</span> et <span class="math inline">\(Q = \sum_{n\geq 0} b_n
+X^n.\)</span></p></li>
+<li><p>Sur <span class="math inline">\(E
+=\mathscr{M}_{n}(\mathbb{R})\)</span>, on a <span
+class="math inline">\(\langle A,B \rangle = \sum_{1 \leq i,j \leq
+n}a_{ij}b_{ij} = \mathop{\mathrm{Tr}}({}^t AB)\)</span> pour <span
+class="math inline">\(A = \left(a_{ij}\right), B = \left(b_{ij}\right)
+\in \mathscr{M}_{n}(\mathbb{R}).\)</span></p></li>
+</ul>
+</div></li>
+<li><p>Sur <span
+class="math inline">\(\mathscr{C}([a,b],\mathbb{R})\)</span>, on a le
+produit scalaire <span class="math inline">\(\langle \cdot,\cdot
+\rangle\)</span> tel que <span class="math inline">\(\langle f,g\rangle
+= \int_a^b fg\)</span> pour <span class="math inline">\(f,g \in
+\mathscr{C}([a,b],\mathbb{R}).\)</span></p>
+<div class="wrem">
+<div class="webtextfigure">
+<div class="webtext">
+<p>En revanche, <span class="math inline">\(\langle \cdot,\cdot
+\rangle\)</span> est bien bilinéaire symétrique positive mais pas
+définie positive sur <span
+class="math inline">\(\mathscr{C}_{\mathrm{m}}\left([a,b]\right).\)</span>
+La fonction <span class="math inline">\(f\)</span> représentée ci-contre
+est continue par morceaux sur <span class="math inline">\([0,1]\)</span>
+et vérifie <span class="math inline">\(\int_0^1 f^2=\int_0^1 f =
+0\)</span> sans qu’on ait <span class="math inline">\(f =
+0.\)</span></p>
+</div>
+<div class="webimg">
+<p><img src="ex_cm_non_def_pos.png" alt="image" /></p>
+</div>
+</div>
+</div></li>
+<li><p>Sur <span class="math inline">\(E = \left\{f : I \to
+\mathbb{R}\text{ continue telle que $f$ est intégrable sur
+$I$}\right\}\)</span> avec <span class="math inline">\(I =
+\left]a,b\right[, \left[a,b\right[\)</span> ou <span
+class="math inline">\(\left]a,b\right]\)</span>, on a le produit
+scalaire <span class="math inline">\(\langle \cdot,\cdot
+\rangle\)</span> tel que <span class="math inline">\(\langle f,g\rangle
+= \int_a^b fg\)</span> pour <span class="math inline">\(f,g \in
+E.\)</span></p></li>
+<li><p>On peut généraliser le point précédent comme décrit dans la
+proposition ci-dessous.</p>
+<div class="wprop">
+<p><span id="prop:pduitscal_poids" label="prop:pduitscal_poids"></span>
+Soient <span class="math inline">\(I \subset \mathbb{R}\)</span> un
+intervalle tel que <span class="math inline">\(I =
+\left[a,b\right],\left]a,b\right[, \left[a,b\right[\)</span> ou <span
+class="math inline">\(\left]a,b\right]\)</span></p>
+<p>et <span class="math inline">\(\omega : I \to \mathbb{R}^{+}\)</span>
+continue (que l’on appelle « fonction poids  ») telle qu’il n’existe pas
+<span class="math inline">\(\left[c,d\right] \subset I\)</span> tel que
+<span class="math inline">\(\omega_{\mid \left[c,d\right]} =
+0\)</span>.</p>
+<p>Alors, en introduisant <span class="math inline">\(E = \left\{f : I
+\to \mathbb{R}\text{ continue telle que $\int_a^b f^2(t) \omega(t)dt$
+converge}\right\},\)</span></p>
+<p><span class="math inline">\(\langle \cdot , \cdot \rangle\)</span>
+tel que <span class="math inline">\(\langle f,g \rangle = \int_a^b
+f(t)g(t)\omega(t)dt\)</span> est un produit scalaire sur <span
+class="math inline">\(E.\)</span></p>
+</div>
+<div class="wproof">
+<p><u>Structure d’espace vectoriel.</u> Montrons que <span
+class="math inline">\(E\)</span> est un sous-espace vectoriel de <span
+class="math inline">\(\mathscr{C}(I, \mathbb{R})\)</span>, l’espace des
+fonctions continues de <span class="math inline">\(I\)</span> dans <span
+class="math inline">\(\mathbb{R}\)</span>. Tout d’abord, la fonction
+nulle appartient à <span class="math inline">\(E\)</span> puisque <span
+class="math inline">\(\int_a^b 0 \cdot \omega(t)dt = 0\)</span>
+converge, donc <span class="math inline">\(E\)</span> est non vide.
+Soient ensuite <span class="math inline">\(f, g \in E\)</span> et <span
+class="math inline">\(\lambda \in \mathbb{R}\)</span>. La fonction <span
+class="math inline">\(\lambda f + g\)</span> est continue comme
+combinaison linéaire de fonctions continues. De plus, en utilisant
+l’inégalité <span class="math inline">\((x+y)^2 \leq 2(x^2+y^2)\)</span>
+valable pour tous réels <span class="math inline">\(x\)</span> et <span
+class="math inline">\(y\)</span>, ainsi que la positivité de <span
+class="math inline">\(\omega\)</span>, on a pour tout <span
+class="math inline">\(t \in I\)</span>, <span
+class="math display">\[(\lambda f(t) + g(t))^2 \omega(t) \leq 2\lambda^2
+f^2(t)\omega(t) + 2g^2(t)\omega(t).\]</span> Par linéarité de
+l’intégrale et théorème de comparaison des intégrales de fonctions
+positives, la convergence de <span class="math inline">\(\int_a^b
+f^2(t)\omega(t)dt\)</span> et <span class="math inline">\(\int_a^b
+g^2(t)\omega(t)dt\)</span> assure celle de <span
+class="math inline">\(\int_a^b (\lambda f(t) + g(t))^2
+\omega(t)dt\)</span>. Ainsi, <span class="math inline">\(\lambda f + g
+\in E\)</span>, ce qui prouve que <span class="math inline">\(E\)</span>
+est un <span class="math inline">\(\mathbb{R}\)</span>-espace
+vectoriel.</p>
+<p><u>Bonne définition.</u> Soient <span class="math inline">\(f, g \in
+E\)</span>. On rappelle que pour tous réels <span
+class="math inline">\(x\)</span> et <span
+class="math inline">\(y\)</span>, on a <span class="math inline">\(|xy|
+\leq \frac{1}{2}(x^2 + y^2)\)</span>. Puisque la fonction poids <span
+class="math inline">\(\omega\)</span> est positive sur <span
+class="math inline">\(I\)</span>, on en déduit que pour tout <span
+class="math inline">\(t \in I\)</span>, <span
+class="math display">\[|f(t)g(t)\omega(t)| \leq \frac{1}{2} \left(
+f^2(t)\omega(t) + g^2(t)\omega(t) \right).\]</span> Par hypothèse, les
+intégrales <span class="math inline">\(\int_a^b
+f^2(t)\omega(t)dt\)</span> et <span class="math inline">\(\int_a^b
+g^2(t)\omega(t)dt\)</span> convergent. Par linéarité et théorème de
+comparaison des intégrales de fonctions positives, l’intégrale <span
+class="math inline">\(\int_a^b f(t)g(t)\omega(t)dt\)</span> converge
+absolument, et donc converge. Ainsi, <span class="math inline">\(\langle
+f, g \rangle\)</span> est bien défini.</p>
+<p><u>Bilinéarité et symétrie.</u> La symétrie découle immédiatement de
+la commutativité de la multiplication dans <span
+class="math inline">\(\mathbb{R}\)</span>, donnant <span
+class="math inline">\(\langle f,g \rangle = \langle g,f
+\rangle\)</span>. La linéarité à gauche (et donc la bilinéarité par
+symétrie) provient directement de la linéarité de l’intégrale
+convergente.</p>
+<p><u>Positivité.</u> Soit <span class="math inline">\(f \in E\)</span>.
+On a <span class="math inline">\(\langle f,f \rangle = \int_a^b
+f^2(t)\omega(t)dt\)</span>. Comme <span class="math inline">\(f^2 \geq
+0\)</span> et <span class="math inline">\(\omega \geq 0\)</span> sur
+<span class="math inline">\(I\)</span>, l’intégrande est une fonction
+positive. Par positivité de l’intégrale (avec <span
+class="math inline">\(a &lt; b\)</span>), on obtient bien <span
+class="math inline">\(\langle f,f \rangle \geq 0\)</span>.</p>
+<p><u>Caractère défini.</u> Soit <span class="math inline">\(f \in
+E\)</span> telle que <span class="math inline">\(\langle f,f \rangle =
+0\)</span>, c’est-à-dire <span class="math inline">\(\int_a^b
+f^2(t)\omega(t)dt = 0\)</span>. La fonction <span
+class="math inline">\(t \mapsto f^2(t)\omega(t)\)</span> étant continue
+et positive sur l’intervalle <span class="math inline">\(I\)</span>
+d’intégrale nulle, elle est identiquement nulle sur <span
+class="math inline">\(I\)</span>. Autrement dit, pour tout <span
+class="math inline">\(t \in I\)</span>, <span
+class="math inline">\(f^2(t)\omega(t) = 0\)</span>.</p>
+<p>Raisonnons par l’absurde en supposant que <span
+class="math inline">\(f\)</span> n’est pas la fonction nulle. Il existe
+alors <span class="math inline">\(t_0 \in I\)</span> tel que <span
+class="math inline">\(f(t_0) \neq 0\)</span>, et donc <span
+class="math inline">\(f^2(t_0) &gt; 0\)</span>. La fonction <span
+class="math inline">\(f^2\)</span> étant continue en <span
+class="math inline">\(t_0\)</span>, elle reste strictement positive au
+voisinage de <span class="math inline">\(t_0\)</span>. Il existe donc un
+segment <span class="math inline">\(\left[c,d\right] \subset I\)</span>
+(avec <span class="math inline">\(c &lt; d\)</span>) tel que pour tout
+<span class="math inline">\(t \in \left[c,d\right]\)</span>, <span
+class="math inline">\(f^2(t) &gt; 0\)</span>.</p>
+<p>Or, comme <span class="math inline">\(f^2(t)\omega(t) = 0\)</span>
+sur <span class="math inline">\(I\)</span>, cela impose <span
+class="math inline">\(\omega(t) = 0\)</span> pour tout <span
+class="math inline">\(t \in \left[c,d\right]\)</span>, soit <span
+class="math inline">\(\omega_{\mid \left[c,d\right]} = 0\)</span>. Ceci
+contredit l’hypothèse faite sur la fonction poids <span
+class="math inline">\(\omega\)</span>. On en conclut que <span
+class="math inline">\(f = 0\)</span>, ce qui achève la
+démonstration.</p>
+</div></li>
+<li><p>Sur <span class="math inline">\(E = \ell^2(\mathbb{R}) = \left\{u
+= \left\{u_n\right\}_{n \geq 0} / \sum_{n\geq 0} u_n^2 \text{
+converge}\right\}\)</span>, on a le produit scalaire <span
+class="math inline">\(\langle \cdot, \cdot \rangle\)</span> tel que
+<span class="math inline">\(\langle u,v\rangle = \sum_{n=0}^{+\infty}
+u_nv_n\)</span> pour <span class="math inline">\(u,v \in E\)</span>
+(voir le cours sur les séries).</p></li>
+<li><p>On peut généraliser le produit scalaire précédent, comme pour les
+intégrales, en considérant une suite strictement positive <span
+class="math inline">\(w = \left(w_n\right)_{n \geq 0}\)</span> ainsi que
+<span class="math inline">\(E = \ell_{w}^2(\mathbb{R}) = \left\{u =
+\left\{u_n\right\}_{n \geq 0} / \sum_{n\geq 0} w_n u_n^2 \text{
+converge}\right\}\)</span> et le produit scalaire <span
+class="math inline">\(\langle \cdot, \cdot \rangle\)</span> tel que
+<span class="math inline">\(\langle u,v\rangle = \sum_{n=0}^{+\infty}
+w_n u_nv_n\)</span> pour <span class="math inline">\(u,v \in
+E\)</span>.</p></li>
+</ul>
+<h1 data-number="2" id="orthogonalité"><span
+class="header-section-number">2</span> Orthogonalité</h1>
+<h2 data-number="2.1"
+id="orthogonal-dune-dun-vecteur-ou-dune-partie"><span
+class="header-section-number">2.1</span> Orthogonal d’une d’un vecteur
+ou d’une partie</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(\left(E,\langle \cdot, \cdot
+\rangle\right)\)</span> un espace préhilbertien et <span
+class="math inline">\(x,y \in E.\)</span></p>
+<p>On dit que <span class="math inline">\(x\)</span> et <span
+class="math inline">\(y\)</span> sont orthogonaux si <span
+class="math inline">\(\langle x,y \rangle = 0\)</span> et l’on note
+<span class="math inline">\(x \perp y.\)</span></p>
+</div>
+<div class="wrem">
+<ul>
+<li><p><span class="math inline">\(x \perp y \iff y \perp
+x\)</span>,</p></li>
+<li><p><span class="math inline">\(x \perp x \iff x =
+0\)</span>,</p></li>
+<li><p><span class="math inline">\(y \perp x\)</span> pour tout <span
+class="math inline">\(x \in E\)</span> <span
+class="math inline">\(\iff\)</span> <span class="math inline">\(y =
+0\)</span>,</p></li>
+<li><p><span class="math inline">\(\left.\begin{array}{l}
+            x \perp y_1 \\
+            x \perp y_2
+        \end{array}\right\} \Longrightarrow \forall \alpha, \beta \in
+\mathbb{R}, x\perp \alpha y_1 + \beta y_2,\)</span></p></li>
+<li><p><span class="math inline">\(x \perp y\)</span> et <span
+class="math inline">\(y \perp z\)</span> <span
+class="math inline">\(\centernot{\Longrightarrow}\)</span> <span
+class="math inline">\(x \perp z.\)</span></p></li>
+</ul>
+</div>
+<div class="wdefi">
+<ul>
+<li><p>Soit <span class="math inline">\(A \subset E\)</span>, on dit que
+<span class="math inline">\(x\)</span> est orthogonal à <span
+class="math inline">\(A\)</span> si pour tout <span
+class="math inline">\(a \in A\)</span>, <span class="math inline">\(x
+\perp a\)</span>.</p>
+<p>On note alors <span class="math inline">\(x\perp A.\)</span></p></li>
+<li><p>Soient <span class="math inline">\(A,B \subset E\)</span>, on dit
+que <span class="math inline">\(B\)</span> est orthogonal à <span
+class="math inline">\(A\)</span> si pour tout <span
+class="math inline">\(a \in A\)</span> et <span class="math inline">\(b
+\in B\)</span>, <span class="math inline">\(b \perp a\)</span>.</p>
+<p>On note alors <span class="math inline">\(A\perp B.\)</span></p></li>
+<li><p>Soit <span class="math inline">\(a \in E\)</span>, on note <span
+class="math display">\[\begin{aligned}
+        a^\perp
+        &amp; = \left\{x \in E/ x \perp a \right\} \\
+        &amp; = \mathop{\mathrm{Ker}}\varphi_a \text{ avec }
+\begin{array}{lllll}
+\varphi_a &amp; : &amp; E &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \langle a,x \rangle
+\end{array}
 
+    \end{aligned}\]</span> qui est appelé l’orthogonal de <span
+class="math inline">\(a\)</span>.</p></li>
+<li><p>Soit <span class="math inline">\(A \subset E\)</span>, on note
+<span class="math display">\[\begin{aligned}
+        A^\perp
+        &amp; = \left\{x \in E/ \forall a \in A, x \perp a \right\} \\
+        &amp; = \bigcap_{a \in A} a^\perp \\
+        &amp; = \bigcap_{a \in A} \mathop{\mathrm{Ker}}\varphi_a \text{
+avec }
+\begin{array}{lllll}
+\varphi_a &amp; : &amp; E &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; x &amp; \mapsto &amp; \langle a,x \rangle
+\end{array}
+.
+    \end{aligned}\]</span> qui est appelé l’orthogonal de <span
+class="math inline">\(A\)</span>.</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(a \in E\)</span>,</p>
+<ul>
+<li><p>Si <span class="math inline">\(a \neq 0, a^\perp\)</span> est un
+hyperplan fermé de <span class="math inline">\(E\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(a = 0\)</span>, <span
+class="math inline">\(a^\perp = E\)</span>.</p></li>
+</ul>
+</div>
+<div class="wproof">
+<p>Si <span class="math inline">\(a \neq 0\)</span>, <span
+class="math inline">\(a^\perp = \mathop{\mathrm{Ker}}\varphi_a =
+\varphi_a^{-1}\left(\left\{0\right\}\right)\)</span> avec <span
+class="math inline">\(\varphi_a\)</span> qui est continue sur <span
+class="math inline">\(E\)</span> et <span
+class="math inline">\(\left\{0\right\}\)</span> un fermé de <span
+class="math inline">\(\mathbb{R}\)</span>. De plus, <span
+class="math inline">\(\varphi_a \neq 0\)</span> car <span
+class="math inline">\(\varphi_a(a) = \left\|a\right\|^2 \neq
+0.\)</span></p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(A \subset E\)</span>, <span
+class="math inline">\(A^\perp\)</span> est un sous-espace vectoriel
+fermé de <span class="math inline">\(E\)</span>.</p>
+</div>
+<div class="wproof">
+<p><span class="math inline">\(A^\perp = \bigcap_{a \in A}
+a^\perp\)</span> et est donc un fermé comme intersection (quelconque) de
+fermés et un sous-espace vectoriel comme intersection de sous-espaces
+vectoriels.</p>
+</div>
+<div class="wrem">
+<ul>
+<li><p><span class="math inline">\(E^\perp = \left\{0\right\}\)</span>
+et <span class="math inline">\(\left\{0\right\}^\perp =
+E\)</span>.</p></li>
+<li><p><span class="math inline">\(x \perp A \iff x \in
+A^\perp\)</span>,</p></li>
+<li><p><span class="math inline">\(A \subset B \Longrightarrow B^\perp
+\subset A^\perp\)</span>,</p></li>
+<li><p><span class="math inline">\(A \perp B \iff \forall a \in A, a
+\perp B \iff A \subset B^\perp \iff B \subset A^\perp.\)</span></p></li>
+<li><p><span class="math inline">\(A \cap A^\perp =
+\left\{0\right\}\)</span> donc si <span class="math inline">\(A\)</span>
+est un sous-espace vectoriel, <span class="math inline">\(A +
+A^\perp\)</span> est directe.</p></li>
+<li><p><span class="math inline">\(A \perp A^\perp\)</span> donc <span
+class="math inline">\(A \subset A^{\perp \perp}.\)</span> En revanche,
+<span class="math inline">\(A = A^{\perp \perp}\)</span> n’est pas
+automatique car cela implique que <span class="math inline">\(A\)</span>
+soit un sous-espace vectoriel fermé de <span
+class="math inline">\(E\)</span>.</p></li>
+<li><p>Si <span class="math inline">\(A = \mathop{\mathrm{Vect}}(e_i)_{i
+\in I},\)</span> <span class="math inline">\(x \in A^\perp \iff \forall
+i \in I, \langle x, e_i \rangle = 0.\)</span></p></li>
+</ul>
+</div>
+<div class="wexoc">
+<p><span id="exoc:ortho_Adherence" label="exoc:ortho_Adherence"></span>
+Soit <span class="math inline">\(A \subset E\)</span>. Montrer que <span
+class="math inline">\(A^\perp = \overline{A}^\perp.\)</span></p>
+<details><summary>Corrigé</summary>
+<ul>
+<li><p>D’abord, <span class="math inline">\(A \subset
+\overline{A}\)</span> donc <span
+class="math inline">\(\overline{A}^\perp \subset
+A^\perp.\)</span></p></li>
+<li><p>Ensuite, montrons <span class="math inline">\(\overline{A}^\perp
+\supset A^\perp.\)</span></p>
+<p>Soient <span class="math inline">\(x \in A^\perp\)</span> et <span
+class="math inline">\(a \in \overline{A}\)</span> montrons <span
+class="math inline">\(a \perp x = 0\)</span>.</p>
+<p>Il existe une suite <span class="math inline">\(\left(a_n\right)_{n
+\geq 0}\)</span> de <span class="math inline">\(A\)</span> telle que
+<span class="math inline">\(a_n \xrightarrow[n \to +\infty]{}
+a\)</span>.</p>
+<p>De plus, comme <span class="math inline">\(x \in A^\perp,\)</span>
+pour tout <span class="math inline">\(n \geq 0,\)</span> <span
+class="math inline">\(\langle x, a_n \rangle = 0.\)</span></p>
+<p>Enfin, par continuité du produit scalaire, en passant à la limite
+quand <span class="math inline">\(n \xrightarrow{} +\infty\)</span>, on
+a <span class="math inline">\(\langle x,a \rangle =0.\)</span></p>
+<p>Donc <span class="math inline">\(x \in
+\overline{A}^\perp.\)</span></p></li>
+</ul>
+</details>
+</div>
+<h2 data-number="2.2" id="familles-orthogonales"><span
+class="header-section-number">2.2</span> Familles orthogonales</h2>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(I\)</span> un ensemble quelconque
+et <span class="math inline">\(\left(e_i\right)_{i \in I}\)</span> une
+famille de <span class="math inline">\(E\)</span>.</p>
+<ul>
+<li><p>On dit que <span class="math inline">\(\left(e_i\right)_{i \in
+I}\)</span> est une famille orthogonale de <span
+class="math inline">\(E\)</span> si <span class="math display">\[\forall
+i \neq j \in I, e_i \perp e_j.\]</span> (ie <span
+class="math inline">\(\forall i \in I, e_i \perp
+\mathop{\mathrm{Vect}}(e_j)_{j \neq i}\)</span>).</p></li>
+<li><p>On dit que <span class="math inline">\(\left(e_i\right)_{i \in
+I}\)</span> est une famille orthonormale/orthonormée de <span
+class="math inline">\(E\)</span> si <span class="math display">\[\forall
+i \neq j \in I, e_i \perp e_j \text{ et }\left\|e_i\right\| = 1\]</span>
+(ie <span class="math inline">\(\forall i \neq j \in I, \langle e_i, e_j
+\rangle = \left\{
+    \begin{array}{ll}
+        1 &amp; \mbox{ si $i=j$} \\
+        0 &amp; \mbox{ si $i \neq j$.}
+    \end{array}
+    \right.\)</span>).</p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><span id="prop:ortho_non_nulle_Est_libre"
+label="prop:ortho_non_nulle_Est_libre"></span> Soient <span
+class="math inline">\(I\)</span> un ensemble quelconque et <span
+class="math inline">\(\left(e_i\right)_{i \in I}\)</span> une famille
+orthogonale de <span class="math inline">\(E\)</span> de <u> vecteurs
+non nuls</u>.</p>
+<p>Alors, <span class="math inline">\(\left(e_i\right)_{i \in
+I}\)</span> est libre.</p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(J \subset I\)</span> fini et <span
+class="math inline">\(\left(\alpha_j\right)_{j \in J}\)</span> une
+famille de réels.</p>
+<p>Alors, <span class="math display">\[\sum_{j \in J} \alpha_j e_j  = 0
+\Longrightarrow \forall j_0 \in J, \langle e_{j_0},\sum_{j \in J}
+\alpha_j e_j \rangle = \alpha_{j_0}\left\|e_{j_0}\right\|^2 =
+0.\]</span> donc pour tout <span class="math inline">\(j_0 \in
+J\)</span>, <span class="math inline">\(\alpha_{j_0} = 0\)</span> (car
+<span class="math inline">\(\left\|e_{j_0}\right\|^2 \neq
+0\)</span>).</p>
+<p>Donc <span class="math inline">\(\left(e_i\right)_{i \in I}\)</span>
+est libre.</p>
+</div>
+<div class="wcor">
+<p>Soient <span class="math inline">\(I\)</span> un ensemble quelconque
+et <span class="math inline">\(\left(e_i\right)_{i \in I}\)</span> une
+famille orthonormale de <span class="math inline">\(E\)</span>.</p>
+<p>Alors, <span class="math inline">\(\left(e_i\right)_{i \in
+I}\)</span> est libre.</p>
+</div>
+<div class="wproof">
+<p>Une famille orthonormale est une famille orthogonale de vecteurs non
+nuls (car de norme <span class="math inline">\(1\)</span>) donc il
+suffit d’appliquer la proposition <a
+href="#prop:ortho_non_nulle_Est_libre" data-reference-type="ref"
+data-reference="prop:ortho_non_nulle_Est_libre">[prop:ortho_non_nulle_Est_libre]</a>.</p>
+</div>
+<div class="wprop">
+<p>Soit <span class="math inline">\(\mathscr{B}= \left(e_i\right)_{i \in
+I}\)</span> une base orthonormée de <span
+class="math inline">\(E\)</span>.</p>
+<p>Soient <span class="math inline">\(x,y \in E\)</span> tels que <span
+class="math inline">\(x = \sum_{i \in I} \underbrace{x_i}_{\in
+\mathbb{R}} e_i\)</span> et <span class="math inline">\(y = \sum_{i \in
+I} \underbrace{y_i}_{\in \mathbb{R}} e_i\)</span>.</p>
+<p>Alors,</p>
+<ul>
+<li><p><span class="math inline">\(\langle x,y \rangle = \sum_{i \in I}
+x_i y_i\)</span>,</p></li>
+<li><p><span class="math inline">\(\left\|x\right\| = \sqrt{\sum_{i\in
+I} x_i^2},\)</span></p></li>
+<li><p><span class="math inline">\(x_i = \langle e_i,x
+\rangle.\)</span></p></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p><span class="math inline">\(\langle x,y \rangle = \langle \sum_{i
+\in I} x_i e_i , \sum_{i \in I} y_j e_j\rangle  = \sum_{i \in I}\sum_{j
+\in I} x_i y_j \underbrace{\langle e_i , e_j\rangle }_{= \left\{
+    \begin{array}{ll}
+        1 &amp; \mbox{ si $i=j$} \\
+        0 &amp; \mbox{ si $i \neq j$.}
+    \end{array}
+    \right.} = \sum_{i \in I} x_i y_i.\)</span></p></li>
+<li><p>En appliquant le point précédent à <span
+class="math inline">\(y=x\)</span>, on a <span
+class="math inline">\(\langle x , x\rangle  = \sum_{i \in
+I}x_i^2\)</span> donc <span class="math inline">\(\left\|x\right\| =
+\sqrt{\sum_{i\in I} x_i^2}.\)</span></p></li>
+<li><p>En appliquant le premier point à <span class="math inline">\(y=
+e_i\)</span>, on a <span class="math inline">\(x_i = \langle e_i,x
+\rangle.\)</span></p></li>
+</ul>
+</div>
+<div class="wrem">
+<ul>
+<li><p>Si <span class="math inline">\(\mathscr{B}= \left(e_i\right)_{i
+\in I}\)</span> est seulement orthogonale,</p>
+<ul>
+<li><p><span class="math inline">\(\langle x,y \rangle = \sum_{i \in I}
+x_i y_i \langle e_i , e_i\rangle\)</span>,</p></li>
+<li><p><span class="math inline">\(\left\|x\right\| = \sqrt{\sum_{i\in
+I} x_i^2 \langle e_i , e_i\rangle },\)</span></p></li>
+<li><p><span class="math inline">\(x_i = \frac{\langle e_i,x
+\rangle}{\langle e_i , e_i\rangle }.\)</span></p></li>
+</ul></li>
+<li><p>Si <span class="math inline">\(\mathscr{B}= \left(e_i\right)_{i
+\in I}\)</span> est seulement orthogonale, <span
+class="math inline">\(\mathscr{B}&#39; =
+\left(\frac{e_i}{\left\|e_i\right\|}\right)_{i \in I}\)</span> est
+orthonormée.</p></li>
+</ul>
+</div>
+<div class="wthm">
+<p><strong>(Théorème de Pythagore)</strong> Soient <span
+class="math inline">\(\left(E,\langle \cdot, \cdot
+\rangle\right)\)</span> un espace préhilbertien et <span
+class="math inline">\((x_1,\ldots,x_n)\)</span> une famille orthogonale
+de <span class="math inline">\(E\)</span>. Alors, <span
+class="math display">\[\left\|x_1+\ldots+x_n\right\|^2 =
+\left\|x_1\right\|^2+\ldots+\left\|x_n\right\|^2.\]</span></p>
+</div>
+<div class="wproof">
+<p><span class="math display">\[\begin{aligned}
+        \left\|x_1+\ldots+x_n\right\|^2
+        &amp; = \langle \sum_{i=1}^n x_i, \sum_{j=1}^n x_j \rangle \\
+        &amp; = \sum_{1 \leq i,j \leq n} \langle x_i, x_j \rangle \\
+        &amp; = \sum_{1 \leq i=j \leq n} \langle x_i, x_j \rangle
++\sum_{1 \leq i\neq j \leq n} \langle x_i, x_j \rangle \\
+        &amp; = \sum_{i=1}^n \left\|x_i\right\|^2+2\sum_{1 \leq i &lt; j
+\leq n} \underbrace{\langle x_i,x_j\rangle}_{=0} \\
+        &amp; = \sum_{i=1}^n \left\|x_i\right\|^2.
+    \end{aligned}\]</span></p>
+</div>
+<div class="wrem">
+<p>La réciproque est vraie pour <span class="math inline">\(n=2\)</span>
+car alors <span class="math inline">\(\left\|x_1+x_2\right\|^2 =
+\left\|x_1\right\|^2+\left\|x_2\right\|^2+2\langle x_1 ,
+x_2\rangle\)</span> donc <span
+class="math inline">\(\left\|x_1+x_2\right\|^2 =
+\left\|x_1\right\|^2+\left\|x_2\right\|^2 \Longrightarrow \langle x_1 ,
+x_2\rangle =0.\)</span></p>
+</div>
+<div class="wdefi">
+<p>Soient <span class="math inline">\(F_1,\ldots,F_p\)</span> des
+sous-espaces vectoriels de <span class="math inline">\(E\)</span>.</p>
+<p>On dit que <span class="math inline">\(F_1+\ldots+F_p\)</span> est
+orthogonale si pour tout <span class="math inline">\(1 \leq i \neq j
+\leq p\)</span>, <span class="math inline">\(F_i \perp F_j.\)</span></p>
+<p>On note alors <span class="math inline">\({\underset{1 \leq i \leq
+p}{\oplus^\perp}} F_i.\)</span></p>
+</div>
+<div class="wprop">
+<p>Soient <span class="math inline">\(F_1,\ldots,F_p\)</span> des
+sous-espaces vectoriels de <span class="math inline">\(E\)</span> tels
+que <span class="math inline">\(F_1+\ldots+F_p\)</span> est
+orthogonale.</p>
+<p>Alors <span class="math inline">\(F_1+\ldots+F_p\)</span> est
+directe.</p>
+</div>
+<div class="wproof">
+<p>Soient <span class="math inline">\(x_1,\ldots,x_p\)</span> tels que
+<span class="math inline">\(x_j \in F_j\)</span> pour <span
+class="math inline">\(1 \leq j \leq p\)</span> et <span
+class="math inline">\(x_1+\ldots+x_p = 0.\)</span></p>
+<p>Alors, pour <span class="math inline">\(1 \leq j \leq p\)</span>,
+<span class="math display">\[\underbrace{\langle x_1 , x_j\rangle }_{=0}
++\ldots+\underbrace{\langle x_j , x_j\rangle
+}_{=\left\|x_j\right\|^2}+\ldots+\underbrace{\langle x_p , x_j\rangle
+}_{=0} = \underbrace{\langle 0 , x_j\rangle }_{=0}\]</span> donc <span
+class="math display">\[\left\|x_j\right\|^2 = 0\]</span> et <span
+class="math inline">\(x_1=\ldots=x_p = 0.\)</span> Donc <span
+class="math inline">\(F_1+\ldots+F_p\)</span> est directe.</p>
+</div>
+<div class="wrem">
+<ul>
+<li><p>Soit <span class="math inline">\((e_i)_{i \in I}\)</span> une
+base orthogonale de <span class="math inline">\(E\)</span> telle que
+<span class="math inline">\(I = \bigcap_{1 \leq i \leq p} I_j\)</span>
+avec <span class="math inline">\(I_{i} \cap I_j = \emptyset\)</span>
+pour <span class="math inline">\(i \neq j\)</span> (<span
+class="math inline">\((I_{j})_{1 \leq j \leq p}\)</span> est une
+partition de <span class="math inline">\(I\)</span>).</p>
+<p>Alors, en notant <span class="math inline">\(F_j =
+\mathop{\mathrm{Vect}}(e_i)_{i \in I_j}\)</span>, <span
+class="math inline">\(F_1+\ldots+F_p\)</span> est orthogonale telle que
+<span class="math inline">\(E = {\underset{1 \leq i \leq
+p}{\oplus^\perp}}F.\)</span></p></li>
+<li><p>Réciproquement, si <span class="math inline">\(E = {\underset{1
+\leq i \leq p}{\oplus^\perp}} F_i\)</span> alors en considérant <span
+class="math inline">\(\mathscr{B}_i\)</span> une base orthogonale de
+<span class="math inline">\(F_i\)</span> pour <span
+class="math inline">\(1 \leq i \leq p\)</span>, <span
+class="math inline">\(\mathscr{B}= (B_1,\ldots,\mathscr{B}_p)\)</span>
+est une base orthogonale de <span
+class="math inline">\(E\)</span>.</p></li>
+</ul>
+</div>
+<h1 data-number="3"
+id="projection-orthogonale-sur-un-sous-espace-vectoriel-de-dimension-finie"><span
+class="header-section-number">3</span> Projection orthogonale sur un
+sous-espace vectoriel de dimension finie</h1>
+<h2 data-number="3.1" id="définition-et-premières-propriétés"><span
+class="header-section-number">3.1</span> Définition et premières
+propriétés</h2>
+<div class="wprop">
+<p><span id="prop:verS_proj_ortho" label="prop:verS_proj_ortho"></span>
+Soit <span class="math inline">\(A\)</span> un sous-espace vectoriel de
+<span class="math inline">\(E\)</span> de dimension <span
+class="math inline">\(p \in \mathbb{N}\)</span>.</p>
+<p>Alors, <span class="math display">\[E = A \oplus
+A^\perp.\]</span></p>
+<p>De plus, soient <span class="math inline">\((e_1,\ldots,e_p)\)</span>
+une base orthonormée de <span class="math inline">\(A\)</span> et <span
+class="math inline">\(x \in E\)</span> tel que <span
+class="math inline">\(x = \underbrace{x_A}_{\in
+A}+\underbrace{x_{A^\perp}}_{\in A^\perp}\)</span> alors <span
+class="math display">\[x_A = \sum_{j=1}^p \langle x , e_j\rangle
+e_j.\]</span></p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(x \in E\)</span>, pour tout <span
+class="math inline">\(1 \leq i \leq p\)</span>, <span
+class="math display">\[\left\langle x-\sum_{j=1}^p \langle x ,
+e_j\rangle e_j , e_i\right\rangle  = \langle x , e_i\rangle
+-\sum_{j=1}^p \langle x , e_j\rangle \langle e_j , e_i\rangle  = \langle
+x , e_i\rangle -\langle x , e_i\rangle \langle e_i , e_i\rangle  =
+0.\]</span></p>
+<p>Donc <span class="math inline">\(x = \underbrace{\sum_{j=1}^p \langle
+x , e_j\rangle e_j}_{\in A}+\underbrace{x-\sum_{j=1}^p \langle x ,
+e_j\rangle e_j}_{\in A^\perp}\)</span> et <span class="math inline">\(E
+= A+A^\perp.\)</span></p>
+<p>De plus, <span class="math inline">\(A \cap A^\perp =
+\left\{0\right\}\)</span> donc <span class="math inline">\(E = A \oplus
+A^\perp.\)</span></p>
+</div>
+<div class="wrem">
+<p>On verra dans l’exercice <a href="#exoc:ortho_De_ortho"
+data-reference-type="ref"
+data-reference="exoc:ortho_De_ortho">[exoc:ortho_De_ortho]</a> que dans
+ce cas, <span class="math inline">\(A = A^{\perp \perp}.\)</span></p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(A\)</span> un sous-espace vectoriel
+de <span class="math inline">\(E\)</span> de dimension <span
+class="math inline">\(p \in \mathbb{N}\)</span>.</p>
+<ul>
+<li><p>On définit <span class="math display">\[\begin{array}{lllll}
+p_A &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; x &amp; \mapsto &amp; x_A \text{ avec }x=
+\underbrace{x_A}_{\in A}+\underbrace{x_{A^\perp}}_{\in A^\perp}
+\end{array}
+,\]</span> la projection sur <span class="math inline">\(A\)</span>
+parallèlement à <span class="math inline">\(A^\perp\)</span>, qui est
+appelée la projection orthogonale sur <span
+class="math inline">\(A\)</span>.</p>
+<p>Par la proposition <a href="#prop:verS_proj_ortho"
+data-reference-type="ref"
+data-reference="prop:verS_proj_ortho">[prop:verS_proj_ortho]</a>, soient
+<span class="math inline">\((e_1,\ldots,e_p)\)</span> une base
+orthonormée de <span class="math inline">\(A\)</span> et <span
+class="math inline">\(x \in E\)</span> alors <span
+class="math display">\[p_A(x) = \sum_{j=1}^p \langle x , e_j\rangle
+e_j.\]</span></p>
+<p>On définit aussi <span class="math display">\[\begin{array}{lllll}
+p_{A^\perp} &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; x &amp; \mapsto &amp; x_{A^\perp} \text{ avec }x=
+\underbrace{x_A}_{\in A}+\underbrace{x_{A^\perp}}_{\in A^\perp}
+\end{array}\]</span> qui est appelée la projection orthogonale sur <span
+class="math inline">\(A^\perp\)</span>.</p></li>
+<li><p>On définit <span class="math display">\[\begin{array}{lllll}
+s_A &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; x &amp; \mapsto &amp; x_A-x_{A^\perp} \text{ avec }x=
+\underbrace{x_A}_{\in A}+\underbrace{x_{A^\perp}}_{\in A^\perp}
+\end{array}
+,\]</span> la symétrie sur <span class="math inline">\(A\)</span>
+parallèlement à <span class="math inline">\(A^\perp\)</span>, qui est
+appelée la symétrie orthogonale sur <span
+class="math inline">\(A\)</span>.</p>
+<p>et <span class="math display">\[\begin{array}{lllll}
+s_{A^\perp} &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; x &amp; \mapsto &amp; -x_A+x_{A^\perp} \text{ avec }x=
+\underbrace{x_A}_{\in A}+\underbrace{x_{A^\perp}}_{\in A^\perp}
+\end{array}\]</span> qui est appelée la symétrie orthogonale sur <span
+class="math inline">\(A^\perp\)</span>.</p></li>
+</ul>
+</div>
+<div class="wrem">
+<ul>
+<li><p><span class="math inline">\(p_A+p_{A^\perp} =
+\mathop{\mathrm{Id}}\)</span>,</p></li>
+<li><p><span class="math inline">\(s_{A^\perp} = -s_A\)</span>,</p></li>
+<li><p><span class="math inline">\(s_A = 2p_A
+-\mathop{\mathrm{Id}}.\)</span></p></li>
+<li><p>Soit <span class="math inline">\(x \in E\)</span>, <span
+class="math inline">\(p_A(x)\)</span> est le seul élément vérifiant
+<span class="math inline">\(p_A(x) \in A\)</span> et <span
+class="math inline">\(\langle x - p_A(x),p_A(x) \rangle =
+0\)</span>.</p></li>
+<li><p><span class="math inline">\(\langle x - p_A(x),p_A(x) \rangle = 0
+\Longrightarrow \langle x,p_A(x) \rangle = \left\|p_A(x)\right\|^2 \geq
+0.\)</span></p></li>
+</ul>
+</div>
+<div class="wprop">
+<p><span id="prop:pythagore_et_projection"
+label="prop:pythagore_et_projection"></span> Soit <span
+class="math inline">\(A\)</span> un sous-espace vectoriel de <span
+class="math inline">\(E\)</span> de dimension finie.</p>
+<ul>
+<li><div class="webtextfigure">
+<div class="webtext">
+<p>En notant <span class="math inline">\(p_A\)</span> la projection
+orthogonale sur <span class="math inline">\(A\)</span>, <span
+class="math display">\[\left\|p_A(x)\right\| \leq
+\left\|x\right\|\]</span> avec égalité si et seulement si <span
+class="math inline">\(x \in A.\)</span></p>
+</div>
+<div class="webimg">
+<p><img src="projection_orthogonale_plan.png" alt="image" /></p>
+</div>
+</div></li>
+<li><div class="webtextfigure">
+<div class="webtext">
+<p>En notant <span class="math inline">\(p_A\)</span> la projection
+orthogonale sur <span class="math inline">\(A\)</span>, <span
+class="math display">\[\left\|s_A(x)\right\| =
+\left\|x\right\|.\]</span></p>
+</div>
+<div class="webimg">
+<p><img src="symetrie_orthogonale_plan.png" alt="image" /></p>
+</div>
+</div></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>Par Pythagore, (voir la figure de la proposition pour une
+illustration),</p>
+<p><span class="math display">\[\left\|x\right\|^2 =
+\left\|p_A(x)\right\|^2 +
+\|\underbrace{x-p_{A}(x)}_{=p_{A^\perp}(x)}\|^2\]</span></p>
+<p>donc <span class="math inline">\(\left\|x\right\|^2 \leq
+\left\|p_A(x)\right\|^2 \iff \left\|x\right\| \leq
+\left\|p_A(x)\right\|\)</span> avec égalité si et seulement si <span
+class="math inline">\(\left\|x-p_{A}(x)\right\| = 0\)</span> ie <span
+class="math inline">\(x=p_A(x) \in A.\)</span></p></li>
+<li><p>Par Pythagore, (voir la figure de la proposition pour une
+illustration), <span class="math display">\[\begin{aligned}
+        \left\|x\right\|^2 &amp; = \left\|p_A(x)\right\|^2 +
+\left\|p_{A^\perp}(x)\right\|^2 \\
+        \text{ et }
+        \left\|s_A(x)\right\|^2 &amp; = \left\|p_A(x)\right\|^2 +
+\left\|-p_{A^\perp}(x)\right\|^2 \\
+                \end{aligned}\]</span> donc <span
+class="math inline">\(\left\|s_A(x)\right\| =
+\left\|x\right\|.\)</span></p></li>
+</ul>
+</div>
+<div class="wrem">
+<ul>
+<li><p>De même, <span
+class="math inline">\(\left\|p_{A^{\perp}}(x)\right\| \leq
+\left\|x\right\|\)</span> avec égalité si et seulement si <span
+class="math inline">\(x \in A^\perp\)</span> et <span
+class="math inline">\(\left\|s_{A^{\perp}}(x)\right\| =
+\left\|x\right\|\)</span>.</p></li>
+<li><p>On a alors <span class="math inline">\(p_A\)</span> et <span
+class="math inline">\(s_A\)</span> qui sont <span
+class="math inline">\(1\)</span>-lispschitzienne ie <span
+class="math display">\[\forall x,y \in E, \left\|p_A(x-y)\right\| =
+\left\|p_A(x)-p_A(y)\right\| \leq \left\|x-y\right\|\]</span> et <span
+class="math display">\[\forall x,y \in E, \left\|s_A(x-y)\right\| =
+\left\|s_A(x)-s_A(y)\right\| = \left\|x-y\right\|.\]</span></p>
+<p>En particulier, <span
+class="math inline">\(\left|\!\left|\!\left|p_A\right|\!\right|\!\right|
+= 1\)</span> (sauf si <span class="math inline">\(A =
+\left\{0\right\}\)</span>) et <span
+class="math inline">\(\left|\!\left|\!\left|s_A\right|\!\right|\!\right|
+= 1\)</span>.</p></li>
+</ul>
+</div>
+<div class="wexoc">
+<p>Soient <span class="math inline">\(A,B\)</span> deux sous-espaces
+vectoriels de <span class="math inline">\(E\)</span> de dimension
+quelconque tels que <span class="math inline">\(E = A\oplus
+F\)</span>.</p>
+<ul>
+<li><p>Soit <span class="math inline">\(\begin{array}{lllll}
+p &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; x &amp; \mapsto &amp; x_A \text{ avec }x =
+\underbrace{x_A}_{\in A}+ \underbrace{x_B}_{\in B}
+\end{array}\)</span>, la projection sur <span
+class="math inline">\(A\)</span> parallèlement à <span
+class="math inline">\(B\)</span>.</p>
+<p>Montrer <span class="math display">\[\forall x \in E,
+\left\|p(x)\right\| \leq \left\|x\right\| \iff B = A^\perp\]</span> (ie
+<span class="math inline">\(p\)</span> est la projection orthogonale sur
+<span class="math inline">\(A\)</span>).</p></li>
+<li><p>Soit <span class="math inline">\(\begin{array}{lllll}
+s &amp; : &amp; E &amp; \to &amp; E \\
+   &amp;   &amp; x &amp; \mapsto &amp; x_A-x_B \text{ avec }x =
+\underbrace{x_A}_{\in A}+ \underbrace{x_B}_{\in B}
+\end{array}\)</span>, la symétrie sur <span
+class="math inline">\(A\)</span> parallèlement à <span
+class="math inline">\(B\)</span>.</p>
+<p>Montrer <span class="math display">\[\forall x \in E,
+\left\|s(x)\right\| = \left\|x\right\| \iff B = A^\perp\]</span> (ie
+<span class="math inline">\(s\)</span> est la symétrie orthogonale sur
+<span class="math inline">\(A\)</span>).</p></li>
+</ul>
+<details><summary>Corrigé</summary>
+<ol>
+<li><ul>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> est donné
+par la proposition <a href="#prop:pythagore_et_projection"
+data-reference-type="ref"
+data-reference="prop:pythagore_et_projection">[prop:pythagore_et_projection]</a>
+(on peut remarquer que la dimension de <span
+class="math inline">\(A\)</span> n’est utilisée que pour l’existence de
+<span class="math inline">\(p_A\)</span>, ie <span
+class="math inline">\(E = A \oplus A^\perp\)</span>).</p></li>
+<li><p><span class="math inline">\((\Longrightarrow).\)</span> Soient
+<span class="math inline">\(a \in A\)</span> et <span
+class="math inline">\(b \in B\)</span> alors</p>
+<p><span class="math inline">\(\left\|a+b\right\|^2 =
+\left\|a\right\|^2+\left\|b\right\|^2+2\langle a , b\rangle\)</span> et
+<span class="math inline">\(\left\|p(a+b)\right\|^2 = \left\|a\right\|^2
+\leq \left\|a+b\right\|^2.\)</span></p>
+<p>Donc <span class="math inline">\(\left\|b\right\|^2+2\langle a ,
+b\rangle  \geq 0\)</span>.</p>
+<p>En remplaçant <span class="math inline">\(a\)</span> par <span
+class="math inline">\(\lambda a\)</span> avec <span
+class="math inline">\(\lambda \in \mathbb{R}\)</span>, on a donc <span
+class="math inline">\(\left\|b\right\|^2+2\lambda\langle a ,
+b\rangle  \geq 0\)</span>.</p>
+<p><span class="math inline">\(\lambda \in \mathbb{R}\mapsto
+2\lambda\langle a , b\rangle\)</span> est donc une fonction affine
+toujours positive, ce qui implique <span class="math inline">\(\langle a
+, b\rangle  = 0\)</span>.</p>
+<p>On en déduit <span class="math inline">\(B \perp A\)</span> donc
+<span class="math inline">\(B \subset A^\perp\)</span>.</p>
+<p>Montrons l’inclusion inverse. Soit <span class="math inline">\(x \in
+A^\perp\)</span> alors on le décompose en <span class="math inline">\(x
+= \underbrace{x_A}_{\in A}+ \underbrace{x_B}_{\in B}.\)</span></p>
+<p>On a alors <span class="math inline">\(0 = \langle x , x_A\rangle  =
+\underbrace{\langle x_A , x_A\rangle
+}_{=\left\|x_A\right\|^2}+\underbrace{\langle x_B , x_A\rangle
+}_{\substack{=0 \\ \text{ car $B \subset A^\perp$}}}\)</span> donc <span
+class="math inline">\(x_A = 0\)</span> et <span
+class="math inline">\(x=x_B \in B\)</span>.</p>
+<p>On en déduit donc bien finalement <span class="math inline">\(B =
+A^\perp\)</span>.</p></li>
+</ul></li>
+<li><ul>
+<li><p><span class="math inline">\((\Longleftarrow)\)</span> est donné
+par la proposition <a href="#prop:pythagore_et_projection"
+data-reference-type="ref"
+data-reference="prop:pythagore_et_projection">[prop:pythagore_et_projection]</a>
+(on peut remarquer que la dimension de <span
+class="math inline">\(A\)</span> n’est utilisée que pour l’existence de
+<span class="math inline">\(s_A\)</span>, ie <span
+class="math inline">\(E = A \oplus A^\perp\)</span>).</p></li>
+<li><p><span class="math inline">\((\Longrightarrow).\)</span></p>
+<p>En reprenant la projection de la question précédente, <span
+class="math inline">\(s = 2p-\mathop{\mathrm{Id}}\iff p =
+\frac{s+\mathop{\mathrm{Id}}}{2}\)</span>.</p>
+<p>Donc pour tout <span class="math inline">\(x \in E\)</span>, <span
+class="math inline">\(\left\|p(x)\right\| =
+\frac{1}{2}\left\|s(x)+x\right\| \leq
+\frac{1}{2}(\left\|s(x)\right\|+\left\|x\right\|) =
+\left\|x\right\|.\)</span></p>
+<p>Donc, par la question précédente, <span class="math inline">\(B =
+A^\perp.\)</span></p></li>
+</ul></li>
+</ol>
+</details>
+</div>
+<h2 data-number="3.2"
+id="distance-à-un-sous-espace-vectoriel-de-dimension-finie"><span
+class="header-section-number">3.2</span> Distance à un sous-espace
+vectoriel de dimension finie</h2>
+<div class="wprop">
+<div class="webtextfigure">
+<div class="webtext">
+<p>Soit <span class="math inline">\(A\)</span> un sous-espace vectoriel
+de <span class="math inline">\(E\)</span> de dimension finie.</p>
+<p>Alors, <span class="math inline">\(E = A \oplus A^\perp\)</span> par
+la proposition <a href="#prop:verS_proj_ortho" data-reference-type="ref"
+data-reference="prop:verS_proj_ortho">[prop:verS_proj_ortho]</a> et on
+note <span class="math inline">\(p_A\)</span> et <span
+class="math inline">\(p_{A^\perp}\)</span> les projections orthogonales
+sur <span class="math inline">\(A\)</span> et <span
+class="math inline">\(A^\perp.\)</span></p>
+<p>Alors, soit <span class="math inline">\(x \in E\)</span>, <span
+class="math display">\[d(x,A) = \inf_{a \in A}\left\|x-a\right\| =
+\left\|x-p_A(x)\right\| = \left\|p_{A^\perp}(x)\right\|.\]</span> De
+plus, <span class="math inline">\(d(x,A)\)</span> n’est atteinte qu’en
+<span class="math inline">\(p_A(x).\)</span></p>
+</div>
+<div class="webimg">
+<p><img src="distance_sous_espace_projection_orthogonale.png"
+alt="image" /></p>
+</div>
+</div>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(a \in A\)</span> alors <span
+class="math inline">\(x-a = \underbrace{x-p_A(x)}_{\in A^\perp} +
+\underbrace{p_A(x)-a}_{\in A}.\)</span></p>
+<p>On en déduit donc par Pythagore, <span
+class="math display">\[\left\|x-a\right\|^2 =
+\left\|x-p_A(x)\right\|^2+\left\|p_A(x)-a\right\|^2\]</span> puis <span
+class="math display">\[\left\|x-p_A(x)\right\| \leq
+\left\|x-a\right\|\]</span> avec égalité si et seulement si <span
+class="math inline">\(\left\|p_A(x)-a\right\|^2 = 0 \iff
+\left\|p_A(x)-a\right\| = 0 \iff a=p_A(x).\)</span></p>
+</div>
+<div class="wrem">
+<ul>
+<li><p>On aussi <span class="math inline">\(d(x,A^\perp) = \left\|x -
+p_{A^\perp}(x)\right\| = \left\|p_A(x)\right\|\)</span> et cette
+distance est atteinte seulement en <span
+class="math inline">\(p_{A^\perp}(x).\)</span></p></li>
+<li><p>Par Pythargore, <span class="math inline">\(\left\|x\right\|^2 =
+\left\|p_{A}(x)\right\|^2+\left\|p_{A^\perp}(x)\right\|^2 =
+d(x,A)^2+d(x,A^\perp)^2.\)</span></p></li>
+<li><p>Soit <span class="math inline">\((e_1,\ldots,e_p)\)</span> une
+base orthonormée de <span class="math inline">\(A\)</span> alors <span
+class="math inline">\(p_A(x) = \sum_{j=1}^p \langle x,e_j \rangle
+e_j\)</span> et <span class="math inline">\(p_{A^\perp}(x) = x-
+\sum_{j=1}^p \langle x,e_j \rangle e_j\)</span> donc <span
+class="math display">\[d(x,A) = \sum_{j=1}^p \langle x,e_j \rangle^2
+\text{ et }d(x,A^\perp) =
+\sqrt{\left\|x\right\|^2-\left\|p_A(x)\right\|^2} =
+\sqrt{\left\|x\right\|^2-\sum_{j=1}^p \langle x,e_j
+\rangle^2}.\]</span></p></li>
+</ul>
+</div>
+<div class="wex">
+<ul>
+<li><p>Si <span class="math inline">\(A =
+\mathop{\mathrm{Vect}}(a)\)</span> avec <span class="math inline">\(a
+\neq 0\)</span> est une droite alors <span class="math inline">\(A^\perp
+= \mathop{\mathrm{Ker}}\varphi_a\)</span> (avec <span
+class="math inline">\(\varphi_a : x \in E \mapsto \langle a,x
+\rangle\)</span>) est un hyperplan.</p>
+<p>De plus, <span
+class="math inline">\(\left(\frac{a}{\left\|a\right\|}\right)\)</span>
+est une base orthonormée de <span class="math inline">\(A\)</span> donc
+soit <span class="math inline">\(x \in E\)</span>, <span
+class="math display">\[\begin{aligned}
+            p_A(x) &amp; = \langle x , \frac{a}{\left\|a\right\|}\rangle
+\frac{a}{\left\|a\right\|} = \frac{\langle x , a\rangle }{\langle a ,
+a\rangle }a, \\
+            p_{A^\perp}(x) &amp; = x-p_A(x) = x-\frac{\langle x ,
+a\rangle }{\langle a , a\rangle }a, \\
+            \text{donc } d(x,A^\perp) &amp;  = \left\|p_A(x)\right\| =
+\frac{\left|\langle x , a\rangle \right|}{\langle a , a\rangle
+}\left\|a\right\| =    \frac{\left|\langle x , a\rangle
+\right|}{\left\|a\right\|} \\
+            \text{ puis }   \left\|x\right\|^2 &amp; =
+\left\|p_{A}(x)\right\|^2+\left\|p_{A^\perp}(x)\right\|^2
+            \\
+            \text{ donc } d(x,A) &amp; = \left\|p_{A^\perp}\right\| =
+\sqrt{\left\|x\right\|^2-\frac{\left|\langle x , a\rangle
+\right|^2}{\langle a , a\rangle }}
+        \end{aligned}\]</span></p></li>
+<li><p>On donne un exemple concret du point précédent avec <span
+class="math inline">\(E = \mathbb{R}^3\)</span> muni du produit scalaire
+canonique <span class="math inline">\(\langle
+\cdot,\cdot\rangle\)</span> pour <span class="math inline">\(A =
+\mathop{\mathrm{Vect}}(a)\)</span> avec <span class="math inline">\(a =
+\begin{pmatrix}
+            2 \\ 1 \\ -2
+        \end{pmatrix}\)</span> et <span class="math inline">\(x =
+\begin{pmatrix}
+            1 \\ 1 \\ 1
+        \end{pmatrix}.\)</span></p>
+<p>On a alors <span class="math inline">\(H = a^\perp = \left\{X =
+\begin{pmatrix}
+            x \\y \\ z
+        \end{pmatrix} / \langle X , a\rangle  = 2x+y-2z =
+0\right\}\)</span> qui est un hyperplan donné par l’équation (dans le
+base canonique) <span class="math inline">\(2x+y-2z=0\)</span>.</p>
+<p>Puis, on a <span class="math inline">\(\left\|a\right\| =
+\sqrt{4+1+4} = 3.\)</span></p>
+<p>Donc <span class="math display">\[\begin{aligned}
+            p_A(x) &amp; = \frac{\langle x , a\rangle }{\langle a ,
+a\rangle }a = \frac{1}{9}\begin{pmatrix}
+            2 \\ 1 \\ -2
+        \end{pmatrix} \\
+        p_{A^\perp}(x) &amp; = x-p_A(x) = \frac{1}{9}\begin{pmatrix}
+            7 \\ 8 \\ 11
+        \end{pmatrix} , \\
+            \text{donc } d(x,A^\perp) &amp;  = \left\|p_A(x)\right\| =
+\frac{3}{9} = \frac{1}{3}\\
+            \text{ puis } d(x,A) &amp; = \left\|p_{A^\perp}\right\| =
+\frac{\sqrt{49+64+121}}{9} =\frac{\sqrt{26}}{3}.
+        \end{aligned}\]</span></p></li>
+</ul>
+</div>
+<h2 data-number="3.3" id="discussion-du-cas-de-dimension-infinie"><span
+class="header-section-number">3.3</span> Discussion du cas de dimension
+infinie</h2>
+<p>Dans le cas où <span class="math inline">\(A\)</span> est un
+sous-espace vectoriel de <span class="math inline">\(E\)</span> de
+dimension infinie, il se peut que <span class="math inline">\(E \neq A
+{\underset{}{\oplus^\perp}} A^\perp.\)</span></p>
+<p>Un cas extrême est un cas où <span class="math inline">\(\overline{A}
+= E\)</span> (<span class="math inline">\(A\)</span> est dense dans
+<span class="math inline">\(E\)</span>) car dans ce cas, par
+l’exercice <a href="#exoc:ortho_Adherence" data-reference-type="ref"
+data-reference="exoc:ortho_Adherence">[exoc:ortho_Adherence]</a>, <span
+class="math inline">\(A^\perp = \overline{A}^\perp = E^\perp =
+\left\{0\right\}\)</span> et <span class="math inline">\(E = A
+{\underset{}{\oplus^\perp}} A^\perp \iff A=E.\)</span></p>
+<div class="wex">
+<ul>
+<li><p>Dans l’espace préhilbertien <span class="math inline">\(E =
+\mathscr{C}([a,b],\mathbb{R})\)</span> muni de <span
+class="math inline">\(\langle \cdot,\cdot\rangle\)</span> tel que <span
+class="math inline">\(\langle f , g\rangle  = \int_a^b
+f(t)g(t)dt\)</span> pour <span class="math inline">\(f,g \in E\)</span>,
+on considère <span class="math inline">\(A\)</span> le sous-espace
+vectoriel des fonctions polynomiales.</p>
+<p>On a alors <span class="math inline">\(\overline{A} = E\)</span>. En
+effet, par théorème de Weierstrass, soit <span class="math inline">\(f
+\in E\)</span>, il existe <span
+class="math inline">\(\left(p_n\right)_{n \geq 0}\)</span> une suite de
+<span class="math inline">\(A\)</span> telle que <span
+class="math inline">\(\left\|f-p_n\right\|_{\infty,[a,b]} \xrightarrow[n
+\to +\infty]{} 0.\)</span></p>
+<p>Or, <span class="math inline">\(\left\|p_n-f\right\|^2 = \int_a^b
+\left(p_n(t)-f(t)\right)^2dt \leq
+(b-a)\left\|f-p_n\right\|_{\infty,[a,b]}^2 \xrightarrow[n \to +\infty]{}
+0.\)</span></p>
+<p>Donc <span class="math inline">\(p_n \xrightarrow[n \to
++\infty]{\left\|\cdot\right\|} f.\)</span></p>
+<p>On a donc un exemple tel que <span class="math inline">\(A^\perp =
+\overline{A}^\perp = \left\{0\right\}\)</span> et <span
+class="math inline">\(A \neq E\)</span> donc <span
+class="math inline">\(E \neq A {\underset{}{\oplus^\perp}}
+A^\perp.\)</span></p></li>
+</ul>
+</div>
+<p>Malgré tout, si <span class="math inline">\(A\)</span> vérifie <span
+class="math inline">\(E \neq A {\underset{}{\oplus^\perp}}
+A^\perp,\)</span> toutes les propriétés précédents sont conservées (en
+particulier l’existence de <span class="math inline">\(p_A\)</span> et
+l’écriture de la distance à <span class="math inline">\(A\)</span> à
+l’aide de <span class="math inline">\(p_A\)</span>).</p>
+<div class="wexoc">
+<p><span id="exoc:ortho_De_ortho" label="exoc:ortho_De_ortho"></span>
+Soient <span class="math inline">\(A,B\)</span> deux sous-espaces
+vectoriels de dimension quelconque tels que <span
+class="math inline">\(E = A {\underset{}{\oplus^\perp}} B\)</span>.</p>
+<p>Montrer que <span class="math inline">\(B = A^\perp\)</span> et <span
+class="math inline">\(A = B^\perp\)</span>.</p>
+<div class="wrem">
+<p>En particulier, <span class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span> sont fermés.</p>
+</div>
+<details><summary>Corrigé</summary>
+<p>Comme <span class="math inline">\(A\)</span> et <span
+class="math inline">\(B\)</span> jouent un rôle symétrique, il suffit de
+montrer <span class="math inline">\(A = B^\perp\)</span>. On procède par
+double-inclusion.</p>
+<ul>
+<li><p>D’abord, <span class="math inline">\(A \perp B\)</span> (comme la
+somme est orthogonale) donc <span class="math inline">\(A \subset
+B^\perp.\)</span></p></li>
+<li><p>Soit <span class="math inline">\(x \in B^\perp\)</span>, on le
+décompose en <span class="math inline">\(x = \underbrace{x_A}_{\in A}+
+\underbrace{x_B}_{\in B}.\)</span> Alors, <span class="math inline">\(0
+= \langle x , x_B\rangle  = \underbrace{\langle x_A , x_B\rangle
+}_{\substack{ = 0 \\ \text{ car $A \perp B$}}} +
+\left\|x_B\right\|^2.\)</span></p>
+<p>Donc <span class="math inline">\(\left\|x_B\right\|^2 = 0 \iff x_B =
+0 \iff x = x_A \in A\)</span> et on en déduit <span
+class="math inline">\(B^\perp \subset A.\)</span></p></li>
+</ul>
+<div class="wrem">
+<ul>
+<li><p>Dans ce cas, <span class="math inline">\(A = A^{\perp
+\perp}\)</span> (avec <span class="math inline">\(B = A^\perp\)</span>,
+<span class="math inline">\(A = B^\perp\)</span>).</p></li>
+<li><p>Pour <span class="math inline">\(H\)</span> un hyperplan de <span
+class="math inline">\(E\)</span>, <span
+class="math inline">\(H^\perp\)</span> n’est pas forcément une droite.
+En effet, cela implique <span class="math inline">\(E = H
+{\underset{}{\oplus^\perp}} H^\perp\)</span> donc <span
+class="math inline">\(H = H^{\perp \perp}\)</span> puis que <span
+class="math inline">\(H\)</span> soit un fermé (ce qui n’est pas le cas
+de tous les hyperplans en dimension infinie !).</p></li>
+</ul>
+</div>
+</details>
+</div>
+<h1 data-number="4" id="algorithme-de-gram-schmidt"><span
+class="header-section-number">4</span> Algorithme de Gram-Schmidt</h1>
+<h2 data-number="4.1" id="algorithme"><span
+class="header-section-number">4.1</span> Algorithme</h2>
+<p>La preuve de la proposition suivante (ou l’exemple qui suit) est tout
+aussi importante que son énoncé. Elle applique une méthode appelée
+l’algorithme de Gram-Schmidt.</p>
+<div class="wprop">
+<p><span id="prop:algo_Gram_Schmidt"
+label="prop:algo_Gram_Schmidt"></span> Soit <span
+class="math inline">\((e_1,\ldots,e_n)\)</span> une famille libre
+<u>quelconque</u> de <span class="math inline">\(E\)</span>.</p>
+<p>Alors, il existe <span
+class="math inline">\((v&#39;_1,\ldots,v&#39;_n)\)</span> famille
+orthogonale de vecteurs non nuls de <span
+class="math inline">\(E\)</span> telle que pour tout <span
+class="math inline">\(1 \leq k \leq n\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_k) =
+\mathop{\mathrm{Vect}}(v&#39;_1,\ldots,v&#39;_k)\)</span></p>
+<p>et <span class="math inline">\((v_1,\ldots,v_n)\)</span> telle que
+<span class="math inline">\(v_i =
+\frac{1}{\left\|v&#39;_i\right\|}v&#39;_i\)</span> pour <span
+class="math inline">\(1 \leq i \leq n\)</span> est une famille
+orthonormée de <span class="math inline">\(E\)</span> telle que pour
+tout <span class="math inline">\(1 \leq k \leq n\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_k) =
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_k)\)</span>.</p>
+</div>
+<div class="wproof">
+<p>Construisons pas à pas <span
+class="math inline">\((v_1,\ldots,v_n)\)</span>.</p>
+<ul>
+<li><p>(1) Pour <span class="math inline">\(v_1\)</span>, il suffit de
+prendre <span class="math inline">\(v_1 =
+\frac{1}{\left\|e_1\right\|}e_1\)</span>, de sorte que <span
+class="math inline">\(\left(v_1\right)\)</span> est orthonormée et <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_1) =
+\mathop{\mathrm{Vect}}(v_1)\)</span>.</p></li>
+<li><p>⋮</p></li>
+<li><p><span class="math inline">\((k+1).\)</span></p>
+<div class="webtextfigure">
+<div class="webtext">
+<p>Supposons que l’on a construit <span
+class="math inline">\((v_1,\ldots,v_k)\)</span> famille orthonormée
+telle que pour <span class="math inline">\(1 \leq i \leq k\)</span>,
+<span class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_i) =
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_i)\)</span>.</p>
+<p>On pose <span class="math inline">\(F_k =
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_k)\)</span> et on considère <span
+class="math inline">\(v&#39;_{k+1} =
+e_{k+1}-p_{F_k}(e_{k+1})\)</span>.</p>
+<p>Alors, <span
+class="math inline">\((v_1,\ldots,v_k,v&#39;_{k+1})\)</span> est
+orthogonale (car <span class="math inline">\(v&#39;_{k+1} =
+e_{k+1}-p_{F_k}(e_{k+1}) \in F_k^{\perp}\)</span>).</p>
+</div>
+<div class="webimg">
+<p><img src="gram_schmidt_projection.png" alt="image" /></p>
+</div>
+</div>
+<p>Donc <span class="math inline">\((v_1,\ldots,v_k,v_{k+1})\)</span>
+est orthonormée avec <span class="math inline">\(v_{k+1} =
+\frac{1}{\left\|v&#39;_{k+1}\right\|}v&#39;_{k+1}\)</span>.</p>
+<p>Il reste à vérifier que <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_k,e_{k+1}) =
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_k,v_{k+1})\)</span>.</p>
+<p>Or, <span
+class="math inline">\(\mathop{\mathrm{Vect}}(v_1,\ldots,v_k) =
+\mathop{\mathrm{Vect}}(e_1,\ldots,e_k)\)</span>.</p>
+<p>De plus, <span class="math inline">\(v_{k+1} =
+\frac{1}{v&#39;_{k+1}}\left(e_{k+1}-\underbrace{p_{F_k}(e_{k+1})}_{\in
+\mathop{\mathrm{Vect}}(e_1,\ldots,e_k)}\right) \in
+\mathop{\mathrm{Vect}}(e_1,\ldots,e_{k+1})\)</span> donc <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_k,e_{k+1})
+\supset \mathop{\mathrm{Vect}}(v_1,\ldots,v_k,v_{k+1})\)</span>.</p>
+<p>Enfin, <span class="math inline">\(\dim
+\mathop{\mathrm{Vect}}(e_1,\ldots,e_k,e_{k+1})  =
+\dim  \mathop{\mathrm{Vect}}(v_1,\ldots,v_k,v_{k+1}) = k+1\)</span> donc
+on a bien <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_k,e_{k+1}) =
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_k,v_{k+1})\)</span>.</p>
+<div class="wrem">
+<p>Comme <span class="math inline">\(F_k =
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_k)\)</span> et que <span
+class="math inline">\((v_1,\ldots,v_k)\)</span> est orthonormée, <span
+class="math inline">\(p_{F_k}(v) = \sum_{i=1}^k (v \mid
+v_i)v_i\)</span>.</p>
+</div></li>
+<li><p>⋮</p></li>
+<li><p>(<span class="math inline">\(n\)</span>) A l’étape <span
+class="math inline">\(n\)</span>, on a construit une famille orthonormée
+qui vérifie <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_1,\ldots,e_n) =
+\mathop{\mathrm{Vect}}(v_1,\ldots,v_n).\)</span></p></li>
+</ul>
+</div>
+<div class="wrem">
+<ul>
+<li><p>Avec <span class="math inline">\(v&#39;_1 = e_1\)</span>, pour
+<span class="math inline">\(1 \leq k \leq n\)</span>,<span
+class="math inline">\(\langle v&#39;_k, e_k\rangle &gt; 0\)</span> car
+pour <span class="math inline">\(k \geq 2,\)</span> <span
+class="math inline">\(v&#39;_{k} = e_k - p_{F_{k-1}}(e_k)\)</span> donc
+<span class="math inline">\(\langle v&#39;_k, e_k\rangle =
+\left\|e_k\right\|^2-\underbrace{\langle p_{F_{k-1}}(e_k),
+e_k\rangle}_{=0}\)</span> et pour <span
+class="math inline">\(k=1\)</span>, <span class="math inline">\(v&#39;_k
+= e_k.\)</span></p></li>
+<li><p>Si <span class="math inline">\(\dim E = n\)</span>, on a deux
+bases et on remarque, avec <span class="math inline">\(v&#39;_1 =
+e_1\)</span>, <span class="math display">\[\forall 2 \leq k \leq n,
+v&#39;_{k} = e_{k} - p_{F_{k-2}}(e_{k})\]</span> et <span
+class="math inline">\(v&#39;_1 = e_1\)</span> donc la matrice de passage
+de <span class="math inline">\(\mathscr{B}= (e_1,\ldots,e_n)\)</span> à
+<span class="math inline">\(\mathscr{B}&#39; =
+(v&#39;_1,\ldots,v&#39;_n)\)</span> s’écrit <span
+class="math display">\[p_{\mathscr{B},\mathscr{B}&#39;} =
+\begin{pmatrix}
+    1 &amp;  &amp; &amp;  &amp;  \\
+     &amp; \ddots &amp;  &amp; ?? &amp;  \\
+     &amp;  &amp; \ddots &amp;  &amp;  \\
+     &amp; (0) &amp;  &amp; \ddots &amp;  \\
+     &amp; &amp;  &amp;  &amp;1 \\
+\end{pmatrix}\]</span> et celle de <span
+class="math inline">\(\mathscr{B}= (e_1,\ldots,e_n)\)</span> à <span
+class="math inline">\(\mathscr{B}&#39;&#39; = (v_1,\ldots,v_n)\)</span>,
+<span class="math display">\[p_{\mathscr{B},\mathscr{B}&#39;&#39;} =
+\begin{pmatrix}
+    \frac{1}{\left\|v&#39;_1\right\|} &amp;  &amp; &amp;  &amp;  \\
+     &amp; \ddots &amp;  &amp; ?? &amp;  \\
+     &amp;  &amp; \ddots &amp;  &amp;  \\
+     &amp; (0) &amp;  &amp; \ddots &amp;  \\
+     &amp; &amp;  &amp;  &amp; \frac{1}{\left\|v&#39;_n\right\|} \\
+\end{pmatrix}\]</span> puis sont inverse <span
+class="math display">\[p_{\mathscr{B}&#39;&#39;,\mathscr{B}} =
+\begin{pmatrix}
+    \left\|v&#39;_1\right\| &amp;  &amp; &amp;  &amp;  \\
+     &amp; \ddots &amp;  &amp; ?? &amp;  \\
+     &amp;  &amp; \ddots &amp;  &amp;  \\
+     &amp; (0) &amp;  &amp; \ddots &amp;  \\
+     &amp; &amp;  &amp;  &amp; \left\|v&#39;_n\right\| \\
+\end{pmatrix}.\]</span></p></li>
+</ul>
+</div>
+<div class="wex">
+<p><span id="ex:petit_Ex_polynomes"
+label="ex:petit_Ex_polynomes"></span> Dans <span class="math inline">\(E
+= \mathbb{R}_2[X]\)</span>, <span
+class="math inline">\(\begin{array}{lllll}
+\varphi &amp; : &amp; E \times E &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; (P,Q) &amp; \mapsto &amp; P(0)Q(0)+P(1)Q(1)+P(2)Q(2)
+\end{array}\)</span> est un produit scalaire.</p>
+<p>En effet,</p>
+<ul>
+<li><p><span class="math inline">\(\varphi\)</span> est clairement
+symétrique,</p></li>
+<li><p><span class="math inline">\(\varphi\)</span> est linéaire à
+gauche car pour <span class="math inline">\(P_1,P_2 \in E\)</span> et
+<span class="math inline">\(\lambda \in \mathbb{R}\)</span>, <span
+class="math display">\[\varphi(P_1+\lambda P_2,Q)  =
+\varphi(P_1,Q)+\lambda \varphi(P_2,Q).\]</span></p></li>
+<li><p><span class="math inline">\(\varphi\)</span> est définie positive
+car pour <span class="math inline">\(P \in \mathbb{R}_2[X]\)</span>,
+<span class="math inline">\(\varphi(P,P) = P(0)^2+P(1)^2+P(2)^2 \geq
+0\)</span> et <span class="math inline">\(\varphi(P,P) = 0\)</span>
+implique <span class="math inline">\(P(0) = P(1) = P(2) = 0\)</span>
+(comme somme de réels positifs) donc <span
+class="math inline">\(P\)</span> admet trois racines distinctes malgré
+<span class="math inline">\(\deg(P) \leq 2\)</span> donc <span
+class="math inline">\(P = 0\)</span>.</p></li>
+</ul>
+<p>Appliquons l’algorithme de Gram-Schmidt à <span
+class="math inline">\((1,X,X^2)\)</span>. On construit <span
+class="math inline">\((v_1,v_2,v_3)\)</span>.</p>
+<ol>
+<li><p>D’abord, <span class="math inline">\(v_1 =
+\frac{1}{\left\|1\right\|}1 = \frac{1}{\sqrt{3}}\)</span>.</p></li>
+<li><p>Ensuite, <span class="math inline">\(v&#39;_2 = X-
+p_{F_1}(X)\)</span> avec <span class="math inline">\(F_1 =
+\mathop{\mathrm{Vect}}(v_1)\)</span> et <span
+class="math inline">\((v_1)\)</span> orthonormée.</p>
+<p>On a donc <span class="math inline">\(p_{F_1}(X) = \varphi(X,v_1).v_1
+= \frac{3}{\sqrt{3}}.\frac{1}{\sqrt{3}} = 1\)</span> puis <span
+class="math inline">\(v&#39;_2 = X-1\)</span></p>
+<p>et <span class="math inline">\(v_2 =
+\frac{1}{\left\|v&#39;_2\right\|}v&#39;_2 =
+\frac{1}{\sqrt{2}}\left(X-1\right)\)</span>.</p></li>
+<li><p>Enfin, <span class="math inline">\(v&#39;_3 = X-
+p_{F_2}(X^2)\)</span> avec <span class="math inline">\(F_2 =
+\mathop{\mathrm{Vect}}(v_1,v_2)\)</span> et <span
+class="math inline">\((v_1,v_2)\)</span> orthonormée.</p>
+<p>On a donc <span class="math display">\[\begin{aligned}
+            p_{F_2}(X^2)
+            &amp; = \varphi(X^2,v_1).v_1+\varphi(X^2,v_2).v_2 \\
+            &amp;
+=  \varphi(X^2,\frac{1}{\sqrt{3}}).\frac{1}{\sqrt{3}}+\varphi(X^2,\frac{X-1}{\sqrt{2}}).\frac{X-1}{\sqrt{2}}
+\\
+            &amp;
+=  \frac{1}{3}\varphi(X^2,1)+\frac{1}{2}\varphi(X^2,X-1)(X-1) \\
+            &amp; =  \frac{5}{3}+\frac{4}{2}(X-1) \\
+            &amp;  = 2X-\frac{1}{3}
+        \end{aligned}\]</span></p>
+<p>puis <span class="math inline">\(v&#39;_3 =
+X^2-2X+\frac{1}{3}\)</span></p>
+<p>et <span class="math inline">\(\left\|v&#39;_3\right\|^2 =
+\frac{1}{9}+\frac{4}{9}+\frac{1}{9} = \frac{6}{9} = \frac{2}{3}\)</span>
+donc <span class="math inline">\(v_3 =
+\frac{1}{\left\|v&#39;_3\right\|}v&#39;_3=
+\sqrt{\frac{3}{2}}\left(X^2-2X+\frac{1}{3}\right)\)</span>.</p></li>
+</ol>
+</div>
+<h2 data-number="4.2" id="application-aux-polynômes-orthogonaux"><span
+class="header-section-number">4.2</span> Application aux polynômes
+orthogonaux</h2>
+<p>Dans le cas où <span class="math inline">\(E = \mathbb{R}[X]\)</span>
+(où <span class="math inline">\(E = \mathscr{P}(I,\mathbb{R})\)</span>
+les fonctions polyomiales sur <span class="math inline">\(I\)</span>),
+on peut appliquer l’algorithme de Gram-Schmidt <span
+class="math inline">\((X^n)_{n \geq 0}.\)</span> On construit alors
+<span class="math inline">\(\left(P_n\right)_{n \geq 0}\)</span> pour
+qu’elle soit orthogonale et <span
+class="math inline">\(\left(Q_n\right)_{n \geq 0}\)</span> pour qu’elle
+soit orthonormée (à l’image de l’exemple <a
+href="#ex:petit_Ex_polynomes" data-reference-type="ref"
+data-reference="ex:petit_Ex_polynomes">[ex:petit_Ex_polynomes]</a>) tel
+que</p>
+<ul>
+<li><p><span class="math inline">\(P_0 = 1\)</span> et <span
+class="math inline">\(Q_0 = \frac{P_0}{\left\|P_0\right\|}\)</span> en
+normalisant qui sont de degré <span
+class="math inline">\(0\)</span>.</p></li>
+<li><p>Puis pour <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span>, en supposant <span
+class="math inline">\(\deg(P_k) = \deg(Q_k) = k\)</span> pour tout <span
+class="math inline">\(k \leq n-1\)</span> alors <span
+class="math inline">\(\mathop{\mathrm{Vect}}(P_0,\ldots,P_{n-1}) =
+\mathop{\mathrm{Vect}}(Q_0,\ldots,Q_{n-1}) =
+\mathbb{R}_{n-1}[X]\)</span> et <span
+class="math display">\[\begin{aligned}
+    P_n
+    &amp; = X^n - \sum_{i=0}^{n-1} \langle Q_i , X^n\rangle Q_i \\
+    &amp; = X^n - \sum_{i=0}^{n-1}\frac{\langle P_i , X^n\rangle
+}{\langle P_i , P_i\rangle }P_i \\
+    &amp; = X^n - p_{\mathop{\mathrm{Vect}}(Q_0,\ldots,Q_{n-1})}(X^n) \\
+    &amp; = X^n - \underbrace{P_{\mathbb{R}_{n-1}[X]}(X^n)}_{\text{ de
+degré $\leq n-1$}}
+    \end{aligned}\]</span> et <span class="math inline">\(Q_n =
+\frac{P_n}{\left\|P_n\right\|}\)</span> sont de degré <span
+class="math inline">\(n\)</span>.</p></li>
+</ul>
+<p>On remarque alors</p>
+<ul>
+<li><p><span class="math inline">\(\left(P_0,\ldots,P_n\right)\)</span>
+est une base orthogonale de <span
+class="math inline">\(\mathbb{R}_n[X]\)</span>,</p></li>
+<li><p><span class="math inline">\(\deg(P_n) = n\)</span> pour tout
+<span class="math inline">\(n\)</span>,</p></li>
+<li><p><span class="math inline">\(P_n\)</span> est unitaire pour tout
+<span class="math inline">\(n\)</span></p></li>
+<li><p><span class="math inline">\(\left(P_n\right)_{n \in
+\mathbb{N}}\)</span> est une base orthogonale de <span
+class="math inline">\(\mathbb{R}[X]\)</span>,</p></li>
+<li><p><span class="math inline">\(\left(Q_0,\ldots,Q_n\right)\)</span>
+est une base orthonormée de <span
+class="math inline">\(\mathbb{R}_n[X]\)</span>,</p></li>
+<li><p><span class="math inline">\(\deg(Q_n) = n\)</span> pour tout
+<span class="math inline">\(n\)</span>,</p></li>
+<li><p><span class="math inline">\(\left(Q_n\right)_{n \in
+\mathbb{N}}\)</span> est une base orthonormée de <span
+class="math inline">\(\mathbb{R}[X]\)</span>.</p></li>
+</ul>
+<div class="wdefi">
+<p>Une suite de polynômes orthogonaux est une suite <span
+class="math inline">\(\left(P_n\right)_{n \in \mathbb{N}}\)</span> telle
+que</p>
+<ul>
+<li><p><span class="math inline">\(\left(P_n\right)_{n \in
+\mathbb{N}}\)</span> est orthgonale,</p></li>
+<li><p>Pour tout <span class="math inline">\(n \in \mathbb{N}\)</span>,
+<span class="math inline">\(\deg(P_n) = n.\)</span></p></li>
+</ul>
+<p>On a alors <span
+class="math inline">\(\left(P_0,\ldots,P_n\right)\)</span> qui est une
+base orthogonale de <span class="math inline">\(\mathbb{R}_n[X]\)</span>
+et <span class="math inline">\(\left(P_n\right)_{n \in
+\mathbb{N}}\)</span> qui est une base orthogonale de <span
+class="math inline">\(\mathbb{R}[X]\)</span>.</p>
+</div>
+<h1 data-number="5"
+id="quelques-résultats-dans-le-cas-de-la-dimension-finie"><span
+class="header-section-number">5</span> Quelques résultats dans le cas de
+la dimension finie</h1>
+<p>Dans toute cette partie, on suppose <span
+class="math inline">\((E,\langle \cdot,\cdot\rangle )\)</span> de
+dimension finie <span class="math inline">\(n\)</span> (ie <span
+class="math inline">\((E,\langle \cdot,\cdot\rangle )\)</span> est un
+espace euclidien).</p>
+<div class="wprop">
+<ul>
+<li><p>Si <span class="math inline">\(n \geq 1\)</span>, <span
+class="math inline">\(E\)</span> possède une base orthonormée.</p></li>
+<li><p>Soit <span class="math inline">\(A\)</span> un sous-espace
+vectoriel de <span class="math inline">\(E\)</span> alors</p>
+<ul>
+<li><p><span class="math inline">\(E = A {\underset{}{\oplus^\perp}}
+A^\perp\)</span>,</p></li>
+<li><p><span class="math inline">\(\dim A^\perp = n-\dim
+A\)</span>,</p></li>
+<li><p><span class="math inline">\(A = A^{\perp
+\perp},\)</span></p></li>
+<li><p>soit <span class="math inline">\((e_1,\ldots,e_p)\)</span> une
+famille orthonormée de <span class="math inline">\(E\)</span> avec <span
+class="math inline">\(p &lt; n\)</span> alors il existe <span
+class="math inline">\(e_{p+1},\ldots,e_n \in E\)</span> telle que <span
+class="math inline">\((e_1,\ldots,e_p,e_{p+1},\ldots,e_n)\)</span> soit
+une base orthonormée de <span class="math inline">\(E\)</span>.</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="wproof">
+<ul>
+<li><p>On peut partir d’une base de <span
+class="math inline">\(E\)</span> et l’orthonormaliser par l’algorithme
+de Gram-Schmidt,</p></li>
+<li><ul>
+<li><p><span class="math inline">\(E = A
+{\underset{A}{\oplus^\perp}}^\perp\)</span> est donné par la
+proposition <a href="#prop:verS_proj_ortho" data-reference-type="ref"
+data-reference="prop:verS_proj_ortho">[prop:verS_proj_ortho]</a>,</p></li>
+<li><p><span class="math inline">\(A = A^{\perp \perp}\)</span> est
+donné par <span class="math inline">\(E = A
+{\underset{A}{\oplus^\perp}}^\perp\)</span> et l’exercice <a
+href="#exoc:ortho_De_ortho" data-reference-type="ref"
+data-reference="exoc:ortho_De_ortho">[exoc:ortho_De_ortho]</a> (avec
+<span class="math inline">\(B = A^\perp\)</span>, <span
+class="math inline">\(A = B^\perp\)</span>).</p></li>
+<li><p>On peut compléter <span
+class="math inline">\((e_1,\ldots,e_p)\)</span> en une base <span
+class="math inline">\((e_1,\ldots,e_p,e_{p+1},\ldots,e_n)\)</span> par
+le théorème de la base incomplète puis l’orthonormaliser par
+l’algorithme de Gram-Schmidt (les <span class="math inline">\(p\)</span>
+premiers vecteurs demeureront inchangés).</p></li>
+</ul></li>
+</ul>
+</div>
+<div class="wrem">
+<p>Tout sous-espace de dimension finie est fermé donc <span
+class="math inline">\(A = A^{\perp\perp}\)</span> qui est un fermé n’est
+pas incompatible, quelque soit <span
+class="math inline">\(A\)</span>.</p>
+</div>
+<div class="wdefi">
+<p>Soit <span class="math inline">\(H\)</span> un hyperplan de <span
+class="math inline">\(E\)</span> alors <span
+class="math inline">\(H^\perp\)</span> est une droite qui est appelée la
+normale de <span class="math inline">\(H\)</span>.</p>
+</div>
+<div class="wthm">
+<p><strong>(Théorème de représentation de Riesz)</strong> Soit <span
+class="math inline">\(\varphi : E \to \mathbb{R}\)</span> une forme
+linéaire (ie <span class="math inline">\(\varphi \in
+E^\star\)</span>).</p>
+<p>Alors il existe <span class="math inline">\(u \in E\)</span> unique
+tel que <span class="math display">\[\forall h \in E, \varphi(h) =
+\langle u,h \rangle.\]</span></p>
+</div>
+<div class="wproof">
+<ul>
+<li><p>(Existence). Soit <span class="math inline">\(\mathscr{B}=
+(e_1,\ldots,e_p)\)</span> une base orthonormée de <span
+class="math inline">\(E\)</span> ainsi que <span class="math inline">\(h
+= h_1e_1+\ldots+h_p e_p \in E\)</span> et <span class="math inline">\(u
+=  u_1e_1+\ldots+u_p e_p \in E\)</span> alors on a <span
+class="math display">\[\langle u,h \rangle = u_1h_1 + \ldots+
+u_ph_p.\]</span></p>
+<p>Or, <span class="math inline">\(\varphi(h) =
+h_1\varphi(e_1)+\ldots+h_p \varphi(e_p).\)</span></p>
+<p>Donc avec <span class="math inline">\(u\)</span> tel que <span
+class="math inline">\(u_j = \varphi(e_j)\)</span> pour tout <span
+class="math inline">\(1 \leq j \leq p,\)</span> on a bien <span
+class="math inline">\(\varphi(h) = \langle u, h\rangle\)</span> pour
+tout <span class="math inline">\(h \in E.\)</span></p></li>
+<li><p>(Unicité). Si <span class="math inline">\(u,v\)</span>
+conviennent alors pour tout <span class="math inline">\(h \in
+E,\)</span> <span class="math display">\[\langle u,h \rangle = \langle
+v,h \rangle \Longrightarrow \langle u-v,h \rangle = 0.\]</span> Donc, en
+particulier, pour <span class="math inline">\(h = u-v,\)</span> on a
+<span class="math inline">\(\left\|u-v\right\|^2=0\)</span> donc <span
+class="math inline">\(u=v.\)</span></p></li>
+</ul>
+</div>
+<div class="wrem">
+<ul>
+<li><p>Il existe une preuve plus simple en montrant que <span
+class="math display">\[\begin{array}{llll}
+  &amp; E &amp; \to &amp; E^\star \\
+     &amp; u &amp; \mapsto &amp; \left\{
+\begin{array}{llll}
+  &amp; E &amp; \to &amp; \mathbb{R} \\
+     &amp; h &amp; \mapsto &amp; \langle u,h \rangle
+\end{array}
+\right.
+\end{array}\]</span> est injective donc bijective car <span
+class="math inline">\(\dim E = \dim E^\star\)</span> mais elle est moins
+constructive. On sait, par exemple, par la preuve précédente que la
+réciproque de cette fonction est <span
+class="math display">\[\begin{array}{llll}
+  &amp; E^\star &amp; \to &amp; E \\
+     &amp; \varphi &amp; \mapsto &amp; \begin{pmatrix}
+                \varphi(e_1) \\
+                \vdots \\
+                \varphi(e_p).
+            \end{pmatrix}
+\end{array}\]</span> avec <span
+class="math inline">\((e_1,\ldots,e_p)\)</span> une base orthonormée de
+<span class="math inline">\(E.\)</span></p></li>
+<li><p><span class="math inline">\(\mathop{\mathrm{Ker}}\varphi =
+u^\perp\)</span> qui est un hyperplan, sauf si <span
+class="math inline">\(u=0.\)</span></p></li>
+</ul>
+</div>
+<div class="wexoc">
+<p>Soient <span class="math inline">\((E,\langle \cdot,\cdot\rangle
+)\)</span> un espace euclidien et <span
+class="math inline">\(A,B\)</span> deux sous-espaces vectoriels de <span
+class="math inline">\(E\)</span>.</p>
+<ol>
+<li><p>Comparer <span
+class="math inline">\(\left(A+B\right)^\perp\)</span> et <span
+class="math inline">\(A^\perp \cap B^\perp.\)</span></p></li>
+<li><p>Comparer <span class="math inline">\(\left(A \cap
+B\right)^\perp\)</span> et <span
+class="math inline">\(A^\perp+B^\perp.\)</span></p></li>
+</ol>
+<details><summary>Corrigé</summary>
+<ol>
+<li><p>On raisonne par double inclusion.</p>
+<p><u>Sens direct.</u> Comme <span class="math inline">\(A \subset
+A+B\)</span> et <span class="math inline">\(B \subset A+B\)</span>, le
+passage à l’orthogonal renverse les inclusions. On obtient ainsi <span
+class="math inline">\(\left(A+B\right)^\perp \subset A^\perp\)</span> et
+<span class="math inline">\(\left(A+B\right)^\perp \subset
+B^\perp\)</span>, d’où <span
+class="math inline">\(\left(A+B\right)^\perp \subset A^\perp \cap
+B^\perp\)</span>.</p>
+<p><u>Sens réciproque.</u> Soit <span class="math inline">\(x \in
+A^\perp \cap B^\perp\)</span>. Tout élément <span
+class="math inline">\(z \in A+B\)</span> s’écrit <span
+class="math inline">\(z = a+b\)</span> avec <span
+class="math inline">\(a \in A\)</span> et <span class="math inline">\(b
+\in B\)</span>. Comme <span class="math inline">\(x \perp a\)</span> et
+<span class="math inline">\(x \perp b\)</span>, on a par linéarité <span
+class="math inline">\(x \perp \left(a+b\right)\)</span>, soit <span
+class="math inline">\(x \in \left(A+B\right)^\perp\)</span>.</p>
+<p><u>Conclusion.</u> On a l’égalité <span
+class="math inline">\(\left(A+B\right)^\perp = A^\perp \cap
+B^\perp\)</span>.</p>
+<div class="wrem">
+<p>Cette égalité reste valable en dimension infinie dans tout espace
+préhilbertien réel, car la preuve n’utilise pas la dimension finie.</p>
+</div></li>
+<li><p>En appliquant le résultat de la première question aux
+sous-espaces <span class="math inline">\(A^\perp\)</span> et <span
+class="math inline">\(B^\perp\)</span>, il vient <span
+class="math display">\[\left(A^\perp + B^\perp\right)^\perp =
+\left(A^\perp\right)^\perp \cap \left(B^\perp\right)^\perp.\]</span>
+Comme <span class="math inline">\(E\)</span> est euclidien, il est de
+dimension finie et tout sous-espace vectoriel <span
+class="math inline">\(F\)</span> vérifie <span
+class="math inline">\(F^{\perp\perp} = F\)</span>. L’égalité précédente
+devient alors <span class="math inline">\(\left(A^\perp +
+B^\perp\right)^\perp = A \cap B\)</span>. En passant une nouvelle fois à
+l’orthogonal, on conclut que <span class="math inline">\(\left(A \cap
+B\right)^\perp = \left(A^\perp + B^\perp\right)^{\perp\perp} = A^\perp +
+B^\perp\)</span>.</p>
+<div class="wrem">
+<p>En dimension infinie, seule l’inclusion <span
+class="math inline">\(A^\perp + B^\perp \subset \left(A \cap
+B\right)^\perp\)</span> subsiste en général. L’égalité devient fausse
+dès que <span class="math inline">\(A^\perp + B^\perp\)</span> n’est pas
+fermé, puisque l’orthogonal d’une partie est toujours fermé.</p>
+</div></li>
+</ol>
+</details>
+</div>
+<h1 data-number="6"
+id="inégalité-de-bessel-et-égalité-de-parseval"><span
+class="header-section-number">6</span> Inégalité de Bessel et égalité de
+Parseval</h1>
+<h2 data-number="6.1"
+id="inégalité-de-bessel-et-égalité-de-parseval-1"><span
+class="header-section-number">6.1</span> Inégalité de Bessel et égalité
+de Parseval</h2>
+<p>Si <span class="math inline">\(E\)</span> est de dimension <span
+class="math inline">\(n\)</span>, en considérant une base orthonormée de
+<span class="math inline">\(E\)</span>, on a pour tout <span
+class="math inline">\(x \in E\)</span>, <span
+class="math display">\[\begin{aligned}
+    x  &amp; = \sum_{i=1}^n \langle x , e_i\rangle e_i \\
+    \text{ et }
+    \left\|x\right\|^2
+    &amp; = \sum_{i=1}^n \langle x , e_i\rangle ^2.
+    \end{aligned}\]</span> On va généraliser ces égalités au cas de la
+dimension infinie.</p>
+<div class="wprop">
+<p><strong>(Inégalité de Bessel)</strong> Soit <span
+class="math inline">\(\left(e_n\right)_{n \geq 0}\)</span> une famille
+orthonormée de <span class="math inline">\(E\)</span> de dimension
+infinie.</p>
+<p>Soit <span class="math inline">\(x \in E\)</span> alors <span
+class="math display">\[\sum_{k \geq 0} \langle e_k , x\rangle ^2 \text{
+converge}\]</span> et <span class="math display">\[\sum_{k =
+0}^{+\infty} \langle e_k , x\rangle ^2 \leq
+\left\|x\right\|^2.\]</span></p>
+</div>
+<div class="wproof">
+<p>Soit <span class="math inline">\(n \in \mathbb{N}\)</span>, on note
+<span class="math inline">\(F_n =
+\mathop{\mathrm{Vect}}(e_0,\ldots,e_n).\)</span></p>
+<p>Comme <span class="math inline">\(F_n\)</span> est de dimension
+finie, on a <span class="math inline">\(E = F_n
+{\underset{}{\oplus^\perp}} F_n^\perp\)</span> et on peut considérer la
+projection de <span class="math inline">\(x\)</span> sur <span
+class="math inline">\(F_n\)</span> qui est <span
+class="math display">\[p_{F_n}(x) = \sum_{k=0}^n \langle x , e_k\rangle
+e_k.\]</span></p>
+<p>De plus, par Pythagore, <span
+class="math display">\[\left\|x\right\|^2 = \left\|p_{F_n}(x)\right\|^2
++ \left\|p_{F_n^\perp}(x)\right\|^2 \Longrightarrow  \sum_{k=0}^n
+\langle x , e_k\rangle ^2 = \left\|p_{F_n}(x)\right\|^2 \leq
+\left\|x\right\|^2.\]</span></p>
+<p>La série à termes positifs <span class="math inline">\(\sum_{k \geq
+0} \langle e_k , x\rangle ^2\)</span> a ses sommes partielles majorées
+et donc elle converge et sa somme vérifie <span
+class="math display">\[\sum_{k = 0}^{+\infty} \langle e_k , x\rangle ^2
+\leq \left\|x\right\|^2.\]</span></p>
+</div>
+<div class="wrem">
+<p><span class="math inline">\(\begin{array}{lllll}
+u &amp; : &amp; E &amp; \to &amp; \ell^2(\mathbb{R}) \\
+   &amp;   &amp; x &amp; \mapsto &amp; \left(\langle x , e_k\rangle
+\right)_{k \in \mathbb{N}}
+\end{array}\)</span> est linéaire et continue (pour les normes
+considérées) car pour <span class="math inline">\(x \in E,\)</span>
+<span class="math display">\[\left\|u(x)\right\|_2 =
+\left\|\left(\langle x , e_k\rangle \right)_{k \in \mathbb{N}}\right\|_2
+= \sqrt{\sum_{k=0}^{+\infty} \langle x , e_k\rangle ^2} \leq
+\left\|x\right\|.\]</span></p>
+</div>
+<div class="wprop">
+<p><strong>(Égalité de Parseval)</strong> <span
+id="prop:egalite_de_BEssel" label="prop:egalite_de_BEssel"></span> Soit
+<span class="math inline">\(\left(e_n\right)_{n \geq 0}\)</span> une
+famille famille orthonormée de <span class="math inline">\(E\)</span> de
+dimension infinie. Pour <span class="math inline">\(n
+\in\mathbb{N}\)</span>, on pose <span class="math inline">\(F_n =
+\mathop{\mathrm{Vect}}(e_0,\ldots,e_n)\)</span> et on considère <span
+class="math inline">\(F = \bigcup_{n \geq 0} F_n =
+\mathop{\mathrm{Vect}}(e_n)_{n \in \mathbb{N}}.\)</span></p>
+<p>Alors, soit <span class="math inline">\(x \in E\)</span>, en
+considérant <span class="math inline">\(p_{F_n}\)</span> la projection
+orthogonale sur <span class="math inline">\(F_n\)</span> (<span
+class="math inline">\(F_n\)</span> est de dimension finie), <span
+class="math display">\[\begin{aligned}
+             1.\quad \sum_{k = 0}^{+\infty} \langle e_k , x\rangle ^2 =
+\left\|x\right\|^2
+            &amp; \iff 2.\quad p_{F_n}(x) \xrightarrow[n \to +\infty]{}
+x
+            &amp; \iff 3. \quad  x \in \overline{F}.
+        \end{aligned}\]</span></p>
+</div>
+<div class="wproof">
+<p>On montre <span class="math inline">\((1. \iff 2.)\)</span>, <span
+class="math inline">\((2. \Longrightarrow 3.)\)</span> puis <span
+class="math inline">\((3. \Longrightarrow 1.)\)</span>.</p>
+<ul>
+<li><p><span class="math inline">\((1. \iff 2.).\)</span> Par Pythagore,
+<span class="math display">\[\left\|x\right\|^2 =
+\left\|p_{F_n}(x)\right\|^2 + \left\|p_{F_n^\perp}(x)\right\|^2
+=  \sum_{k=0}^n \langle x , e_k\rangle ^2
++\left\|x-p_{F_n(x)}\right\|^2.\]</span> donc <span
+class="math display">\[\left\|x-p_{F_n(x)}\right\|^2 =
+\left\|x\right\|^2-\sum_{k=0}^n \langle x , e_k\rangle ^2\]</span> et
+<span class="math display">\[\sum_{k = 0}^{+\infty} \langle e_k ,
+x\rangle ^2 = \left\|x\right\|^2 \iff p_{F_n}(x) \xrightarrow[n \to
++\infty]{} x.\]</span></p></li>
+<li><p><span class="math inline">\((2. \Longrightarrow 3.)\)</span>.
+<span class="math inline">\(\left(p_{F_n}(x)\right)_{n \geq 0}\)</span>
+est une suite de <span class="math inline">\(F\)</span> donc si <span
+class="math inline">\(p_{F_n}(x) \xrightarrow[n \to +\infty]{}
+x,\)</span> <span class="math inline">\(x \in
+\overline{F}\)</span>.</p></li>
+<li><p><span class="math inline">\((3. \Longrightarrow 2.)\)</span>. Si
+<span class="math inline">\(x \in \overline{F}\)</span>, soit <span
+class="math inline">\(\varepsilon &gt; 0\)</span>, il existe <span
+class="math inline">\(y \in F\)</span> tel que <span
+class="math inline">\(\left\|x-y\right\| \leq \varepsilon.\)</span></p>
+<p>Or, <span class="math inline">\(F = \bigcup_{n \geq 0} F_n\)</span>
+donc il existe <span class="math inline">\(N \in \mathbb{N}\)</span> tel
+que <span class="math inline">\(y \in F_N\)</span> et on en déduit <span
+class="math display">\[\left\|x-P_{F_N}(x)\right\| = d(x,F_N) \leq
+\left\|x-y\right\| \leq \varepsilon.\]</span></p>
+<p>Or, pour tout <span class="math inline">\(n \geq N\)</span>, <span
+class="math inline">\(F_n \supset F_N\)</span> donc <span
+class="math display">\[\forall n \geq N, \left\|x-P_{F_n}(x)\right\| =
+d(x,F_n) \leq  d(x,F_N) \leq \varepsilon,\]</span> ce qui donne <span
+class="math inline">\(p_{F_n}(x) \xrightarrow[n \to +\infty]{}
+x.\)</span></p></li>
+</ul>
+</div>
+<div class="wexoc">
+<p>Soit <span class="math inline">\(\left(e_n\right)_{n \geq 0}\)</span>
+une famille famille orthonormée de <span
+class="math inline">\(E\)</span> de dimension infinie. Pour <span
+class="math inline">\(n \in\mathbb{N}\)</span>, on pose <span
+class="math inline">\(F_n =
+\mathop{\mathrm{Vect}}(e_0,\ldots,e_n)\)</span> et on considère <span
+class="math inline">\(F = \bigcup_{n \geq 0} F_n =
+\mathop{\mathrm{Vect}}(e_n)_{n \in \mathbb{N}}.\)</span></p>
+<p>Alors, soit <span class="math inline">\(x \in E\)</span>, montrer que
+<span class="math display">\[d(x,F_n) \xrightarrow[n \to +\infty]{}
+d(x,F).\]</span></p>
+<div class="wrem">
+<p>On a <span class="math inline">\(d(x,F) = 0 \iff x \in
+\overline{F}\)</span> donc on retrouve <span class="math inline">\(x \in
+\overline{F} \iff d(x,F_n) = \left\|x-P_{F_n}(x)\right\| \xrightarrow[n
+\to +\infty]{} 0.\)</span></p>
+</div>
+<details><summary>Corrigé</summary>
+<p>Pour tout <span class="math inline">\(n \geq 0\)</span>, <span
+class="math inline">\(F_{n+1} \supset F_n\)</span> donc <span
+class="math inline">\(d(x,F_{n+1}) \leq d(x,F_n)\)</span> et <span
+class="math inline">\(\left(d(x,F_n)\right)_{n \geq 0}\)</span> est une
+suite décroissante, minorée par <span class="math inline">\(0\)</span>
+et qui admet donc une limite <span class="math inline">\(\ell \in
+\mathbb{R}.\)</span> Montrons <span class="math inline">\(\ell =
+d(x,F)\)</span> par double inégalité.</p>
+<ul>
+<li><p>(<span class="math inline">\(\ell \geq d(x,F)\)</span>).</p>
+<p>De plus, pour tout <span class="math inline">\(n \geq 0, F_n \subset
+F\)</span> donc <span class="math inline">\(d(x,F) \leq
+d(x,F_n)\)</span> et par passage à la limite, <span
+class="math inline">\(d(x,F) \leq \ell.\)</span></p></li>
+<li><p>(<span class="math inline">\(\ell \leq d(x,F)\)</span>).</p>
+<p>Enfin, soit <span class="math inline">\(y \in F\)</span>, comme <span
+class="math inline">\(F = \bigcup_{n \geq 0} F_n\)</span>, il existe
+<span class="math inline">\(N \in \mathbb{N}\)</span> tel que <span
+class="math inline">\(y \in F_N\)</span>.</p>
+<p>et comme pour tout <span class="math inline">\(n \geq N\)</span>,
+<span class="math inline">\(F_{n} \supset F_N\)</span> <span
+class="math inline">\(y \in F_n\)</span> pour tout <span
+class="math inline">\(n \geq N\)</span>.</p>
+<p>On a donc pour tout <span class="math inline">\(n \geq N\)</span>,
+<span class="math inline">\(\left\|x-y\right\| \geq d(x,F_n)\)</span> et
+par passage à la limite, <span class="math inline">\(\ell \leq
+\left\|x-y\right\|.\)</span></p>
+<p>En passant à la borne inférieure dans l’inégalité, on en déduit <span
+class="math inline">\(\ell \leq \inf_{y \in F} \left\|x-y\right\| =
+d(x,F).\)</span></p>
+<p>On a donc <span class="math inline">\(\ell =
+d(x,F).\)</span></p></li>
+</ul>
+</details>
+</div>
+<div class="wcor">
+<p><strong>(Égalité de Parseval généralisée)</strong> <span
+id="cor:PArseval_generalise" label="cor:PArseval_generalise"></span>
+Soit <span class="math inline">\(\left(e_n\right)_{n \geq 0}\)</span>
+une famille orthonormée de <span class="math inline">\(E\)</span> de
+dimension infinie. Pour <span class="math inline">\(n
+\in\mathbb{N}\)</span>, on pose <span class="math inline">\(F_n =
+\mathop{\mathrm{Vect}}(e_0,\ldots,e_n)\)</span> et on considère <span
+class="math inline">\(F = \bigcup_{n \geq 0} F_n =
+\mathop{\mathrm{Vect}}(e_n)_{n \in \mathbb{N}}.\)</span></p>
+<p>Alors, soient <span class="math inline">\(x,y \in
+\overline{F}\)</span>, <span class="math display">\[\sum_{k \geq 0}
+\langle e_k , x\rangle \langle e_k , y\rangle  \text{ converge}\]</span>
+et <span class="math display">\[\sum_{k = 0}^{+\infty} \langle e_k ,
+x\rangle \langle e_k , y\rangle  = \langle x , y\rangle .\]</span></p>
+</div>
+<div class="wproof">
+<p>Par la proposition <a href="#prop:egalite_de_BEssel"
+data-reference-type="ref"
+data-reference="prop:egalite_de_BEssel">[prop:egalite_de_BEssel]</a>,
+comme <span class="math inline">\(x \in \overline{F}\)</span>, <span
+class="math inline">\(P_{F_n}(x) \xrightarrow[n \to +\infty]{}
+x\)</span> et comme <span class="math inline">\(y \in
+\overline{F},\)</span> <span class="math inline">\(P_{F_n}(y)
+\xrightarrow[n \to +\infty]{} y\)</span>.</p>
+<p>Or, <span class="math inline">\(\langle \cdot,\cdot\rangle\)</span>
+est continue donc <span class="math inline">\(\langle P_{F_n}(x) ,
+P_{F_n}(y)\rangle  \xrightarrow[n \to +\infty]{} \langle x , y\rangle
+.\)</span></p>
+<p>Il reste à préciser que pour <span class="math inline">\(n \in
+\mathbb{N}\)</span>, comme <span
+class="math inline">\((e_0,\ldots,e_n)\)</span> est une base orthonormée
+de <span class="math inline">\(F_n\)</span>, <span
+class="math display">\[\langle P_{F_n}(x) , P_{F_n}(y)\rangle  
+        = \sum_{k=0}^n \langle e_k , x\rangle \langle e_k , y\rangle
+.\]</span></p>
+</div>
+<h2 data-number="6.2" id="famille-totale"><span
+class="header-section-number">6.2</span> Famille totale</h2>
+<div class="wdefi">
+<p>Si <span class="math inline">\(E\)</span> est un <span
+class="math inline">\(\mathbb{K}\)</span>-espace vectoriel quelconque,
+soit <span class="math inline">\(\left(e_i\right)_{i \in I}\)</span> une
+famille de <span class="math inline">\(E\)</span> (avec <span
+class="math inline">\(I\)</span> quelconque), on dit que cette famille
+est totale si <span class="math display">\[\begin{aligned}
+            &amp; \text{$\mathop{\mathrm{Vect}}(e_i)_{i \in I}$ est
+dense dans $E$ } \\
+            \text{ ie }&amp;
+\text{$\overline{\mathop{\mathrm{Vect}}(e_i)_{i \in I}} = E$} \\
+            \text{ ie }&amp; \forall x \in E, \forall \varepsilon &gt;
+0, \exists \left(\alpha_i\right)_{i \in J} \text{famille de scalaires
+avec $J \subset I$ fini} \\
+            &amp; \text{telle que $\left\|x-\sum_{i\in J}\alpha_i
+e_i\right\| \leq \varepsilon.$}
+        \end{aligned}\]</span></p>
+<p><span class="math inline">\(\mathop{\mathrm{Vect}}(e_i)_{i \in
+I}\)</span> est dense dans <span class="math inline">\(E\)</span> (ie
+<span class="math inline">\(\overline{\mathop{\mathrm{Vect}}(e_i)_{i \in
+I}} = E.\)</span>)</p>
+</div>
+<div class="wex">
+<p>Dans l’espace préhilbertien <span class="math inline">\(E =
+\mathscr{C}([a,b],\mathbb{R})\)</span> muni de <span
+class="math inline">\(\langle \cdot,\cdot\rangle\)</span> tel que <span
+class="math inline">\(\langle f , g\rangle  = \int_a^b
+f(t)g(t)dt\)</span> pour <span class="math inline">\(f,g \in E\)</span>,
+<span class="math inline">\(\left(e_n : t \in [a,b]\mapsto t^n\right)_{n
+\geq 0}\)</span> est totale.</p>
+<p>En effet, par théorème de Weierstrass, soit <span
+class="math inline">\(f \in E\)</span>, il existe <span
+class="math inline">\(\left(p_n\right)_{n \geq 0}\)</span> une suite de
+polynômes (donc de <span
+class="math inline">\(\mathop{\mathrm{Vect}}(e_n)_{n \in
+\mathbb{N}}\)</span>) telle que <span
+class="math inline">\(\left\|f-p_n\right\|_{\infty,[a,b]} \xrightarrow[n
+\to +\infty]{} 0.\)</span></p>
+<p>Or, <span class="math inline">\(\left\|p_n-f\right\|^2 = \int_a^b
+\left(p_n(t)-f(t)\right)^2dt \leq
+(b-a)\left\|f-p_n\right\|_{\infty,[a,b]}^2 \xrightarrow[n \to +\infty]{}
+0.\)</span></p>
+<p>Donc <span class="math inline">\(p_n \xrightarrow[n \to
++\infty]{\left\|\cdot\right\|} f.\)</span></p>
+</div>
+<div class="wprop">
+<p><span id="prop:totale_Bessel" label="prop:totale_Bessel"></span> On
+suppose qu’il existe une famille totale <span
+class="math inline">\(\left(e_n\right)_{n \in \mathbb{N}}\)</span> de
+<span class="math inline">\(E\)</span>. Alors, en notant <span
+class="math inline">\(F_n =
+\mathop{\mathrm{Vect}}(e_0,\ldots,e_n)\)</span>, pour <span
+class="math inline">\(x \in E\)</span>, <span
+class="math display">\[\begin{aligned}
+            \sum_{k=0}^{+\infty} \langle e_k , x\rangle ^2 &amp; =
+\left\|x\right\|^2 \\
+            p_{F_n}(x) &amp; \xrightarrow[n \to +\infty]{} x \\
+            \forall y \in E, \langle P_{F_n}(x) , P_{F_n}(y)\rangle  
+        &amp; = \sum_{k=0}^n \langle e_k , x\rangle \langle e_k ,
+y\rangle .
+        \end{aligned}\]</span></p>
+</div>
+<div class="wproof">
+<p>Pour tout <span class="math inline">\(x \in E\)</span>, <span
+class="math inline">\(x \in \overline{F}\)</span> avec <span
+class="math inline">\(F = \mathop{\mathrm{Vect}}(e_n)_{n \in
+\mathbb{N}}\)</span> donc ces propriétés ont été montrées avec la
+proposition <a href="#prop:egalite_de_BEssel" data-reference-type="ref"
+data-reference="prop:egalite_de_BEssel">[prop:egalite_de_BEssel]</a> et
+le corollaire <a href="#cor:PArseval_generalise"
+data-reference-type="ref"
+data-reference="cor:PArseval_generalise">[cor:PArseval_generalise]</a>.</p>
+</div>
+<div class="wprop">
+<p><span id="prop:injectivite_pdscal_famille_totale"
+label="prop:injectivite_pdscal_famille_totale"></span> On suppose qu’il
+existe une famille totale <span
+class="math inline">\(\left(e_n\right)_{n \in \mathbb{N}}\)</span> de
+<span class="math inline">\(E\)</span>.</p>
+<p>Alors, pour <span class="math inline">\(x,y \in E\)</span>, <span
+class="math display">\[x = y \iff \forall n \in \mathbb{N}, \langle x ,
+e_n\rangle  = \langle y , e_n\rangle .\]</span> En particulier, <span
+class="math display">\[x = 0 \iff \forall n \in \mathbb{N}, \langle x ,
+e_n\rangle  = 0.\]</span></p>
+</div>
+<div class="wproof">
+<p>Par la proposition <a href="#prop:totale_Bessel"
+data-reference-type="ref"
+data-reference="prop:totale_Bessel">[prop:totale_Bessel]</a>, <span
+class="math inline">\(\left\|x-y\right\|^2 = \sum_{k=0}^{+\infty}
+\langle x-y , e_k\rangle ^2 = \sum_{k=0}^{+\infty} \left(\langle x ,
+e_k\rangle -\langle y , e_k\rangle \right)^2\)</span> donc <span
+class="math display">\[x = y \iff \forall n \in \mathbb{N}, \langle x ,
+e_n\rangle  = \langle y , e_n\rangle .\]</span></p>
+</div>
+<div class="wrem">
+<p>Dans ce cas, <span class="math inline">\(\begin{array}{lllll}
+u &amp; : &amp; E &amp; \to &amp; \ell^2(\mathbb{R}) \\
+   &amp;   &amp; x &amp; \mapsto &amp; \left(\langle x , e_k\rangle
+\right)_{k \in \mathbb{N}}
+\end{array}\)</span> est linéaire et continue (pour les normes
+considérées) avec pour <span class="math inline">\(x \in E,\)</span>
+<span class="math display">\[\left\|u(x)\right\|_2 =
+\left\|\left(\langle x , e_k\rangle \right)_{k \in \mathbb{N}}\right\|_2
+= \sqrt{\sum_{k=0}^{+\infty} \langle x , e_k\rangle ^2} =
+\left\|x\right\|.\]</span></p>
+<p>C’est donc une isométrie et en particulier, elle est injective.</p>
+</div>
+<div class="wexoc">
+<p><span id="exoc:debut_polynomes_ortho"
+label="exoc:debut_polynomes_ortho"></span> Soient <span
+class="math inline">\(I \subset \mathbb{R}\)</span> un intervalle tel
+que <span class="math inline">\(I = \left[a,b\right],\left]a,b\right[,
+\left[a,b\right[\)</span> ou <span
+class="math inline">\(\left]a,b\right]\)</span> et <span
+class="math inline">\(\omega : I \to \mathbb{R}^{+\star}\)</span>
+continue telle que <span class="math inline">\(\int_a^b
+\omega(t)dt\)</span> converge.</p>
+<p>On considère <span class="math inline">\(E =
+\mathbb{C}([a,b],\mathbb{R})\)</span>.</p>
+<ol>
+<li><p>Montrer que <span class="math inline">\(\langle \cdot , \cdot
+\rangle\)</span> tel que <span class="math inline">\(\langle f,g \rangle
+= \int_a^b f(t)g(t)\omega(t)dt\)</span> est un produit scalaire sur
+<span class="math inline">\(E.\)</span></p></li>
+<li><p>Montrer que <span class="math inline">\(E\)</span> admet une
+suite orthonormée de polynômes <span
+class="math inline">\(\left(P_n\right)_{n \in \mathbb{N}}\)</span> telle
+que <span class="math inline">\(\deg(P_n) = n\)</span> pour <span
+class="math inline">\(n \in \mathbb{N}\)</span>.</p></li>
+<li><p>Montrer que <span class="math inline">\(\left(P_n\right)_{n \in
+\mathbb{N}}\)</span> est totale.</p></li>
+<li><p>Soit <span class="math inline">\(f \in E\)</span> telle que <span
+class="math inline">\(\sum_{n \geq 0} \left|\langle f , P_n\rangle
+\right|\left\|P_n\right\|_{\infty,[a,b]}\)</span> converge.</p>
+<p>Montrer que pour tout <span class="math inline">\(t \in
+[a,b]\)</span>, <span class="math display">\[f(t) = \sum_{n=0}^{+\infty}
+\langle f , P_n\rangle P_n(t).\]</span></p></li>
+</ol>
+<details><summary>Corrigé</summary>
+<ol>
+<li><p>Le fait que <span class="math inline">\(\langle
+\cdot,\cdot\rangle\)</span> est bilinéaire, symétrique, défini positif
+vient de la proposition <a href="#prop:pduitscal_poids"
+data-reference-type="ref"
+data-reference="prop:pduitscal_poids">[prop:pduitscal_poids]</a>. Il
+s’agit de montrer qu’il est bien défini sur <span
+class="math inline">\(E\)</span>.</p>
+<p>Or, pour <span class="math inline">\(f,g \in E\)</span>, <span
+class="math inline">\(\left\|f\right\|_{\infty,[a,b]} &lt;
++\infty\)</span> et <span
+class="math inline">\(\left\|g\right\|_{\infty,[a,b]} &lt;
++\infty\)</span> car <span class="math inline">\(f\)</span> et <span
+class="math inline">\(g\)</span> sont continues sur le compact <span
+class="math inline">\([a,b]\)</span>.</p>
+<p>De plus, <span class="math display">\[\left|\langle f , g\rangle
+\right| = \left|\int_a^b f(t)g(t)\omega(t)\right|dt \leq \int_a^b
+\left|f(t)\right| \left|g(t)\right|\omega(t)dt \leq
+\left\|f\right\|_{\infty,[a,b]}\left\|g\right\|_{\infty,[a,b]}\int_a^b
+\omega(t)dt &lt; +\infty\]</span> car <span
+class="math inline">\(\int_a^b \omega(t)dt\)</span> converge.</p>
+<p>Donc <span class="math inline">\(\langle \cdot,\cdot\rangle\)</span>
+définit bien un produit scalaire sur <span
+class="math inline">\(E\)</span>.</p></li>
+<li><p>Pour tout <span class="math inline">\(n \in \mathbb{N}\)</span>,
+<span class="math inline">\(e_n : t \in [a,b]\mapsto t^n \in E.\)</span>
+On peut donc appliquer l’algorithme de Gram-Schmidt à <span
+class="math inline">\(\left(e_n\right)_{n \in \mathbb{N}}\)</span> pour
+obtenir une suite orthonormée de polynômes <span
+class="math inline">\(\left(P_n\right)_{n \in \mathbb{N}}\)</span>.</p>
+<p>Alors, on aura <span class="math inline">\(P_0 =
+\frac{1}{\left\|1\right\|}1\)</span> de degré <span
+class="math inline">\(0\)</span> et pour tout <span
+class="math inline">\(n \in \mathbb{N}^{\star}\)</span>, en supposant
+<span class="math inline">\(P_0,\ldots,P_{n-1}\)</span> de degrés
+échelonnés, <span class="math inline">\(P_{n}
+=  \underbrace{e_n}_{\text{ de degré $n$}} -
+\underbrace{P_{\mathop{\mathrm{Vect}}(P_0,\ldots,P_{n-1})}(e_n)}_{\text{
+de degré $\leq n-1$}}\)</span> est de degré <span
+class="math inline">\(n\)</span>.</p></li>
+<li><p>Comme <span class="math inline">\(\deg(P_n) = n\)</span> pour
+<span class="math inline">\(n \in \mathbb{N}\)</span>, <span
+class="math inline">\(\mathop{\mathrm{Vect}}(P_n)_{n \in
+\mathbb{N}}\)</span> est l’ensemble des fonctions polynomiales sur <span
+class="math inline">\([a,b].\)</span></p>
+<p>Soit <span class="math inline">\(f \in E\)</span>, par théorème de
+Weierstrass, il existe une suite <span
+class="math inline">\(\left(p_n\right)_{n \geq 0}\)</span> de fonctions
+polynomiales sur <span class="math inline">\([a,b]\)</span> telle que
+<span class="math inline">\(\left\|p_n-f\right\|_{\infty,[a,b]}
+\xrightarrow[n \to +\infty]{} 0\)</span>.</p>
+<p>On a donc <span class="math display">\[\left\|p_n-f\right\|^2 =
+\int_a^b \left(f(t)-p_n(t)\right)\omega(t)dt \leq
+\left\|p_n-f\right\|_{\infty,[a,b]}^2\int_a^b \omega(t)dt \xrightarrow[n
+\to +\infty]{} 0.\]</span></p>
+<p>On en déduit donc que <span
+class="math inline">\(\mathop{\mathrm{Vect}}(P_n)_{n \in
+\mathbb{N}}\)</span> est totale.</p></li>
+<li><p>On pose <span class="math inline">\(g_n : t \in [a,b]\mapsto
+\langle f , P_n\rangle P_n(t)\)</span> pour <span
+class="math inline">\(n \in \mathbb{N}\)</span> et on s’intéresse donc à
+la suite de fonction <span class="math inline">\(\sum_{n \geq 0}
+g_n.\)</span></p>
+<p>Pour tout <span class="math inline">\(n \in \mathbb{N}\)</span>,
+<span class="math inline">\(\left\|g_n\right\|_{\infty,[a,b]} \leq
+\left|\langle f , P_n\rangle
+\right|\left\|P_n\right\|_{\infty,[a,b]}\)</span> avec <span
+class="math inline">\(\sum_{n \geq 0} \left|\langle f , P_n\rangle
+\right|\left\|P_n\right\|_{\infty,[a,b]}\)</span> qui converge.</p>
+<p>Donc <span class="math inline">\(\sum_{n \geq 0} g_n\)</span>
+converge normalement sur <span class="math inline">\([a,b]\)</span> et
+on peut considérer <span class="math inline">\(g : t \in [a,b]\mapsto
+\sum_{n=0}^{+\infty} \langle f , P_n\rangle P_n(t)\)</span> qui est une
+fonction continue sur <span class="math inline">\([a,b]\)</span> ie
+<span class="math inline">\(g \in E.\)</span></p>
+<p>Il reste à montrer que <span class="math inline">\(g = f\)</span> et
+pour cela, utilisons la propositon <a
+href="#prop:injectivite_pdscal_famille_totale" data-reference-type="ref"
+data-reference="prop:injectivite_pdscal_famille_totale">[prop:injectivite_pdscal_famille_totale]</a>.</p>
+<p>Soit <span class="math inline">\(n \in \mathbb{N}\)</span> et <span
+class="math inline">\(N \geq n\)</span>, <span
+class="math display">\[\langle \sum_{k=1}^N g_k , P_n\rangle  =
+\sum_{k=1}^N\langle g_k , P_n\rangle  =  \sum_{k=1}^N\langle f ,
+P_k\rangle \underbrace{\langle P_k , P_n\rangle }_{=
+\left\{\begin{array}{ll}
+                    1 &amp; \mbox{ si $k=n$} \\
+                    0 &amp; \mbox{sinon.}
+                \end{array}\right.} = \langle f , P_n\rangle
+.\]</span></p>
+<p>De plus, <span class="math inline">\(\langle
+\cdot,\cdot\rangle\)</span> est continue pour <span
+class="math inline">\(\left\|\cdot\right\|\)</span>, on voudrait passer
+à la limite quand <span class="math inline">\(N \xrightarrow{}
++\infty\)</span> mais il reste à montrer que <span
+class="math inline">\(\sum_{k=1}^N g\)</span> converge vers <span
+class="math inline">\(g\)</span> pour la norme <span
+class="math inline">\(\left\|\cdot\right\|.\)</span></p>
+<p>Or, <span class="math inline">\(\sum_{n \geq 0} g_n\)</span> converge
+normalement donc uniformément sur <span
+class="math inline">\([a,b]\)</span>, ce qui signifie <span
+class="math display">\[\left\|\sum_{n=0}^N g_n-g\right\|_{\infty,[a,b]}
+\xrightarrow[N \to +\infty]{} 0.\]</span> De plus, <span
+class="math inline">\(\left\|\cdot\right\|_{\infty,[a,b]}\)</span> est
+plus fine que <span class="math inline">\(\left\|\cdot\right\|\)</span>
+avec pour tout <span class="math inline">\(f \in E\)</span>, <span
+class="math display">\[\left\|f\right\| \leq \left(\int_a^b
+\omega(t)dt\right)\left\|f\right\|_{\infty,[a,b]}.\]</span> Donc on a
+aussi <span class="math inline">\(\sum_{n \geq 0} g_n\)</span> qui
+converge vers <span class="math inline">\(g\)</span> pour <span
+class="math inline">\(\left\|\cdot\right\|.\)</span></p>
+<p>On a donc bien quand <span class="math inline">\(N \xrightarrow{}
++\infty\)</span>, <span class="math display">\[\langle g , P_n\rangle  =
+\langle f , P_n\rangle .\]</span></p>
+<p>On en déduit, par la proposition <a
+href="#prop:injectivite_pdscal_famille_totale" data-reference-type="ref"
+data-reference="prop:injectivite_pdscal_famille_totale">[prop:injectivite_pdscal_famille_totale]</a>,
+<span class="math inline">\(f=g\)</span> ie <span
+class="math display">\[\forall t \in [a,b], f(t) = \sum_{n=0}^{+\infty}
+\langle f , P_n\rangle P_n(t).\]</span></p></li>
+</ol>
+</details>
+</div>
+<div class="wexoc">
+<p><strong>(Etude des polynômes de Tchebychev)</strong> On considère un
+exemple concret de l’exercice <a href="#exoc:debut_polynomes_ortho"
+data-reference-type="ref"
+data-reference="exoc:debut_polynomes_ortho">[exoc:debut_polynomes_ortho]</a>
+avec <span class="math inline">\(\begin{array}{lllll}
+\omega &amp; : &amp; \left]-1,1\right[ &amp; \to &amp; \mathbb{R} \\
+   &amp;   &amp; t &amp; \mapsto &amp; \frac{1}{\sqrt{1-t^2}}
+\end{array}\)</span>.</p>
+<p>On considère sur <span class="math inline">\(E =
+\mathscr{C}(\left[-1,1\right],\mathbb{R})\)</span> le produit scalaire
+<span class="math inline">\(\langle \cdot,\cdot\rangle\)</span> tel que
+<span class="math inline">\(\langle f,g \rangle = \int_{-1}^1
+\frac{f(t)g(t)}{\sqrt{1-t^2}}dt\)</span>.</p>
+<ol>
+<li><p>Montrer qu’on a bien <span class="math inline">\(\int_{-1}^1
+\omega(t)dt\)</span> qui converge.</p></li>
+<li><p>Montrer que <span class="math inline">\(\left(T_n\right)_{n \in
+\mathbb{N}}\)</span> la suite des polynômes de Tchebychev telle que pour
+tout <span class="math inline">\(\theta \in \mathbb{R}\)</span>, <span
+class="math inline">\(n \in \mathbb{N}\)</span>, <span
+class="math display">\[T_n(\cos \theta) = \cos(n\theta)\]</span> est une
+suite de polynômes orthogonaux pour <span class="math inline">\(\langle
+\cdot,\cdot\rangle\)</span> et calculer <span
+class="math inline">\(\left\|T_n\right\|.\)</span></p></li>
+<li><p>On considère <span class="math inline">\(f : t \in [-1,1] \mapsto
+\mathop{\mathrm{Arccos}}(t)\)</span>.</p>
+<ol>
+<li><p>En appliquant l’égalité de Parseval à <span
+class="math inline">\(f\)</span>, calculer <span
+class="math inline">\(\zeta(4)  = \sum_{n = 1}^{+\infty}
+\frac{1}{n^4}.\)</span></p>
+<p><em>On pourra utiliser le fait que <span
+class="math inline">\(\left(\frac{T_n}{\left\|T_n\right\|}\right)_{n \in
+\mathbb{N}}\)</span> est une famille orthonormée totale (par
+l’exercice <a href="#exoc:debut_polynomes_ortho"
+data-reference-type="ref"
+data-reference="exoc:debut_polynomes_ortho">[exoc:debut_polynomes_ortho]</a></em>.</p></li>
+<li><p>Montrer que <span class="math inline">\(\sum_{n \geq 0}
+\left|\langle f , P_n\rangle
+\right|\left\|P_n\right\|_{\infty,\left[-1,1\right]}\)</span> converge
+avec <span class="math inline">\(P_n =
+\frac{T_n}{\left\|T_n\right\|}\)</span> pour <span
+class="math inline">\(n \in \mathbb{N}\)</span>.</p></li>
+<li><p>En déduire, à l’aide de l’exercice <a
+href="#exoc:debut_polynomes_ortho" data-reference-type="ref"
+data-reference="exoc:debut_polynomes_ortho">[exoc:debut_polynomes_ortho]</a>,
+la valeur de <span class="math inline">\(\zeta(2) = \sum_{n =
+1}^{+\infty} \frac{1}{n^2}.\)</span></p></li>
+</ol></li>
+</ol>
+<details><summary>Corrigé</summary>
+<ol>
+<li><p>Pour <span class="math inline">\(t \in
+\left]-1,1\right[,\)</span> <span class="math inline">\(\omega(t) =
+\frac{1}{\sqrt{(1-t)(1+t)}}\)</span> donc <span
+class="math inline">\(\omega(t) \underset{t\to 1^-}{\sim}
+\frac{1}{\sqrt{2}(1-t)^{\frac{1}{2}}}\)</span> et son intégrale converge
+en <span class="math inline">\(1\)</span> car <span
+class="math inline">\(1/2 &lt; 1\)</span> puis <span
+class="math inline">\(\omega(t) \underset{t\to -1^+}{\sim}
+\frac{1}{\sqrt{2}(1+t)^{\frac{1}{2}}}\)</span> et son intégrale converge
+en <span class="math inline">\(-1\)</span> car <span
+class="math inline">\(1/2 &lt; 1\)</span>.</p></li>
+<li><p>Pour <span class="math inline">\(n, m \in \mathbb{N}\)</span>,
+<span class="math display">\[\begin{aligned}
+                \int_{-1}^1 T_n(t)T_m(t)\omega(t)dt
+                &amp; = \int_{-1}^1 \frac{T_n(t)T_m(t)}{\sqrt{1-t^2}}dt
+\\
+                &amp; =- \int^{0}_{\pi} \frac{T_n(\cos \theta)T_m(\cos
+\theta)}{\sqrt{1-\cos \theta^2}}\sin \theta d\theta \text{ en posant $t
+= \cos \theta$}\\
+                &amp; = \int_{0}^{\pi} \frac{T_n(\cos \theta)T_m(\cos
+\theta)}{\sqrt{\sin^2 \theta}}\sin \theta d\theta \\
+                &amp; = \int_{0}^{\pi} {T_n(\cos \theta)T_m(\cos
+\theta)}d\theta \substack{ \text{ car $\sin$ est positif sur
+$\left[0,\pi/2\right]$} \\ \text{  donc sur cet intervalle,
+$\sqrt{\sin^2} = \sin $}} \\
+                &amp; =
+\int_{0}^{\pi}  \cos(n\theta)\cos(m\theta)d\theta \text{ par définition
+des polynômes de Tchebychev.}
+            \end{aligned}\]</span></p>
+<p>Or, pour <span class="math inline">\(\theta \in \mathbb{R}\)</span>,
+<span class="math display">\[\cos(n\theta)\cos(m\theta) =
+\frac{1}{2}\left[\cos\left((n+m)\theta\right)-\cos\left((n-m)\theta\right)\right]\]</span>
+donc <span class="math display">\[\begin{aligned}
+                \int_{-1}^1 T_n(t)T_m(t)\omega(t)dt
+                &amp; =
+\int_{0}^{\pi}  \cos(n\theta)\cos(m\theta)d\theta \\
+                &amp; = \frac{1}{2}\int_{0}^{\pi}
+\cos\left((n+m)\theta\right)d\theta+ \frac{1}{2}\int_{0}^{\pi}
+\cos\left((n-m)\theta\right)d\theta.
+            \end{aligned}\]</span></p>
+<p>Puis, <span class="math display">\[\begin{aligned}
+                &amp; \int_{0}^{\pi} \cos\left((n+m)\theta\right)d\theta
+                &amp; = \left\{
+                \begin{array}{lll}
+                \frac{1}{n+m}\left[\sin(n+m)\theta\right]_{0}^\pi
+                &amp;  = 0 &amp; \mbox{ si $n \neq 0$ ou $m \neq 0$,} \\
+                &amp;&amp; \\
+                \int_{0}^{\pi} 1 &amp; = \pi &amp; \mbox{ si $n=m=0$}
+                \end{array}
+                \right. \\
+                \text{ et }&amp;
+                \int_{0}^{\pi} \cos\left((n-m)\theta\right)d\theta
+                &amp; = \left\{
+                \begin{array}{lll}
+                \frac{1}{n-m}\left[\sin(n-m)\theta\right]_{0}^\pi
+                &amp;  = 0 &amp; \mbox{ si $n \neq m$,} \\
+                &amp;&amp; \\
+                \int_{0}^{\pi} 1 &amp; = \pi &amp; \mbox{ si $n=m$}
+                \end{array}
+                \right.
+            \end{aligned}\]</span> On en déduit que pour <span
+class="math inline">\(n \neq m\)</span>, <span
+class="math display">\[\langle T_n , T_m\rangle  = 0\]</span> donc <span
+class="math inline">\(\left(T_n\right)_{n \in \mathbb{N}}\)</span> est
+orthogonale. et que <span class="math display">\[\left\{
+            \begin{array}{ll}
+                \left\|T_0\right\| &amp; = \sqrt{\pi} \\
+                &amp;\\
+                \left\|T_n\right\| &amp; = \sqrt{\frac{\pi}{2}} \text{
+pour $n \geq 1$}
+            \end{array}
+            \right..\]</span></p></li>
+<li><ol>
+<li><p>Par l’égalité de Parseval, <span
+class="math display">\[\left\|f\right\|^2 = \sum_{n=0}^{+\infty} \langle
+f , P_n\rangle ^2\]</span> avec <span class="math inline">\(P_n =
+\frac{T_n}{\left\|T_n\right\|}\)</span> pour <span
+class="math inline">\(n \in \mathbb{N}\)</span>.</p>
+<p>Or,</p>
+<ul>
+<li><p><span class="math display">\[\begin{aligned}
+                \left\|f\right\|^2
+                &amp; = \int_{-1}^1
+\frac{\mathop{\mathrm{Arccos}}(t)^2}{\sqrt{1-t^2}}dt \\
+                &amp; = \int_{0}^\pi \frac{\mathop{\mathrm{Arccos}}(\cos
+\theta)^2}{\sqrt{1-\cos \theta^2}} \sin \theta d\theta \text{ en posant
+$t = \cos \theta$} \\
+                &amp; =  \int_{0}^\pi\theta^2 d\theta \text{ car
+}\left\{
+                \begin{array}{ll}
+                    \mathop{\mathrm{Arccos}}(\cos) &amp; =
+\mathop{\mathrm{Id}}\text{ sur $\left[0,\pi\right]$,} \\
+                    \sqrt{1-\cos^2} &amp; =\sqrt{\sin^2} = \sin  \text{
+sur $\left[0,\pi\right]$.}
+                \end{array}\right. \\
+                &amp; = \frac{\pi^3}{3}.
+             \end{aligned}\]</span></p></li>
+<li><p>Pour <span class="math inline">\(n \in \mathbb{N}\)</span>, <span
+class="math display">\[\begin{aligned}
+                \langle f , T_n\rangle
+                &amp; = \int_{-1}^1
+T_n(t)\frac{\mathop{\mathrm{Arccos}}(t)}{\sqrt{1-t^2}}dt \\
+                &amp; = \int_{0}^\pi
+\cos(n\theta)\frac{\mathop{\mathrm{Arccos}}(\cos \theta)}{\sqrt{1-\cos
+\theta^2}} \sin \theta d\theta \text{ en posant $t = \cos \theta$} \\
+                &amp; =  \int_{0}^\pi\theta \cos(n\theta) d\theta \text{
+car }\left\{
+                \begin{array}{ll}
+                    \mathop{\mathrm{Arccos}}(\cos) &amp; =
+\mathop{\mathrm{Id}}\text{ sur $\left[0,\pi\right]$,} \\
+                    \sqrt{1-\cos^2} &amp; =\sqrt{\sin^2} = \sin  \text{
+sur $\left[0,\pi\right]$.}
+                \end{array}\right. \\
+             \end{aligned}\]</span></p>
+<p>On a donc <span class="math inline">\(\langle f , T_0\rangle  =
+\frac{\pi^2}{2}\)</span> et pour <span class="math inline">\(n \geq
+1\)</span>, en intégrant par parties avec <span
+class="math inline">\(\left\{
+                \begin{array}{ll}
+                    u(\theta) &amp; = \theta\\
+                    v(\theta) &amp; = \frac{1}{n}\sin(n\theta)
+                \end{array}
+                \right. \Longrightarrow \left\{
+                \begin{array}{ll}
+                    u&#39;(\theta) &amp; = 1\\
+                    v&#39;(\theta) &amp; = \cos(n\theta)
+                \end{array}
+                \right.,\)</span> <span
+class="math display">\[\begin{aligned}
+                \langle f , T_n\rangle
+                &amp; =  \int_{0}^\pi\theta \cos(n\theta) d\theta \\
+                &amp; =
+\left[\frac{\theta}{n}\sin(n\theta)\right]_{0}^\pi-\frac{1}{n}\int_0^\pi
+\sin(n\theta)d\theta \\
+                &amp; = +\frac{1}{n^2}\left[\cos(n\theta)\right]_0^{\pi}
+\\
+                &amp; = \frac{(-1)^n-1}{n^2} \\
+                &amp; = \left\{
+                \begin{array}{ll}
+                0 &amp; \mbox{ si $n$ pair,} \\
+                -\frac{2}{n^2} &amp; \mbox{ si $n$ impair.}
+                \end{array}
+                \right.
+             \end{aligned}\]</span></p></li>
+</ul>
+<p>On a donc, en revenant à <span class="math inline">\(P_n =
+\frac{T_n}{\left\|T_n\right\|}\)</span>, <span
+class="math display">\[\begin{aligned}
+             \left\|f\right\|^2
+             &amp; =\langle f , P_{0}\rangle ^2 +\sum_{n=0}^{+\infty}
+\langle f , P_{2n+1}\rangle ^2 \\
+             &amp; = \frac{1}{\left\|T_0\right\|^2}\langle f ,
+T_{0}\rangle ^2 +\frac{1}{\left\|T_{2n+1}\right\|^2}\sum_{n=0}^{+\infty}
+\langle f , T_{2n+1}\rangle ^2 \\           
+             \end{aligned}\]</span> donc <span
+class="math display">\[\frac{\pi^3}{3} = \frac{\pi^4}{4\pi} +
+\frac{2}{\pi}\sum_{n =0}^{+\infty} \frac{4}{(2n+1)^4},\]</span> ce qui
+donne <span class="math display">\[\begin{aligned}
+                \frac{2}{\pi}\sum_{n =0}^{+\infty} \frac{4}{(2n+1)^4}
+                =  \frac{\pi^3}{3}-\frac{\pi^3}{4} = \frac{\pi^3}{12}
+                &amp; \iff \sum_{n =0}^{+\infty} \frac{1}{(2n+1)^4} =
+\frac{\pi^4}{12 \times 8} = \frac{\pi^4}{96}.  
+             \end{aligned}\]</span></p>
+<p>Or, <span class="math display">\[\begin{aligned}
+                \zeta(4)
+                &amp; = \sum_{n = 1}^{+\infty} \frac{1}{n^4}
+                &amp; = \sum_{n =1}^{+\infty} \frac{1}{(2n)^4}+\sum_{n
+=0}^{+\infty} \frac{1}{(2n+1)^4}
+                &amp; = \frac{1}{2^4} \zeta(4) + \sum_{n =0}^{+\infty}
+\frac{1}{(2n+1)^4}
+             \end{aligned}\]</span> donc <span
+class="math display">\[\left(1-\frac{1}{16}\right)\zeta(4) = \sum_{n
+=0}^{+\infty} \frac{1}{(2n+1)^4} = \frac{\pi^4}{96} \iff \zeta(4) =
+\frac{16}{15}\frac{\pi^4}{96} = \frac{\pi^4}{90}.\]</span></p></li>
+<li><p>Pour tout <span class="math inline">\(t \in
+\left[-1,1\right]\)</span>, <span
+class="math display">\[\left|T_n(t)\right| =
+\left|T_n(\cos(\mathop{\mathrm{Arccos}}(t)))\right| =
+\left|\cos(n\mathop{\mathrm{Arccos}}(t))\right| \leq 1.\]</span> donc
+<span class="math display">\[\left\|P_n\right\|_{\infty,[a,b]} =
+\frac{1}{\left\|T_n\right\|} \left\|T_n\right\|_{\infty,[a,b]} \leq
+\left\{
+             \begin{array}{ll}
+                \frac{1}{\sqrt{\pi}} &amp; \mbox{ si $n = 0$,} \\
+                \sqrt{\frac{2}{\pi}} &amp; \mbox{ si $n \geq 1,$}
+             \end{array}
+             \right. \leq \sqrt{\frac{2}{\pi}}.\]</span></p>
+<p>Donc pour tout <span class="math inline">\(n \in
+\mathbb{N}^{\star}\)</span>, en reprenant les calculs de la question
+précédente, <span class="math display">\[\sum_{n = 1}^{+\infty}
+\left|\langle f , P_n\rangle
+\right|\left\|P_n\right\|_{\infty,\left[-1,1\right]} = \sum_{n =
+0}^{+\infty} \left|\langle f , P_{2n+1}\rangle
+\right|\left\|P_{2n+1}\right\|_{\infty,\left[-1,1\right]} \leq
+\sqrt{\frac{2}{\pi}} \frac{2}{\left(2n+1\right)^2}\]</span> qui est le
+terme d’une série de Riemann convergente (<span
+class="math inline">\(2&gt;1\)</span>) donc <span
+class="math inline">\(\sum_{n \geq 0} \left|\langle f , P_n\rangle
+\right|\left\|P_n\right\|_{\infty,\left[-1,1\right]}\)</span>
+converge.</p></li>
+<li><p>Par la question 4. de l’exercice <a
+href="#exoc:debut_polynomes_ortho" data-reference-type="ref"
+data-reference="exoc:debut_polynomes_ortho">[exoc:debut_polynomes_ortho]</a>,
+on en déduit que pour tout <span class="math inline">\(t \in
+\left[-1,1\right],\)</span> en reprenant les calculs prédédents, <span
+class="math display">\[\begin{aligned}
+                \mathop{\mathrm{Arccos}}(t) = f(t) = &amp; =\langle f ,
+P_{0}\rangle P_0(t) +\sum_{n=0}^{+\infty} \langle f , P_{2n+1}\rangle
+P_{2n+1}(t)\\
+             &amp; = \frac{1}{\left\|T_0\right\|^2}\langle f ,
+T_{0}\rangle T_0(t)
++\frac{1}{\left\|T_{2n+1}\right\|^2}\sum_{n=0}^{+\infty} \langle f ,
+T_{2n+1}\rangle T_{2n+1}(t) \\
+             &amp; = \frac{1}{\pi} \frac{\pi^2}{2} -
+\frac{2}{\pi}\sum_{n=0}^{+\infty} \frac{2}{(2n+1)^2}T_{2n+1}(t) \text{
+car $T_0 = 1$} \\
+             &amp; = \frac{\pi}{2} - \frac{4}{\pi}\sum_{n=0}^{+\infty}
+\frac{1}{(2n+1)^2}T_{2n+1}(t).
+             \end{aligned}\]</span></p>
+<p>En particulier, comme <span
+class="math inline">\(\mathop{\mathrm{Arccos}}(\cos) =
+\mathop{\mathrm{Id}}\)</span> sur <span
+class="math inline">\(\left[0,\pi\right]\)</span>, on a pour tout <span
+class="math inline">\(\theta \in \left[0,\pi\right]\)</span>, <span
+class="math display">\[\theta = \mathop{\mathrm{Arccos}}(\cos \theta)
+=  \frac{\pi}{2} - \frac{4}{\pi}\sum_{n=0}^{+\infty}
+\frac{1}{(2n+1)^2}T_{2n+1}(\cos \theta) = \frac{\pi}{2} -
+\frac{4}{\pi}\sum_{n=0}^{+\infty} \frac{1}{(2n+1)^2}\cos
+(2n+1)\theta.\]</span></p>
+<p>En <span class="math inline">\(\theta = 0\)</span>, cela donne <span
+class="math display">\[0 = \frac{\pi}{2} -
+\frac{4}{\pi}\sum_{n=0}^{+\infty} \frac{1}{(2n+1)^2} \Longrightarrow
+\frac{4}{\pi}\sum_{n=0}^{+\infty} \frac{1}{(2n+1)^2} = \frac{\pi}{2}
+\Longrightarrow \sum_{n=0}^{+\infty} \frac{1}{(2n+1)^2} =
+\frac{\pi^2}{8}.\]</span></p></li>
+</ol>
+<p>Or, <span class="math display">\[\begin{aligned}
+                \zeta(2)
+                &amp; = \sum_{n = 1}^{+\infty} \frac{1}{n^2}
+                &amp; = \sum_{n =1}^{+\infty} \frac{1}{(2n)^2}+\sum_{n
+=0}^{+\infty} \frac{1}{(2n+1)^2}
+                &amp; = \frac{1}{2^2} \zeta(2) + \sum_{n =0}^{+\infty}
+\frac{1}{(2n+1)^2}
+             \end{aligned}\]</span> donc <span
+class="math display">\[\left(1-\frac{1}{4}\right)\zeta(2) = \sum_{n
+=0}^{+\infty} \frac{1}{(2n+1)^2} = \frac{\pi^2}{8} \iff \zeta(4) =
+\frac{4}{3}\frac{\pi^2}{8} = \frac{\pi^2}{6}.\]</span></p></li>
+</ol>
+</details>
+</div>
 </body>
 </html>
 

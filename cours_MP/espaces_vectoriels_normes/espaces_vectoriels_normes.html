@@ -725,6 +725,187 @@ class="math inline">\(\mathscr{C}(]a,b[,\mathbb{R}).\)</span></p>
 </div>
 </div></li>
 </ul>
+<div class="wexoc">
+<p><span id="exoc:norme_p" label="exoc:norme_p"></span> Soient <span
+class="math inline">\(p,q \in \mathbb{R}\)</span> tels que <span
+class="math inline">\(p &gt; 1, q &gt; 1\)</span> et <span
+class="math inline">\(\frac{1}{p}+\frac{1}{q}=1\)</span> (ie <span
+class="math inline">\(q = \frac{1}{p-1}\)</span>).</p>
+<ol>
+<li><p>Prouver le lemme suivant.</p>
+<div class="wlem">
+<p><span id="lem:pour_holder" label="lem:pour_holder"></span> Pour <span
+class="math inline">\(a,b \in \mathbb{R}^{+}\)</span>, <span
+class="math inline">\(ab \leq \frac{1}{p}a^p +
+\frac{1}{q}b^q.\)</span></p>
+</div></li>
+<li><p>Montrer l’inégalité d’Hölder : pour tout <span
+class="math inline">\(x,y \in \mathbb{K}^n\)</span>, <span
+class="math display">\[\left|\sum_{j=1}^n x_j y_j\right| \leq
+\sum_{j=1}^n \left|x_j\right|\left|y_j\right| \leq  \left(\sum_{j=1}^n
+\left|x_j\right|^p\right)^{\tfrac{1}{p}}\left(\sum_{j=1}^n
+\left|y_j\right|^q\right)^{\tfrac{1}{q}}\]</span></p></li>
+<li><p>En déduire qu’en posant <span
+class="math inline">\(\left\|x\right\|_p = \left(\sum_{j=1}^p
+\left|x_j\right|^p\right)^{\tfrac{1}{p}}\)</span>, on définit une norme
+sur <span class="math inline">\(\mathbb{K}^n.\)</span></p></li>
+</ol>
+<details><summary>Corrigé</summary>
+<ol>
+<li><ul>
+<li><p>Si <span class="math inline">\(a=0\)</span> ou <span
+class="math inline">\(b=0\)</span>, l’inégalité est évidente.</p></li>
+<li><p>Si <span class="math inline">\(a &gt; 0\)</span> et <span
+class="math inline">\(b &gt; 0\)</span>, remarquons que <span
+class="math display">\[ab \leq \frac{1}{p}a^p + \frac{1}{q}b^q \iff
+\ln(ab) \leq \ln\left(\frac{1}{p}a^p +
+\frac{1}{q}b^q\right).\]</span></p>
+<p>Or, <span class="math inline">\(\ln(ab) = \ln(a)+\ln(b) =
+\frac{p}{p}\ln(a)+\frac{q}{q}\ln(b) = \frac{1}{p}\ln\left(a^p\right) +
+\frac{1}{q}\ln\left(b^q\right).\)</span></p>
+<p>L’inégalité recherchée devient donc <span
+class="math display">\[\begin{aligned}
+                &amp; \frac{1}{p}\ln\left(a^p\right) +
+\frac{1}{q}\ln\left(b^q\right) \leq \ln\left(\frac{1}{p}a^p +
+\frac{1}{q}b^q\right) \\
+                &amp; \iff \lambda
+\ln\left(a^p\right)+(1-\lambda)\ln\left(b^q\right)\leq \ln\left(\lambda
+a^p + (1-\lambda)b^q\right)\text{ avec }\lambda = \frac{1}{p} \in [0,1]
+            \end{aligned}\]</span> et cette inégalité est vérifiée par
+concavité de <span class="math inline">\(\ln.\)</span></p></li>
+</ul></li>
+<li><p>La première inégalité s’obtient par inégalité triangulaire dans
+<span class="math inline">\(\mathbb{K}.\)</span></p>
+<p>Posons <span class="math inline">\(\left\|x\right\|_p =
+\left(\sum_{j=1}^n \left|x_j\right|^p\right)^{\tfrac{1}{p}}\)</span> et
+<span class="math inline">\(\left\|y\right\|_q = \left(\sum_{j=1}^n
+\left|y_j\right|^q\right)^{\tfrac{1}{q}}.\)</span> On cherche alors à
+montrer <span class="math display">\[\sum_{j=1}^n
+\left|x_j\right|\left|y_j\right|
+\leq  \left\|x\right\|_p\left\|y\right\|_q.\]</span></p>
+<ul>
+<li><p>Commençons par le cas particulier où <span
+class="math inline">\(\left\|x\right\|_p=\left\|y\right\|_q=1.\)</span></p>
+<p>On cherche alors à montrer <span class="math inline">\(\sum_{j=1}^n
+\left|x_j\right|\left|y_j\right| \leq 1.\)</span></p>
+<p>En utilisant le lemme <a href="#lem:pour_holder"
+data-reference-type="ref"
+data-reference="lem:pour_holder">[lem:pour_holder]</a>, on a <span
+class="math display">\[\begin{aligned}
+                \sum_{j=1}^n \left|x_j\right|\left|y_j\right|
+                &amp; \leq \sum_{j=1}^n
+\left(\frac{1}{p}\left|x_j\right|^p+\frac{1}{q}\left|y_j\right|^\frac{1}{q}\right)
+\\
+                &amp; = \frac{1}{p}\sum_{j=1}^n
+\left|x_j\right|^p+\frac{1}{q}\sum_{j=1}^n\left|y_j\right|^\frac{1}{q}
+\\
+                &amp; = \frac{1}{p}+\frac{1}{q}=1
+            \end{aligned}\]</span> et l’inégalité est donc
+vérifiée.</p></li>
+<li><p>Sinon,</p>
+<ul>
+<li><p>Si <span class="math inline">\(\left\|x\right\|_p = 0\)</span>,
+on a <span class="math inline">\(\sum_{j=1}^n
+\underbrace{\left|x_j\right|^p}_{\geq 0} = 0\)</span> donc <span
+class="math inline">\(\left|x_1\right|=\ldots=\left|x_n\right| =
+0\)</span> et <span class="math inline">\(x_1=\ldots=x_n = 0\)</span>
+puis l’inégalité est évidente,</p></li>
+<li><p>Si <span class="math inline">\(\left\|y\right\|_q = 0\)</span>,
+de même, on a <span class="math inline">\(y_1=\ldots=y_n = 0\)</span>
+donc l’inégalité est évidente,</p></li>
+<li><p>Si <span class="math inline">\(\left\|x\right\|_p &gt; 0\)</span>
+et <span class="math inline">\(\left\|y\right\|_q &gt; 0\)</span>,</p>
+<p>alors <span class="math inline">\(x&#39; =
+\frac{1}{\left\|x\right\|_p}x\)</span> vérifie <span
+class="math display">\[\begin{aligned}
+            \left\|x&#39;\right\|_p
+            &amp; = \left(\sum_{j=1}^n
+\left|x&#39;_j\right|^p\right)^{\frac{1}{p}}\\
+            &amp; = \left(\sum_{j=1}^n
+\frac{\left|x_j\right|^p}{\left\|x\right\|_p^p}\right)^{\frac{1}{p}} \\
+            &amp; = \left(\frac{1}{\left\|x\right\|_p^p}\sum_{j=1}^n
+\left|x_j\right|^p\right)^{\frac{1}{p}} \\
+            &amp; = \frac{1}{\left\|x\right\|_p}\left(\sum_{j=1}^n
+\left|x_j\right|^p\right)^{\frac{1}{p}} \\
+            &amp; = \frac{\left\|x\right\|_p}{\left\|x\right\|_p}=1.
+            \end{aligned}\]</span> De même, <span
+class="math inline">\(y&#39; = \frac{1}{\left\|y\right\|_q}y\)</span>
+vérifie <span class="math inline">\(\left\|y&#39;\right\|_q =
+1.\)</span></p>
+<p>On a donc, par le cas précédent, <span
+class="math display">\[\begin{aligned}
+                &amp; \sum_{j=1}^n
+\left|x&#39;_j\right|\left|y&#39;_j\right| \leq 1 \\
+                 \iff &amp; \sum_{j=1}^n
+\frac{\left|x_j\right|}{\left\|x\right\|_p}\frac{\left|y_j\right|}{\left\|x\right\|_q}\leq
+1 \\
+                 \iff &amp; \sum_{j=1}^n
+\left|x_j\right|\left|y_j\right|
+\leq  \left\|x\right\|_p\left\|y\right\|_q
+            \end{aligned}\]</span></p></li>
+</ul></li>
+</ul></li>
+<li><p>Il ne reste qu’à démontrer l’inégalité triangulaire,
+l’homogénéité et le caractère défini positif ayant été démontrés au
+détour de la question précédente. Soient <span class="math inline">\(x,y
+\in \mathbb{K}^n\)</span>,</p>
+<ul>
+<li><p>Si <span class="math inline">\(x=0\)</span> ou <span
+class="math inline">\(y=0\)</span>, l’inégalité triangulaire est
+évidente.</p></li>
+<li><p>Sinon, <span class="math inline">\(\left\|x\right\|_p &gt;
+0\)</span> et <span class="math inline">\(\left\|y\right\|_p &gt;
+0.\)</span></p>
+<p>On a alors <span class="math display">\[\begin{aligned}
+                \left\|x+y\right\|_p^p
+                &amp; = \sum_{j=1}^n \left|x_j+y_j\right|^p \\
+                &amp; = \sum_{j=1}^n
+\left|x_j+y_j\right|\left|x_j+y_j\right|^{p-1} \\
+                &amp; \leq \sum_{j=1}^n
+\left|x_j\right|\left|x_j+y_j\right|^{p-1}+\sum_{j=1}^n
+\left|y_j\right|\left|x_j+y_j\right|^{p-1}
+            \end{aligned}\]</span></p>
+<p>Alors, en utilisant l’inégalité d’Hölder sur chaque somme, on en
+déduit <span class="math display">\[\begin{aligned}
+                \left\|x+y\right\|_p^p
+                 \leq &amp; \left(\sum_{j=1}^n
+\left|x_j\right|^p\right)^{\frac{1}{p}}
+\left(\sum_{j=1}^n\left|x_j+y_j\right|^{(p-1)q}\right)^{\tfrac{1}{q}} \\
+                 + &amp; \left(\sum_{j=1}^n
+\left|y_j\right|^p\right)^{\frac{1}{p}}
+\left(\sum_{j=1}^n\left|x_j+y_j\right|^{(p-1)q}\right)^{\tfrac{1}{q}} \\
+                 &amp; =
+\left(\left\|x\right\|_p+\left\|y\right\|_p\right)\left(\sum_{j=1}^n\left|x_j+y_j\right|^{(p-1)q}\right)^{\tfrac{1}{q}}
+            \end{aligned}\]</span> Or, <span
+class="math inline">\((p-1)q=\frac{(p-1)p}{p-1}=p\)</span> donc <span
+class="math display">\[\begin{aligned}
+                \left\|x+y\right\|_p^p
+                 &amp; \leq
+\left(\left\|x\right\|_p+\left\|y\right\|_p\right)\left(\sum_{j=1}^n\left|x_j+y_j\right|^{p}\right)^{\tfrac{1}{q}}
+\\
+                 &amp; =
+\left(\left\|x\right\|_p+\left\|y\right\|_p\right)\left\|x+y\right\|_p^{\frac{p}{q}}.
+            \end{aligned}\]</span> On en déduit <span
+class="math display">\[\begin{aligned}
+            \left\|x+y\right\|_p^p
+\leq  \left(\left\|x\right\|_p+\left\|y\right\|_p\right)\left\|x+y\right\|_p^{\frac{p}{q}}
+            &amp; \iff \left\|x+y\right\|_p^{p-\frac{p}{q}} \leq
+\left\|x\right\|_p+\left\|y\right\|_p \\
+            &amp; \iff
+\left\|x+y\right\|_p^{p\left(1-\frac{1}{q}\right)} \leq
+\left\|x\right\|_p+\left\|y\right\|_p \\
+            &amp; \iff \left\|x+y\right\|_p \leq
+\left\|x\right\|_p+\left\|y\right\|_p.
+            \end{aligned}\]</span></p></li>
+</ul></li>
+</ol>
+</details>
+<div class="wrem">
+<p>De même, on a la norme <span class="math inline">\(\left\|f\right\|_p
+=\left(\int_a^b \left|f\right|^p\right)^\frac{1}{p}\)</span> sur <span
+class="math inline">\(\mathscr{C}([a,b],\mathbb{K}).\)</span></p>
+</div>
+</div>
 <h2 data-number="1.4" id="normes-préhilbertiennes"><span
 class="header-section-number">1.4</span> Normes préhilbertiennes</h2>
 <p>Les rappels sont relatifs au cours sur les espaces euclidiens de
@@ -1199,187 +1380,6 @@ class="math inline">\(x_i^2 = \left|x_i\right|^2\)</span>). De même, on
 peut considérer <span class="math inline">\(\left\|f\right\|_2 =
 \int_a^b \left|f\right|^2\)</span> pour <span class="math inline">\(f
 \in \mathscr{C}([a,b],\mathbb{C}).\)</span></p>
-</div>
-<div class="wexoc">
-<p><span id="exoc:norme_p" label="exoc:norme_p"></span> Soient <span
-class="math inline">\(p,q \in \mathbb{R}\)</span> tels que <span
-class="math inline">\(p &gt; 1, q &gt; 1\)</span> et <span
-class="math inline">\(\frac{1}{p}+\frac{1}{q}=1\)</span> (ie <span
-class="math inline">\(q = \frac{1}{p-1}\)</span>).</p>
-<ol>
-<li><p>Prouver le lemme suivant.</p>
-<div class="wlem">
-<p><span id="lem:pour_holder" label="lem:pour_holder"></span> Pour <span
-class="math inline">\(a,b \in \mathbb{R}^{+}\)</span>, <span
-class="math inline">\(ab \leq \frac{1}{p}a^p +
-\frac{1}{q}b^q.\)</span></p>
-</div></li>
-<li><p>Montrer l’inégalité d’Hölder : pour tout <span
-class="math inline">\(x,y \in \mathbb{K}^n\)</span>, <span
-class="math display">\[\left|\sum_{j=1}^n x_j y_j\right| \leq
-\sum_{j=1}^n \left|x_j\right|\left|y_j\right| \leq  \left(\sum_{j=1}^n
-\left|x_j\right|^p\right)^{\tfrac{1}{p}}\left(\sum_{j=1}^n
-\left|y_j\right|^q\right)^{\tfrac{1}{q}}\]</span></p></li>
-<li><p>En déduire qu’en posant <span
-class="math inline">\(\left\|x\right\|_p = \left(\sum_{j=1}^p
-\left|x_j\right|^p\right)^{\tfrac{1}{p}}\)</span>, on définit une norme
-sur <span class="math inline">\(\mathbb{K}^n.\)</span></p></li>
-</ol>
-<details><summary>Corrigé</summary>
-<ol>
-<li><ul>
-<li><p>Si <span class="math inline">\(a=0\)</span> ou <span
-class="math inline">\(b=0\)</span>, l’inégalité est évidente.</p></li>
-<li><p>Si <span class="math inline">\(a &gt; 0\)</span> et <span
-class="math inline">\(b &gt; 0\)</span>, remarquons que <span
-class="math display">\[ab \leq \frac{1}{p}a^p + \frac{1}{q}b^q \iff
-\ln(ab) \leq \ln\left(\frac{1}{p}a^p +
-\frac{1}{q}b^q\right).\]</span></p>
-<p>Or, <span class="math inline">\(\ln(ab) = \ln(a)+\ln(b) =
-\frac{p}{p}\ln(a)+\frac{q}{q}\ln(b) = \frac{1}{p}\ln\left(a^p\right) +
-\frac{1}{q}\ln\left(b^q\right).\)</span></p>
-<p>L’inégalité recherchée devient donc <span
-class="math display">\[\begin{aligned}
-                &amp; \frac{1}{p}\ln\left(a^p\right) +
-\frac{1}{q}\ln\left(b^q\right) \leq \ln\left(\frac{1}{p}a^p +
-\frac{1}{q}b^q\right) \\
-                &amp; \iff \lambda
-\ln\left(a^p\right)+(1-\lambda)\ln\left(b^q\right)\leq \ln\left(\lambda
-a^p + (1-\lambda)b^q\right)\text{ avec }\lambda = \frac{1}{p} \in [0,1]
-            \end{aligned}\]</span> et cette inégalité est vérifiée par
-concavité de <span class="math inline">\(\ln.\)</span></p></li>
-</ul></li>
-<li><p>La première inégalité s’obtient par inégalité triangulaire dans
-<span class="math inline">\(\mathbb{K}.\)</span></p>
-<p>Posons <span class="math inline">\(\left\|x\right\|_p =
-\left(\sum_{j=1}^n \left|x_j\right|^p\right)^{\tfrac{1}{p}}\)</span> et
-<span class="math inline">\(\left\|y\right\|_q = \left(\sum_{j=1}^n
-\left|y_j\right|^q\right)^{\tfrac{1}{q}}.\)</span> On cherche alors à
-montrer <span class="math display">\[\sum_{j=1}^n
-\left|x_j\right|\left|y_j\right|
-\leq  \left\|x\right\|_p\left\|y\right\|_q.\]</span></p>
-<ul>
-<li><p>Commençons par le cas particulier où <span
-class="math inline">\(\left\|x\right\|_p=\left\|y\right\|_q=1.\)</span></p>
-<p>On cherche alors à montrer <span class="math inline">\(\sum_{j=1}^n
-\left|x_j\right|\left|y_j\right| \leq 1.\)</span></p>
-<p>En utilisant le lemme <a href="#lem:pour_holder"
-data-reference-type="ref"
-data-reference="lem:pour_holder">[lem:pour_holder]</a>, on a <span
-class="math display">\[\begin{aligned}
-                \sum_{j=1}^n \left|x_j\right|\left|y_j\right|
-                &amp; \leq \sum_{j=1}^n
-\left(\frac{1}{p}\left|x_j\right|^p+\frac{1}{q}\left|y_j\right|^\frac{1}{q}\right)
-\\
-                &amp; = \frac{1}{p}\sum_{j=1}^n
-\left|x_j\right|^p+\frac{1}{q}\sum_{j=1}^n\left|y_j\right|^\frac{1}{q}
-\\
-                &amp; = \frac{1}{p}+\frac{1}{q}=1
-            \end{aligned}\]</span> et l’inégalité est donc
-vérifiée.</p></li>
-<li><p>Sinon,</p>
-<ul>
-<li><p>Si <span class="math inline">\(\left\|x\right\|_p = 0\)</span>,
-on a <span class="math inline">\(\sum_{j=1}^n
-\underbrace{\left|x_j\right|^p}_{\geq 0} = 0\)</span> donc <span
-class="math inline">\(\left|x_1\right|=\ldots=\left|x_n\right| =
-0\)</span> et <span class="math inline">\(x_1=\ldots=x_n = 0\)</span>
-puis l’inégalité est évidente,</p></li>
-<li><p>Si <span class="math inline">\(\left\|y\right\|_q = 0\)</span>,
-de même, on a <span class="math inline">\(y_1=\ldots=y_n = 0\)</span>
-donc l’inégalité est évidente,</p></li>
-<li><p>Si <span class="math inline">\(\left\|x\right\|_p &gt; 0\)</span>
-et <span class="math inline">\(\left\|y\right\|_q &gt; 0\)</span>,</p>
-<p>alors <span class="math inline">\(x&#39; =
-\frac{1}{\left\|x\right\|_p}x\)</span> vérifie <span
-class="math display">\[\begin{aligned}
-            \left\|x&#39;\right\|_p
-            &amp; = \left(\sum_{j=1}^n
-\left|x&#39;_j\right|^p\right)^{\frac{1}{p}}\\
-            &amp; = \left(\sum_{j=1}^n
-\frac{\left|x_j\right|^p}{\left\|x\right\|_p^p}\right)^{\frac{1}{p}} \\
-            &amp; = \left(\frac{1}{\left\|x\right\|_p^p}\sum_{j=1}^n
-\left|x_j\right|^p\right)^{\frac{1}{p}} \\
-            &amp; = \frac{1}{\left\|x\right\|_p}\left(\sum_{j=1}^n
-\left|x_j\right|^p\right)^{\frac{1}{p}} \\
-            &amp; = \frac{\left\|x\right\|_p}{\left\|x\right\|_p}=1.
-            \end{aligned}\]</span> De même, <span
-class="math inline">\(y&#39; = \frac{1}{\left\|y\right\|_q}y\)</span>
-vérifie <span class="math inline">\(\left\|y&#39;\right\|_q =
-1.\)</span></p>
-<p>On a donc, par le cas précédent, <span
-class="math display">\[\begin{aligned}
-                &amp; \sum_{j=1}^n
-\left|x&#39;_j\right|\left|y&#39;_j\right| \leq 1 \\
-                 \iff &amp; \sum_{j=1}^n
-\frac{\left|x_j\right|}{\left\|x\right\|_p}\frac{\left|y_j\right|}{\left\|x\right\|_q}\leq
-1 \\
-                 \iff &amp; \sum_{j=1}^n
-\left|x_j\right|\left|y_j\right|
-\leq  \left\|x\right\|_p\left\|y\right\|_q
-            \end{aligned}\]</span></p></li>
-</ul></li>
-</ul></li>
-<li><p>Il ne reste qu’à démontrer l’inégalité triangulaire,
-l’homogénéité et le caractère défini positif ayant été démontrés au
-détour de la question précédente. Soient <span class="math inline">\(x,y
-\in \mathbb{K}^n\)</span>,</p>
-<ul>
-<li><p>Si <span class="math inline">\(x=0\)</span> ou <span
-class="math inline">\(y=0\)</span>, l’inégalité triangulaire est
-évidente.</p></li>
-<li><p>Sinon, <span class="math inline">\(\left\|x\right\|_p &gt;
-0\)</span> et <span class="math inline">\(\left\|y\right\|_p &gt;
-0.\)</span></p>
-<p>On a alors <span class="math display">\[\begin{aligned}
-                \left\|x+y\right\|_p^p
-                &amp; = \sum_{j=1}^n \left|x_j+y_j\right|^p \\
-                &amp; = \sum_{j=1}^n
-\left|x_j+y_j\right|\left|x_j+y_j\right|^{p-1} \\
-                &amp; \leq \sum_{j=1}^n
-\left|x_j\right|\left|x_j+y_j\right|^{p-1}+\sum_{j=1}^n
-\left|y_j\right|\left|x_j+y_j\right|^{p-1}
-            \end{aligned}\]</span></p>
-<p>Alors, en utilisant l’inégalité d’Hölder sur chaque somme, on en
-déduit <span class="math display">\[\begin{aligned}
-                \left\|x+y\right\|_p^p
-                 \leq &amp; \left(\sum_{j=1}^n
-\left|x_j\right|^p\right)^{\frac{1}{p}}
-\left(\sum_{j=1}^n\left|x_j+y_j\right|^{(p-1)q}\right)^{\tfrac{1}{q}} \\
-                 + &amp; \left(\sum_{j=1}^n
-\left|y_j\right|^p\right)^{\frac{1}{p}}
-\left(\sum_{j=1}^n\left|x_j+y_j\right|^{(p-1)q}\right)^{\tfrac{1}{q}} \\
-                 &amp; =
-\left(\left\|x\right\|_p+\left\|y\right\|_p\right)\left(\sum_{j=1}^n\left|x_j+y_j\right|^{(p-1)q}\right)^{\tfrac{1}{q}}
-            \end{aligned}\]</span> Or, <span
-class="math inline">\((p-1)q=\frac{(p-1)p}{p-1}=p\)</span> donc <span
-class="math display">\[\begin{aligned}
-                \left\|x+y\right\|_p^p
-                 &amp; \leq
-\left(\left\|x\right\|_p+\left\|y\right\|_p\right)\left(\sum_{j=1}^n\left|x_j+y_j\right|^{p}\right)^{\tfrac{1}{q}}
-\\
-                 &amp; =
-\left(\left\|x\right\|_p+\left\|y\right\|_p\right)\left\|x+y\right\|_p^{\frac{p}{q}}.
-            \end{aligned}\]</span> On en déduit <span
-class="math display">\[\begin{aligned}
-            \left\|x+y\right\|_p^p
-\leq  \left(\left\|x\right\|_p+\left\|y\right\|_p\right)\left\|x+y\right\|_p^{\frac{p}{q}}
-            &amp; \iff \left\|x+y\right\|_p^{p-\frac{p}{q}} \leq
-\left\|x\right\|_p+\left\|y\right\|_p \\
-            &amp; \iff
-\left\|x+y\right\|_p^{p\left(1-\frac{1}{q}\right)} \leq
-\left\|x\right\|_p+\left\|y\right\|_p \\
-            &amp; \iff \left\|x+y\right\|_p \leq
-\left\|x\right\|_p+\left\|y\right\|_p.
-            \end{aligned}\]</span></p></li>
-</ul></li>
-</ol>
-</details>
-</div>
-<div class="wrem">
-<p>De même, on a la norme <span class="math inline">\(\left\|f\right\|_p
-=\left(\int_a^b \left|f\right|^p\right)^\frac{1}{p}\)</span> sur <span
-class="math inline">\(\mathscr{C}([a,b],\mathbb{K}).\)</span></p>
 </div>
 <h2 data-number="1.5"
 id="boules-et-sphères-dun-espace-vectoriel-normé"><span
